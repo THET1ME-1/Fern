@@ -1,0 +1,757 @@
+<title>Fern — концепт флеш-карт в Material You</title>
+<style>
+  :root {
+    /* Обёртка страницы — глубокий зелёно-чёрный, нейтраль со сдвигом в акцент */
+    --page-bg: #080B09;
+    --page-bg-2: #0D120F;
+    --page-ink: #DCE4DE;
+    --page-muted: #8A968C;
+    --page-accent: #57A972;
+    --page-line: #1E2620;
+    --page-card: #10150F;
+
+    /* Тема приложения (ДНК ScoreMaster: тёмный зелёный Material You) */
+    --app-bg: #0E1310;
+    --surf-low: #171E19;
+    --surf: #212A23;
+    --surf-high: #29332B;
+    --prim-container: #33492F;
+    --on-prim-container: #BCE0BE;
+    --prim: #2E7D46;
+    --on-surf: #E4EAE4;
+    --on-surf-var: #A2AEA4;
+    --outline: #3A443C;
+    --outline-soft: #2A322C;
+
+    /* Семантические цвета оценки */
+    --grade-again: #C15A57;
+    --grade-hard: #C9A12B;
+    --grade-good: #4E9E68;
+    --grade-easy: #7FC98C;
+
+    /* Цвета форм-аватаров */
+    --sh-teal: #2C8A88;
+    --sh-olive: #7E9142;
+    --sh-gold: #C6A12B;
+    --sh-crimson: #B8484B;
+    --sh-purple: #7C5BA6;
+    --sh-brown: #6E5140;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #12211700 0%, transparent 60%),
+      var(--page-bg);
+    color: var(--page-ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  /* ---- Шапка страницы ---- */
+  .masthead { max-width: 760px; margin: 0 auto 8px; text-align: center; }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--page-accent);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.02;
+    margin: 0 0 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .masthead h1 .leaf { color: var(--page-accent); }
+  .masthead p {
+    font-size: clamp(16px, 2.1vw, 19px);
+    color: var(--page-muted);
+    margin: 0 auto;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+  .namenote {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--page-muted);
+  }
+  .namenote b { color: var(--page-ink); font-weight: 600; }
+
+  /* ---- Сетка телефонов ---- */
+  .screens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 48px;
+    justify-content: center;
+    margin-top: 72px;
+  }
+  .device-block {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .caption .step {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--page-accent);
+    font-weight: 700;
+  }
+  .caption h3 {
+    margin: 6px 0 8px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .caption p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--page-muted);
+    line-height: 1.5;
+  }
+  .caption p b { color: var(--page-ink); font-weight: 600; }
+
+  /* ---- Каркас телефона ---- */
+  .phone {
+    width: 300px;
+    height: 640px;
+    background: #000;
+    border-radius: 42px;
+    padding: 9px;
+    box-shadow:
+      0 2px 0 #1c231e inset,
+      0 30px 60px -20px #000,
+      0 0 0 1px #23292400;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .screen {
+    width: 100%;
+    height: 100%;
+    background: var(--app-bg);
+    border-radius: 34px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--on-surf);
+  }
+
+  /* Статус-бар */
+  .statusbar {
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--on-surf);
+  }
+  .statusbar .sysicons { display: flex; align-items: center; gap: 5px; }
+  .statusbar .sysicons span { display: inline-block; border-radius: 2px; background: var(--on-surf); }
+  .bar-sig { width: 15px; height: 10px; -webkit-mask: linear-gradient(120deg, #000 60%, transparent 60%); mask: linear-gradient(120deg, #000 60%, transparent 60%); }
+  .bar-wifi { width: 13px; height: 10px; border-radius: 3px 3px 0 0 / 6px 6px 0 0; }
+  .bar-bat { width: 20px; height: 11px; border-radius: 3px; position: relative; }
+
+  /* Верхняя панель приложения */
+  .appbar {
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px 0 16px;
+  }
+  .appbar .title { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; }
+  .appbar .actions { display: flex; align-items: center; gap: 2px; }
+  .iconbtn {
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    color: var(--on-surf-var);
+  }
+  .iconbtn svg { width: 22px; height: 22px; }
+
+  .body {
+    flex: 1;
+    overflow: hidden;
+    padding: 4px 16px 0;
+    position: relative;
+  }
+
+  /* Селектор колоды/языка (tonal-карточка) */
+  .selector {
+    background: var(--prim-container);
+    border-radius: 20px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .selector .badge {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: #ffffff14;
+    display: grid; place-items: center;
+    color: var(--on-prim-container);
+  }
+  .selector .badge svg { width: 22px; height: 22px; }
+  .selector .txt { flex: 1; min-width: 0; }
+  .selector .txt small { display: block; font-size: 11px; color: #ffffffa0; margin-bottom: 1px; }
+  .selector .txt strong { display: block; font-size: 17px; font-weight: 700; color: var(--on-prim-container); }
+  .selector .chev { color: #ffffffa0; display: grid; }
+  .selector .chev svg { width: 20px; height: 20px; }
+
+  /* Сетка колод */
+  .deck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .deck {
+    background: var(--surf);
+    border-radius: 22px;
+    padding: 18px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-height: 148px;
+    justify-content: center;
+    gap: 12px;
+  }
+  .deck.active { background: var(--prim-container); }
+  .deck .dname { font-size: 15px; font-weight: 700; color: var(--on-surf); line-height: 1.15; }
+  .deck.active .dname { color: var(--on-prim-container); }
+  .deck .dmeta {
+    font-size: 12px;
+    color: var(--on-surf-var);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .deck .pill {
+    background: var(--prim);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 20px;
+    line-height: 1.5;
+  }
+  .deck .pill.calm { background: #ffffff12; color: var(--on-surf-var); }
+  .deck.create {
+    background: transparent;
+    border: 2px dashed var(--outline);
+  }
+  .deck.create .dname { color: var(--on-surf-var); }
+
+  /* Формы-аватары */
+  .shape {
+    width: 62px; height: 62px;
+    display: grid; place-items: center;
+    color: #ffffffcc;
+    font-weight: 800;
+    font-size: 24px;
+  }
+  .shape svg { width: 26px; height: 26px; }
+  .s-circle { border-radius: 50%; }
+  .s-hex { clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%); }
+  .s-star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+  .s-oct { clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }
+  .s-pent { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+  .s-squircle { border-radius: 30% / 34%; }
+
+  /* Нижняя навигация */
+  .navbar {
+    height: 68px;
+    flex-shrink: 0;
+    background: var(--surf-low);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 6px;
+  }
+  .navitem { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--on-surf-var); flex: 1; }
+  .navitem .ind {
+    width: 52px; height: 30px; border-radius: 16px;
+    display: grid; place-items: center;
+  }
+  .navitem.on .ind { background: var(--prim); }
+  .navitem.on { color: var(--on-surf); }
+  .navitem.on .ind svg { color: #fff; }
+  .navitem .ind svg { width: 22px; height: 22px; }
+  .navitem small { font-size: 10.5px; font-weight: 600; }
+
+  /* FAB */
+  .fab {
+    position: absolute;
+    right: 16px; bottom: 16px;
+    width: 56px; height: 56px;
+    border-radius: 18px;
+    background: var(--prim-container);
+    color: var(--on-prim-container);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 18px -6px #000;
+  }
+  .fab svg { width: 26px; height: 26px; }
+
+  /* --- Экран повторения --- */
+  .review-top { padding-top: 6px; display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .review-top .count { font-size: 13px; font-weight: 700; color: var(--on-surf-var); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .wavywrap { flex: 1; height: 14px; }
+  .flashcard {
+    background: var(--surf);
+    border-radius: 28px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    padding: 24px;
+    text-align: center;
+  }
+  .flashcard .lang-tag {
+    position: absolute; top: 16px; left: 16px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--on-surf-var); text-transform: uppercase;
+  }
+  .flashcard .word { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; }
+  .flashcard .translit { font-size: 15px; color: var(--on-surf-var); }
+  .flashcard .speaker {
+    position: absolute; top: 14px; right: 14px;
+    width: 42px; height: 42px; border-radius: 50%;
+    background: #ffffff10; display: grid; place-items: center; color: var(--on-surf);
+  }
+  .flashcard .speaker svg { width: 22px; height: 22px; }
+  .flashcard .hint { font-size: 12.5px; color: var(--on-surf-var); position: absolute; bottom: 18px; }
+  .grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px; }
+  .grade { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .grade .when { font-size: 10.5px; color: var(--on-surf-var); font-variant-numeric: tabular-nums; }
+  .grade .btn {
+    width: 100%; padding: 11px 0; border-radius: 14px;
+    font-size: 12.5px; font-weight: 700; text-align: center;
+    color: #0E1310;
+  }
+  .g-again .btn { background: var(--grade-again); color: #fff; }
+  .g-hard  .btn { background: var(--grade-hard); }
+  .g-good  .btn { background: var(--grade-good); color: #fff; }
+  .g-easy  .btn { background: var(--grade-easy); }
+
+  /* --- Bottom sheet: создание --- */
+  .sheet-dim { position: absolute; inset: 0; background: #0009; }
+  .sheet {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: var(--surf-low);
+    border-radius: 28px 28px 0 0;
+    padding: 12px 18px 20px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .sheet .grabber { width: 34px; height: 4px; border-radius: 2px; background: var(--outline); margin: 0 auto 4px; }
+  .sheet h4 { margin: 0; font-size: 17px; font-weight: 700; }
+  .field {
+    background: var(--surf); border-radius: 14px;
+    padding: 10px 14px; display: flex; flex-direction: column; gap: 2px;
+    border: 1px solid var(--outline-soft);
+  }
+  .field.focus { border-color: var(--prim); }
+  .field small { font-size: 10.5px; color: var(--on-surf-var); }
+  .field .val { font-size: 16px; font-weight: 600; }
+  .field .val.ghost { color: var(--on-surf-var); font-weight: 500; }
+  .field.translate { flex-direction: row; align-items: center; justify-content: space-between; }
+  .field.translate .val { color: var(--on-surf); }
+  .tbtn {
+    font-size: 12px; font-weight: 700; color: var(--prim);
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #2E7D4622; padding: 6px 12px; border-radius: 20px;
+  }
+  .tbtn svg { width: 15px; height: 15px; }
+  .chiprow { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 12px; font-weight: 600;
+    padding: 7px 13px; border-radius: 10px;
+    border: 1px solid var(--outline);
+    color: var(--on-surf-var);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .chip.sel { background: var(--prim-container); border-color: transparent; color: var(--on-prim-container); }
+  .chip.sel svg { width: 15px; height: 15px; }
+  .sheet-actions { display: flex; gap: 10px; margin-top: 2px; }
+  .btn-tonal {
+    flex: 1; text-align: center; padding: 12px 0; border-radius: 16px;
+    font-size: 14px; font-weight: 700;
+    background: var(--surf-high); color: var(--on-surf);
+  }
+  .btn-filled {
+    flex: 1; text-align: center; padding: 12px 0; border-radius: 16px;
+    font-size: 14px; font-weight: 700;
+    background: var(--prim); color: #fff;
+  }
+  .quickrow { display: flex; gap: 14px; justify-content: center; padding-top: 2px; }
+  .quick { font-size: 11.5px; color: var(--on-surf-var); display: inline-flex; align-items: center; gap: 5px; font-weight: 600; }
+  .quick svg { width: 15px; height: 15px; color: var(--prim); }
+
+  /* --- Статистика --- */
+  .stat-hero {
+    background: var(--surf); border-radius: 22px; padding: 18px;
+    display: flex; align-items: center; gap: 16px; margin-bottom: 14px;
+  }
+  .ring {
+    width: 74px; height: 74px; border-radius: 50%; flex-shrink: 0;
+    background: conic-gradient(var(--prim) 0deg 245deg, #ffffff12 245deg 360deg);
+    display: grid; place-items: center;
+    position: relative;
+  }
+  .ring::after {
+    content: ""; position: absolute; inset: 8px; border-radius: 50%; background: var(--surf);
+  }
+  .ring .rtxt { position: relative; z-index: 1; text-align: center; }
+  .ring .rtxt b { font-size: 17px; font-weight: 800; display: block; line-height: 1; }
+  .ring .rtxt small { font-size: 9px; color: var(--on-surf-var); }
+  .stat-hero .streak { flex: 1; }
+  .stat-hero .streak .big { font-size: 30px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+  .stat-hero .streak .big svg { width: 26px; height: 26px; color: var(--grade-hard); }
+  .stat-hero .streak .lbl { font-size: 12.5px; color: var(--on-surf-var); }
+
+  .stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .mini {
+    background: var(--surf); border-radius: 18px; padding: 14px;
+  }
+  .mini .n { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mini .k { font-size: 11.5px; color: var(--on-surf-var); }
+
+  .heat-card { background: var(--surf); border-radius: 18px; padding: 14px 14px 16px; }
+  .heat-card .htitle { font-size: 12px; font-weight: 700; color: var(--on-surf-var); margin-bottom: 12px; }
+  .heat { display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; }
+  .heat span { aspect-ratio: 1; border-radius: 3px; background: #ffffff0e; }
+  .heat span.l1 { background: #2E7D4644; }
+  .heat span.l2 { background: #2E7D4688; }
+  .heat span.l3 { background: #2E7D46cc; }
+  .heat span.l4 { background: #4E9E68; }
+
+  /* Свайп-хинт на экране повторения */
+  .swipe-hint { position: absolute; left: 50%; transform: translateX(-50%); bottom: 84px; display: flex; gap: 30px; font-size: 11px; color: var(--on-surf-var); font-weight: 600; }
+  .swipe-hint span { display: inline-flex; align-items: center; gap: 4px; }
+  .swipe-hint svg { width: 14px; height: 14px; }
+
+  /* ---- Секция клиньев ---- */
+  .wedge-sec { margin-top: 104px; }
+  .wedge-sec .lead { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+  .wedge-sec .lead h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px; text-wrap: balance; }
+  .wedge-sec .lead p { color: var(--page-muted); margin: 0 auto; max-width: 58ch; font-size: 16px; }
+  .wedges { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+  .wedge {
+    background: linear-gradient(180deg, var(--page-card), #0b0f0c);
+    border: 1px solid var(--page-line);
+    border-radius: 18px;
+    padding: 22px;
+  }
+  .wedge .wnum { font-size: 12px; font-weight: 800; color: var(--page-accent); font-variant-numeric: tabular-nums; letter-spacing: 0.08em; }
+  .wedge h4 { margin: 10px 0 8px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .wedge p { margin: 0; font-size: 13.5px; color: var(--page-muted); line-height: 1.55; }
+  .wedge p .vs { color: var(--page-ink); font-weight: 600; }
+
+  footer { margin-top: 80px; text-align: center; color: var(--page-muted); font-size: 13px; }
+  footer .rule { height: 1px; background: var(--page-line); max-width: 200px; margin: 0 auto 24px; }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 44px 16px 72px; }
+    .screens { gap: 56px 24px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Концепт · Material You · Flutter · офлайн-first</div>
+    <h1><span class="leaf">Fern</span> — карточки, которые не стыдно открыть</h1>
+    <p>Мощь интервального повторения из Anki, простота Quizlet и визуальный язык твоего ScoreMaster — тёмный зелёный Material You, формы-аватары, tonal-карточки. Всё локально, без аккаунта, честная монетизация.</p>
+    <div class="namenote"><b>Fern</b> — рабочее имя (папоротник: растёт из спор так же, как словарь из карточек). Легко заменить.</div>
+  </header>
+
+  <section class="screens">
+
+    <!-- ЭКРАН 1: КОЛОДЫ -->
+    <div class="device-block">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>16:45</span>
+            <div class="sysicons"><span class="bar-sig"></span><span class="bar-wifi"></span><span class="bar-bat"></span></div>
+          </div>
+          <div class="appbar">
+            <div class="title">Мои колоды</div>
+            <div class="actions">
+              <div class="iconbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+              <div class="iconbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="selector">
+              <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
+              <div class="txt"><small>Язык</small><strong>Английский → Русский</strong></div>
+              <div class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></svg></div>
+            </div>
+            <div class="deck-grid">
+              <div class="deck active">
+                <div class="shape s-hex" style="background:var(--sh-olive)">B1</div>
+                <div class="dname">Intermediate</div>
+                <div class="pill">18 к повтору</div>
+              </div>
+              <div class="deck">
+                <div class="shape s-circle" style="background:var(--sh-teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h9a2 2 0 0 1 2 2v12a1 1 0 0 0-1-1H4zM20 5h-3a2 2 0 0 0-2 2v12a1 1 0 0 1 1-1h4z"/></svg></div>
+                <div class="dname">Фразовые глаголы</div>
+                <div class="pill">7 к повтору</div>
+              </div>
+              <div class="deck">
+                <div class="shape s-star" style="background:var(--sh-crimson)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v13L3 16zM7 15v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-3"/></svg></div>
+                <div class="dname">Из сериалов</div>
+                <div class="pill calm">всё выучено</div>
+              </div>
+              <div class="deck create">
+                <div class="shape s-squircle" style="background:#ffffff10;color:var(--on-surf-var)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                <div class="dname">Создать колоду</div>
+              </div>
+            </div>
+            <div class="fab" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="navbar">
+            <div class="navitem on"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="16" rx="2"/><path d="M7 3h11a2 2 0 0 1 2 2v13"/></svg></div><small>Колоды</small></div>
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l14 8-14 8z"/></svg></div><small>Учить</small></div>
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><small>Прогресс</small></div>
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 0 1-4 0v-.1A1.6 1.6 0 0 0 6.7 19.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H2a2 2 0 0 1 0-4h.1A1.6 1.6 0 0 0 3.3 6.7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H8a1.6 1.6 0 0 0 1-1.5V2a2 2 0 0 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V8a1.6 1.6 0 0 0 1.5 1H22a2 2 0 0 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></div><small>Ещё</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">
+        <div class="step">Экран 1</div>
+        <h3>Колоды</h3>
+        <p>Твой ScoreMaster один в один: <b>формы-аватары</b> (гексагон, круг, звезда) как обложки колод, tonal-селектор языка сверху, активная колода залита primary-container. Badge <b>«18 к повтору»</b> — что учить прямо сейчас.</p>
+      </div>
+    </div>
+
+    <!-- ЭКРАН 2: ПОВТОРЕНИЕ -->
+    <div class="device-block">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>16:46</span>
+            <div class="sysicons"><span class="bar-sig"></span><span class="bar-wifi"></span><span class="bar-bat"></span></div>
+          </div>
+          <div class="appbar">
+            <div class="iconbtn" style="color:var(--on-surf)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+            <div class="title" style="font-size:16px;font-weight:700">Intermediate</div>
+            <div class="iconbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v5h5M21 12a9 9 0 1 1-3-6.7L21 8"/></svg></div>
+          </div>
+          <div class="body">
+            <div class="review-top">
+              <div class="wavywrap">
+                <svg viewBox="0 0 260 14" width="100%" height="14" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,7 Q4,2 8,7 T16,7 T24,7 T32,7 T40,7 T48,7 T56,7 T64,7 T72,7 T80,7 T88,7" fill="none" stroke="#4E9E68" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="92" y1="7" x2="258" y2="7" stroke="#ffffff1a" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="90" cy="7" r="5" fill="#7FC98C"/>
+                </svg>
+              </div>
+              <div class="count">7 / 18</div>
+            </div>
+            <div class="flashcard">
+              <div class="lang-tag">English</div>
+              <div class="speaker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9zM17 8a5 5 0 0 1 0 8M20 5a9 9 0 0 1 0 14"/></svg></div>
+              <div class="word">resilient</div>
+              <div class="translit">/rɪˈzɪliənt/</div>
+              <div class="hint">нажми, чтобы перевернуть</div>
+            </div>
+            <div class="swipe-hint">
+              <span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--grade-again)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>не помню</span>
+              <span aria-hidden="true">помню<svg viewBox="0 0 24 24" fill="none" stroke="var(--grade-good)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+            </div>
+            <div class="grades">
+              <div class="grade g-again"><div class="when">&lt;1 мин</div><div class="btn">Не помню</div></div>
+              <div class="grade g-hard"><div class="when">8 мин</div><div class="btn">Трудно</div></div>
+              <div class="grade g-good"><div class="when">3 дня</div><div class="btn">Хорошо</div></div>
+              <div class="grade g-easy"><div class="when">9 дней</div><div class="btn">Легко</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">
+        <div class="step">Экран 2</div>
+        <h3>Повторение — сердце приложения</h3>
+        <p><b>Wavy-прогресс сессии</b> (M3 Expressive) сверху. Свайп влево/вправо — быстрая оценка, как в Tinder. Под кнопками — <b>когда карта вернётся</b> (FSRS считает честно, но прячет математику). Аудио — офлайн TTS.</p>
+      </div>
+    </div>
+
+    <!-- ЭКРАН 3: СОЗДАНИЕ -->
+    <div class="device-block">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>16:47</span>
+            <div class="sysicons"><span class="bar-sig"></span><span class="bar-wifi"></span><span class="bar-bat"></span></div>
+          </div>
+          <div class="appbar">
+            <div class="title">Мои колоды</div>
+            <div class="actions">
+              <div class="iconbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+            </div>
+          </div>
+          <div class="body" style="filter:saturate(0.7)">
+            <div class="selector" style="opacity:0.5">
+              <div class="badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></div>
+              <div class="txt"><small>Язык</small><strong>Английский → Русский</strong></div>
+            </div>
+            <div class="deck-grid" style="opacity:0.35">
+              <div class="deck"><div class="shape s-hex" style="background:var(--sh-olive)">B1</div></div>
+              <div class="deck"><div class="shape s-circle" style="background:var(--sh-teal)"></div></div>
+            </div>
+          </div>
+          <div class="sheet-dim"></div>
+          <div class="sheet">
+            <div class="grabber"></div>
+            <h4>Новая карточка</h4>
+            <div class="field focus">
+              <small>Слово (английский)</small>
+              <div class="val">overwhelmed</div>
+            </div>
+            <div class="field translate">
+              <div><small>Перевод</small><div class="val">подавленный, ошеломлённый</div></div>
+              <div class="tbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h7M9 3v2c0 4-2 7-5 8M5 9c0 3 3 5 6 6M12 20l4-9 4 9M13.5 17h5"/></svg>Перевести</div>
+            </div>
+            <div class="chiprow">
+              <div class="chip sel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>двусторонняя</div>
+              <div class="chip">аудио</div>
+              <div class="chip">впиши перевод</div>
+              <div class="chip">пропуск в фразе</div>
+            </div>
+            <div class="sheet-actions">
+              <div class="btn-tonal">Добавить и ещё</div>
+              <div class="btn-filled">Готово</div>
+            </div>
+            <div class="quickrow">
+              <div class="quick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-4 4 3 3-2 6 5"/><circle cx="8.5" cy="9.5" r="1.5"/></svg>Скан фото</div>
+              <div class="quick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Списком</div>
+              <div class="quick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 11l4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Импорт .apkg</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">
+        <div class="step">Экран 3</div>
+        <h3>Создание — боль №1 у всех конкурентов</h3>
+        <p>Вписал слово — <b>офлайн-перевод (ML Kit)</b> заполнил обратную сторону, TTS озвучил. Один тап — карта готова. Внизу — <b>скан фото (OCR), вставка списком и импорт Anki-колод .apkg</b>. Ноль облака, ноль расходов.</p>
+      </div>
+    </div>
+
+    <!-- ЭКРАН 4: ПРОГРЕСС -->
+    <div class="device-block">
+      <div class="phone">
+        <div class="screen">
+          <div class="statusbar">
+            <span>16:48</span>
+            <div class="sysicons"><span class="bar-sig"></span><span class="bar-wifi"></span><span class="bar-bat"></span></div>
+          </div>
+          <div class="appbar">
+            <div class="title">Прогресс</div>
+            <div class="actions">
+              <div class="iconbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="stat-hero">
+              <div class="ring"><div class="rtxt"><b>34</b><small>/ 50</small></div></div>
+              <div class="streak">
+                <div class="big"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 3 4 4 4 8a4 4 0 0 1-8 0c0-1 .3-1.7 1-2.5C9 9 9 6 12 2zM12 22a6 6 0 0 0 6-6c0-3-2-4-3-6 .5 2-1 3-2 3 .5-2-1-4-1-6-2 2-3 4-3 6 0 1-1 1-1 3a4 4 0 0 0 4 6z"/></svg>12</div>
+                <div class="lbl">дней подряд · сегодня цель почти взята</div>
+              </div>
+            </div>
+            <div class="stat-cards">
+              <div class="mini"><div class="n">418</div><div class="k">слов выучено</div></div>
+              <div class="mini"><div class="n">92<span style="font-size:15px">%</span></div><div class="k">удержание (FSRS)</div></div>
+            </div>
+            <div class="heat-card">
+              <div class="htitle">Активность за 4 недели</div>
+              <div class="heat">
+                <span class="l1"></span><span class="l3"></span><span class="l2"></span><span></span><span class="l4"></span><span class="l3"></span><span class="l2"></span><span class="l1"></span><span class="l4"></span><span class="l3"></span><span></span><span class="l2"></span><span class="l4"></span><span class="l3"></span>
+                <span class="l2"></span><span class="l4"></span><span class="l3"></span><span class="l1"></span><span class="l2"></span><span class="l4"></span><span class="l3"></span><span class="l3"></span><span class="l2"></span><span class="l4"></span><span class="l1"></span><span class="l3"></span><span class="l4"></span><span class="l2"></span>
+                <span class="l3"></span><span class="l2"></span><span class="l4"></span><span class="l3"></span><span class="l1"></span><span class="l4"></span><span class="l2"></span><span class="l3"></span><span class="l4"></span><span class="l2"></span><span class="l3"></span><span class="l4"></span><span class="l3"></span><span class="l2"></span>
+              </div>
+            </div>
+          </div>
+          <div class="navbar">
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="16" rx="2"/><path d="M7 3h11a2 2 0 0 1 2 2v13"/></svg></div><small>Колоды</small></div>
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l14 8-14 8z"/></svg></div><small>Учить</small></div>
+            <div class="navitem on"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><small>Прогресс</small></div>
+            <div class="navitem"><div class="ind"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 0 1-4 0v-.1A1.6 1.6 0 0 0 6.7 19.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H2a2 2 0 0 1 0-4h.1A1.6 1.6 0 0 0 3.3 6.7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H8a1.6 1.6 0 0 0 1-1.5V2a2 2 0 0 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V8a1.6 1.6 0 0 0 1.5 1H22a2 2 0 0 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></svg></div><small>Ещё</small></div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">
+        <div class="step">Экран 4</div>
+        <h3>Прогресс</h3>
+        <p>Кольцо дневной цели, <b>стрик</b>, heatmap активности в dynamic-color и честный процент удержания от FSRS. Геймификация в меру — дух ScoreMaster, без выгорания как в Duolingo.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- КЛИНЬЯ -->
+  <section class="wedge-sec">
+    <div class="lead">
+      <h2>Почему это может выстрелить</h2>
+      <p>«Красивый Anki» сам по себе — уже перегретая ниша. Выигрывает не один козырь, а их пересечение — особенно для российского рынка, где Quizlet сломан, а инди-аналоги маленькие и сырые.</p>
+    </div>
+    <div class="wedges">
+      <div class="wedge">
+        <div class="wnum">01</div>
+        <h4>Нативный Material You</h4>
+        <p>Почти все «красивые» аналоги — iOS-first, AnkiDroid откровенно устарел. <span class="vs">Динамические цвета из обоев</span> в этой нише не занял никто — а это ровно то, что ты уже умеешь.</p>
+      </div>
+      <div class="wedge">
+        <div class="wnum">02</div>
+        <h4>Честный офлайн и приватность</h4>
+        <p>Всё работает без аккаунта, данные — твои, экспорт в любой момент. Прямой контраст <span class="vs">платному офлайну Quizlet</span> и истории с Noji/AnkiPro, которая выжгла доверие рынка.</p>
+      </div>
+      <div class="wedge">
+        <div class="wnum">03</div>
+        <h4>FSRS по умолчанию</h4>
+        <p>Готовый пакет <span class="vs">fsrs на pub.dev (MIT)</span> — интеграция не сложнее самописного SM-2, а расписание умнее. В самом Anki FSRS всё ещё опция, у тебя — из коробки.</p>
+      </div>
+      <div class="wedge">
+        <div class="wnum">04</div>
+        <h4>Импорт .apkg без подвоха</h4>
+        <p>«Твои колоды остаются твоими» — Anki-колоды загружаются в один тап. Переманивает самую платёжеспособную и разочарованную аудиторию рынка.</p>
+      </div>
+      <div class="wedge">
+        <div class="wnum">05</div>
+        <h4>Мобильный майнинг слов</h4>
+        <p>Скан фото/субтитров (OCR) и share-sheet → готовая карта с переводом. Аудиторию Migaku/jpdb/Yomitan на телефоне <span class="vs">без десктоп-ада</span> не обслуживает почти никто.</p>
+      </div>
+      <div class="wedge">
+        <div class="wnum">06</div>
+        <h4>Честная монетизация для РФ</h4>
+        <p>Ненавязчивая реклама Яндекса плюс разовое <span class="vs">«убрать рекламу»</span>, которое все просят и никто не даёт. Рабочая оплата через RuStore (комиссия 0,9–3,35%), а не сломанный Google Pay.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="rule"></div>
+    Концепт-макет · интерактива нет, это статичный пре-визуал экранов · палитра и компоненты — Material You поверх ДНК ScoreMaster
+  </footer>
+
+</div>
