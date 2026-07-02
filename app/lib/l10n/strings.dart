@@ -1,0 +1,218 @@
+import 'locale_controller.dart';
+import 'translations.dart';
+
+/// Перевод строки по ключу на текущий язык.
+///
+/// Базовые ru/en лежат в [_strings]; остальные языки — в [kTranslations]
+/// (translations.dart). Если перевода на выбранный язык нет — откатываемся на
+/// английский, затем на русский, затем на сам ключ.
+String tr(String key) {
+  final code = LocaleController.instance.code;
+  final extra = kTranslations[code]?[key];
+  if (extra != null && extra.isNotEmpty) return extra;
+  final entry = _strings[key];
+  if (entry == null) return key;
+  return entry[code] ?? entry['en'] ?? entry['ru'] ?? key;
+}
+
+/// Перевод с подстановкой `{name}` → значение.
+String trf(String key, Map<String, Object> params) {
+  var s = tr(key);
+  params.forEach((k, v) => s = s.replaceAll('{$k}', '$v'));
+  return s;
+}
+
+/// Словарь интерфейсных строк (ru/en). Доп. языки — в translations.dart.
+const Map<String, Map<String, String>> _strings = {
+  // ----------------------------- Общее -----------------------------
+  'cancel': {'ru': 'Отмена', 'en': 'Cancel'},
+  'save': {'ru': 'Сохранить', 'en': 'Save'},
+  'delete': {'ru': 'Удалить', 'en': 'Delete'},
+  'reset': {'ru': 'Сбросить', 'en': 'Reset'},
+  'apply': {'ru': 'Применить', 'en': 'Apply'},
+  'done': {'ru': 'Готово', 'en': 'Done'},
+  'add': {'ru': 'Добавить', 'en': 'Add'},
+  'edit': {'ru': 'Изменить', 'en': 'Edit'},
+  'close': {'ru': 'Закрыть', 'en': 'Close'},
+  'continue_btn': {'ru': 'Дальше', 'en': 'Continue'},
+  'start': {'ru': 'Начать', 'en': 'Start'},
+
+  // ----------------------------- Навигация -----------------------------
+  'nav_decks': {'ru': 'Колоды', 'en': 'Decks'},
+  'nav_progress': {'ru': 'Прогресс', 'en': 'Progress'},
+  'nav_settings': {'ru': 'Настройки', 'en': 'Settings'},
+
+  // ----------------------------- Баннер языка / колоды -----------------------------
+  'studying': {'ru': 'Изучаю', 'en': 'Studying'},
+  'choose_language': {'ru': 'Выбор языка', 'en': 'Choose language'},
+  'add_language': {'ru': 'Другой язык', 'en': 'Other language'},
+  'language_code_hint': {'ru': 'Код языка (напр. nl)', 'en': 'Language code (e.g. nl)'},
+  'no_decks_title': {'ru': 'Пока нет колод', 'en': 'No decks yet'},
+  'no_decks_sub': {
+    'ru': 'Создайте колоду и наполните её словами',
+    'en': 'Create a deck and fill it with words'
+  },
+  'create_deck': {'ru': 'Новая колода', 'en': 'New deck'},
+  'new_deck': {'ru': 'Новая колода', 'en': 'New deck'},
+  'edit_deck': {'ru': 'Изменить колоду', 'en': 'Edit deck'},
+  'deck_name': {'ru': 'Название колоды', 'en': 'Deck name'},
+  'deck_color': {'ru': 'Цвет обложки', 'en': 'Cover color'},
+  'deck_shape': {'ru': 'Форма обложки', 'en': 'Cover shape'},
+  'delete_deck': {'ru': 'Удалить колоду', 'en': 'Delete deck'},
+  'delete_deck_confirm': {
+    'ru': 'Удалить колоду и все её карточки?',
+    'en': 'Delete the deck and all its cards?'
+  },
+  'cards_n': {'ru': '{n} карт.', 'en': '{n} cards'},
+  'due_n': {'ru': '{n} к повтору', 'en': '{n} due'},
+  'new_n': {'ru': '{n} новых', 'en': '{n} new'},
+  'all_learned': {'ru': 'Всё повторено', 'en': 'All reviewed'},
+
+  // ----------------------------- Экран колоды: режимы -----------------------------
+  'modes_title': {'ru': 'Как учить', 'en': 'Study modes'},
+  'mode_learn': {'ru': 'Учить', 'en': 'Learn'},
+  'mode_learn_sub': {
+    'ru': 'Умный микс: новые + повторы',
+    'en': 'Smart mix: new + reviews'
+  },
+  'mode_flashcards': {'ru': 'Карточки', 'en': 'Flashcards'},
+  'mode_flashcards_sub': {'ru': 'Классический повтор', 'en': 'Classic review'},
+  'mode_test': {'ru': 'Тест', 'en': 'Test'},
+  'mode_test_sub': {'ru': 'Проверь себя', 'en': 'Check yourself'},
+  'mode_match': {'ru': 'Подбор', 'en': 'Match'},
+  'mode_match_sub': {'ru': 'Соедини пары на скорость', 'en': 'Match pairs fast'},
+  'mode_write': {'ru': 'Письмо', 'en': 'Write'},
+  'mode_write_sub': {'ru': 'Впиши перевод', 'en': 'Type the translation'},
+  'mode_audio': {'ru': 'Аудио', 'en': 'Audio'},
+  'mode_audio_sub': {'ru': 'Слушай и отвечай', 'en': 'Listen and answer'},
+  'mode_hard': {'ru': 'Трудные слова', 'en': 'Hard words'},
+  'mode_hard_sub': {'ru': 'Только сложные карты', 'en': 'Only tricky cards'},
+  'mode_speed': {'ru': 'Быстрый повтор', 'en': 'Speed review'},
+  'mode_speed_sub': {'ru': 'Короткая разминка', 'en': 'Quick warm-up'},
+  'soon': {'ru': 'Скоро', 'en': 'Soon'},
+
+  // ----------------------------- Экран колоды: карточки -----------------------------
+  'cards_section': {'ru': 'Карточки', 'en': 'Cards'},
+  'add_card': {'ru': 'Добавить карточку', 'en': 'Add card'},
+  'edit_card': {'ru': 'Изменить карточку', 'en': 'Edit card'},
+  'card_front': {'ru': 'Слово', 'en': 'Word'},
+  'card_back': {'ru': 'Перевод', 'en': 'Translation'},
+  'card_example': {'ru': 'Пример (необязательно)', 'en': 'Example (optional)'},
+  'delete_card': {'ru': 'Удалить карточку', 'en': 'Delete card'},
+  'empty_deck_title': {'ru': 'В колоде нет карточек', 'en': 'No cards yet'},
+  'empty_deck_sub': {
+    'ru': 'Добавьте слова, чтобы начать учить',
+    'en': 'Add words to start learning'
+  },
+  'quick_add_hint': {
+    'ru': 'Списком: «слово — перевод» построчно',
+    'en': 'By list: "word — translation" per line'
+  },
+  'quick_add': {'ru': 'Вставить списком', 'en': 'Paste as list'},
+  'quick_add_apply': {'ru': 'Добавить все', 'en': 'Add all'},
+  'nothing_to_add': {'ru': 'Нечего добавить', 'en': 'Nothing to add'},
+  'added_n_cards': {'ru': 'Добавлено {n} карт.', 'en': 'Added {n} cards'},
+
+  // ----------------------------- Упражнения / повтор -----------------------------
+  'show_answer': {'ru': 'Показать ответ', 'en': 'Show answer'},
+  'rate_again': {'ru': 'Не помню', 'en': 'Again'},
+  'rate_hard': {'ru': 'Трудно', 'en': 'Hard'},
+  'rate_good': {'ru': 'Хорошо', 'en': 'Good'},
+  'rate_easy': {'ru': 'Легко', 'en': 'Easy'},
+  'dont_know': {'ru': 'Не знаю', 'en': "Don't know"},
+  'choose_translation': {'ru': 'Выберите перевод', 'en': 'Choose the translation'},
+  'choose_word': {'ru': 'Выберите слово', 'en': 'Choose the word'},
+  'type_answer': {'ru': 'Введите перевод', 'en': 'Type the translation'},
+  'type_word': {'ru': 'Введите слово', 'en': 'Type the word'},
+  'check': {'ru': 'Проверить', 'en': 'Check'},
+  'correct': {'ru': 'Верно!', 'en': 'Correct!'},
+  'incorrect': {'ru': 'Неверно', 'en': 'Incorrect'},
+  'answer_was': {'ru': 'Ответ: {a}', 'en': 'Answer: {a}'},
+  'true_false_q': {'ru': 'Это верный перевод?', 'en': 'Is this the correct translation?'},
+  'true_label': {'ru': 'Верно', 'en': 'True'},
+  'false_label': {'ru': 'Неверно', 'en': 'False'},
+  'match_hint': {'ru': 'Соедините пары', 'en': 'Match the pairs'},
+  'assemble_hint': {'ru': 'Соберите перевод', 'en': 'Assemble the translation'},
+  'exit_session_title': {'ru': 'Выйти из сессии?', 'en': 'Leave the session?'},
+  'exit_session_sub': {
+    'ru': 'Прогресс сессии не сохранится',
+    'en': 'Session progress will be lost'
+  },
+  'leave': {'ru': 'Выйти', 'en': 'Leave'},
+
+  // ----------------------------- Результаты -----------------------------
+  'session_done': {'ru': 'Сессия завершена', 'en': 'Session complete'},
+  'nothing_due_title': {'ru': 'Пока нечего повторять', 'en': 'Nothing to review'},
+  'nothing_due_sub': {
+    'ru': 'Возвращайтесь позже или добавьте новые слова',
+    'en': 'Come back later or add new words'
+  },
+  'res_reviewed': {'ru': 'Повторено', 'en': 'Reviewed'},
+  'res_accuracy': {'ru': 'Точность', 'en': 'Accuracy'},
+  'res_time': {'ru': 'Время', 'en': 'Time'},
+  'res_correct': {'ru': 'Верно', 'en': 'Correct'},
+  'back_to_deck': {'ru': 'К колоде', 'en': 'Back to deck'},
+  'study_more': {'ru': 'Ещё сессия', 'en': 'Study more'},
+
+  // ----------------------------- Прогресс -----------------------------
+  'progress_title': {'ru': 'Прогресс', 'en': 'Progress'},
+  'streak': {'ru': 'Серия', 'en': 'Streak'},
+  'streak_days': {'ru': '{n} дн. подряд', 'en': '{n}-day streak'},
+  'goal_today': {'ru': 'Цель на сегодня', 'en': "Today's goal"},
+  'reviews_today': {'ru': 'Повторов сегодня', 'en': 'Reviews today'},
+  'daily_goal': {'ru': 'Цель в день', 'en': 'Daily goal'},
+  'cards_total': {'ru': 'Всего карточек', 'en': 'Total cards'},
+  'stat_new': {'ru': 'Новые', 'en': 'New'},
+  'stat_learning': {'ru': 'Учатся', 'en': 'Learning'},
+  'stat_mature': {'ru': 'Выучено', 'en': 'Mature'},
+  'stat_due': {'ru': 'К повтору', 'en': 'Due'},
+  'forecast': {'ru': 'Нагрузка на неделю', 'en': 'Week forecast'},
+  'hardest_words': {'ru': 'Трудные слова', 'en': 'Hardest words'},
+  'no_data': {'ru': 'Пока нет данных', 'en': 'No data yet'},
+  'overview': {'ru': 'Обзор', 'en': 'Overview'},
+
+  // ----------------------------- Настройки -----------------------------
+  'settings_title': {'ru': 'Настройки', 'en': 'Settings'},
+  'appearance': {'ru': 'Внешний вид', 'en': 'Appearance'},
+  'language': {'ru': 'Язык интерфейса', 'en': 'App language'},
+  'theme_mode': {'ru': 'Тема', 'en': 'Theme'},
+  'theme_light': {'ru': 'Светлая', 'en': 'Light'},
+  'theme_dark': {'ru': 'Тёмная', 'en': 'Dark'},
+  'theme_system': {'ru': 'Системная', 'en': 'System'},
+  'theme_auto': {'ru': 'Авто (по времени)', 'en': 'Auto (by time)'},
+  'dynamic_color': {'ru': 'Material You', 'en': 'Material You'},
+  'dynamic_color_sub': {
+    'ru': 'Цвет из обоев системы (Android 12+)',
+    'en': 'Color from system wallpaper (Android 12+)'
+  },
+  'amoled': {'ru': 'AMOLED-чёрный', 'en': 'AMOLED black'},
+  'amoled_sub': {
+    'ru': 'Чистый чёрный фон в тёмной теме',
+    'en': 'Pure black background in dark theme'
+  },
+  'theme_color': {'ru': 'Цвет оформления', 'en': 'Theme color'},
+  'theme_color_default': {'ru': 'Зелёный (стандартный)', 'en': 'Green (default)'},
+  'study': {'ru': 'Обучение', 'en': 'Studying'},
+  'data': {'ru': 'Данные', 'en': 'Data'},
+  'create_backup': {'ru': 'Создать резервную копию', 'en': 'Create backup'},
+  'restore_backup': {'ru': 'Восстановить из копии', 'en': 'Restore from backup'},
+  'backup_done': {'ru': 'Копия создана', 'en': 'Backup created'},
+  'restore_done': {'ru': 'Данные восстановлены', 'en': 'Data restored'},
+  'restore_failed': {'ru': 'Не удалось восстановить', 'en': 'Restore failed'},
+  'about': {'ru': 'О приложении', 'en': 'About'},
+  'version': {'ru': 'Версия', 'en': 'Version'},
+
+  // ----------------------------- Языки (родные названия для баннера) --------------
+  'lang_en': {'ru': 'Английский', 'en': 'English'},
+  'lang_es': {'ru': 'Испанский', 'en': 'Spanish'},
+  'lang_de': {'ru': 'Немецкий', 'en': 'German'},
+  'lang_fr': {'ru': 'Французский', 'en': 'French'},
+  'lang_it': {'ru': 'Итальянский', 'en': 'Italian'},
+  'lang_pt': {'ru': 'Португальский', 'en': 'Portuguese'},
+  'lang_tr': {'ru': 'Турецкий', 'en': 'Turkish'},
+  'lang_zh': {'ru': 'Китайский', 'en': 'Chinese'},
+  'lang_ja': {'ru': 'Японский', 'en': 'Japanese'},
+  'lang_ko': {'ru': 'Корейский', 'en': 'Korean'},
+  'lang_ar': {'ru': 'Арабский', 'en': 'Arabic'},
+  'lang_ru': {'ru': 'Русский', 'en': 'Russian'},
+};
