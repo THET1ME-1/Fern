@@ -126,6 +126,56 @@ const Map<String, Map<String, String>> _strings = {
   'status_mature': {'ru': 'Выучено', 'en': 'Mastered'},
   'due_now': {'ru': 'к повтору', 'en': 'due now'},
   'due_in': {'ru': 'через {t}', 'en': 'in {t}'},
+  // Дневная сводка / серия
+  'today_title': {'ru': 'Сегодня', 'en': 'Today'},
+  'of_goal': {'ru': 'из {n}', 'en': 'of {n}'},
+  'goal_done': {'ru': 'Цель дня выполнена', 'en': 'Daily goal done'},
+  'streak_suffix': {'ru': 'дн. подряд', 'en': 'day streak'},
+  'start_streak': {'ru': 'Начни серию', 'en': 'Start a streak'},
+  'reviews_word': {'ru': 'повторов', 'en': 'reviews'},
+  // Экран прогресса: активность/статистика
+  'activity': {'ru': 'Активность', 'en': 'Activity'},
+  'less': {'ru': 'меньше', 'en': 'less'},
+  'more': {'ru': 'больше', 'en': 'more'},
+  'stat_streak': {'ru': 'Серия', 'en': 'Streak'},
+  'stat_accuracy_7d': {'ru': 'Точность 7 дн.', 'en': 'Accuracy 7d'},
+  'stat_reviews_total': {'ru': 'Повторов всего', 'en': 'Reviews total'},
+  'days_short': {'ru': 'дн.', 'en': 'd'},
+  // Готовые колоды
+  'starter_decks': {'ru': 'Готовые колоды', 'en': 'Ready-made decks'},
+  'starter_decks_sub': {
+    'ru': 'Добавьте набор слов и начните сразу',
+    'en': 'Add a word pack and start right away'
+  },
+  'starter_none': {
+    'ru': 'Для этого языка пока нет готовых колод',
+    'en': 'No ready-made decks for this language yet'
+  },
+  'words_n': {'ru': '{n} слов', 'en': '{n} words'},
+  'starter_added': {'ru': 'Колода добавлена', 'en': 'Deck added'},
+  'added_label': {'ru': 'Добавлено', 'en': 'Added'},
+  // Озвучка / аудио-режим
+  'listen': {'ru': 'Прослушать', 'en': 'Listen'},
+  'listen_prompt': {'ru': 'Прослушайте и выберите перевод',
+      'en': 'Listen and choose the translation'},
+  'tap_to_replay': {'ru': 'Нажмите, чтобы повторить', 'en': 'Tap to replay'},
+  // Напоминания
+  'reminders': {'ru': 'Напоминания', 'en': 'Reminders'},
+  'daily_reminder': {'ru': 'Ежедневное напоминание', 'en': 'Daily reminder'},
+  'daily_reminder_sub': {
+    'ru': 'Мягко напомним позаниматься',
+    'en': 'A gentle nudge to study'
+  },
+  'reminder_time': {'ru': 'Время напоминания', 'en': 'Reminder time'},
+  'reminder_push_title': {'ru': 'Пора учить слова 🌿', 'en': 'Time to learn 🌿'},
+  'reminder_push_body': {
+    'ru': 'Загляни в Fern и повтори слова дня',
+    'en': "Open Fern and review today's words"
+  },
+  'notifications_blocked': {
+    'ru': 'Уведомления запрещены в настройках телефона',
+    'en': 'Notifications are blocked in system settings'
+  },
 
   // ----------------------------- Упражнения / повтор -----------------------------
   'show_answer': {'ru': 'Показать ответ', 'en': 'Show answer'},

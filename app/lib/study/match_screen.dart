@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../models/word_card.dart';
+import '../services/deck_repository.dart';
 import '../theme/app_theme.dart';
 
 /// Плитка в игре «Подбор»: текст, id карты и сторона (термин/перевод).
@@ -117,6 +118,8 @@ class _MatchScreenState extends State<MatchScreen> {
   void _finish() {
     _watch.stop();
     _timer?.cancel();
+    // Игра «Подбор» — тоже занятие: засчитываем в журнал (все пары верные).
+    DeckRepository.instance.logSession(reviews: _pairs, correct: _pairs);
     setState(() => _finished = true);
   }
 

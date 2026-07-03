@@ -5,8 +5,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'decks_screen.dart';
 import 'l10n/locale_controller.dart';
+import 'l10n/strings.dart';
 import 'progress_screen.dart';
 import 'services/deck_repository.dart';
+import 'services/notification_service.dart';
 import 'settings_screen.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
@@ -21,7 +23,22 @@ Future<void> main() async {
   await ThemeController.instance.load();
   await LocaleController.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
+  await _rescheduleReminderIfEnabled();
   runApp(const FernApp());
+}
+
+/// Перепланирует ежедневное напоминание на старте (на случай обновления
+/// приложения/смены языка). Тихо пропускается, если напоминание выключено или
+/// платформа не поддерживает уведомления.
+Future<void> _rescheduleReminderIfEnabled() async {
+  final repo = DeckRepository.instance;
+  if (!await repo.reminderEnabled()) return;
+  await NotificationService.instance.scheduleDaily(
+    hour: await repo.reminderHour(),
+    minute: await repo.reminderMinute(),
+    title: tr('reminder_push_title'),
+    body: tr('reminder_push_body'),
+  );
 }
 
 class FernApp extends StatelessWidget {
@@ -35,7 +52,8 @@ class FernApp extends StatelessWidget {
       listenable: Listenable.merge([theme, locale]),
       builder: (context, _) => DynamicColorBuilder(
         builder: (lightDynamic, darkDynamic) {
-          final useDyn = theme.useDynamicColor &&
+          final useDyn =
+              theme.useDynamicColor &&
               lightDynamic != null &&
               darkDynamic != null;
           final seed = useDyn ? lightDynamic.primary : theme.seedColor;

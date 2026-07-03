@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'l10n/strings.dart';
+import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
 import 'theme/app_theme.dart';
@@ -17,6 +18,7 @@ class ProgressScreen extends StatefulWidget {
 class _ProgressScreenState extends State<ProgressScreen> {
   final DeckRepository _repo = DeckRepository.instance;
   List<WordCard> _cards = [];
+  ReviewLog _log = ReviewLog.empty();
   bool _loading = true;
 
   @override
@@ -34,9 +36,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
   Future<void> _load() async {
     final cards = await _repo.loadCards();
+    final log = await _repo.reviewLog();
     if (!mounted) return;
     setState(() {
       _cards = cards;
+      _log = log;
       _loading = false;
     });
   }
@@ -61,49 +65,85 @@ class _ProgressScreenState extends State<ProgressScreen> {
       }
     }
 
+    final streak = _log.streak(now);
+    var r7 = 0, c7 = 0;
+    for (var i = 0; i < 7; i++) {
+      final s = _log.statOn(now.subtract(Duration(days: i)));
+      r7 += s.reviews;
+      c7 += s.correct;
+    }
+    final acc7 = r7 == 0 ? 0 : ((c7 / r7) * 100).round();
+
     return Scaffold(
       appBar: AppBar(title: Text(tr('progress_title'))),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _cards.isEmpty
-              ? _empty(scheme)
-              : ListView(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                  children: [
-                    Reveal(child: _dueHero(due, scheme)),
-                    const SizedBox(height: 16),
-                    Reveal(
-                      delay: const Duration(milliseconds: 60),
-                      child: Row(
-                        children: [
-                          _stat('${_cards.length}', tr('cards_total'), scheme),
-                          const SizedBox(width: 10),
-                          _stat('$fresh', tr('stat_new'), scheme),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Reveal(
-                      delay: const Duration(milliseconds: 120),
-                      child: Row(
-                        children: [
-                          _stat('$learning', tr('stat_learning'), scheme),
-                          const SizedBox(width: 10),
-                          _stat('$mature', tr('stat_mature'), scheme),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    _sectionTitle(tr('forecast'), scheme),
-                    const SizedBox(height: 12),
-                    Reveal(
-                      delay: const Duration(milliseconds: 160),
-                      child: _forecast(now, scheme),
-                    ),
-                    const SizedBox(height: 24),
-                    ..._hardest(scheme),
-                  ],
+          ? _empty(scheme)
+          : ListView(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+              children: [
+                Reveal(child: _dueHero(due, scheme)),
+                const SizedBox(height: 16),
+                Reveal(
+                  delay: const Duration(milliseconds: 60),
+                  child: Row(
+                    children: [
+                      _stat('${_cards.length}', tr('cards_total'), scheme),
+                      const SizedBox(width: 10),
+                      _stat('$fresh', tr('stat_new'), scheme),
+                    ],
+                  ),
                 ),
+                const SizedBox(height: 10),
+                Reveal(
+                  delay: const Duration(milliseconds: 120),
+                  child: Row(
+                    children: [
+                      _stat('$learning', tr('stat_learning'), scheme),
+                      const SizedBox(width: 10),
+                      _stat('$mature', tr('stat_mature'), scheme),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Reveal(
+                  delay: const Duration(milliseconds: 150),
+                  child: Row(
+                    children: [
+                      _stat(
+                        '$streak',
+                        tr('stat_streak'),
+                        scheme,
+                        highlight: streak > 0,
+                      ),
+                      const SizedBox(width: 10),
+                      _stat(
+                        r7 == 0 ? '—' : '$acc7%',
+                        tr('stat_accuracy_7d'),
+                        scheme,
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
+                _sectionTitle(tr('activity'), scheme),
+                const SizedBox(height: 12),
+                Reveal(
+                  delay: const Duration(milliseconds: 180),
+                  child: _activityCard(scheme, now),
+                ),
+                const SizedBox(height: 24),
+                _sectionTitle(tr('forecast'), scheme),
+                const SizedBox(height: 12),
+                Reveal(
+                  delay: const Duration(milliseconds: 160),
+                  child: _forecast(now, scheme),
+                ),
+                const SizedBox(height: 24),
+                ..._hardest(scheme),
+              ],
+            ),
     );
   }
 
@@ -139,12 +179,19 @@ class _ProgressScreenState extends State<ProgressScreen> {
     );
   }
 
-  Widget _stat(String value, String label, ColorScheme scheme) {
+  Widget _stat(
+    String value,
+    String label,
+    ColorScheme scheme, {
+    bool highlight = false,
+  }) {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
         decoration: BoxDecoration(
-          color: scheme.surfaceContainerHigh,
+          color: highlight
+              ? scheme.primaryContainer
+              : scheme.surfaceContainerHigh,
           borderRadius: BorderRadius.circular(22),
         ),
         child: Column(
@@ -155,21 +202,152 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 fontFamily: AppTheme.displayFont,
                 fontWeight: FontWeight.w800,
                 fontSize: 26,
-                color: scheme.onSurface,
+                color: highlight ? scheme.onPrimaryContainer : scheme.onSurface,
               ),
             ),
             const SizedBox(height: 2),
             Text(
               label,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: AppTheme.bodyFont,
                 fontSize: 12,
-                color: scheme.onSurfaceVariant,
+                color: highlight
+                    ? scheme.onPrimaryContainer.withValues(alpha: 0.85)
+                    : scheme.onSurfaceVariant,
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  /// Тепловая карта активности (в духе «травки» GitHub): последние ~18 недель,
+  /// колонки — недели, строки — дни, насыщенность = число повторов.
+  Widget _activityCard(ColorScheme scheme, DateTime now) {
+    const weeks = 18;
+    const gap = 3.0;
+    final today = DateTime(now.year, now.month, now.day);
+    // Понедельник самой ранней недели в сетке.
+    final startMonday = today.subtract(
+      Duration(days: (weeks - 1) * 7 + (today.weekday - 1)),
+    );
+
+    return Container(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          LayoutBuilder(
+            builder: (_, c) {
+              final cell = ((c.maxWidth - (weeks - 1) * gap) / weeks).clamp(
+                6.0,
+                18.0,
+              );
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var w = 0; w < weeks; w++)
+                    Padding(
+                      padding: EdgeInsets.only(right: w == weeks - 1 ? 0 : gap),
+                      child: Column(
+                        children: [
+                          for (var d = 0; d < 7; d++)
+                            _heatCell(
+                              startMonday.add(Duration(days: w * 7 + d)),
+                              today,
+                              cell,
+                              gap,
+                              scheme,
+                            ),
+                        ],
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 12),
+          _heatLegend(scheme),
+        ],
+      ),
+    );
+  }
+
+  Widget _heatCell(
+    DateTime day,
+    DateTime today,
+    double size,
+    double gap,
+    ColorScheme scheme,
+  ) {
+    final future = day.isAfter(today);
+    final reviews = future ? 0 : _log.reviewsOn(day);
+    return Padding(
+      padding: EdgeInsets.only(bottom: gap),
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          color: future ? Colors.transparent : _heatColor(reviews, scheme),
+          borderRadius: BorderRadius.circular(3),
+        ),
+      ),
+    );
+  }
+
+  Color _heatColor(int reviews, ColorScheme scheme) {
+    if (reviews <= 0) return scheme.surfaceContainerHighest;
+    final p = scheme.primary;
+    if (reviews < 4) return p.withValues(alpha: 0.35);
+    if (reviews < 10) return p.withValues(alpha: 0.55);
+    if (reviews < 20) return p.withValues(alpha: 0.78);
+    return p;
+  }
+
+  Widget _heatLegend(ColorScheme scheme) {
+    Widget box(Color c) => Container(
+      width: 11,
+      height: 11,
+      margin: const EdgeInsets.symmetric(horizontal: 2),
+      decoration: BoxDecoration(
+        color: c,
+        borderRadius: BorderRadius.circular(3),
+      ),
+    );
+    final p = scheme.primary;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          tr('less'),
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 11,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(width: 6),
+        box(scheme.surfaceContainerHighest),
+        box(p.withValues(alpha: 0.35)),
+        box(p.withValues(alpha: 0.55)),
+        box(p.withValues(alpha: 0.78)),
+        box(p),
+        const SizedBox(width: 6),
+        Text(
+          tr('more'),
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 11,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+      ],
     );
   }
 
@@ -229,8 +407,9 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         height: 80 * t + 4,
                         margin: const EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
-                          color: i == 0 ? scheme.primary : scheme.primary
-                              .withValues(alpha: 0.5),
+                          color: i == 0
+                              ? scheme.primary
+                              : scheme.primary.withValues(alpha: 0.5),
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
@@ -254,14 +433,15 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   List<Widget> _hardest(ColorScheme scheme) {
-    final hard = _cards
-        .where((c) => c.review.lapses > 0 || c.review.difficulty >= 7)
-        .toList()
-      ..sort((a, b) {
-        final byL = b.review.lapses.compareTo(a.review.lapses);
-        if (byL != 0) return byL;
-        return b.review.difficulty.compareTo(a.review.difficulty);
-      });
+    final hard =
+        _cards
+            .where((c) => c.review.lapses > 0 || c.review.difficulty >= 7)
+            .toList()
+          ..sort((a, b) {
+            final byL = b.review.lapses.compareTo(a.review.lapses);
+            if (byL != 0) return byL;
+            return b.review.difficulty.compareTo(a.review.difficulty);
+          });
     if (hard.isEmpty) return [];
     final top = hard.take(5).toList();
     return [
@@ -278,8 +458,11 @@ class _ProgressScreenState extends State<ProgressScreen> {
             ),
             child: Row(
               children: [
-                Icon(Icons.local_fire_department_rounded,
-                    color: scheme.error, size: 20),
+                Icon(
+                  Icons.local_fire_department_rounded,
+                  color: scheme.error,
+                  size: 20,
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
@@ -310,17 +493,17 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   Widget _sectionTitle(String text, ColorScheme scheme) => Align(
-        alignment: Alignment.centerLeft,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: AppTheme.displayFont,
-            fontWeight: FontWeight.w700,
-            fontSize: 18,
-            color: scheme.onSurface,
-          ),
-        ),
-      );
+    alignment: Alignment.centerLeft,
+    child: Text(
+      text,
+      style: TextStyle(
+        fontFamily: AppTheme.displayFont,
+        fontWeight: FontWeight.w700,
+        fontSize: 18,
+        color: scheme.onSurface,
+      ),
+    ),
+  );
 
   Widget _empty(ColorScheme scheme) {
     return Center(

@@ -9,6 +9,7 @@ import 'package:share_plus/share_plus.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'services/deck_repository.dart';
+import 'services/notification_service.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
 import 'widgets/color_picker_sheet.dart';
@@ -28,6 +29,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   String _version = '';
   int _goal = 20;
+  bool _reminderOn = false;
+  TimeOfDay _reminderTime = const TimeOfDay(hour: 20, minute: 0);
 
   @override
   void initState() {
@@ -37,11 +40,68 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _loadInfo() async {
     final goal = await _repo.dailyGoal();
+    final on = await _repo.reminderEnabled();
+    final h = await _repo.reminderHour();
+    final m = await _repo.reminderMinute();
     try {
       final info = await PackageInfo.fromPlatform();
-      if (mounted) setState(() => _version = '${info.version}+${info.buildNumber}');
-    } catch (_) {/* игнор */}
-    if (mounted) setState(() => _goal = goal);
+      if (mounted) {
+        setState(() => _version = '${info.version}+${info.buildNumber}');
+      }
+    } catch (_) {
+      /* игнор */
+    }
+    if (mounted) {
+      setState(() {
+        _goal = goal;
+        _reminderOn = on;
+        _reminderTime = TimeOfDay(hour: h, minute: m);
+      });
+    }
+  }
+
+  Future<void> _toggleReminder(bool on) async {
+    if (on) {
+      final granted = await NotificationService.instance.requestPermission();
+      if (!granted) {
+        if (mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(tr('notifications_blocked'))));
+        }
+        return; // тумблер остаётся выключенным
+      }
+      await _repo.setReminderEnabled(true);
+      await NotificationService.instance.scheduleDaily(
+        hour: _reminderTime.hour,
+        minute: _reminderTime.minute,
+        title: tr('reminder_push_title'),
+        body: tr('reminder_push_body'),
+      );
+      if (mounted) setState(() => _reminderOn = true);
+    } else {
+      await _repo.setReminderEnabled(false);
+      await NotificationService.instance.cancelDaily();
+      if (mounted) setState(() => _reminderOn = false);
+    }
+  }
+
+  Future<void> _pickReminderTime() async {
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: _reminderTime,
+    );
+    if (picked == null) return;
+    await _repo.setReminderTime(picked.hour, picked.minute);
+    if (mounted) setState(() => _reminderTime = picked);
+    if (_reminderOn) {
+      await NotificationService.instance.scheduleDaily(
+        hour: picked.hour,
+        minute: picked.minute,
+        title: tr('reminder_push_title'),
+        body: tr('reminder_push_body'),
+      );
+    }
   }
 
   @override
@@ -75,6 +135,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 16),
           _sectionTitle(tr('study'), scheme),
           _goalTile(scheme),
+          const SizedBox(height: 16),
+          _sectionTitle(tr('reminders'), scheme),
+          _switchTile(
+            icon: Icons.notifications_active_rounded,
+            title: tr('daily_reminder'),
+            subtitle: tr('daily_reminder_sub'),
+            value: _reminderOn,
+            onChanged: _toggleReminder,
+            scheme: scheme,
+          ),
+          if (_reminderOn)
+            _actionTile(
+              icon: Icons.schedule_rounded,
+              title: tr('reminder_time'),
+              trailing: _reminderTime.format(context),
+              onTap: _pickReminderTime,
+              scheme: scheme,
+            ),
           const SizedBox(height: 16),
           _sectionTitle(tr('language'), scheme),
           _languageTile(scheme),
@@ -168,11 +246,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: ListTile(
-          leading: Icon(Icons.color_lens_rounded, color: scheme.onSurfaceVariant),
+          leading: Icon(
+            Icons.color_lens_rounded,
+            color: scheme.onSurfaceVariant,
+          ),
           title: Text(tr('theme_color')),
-          subtitle: Text(_theme.isDefaultSeed
-              ? tr('theme_color_default')
-              : colorToHex(_theme.seedColor)),
+          subtitle: Text(
+            _theme.isDefaultSeed
+                ? tr('theme_color_default')
+                : colorToHex(_theme.seedColor),
+          ),
           trailing: Container(
             width: 28,
             height: 28,
@@ -249,8 +332,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _languageTile(ColorScheme scheme) {
     final current = LocaleController.languages
-        .firstWhere((l) => l.code == _locale.code,
-            orElse: () => LocaleController.languages.first)
+        .firstWhere(
+          (l) => l.code == _locale.code,
+          orElse: () => LocaleController.languages.first,
+        )
         .nativeName;
     return _actionTile(
       icon: Icons.language_rounded,
@@ -281,10 +366,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             children: [
               const SizedBox(height: 12),
               for (final l in LocaleController.languages)
-                RadioListTile<String>(
-                  value: l.code,
-                  title: Text(l.nativeName),
-                ),
+                RadioListTile<String>(value: l.code, title: Text(l.nativeName)),
               const SizedBox(height: 8),
             ],
           ),
@@ -302,15 +384,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
       final file = File('${dir.path}/fern_backup.json');
       await file.writeAsString(json);
       if (!mounted) return;
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(tr('backup_done'))));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('backup_done'))));
       try {
         await Share.shareXFiles([XFile(file.path)]);
-      } catch (_) {/* share не поддержан на десктопе — файл уже сохранён */}
+      } catch (_) {
+        /* share не поддержан на десктопе — файл уже сохранён */
+      }
     } catch (_) {
       if (mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
       }
     }
   }
@@ -326,13 +412,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
       await _locale.load();
       await _loadInfo();
       if (mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(tr('restore_done'))));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(tr('restore_done'))));
       }
     } catch (_) {
       if (mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
       }
     }
   }
@@ -340,17 +428,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   // ------------------------------- Строительные блоки -------------------------------
 
   Widget _sectionTitle(String text, ColorScheme scheme) => Padding(
-        padding: const EdgeInsets.fromLTRB(4, 12, 4, 8),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontFamily: AppTheme.displayFont,
-            fontWeight: FontWeight.w700,
-            fontSize: 16,
-            color: scheme.primary,
-          ),
-        ),
-      );
+    padding: const EdgeInsets.fromLTRB(4, 12, 4, 8),
+    child: Text(
+      text,
+      style: TextStyle(
+        fontFamily: AppTheme.displayFont,
+        fontWeight: FontWeight.w700,
+        fontSize: 16,
+        color: scheme.primary,
+      ),
+    ),
+  );
 
   Widget _switchTile({
     required IconData icon,

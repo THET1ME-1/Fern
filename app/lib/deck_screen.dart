@@ -11,6 +11,7 @@ import 'study/study_models.dart';
 import 'theme/app_theme.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/reveal.dart';
+import 'widgets/speaker_button.dart';
 
 /// Порядок сортировки списка карточек в колоде.
 enum _CardSort { added, alpha, status, due }
@@ -402,7 +403,7 @@ class _DeckScreenState extends State<DeckScreen> {
       (StudyMode.speed, Icons.bolt_rounded, 'mode_speed', 'mode_speed_sub',
           true),
       (StudyMode.audio, Icons.headphones_rounded, 'mode_audio', 'mode_audio_sub',
-          false),
+          true),
     ];
     final learn = modes.first;
     final rest = modes.skip(1).toList();
@@ -675,7 +676,11 @@ class _DeckScreenState extends State<DeckScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SpeakerButton(
+                    text: card.front,
+                    languageCode: widget.deck.languageCode,
+                  ),
+                  const SizedBox(width: 4),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisSize: MainAxisSize.min,

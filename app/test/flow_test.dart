@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:fern/l10n/locale_controller.dart';
@@ -16,6 +17,13 @@ void main() {
     await LocaleController.instance.load();
     await LocaleController.instance.setCode('ru');
     await DeckRepository.instance.seedDemoIfNeeded();
+
+    // Высокий экран, чтобы дневная сводка + сетка колод помещались и элементы
+    // были кликабельны в тесте.
+    tester.view.physicalSize = const Size(1000, 2200);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(const FernApp());
     await tester.pumpAndSettle();

@@ -6,7 +6,9 @@ import '../models/deck.dart';
 import '../models/fsrs.dart';
 import '../models/word_card.dart';
 import '../services/deck_repository.dart';
+import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/speaker_button.dart';
 import 'results_screen.dart';
 import 'study_models.dart';
 
@@ -37,6 +39,7 @@ class _SessionScreenState extends State<SessionScreen> {
   int _index = 0;
   int _answered = 0;
   int _correct = 0;
+  bool _logged = false;
   late DateTime _start;
 
   // Данные текущего упражнения (варианты/пары), пересчитываются при смене шага.
@@ -55,8 +58,8 @@ class _SessionScreenState extends State<SessionScreen> {
     final ex = _queue[i];
     switch (ex.kind) {
       case ExerciseKind.choose:
-        final opts = [ex.answer, ..._builder.distractors(ex, _pool)]
-          ..shuffle();
+      case ExerciseKind.listen:
+        final opts = [ex.answer, ..._builder.distractors(ex, _pool)]..shuffle();
         return _ExData(options: opts);
       case ExerciseKind.trueFalse:
         final showTrue = DateTime.now().microsecond.isEven;
@@ -91,8 +94,10 @@ class _SessionScreenState extends State<SessionScreen> {
 
   LearnPhase _nextPhase(LearnPhase p, bool correct) {
     final base = p == LearnPhase.unseen ? LearnPhase.recognize : p;
-    final ni = (correct ? base.index + 1 : base.index - 1)
-        .clamp(LearnPhase.recognize.index, LearnPhase.mastered.index);
+    final ni = (correct ? base.index + 1 : base.index - 1).clamp(
+      LearnPhase.recognize.index,
+      LearnPhase.mastered.index,
+    );
     return LearnPhase.values[ni];
   }
 
@@ -104,24 +109,37 @@ class _SessionScreenState extends State<SessionScreen> {
     }
   }
 
+  /// Записывает итог сессии в журнал занятий (для стрика/цели/статистики).
+  /// Защищено флагом, чтобы выход и финиш не посчитались дважды.
+  void _logProgress() {
+    if (_logged || _answered == 0) return;
+    _logged = true;
+    _repo.logSession(reviews: _answered, correct: _correct);
+  }
+
   void _finish() {
-    final result =
-        SessionResult(_answered, _correct, DateTime.now().difference(_start));
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (_) => ResultsScreen(
-        result: result,
-        onStudyMore: _restart,
+    _logProgress();
+    final result = SessionResult(
+      _answered,
+      _correct,
+      DateTime.now().difference(_start),
+    );
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) => ResultsScreen(result: result, onStudyMore: _restart),
       ),
-    ));
+    );
   }
 
   Future<void> _restart() async {
     final cards = await _repo.cardsForDeck(widget.deck.id);
     if (!mounted) return;
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (_) =>
-          SessionScreen(deck: widget.deck, mode: widget.mode, cards: cards),
-    ));
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (_) =>
+            SessionScreen(deck: widget.deck, mode: widget.mode, cards: cards),
+      ),
+    );
   }
 
   Future<void> _confirmExit() async {
@@ -142,7 +160,10 @@ class _SessionScreenState extends State<SessionScreen> {
         ],
       ),
     );
-    if (leave == true && mounted) Navigator.of(context).pop();
+    if (leave == true && mounted) {
+      _logProgress(); // засчитываем то, что успели пройти
+      Navigator.of(context).pop();
+    }
   }
 
   @override
@@ -202,8 +223,18 @@ class _SessionScreenState extends State<SessionScreen> {
         return _FlipExercise(
           key: key,
           ex: ex,
+          languageCode: widget.deck.languageCode,
           previews: Fsrs.instance.preview(ex.card.review, DateTime.now()),
           onRated: (r) => _onGraded(ex, r != Rating.again, r),
+        );
+      case ExerciseKind.listen:
+        return _ListenExercise(
+          key: key,
+          ex: ex,
+          languageCode: widget.deck.languageCode,
+          options: _data.options,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
       case ExerciseKind.choose:
         return _ChooseExercise(
@@ -242,8 +273,7 @@ class _SessionScreenState extends State<SessionScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.task_alt_rounded,
-                    size: 72, color: scheme.primary),
+                Icon(Icons.task_alt_rounded, size: 72, color: scheme.primary),
                 const SizedBox(height: 20),
                 Text(
                   tr('nothing_due_title'),
@@ -294,12 +324,14 @@ class _ExData {
 
 class _FlipExercise extends StatefulWidget {
   final Exercise ex;
+  final String languageCode;
   final Map<Rating, Duration> previews;
   final void Function(Rating) onRated;
 
   const _FlipExercise({
     super.key,
     required this.ex,
+    required this.languageCode,
     required this.previews,
     required this.onRated,
   });
@@ -327,14 +359,34 @@ class _FlipExerciseState extends State<_FlipExercise> {
     return Column(
       children: [
         Expanded(
-          child: GestureDetector(
-            onTap: () => setState(() => _revealed = true),
-            child: _FlipCard(
-              showBack: _revealed,
-              front: _cardFace(scheme, ex.prompt, null, isFront: true),
-              back: _cardFace(scheme, ex.answer, ex.card.example,
-                  isFront: false),
-            ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: GestureDetector(
+                  onTap: () => setState(() => _revealed = true),
+                  child: _FlipCard(
+                    showBack: _revealed,
+                    front: _cardFace(scheme, ex.prompt, null, isFront: true),
+                    back: _cardFace(
+                      scheme,
+                      ex.answer,
+                      ex.card.example,
+                      isFront: false,
+                    ),
+                  ),
+                ),
+              ),
+              // Динамик — озвучивает изучаемое слово в любой момент.
+              Positioned(
+                top: 8,
+                right: 8,
+                child: SpeakerButton(
+                  text: ex.card.front,
+                  languageCode: widget.languageCode,
+                  size: 24,
+                ),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 16),
@@ -350,25 +402,49 @@ class _FlipExerciseState extends State<_FlipExercise> {
         else
           Row(
             children: [
-              _rateBtn(scheme, Rating.again, tr('rate_again'),
-                  scheme.errorContainer, scheme.onErrorContainer),
+              _rateBtn(
+                scheme,
+                Rating.again,
+                tr('rate_again'),
+                scheme.errorContainer,
+                scheme.onErrorContainer,
+              ),
               const SizedBox(width: 8),
-              _rateBtn(scheme, Rating.hard, tr('rate_hard'),
-                  scheme.tertiaryContainer, scheme.onTertiaryContainer),
+              _rateBtn(
+                scheme,
+                Rating.hard,
+                tr('rate_hard'),
+                scheme.tertiaryContainer,
+                scheme.onTertiaryContainer,
+              ),
               const SizedBox(width: 8),
-              _rateBtn(scheme, Rating.good, tr('rate_good'),
-                  scheme.primaryContainer, scheme.onPrimaryContainer),
+              _rateBtn(
+                scheme,
+                Rating.good,
+                tr('rate_good'),
+                scheme.primaryContainer,
+                scheme.onPrimaryContainer,
+              ),
               const SizedBox(width: 8),
-              _rateBtn(scheme, Rating.easy, tr('rate_easy'),
-                  scheme.secondaryContainer, scheme.onSecondaryContainer),
+              _rateBtn(
+                scheme,
+                Rating.easy,
+                tr('rate_easy'),
+                scheme.secondaryContainer,
+                scheme.onSecondaryContainer,
+              ),
             ],
           ),
       ],
     );
   }
 
-  Widget _cardFace(ColorScheme scheme, String text, String? example,
-      {required bool isFront}) {
+  Widget _cardFace(
+    ColorScheme scheme,
+    String text,
+    String? example, {
+    required bool isFront,
+  }) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -409,7 +485,12 @@ class _FlipExerciseState extends State<_FlipExercise> {
   }
 
   Widget _rateBtn(
-      ColorScheme scheme, Rating r, String label, Color bg, Color fg) {
+    ColorScheme scheme,
+    Rating r,
+    String label,
+    Color bg,
+    Color fg,
+  ) {
     final dur = widget.previews[r];
     return Expanded(
       child: Material(
@@ -540,8 +621,8 @@ class _ChooseExerciseState extends State<_ChooseExercise> {
 
   void _pick(String opt) {
     if (_picked != null) return;
-    final correct = opt.trim().toLowerCase() ==
-        widget.ex.answer.trim().toLowerCase();
+    final correct =
+        opt.trim().toLowerCase() == widget.ex.answer.trim().toLowerCase();
     setState(() => _picked = opt);
     HapticFeedback.mediumImpact();
     Future.delayed(const Duration(milliseconds: 850), () {
@@ -614,7 +695,152 @@ class _ChooseExerciseState extends State<_ChooseExercise> {
                   onTap: () => _pick(opt),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 18),
+                      horizontal: 20,
+                      vertical: 18,
+                    ),
+                    child: Text(
+                      opt,
+                      style: TextStyle(
+                        fontFamily: AppTheme.bodyFont,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w600,
+                        color: fg,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// ============================ Упражнение: аудио (слушай и выбери) ============================
+
+class _ListenExercise extends StatefulWidget {
+  final Exercise ex;
+  final String languageCode;
+  final List<String> options;
+  final void Function(bool correct) onAnswered;
+
+  const _ListenExercise({
+    super.key,
+    required this.ex,
+    required this.languageCode,
+    required this.options,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_ListenExercise> createState() => _ListenExerciseState();
+}
+
+class _ListenExerciseState extends State<_ListenExercise> {
+  String? _picked;
+
+  @override
+  void initState() {
+    super.initState();
+    // Автопроигрывание слова при появлении.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+  }
+
+  void _play() {
+    TtsService.instance.speak(widget.ex.card.front, widget.languageCode);
+  }
+
+  void _pick(String opt) {
+    if (_picked != null) return;
+    final correct =
+        opt.trim().toLowerCase() == widget.ex.answer.trim().toLowerCase();
+    setState(() => _picked = opt);
+    HapticFeedback.mediumImpact();
+    Future.delayed(const Duration(milliseconds: 850), () {
+      if (mounted) widget.onAnswered(correct);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final correctAns = widget.ex.answer.trim().toLowerCase();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 12),
+        Text(
+          tr('listen_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Большая кнопка-динамик: тап — повторить слово.
+        GestureDetector(
+          onTap: _play,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 32),
+            decoration: BoxDecoration(
+              color: scheme.primaryContainer,
+              borderRadius: BorderRadius.circular(28),
+            ),
+            child: Column(
+              children: [
+                Icon(
+                  Icons.volume_up_rounded,
+                  size: 56,
+                  color: scheme.onPrimaryContainer,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  tr('tap_to_replay'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 12,
+                    color: scheme.onPrimaryContainer.withValues(alpha: 0.8),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        Expanded(
+          child: ListView.separated(
+            itemCount: widget.options.length,
+            separatorBuilder: (_, _) => const SizedBox(height: 10),
+            itemBuilder: (_, i) {
+              final opt = widget.options[i];
+              final isCorrect = opt.trim().toLowerCase() == correctAns;
+              Color bg = scheme.surfaceContainerHigh;
+              Color fg = scheme.onSurface;
+              if (_picked != null) {
+                if (isCorrect) {
+                  bg = scheme.primaryContainer;
+                  fg = scheme.onPrimaryContainer;
+                } else if (opt == _picked) {
+                  bg = scheme.errorContainer;
+                  fg = scheme.onErrorContainer;
+                }
+              }
+              return Material(
+                color: bg,
+                borderRadius: BorderRadius.circular(18),
+                clipBehavior: Clip.antiAlias,
+                child: InkWell(
+                  onTap: () => _pick(opt),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 18,
+                    ),
                     child: Text(
                       opt,
                       style: TextStyle(
@@ -641,11 +867,7 @@ class _TypeExercise extends StatefulWidget {
   final Exercise ex;
   final void Function(bool correct) onAnswered;
 
-  const _TypeExercise({
-    super.key,
-    required this.ex,
-    required this.onAnswered,
-  });
+  const _TypeExercise({super.key, required this.ex, required this.onAnswered});
 
   @override
   State<_TypeExercise> createState() => _TypeExerciseState();
@@ -879,19 +1101,37 @@ class _TrueFalseExerciseState extends State<_TrueFalseExercise> {
         const SizedBox(height: 16),
         Row(
           children: [
-            _tfButton(scheme, false, tr('false_label'), Icons.close_rounded,
-                answered, correctPick),
+            _tfButton(
+              scheme,
+              false,
+              tr('false_label'),
+              Icons.close_rounded,
+              answered,
+              correctPick,
+            ),
             const SizedBox(width: 12),
-            _tfButton(scheme, true, tr('true_label'), Icons.check_rounded,
-                answered, correctPick),
+            _tfButton(
+              scheme,
+              true,
+              tr('true_label'),
+              Icons.check_rounded,
+              answered,
+              correctPick,
+            ),
           ],
         ),
       ],
     );
   }
 
-  Widget _tfButton(ColorScheme scheme, bool value, String label, IconData icon,
-      bool answered, bool correctPick) {
+  Widget _tfButton(
+    ColorScheme scheme,
+    bool value,
+    String label,
+    IconData icon,
+    bool answered,
+    bool correctPick,
+  ) {
     Color bg = value ? scheme.primaryContainer : scheme.errorContainer;
     Color fg = value ? scheme.onPrimaryContainer : scheme.onErrorContainer;
     if (answered) {

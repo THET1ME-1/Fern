@@ -6,7 +6,7 @@ import '../models/word_card.dart';
 enum StudyMode { learn, flashcards, test, match, write, audio, hard, speed }
 
 /// Тип одного упражнения (виджета) внутри сессии.
-enum ExerciseKind { flip, choose, type, trueFalse }
+enum ExerciseKind { flip, choose, type, trueFalse, listen }
 
 extension StudyModeInfo on StudyMode {
   /// Влияет ли режим на планировщик FSRS. Тест и игра «Подбор» —
@@ -87,8 +87,14 @@ class SessionBuilder {
         return [for (final c in sel) _randomTestExercise(c, hasChoicePool)];
 
       case StudyMode.audio:
+        // Слушаем слово на изучаемом языке и выбираем перевод.
+        final sel = _selectDueAndNew(due, fresh, goal);
+        return _shuffled([
+          for (final c in sel) Exercise(c, ExerciseKind.listen)
+        ]);
+
       case StudyMode.match:
-        // audio — волна 2 (нужен TTS); match — отдельный экран-игра.
+        // match — отдельный экран-игра.
         return const [];
     }
   }

@@ -44,9 +44,14 @@ void main() {
       expect(q.every((e) => e.kind == ExerciseKind.choose), true);
     });
 
-    test('match и audio — пустая очередь (отдельные экраны/скоро)', () {
+    test('match — пустая очередь (отдельный экран-игра)', () {
       expect(builder.build(StudyMode.match, cards, now), isEmpty);
-      expect(builder.build(StudyMode.audio, cards, now), isEmpty);
+    });
+
+    test('audio — упражнения на слух (listen)', () {
+      final q = builder.build(StudyMode.audio, cards, now, goal: 6);
+      expect(q.length, 6);
+      expect(q.every((e) => e.kind == ExerciseKind.listen), true);
     });
 
     test('hard — только трудные карты (lapses/сложность)', () {

@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/deck.dart';
 import '../models/fsrs.dart';
+import '../models/review_log.dart';
 import '../models/word_card.dart';
 
 /// Единый слой доступа к данным Fern.
@@ -31,15 +32,20 @@ class DeckRepository extends ChangeNotifier {
   static const String _kCards = 'cards';
   static const String _kSelectedLanguage = 'selectedLanguage';
   static const String _kSeededDemo = 'seededDemo';
+  static const String _kReviewLog = 'reviewLog';
 
   // Настройки (совместимы по смыслу с ScoreMaster).
   static const String _kSeedColor = 'seedColor';
-  static const String _kThemeMode = 'themeMode'; // 0 свет,1 тёмн,2 систем,3 авто
+  static const String _kThemeMode =
+      'themeMode'; // 0 свет,1 тёмн,2 систем,3 авто
   static const String _kIsDarkTheme = 'isDarkTheme';
   static const String _kDynamicColor = 'dynamicColor';
   static const String _kAmoled = 'amoled';
   static const String _kUiLanguage = 'uiLanguageCode';
   static const String _kDailyGoal = 'dailyGoal';
+  static const String _kReminderOn = 'reminderEnabled';
+  static const String _kReminderHour = 'reminderHour';
+  static const String _kReminderMinute = 'reminderMinute';
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
@@ -54,6 +60,7 @@ class DeckRepository extends ChangeNotifier {
 
   final List<Deck> _decks = [];
   final List<WordCard> _cards = [];
+  ReviewLog _log = ReviewLog.empty();
   bool _loaded = false;
 
   /// Один раз загружает данные в память (и мигрирует со старого стора).
@@ -67,7 +74,17 @@ class DeckRepository extends ChangeNotifier {
     _cards
       ..clear()
       ..addAll(_decodeCards(await _prefs.getStringList(_kCards) ?? const []));
+    _log = _decodeLog(await _prefs.getString(_kReviewLog));
     _loaded = true;
+  }
+
+  ReviewLog _decodeLog(String? raw) {
+    if (raw == null || raw.isEmpty) return ReviewLog.empty();
+    try {
+      return ReviewLog.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } catch (_) {
+      return ReviewLog.empty();
+    }
   }
 
   /// Гарантирует, что кэш загружен (на случай вызова методов до [init]).
@@ -80,6 +97,7 @@ class DeckRepository extends ChangeNotifier {
   void resetForTest() {
     _decks.clear();
     _cards.clear();
+    _log = ReviewLog.empty();
     _loaded = false;
   }
 
@@ -112,6 +130,7 @@ class DeckRepository extends ChangeNotifier {
 
       await copyStringList(_kDecks);
       await copyStringList(_kCards);
+      await copyString(_kReviewLog);
       await copyString(_kSelectedLanguage);
       await copyBool(_kSeededDemo);
       await copyInt(_kSeedColor);
@@ -121,6 +140,9 @@ class DeckRepository extends ChangeNotifier {
       await copyBool(_kAmoled);
       await copyString(_kUiLanguage);
       await copyInt(_kDailyGoal);
+      await copyBool(_kReminderOn);
+      await copyInt(_kReminderHour);
+      await copyInt(_kReminderMinute);
     } catch (_) {
       // Legacy-стор недоступен — не критично, продолжаем на чистом async.
     }
@@ -132,7 +154,9 @@ class DeckRepository extends ChangeNotifier {
     for (final e in raw) {
       try {
         out.add(Deck.fromJson(jsonDecode(e) as Map<String, dynamic>));
-      } catch (_) {/* пропускаем битую запись */}
+      } catch (_) {
+        /* пропускаем битую запись */
+      }
     }
     return out;
   }
@@ -142,7 +166,9 @@ class DeckRepository extends ChangeNotifier {
     for (final e in raw) {
       try {
         out.add(WordCard.fromJson(jsonDecode(e) as Map<String, dynamic>));
-      } catch (_) {/* пропускаем битую запись */}
+      } catch (_) {
+        /* пропускаем битую запись */
+      }
     }
     return out;
   }
@@ -256,6 +282,40 @@ class DeckRepository extends ChangeNotifier {
     await upsertCard(card);
   }
 
+  // ----------------------------- Журнал занятий -----------------------------
+
+  /// Журнал по дням (для стрика, кольца цели и статистики).
+  ReviewLog get reviewLogSync => _log;
+  Future<ReviewLog> reviewLog() async {
+    await _ensureLoaded();
+    return _log;
+  }
+
+  /// Записывает итог одной сессии в журнал за сегодня. Одна запись на диск.
+  Future<void> logSession({
+    required int reviews,
+    required int correct,
+    DateTime? at,
+  }) async {
+    if (reviews <= 0) return;
+    await _ensureLoaded();
+    final now = at ?? DateTime.now();
+    final key = ReviewLog.keyFor(now);
+    final days = Map<String, DayStat>.from(_log.days);
+    days[key] = (days[key] ?? const DayStat()).plus(
+      reviews: reviews,
+      correct: correct,
+    );
+    // Держим журнал ограниченным (последние ~2 года), чтобы не рос вечно.
+    if (days.length > 800) {
+      final cutoff = ReviewLog.keyFor(now.subtract(const Duration(days: 730)));
+      days.removeWhere((k, _) => k.compareTo(cutoff) < 0);
+    }
+    _log = ReviewLog(days);
+    await _prefs.setString(_kReviewLog, jsonEncode(_log.toJson()));
+    notifyListeners();
+  }
+
   // ----------------------------- Выбранный язык -----------------------------
 
   Future<String?> selectedLanguageCode() async =>
@@ -286,8 +346,7 @@ class DeckRepository extends ChangeNotifier {
   Future<void> setDynamicColorEnabled(bool value) async =>
       _prefs.setBool(_kDynamicColor, value);
 
-  Future<bool> amoledEnabled() async =>
-      await _prefs.getBool(_kAmoled) ?? false;
+  Future<bool> amoledEnabled() async => await _prefs.getBool(_kAmoled) ?? false;
   Future<void> setAmoledEnabled(bool value) async =>
       _prefs.setBool(_kAmoled, value);
 
@@ -301,6 +360,20 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  // Ежедневное напоминание.
+  Future<bool> reminderEnabled() async =>
+      await _prefs.getBool(_kReminderOn) ?? false;
+  Future<void> setReminderEnabled(bool value) async =>
+      _prefs.setBool(_kReminderOn, value);
+
+  Future<int> reminderHour() async => await _prefs.getInt(_kReminderHour) ?? 20;
+  Future<int> reminderMinute() async =>
+      await _prefs.getInt(_kReminderMinute) ?? 0;
+  Future<void> setReminderTime(int hour, int minute) async {
+    await _prefs.setInt(_kReminderHour, hour);
+    await _prefs.setInt(_kReminderMinute, minute);
+  }
+
   // ----------------------------- Бэкап -----------------------------
 
   /// Полный снимок данных (колоды + карты + настройки) как JSON-строка.
@@ -310,6 +383,7 @@ class DeckRepository extends ChangeNotifier {
       'version': 1,
       'decks': [for (final d in _decks) d.toJson()],
       'cards': [for (final c in _cards) c.toJson()],
+      'reviewLog': _log.toJson(),
       'settings': {
         'seedColor': await _prefs.getInt(_kSeedColor),
         'themeMode': await _prefs.getInt(_kThemeMode),
@@ -340,6 +414,12 @@ class DeckRepository extends ChangeNotifier {
       ..addAll(cards);
     await _persistDecks();
     await _persistCards();
+    if (data['reviewLog'] is Map) {
+      _log = ReviewLog.fromJson(
+        (data['reviewLog'] as Map).cast<String, dynamic>(),
+      );
+      await _prefs.setString(_kReviewLog, jsonEncode(_log.toJson()));
+    }
     final s = (data['settings'] as Map?)?.cast<String, dynamic>() ?? {};
     if (s['seedColor'] is num) {
       await _prefs.setInt(_kSeedColor, (s['seedColor'] as num).toInt());
@@ -350,12 +430,17 @@ class DeckRepository extends ChangeNotifier {
     if (s['dynamicColor'] is bool) {
       await _prefs.setBool(_kDynamicColor, s['dynamicColor'] as bool);
     }
-    if (s['amoled'] is bool) await _prefs.setBool(_kAmoled, s['amoled'] as bool);
+    if (s['amoled'] is bool) {
+      await _prefs.setBool(_kAmoled, s['amoled'] as bool);
+    }
     if (s['uiLanguageCode'] is String) {
       await _prefs.setString(_kUiLanguage, s['uiLanguageCode'] as String);
     }
     if (s['selectedLanguage'] is String) {
-      await _prefs.setString(_kSelectedLanguage, s['selectedLanguage'] as String);
+      await _prefs.setString(
+        _kSelectedLanguage,
+        s['selectedLanguage'] as String,
+      );
     }
     if (s['dailyGoal'] is num) {
       await _prefs.setInt(_kDailyGoal, (s['dailyGoal'] as num).toInt());
@@ -395,14 +480,50 @@ class DeckRepository extends ChangeNotifier {
     ];
     final cards = <WordCard>[
       _card('c1', 'demo_en_basics', 'hello', 'привет', 'Hello, how are you?'),
-      _card('c2', 'demo_en_basics', 'thank you', 'спасибо', 'Thank you very much.'),
-      _card('c3', 'demo_en_basics', 'water', 'вода', 'A glass of water, please.'),
+      _card(
+        'c2',
+        'demo_en_basics',
+        'thank you',
+        'спасибо',
+        'Thank you very much.',
+      ),
+      _card(
+        'c3',
+        'demo_en_basics',
+        'water',
+        'вода',
+        'A glass of water, please.',
+      ),
       _card('c4', 'demo_en_basics', 'friend', 'друг', 'She is my best friend.'),
-      _card('c5', 'demo_en_basics', 'house', 'дом', 'We live in a small house.'),
+      _card(
+        'c5',
+        'demo_en_basics',
+        'house',
+        'дом',
+        'We live in a small house.',
+      ),
       _card('v1', 'demo_en_verbs', 'to go', 'идти, ехать', 'I go to school.'),
-      _card('v2', 'demo_en_verbs', 'to eat', 'есть, кушать', 'They eat breakfast.'),
-      _card('v3', 'demo_en_verbs', 'to speak', 'говорить', 'Do you speak English?'),
-      _card('v4', 'demo_en_verbs', 'to learn', 'учить, изучать', 'I learn new words.'),
+      _card(
+        'v2',
+        'demo_en_verbs',
+        'to eat',
+        'есть, кушать',
+        'They eat breakfast.',
+      ),
+      _card(
+        'v3',
+        'demo_en_verbs',
+        'to speak',
+        'говорить',
+        'Do you speak English?',
+      ),
+      _card(
+        'v4',
+        'demo_en_verbs',
+        'to learn',
+        'учить, изучать',
+        'I learn new words.',
+      ),
     ];
     _decks
       ..clear()
@@ -417,6 +538,10 @@ class DeckRepository extends ChangeNotifier {
   }
 
   static WordCard _card(
-          String id, String deck, String front, String back, String ex) =>
-      WordCard(id: id, deckId: deck, front: front, back: back, example: ex);
+    String id,
+    String deck,
+    String front,
+    String back,
+    String ex,
+  ) => WordCard(id: id, deckId: deck, front: front, back: back, example: ex);
 }
