@@ -10,9 +10,12 @@ import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
+import 'services/update_service.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
+import 'utils/app_version.dart';
 import 'widgets/color_picker_sheet.dart';
+import 'widgets/update_sheet.dart';
 
 /// Экран настроек: внешний вид, обучение, язык интерфейса, данные, о программе.
 class SettingsScreen extends StatefulWidget {
@@ -176,6 +179,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             icon: Icons.info_outline_rounded,
             title: tr('version'),
             trailing: _version,
+            scheme: scheme,
+          ),
+          _actionTile(
+            icon: Icons.system_update_rounded,
+            title: tr('check_updates'),
+            onTap: _checkUpdates,
             scheme: scheme,
           ),
         ],
@@ -398,6 +407,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
           context,
         ).showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
       }
+    }
+  }
+
+  /// Ручная проверка обновления: показывает меню обновления или сообщает, что
+  /// установлена последняя версия.
+  Future<void> _checkUpdates() async {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('checking_updates'))),
+      );
+    }
+    final current = await appVersionName();
+    final info =
+        current.isEmpty ? null : await UpdateService.checkForUpdate(current);
+    if (!mounted) return;
+    if (info == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('up_to_date'))),
+      );
+    } else {
+      await UpdateSheet.show(context, info, current);
     }
   }
 

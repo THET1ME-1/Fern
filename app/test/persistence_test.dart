@@ -10,6 +10,8 @@ import 'package:fern/services/deck_repository.dart';
 import 'test_helpers.dart';
 
 void main() {
+  // Нужно, чтобы seedDemoIfNeeded мог читать ассет колод по умолчанию.
+  TestWidgetsFlutterBinding.ensureInitialized();
   final repo = DeckRepository.instance;
 
   setUp(resetStorage);

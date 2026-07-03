@@ -15,8 +15,10 @@ void main() {
     await resetStorage();
     await repo.init();
     await LocaleController.instance.setCode('ru');
-    await repo.seedDemoIfNeeded();
-    await repo.logSession(reviews: 9, correct: 7);
+    await tester.runAsync(() async {
+      await repo.seedDemoIfNeeded(); // грузит ассет — только в реальном async
+      await repo.logSession(reviews: 9, correct: 7);
+    });
 
     tester.view.physicalSize = const Size(1200, 3000);
     tester.view.devicePixelRatio = 1.0;

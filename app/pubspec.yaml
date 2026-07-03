@@ -2,7 +2,7 @@ name: fern
 description: "Fern — красивые флеш-карточки для изучения языков (офлайн, Material You)."
 publish_to: 'none'
 
-version: 1.1.0+2
+version: 1.2.0+3
 
 environment:
   sdk: ^3.11.5
@@ -25,6 +25,8 @@ dependencies:
   flutter_local_notifications: ^22.0.1
   timezone: ^0.11.1
   flutter_timezone: ^5.1.0
+  url_launcher: ^6.3.2
+  open_filex: ^4.7.0
 
 dev_dependencies:
   flutter_test:
@@ -39,7 +41,9 @@ flutter:
   assets:
     # Сам pubspec — чтобы показывать версию приложения прямо из yaml (не хардкод).
     - pubspec.yaml
-    # Готовые колоды-стартеры (топ-слова по языкам).
+    # Колоды по умолчанию (сеются при первом запуске).
+    - assets/seed/
+    # Готовые колоды-стартеры для других языков (топ-слова).
     - assets/starter/
 
   fonts:

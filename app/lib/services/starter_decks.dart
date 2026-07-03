@@ -38,6 +38,10 @@ class StarterDecks {
     0xFF4FA0A8,
   ];
 
+  /// Языки, для которых есть готовые наборы (файлы `assets/starter/<code>.json`).
+  /// Английский НЕ здесь — он сеется как набор по умолчанию.
+  static const Set<String> availableLanguages = {'es', 'de', 'fr', 'it'};
+
   /// Возвращает готовые колоды для языка (пусто, если для него нет набора).
   static Future<List<StarterPack>> forLanguage(String code) async {
     String raw;
@@ -71,9 +75,11 @@ class StarterDecks {
     }
   }
 
-  /// Есть ли для языка хоть один готовый набор.
+  /// Есть ли для языка готовый набор. Синхронная проверка по [availableLanguages]
+  /// — без чтения ассета, чтобы не грузить хвост экрана (и не виснуть в тестах,
+  /// где rootBundle не любит FakeAsync).
   static Future<bool> hasPacksFor(String code) async =>
-      (await forLanguage(code)).isNotEmpty;
+      availableLanguages.contains(code);
 
   /// Добавляет готовую колоду в репозиторий свежей копией (новые id).
   static Future<void> add(StarterPack pack, {DateTime? now}) async {

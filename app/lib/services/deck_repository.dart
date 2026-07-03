@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,6 +33,7 @@ class DeckRepository extends ChangeNotifier {
   static const String _kCards = 'cards';
   static const String _kSelectedLanguage = 'selectedLanguage';
   static const String _kSeededDemo = 'seededDemo';
+  static const String _kSeedVersion = 'seedVersion';
   static const String _kReviewLog = 'reviewLog';
 
   // Настройки (совместимы по смыслу с ScoreMaster).
@@ -448,100 +450,103 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ----------------------------- Демо-колоды -----------------------------
+  // ----------------------------- Колоды по умолчанию -----------------------------
 
-  /// Кладёт пару колод-примеров при первом запуске (ноль настройки, чтобы
-  /// сразу было что учить). Идея из README §2.6.
+  /// Версия набора колод по умолчанию. Повышаем, когда меняем стартовый контент,
+  /// чтобы аккуратно обновить его у тех, кто ещё не трогал авто-колоды.
+  static const int _seedVersion = 2;
+
+  /// Сеет колоды по умолчанию (Первые слова / Глаголы / Еда и напитки / Одежда)
+  /// при первом запуске. Данные лежат в ассете `assets/seed/en.json`.
+  ///
+  /// Для тех, у кого стоит старый мини-набор (`demo_en_*`) и он не тронут,
+  /// набор тихо обновляется до нового — без потери собственных колод.
   Future<void> seedDemoIfNeeded() async {
     await _ensureLoaded();
-    if (await _prefs.getBool(_kSeededDemo) ?? false) return;
-    if (_decks.isNotEmpty) {
-      await _prefs.setBool(_kSeededDemo, true);
+    final storedVer = await _prefs.getInt(_kSeedVersion) ?? 0;
+    final seededFlag = await _prefs.getBool(_kSeededDemo) ?? false;
+
+    // Первый запуск — сеем свежие колоды по умолчанию.
+    if (!seededFlag && _decks.isEmpty) {
+      await _seedDefaults();
       return;
     }
-    const now = 0;
-    final decks = <Deck>[
-      Deck(
-        id: 'demo_en_basics',
-        languageCode: 'en',
-        name: 'Первые слова',
-        colorValue: 0xFF2E7D5B,
-        shapeIndex: 0,
-        createdAt: now,
-      ),
-      Deck(
-        id: 'demo_en_verbs',
-        languageCode: 'en',
-        name: 'Глаголы',
-        colorValue: 0xFF3F6FB0,
-        shapeIndex: 2,
-        createdAt: now + 1,
-      ),
-    ];
-    final cards = <WordCard>[
-      _card('c1', 'demo_en_basics', 'hello', 'привет', 'Hello, how are you?'),
-      _card(
-        'c2',
-        'demo_en_basics',
-        'thank you',
-        'спасибо',
-        'Thank you very much.',
-      ),
-      _card(
-        'c3',
-        'demo_en_basics',
-        'water',
-        'вода',
-        'A glass of water, please.',
-      ),
-      _card('c4', 'demo_en_basics', 'friend', 'друг', 'She is my best friend.'),
-      _card(
-        'c5',
-        'demo_en_basics',
-        'house',
-        'дом',
-        'We live in a small house.',
-      ),
-      _card('v1', 'demo_en_verbs', 'to go', 'идти, ехать', 'I go to school.'),
-      _card(
-        'v2',
-        'demo_en_verbs',
-        'to eat',
-        'есть, кушать',
-        'They eat breakfast.',
-      ),
-      _card(
-        'v3',
-        'demo_en_verbs',
-        'to speak',
-        'говорить',
-        'Do you speak English?',
-      ),
-      _card(
-        'v4',
-        'demo_en_verbs',
-        'to learn',
-        'учить, изучать',
-        'I learn new words.',
-      ),
-    ];
-    _decks
-      ..clear()
-      ..addAll(decks);
-    _cards
-      ..clear()
-      ..addAll(cards);
+
+    // Апгрейд старого авто-набора (5+4 слова) до нового, если он не изменён.
+    final onlyOldAuto = _decks.isNotEmpty &&
+        _decks.every((d) => d.id.startsWith('demo_en_'));
+    if (storedVer < _seedVersion && onlyOldAuto) {
+      _decks.removeWhere((d) => d.id.startsWith('demo_en_'));
+      _cards.removeWhere((c) => c.deckId.startsWith('demo_en_'));
+      await _seedDefaults();
+      return;
+    }
+
+    // Иначе просто фиксируем флаги.
+    await _prefs.setBool(_kSeededDemo, true);
+    await _prefs.setInt(_kSeedVersion, _seedVersion);
+  }
+
+  Future<void> _seedDefaults() async {
+    final loaded = await _loadSeedDecks();
+    if (loaded.isEmpty) return; // ассет не загрузился — ничего не портим
+    for (final entry in loaded) {
+      _decks.add(entry.$1);
+      _cards.addAll(entry.$2);
+    }
     await _persistDecks();
     await _persistCards();
     await _prefs.setBool(_kSeededDemo, true);
+    await _prefs.setInt(_kSeedVersion, _seedVersion);
     notifyListeners();
   }
 
-  static WordCard _card(
-    String id,
-    String deck,
-    String front,
-    String back,
-    String ex,
-  ) => WordCard(id: id, deckId: deck, front: front, back: back, example: ex);
+  /// Разбирает `assets/seed/en.json` в список (колода, карточки).
+  Future<List<(Deck, List<WordCard>)>> _loadSeedDecks() async {
+    String raw;
+    try {
+      raw = await rootBundle.loadString('assets/seed/en.json');
+    } catch (_) {
+      return const [];
+    }
+    try {
+      final data = jsonDecode(raw) as Map<String, dynamic>;
+      final lang = data['lang'] as String? ?? 'en';
+      final out = <(Deck, List<WordCard>)>[];
+      var order = 0;
+      for (final d in (data['decks'] as List? ?? const [])) {
+        final m = (d as Map).cast<String, dynamic>();
+        final deckId = m['id'] as String? ?? 'seed_en_$order';
+        final deck = Deck(
+          id: deckId,
+          languageCode: lang,
+          name: m['name'] as String? ?? '—',
+          colorValue: (m['color'] as num?)?.toInt() ?? 0xFF2E7D5B,
+          shapeIndex: (m['shape'] as num?)?.toInt() ?? 0,
+          createdAt: order,
+        );
+        final cards = <WordCard>[];
+        var i = 0;
+        for (final c in (m['cards'] as List? ?? const [])) {
+          final cm = (c as Map).cast<String, dynamic>();
+          final front = (cm['front'] as String? ?? '').trim();
+          final back = (cm['back'] as String? ?? '').trim();
+          if (front.isEmpty || back.isEmpty) continue;
+          cards.add(WordCard(
+            id: '${deckId}_$i',
+            deckId: deckId,
+            front: front,
+            back: back,
+            example: (cm['example'] as String? ?? '').trim(),
+          ));
+          i++;
+        }
+        out.add((deck, cards));
+        order++;
+      }
+      return out;
+    } catch (_) {
+      return const [];
+    }
+  }
 }

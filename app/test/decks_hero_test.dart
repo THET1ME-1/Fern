@@ -15,8 +15,12 @@ void main() {
     await resetStorage();
     await repo.init();
     await LocaleController.instance.setCode('ru');
-    await repo.seedDemoIfNeeded();
-    await repo.logSession(reviews: 7, correct: 6); // занятие сегодня
+    // Сид грузит ассет (rootBundle), а он не работает в FakeAsync — гоняем
+    // через runAsync (реальный event loop).
+    await tester.runAsync(() async {
+      await repo.seedDemoIfNeeded();
+      await repo.logSession(reviews: 7, correct: 6); // занятие сегодня
+    });
 
     tester.view.physicalSize = const Size(1000, 2200);
     tester.view.devicePixelRatio = 1.0;

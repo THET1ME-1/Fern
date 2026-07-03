@@ -1,4 +1,4 @@
-package com.badzoff.fern
+package com.fern.app
 
 import io.flutter.embedding.android.FlutterActivity
 

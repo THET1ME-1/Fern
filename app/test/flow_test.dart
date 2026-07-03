@@ -16,7 +16,8 @@ void main() {
     await ThemeController.instance.load();
     await LocaleController.instance.load();
     await LocaleController.instance.setCode('ru');
-    await DeckRepository.instance.seedDemoIfNeeded();
+    // Сид грузит ассет колод (rootBundle) — только в реальном async.
+    await tester.runAsync(() => DeckRepository.instance.seedDemoIfNeeded());
 
     // Высокий экран, чтобы дневная сводка + сетка колод помещались и элементы
     // были кликабельны в тесте.

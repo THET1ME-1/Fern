@@ -1,4 +1,7 @@
+import 'dart:io' show Platform;
+
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,9 +12,12 @@ import 'l10n/strings.dart';
 import 'progress_screen.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
+import 'services/update_service.dart';
 import 'settings_screen.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
+import 'utils/app_version.dart';
+import 'widgets/update_sheet.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -88,6 +94,26 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   static const int _tabCount = 3;
   int _selectedIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkForUpdate();
+  }
+
+  /// Тихая проверка обновления на GitHub при запуске. Если есть версия новее —
+  /// показываем нижнее меню с предложением обновиться.
+  Future<void> _checkForUpdate() async {
+    // Только на реальных мобильных (не в тестах/на десктопе).
+    if (kIsWeb || !(Platform.isAndroid || Platform.isIOS)) return;
+    final current = await appVersionName();
+    if (current.isEmpty) return;
+    final info = await UpdateService.checkForUpdate(current);
+    if (!mounted || info == null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) UpdateSheet.show(context, info, current);
+    });
+  }
 
   Widget _screenFor(int index) {
     switch (index) {

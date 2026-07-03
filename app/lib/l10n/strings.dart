@@ -176,6 +176,23 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Уведомления запрещены в настройках телефона',
     'en': 'Notifications are blocked in system settings'
   },
+  // Обновление приложения
+  'check_updates': {'ru': 'Проверить обновления', 'en': 'Check for updates'},
+  'checking_updates': {'ru': 'Проверяем обновления…', 'en': 'Checking for updates…'},
+  'up_to_date': {'ru': 'У вас последняя версия', 'en': "You're up to date"},
+  'update_available': {'ru': 'Доступно обновление', 'en': 'Update available'},
+  'update_new_version': {'ru': 'Новая: {v}', 'en': 'New: {v}'},
+  'update_current_version': {'ru': 'у вас: {v}', 'en': 'yours: {v}'},
+  'update_whats_new': {'ru': 'Что нового', 'en': "What's new"},
+  'update_now': {'ru': 'Обновить', 'en': 'Update'},
+  'update_downloading': {'ru': 'Загрузка… {p}%', 'en': 'Downloading… {p}%'},
+  'update_installing': {'ru': 'Запуск установки…', 'en': 'Starting install…'},
+  'update_failed': {
+    'ru': 'Не удалось обновить. Откройте релиз на GitHub и скачайте вручную.',
+    'en': 'Update failed. Open the release on GitHub and download manually.'
+  },
+  'update_open_github': {'ru': 'Открыть на GitHub', 'en': 'Open on GitHub'},
+  'update_later': {'ru': 'Позже', 'en': 'Later'},
 
   // ----------------------------- Упражнения / повтор -----------------------------
   'show_answer': {'ru': 'Показать ответ', 'en': 'Show answer'},

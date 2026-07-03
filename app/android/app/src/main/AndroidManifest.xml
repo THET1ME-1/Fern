@@ -2,6 +2,8 @@
     <!-- Ежедневные напоминания (flutter_local_notifications). Используем
          НЕточные будильники, поэтому SCHEDULE_EXACT_ALARM не нужен. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- Установка скачанного APK при обновлении из приложения (sideload). -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <application
         android:label="fern"
         android:name="${applicationName}"
