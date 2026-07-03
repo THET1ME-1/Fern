@@ -124,20 +124,26 @@ class _SessionScreenState extends State<SessionScreen> {
       _correct,
       DateTime.now().difference(_start),
     );
+    // Захватываем нужное в локальные переменные: колбэк переживёт уничтожение
+    // этого SessionScreen (кнопка «Ещё» на экране результатов).
+    final deck = widget.deck;
+    final mode = widget.mode;
+    final repo = _repo;
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => ResultsScreen(result: result, onStudyMore: _restart),
-      ),
-    );
-  }
-
-  Future<void> _restart() async {
-    final cards = await _repo.cardsForDeck(widget.deck.id);
-    if (!mounted) return;
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) =>
-            SessionScreen(deck: widget.deck, mode: widget.mode, cards: cards),
+        builder: (_) => ResultsScreen(
+          result: result,
+          onStudyMore: (resultsContext) async {
+            final cards = await repo.cardsForDeck(deck.id);
+            if (!resultsContext.mounted) return;
+            Navigator.of(resultsContext).pushReplacement(
+              MaterialPageRoute(
+                builder: (_) =>
+                    SessionScreen(deck: deck, mode: mode, cards: cards),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

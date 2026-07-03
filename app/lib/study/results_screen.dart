@@ -18,7 +18,10 @@ class SessionResult {
 /// Экран результатов после завершённой сессии.
 class ResultsScreen extends StatelessWidget {
   final SessionResult result;
-  final VoidCallback? onStudyMore;
+
+  /// Колбэк «Ещё сессия». Получает ЖИВОЙ контекст экрана результатов, чтобы
+  /// навигация шла от него, а не от уже уничтоженного [SessionScreen].
+  final void Function(BuildContext context)? onStudyMore;
 
   const ResultsScreen({super.key, required this.result, this.onStudyMore});
 
@@ -83,7 +86,7 @@ class ResultsScreen extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: FilledButton.tonal(
-                      onPressed: onStudyMore,
+                      onPressed: () => onStudyMore!(context),
                       child: Text(tr('study_more')),
                     ),
                   ),
