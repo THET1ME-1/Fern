@@ -26,6 +26,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  # Тестовый in-memory backend для SharedPreferencesAsync (см. test/test_helpers.dart).
+  shared_preferences_platform_interface: ^2.4.2
 
 flutter:
   uses-material-design: true

@@ -17,6 +17,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  await DeckRepository.instance.init();
   await ThemeController.instance.load();
   await LocaleController.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();

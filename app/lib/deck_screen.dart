@@ -12,6 +12,24 @@ import 'theme/app_theme.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/reveal.dart';
 
+/// Порядок сортировки списка карточек в колоде.
+enum _CardSort { added, alpha, status, due }
+
+extension _CardSortInfo on _CardSort {
+  String get labelKey => switch (this) {
+        _CardSort.added => 'sort_added',
+        _CardSort.alpha => 'sort_alpha',
+        _CardSort.status => 'sort_status',
+        _CardSort.due => 'sort_due',
+      };
+  IconData get icon => switch (this) {
+        _CardSort.added => Icons.schedule_rounded,
+        _CardSort.alpha => Icons.sort_by_alpha_rounded,
+        _CardSort.status => Icons.donut_small_rounded,
+        _CardSort.due => Icons.notifications_active_rounded,
+      };
+}
+
 /// Экран колоды: пусковая панель режимов обучения + список карточек.
 class DeckScreen extends StatefulWidget {
   final Deck deck;
@@ -23,8 +41,11 @@ class DeckScreen extends StatefulWidget {
 
 class _DeckScreenState extends State<DeckScreen> {
   final DeckRepository _repo = DeckRepository.instance;
+  final TextEditingController _search = TextEditingController();
   List<WordCard> _cards = [];
   bool _loading = true;
+  String _query = '';
+  _CardSort _sort = _CardSort.added;
 
   @override
   void initState() {
@@ -36,7 +57,41 @@ class _DeckScreenState extends State<DeckScreen> {
   @override
   void dispose() {
     _repo.removeListener(_load);
+    _search.dispose();
     super.dispose();
+  }
+
+  /// Карточки после применения поиска и выбранной сортировки.
+  List<WordCard> get _visibleCards {
+    final q = _query.trim().toLowerCase();
+    final list = q.isEmpty
+        ? List<WordCard>.from(_cards)
+        : _cards
+            .where((c) =>
+                c.front.toLowerCase().contains(q) ||
+                c.back.toLowerCase().contains(q) ||
+                c.example.toLowerCase().contains(q))
+            .toList();
+    final now = DateTime.now();
+    switch (_sort) {
+      case _CardSort.added:
+        break; // естественный порядок добавления
+      case _CardSort.alpha:
+        list.sort((a, b) =>
+            a.front.toLowerCase().compareTo(b.front.toLowerCase()));
+      case _CardSort.status:
+        list.sort((a, b) => a.status.index.compareTo(b.status.index));
+      case _CardSort.due:
+        int key(WordCard c) => c.isDue(now) ? 0 : 1;
+        list.sort((a, b) {
+          final byDue = key(a).compareTo(key(b));
+          if (byDue != 0) return byDue;
+          final da = a.review.due ?? DateTime(9999);
+          final db = b.review.due ?? DateTime(9999);
+          return da.compareTo(db);
+        });
+    }
+    return list;
   }
 
   Future<void> _load() async {
@@ -110,9 +165,7 @@ class _DeckScreenState extends State<DeckScreen> {
       builder: (_) => _QuickAddSheet(deckId: widget.deck.id),
     );
     if (result == null || result.isEmpty) return;
-    final all = await _repo.loadCards()
-      ..addAll(result);
-    await _repo.saveCards(all);
+    await _repo.addCards(result);
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(trf('added_n_cards', {'n': result.length}))),
@@ -156,20 +209,120 @@ class _DeckScreenState extends State<DeckScreen> {
                 const SizedBox(height: 12),
                 _modesGrid(scheme),
                 const SizedBox(height: 24),
-                _sectionTitle(tr('cards_section'), scheme),
+                _cardsHeader(scheme),
                 const SizedBox(height: 12),
                 if (_cards.isEmpty)
                   _emptyCards(scheme)
-                else
-                  ..._cards.asMap().entries.map(
-                        (e) => Reveal(
-                          delay: Duration(milliseconds: 25 * e.key),
-                          child: _cardTile(e.value, scheme),
-                        ),
-                      ),
+                else ...[
+                  if (_cards.length >= 6) ...[
+                    _searchField(scheme),
+                    const SizedBox(height: 12),
+                  ],
+                  ..._buildCardList(scheme),
+                ],
               ],
             ),
     );
+  }
+
+  Widget _cardsHeader(ColorScheme scheme) {
+    return Row(
+      children: [
+        Expanded(child: _sectionTitle(tr('cards_section'), scheme)),
+        if (_cards.length >= 2)
+          IconButton(
+            tooltip: tr('sort_by'),
+            icon: const Icon(Icons.sort_rounded),
+            onPressed: _pickSort,
+          ),
+      ],
+    );
+  }
+
+  Future<void> _pickSort() async {
+    final scheme = Theme.of(context).colorScheme;
+    final picked = await showModalBottomSheet<_CardSort>(
+      context: context,
+      backgroundColor: scheme.surfaceContainer,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 8),
+            for (final s in _CardSort.values)
+              ListTile(
+                leading: Icon(s.icon,
+                    color: s == _sort ? scheme.primary : scheme.onSurfaceVariant),
+                title: Text(tr(s.labelKey)),
+                trailing: s == _sort
+                    ? Icon(Icons.check_rounded, color: scheme.primary)
+                    : null,
+                onTap: () => Navigator.pop(ctx, s),
+              ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+    if (picked != null) setState(() => _sort = picked);
+  }
+
+  Widget _searchField(ColorScheme scheme) {
+    return TextField(
+      controller: _search,
+      onChanged: (v) => setState(() => _query = v),
+      textInputAction: TextInputAction.search,
+      decoration: InputDecoration(
+        isDense: true,
+        hintText: tr('search_cards'),
+        prefixIcon: const Icon(Icons.search_rounded),
+        suffixIcon: _query.isEmpty
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.close_rounded),
+                onPressed: () {
+                  _search.clear();
+                  setState(() => _query = '');
+                },
+              ),
+        filled: true,
+        fillColor: scheme.surfaceContainerHigh,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildCardList(ColorScheme scheme) {
+    final cards = _visibleCards;
+    if (cards.isEmpty) {
+      return [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 28),
+          child: Center(
+            child: Text(
+              tr('no_matches'),
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+        ),
+      ];
+    }
+    return [
+      for (final e in cards.asMap().entries)
+        Reveal(
+          delay: Duration(milliseconds: 25 * (e.key.clamp(0, 12))),
+          child: _cardTile(e.value, scheme),
+        ),
+    ];
   }
 
   Widget _header(Deck deck, ColorScheme scheme) {
@@ -397,7 +550,53 @@ class _DeckScreenState extends State<DeckScreen> {
         ),
       );
 
+  /// Цвет + иконка + подпись статуса карты.
+  ({Color color, IconData icon, String label}) _statusVisual(
+      CardStatus s, ColorScheme scheme) {
+    switch (s) {
+      case CardStatus.fresh:
+        return (
+          color: scheme.primary,
+          icon: Icons.fiber_new_rounded,
+          label: tr('status_new')
+        );
+      case CardStatus.learning:
+        return (
+          color: scheme.tertiary,
+          icon: Icons.trending_up_rounded,
+          label: tr('status_learning')
+        );
+      case CardStatus.young:
+        return (
+          color: scheme.secondary,
+          icon: Icons.spa_rounded,
+          label: tr('status_young')
+        );
+      case CardStatus.mature:
+        return (
+          color: scheme.primary,
+          icon: Icons.verified_rounded,
+          label: tr('status_mature')
+        );
+    }
+  }
+
+  /// Короткая подпись срока повтора («к повтору» / «через 3 дн»).
+  String _dueLabel(WordCard card, DateTime now) {
+    if (card.review.isNew) return '';
+    final due = card.review.due;
+    if (due == null) return '';
+    if (!due.isAfter(now)) return tr('due_now');
+    return trf('due_in', {'t': durationLabel(due.difference(now))});
+  }
+
   Widget _cardTile(WordCard card, ColorScheme scheme) {
+    final now = DateTime.now();
+    final vis = _statusVisual(card.status, scheme);
+    final isDue = !card.review.isNew && card.isDue(now);
+    final dueText = _dueLabel(card, now);
+    final hasExample = card.example.trim().isNotEmpty;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Dismissible(
@@ -421,23 +620,46 @@ class _DeckScreenState extends State<DeckScreen> {
             onTap: () => _addOrEditCard(card),
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               child: Row(
                 children: [
+                  // Индикатор статуса владения.
+                  Container(
+                    width: 40,
+                    height: 40,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: vis.color.withValues(alpha: 0.16),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(vis.icon, size: 20, color: vis.color),
+                  ),
+                  const SizedBox(width: 14),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          card.front,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontFamily: AppTheme.bodyFont,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                            color: scheme.onSurface,
-                          ),
+                        Row(
+                          children: [
+                            Flexible(
+                              child: Text(
+                                card.front,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontFamily: AppTheme.bodyFont,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16,
+                                  color: scheme.onSurface,
+                                ),
+                              ),
+                            ),
+                            if (hasExample) ...[
+                              const SizedBox(width: 6),
+                              Icon(Icons.format_quote_rounded,
+                                  size: 13, color: scheme.onSurfaceVariant),
+                            ],
+                          ],
                         ),
                         const SizedBox(height: 2),
                         Text(
@@ -453,15 +675,37 @@ class _DeckScreenState extends State<DeckScreen> {
                       ],
                     ),
                   ),
-                  if (card.review.isNew)
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: scheme.primary,
-                        shape: BoxShape.circle,
+                  const SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        vis.label,
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: vis.color,
+                        ),
                       ),
-                    ),
+                      if (dueText.isNotEmpty) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          dueText,
+                          style: TextStyle(
+                            fontFamily: AppTheme.bodyFont,
+                            fontSize: 10.5,
+                            fontWeight: isDue ? FontWeight.w700 : FontWeight.w400,
+                            color: isDue
+                                ? scheme.primary
+                                : scheme.onSurfaceVariant
+                                    .withValues(alpha: 0.7),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
                 ],
               ),
             ),

@@ -112,6 +112,20 @@ const Map<String, Map<String, String>> _strings = {
   'quick_add_apply': {'ru': 'Добавить все', 'en': 'Add all'},
   'nothing_to_add': {'ru': 'Нечего добавить', 'en': 'Nothing to add'},
   'added_n_cards': {'ru': 'Добавлено {n} карт.', 'en': 'Added {n} cards'},
+  // Поиск / сортировка / статус карты
+  'search_cards': {'ru': 'Поиск слова', 'en': 'Search words'},
+  'no_matches': {'ru': 'Ничего не найдено', 'en': 'No matches'},
+  'sort_by': {'ru': 'Сортировка', 'en': 'Sort'},
+  'sort_added': {'ru': 'По добавлению', 'en': 'By date added'},
+  'sort_alpha': {'ru': 'По алфавиту', 'en': 'Alphabetical'},
+  'sort_status': {'ru': 'По прогрессу', 'en': 'By progress'},
+  'sort_due': {'ru': 'Сначала к повтору', 'en': 'Due first'},
+  'status_new': {'ru': 'Новое', 'en': 'New'},
+  'status_learning': {'ru': 'Учится', 'en': 'Learning'},
+  'status_young': {'ru': 'Закрепляется', 'en': 'Growing'},
+  'status_mature': {'ru': 'Выучено', 'en': 'Mastered'},
+  'due_now': {'ru': 'к повтору', 'en': 'due now'},
+  'due_in': {'ru': 'через {t}', 'en': 'in {t}'},
 
   // ----------------------------- Упражнения / повтор -----------------------------
   'show_answer': {'ru': 'Показать ответ', 'en': 'Show answer'},

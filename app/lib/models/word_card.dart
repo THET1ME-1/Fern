@@ -142,6 +142,24 @@ class WordCard {
       );
 }
 
+/// Стадия владения карточкой для списка слов (визуальный статус).
+enum CardStatus { fresh, learning, young, mature }
+
+extension WordCardStatus on WordCard {
+  /// Классификация карты по её FSRS-состоянию для списка колоды.
+  CardStatus get status {
+    switch (review.state) {
+      case FsrsState.newCard:
+        return CardStatus.fresh;
+      case FsrsState.learning:
+      case FsrsState.relearning:
+        return CardStatus.learning;
+      case FsrsState.review:
+        return review.stability >= 21 ? CardStatus.mature : CardStatus.young;
+    }
+  }
+}
+
 /// Человекочитаемая подпись длительности до следующего повтора.
 String durationLabel(Duration d) {
   if (d.inMinutes < 1) return '<1 мин';
