@@ -9,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'decks_screen.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
+import 'onboarding_screen.dart';
 import 'progress_screen.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
@@ -30,7 +31,8 @@ Future<void> main() async {
   await LocaleController.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
   await _rescheduleReminderIfEnabled();
-  runApp(const FernApp());
+  final onboarded = await DeckRepository.instance.onboarded();
+  runApp(FernApp(onboarded: onboarded));
 }
 
 /// Перепланирует ежедневное напоминание на старте (на случай обновления
@@ -48,7 +50,8 @@ Future<void> _rescheduleReminderIfEnabled() async {
 }
 
 class FernApp extends StatelessWidget {
-  const FernApp({super.key});
+  final bool onboarded;
+  const FernApp({super.key, this.onboarded = true});
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +79,31 @@ class FernApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: const MainScreen(),
+            home: _RootGate(onboarded: onboarded),
           );
         },
       ),
+    );
+  }
+}
+
+/// Показывает онбординг на первом запуске, иначе — главный экран.
+class _RootGate extends StatefulWidget {
+  final bool onboarded;
+  const _RootGate({required this.onboarded});
+
+  @override
+  State<_RootGate> createState() => _RootGateState();
+}
+
+class _RootGateState extends State<_RootGate> {
+  late bool _onboarded = widget.onboarded;
+
+  @override
+  Widget build(BuildContext context) {
+    if (_onboarded) return const MainScreen();
+    return OnboardingScreen(
+      onDone: () => setState(() => _onboarded = true),
     );
   }
 }

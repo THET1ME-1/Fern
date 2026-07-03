@@ -5,7 +5,7 @@
     <!-- Установка скачанного APK при обновлении из приложения (sideload). -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <application
-        android:label="fern"
+        android:label="Fern"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

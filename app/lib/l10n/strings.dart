@@ -203,6 +203,14 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'Notifications are blocked in system settings'
   },
   // Обновление приложения
+  // Онбординг
+  'onb_welcome': {'ru': 'Добро пожаловать', 'en': 'Welcome'},
+  'onb_tagline': {
+    'ru': 'Учи слова красиво и легко',
+    'en': 'Learn words beautifully'
+  },
+  'onb_pick_lang': {'ru': 'Что хочешь учить?', 'en': 'What do you want to learn?'},
+  'onb_start': {'ru': 'Начать', 'en': 'Get started'},
   'check_updates': {'ru': 'Проверить обновления', 'en': 'Check for updates'},
   'checking_updates': {'ru': 'Проверяем обновления…', 'en': 'Checking for updates…'},
   'up_to_date': {'ru': 'У вас последняя версия', 'en': "You're up to date"},

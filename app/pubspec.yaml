@@ -34,6 +34,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   # Тестовый in-memory backend для SharedPreferencesAsync (см. test/test_helpers.dart).
   shared_preferences_platform_interface: ^2.4.2
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
@@ -53,3 +54,14 @@ flutter:
     - family: Onest
       fonts:
         - asset: assets/fonts/Onest.ttf
+
+# Иконка приложения (папоротник на зелёном). Генерация:
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+  adaptive_icon_background: "#2E7D5B"
+  adaptive_icon_foreground: "assets/icon/foreground.png"

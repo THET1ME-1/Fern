@@ -49,6 +49,7 @@ class DeckRepository extends ChangeNotifier {
   static const String _kReminderOn = 'reminderEnabled';
   static const String _kReminderHour = 'reminderHour';
   static const String _kReminderMinute = 'reminderMinute';
+  static const String _kOnboarded = 'onboarded';
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
@@ -160,6 +161,7 @@ class DeckRepository extends ChangeNotifier {
       await copyBool(_kReminderOn);
       await copyInt(_kReminderHour);
       await copyInt(_kReminderMinute);
+      await copyBool(_kOnboarded);
     } catch (_) {
       // Legacy-стор недоступен — не критично, продолжаем на чистом async.
     }
@@ -407,6 +409,11 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setInt(_kReminderMinute, minute);
   }
 
+  // Онбординг (первый запуск).
+  Future<bool> onboarded() async => await _prefs.getBool(_kOnboarded) ?? false;
+  Future<void> setOnboarded(bool value) async =>
+      _prefs.setBool(_kOnboarded, value);
+
   // ----------------------------- Бэкап -----------------------------
 
   /// Полный снимок данных (колоды + карты + настройки) как JSON-строка.
@@ -510,12 +517,15 @@ class DeckRepository extends ChangeNotifier {
       _decks.removeWhere((d) => d.id.startsWith('demo_en_'));
       _cards.removeWhere((c) => c.deckId.startsWith('demo_en_'));
       await _seedDefaults();
+      // Уже работавший пользователь — онбординг не показываем.
+      await _prefs.setBool(_kOnboarded, true);
       return;
     }
 
-    // Иначе просто фиксируем флаги.
+    // Иначе просто фиксируем флаги (существующий пользователь).
     await _prefs.setBool(_kSeededDemo, true);
     await _prefs.setInt(_kSeedVersion, _seedVersion);
+    await _prefs.setBool(_kOnboarded, true);
   }
 
   Future<void> _seedDefaults() async {
