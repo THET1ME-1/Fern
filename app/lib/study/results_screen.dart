@@ -9,10 +9,10 @@ class SessionResult {
   final int answered;
   final int correct;
   final Duration elapsed;
-  const SessionResult(this.answered, this.correct, this.elapsed);
+  final int? score; // очки режима «Быстрый повтор» (иначе null)
+  const SessionResult(this.answered, this.correct, this.elapsed, {this.score});
 
-  int get accuracy =>
-      answered == 0 ? 0 : ((correct / answered) * 100).round();
+  int get accuracy => answered == 0 ? 0 : ((correct / answered) * 100).round();
 }
 
 /// Экран результатов после завершённой сессии.
@@ -48,8 +48,11 @@ class ResultsScreen extends StatelessWidget {
                     color: scheme.primaryContainer,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.check_rounded,
-                      size: 68, color: scheme.onPrimaryContainer),
+                  child: Icon(
+                    Icons.check_rounded,
+                    size: 68,
+                    color: scheme.onPrimaryContainer,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -65,6 +68,33 @@ class ResultsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              if (result.score != null) ...[
+                const SizedBox(height: 20),
+                Reveal(
+                  delay: const Duration(milliseconds: 120),
+                  child: Column(
+                    children: [
+                      Text(
+                        '${result.score}',
+                        style: TextStyle(
+                          fontFamily: AppTheme.displayFont,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 44,
+                          color: scheme.primary,
+                        ),
+                      ),
+                      Text(
+                        tr('res_score'),
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontSize: 13,
+                          color: scheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
               const SizedBox(height: 28),
               Reveal(
                 delay: const Duration(milliseconds: 160),
@@ -72,8 +102,7 @@ class ResultsScreen extends StatelessWidget {
                   children: [
                     _stat(scheme, '${result.answered}', tr('res_reviewed')),
                     const SizedBox(width: 12),
-                    _stat(scheme, '$acc%', tr('res_accuracy'),
-                        highlight: true),
+                    _stat(scheme, '$acc%', tr('res_accuracy'), highlight: true),
                     const SizedBox(width: 12),
                     _stat(scheme, timeStr, tr('res_time')),
                   ],
@@ -105,8 +134,12 @@ class ResultsScreen extends StatelessWidget {
     );
   }
 
-  Widget _stat(ColorScheme scheme, String value, String label,
-      {bool highlight = false}) {
+  Widget _stat(
+    ColorScheme scheme,
+    String value,
+    String label, {
+    bool highlight = false,
+  }) {
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 8),
@@ -138,10 +171,11 @@ class ResultsScreen extends StatelessWidget {
               style: TextStyle(
                 fontFamily: AppTheme.bodyFont,
                 fontSize: 12,
-                color: (highlight
-                        ? scheme.onPrimaryContainer
-                        : scheme.onSurfaceVariant)
-                    .withValues(alpha: 0.85),
+                color:
+                    (highlight
+                            ? scheme.onPrimaryContainer
+                            : scheme.onSurfaceVariant)
+                        .withValues(alpha: 0.85),
               ),
             ),
           ],

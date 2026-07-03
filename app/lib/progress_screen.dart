@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'achievements_screen.dart';
 import 'l10n/strings.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
@@ -75,7 +76,19 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final acc7 = r7 == 0 ? 0 : ((c7 / r7) * 100).round();
 
     return Scaffold(
-      appBar: AppBar(title: Text(tr('progress_title'))),
+      appBar: AppBar(
+        title: Text(tr('progress_title')),
+        actions: [
+          IconButton(
+            tooltip: tr('achievements'),
+            icon: const Icon(Icons.emoji_events_rounded),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const AchievementsScreen()),
+            ),
+          ),
+        ],
+      ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _cards.isEmpty

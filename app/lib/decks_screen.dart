@@ -884,6 +884,7 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
   late final TextEditingController _name;
   late int _color;
   late int _shape;
+  late int _direction;
 
   @override
   void initState() {
@@ -892,6 +893,7 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
     _name = TextEditingController(text: e?.name ?? '');
     _color = e?.colorValue ?? _deckPalette.first.toARGB32();
     _shape = e?.shapeIndex ?? 0;
+    _direction = e?.directionIndex ?? 0;
   }
 
   @override
@@ -920,6 +922,7 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
       name: name,
       colorValue: _color,
       shapeIndex: _shape,
+      directionIndex: _direction,
       createdAt: e?.createdAt ?? DateTime.now().millisecondsSinceEpoch,
     );
     Navigator.pop(context, deck);
@@ -987,6 +990,10 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
                     _shapeChoice(i, scheme),
                 ],
               ),
+              const SizedBox(height: 20),
+              _sectionLabel(scheme, tr('deck_direction')),
+              const SizedBox(height: 8),
+              _directionSelector(scheme),
               const SizedBox(height: 24),
               Row(
                 children: [
@@ -1097,6 +1104,64 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
           decoration: ShapeDecoration(
             color: selected ? Color(_color) : scheme.surfaceContainerHighest,
             shape: deckShape(i),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _directionSelector(ColorScheme scheme) {
+    final opts = <(int, IconData, String)>[
+      (0, Icons.east_rounded, tr('dir_forward')),
+      (2, Icons.sync_alt_rounded, tr('dir_both')),
+      (1, Icons.west_rounded, tr('dir_reverse')),
+    ];
+    return Column(
+      children: [
+        for (var i = 0; i < opts.length; i++) ...[
+          if (i > 0) const SizedBox(height: 8),
+          _directionOption(opts[i].$1, opts[i].$2, opts[i].$3, scheme),
+        ],
+      ],
+    );
+  }
+
+  Widget _directionOption(
+      int value, IconData icon, String label, ColorScheme scheme) {
+    final selected = _direction == value;
+    return Material(
+      color: selected ? scheme.primaryContainer : scheme.surfaceContainerHigh,
+      borderRadius: BorderRadius.circular(16),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () => setState(() => _direction = value),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Row(
+            children: [
+              Icon(icon,
+                  size: 20,
+                  color: selected
+                      ? scheme.onPrimaryContainer
+                      : scheme.onSurfaceVariant),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                    fontSize: 14,
+                    color: selected
+                        ? scheme.onPrimaryContainer
+                        : scheme.onSurface,
+                  ),
+                ),
+              ),
+              if (selected)
+                Icon(Icons.check_rounded,
+                    size: 18, color: scheme.onPrimaryContainer),
+            ],
           ),
         ),
       ),

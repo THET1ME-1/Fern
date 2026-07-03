@@ -41,10 +41,13 @@ class _MatchScreenState extends State<MatchScreen> {
   Timer? _timer;
   final Stopwatch _watch = Stopwatch();
   bool _finished = false;
+  int? _bestMillis;
+  bool _isNewRecord = false;
 
   @override
   void initState() {
     super.initState();
+    _bestMillis = DeckRepository.instance.bestMatchMillis(widget.deck.id);
     _setup();
   }
 
@@ -118,8 +121,18 @@ class _MatchScreenState extends State<MatchScreen> {
   void _finish() {
     _watch.stop();
     _timer?.cancel();
+    final ms = _watch.elapsedMilliseconds;
+    final repo = DeckRepository.instance;
     // Игра «Подбор» — тоже занятие: засчитываем в журнал (все пары верные).
-    DeckRepository.instance.logSession(reviews: _pairs, correct: _pairs);
+    repo.logSession(reviews: _pairs, correct: _pairs);
+    // Рекорд времени по колоде.
+    repo.recordMatchMillis(widget.deck.id, ms).then((isRecord) {
+      if (!mounted) return;
+      setState(() {
+        _isNewRecord = isRecord;
+        _bestMillis = repo.bestMatchMillis(widget.deck.id);
+      });
+    });
     setState(() => _finished = true);
   }
 
@@ -172,8 +185,7 @@ class _MatchScreenState extends State<MatchScreen> {
             Padding(
               padding: const EdgeInsets.all(16),
               child: GridView.builder(
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
@@ -273,7 +285,50 @@ class _MatchScreenState extends State<MatchScreen> {
                   color: scheme.primary,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 8),
+              if (_isNewRecord)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: scheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.emoji_events_rounded,
+                        size: 18,
+                        color: scheme.onPrimaryContainer,
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        tr('match_new_record'),
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 13,
+                          color: scheme.onPrimaryContainer,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              else if (_bestMillis != null)
+                Text(
+                  trf('match_record', {
+                    't': (_bestMillis! / 1000).toStringAsFixed(1),
+                  }),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 13,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(

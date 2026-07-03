@@ -5,14 +5,21 @@ import '../models/word_card.dart';
 /// Режимы обучения, запускаемые с экрана колоды. См. `docs/learning-system.md` §2.
 enum StudyMode { learn, flashcards, test, match, write, audio, hard, speed }
 
+/// Направление изучения колоды.
+enum StudyDirection { forward, reverse, both }
+
+StudyDirection studyDirectionFromIndex(int i) =>
+    (i >= 0 && i < StudyDirection.values.length)
+    ? StudyDirection.values[i]
+    : StudyDirection.forward;
+
 /// Тип одного упражнения (виджета) внутри сессии.
 enum ExerciseKind { flip, choose, type, trueFalse, listen }
 
 extension StudyModeInfo on StudyMode {
   /// Влияет ли режим на планировщик FSRS. Тест и игра «Подбор» —
   /// оценочные/игровые, расписание не меняют.
-  bool get affectsSchedule =>
-      this != StudyMode.test && this != StudyMode.match;
+  bool get affectsSchedule => this != StudyMode.test && this != StudyMode.match;
 }
 
 /// Одно упражнение: карта + тип + направление (термин→перевод / перевод→термин).
@@ -34,14 +41,22 @@ class Exercise {
 class SessionBuilder {
   final Random _rng = Random();
 
+  /// reversed для упражнения по направлению изучения колоды.
+  bool _reversedFor(StudyDirection d) => switch (d) {
+    StudyDirection.forward => false,
+    StudyDirection.reverse => true,
+    StudyDirection.both => _rng.nextBool(),
+  };
+
   /// Возвращает очередь упражнений. [cards] — карты колоды, [goal] — дневная
-  /// цель (лимит новых), [now] — текущий момент.
+  /// цель (лимит новых), [now] — текущий момент, [direction] — направление.
   List<Exercise> build(
     StudyMode mode,
     List<WordCard> cards,
     DateTime now, {
     int goal = 20,
     int testCount = 12,
+    StudyDirection direction = StudyDirection.forward,
   }) {
     final due = cards.where((c) => !c.review.isNew && c.isDue(now)).toList();
     final fresh = cards.where((c) => c.review.isNew).toList();
@@ -50,47 +65,64 @@ class SessionBuilder {
     switch (mode) {
       case StudyMode.flashcards:
         final sel = _selectDueAndNew(due, fresh, goal);
-        return [for (final c in sel) Exercise(c, ExerciseKind.flip)];
+        return [
+          for (final c in sel)
+            Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+        ];
 
       case StudyMode.write:
         final sel = _selectDueAndNew(due, fresh, goal);
         return _shuffled([
-          for (final c in sel) Exercise(c, ExerciseKind.type)
+          for (final c in sel)
+            Exercise(c, ExerciseKind.type, reversed: _reversedFor(direction)),
         ]);
 
       case StudyMode.speed:
         final sel = _selectDueAndNew(due, fresh, min(goal, 15));
         return _shuffled([
           for (final c in sel)
-            Exercise(c, hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip)
+            Exercise(
+              c,
+              hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
+              reversed: _reversedFor(direction),
+            ),
         ]);
 
       case StudyMode.hard:
-        final hard = cards.where((c) => c.review.lapses > 0 || c.review.difficulty >= 6).toList()
-          ..sort((a, b) {
-            final byLapses = b.review.lapses.compareTo(a.review.lapses);
-            if (byLapses != 0) return byLapses;
-            return b.review.difficulty.compareTo(a.review.difficulty);
-          });
+        final hard =
+            cards
+                .where((c) => c.review.lapses > 0 || c.review.difficulty >= 6)
+                .toList()
+              ..sort((a, b) {
+                final byLapses = b.review.lapses.compareTo(a.review.lapses);
+                if (byLapses != 0) return byLapses;
+                return b.review.difficulty.compareTo(a.review.difficulty);
+              });
         final sel = hard.take(goal).toList();
-        return [for (final c in sel) Exercise(c, ExerciseKind.flip)];
+        return [
+          for (final c in sel)
+            Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+        ];
 
       case StudyMode.learn:
+        // «Учить» — адаптивный режим со своим управлением направлением по фазе.
         final sel = _selectDueAndNew(due, fresh, goal);
         return _shuffled([
-          for (final c in sel) _learnExercise(c, hasChoicePool)
+          for (final c in sel) _learnExercise(c, hasChoicePool),
         ]);
 
       case StudyMode.test:
         final pool = List<WordCard>.from(cards)..shuffle(_rng);
         final sel = pool.take(min(testCount, cards.length)).toList();
-        return [for (final c in sel) _randomTestExercise(c, hasChoicePool)];
+        return [
+          for (final c in sel) _randomTestExercise(c, hasChoicePool, direction),
+        ];
 
       case StudyMode.audio:
         // Слушаем слово на изучаемом языке и выбираем перевод.
         final sel = _selectDueAndNew(due, fresh, goal);
         return _shuffled([
-          for (final c in sel) Exercise(c, ExerciseKind.listen)
+          for (final c in sel) Exercise(c, ExerciseKind.listen),
         ]);
 
       case StudyMode.match:
@@ -101,7 +133,10 @@ class SessionBuilder {
 
   /// Выбор карт: сперва просроченные повторы, затем новые до лимита [goal].
   List<WordCard> _selectDueAndNew(
-      List<WordCard> due, List<WordCard> fresh, int goal) {
+    List<WordCard> due,
+    List<WordCard> fresh,
+    int goal,
+  ) {
     final list = <WordCard>[...due];
     if (list.length < goal) {
       list.addAll(fresh.take(goal - list.length));
@@ -114,10 +149,16 @@ class SessionBuilder {
     switch (c.review.phase) {
       case LearnPhase.unseen:
       case LearnPhase.recognize:
-        return Exercise(c, hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip);
+        return Exercise(
+          c,
+          hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
+        );
       case LearnPhase.produce:
-        return Exercise(c, hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
-            reversed: true);
+        return Exercise(
+          c,
+          hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
+          reversed: true,
+        );
       case LearnPhase.recall:
         return Exercise(c, ExerciseKind.type);
       case LearnPhase.mastered:
@@ -125,14 +166,18 @@ class SessionBuilder {
     }
   }
 
-  Exercise _randomTestExercise(WordCard c, bool hasChoicePool) {
+  Exercise _randomTestExercise(
+    WordCard c,
+    bool hasChoicePool,
+    StudyDirection direction,
+  ) {
     final kinds = <ExerciseKind>[
       if (hasChoicePool) ExerciseKind.choose,
       if (hasChoicePool) ExerciseKind.trueFalse,
       ExerciseKind.type,
     ];
     final kind = kinds[_rng.nextInt(kinds.length)];
-    return Exercise(c, kind, reversed: _rng.nextBool());
+    return Exercise(c, kind, reversed: _reversedFor(direction));
   }
 
   List<Exercise> _shuffled(List<Exercise> list) {
@@ -196,8 +241,11 @@ int _levenshtein(String a, String b) {
     cur[0] = i + 1;
     for (var j = 0; j < b.length; j++) {
       final cost = a[i] == b[j] ? 0 : 1;
-      cur[j + 1] = [cur[j] + 1, prev[j + 1] + 1, prev[j] + cost]
-          .reduce((x, y) => x < y ? x : y);
+      cur[j + 1] = [
+        cur[j] + 1,
+        prev[j + 1] + 1,
+        prev[j] + cost,
+      ].reduce((x, y) => x < y ? x : y);
     }
     final tmp = prev;
     prev = cur;

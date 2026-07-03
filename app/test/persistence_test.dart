@@ -67,6 +67,15 @@ void main() {
         reason: 'карта должна пережить перезапуск');
   });
 
+  test('рекорд «Подбор» сохраняется и только улучшается', () async {
+    expect(await repo.recordMatchMillis('d1', 5000), true); // первый — рекорд
+    expect(repo.bestMatchMillis('d1'), 5000);
+    expect(await repo.recordMatchMillis('d1', 6000), false); // хуже — не рекорд
+    expect(repo.bestMatchMillis('d1'), 5000);
+    expect(await repo.recordMatchMillis('d1', 4000), true); // лучше — рекорд
+    expect(repo.bestMatchMillis('d1'), 4000);
+  });
+
   test('данные из старого стора мигрируют на первом init', () async {
     // Старая (legacy) установка: данные лежат в SharedPreferences, флага
     // миграции ещё нет.

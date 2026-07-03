@@ -30,7 +30,8 @@ class SessionScreen extends StatefulWidget {
   State<SessionScreen> createState() => _SessionScreenState();
 }
 
-class _SessionScreenState extends State<SessionScreen> {
+class _SessionScreenState extends State<SessionScreen>
+    with SingleTickerProviderStateMixin {
   final DeckRepository _repo = DeckRepository.instance;
   final SessionBuilder _builder = SessionBuilder();
 
@@ -46,12 +47,52 @@ class _SessionScreenState extends State<SessionScreen> {
   int _dataFor = -1;
   late _ExData _data;
 
+  // Режим «Быстрый повтор»: обратный отсчёт на вопрос + комбо/очки.
+  static const int _speedSeconds = 8;
+  AnimationController? _speedCtrl;
+  int _combo = 0;
+  int _bestCombo = 0;
+  int _score = 0;
+  int _resolvedIndex = -1; // защита от двойного разрешения (тап + таймаут)
+
+  bool get _isSpeed => widget.mode == StudyMode.speed;
+
   @override
   void initState() {
     super.initState();
     _start = DateTime.now();
     _pool = widget.cards;
-    _queue = _builder.build(widget.mode, widget.cards, _start);
+    _queue = _builder.build(
+      widget.mode,
+      widget.cards,
+      _start,
+      direction: studyDirectionFromIndex(widget.deck.directionIndex),
+    );
+    if (_isSpeed) {
+      _speedCtrl =
+          AnimationController(
+            vsync: this,
+            duration: const Duration(seconds: _speedSeconds),
+          )..addStatusListener((s) {
+            if (s == AnimationStatus.completed) _onTimeout();
+          });
+    }
+  }
+
+  @override
+  void dispose() {
+    _speedCtrl?.dispose();
+    super.dispose();
+  }
+
+  void _startSpeedCountdown() => _speedCtrl?.forward(from: 0);
+  void _freezeSpeed() => _speedCtrl?.stop();
+
+  void _onTimeout() {
+    if (!mounted || !_isSpeed) return;
+    if (_resolvedIndex == _index) return;
+    // Время вышло — засчитываем как неверно и идём дальше.
+    _onGraded(_queue[_index], false, Rating.again);
   }
 
   _ExData _dataForIndex(int i) {
@@ -75,6 +116,21 @@ class _SessionScreenState extends State<SessionScreen> {
   }
 
   Future<void> _onGraded(Exercise ex, bool correct, Rating rating) async {
+    // Один вопрос разрешается один раз (тап пользователя ИЛИ таймаут).
+    if (_resolvedIndex == _index) return;
+    _resolvedIndex = _index;
+
+    if (_isSpeed) {
+      _speedCtrl?.stop();
+      if (correct) {
+        _combo++;
+        _score += 10 + (_combo - 1) * 2; // бонус за серию
+        if (_combo > _bestCombo) _bestCombo = _combo;
+      } else {
+        _combo = 0;
+      }
+    }
+
     _answered++;
     if (correct) _correct++;
 
@@ -123,6 +179,7 @@ class _SessionScreenState extends State<SessionScreen> {
       _answered,
       _correct,
       DateTime.now().difference(_start),
+      score: _isSpeed ? _score : null,
     );
     // Захватываем нужное в локальные переменные: колбэк переживёт уничтожение
     // этого SessionScreen (кнопка «Ещё» на экране результатов).
@@ -181,6 +238,8 @@ class _SessionScreenState extends State<SessionScreen> {
     if (_dataFor != _index) {
       _data = _dataForIndex(_index);
       _dataFor = _index;
+      _resolvedIndex = -1; // новый вопрос ещё не разрешён
+      if (_isSpeed) _startSpeedCountdown();
     }
     final ex = _queue[_index];
     final progress = _queue.isEmpty ? 0.0 : _index / _queue.length;
@@ -215,9 +274,78 @@ class _SessionScreenState extends State<SessionScreen> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
-            child: _exerciseWidget(ex, scheme),
+            child: _isSpeed
+                ? Column(
+                    children: [
+                      _speedHeader(scheme),
+                      Expanded(child: _exerciseWidget(ex, scheme)),
+                    ],
+                  )
+                : _exerciseWidget(ex, scheme),
           ),
         ),
+      ),
+    );
+  }
+
+  /// Шапка «Быстрого повтора»: комбо, очки и убывающий обратный отсчёт.
+  Widget _speedHeader(ColorScheme scheme) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.local_fire_department_rounded,
+                    size: 20,
+                    color: _combo > 0
+                        ? const Color(0xFFFF8A34)
+                        : scheme.onSurfaceVariant,
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    '×$_combo',
+                    style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 18,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '$_score',
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 20,
+                  color: scheme.primary,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          AnimatedBuilder(
+            animation: _speedCtrl!,
+            builder: (_, _) {
+              final left = 1 - _speedCtrl!.value;
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: LinearProgressIndicator(
+                  value: left,
+                  minHeight: 8,
+                  color: left < 0.3 ? scheme.error : scheme.primary,
+                  backgroundColor: scheme.surfaceContainerHighest,
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
@@ -247,6 +375,7 @@ class _SessionScreenState extends State<SessionScreen> {
           key: key,
           ex: ex,
           options: _data.options,
+          onSelected: _isSpeed ? _freezeSpeed : null,
           onAnswered: (correct) =>
               _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
@@ -611,11 +740,16 @@ class _ChooseExercise extends StatefulWidget {
   final List<String> options;
   final void Function(bool correct) onAnswered;
 
+  /// Немедленный сигнал в момент выбора (до задержки-подсветки) — «Быстрый
+  /// повтор» использует его, чтобы заморозить таймер.
+  final VoidCallback? onSelected;
+
   const _ChooseExercise({
     super.key,
     required this.ex,
     required this.options,
     required this.onAnswered,
+    this.onSelected,
   });
 
   @override
@@ -629,6 +763,7 @@ class _ChooseExerciseState extends State<_ChooseExercise> {
     if (_picked != null) return;
     final correct =
         opt.trim().toLowerCase() == widget.ex.answer.trim().toLowerCase();
+    widget.onSelected?.call();
     setState(() => _picked = opt);
     HapticFeedback.mediumImpact();
     Future.delayed(const Duration(milliseconds: 850), () {

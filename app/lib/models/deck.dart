@@ -18,6 +18,10 @@ class Deck {
   /// Индекс формы-обложки (см. `kDeckShapes`).
   int shapeIndex;
 
+  /// Направление изучения: 0 — прямое (слово→перевод), 1 — обратное
+  /// (перевод→слово), 2 — в обе стороны. См. [StudyDirection] в study_models.
+  int directionIndex;
+
   /// Момент создания (мс от эпохи) — для сортировки.
   final int createdAt;
 
@@ -28,6 +32,7 @@ class Deck {
     required this.colorValue,
     required this.shapeIndex,
     required this.createdAt,
+    this.directionIndex = 0,
   });
 
   Color get color => Color(colorValue);
@@ -38,6 +43,7 @@ class Deck {
         'name': name,
         'color': colorValue,
         'shape': shapeIndex,
+        'dir': directionIndex,
         'createdAt': createdAt,
       };
 
@@ -47,6 +53,7 @@ class Deck {
         name: j['name'] as String? ?? '',
         colorValue: (j['color'] as num?)?.toInt() ?? 0xFF2E7D5B,
         shapeIndex: (j['shape'] as num?)?.toInt() ?? 0,
+        directionIndex: (j['dir'] as num?)?.toInt() ?? 0,
         createdAt: (j['createdAt'] as num?)?.toInt() ?? 0,
       );
 }

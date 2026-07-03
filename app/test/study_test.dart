@@ -88,6 +88,20 @@ void main() {
     });
   });
 
+  group('Направление изучения', () {
+    final cards = [for (var i = 0; i < 6; i++) _c('$i')];
+    test('forward — все упражнения прямые', () {
+      final q = builder.build(StudyMode.flashcards, cards, now,
+          goal: 6, direction: StudyDirection.forward);
+      expect(q.every((e) => !e.reversed), true);
+    });
+    test('reverse — все упражнения обратные', () {
+      final q = builder.build(StudyMode.flashcards, cards, now,
+          goal: 6, direction: StudyDirection.reverse);
+      expect(q.every((e) => e.reversed), true);
+    });
+  });
+
   test('дистракторы не содержат правильный ответ и берутся из пула', () {
     final cards = [for (var i = 0; i < 6; i++) _c('$i')];
     final ex = Exercise(cards.first, ExerciseKind.choose);

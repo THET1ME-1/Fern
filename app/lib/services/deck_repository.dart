@@ -35,6 +35,7 @@ class DeckRepository extends ChangeNotifier {
   static const String _kSeededDemo = 'seededDemo';
   static const String _kSeedVersion = 'seedVersion';
   static const String _kReviewLog = 'reviewLog';
+  static const String _kMatchBest = 'matchBest'; // deckId -> лучшее время, мс
 
   // Настройки (совместимы по смыслу с ScoreMaster).
   static const String _kSeedColor = 'seedColor';
@@ -63,6 +64,7 @@ class DeckRepository extends ChangeNotifier {
   final List<Deck> _decks = [];
   final List<WordCard> _cards = [];
   ReviewLog _log = ReviewLog.empty();
+  Map<String, int> _matchBest = {};
   bool _loaded = false;
 
   /// Один раз загружает данные в память (и мигрирует со старого стора).
@@ -77,7 +79,18 @@ class DeckRepository extends ChangeNotifier {
       ..clear()
       ..addAll(_decodeCards(await _prefs.getStringList(_kCards) ?? const []));
     _log = _decodeLog(await _prefs.getString(_kReviewLog));
+    _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
     _loaded = true;
+  }
+
+  Map<String, int> _decodeMatchBest(String? raw) {
+    if (raw == null || raw.isEmpty) return {};
+    try {
+      final m = (jsonDecode(raw) as Map).cast<String, dynamic>();
+      return {for (final e in m.entries) e.key: (e.value as num).toInt()};
+    } catch (_) {
+      return {};
+    }
   }
 
   ReviewLog _decodeLog(String? raw) {
@@ -100,6 +113,7 @@ class DeckRepository extends ChangeNotifier {
     _decks.clear();
     _cards.clear();
     _log = ReviewLog.empty();
+    _matchBest = {};
     _loaded = false;
   }
 
@@ -133,6 +147,7 @@ class DeckRepository extends ChangeNotifier {
       await copyStringList(_kDecks);
       await copyStringList(_kCards);
       await copyString(_kReviewLog);
+      await copyString(_kMatchBest);
       await copyString(_kSelectedLanguage);
       await copyBool(_kSeededDemo);
       await copyInt(_kSeedColor);
@@ -318,6 +333,22 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ----------------------------- Рекорды «Подбор» -----------------------------
+
+  /// Лучшее время игры «Подбор» для колоды (мс) или null.
+  int? bestMatchMillis(String deckId) => _matchBest[deckId];
+
+  /// Записывает результат игры «Подбор». Возвращает true, если это новый рекорд.
+  Future<bool> recordMatchMillis(String deckId, int millis) async {
+    await _ensureLoaded();
+    final prev = _matchBest[deckId];
+    if (prev != null && prev <= millis) return false;
+    _matchBest = Map<String, int>.from(_matchBest)..[deckId] = millis;
+    await _prefs.setString(_kMatchBest, jsonEncode(_matchBest));
+    notifyListeners();
+    return true;
+  }
+
   // ----------------------------- Выбранный язык -----------------------------
 
   Future<String?> selectedLanguageCode() async =>
@@ -473,8 +504,8 @@ class DeckRepository extends ChangeNotifier {
     }
 
     // Апгрейд старого авто-набора (5+4 слова) до нового, если он не изменён.
-    final onlyOldAuto = _decks.isNotEmpty &&
-        _decks.every((d) => d.id.startsWith('demo_en_'));
+    final onlyOldAuto =
+        _decks.isNotEmpty && _decks.every((d) => d.id.startsWith('demo_en_'));
     if (storedVer < _seedVersion && onlyOldAuto) {
       _decks.removeWhere((d) => d.id.startsWith('demo_en_'));
       _cards.removeWhere((c) => c.deckId.startsWith('demo_en_'));
@@ -532,13 +563,15 @@ class DeckRepository extends ChangeNotifier {
           final front = (cm['front'] as String? ?? '').trim();
           final back = (cm['back'] as String? ?? '').trim();
           if (front.isEmpty || back.isEmpty) continue;
-          cards.add(WordCard(
-            id: '${deckId}_$i',
-            deckId: deckId,
-            front: front,
-            back: back,
-            example: (cm['example'] as String? ?? '').trim(),
-          ));
+          cards.add(
+            WordCard(
+              id: '${deckId}_$i',
+              deckId: deckId,
+              front: front,
+              back: back,
+              example: (cm['example'] as String? ?? '').trim(),
+            ),
+          );
           i++;
         }
         out.add((deck, cards));
