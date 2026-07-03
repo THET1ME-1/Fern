@@ -104,6 +104,12 @@ const Map<String, Map<String, String>> _strings = {
   'card_front': {'ru': 'Слово', 'en': 'Word'},
   'card_back': {'ru': 'Перевод', 'en': 'Translation'},
   'card_example': {'ru': 'Пример (необязательно)', 'en': 'Example (optional)'},
+  'translate_action': {'ru': 'Перевести', 'en': 'Translate'},
+  'translate_downloading': {
+    'ru': 'Загрузка языковой модели…',
+    'en': 'Downloading language model…'
+  },
+  'translate_failed': {'ru': 'Не удалось перевести', 'en': 'Translation failed'},
   'delete_card': {'ru': 'Удалить карточку', 'en': 'Delete card'},
   'empty_deck_title': {'ru': 'В колоде нет карточек', 'en': 'No cards yet'},
   'empty_deck_sub': {

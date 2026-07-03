@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/translation_service.dart';
 import 'study/match_screen.dart';
 import 'study/session_screen.dart';
 import 'study/study_models.dart';
@@ -18,17 +20,17 @@ enum _CardSort { added, alpha, status, due }
 
 extension _CardSortInfo on _CardSort {
   String get labelKey => switch (this) {
-        _CardSort.added => 'sort_added',
-        _CardSort.alpha => 'sort_alpha',
-        _CardSort.status => 'sort_status',
-        _CardSort.due => 'sort_due',
-      };
+    _CardSort.added => 'sort_added',
+    _CardSort.alpha => 'sort_alpha',
+    _CardSort.status => 'sort_status',
+    _CardSort.due => 'sort_due',
+  };
   IconData get icon => switch (this) {
-        _CardSort.added => Icons.schedule_rounded,
-        _CardSort.alpha => Icons.sort_by_alpha_rounded,
-        _CardSort.status => Icons.donut_small_rounded,
-        _CardSort.due => Icons.notifications_active_rounded,
-      };
+    _CardSort.added => Icons.schedule_rounded,
+    _CardSort.alpha => Icons.sort_by_alpha_rounded,
+    _CardSort.status => Icons.donut_small_rounded,
+    _CardSort.due => Icons.notifications_active_rounded,
+  };
 }
 
 /// Экран колоды: пусковая панель режимов обучения + список карточек.
@@ -68,18 +70,21 @@ class _DeckScreenState extends State<DeckScreen> {
     final list = q.isEmpty
         ? List<WordCard>.from(_cards)
         : _cards
-            .where((c) =>
-                c.front.toLowerCase().contains(q) ||
-                c.back.toLowerCase().contains(q) ||
-                c.example.toLowerCase().contains(q))
-            .toList();
+              .where(
+                (c) =>
+                    c.front.toLowerCase().contains(q) ||
+                    c.back.toLowerCase().contains(q) ||
+                    c.example.toLowerCase().contains(q),
+              )
+              .toList();
     final now = DateTime.now();
     switch (_sort) {
       case _CardSort.added:
         break; // естественный порядок добавления
       case _CardSort.alpha:
-        list.sort((a, b) =>
-            a.front.toLowerCase().compareTo(b.front.toLowerCase()));
+        list.sort(
+          (a, b) => a.front.toLowerCase().compareTo(b.front.toLowerCase()),
+        );
       case _CardSort.status:
         list.sort((a, b) => a.status.index.compareTo(b.status.index));
       case _CardSort.due:
@@ -121,15 +126,15 @@ class _DeckScreenState extends State<DeckScreen> {
 
   void _launch(StudyMode mode, bool enabled) {
     if (!enabled) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(tr('soon'))),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('soon'))));
       return;
     }
     if (_cards.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(tr('empty_deck_sub'))),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('empty_deck_sub'))));
       return;
     }
     HapticFeedback.selectionClick();
@@ -149,7 +154,11 @@ class _DeckScreenState extends State<DeckScreen> {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
-      builder: (_) => _CardEditorSheet(existing: existing, deckId: widget.deck.id),
+      builder: (_) => _CardEditorSheet(
+        existing: existing,
+        deckId: widget.deck.id,
+        languageCode: widget.deck.languageCode,
+      ),
     );
     if (result == null) return;
     await _repo.upsertCard(result);
@@ -255,8 +264,10 @@ class _DeckScreenState extends State<DeckScreen> {
             const SizedBox(height: 8),
             for (final s in _CardSort.values)
               ListTile(
-                leading: Icon(s.icon,
-                    color: s == _sort ? scheme.primary : scheme.onSurfaceVariant),
+                leading: Icon(
+                  s.icon,
+                  color: s == _sort ? scheme.primary : scheme.onSurfaceVariant,
+                ),
                 title: Text(tr(s.labelKey)),
                 trailing: s == _sort
                     ? Icon(Icons.check_rounded, color: scheme.primary)
@@ -349,8 +360,12 @@ class _DeckScreenState extends State<DeckScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _miniStat('${c.total}', tr('cards_total'), scheme),
-                _miniStat('${c.due}', tr('stat_due'), scheme,
-                    highlight: c.due > 0),
+                _miniStat(
+                  '${c.due}',
+                  tr('stat_due'),
+                  scheme,
+                  highlight: c.due > 0,
+                ),
                 _miniStat('${c.mature}', tr('stat_mature'), scheme),
               ],
             ),
@@ -360,8 +375,12 @@ class _DeckScreenState extends State<DeckScreen> {
     );
   }
 
-  Widget _miniStat(String value, String label, ColorScheme scheme,
-      {bool highlight = false}) {
+  Widget _miniStat(
+    String value,
+    String label,
+    ColorScheme scheme, {
+    bool highlight = false,
+  }) {
     return Column(
       children: [
         Text(
@@ -389,21 +408,56 @@ class _DeckScreenState extends State<DeckScreen> {
   Widget _modesGrid(ColorScheme scheme) {
     // (режим, иконка, ключ названия, ключ подписи, доступен)
     final modes = <(StudyMode, IconData, String, String, bool)>[
-      (StudyMode.learn, Icons.auto_awesome_rounded, 'mode_learn',
-          'mode_learn_sub', true),
-      (StudyMode.flashcards, Icons.style_rounded, 'mode_flashcards',
-          'mode_flashcards_sub', true),
+      (
+        StudyMode.learn,
+        Icons.auto_awesome_rounded,
+        'mode_learn',
+        'mode_learn_sub',
+        true,
+      ),
+      (
+        StudyMode.flashcards,
+        Icons.style_rounded,
+        'mode_flashcards',
+        'mode_flashcards_sub',
+        true,
+      ),
       (StudyMode.test, Icons.quiz_rounded, 'mode_test', 'mode_test_sub', true),
-      (StudyMode.match, Icons.extension_rounded, 'mode_match', 'mode_match_sub',
-          true),
-      (StudyMode.write, Icons.edit_rounded, 'mode_write', 'mode_write_sub',
-          true),
-      (StudyMode.hard, Icons.local_fire_department_rounded, 'mode_hard',
-          'mode_hard_sub', true),
-      (StudyMode.speed, Icons.bolt_rounded, 'mode_speed', 'mode_speed_sub',
-          true),
-      (StudyMode.audio, Icons.headphones_rounded, 'mode_audio', 'mode_audio_sub',
-          true),
+      (
+        StudyMode.match,
+        Icons.extension_rounded,
+        'mode_match',
+        'mode_match_sub',
+        true,
+      ),
+      (
+        StudyMode.write,
+        Icons.edit_rounded,
+        'mode_write',
+        'mode_write_sub',
+        true,
+      ),
+      (
+        StudyMode.hard,
+        Icons.local_fire_department_rounded,
+        'mode_hard',
+        'mode_hard_sub',
+        true,
+      ),
+      (
+        StudyMode.speed,
+        Icons.bolt_rounded,
+        'mode_speed',
+        'mode_speed_sub',
+        true,
+      ),
+      (
+        StudyMode.audio,
+        Icons.headphones_rounded,
+        'mode_audio',
+        'mode_audio_sub',
+        true,
+      ),
     ];
     final learn = modes.first;
     final rest = modes.skip(1).toList();
@@ -430,7 +484,9 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   Widget _heroMode(
-      (StudyMode, IconData, String, String, bool) m, ColorScheme scheme) {
+    (StudyMode, IconData, String, String, bool) m,
+    ColorScheme scheme,
+  ) {
     return Material(
       color: scheme.primaryContainer,
       borderRadius: BorderRadius.circular(24),
@@ -462,14 +518,19 @@ class _DeckScreenState extends State<DeckScreen> {
                       style: TextStyle(
                         fontFamily: AppTheme.bodyFont,
                         fontSize: 13,
-                        color: scheme.onPrimaryContainer.withValues(alpha: 0.85),
+                        color: scheme.onPrimaryContainer.withValues(
+                          alpha: 0.85,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-              Icon(Icons.play_circle_rounded,
-                  size: 32, color: scheme.onPrimaryContainer),
+              Icon(
+                Icons.play_circle_rounded,
+                size: 32,
+                color: scheme.onPrimaryContainer,
+              ),
             ],
           ),
         ),
@@ -478,7 +539,9 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   Widget _modeTile(
-      (StudyMode, IconData, String, String, bool) m, ColorScheme scheme) {
+    (StudyMode, IconData, String, String, bool) m,
+    ColorScheme scheme,
+  ) {
     final enabled = m.$5;
     return Material(
       color: scheme.surfaceContainerHigh,
@@ -515,7 +578,9 @@ class _DeckScreenState extends State<DeckScreen> {
                       const SizedBox(width: 6),
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 6, vertical: 2),
+                          horizontal: 6,
+                          vertical: 2,
+                        ),
                         decoration: BoxDecoration(
                           color: scheme.tertiaryContainer,
                           borderRadius: BorderRadius.circular(8),
@@ -542,42 +607,44 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   Widget _sectionTitle(String text, ColorScheme scheme) => Text(
-        text,
-        style: TextStyle(
-          fontFamily: AppTheme.displayFont,
-          fontWeight: FontWeight.w700,
-          fontSize: 18,
-          color: scheme.onSurface,
-        ),
-      );
+    text,
+    style: TextStyle(
+      fontFamily: AppTheme.displayFont,
+      fontWeight: FontWeight.w700,
+      fontSize: 18,
+      color: scheme.onSurface,
+    ),
+  );
 
   /// Цвет + иконка + подпись статуса карты.
   ({Color color, IconData icon, String label}) _statusVisual(
-      CardStatus s, ColorScheme scheme) {
+    CardStatus s,
+    ColorScheme scheme,
+  ) {
     switch (s) {
       case CardStatus.fresh:
         return (
           color: scheme.primary,
           icon: Icons.fiber_new_rounded,
-          label: tr('status_new')
+          label: tr('status_new'),
         );
       case CardStatus.learning:
         return (
           color: scheme.tertiary,
           icon: Icons.trending_up_rounded,
-          label: tr('status_learning')
+          label: tr('status_learning'),
         );
       case CardStatus.young:
         return (
           color: scheme.secondary,
           icon: Icons.spa_rounded,
-          label: tr('status_young')
+          label: tr('status_young'),
         );
       case CardStatus.mature:
         return (
           color: scheme.primary,
           icon: Icons.verified_rounded,
-          label: tr('status_mature')
+          label: tr('status_mature'),
         );
     }
   }
@@ -620,8 +687,7 @@ class _DeckScreenState extends State<DeckScreen> {
           child: InkWell(
             onTap: () => _addOrEditCard(card),
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
               child: Row(
                 children: [
                   // Индикатор статуса владения.
@@ -657,8 +723,11 @@ class _DeckScreenState extends State<DeckScreen> {
                             ),
                             if (hasExample) ...[
                               const SizedBox(width: 6),
-                              Icon(Icons.format_quote_rounded,
-                                  size: 13, color: scheme.onSurfaceVariant),
+                              Icon(
+                                Icons.format_quote_rounded,
+                                size: 13,
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ],
                           ],
                         ),
@@ -701,11 +770,14 @@ class _DeckScreenState extends State<DeckScreen> {
                           style: TextStyle(
                             fontFamily: AppTheme.bodyFont,
                             fontSize: 10.5,
-                            fontWeight: isDue ? FontWeight.w700 : FontWeight.w400,
+                            fontWeight: isDue
+                                ? FontWeight.w700
+                                : FontWeight.w400,
                             color: isDue
                                 ? scheme.primary
-                                : scheme.onSurfaceVariant
-                                    .withValues(alpha: 0.7),
+                                : scheme.onSurfaceVariant.withValues(
+                                    alpha: 0.7,
+                                  ),
                           ),
                         ),
                       ],
@@ -762,7 +834,12 @@ class _DeckScreenState extends State<DeckScreen> {
 class _CardEditorSheet extends StatefulWidget {
   final WordCard? existing;
   final String deckId;
-  const _CardEditorSheet({this.existing, required this.deckId});
+  final String languageCode;
+  const _CardEditorSheet({
+    this.existing,
+    required this.deckId,
+    required this.languageCode,
+  });
 
   @override
   State<_CardEditorSheet> createState() => _CardEditorSheetState();
@@ -772,6 +849,12 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   late final TextEditingController _front;
   late final TextEditingController _back;
   late final TextEditingController _example;
+  bool _translating = false;
+
+  /// Язык перевода = язык интерфейса пользователя (его родной).
+  String get _targetLang => LocaleController.instance.code;
+  bool get _canTranslate =>
+      TranslationService.canTranslate(widget.languageCode, _targetLang);
 
   @override
   void initState() {
@@ -780,6 +863,37 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     _front = TextEditingController(text: e?.front ?? '');
     _back = TextEditingController(text: e?.back ?? '');
     _example = TextEditingController(text: e?.example ?? '');
+  }
+
+  Future<void> _translate() async {
+    final text = _front.text.trim();
+    if (text.isEmpty || _translating) return;
+    HapticFeedback.selectionClick();
+    // Подсказка про загрузку модели при первом использовании.
+    final ready = await TranslationService.modelsReady(
+      widget.languageCode,
+      _targetLang,
+    );
+    if (mounted && !ready) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('translate_downloading'))));
+    }
+    setState(() => _translating = true);
+    final result = await TranslationService.translate(
+      text,
+      widget.languageCode,
+      _targetLang,
+    );
+    if (!mounted) return;
+    setState(() => _translating = false);
+    if (result != null && result.isNotEmpty) {
+      _back.text = result;
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('translate_failed'))));
+    }
   }
 
   @override
@@ -811,7 +925,9 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
@@ -843,7 +959,22 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                 textCapitalization: TextCapitalization.sentences,
                 decoration: InputDecoration(
                   labelText: tr('card_front'),
-                  prefixIcon: const Icon(Icons.translate_rounded),
+                  prefixIcon: const Icon(Icons.text_fields_rounded),
+                  suffixIcon: _canTranslate
+                      ? IconButton(
+                          tooltip: tr('translate_action'),
+                          icon: _translating
+                              ? const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                )
+                              : const Icon(Icons.translate_rounded),
+                          onPressed: _translating ? null : _translate,
+                        )
+                      : null,
                 ),
               ),
               const SizedBox(height: 12),
@@ -921,12 +1052,14 @@ class _QuickAddSheetState extends State<_QuickAddSheet> {
       final front = parts[0].trim();
       final back = parts.sublist(1).join(' ').trim();
       if (front.isEmpty || back.isEmpty) continue;
-      cards.add(WordCard(
-        id: 'card_${DateTime.now().microsecondsSinceEpoch}_${i++}',
-        deckId: widget.deckId,
-        front: front,
-        back: back,
-      ));
+      cards.add(
+        WordCard(
+          id: 'card_${DateTime.now().microsecondsSinceEpoch}_${i++}',
+          deckId: widget.deckId,
+          front: front,
+          back: back,
+        ),
+      );
     }
     Navigator.pop(context, cards);
   }
@@ -935,7 +1068,9 @@ class _QuickAddSheetState extends State<_QuickAddSheet> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     return Padding(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
