@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'deck_screen.dart';
 import 'l10n/strings.dart';
 import 'language_picker_sheet.dart';
 import 'models/deck.dart';
 import 'models/language.dart';
+import 'models/pack.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
+import 'pack_screen.dart';
 import 'services/deck_repository.dart';
 import 'services/starter_decks.dart';
 import 'theme/app_theme.dart';
 import 'video/video_import_screen.dart';
-import 'widgets/color_picker_sheet.dart';
 import 'widgets/count_up_number.dart';
+import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_shapes.dart';
+import 'widgets/deck_tiles.dart';
 import 'widgets/goal_ring.dart';
+import 'widgets/pack_editor_sheet.dart';
 import 'widgets/reveal.dart';
 
-/// Пресет-цвета обложек колод.
-const List<Color> _deckPalette = [
-  Color(0xFF2E7D5B),
-  Color(0xFF3F6FB0),
-  Color(0xFFB5622E),
-  Color(0xFF8A4FBF),
-  Color(0xFFB03F6F),
-  Color(0xFF4FA0A8),
-  Color(0xFF7A8B2E),
-  Color(0xFFB0873F),
-];
-
-/// Главный экран: сверху баннер выбора изучаемого языка, ниже — сетка колод
-/// (паков слов) этого языка. ДНК ScoreMaster (меню выбора игроков).
+/// Главный экран: сверху баннер выбора изучаемого языка, ниже — сетка паков и
+/// колод этого языка. ДНК ScoreMaster (меню выбора игроков).
 class DecksScreen extends StatefulWidget {
   const DecksScreen({super.key});
 
@@ -43,12 +34,14 @@ class _DecksScreenState extends State<DecksScreen> {
   final DeckRepository _repo = DeckRepository.instance;
 
   List<Deck> _decks = [];
+  List<Pack> _packs = [];
   List<WordCard> _cards = [];
   ReviewLog _log = ReviewLog.empty();
   int _goal = 20;
   String _lang = 'en';
   bool _loading = true;
   bool _hasStarter = false;
+  bool _showVideoBanner = true;
 
   @override
   void initState() {
@@ -65,20 +58,24 @@ class _DecksScreenState extends State<DecksScreen> {
 
   Future<void> _load() async {
     final decks = await _repo.loadDecks();
+    final packs = await _repo.loadPacks();
     final cards = await _repo.loadCards();
     final log = await _repo.reviewLog();
     final goal = await _repo.dailyGoal();
+    final showBanner = await _repo.showVideoBanner();
     var lang = await _repo.selectedLanguageCode();
     lang ??= decks.isNotEmpty ? decks.first.languageCode : 'en';
     final hasStarter = await StarterDecks.hasPacksFor(lang);
     if (!mounted) return;
     setState(() {
       _decks = decks;
+      _packs = packs;
       _cards = cards;
       _log = log;
       _goal = goal;
       _lang = lang!;
       _hasStarter = hasStarter;
+      _showVideoBanner = showBanner;
       _loading = false;
     });
   }
@@ -113,9 +110,30 @@ class _DecksScreenState extends State<DecksScreen> {
     return due;
   }
 
-  List<Deck> get _visibleDecks =>
-      _decks.where((d) => d.languageCode == _lang).toList()
+  /// Верхнеуровневые колоды текущего языка (не вложенные в пак).
+  List<Deck> get _visibleDecks => _decks
+      .where((d) => d.languageCode == _lang && d.packId == null)
+      .toList()
+    ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+
+  /// Паки текущего языка.
+  List<Pack> get _visiblePacks =>
+      _packs.where((p) => p.languageCode == _lang).toList()
         ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+
+  List<Deck> _decksInPack(String packId) =>
+      _decks.where((d) => d.packId == packId).toList()
+        ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
+
+  ({int total, int due}) _packCounts(String packId) {
+    var total = 0, due = 0;
+    for (final d in _decksInPack(packId)) {
+      final c = _counts(d.id);
+      total += c.total;
+      due += c.due;
+    }
+    return (total: total, due: due);
+  }
 
   ({int total, int due, int fresh}) _counts(String deckId) {
     final now = DateTime.now();
@@ -140,17 +158,58 @@ class _DecksScreenState extends State<DecksScreen> {
   }
 
   Future<void> _createOrEditDeck([Deck? existing]) async {
-    final result = await showModalBottomSheet<Deck>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      builder: (_) => _DeckEditorSheet(existing: existing, languageCode: _lang),
+    final result = await showDeckEditor(
+      context,
+      existing: existing,
+      languageCode: _lang,
     );
     if (result == null) return;
     await _repo.upsertDeck(result);
+  }
+
+  Future<void> _createPack() async {
+    final pack = await showPackEditor(context, languageCode: _lang);
+    if (pack == null) return;
+    await _repo.upsertPack(pack);
+  }
+
+  /// Меню плитки «+»: создать колоду или пак.
+  Future<void> _addChooser() async {
+    final scheme = Theme.of(context).colorScheme;
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor: scheme.surfaceContainer,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 12),
+            ListTile(
+              leading: Icon(Icons.style_rounded, color: scheme.primary),
+              title: Text(tr('create_deck')),
+              subtitle: Text(tr('create_deck_sub')),
+              onTap: () {
+                Navigator.pop(ctx);
+                _createOrEditDeck();
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.layers_rounded, color: scheme.tertiary),
+              title: Text(tr('create_pack')),
+              subtitle: Text(tr('create_pack_sub')),
+              onTap: () {
+                Navigator.pop(ctx);
+                _createPack();
+              },
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
   }
 
   Future<void> _deckMenu(Deck deck) async {
@@ -218,16 +277,12 @@ class _DecksScreenState extends State<DecksScreen> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final decks = _visibleDecks;
+    final packs = _visiblePacks;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Fern'),
         actions: [
-          IconButton(
-            tooltip: tr('video_banner_title'),
-            icon: const Icon(Icons.subtitles_rounded),
-            onPressed: _openVideo,
-          ),
           if (_hasStarter)
             IconButton(
               tooltip: tr('starter_decks'),
@@ -243,11 +298,11 @@ class _DecksScreenState extends State<DecksScreen> {
                 // Дневная сводка нужна, только когда уже есть что учить.
                 if (_cards.isNotEmpty) Reveal(child: _todayHero(scheme)),
                 _languageBanner(scheme),
-                Reveal(child: _videoBanner(scheme)),
+                if (_showVideoBanner) Reveal(child: _videoBanner(scheme)),
                 Expanded(
-                  child: decks.isEmpty
+                  child: decks.isEmpty && packs.isEmpty
                       ? _emptyState(scheme)
-                      : _grid(decks, scheme),
+                      : _grid(packs, decks, scheme),
                 ),
               ],
             ),
@@ -521,10 +576,16 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Widget _grid(List<Deck> decks, ColorScheme scheme) {
+  Widget _grid(List<Pack> packs, List<Deck> decks, ColorScheme scheme) {
+    // Паки идут первыми (визуально отдельная «полка»), затем колоды, затем «+».
     final items = <Widget>[
-      for (final d in decks) _deckCard(d, scheme),
-      _addCard(scheme),
+      for (final p in packs) _packCard(p),
+      for (final d in decks) _deckCard(d),
+      AddDashedCard(
+        icon: Icons.add_rounded,
+        label: tr('add'),
+        onTap: _addChooser,
+      ),
     ];
     return GridView.builder(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
@@ -542,130 +603,111 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Widget _deckCard(Deck deck, ColorScheme scheme) {
-    final c = _counts(deck.id);
-    return GestureDetector(
+  Widget _packCard(Pack pack) {
+    final c = _packCounts(pack.id);
+    final deckColors = [for (final d in _decksInPack(pack.id)) d.color];
+    return PackCoverCard(
+      name: pack.name,
+      color: pack.color,
+      deckColors: deckColors,
+      deckCount: _decksInPack(pack.id).length,
+      due: c.due,
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => DeckScreen(deck: deck)),
+        MaterialPageRoute(builder: (_) => PackScreen(pack: pack)),
       ),
-      onLongPress: () => _deckMenu(deck),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: scheme.surfaceContainerHigh,
-          borderRadius: BorderRadius.circular(28),
-        ),
-        child: Stack(
-          clipBehavior: Clip.none,
+      onLongPress: () => _packMenu(pack),
+    );
+  }
+
+  Future<void> _packMenu(Pack pack) async {
+    final scheme = Theme.of(context).colorScheme;
+    await showModalBottomSheet(
+      context: context,
+      backgroundColor: scheme.surfaceContainer,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ShapedCover(
-                    label: deck.name,
-                    color: deck.color,
-                    imagePath: null,
-                    size: 84,
-                    shape: deckShape(deck.shapeIndex),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    deck.name,
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontFamily: AppTheme.displayFont,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 15,
-                      color: scheme.onSurface,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    trf('cards_n', {'n': c.total}),
-                    style: TextStyle(
-                      fontFamily: AppTheme.bodyFont,
-                      fontSize: 12,
-                      color: scheme.onSurfaceVariant,
-                    ),
-                  ),
-                ],
-              ),
+            const SizedBox(height: 8),
+            ListTile(
+              leading: const Icon(Icons.open_in_full_rounded),
+              title: Text(tr('open_pack')),
+              onTap: () {
+                Navigator.pop(ctx);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => PackScreen(pack: pack)),
+                );
+              },
             ),
-            if (c.due > 0)
-              Positioned(
-                top: -2,
-                right: -2,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 5,
-                  ),
-                  decoration: BoxDecoration(
-                    color: scheme.primary,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Text(
-                    '${c.due}',
-                    style: TextStyle(
-                      fontFamily: AppTheme.displayFont,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 13,
-                      color: scheme.onPrimary,
-                    ),
-                  ),
-                ),
-              ),
+            ListTile(
+              leading: const Icon(Icons.edit_rounded),
+              title: Text(tr('edit_pack')),
+              onTap: () async {
+                Navigator.pop(ctx);
+                final res =
+                    await showPackEditor(context, existing: pack, languageCode: _lang);
+                if (res != null) await _repo.upsertPack(res);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.delete_rounded, color: scheme.error),
+              title: Text(tr('delete_pack')),
+              subtitle: Text(tr('delete_pack_keeps_decks')),
+              onTap: () {
+                Navigator.pop(ctx);
+                _deletePack(pack);
+              },
+            ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
     );
   }
 
-  Widget _addCard(ColorScheme scheme) {
-    return GestureDetector(
-      onTap: () => _createOrEditDeck(),
-      child: CustomPaint(
-        painter: _DashedBorderPainter(color: scheme.outline),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 84,
-                  height: 84,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: scheme.surfaceContainerHighest,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    Icons.add_rounded,
-                    size: 40,
-                    color: scheme.onSurfaceVariant,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  tr('create_deck'),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: AppTheme.bodyFont,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: scheme.onSurfaceVariant,
-                  ),
-                ),
-              ],
-            ),
+  Future<void> _deletePack(Pack pack) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(pack.name),
+        content: Text(tr('delete_pack_confirm')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(tr('cancel')),
           ),
-        ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(ctx).colorScheme.errorContainer,
+              foregroundColor: Theme.of(ctx).colorScheme.onErrorContainer,
+            ),
+            child: Text(tr('delete')),
+          ),
+        ],
       ),
+    );
+    if (ok == true) await _repo.deletePack(pack.id);
+  }
+
+  Widget _deckCard(Deck deck) {
+    final c = _counts(deck.id);
+    return DeckCoverCard(
+      name: deck.name,
+      color: deck.color,
+      shapeIndex: deck.shapeIndex,
+      total: c.total,
+      due: c.due,
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => DeckScreen(deck: deck)),
+      ),
+      onLongPress: () => _deckMenu(deck),
     );
   }
 
@@ -827,7 +869,7 @@ class _StarterDecksSheetState extends State<_StarterDecksSheet> {
   Widget _packRow(StarterPack pack, int i, ColorScheme scheme) {
     final added = _added.contains(pack.name);
     final busy = _busy.contains(pack.name);
-    final color = _deckPalette[i % _deckPalette.length];
+    final color = kDeckPalette[i % kDeckPalette.length];
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
@@ -908,336 +950,6 @@ class _StarterDecksSheetState extends State<_StarterDecksSheet> {
                   : Text(tr('add')),
             ),
         ],
-      ),
-    );
-  }
-}
-
-/// Пунктирная рамка для карточки «+».
-class _DashedBorderPainter extends CustomPainter {
-  final Color color;
-  _DashedBorderPainter({required this.color});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.6;
-    final rrect = RRect.fromRectAndRadius(
-      Offset.zero & size,
-      const Radius.circular(28),
-    );
-    final path = Path()..addRRect(rrect);
-    const dash = 7.0;
-    const gap = 5.0;
-    for (final metric in path.computeMetrics()) {
-      var dist = 0.0;
-      while (dist < metric.length) {
-        canvas.drawPath(metric.extractPath(dist, dist + dash), paint);
-        dist += dash + gap;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant _DashedBorderPainter old) => old.color != color;
-}
-
-/// Редактор колоды (создание/правка): название, цвет и форма обложки.
-class _DeckEditorSheet extends StatefulWidget {
-  final Deck? existing;
-  final String languageCode;
-  const _DeckEditorSheet({this.existing, required this.languageCode});
-
-  @override
-  State<_DeckEditorSheet> createState() => _DeckEditorSheetState();
-}
-
-class _DeckEditorSheetState extends State<_DeckEditorSheet> {
-  late final TextEditingController _name;
-  late int _color;
-  late int _shape;
-  late int _direction;
-
-  @override
-  void initState() {
-    super.initState();
-    final e = widget.existing;
-    _name = TextEditingController(text: e?.name ?? '');
-    _color = e?.colorValue ?? _deckPalette.first.toARGB32();
-    _shape = e?.shapeIndex ?? 0;
-    _direction = e?.directionIndex ?? 0;
-  }
-
-  @override
-  void dispose() {
-    _name.dispose();
-    super.dispose();
-  }
-
-  Future<void> _pickCustomColor() async {
-    final picked = await showColorPickerSheet(
-      context,
-      initial: Color(_color),
-      title: tr('deck_color'),
-    );
-    if (picked != null) setState(() => _color = picked.toARGB32());
-  }
-
-  void _save() {
-    final name = _name.text.trim();
-    if (name.isEmpty) return;
-    HapticFeedback.selectionClick();
-    final e = widget.existing;
-    final deck = Deck(
-      id: e?.id ?? 'deck_${DateTime.now().millisecondsSinceEpoch}',
-      languageCode: e?.languageCode ?? widget.languageCode,
-      name: name,
-      colorValue: _color,
-      shapeIndex: _shape,
-      directionIndex: _direction,
-      createdAt: e?.createdAt ?? DateTime.now().millisecondsSinceEpoch,
-    );
-    Navigator.pop(context, deck);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
-      ),
-      child: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: scheme.outlineVariant,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
-              const SizedBox(height: 16),
-              // Живой предпросмотр обложки.
-              ShapedCover(
-                label: _name.text.isEmpty ? '?' : _name.text,
-                color: Color(_color),
-                imagePath: null,
-                size: 80,
-                shape: deckShape(_shape),
-              ),
-              const SizedBox(height: 16),
-              TextField(
-                controller: _name,
-                autofocus: widget.existing == null,
-                textCapitalization: TextCapitalization.sentences,
-                onChanged: (_) => setState(() {}),
-                decoration: InputDecoration(
-                  labelText: tr('deck_name'),
-                  prefixIcon: const Icon(Icons.style_rounded),
-                ),
-              ),
-              const SizedBox(height: 20),
-              _sectionLabel(scheme, tr('deck_color')),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: [
-                  for (final c in _deckPalette) _swatch(c, scheme),
-                  _customSwatch(scheme),
-                ],
-              ),
-              const SizedBox(height: 20),
-              _sectionLabel(scheme, tr('deck_shape')),
-              const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  for (var i = 0; i < kDeckShapes.length; i++)
-                    _shapeChoice(i, scheme),
-                ],
-              ),
-              const SizedBox(height: 20),
-              _sectionLabel(scheme, tr('deck_direction')),
-              const SizedBox(height: 8),
-              _directionSelector(scheme),
-              const SizedBox(height: 24),
-              Row(
-                children: [
-                  Expanded(
-                    child: FilledButton.tonal(
-                      onPressed: () => Navigator.pop(context),
-                      child: Text(tr('cancel')),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: FilledButton(
-                      onPressed: _save,
-                      child: Text(tr('save')),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _sectionLabel(ColorScheme scheme, String text) => Align(
-    alignment: Alignment.centerLeft,
-    child: Text(
-      text,
-      style: TextStyle(
-        fontFamily: AppTheme.bodyFont,
-        fontWeight: FontWeight.w600,
-        fontSize: 14,
-        color: scheme.onSurfaceVariant,
-      ),
-    ),
-  );
-
-  Widget _swatch(Color c, ColorScheme scheme) {
-    final selected = c.toARGB32() == _color;
-    return GestureDetector(
-      onTap: () => setState(() => _color = c.toARGB32()),
-      child: Container(
-        width: 44,
-        height: 44,
-        decoration: BoxDecoration(
-          color: c,
-          shape: BoxShape.circle,
-          border: selected
-              ? Border.all(color: scheme.onSurface, width: 3)
-              : null,
-        ),
-        child: selected
-            ? const Icon(Icons.check_rounded, color: Colors.white, size: 22)
-            : null,
-      ),
-    );
-  }
-
-  Widget _customSwatch(ColorScheme scheme) {
-    final isCustom = !_deckPalette.any((c) => c.toARGB32() == _color);
-    return GestureDetector(
-      onTap: _pickCustomColor,
-      child: Container(
-        width: 44,
-        height: 44,
-        decoration: BoxDecoration(
-          gradient: const SweepGradient(
-            colors: [
-              Colors.red,
-              Colors.yellow,
-              Colors.green,
-              Colors.cyan,
-              Colors.blue,
-              Colors.purple,
-              Colors.red,
-            ],
-          ),
-          shape: BoxShape.circle,
-          border: isCustom
-              ? Border.all(color: scheme.onSurface, width: 3)
-              : null,
-        ),
-        child: const Icon(
-          Icons.colorize_rounded,
-          color: Colors.white,
-          size: 20,
-        ),
-      ),
-    );
-  }
-
-  Widget _shapeChoice(int i, ColorScheme scheme) {
-    final selected = i == _shape;
-    return GestureDetector(
-      onTap: () => setState(() => _shape = i),
-      child: Container(
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: selected
-              ? Border.all(color: scheme.primary, width: 2)
-              : Border.all(color: Colors.transparent, width: 2),
-        ),
-        child: Container(
-          width: 34,
-          height: 34,
-          decoration: ShapeDecoration(
-            color: selected ? Color(_color) : scheme.surfaceContainerHighest,
-            shape: deckShape(i),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _directionSelector(ColorScheme scheme) {
-    final opts = <(int, IconData, String)>[
-      (0, Icons.east_rounded, tr('dir_forward')),
-      (2, Icons.sync_alt_rounded, tr('dir_both')),
-      (1, Icons.west_rounded, tr('dir_reverse')),
-    ];
-    return Column(
-      children: [
-        for (var i = 0; i < opts.length; i++) ...[
-          if (i > 0) const SizedBox(height: 8),
-          _directionOption(opts[i].$1, opts[i].$2, opts[i].$3, scheme),
-        ],
-      ],
-    );
-  }
-
-  Widget _directionOption(
-      int value, IconData icon, String label, ColorScheme scheme) {
-    final selected = _direction == value;
-    return Material(
-      color: selected ? scheme.primaryContainer : scheme.surfaceContainerHigh,
-      borderRadius: BorderRadius.circular(16),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => setState(() => _direction = value),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Row(
-            children: [
-              Icon(icon,
-                  size: 20,
-                  color: selected
-                      ? scheme.onPrimaryContainer
-                      : scheme.onSurfaceVariant),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  label,
-                  style: TextStyle(
-                    fontFamily: AppTheme.bodyFont,
-                    fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
-                    fontSize: 14,
-                    color: selected
-                        ? scheme.onPrimaryContainer
-                        : scheme.onSurface,
-                  ),
-                ),
-              ),
-              if (selected)
-                Icon(Icons.check_rounded,
-                    size: 18, color: scheme.onPrimaryContainer),
-            ],
-          ),
-        ),
       ),
     );
   }

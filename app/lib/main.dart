@@ -9,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'decks_screen.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
+import 'library_screen.dart';
 import 'onboarding_screen.dart';
 import 'progress_screen.dart';
 import 'services/deck_repository.dart';
@@ -16,6 +17,7 @@ import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
 import 'settings_screen.dart';
+import 'study/reader_settings.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
 import 'utils/app_version.dart';
@@ -31,6 +33,7 @@ Future<void> main() async {
   await ThemeController.instance.load();
   await LocaleController.instance.load();
   await TranslationManager.instance.load();
+  await ReaderSettings.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
   await _rescheduleReminderIfEnabled();
   final onboarded = await DeckRepository.instance.onboarded();
@@ -118,7 +121,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  static const int _tabCount = 3;
+  static const int _tabCount = 4;
   int _selectedIndex = 0;
 
   @override
@@ -144,8 +147,10 @@ class _MainScreenState extends State<MainScreen> {
   Widget _screenFor(int index) {
     switch (index) {
       case 1:
-        return const ProgressScreen();
+        return const LibraryScreen();
       case 2:
+        return const ProgressScreen();
+      case 3:
         return const SettingsScreen();
       case 0:
       default:
@@ -169,6 +174,7 @@ class _MainScreenState extends State<MainScreen> {
         onTap: _onItemTapped,
         items: const [
           _NavItem(Icons.style_outlined, Icons.style_rounded),
+          _NavItem(Icons.auto_stories_outlined, Icons.auto_stories_rounded),
           _NavItem(Icons.insights_outlined, Icons.insights_rounded),
           _NavItem(Icons.settings_outlined, Icons.settings_rounded),
         ],

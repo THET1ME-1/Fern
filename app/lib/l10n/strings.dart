@@ -218,6 +218,10 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Новая колода «Из видео»',
     'en': 'New "From video" deck'
   },
+  'add_new_named_deck': {
+    'ru': 'Новая колода «{name}»',
+    'en': 'New "{name}" deck'
+  },
   'word_added_to': {'ru': 'Добавлено в «{deck}»', 'en': 'Added to "{deck}"'},
   // Настройка добавления слов из видео.
   'add_word_mode': {'ru': 'Добавление слов', 'en': 'Adding words'},
@@ -448,6 +452,113 @@ const Map<String, Map<String, String>> _strings = {
   'restore_failed': {'ru': 'Не удалось восстановить', 'en': 'Restore failed'},
   'about': {'ru': 'О приложении', 'en': 'About'},
   'version': {'ru': 'Версия', 'en': 'Version'},
+
+  // ----------------------------- Библиотека -----------------------------
+  'library_title': {'ru': 'Библиотека', 'en': 'Library'},
+  'library_recent': {'ru': 'Недавнее', 'en': 'Recent'},
+  'library_video_sub': {
+    'ru': 'Слова из субтитров',
+    'en': 'Words from subtitles'
+  },
+  'library_add_book': {'ru': 'Добавить книгу', 'en': 'Add a book'},
+  'library_book_sub': {'ru': 'Читай и учи слова', 'en': 'Read and learn words'},
+  'book_import_failed': {
+    'ru': 'Не удалось открыть файл',
+    'en': 'Could not open the file'
+  },
+  'source_open_failed': {
+    'ru': 'Не удалось открыть источник',
+    'en': 'Could not open this source'
+  },
+  'source_kind_video': {'ru': 'Видео', 'en': 'Video'},
+  'source_kind_book': {'ru': 'Книга', 'en': 'Book'},
+  'source_words_added': {'ru': '{n} слов', 'en': '{n} words'},
+  'library_empty_title': {
+    'ru': 'Здесь появятся ваши материалы',
+    'en': 'Your materials will appear here'
+  },
+  'library_empty_sub': {
+    'ru': 'Разберите видео или добавьте книгу — новые слова уйдут в колоды на '
+        'повтор.',
+    'en': 'Parse a video or add a book — new words go to your decks for review.'
+  },
+
+  // ----------------------------- Читалка книг -----------------------------
+  'book_deck_name': {'ru': 'Из книги', 'en': 'From book'},
+  'bookmark': {'ru': 'Закладка', 'en': 'Bookmark'},
+  'bookmarks': {'ru': 'Закладки', 'en': 'Bookmarks'},
+  'bookmark_added': {'ru': 'Закладка добавлена', 'en': 'Bookmark added'},
+  'bookmark_removed': {'ru': 'Закладка удалена', 'en': 'Bookmark removed'},
+  'bookmarks_empty': {'ru': 'Пока нет закладок', 'en': 'No bookmarks yet'},
+  'reader_settings': {'ru': 'Оформление', 'en': 'Reading'},
+  'reader_mode': {'ru': 'Режим чтения', 'en': 'Reading mode'},
+  'read_progress': {'ru': 'прочитано {p}%', 'en': '{p}% read'},
+  'reader_mode_scroll': {'ru': 'Прокрутка', 'en': 'Scroll'},
+  'reader_mode_paged': {'ru': 'Страницы', 'en': 'Pages'},
+  'reader_theme': {'ru': 'Тема страницы', 'en': 'Page theme'},
+  'reader_font_size': {'ru': 'Размер шрифта', 'en': 'Font size'},
+  'reader_line_height': {'ru': 'Межстрочный интервал', 'en': 'Line spacing'},
+  'reader_font': {'ru': 'Шрифт', 'en': 'Font'},
+  'reader_font_serif': {'ru': 'С засечками', 'en': 'Serif'},
+  'reader_font_sans': {'ru': 'Без засечек', 'en': 'Sans'},
+  'word_already_known': {'ru': 'Уже в словаре', 'en': 'Already in your words'},
+
+  // ----------------------------- Паки -----------------------------
+  'deck_pack': {'ru': 'Пак', 'en': 'Pack'},
+  'pack_none': {'ru': 'Без пака', 'en': 'No pack'},
+  'pack_new': {'ru': 'Новый пак', 'en': 'New pack'},
+  'new_deck_in_pack': {'ru': 'Новая колода в паке', 'en': 'New deck in pack'},
+  'source_pack_fallback': {'ru': 'Материал', 'en': 'Material'},
+  'deck_words_default': {'ru': 'Слова', 'en': 'Words'},
+  'pack_name': {'ru': 'Название пака', 'en': 'Pack name'},
+  'pack_color': {'ru': 'Цвет пака', 'en': 'Pack color'},
+  'create_pack': {'ru': 'Новый пак', 'en': 'New pack'},
+  'create_pack_sub': {
+    'ru': 'Папка из нескольких колод',
+    'en': 'A folder of several decks'
+  },
+  'create_deck_sub': {'ru': 'Одна колода со словами', 'en': 'One deck of words'},
+  'open_pack': {'ru': 'Открыть', 'en': 'Open'},
+  'edit_pack': {'ru': 'Изменить пак', 'en': 'Edit pack'},
+  'delete_pack': {'ru': 'Удалить пак', 'en': 'Delete pack'},
+  'delete_pack_keeps_decks': {
+    'ru': 'Колоды внутри сохранятся',
+    'en': 'Its decks will be kept'
+  },
+  'delete_pack_confirm': {
+    'ru': 'Удалить пак? Колоды внутри останутся.',
+    'en': 'Delete the pack? Its decks will be kept.'
+  },
+  'remove_from_pack': {'ru': 'Убрать из пака', 'en': 'Remove from pack'},
+  'add_existing_decks': {
+    'ru': 'Добавить существующие колоды',
+    'en': 'Add existing decks'
+  },
+  'manage_decks': {'ru': 'Колоды в паке', 'en': 'Decks in the folder'},
+  'manage_decks_sub': {
+    'ru': 'Отметьте, какие колоды входят в пак. Снятие галочки убирает колоду '
+        'из папки — сама колода и её карточки остаются.',
+    'en': 'Check which decks belong to the folder. Unchecking removes the deck '
+        'from the folder — the deck and its cards are kept.'
+  },
+  'deck_in_other_pack': {'ru': 'в другом паке', 'en': 'in another folder'},
+  'no_free_decks': {
+    'ru': 'Нет колод для этого языка',
+    'en': 'No decks for this language'
+  },
+  'decks_n': {'ru': '{n} колод', 'en': '{n} decks'},
+
+  // ----------------------------- Главный экран (настройки) -----------------------------
+  'home_screen': {'ru': 'Главный экран', 'en': 'Home screen'},
+  'show_video_banner': {
+    'ru': 'Баннер «Разобрать видео»',
+    'en': '"Learn from a video" banner'
+  },
+  'show_video_banner_sub': {
+    'ru': 'Показывать на главном экране',
+    'en': 'Show it on the home screen'
+  },
+  'search_language': {'ru': 'Поиск языка', 'en': 'Search language'},
 
   // ----------------------------- Языки (родные названия для баннера) --------------
   'lang_en': {'ru': 'Английский', 'en': 'English'},

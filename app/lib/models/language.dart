@@ -17,6 +17,7 @@ class StudyLanguage {
 /// Встроенный список популярных для изучения языков. Пользователь выбирает
 /// активный в баннере; при желании можно добавить свой (произвольный код).
 const List<StudyLanguage> kStudyLanguages = [
+  // Самые популярные — вверху.
   StudyLanguage('en', 'English', '🇬🇧'),
   StudyLanguage('es', 'Español', '🇪🇸'),
   StudyLanguage('de', 'Deutsch', '🇩🇪'),
@@ -29,6 +30,54 @@ const List<StudyLanguage> kStudyLanguages = [
   StudyLanguage('ko', '한국어', '🇰🇷'),
   StudyLanguage('ar', 'العربية', '🇸🇦'),
   StudyLanguage('ru', 'Русский', '🇷🇺'),
+  // Европа.
+  StudyLanguage('nl', 'Nederlands', '🇳🇱'),
+  StudyLanguage('pl', 'Polski', '🇵🇱'),
+  StudyLanguage('uk', 'Українська', '🇺🇦'),
+  StudyLanguage('cs', 'Čeština', '🇨🇿'),
+  StudyLanguage('sk', 'Slovenčina', '🇸🇰'),
+  StudyLanguage('sv', 'Svenska', '🇸🇪'),
+  StudyLanguage('da', 'Dansk', '🇩🇰'),
+  StudyLanguage('nb', 'Norsk', '🇳🇴'),
+  StudyLanguage('fi', 'Suomi', '🇫🇮'),
+  StudyLanguage('el', 'Ελληνικά', '🇬🇷'),
+  StudyLanguage('ro', 'Română', '🇷🇴'),
+  StudyLanguage('hu', 'Magyar', '🇭🇺'),
+  StudyLanguage('bg', 'Български', '🇧🇬'),
+  StudyLanguage('sr', 'Српски', '🇷🇸'),
+  StudyLanguage('hr', 'Hrvatski', '🇭🇷'),
+  StudyLanguage('sl', 'Slovenščina', '🇸🇮'),
+  StudyLanguage('lt', 'Lietuvių', '🇱🇹'),
+  StudyLanguage('lv', 'Latviešu', '🇱🇻'),
+  StudyLanguage('et', 'Eesti', '🇪🇪'),
+  StudyLanguage('ca', 'Català', '🇪🇸'),
+  StudyLanguage('is', 'Íslenska', '🇮🇸'),
+  StudyLanguage('ga', 'Gaeilge', '🇮🇪'),
+  StudyLanguage('sq', 'Shqip', '🇦🇱'),
+  // Ближний Восток / Кавказ / Центральная Азия.
+  StudyLanguage('he', 'עברית', '🇮🇱'),
+  StudyLanguage('fa', 'فارسی', '🇮🇷'),
+  StudyLanguage('ur', 'اردو', '🇵🇰'),
+  StudyLanguage('ka', 'ქართული', '🇬🇪'),
+  StudyLanguage('hy', 'Հայերեն', '🇦🇲'),
+  StudyLanguage('az', 'Azərbaycan', '🇦🇿'),
+  StudyLanguage('kk', 'Қазақша', '🇰🇿'),
+  StudyLanguage('uz', 'Oʻzbekcha', '🇺🇿'),
+  // Южная и Юго-Восточная Азия.
+  StudyLanguage('hi', 'हिन्दी', '🇮🇳'),
+  StudyLanguage('bn', 'বাংলা', '🇧🇩'),
+  StudyLanguage('ta', 'தமிழ்', '🇮🇳'),
+  StudyLanguage('te', 'తెలుగు', '🇮🇳'),
+  StudyLanguage('id', 'Bahasa Indonesia', '🇮🇩'),
+  StudyLanguage('ms', 'Bahasa Melayu', '🇲🇾'),
+  StudyLanguage('vi', 'Tiếng Việt', '🇻🇳'),
+  StudyLanguage('th', 'ไทย', '🇹🇭'),
+  StudyLanguage('tl', 'Filipino', '🇵🇭'),
+  // Африка.
+  StudyLanguage('sw', 'Kiswahili', '🇰🇪'),
+  StudyLanguage('af', 'Afrikaans', '🇿🇦'),
+  // Прочее.
+  StudyLanguage('eo', 'Esperanto', '🌍'),
 ];
 
 /// Язык по коду (или null, если такого во встроенном списке нет).

@@ -7,6 +7,13 @@ class SubWord {
   final String text;
   final Duration start;
   const SubWord(this.text, this.start);
+
+  Map<String, dynamic> toJson() => {'t': text, 's': start.inMilliseconds};
+
+  factory SubWord.fromJson(Map<String, dynamic> j) => SubWord(
+        j['t'] as String? ?? '',
+        Duration(milliseconds: (j['s'] as num?)?.toInt() ?? 0),
+      );
 }
 
 /// Реплика субтитра: `start`–`end` (для живого голоса целого предложения) и
@@ -33,6 +40,23 @@ class SubLine {
     final end = (i >= 0 && i < words.length - 1) ? words[i + 1].start : this.end;
     return (w.start, end);
   }
+
+  Map<String, dynamic> toJson() => {
+        'a': start.inMilliseconds,
+        'b': end.inMilliseconds,
+        'x': text,
+        if (words.isNotEmpty) 'w': [for (final w in words) w.toJson()],
+      };
+
+  factory SubLine.fromJson(Map<String, dynamic> j) => SubLine(
+        start: Duration(milliseconds: (j['a'] as num?)?.toInt() ?? 0),
+        end: Duration(milliseconds: (j['b'] as num?)?.toInt() ?? 0),
+        text: j['x'] as String? ?? '',
+        words: [
+          for (final w in (j['w'] as List? ?? const []))
+            SubWord.fromJson((w as Map).cast<String, dynamic>()),
+        ],
+      );
 }
 
 /// Разобранный транскрипт видео.
@@ -59,6 +83,27 @@ class VideoTranscript {
   });
 
   bool get hasCaptions => lines.isNotEmpty;
+
+  Map<String, dynamic> toJson() => {
+        'id': videoId,
+        'url': url,
+        'title': title,
+        'lang': langCode,
+        'wt': wordTimed,
+        'lines': [for (final l in lines) l.toJson()],
+      };
+
+  factory VideoTranscript.fromJson(Map<String, dynamic> j) => VideoTranscript(
+        videoId: j['id'] as String? ?? '',
+        url: j['url'] as String? ?? '',
+        title: j['title'] as String? ?? '',
+        langCode: j['lang'] as String? ?? 'en',
+        wordTimed: j['wt'] as bool? ?? false,
+        lines: [
+          for (final l in (j['lines'] as List? ?? const []))
+            SubLine.fromJson((l as Map).cast<String, dynamic>()),
+        ],
+      );
 }
 
 /// Причина неудачи загрузки — для понятного сообщения пользователю.

@@ -35,7 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String _version = '';
   int _goal = 20;
   bool _reminderOn = false;
-  String _addMode = 'manual';
+  bool _showVideoBanner = true;
   TimeOfDay _reminderTime = const TimeOfDay(hour: 20, minute: 0);
 
   @override
@@ -49,7 +49,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final on = await _repo.reminderEnabled();
     final h = await _repo.reminderHour();
     final m = await _repo.reminderMinute();
-    final addMode = await _repo.addWordMode();
+    final showBanner = await _repo.showVideoBanner();
     try {
       final info = await PackageInfo.fromPlatform();
       if (mounted) {
@@ -62,7 +62,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       setState(() {
         _goal = goal;
         _reminderOn = on;
-        _addMode = addMode;
+        _showVideoBanner = showBanner;
         _reminderTime = TimeOfDay(hour: h, minute: m);
       });
     }
@@ -156,15 +156,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
             scheme: scheme,
           ),
-          _actionTile(
-            icon: Icons.playlist_add_rounded,
-            title: tr('add_word_mode'),
-            trailing: switch (_addMode) {
-              'auto' => tr('add_mode_auto'),
-              'remember' => tr('add_mode_remember'),
-              _ => tr('add_mode_manual'),
+          const SizedBox(height: 16),
+          _sectionTitle(tr('home_screen'), scheme),
+          _switchTile(
+            icon: Icons.subtitles_rounded,
+            title: tr('show_video_banner'),
+            subtitle: tr('show_video_banner_sub'),
+            value: _showVideoBanner,
+            onChanged: (v) async {
+              setState(() => _showVideoBanner = v);
+              await _repo.setShowVideoBanner(v);
             },
-            onTap: _pickAddMode,
             scheme: scheme,
           ),
           const SizedBox(height: 16),
@@ -364,51 +366,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _setGoal(int v) async {
     setState(() => _goal = v);
     await _repo.setDailyGoal(v);
-  }
-
-  Future<void> _pickAddMode() async {
-    final scheme = Theme.of(context).colorScheme;
-    const modes = ['auto', 'manual', 'remember'];
-    await showModalBottomSheet(
-      context: context,
-      backgroundColor: scheme.surfaceContainer,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: RadioGroup<String>(
-          groupValue: _addMode,
-          onChanged: (v) async {
-            if (v != null) {
-              await _repo.setAddWordMode(v);
-              if (mounted) setState(() => _addMode = v);
-            }
-            if (ctx.mounted) Navigator.pop(ctx);
-          },
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 12),
-              for (final m in modes)
-                RadioListTile<String>(
-                  value: m,
-                  title: Text(switch (m) {
-                    'auto' => tr('add_mode_auto'),
-                    'remember' => tr('add_mode_remember'),
-                    _ => tr('add_mode_manual'),
-                  }),
-                  subtitle: Text(switch (m) {
-                    'auto' => tr('add_mode_auto_sub'),
-                    'remember' => tr('add_mode_remember_sub'),
-                    _ => tr('add_mode_manual_sub'),
-                  }),
-                ),
-              const SizedBox(height: 8),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 
   // ------------------------------- Язык -------------------------------

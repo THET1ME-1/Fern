@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/deck.dart';
 import '../models/fsrs.dart';
+import '../models/pack.dart';
 import '../models/review_log.dart';
 import '../models/word_card.dart';
 
@@ -30,6 +31,7 @@ class DeckRepository extends ChangeNotifier {
   static final DeckRepository instance = DeckRepository._();
 
   static const String _kDecks = 'decks';
+  static const String _kPacks = 'packs';
   static const String _kCards = 'cards';
   static const String _kSelectedLanguage = 'selectedLanguage';
   static const String _kSeededDemo = 'seededDemo';
@@ -57,6 +59,8 @@ class DeckRepository extends ChangeNotifier {
   // Разбор видео: режим добавления слов и последняя целевая колода.
   static const String _kAddWordMode = 'addWordMode'; // auto|manual|remember
   static const String _kLastVideoDeck = 'lastVideoDeckId';
+  // Главный экран: показывать ли баннер «Разобрать видео».
+  static const String _kShowVideoBanner = 'showVideoBanner';
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
@@ -70,6 +74,7 @@ class DeckRepository extends ChangeNotifier {
   // ----------------------------- Кэш в памяти -----------------------------
 
   final List<Deck> _decks = [];
+  final List<Pack> _packs = [];
   final List<WordCard> _cards = [];
   ReviewLog _log = ReviewLog.empty();
   Map<String, int> _matchBest = {};
@@ -83,6 +88,9 @@ class DeckRepository extends ChangeNotifier {
     _decks
       ..clear()
       ..addAll(_decodeDecks(await _prefs.getStringList(_kDecks) ?? const []));
+    _packs
+      ..clear()
+      ..addAll(_decodePacks(await _prefs.getStringList(_kPacks) ?? const []));
     _cards
       ..clear()
       ..addAll(_decodeCards(await _prefs.getStringList(_kCards) ?? const []));
@@ -119,6 +127,7 @@ class DeckRepository extends ChangeNotifier {
   @visibleForTesting
   void resetForTest() {
     _decks.clear();
+    _packs.clear();
     _cards.clear();
     _log = ReviewLog.empty();
     _matchBest = {};
@@ -187,6 +196,18 @@ class DeckRepository extends ChangeNotifier {
     return out;
   }
 
+  List<Pack> _decodePacks(List<String> raw) {
+    final out = <Pack>[];
+    for (final e in raw) {
+      try {
+        out.add(Pack.fromJson(jsonDecode(e) as Map<String, dynamic>));
+      } catch (_) {
+        /* пропускаем битую запись */
+      }
+    }
+    return out;
+  }
+
   List<WordCard> _decodeCards(List<String> raw) {
     final out = <WordCard>[];
     for (final e in raw) {
@@ -245,6 +266,95 @@ class DeckRepository extends ChangeNotifier {
     await _persistDecks();
     await _persistCards();
     notifyListeners();
+  }
+
+  // ----------------------------- Паки -----------------------------
+
+  /// Синхронный доступ к кэшу паков (после [init]).
+  List<Pack> get packs => List<Pack>.unmodifiable(_packs);
+
+  Future<List<Pack>> loadPacks() async {
+    await _ensureLoaded();
+    return List<Pack>.from(_packs);
+  }
+
+  Future<void> _persistPacks() async {
+    await _prefs.setStringList(
+      _kPacks,
+      _packs.map((p) => jsonEncode(p.toJson())).toList(),
+    );
+  }
+
+  Future<void> upsertPack(Pack pack) async {
+    await _ensureLoaded();
+    final idx = _packs.indexWhere((p) => p.id == pack.id);
+    if (idx >= 0) {
+      _packs[idx] = pack;
+    } else {
+      _packs.add(pack);
+    }
+    await _persistPacks();
+    notifyListeners();
+  }
+
+  /// Удаляет пак. Колоды внутри НЕ удаляются — они «выпадают» на верхний
+  /// уровень (packId сбрасывается), чтобы случайно не потерять карточки.
+  Future<void> deletePack(String packId) async {
+    await _ensureLoaded();
+    _packs.removeWhere((p) => p.id == packId);
+    for (final d in _decks) {
+      if (d.packId == packId) d.packId = null;
+    }
+    await _persistPacks();
+    await _persistDecks();
+    notifyListeners();
+  }
+
+  /// Кладёт колоду в пак (или вынимает, если [packId] == null).
+  Future<void> setDeckPack(String deckId, String? packId) async {
+    await _ensureLoaded();
+    final idx = _decks.indexWhere((d) => d.id == deckId);
+    if (idx < 0) return;
+    _decks[idx].packId = packId;
+    await _persistDecks();
+    notifyListeners();
+  }
+
+  // ----------------------------- Сверка слов (дедуп по всей базе) --------------
+
+  /// Множество «передов» всех карточек выбранного языка (в нижнем регистре) —
+  /// чтобы отметить в разборе видео/книги слова, которые УЖЕ есть в любой
+  /// колоде (системной или пользовательской).
+  Set<String> knownFrontsForLanguage(String languageCode) {
+    final deckIds = _decks
+        .where((d) => d.languageCode == languageCode)
+        .map((d) => d.id)
+        .toSet();
+    final out = <String>{};
+    for (final c in _cards) {
+      if (deckIds.contains(c.deckId)) {
+        final f = c.front.trim().toLowerCase();
+        if (f.isNotEmpty) out.add(f);
+      }
+    }
+    return out;
+  }
+
+  /// Есть ли слово [front] уже в какой-либо колоде языка [languageCode].
+  bool hasWordInLanguage(String front, String languageCode) {
+    final f = front.trim().toLowerCase();
+    if (f.isEmpty) return false;
+    final deckIds = _decks
+        .where((d) => d.languageCode == languageCode)
+        .map((d) => d.id)
+        .toSet();
+    for (final c in _cards) {
+      if (deckIds.contains(c.deckId) &&
+          c.front.trim().toLowerCase() == f) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // ----------------------------- Карточки -----------------------------
@@ -444,6 +554,15 @@ class DeckRepository extends ChangeNotifier {
   Future<void> setLastVideoDeckId(String value) async =>
       _prefs.setString(_kLastVideoDeck, value);
 
+  /// Показывать ли баннер «Разобрать видео» на главном экране (по умолч. да).
+  /// Даже если выключен — вход в разбор остаётся в иконке на верхней панели.
+  Future<bool> showVideoBanner() async =>
+      await _prefs.getBool(_kShowVideoBanner) ?? true;
+  Future<void> setShowVideoBanner(bool value) async {
+    await _prefs.setBool(_kShowVideoBanner, value);
+    notifyListeners();
+  }
+
   // ----------------------------- Бэкап -----------------------------
 
   /// Полный снимок данных (колоды + карты + настройки) как JSON-строка.
@@ -452,6 +571,7 @@ class DeckRepository extends ChangeNotifier {
     return const JsonEncoder.withIndent('  ').convert({
       'version': 1,
       'decks': [for (final d in _decks) d.toJson()],
+      'packs': [for (final p in _packs) p.toJson()],
       'cards': [for (final c in _cards) c.toJson()],
       'reviewLog': _log.toJson(),
       'settings': {
@@ -473,16 +593,23 @@ class DeckRepository extends ChangeNotifier {
     final decks = (data['decks'] as List? ?? [])
         .map((e) => Deck.fromJson((e as Map).cast<String, dynamic>()))
         .toList();
+    final packs = (data['packs'] as List? ?? [])
+        .map((e) => Pack.fromJson((e as Map).cast<String, dynamic>()))
+        .toList();
     final cards = (data['cards'] as List? ?? [])
         .map((e) => WordCard.fromJson((e as Map).cast<String, dynamic>()))
         .toList();
     _decks
       ..clear()
       ..addAll(decks);
+    _packs
+      ..clear()
+      ..addAll(packs);
     _cards
       ..clear()
       ..addAll(cards);
     await _persistDecks();
+    await _persistPacks();
     await _persistCards();
     if (data['reviewLog'] is Map) {
       _log = ReviewLog.fromJson(

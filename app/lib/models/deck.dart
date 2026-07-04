@@ -25,6 +25,10 @@ class Deck {
   /// Момент создания (мс от эпохи) — для сортировки.
   final int createdAt;
 
+  /// Id пака, в который вложена колода (см. [Pack]), либо null — колода лежит
+  /// на верхнем уровне главного экрана. Пак — это «папка» из нескольких колод.
+  String? packId;
+
   Deck({
     required this.id,
     required this.languageCode,
@@ -33,6 +37,7 @@ class Deck {
     required this.shapeIndex,
     required this.createdAt,
     this.directionIndex = 0,
+    this.packId,
   });
 
   Color get color => Color(colorValue);
@@ -45,6 +50,8 @@ class Deck {
         'shape': shapeIndex,
         'dir': directionIndex,
         'createdAt': createdAt,
+        // Пишем только когда колода в паке — не раздуваем JSON обычных колод.
+        if (packId != null) 'pack': packId,
       };
 
   factory Deck.fromJson(Map<String, dynamic> j) => Deck(
@@ -55,5 +62,6 @@ class Deck {
         shapeIndex: (j['shape'] as num?)?.toInt() ?? 0,
         directionIndex: (j['dir'] as num?)?.toInt() ?? 0,
         createdAt: (j['createdAt'] as num?)?.toInt() ?? 0,
+        packId: j['pack'] as String?,
       );
 }

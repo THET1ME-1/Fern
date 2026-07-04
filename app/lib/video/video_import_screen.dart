@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
 import '../services/deck_repository.dart';
+import '../services/source_library.dart';
 import '../theme/app_theme.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
@@ -52,10 +53,16 @@ class _VideoImportScreenState extends State<VideoImportScreen> {
     if (!mounted) return;
     setState(() => _loading = false);
     if (result.isOk) {
+      // Сохраняем разбор в библиотеку — к видео можно вернуться позже.
+      final sourceId = await SourceLibrary.instance.saveVideo(result.transcript!);
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => VideoStudyScreen(transcript: result.transcript!),
+          builder: (_) => VideoStudyScreen(
+            transcript: result.transcript!,
+            sourceId: sourceId,
+          ),
         ),
       );
     } else {

@@ -6,6 +6,8 @@ import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
 import '../models/deck.dart';
+import '../services/deck_repository.dart';
+import '../services/source_library.dart';
 import '../theme/app_theme.dart';
 import '../widgets/count_up_number.dart';
 import 'add_target.dart';
@@ -17,7 +19,16 @@ import 'word_bubble.dart';
 /// открывает «пузырь слова» (перевод + озвучка + добавление в колоду).
 class VideoStudyScreen extends StatefulWidget {
   final VideoTranscript transcript;
-  const VideoStudyScreen({super.key, required this.transcript});
+
+  /// Id записи в библиотеке (если видео уже сохранено) — для счётчика
+  /// добавленных слов. Может быть null (например, если сохранение не удалось).
+  final String? sourceId;
+
+  const VideoStudyScreen({
+    super.key,
+    required this.transcript,
+    this.sourceId,
+  });
 
   @override
   State<VideoStudyScreen> createState() => _VideoStudyScreenState();
@@ -33,6 +44,10 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
   int _added = 0;
   final Set<String> _addedWords = {};
 
+  /// Слова, которые УЖЕ есть в любой колоде этого языка (системной или
+  /// пользовательской) — подсвечиваем, чтобы не добавлять повторно.
+  final Set<String> _known = {};
+
   Deck? _targetDeck;
   String _pendingWord = '';
 
@@ -42,6 +57,7 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
   @override
   void initState() {
     super.initState();
+    _known.addAll(DeckRepository.instance.knownFrontsForLanguage(_srcLang));
     _lineKeys = List.generate(widget.transcript.lines.length, (_) => GlobalKey());
     _controller = YoutubePlayerController.fromVideoId(
       videoId: widget.transcript.videoId,
@@ -103,7 +119,8 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
     int? cs,
     int? ce,
   ) async {
-    _targetDeck ??= await VideoDeckTarget.resolve(context, _srcLang);
+    _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
+        context, _srcLang, widget.transcript.title);
     final deck = _targetDeck;
     if (deck == null) return AddResult.cancelled;
     final ok = await VideoDeckTarget.addWord(
@@ -117,10 +134,14 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
       clipEndMs: ce,
     );
     if (!ok) return AddResult.duplicate;
+    if (widget.sourceId != null) {
+      await SourceLibrary.instance.bumpWordsAdded(widget.sourceId!);
+    }
     if (mounted) {
       setState(() {
         _added++;
         _addedWords.add(_pendingWord.toLowerCase());
+        _known.add(_pendingWord.toLowerCase());
       });
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
@@ -257,7 +278,8 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
                     _WordChip(
                       token: token,
                       active: active,
-                      added: _addedWords.contains(_clean(token).toLowerCase()),
+                      added: _addedWords.contains(_clean(token).toLowerCase()) ||
+                          _known.contains(_clean(token).toLowerCase()),
                       onTap: () => _onWordTap(line, token),
                     ),
               ],
