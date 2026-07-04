@@ -51,6 +51,13 @@ class DeckRepository extends ChangeNotifier {
   static const String _kReminderMinute = 'reminderMinute';
   static const String _kOnboarded = 'onboarded';
 
+  // Перевод: список пользовательских серверов (JSON) и id активного провайдера.
+  static const String _kTransEndpoints = 'translationEndpoints';
+  static const String _kTransActive = 'translationActive';
+  // Разбор видео: режим добавления слов и последняя целевая колода.
+  static const String _kAddWordMode = 'addWordMode'; // auto|manual|remember
+  static const String _kLastVideoDeck = 'lastVideoDeckId';
+
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
 
@@ -413,6 +420,29 @@ class DeckRepository extends ChangeNotifier {
   Future<bool> onboarded() async => await _prefs.getBool(_kOnboarded) ?? false;
   Future<void> setOnboarded(bool value) async =>
       _prefs.setBool(_kOnboarded, value);
+
+  // ----------------------------- Перевод / провайдеры -----------------------------
+
+  Future<String?> translationConfigJson() async =>
+      _prefs.getString(_kTransEndpoints);
+  Future<void> setTranslationConfigJson(String value) async =>
+      _prefs.setString(_kTransEndpoints, value);
+
+  Future<String?> activeProviderId() async => _prefs.getString(_kTransActive);
+  Future<void> setActiveProviderId(String value) async =>
+      _prefs.setString(_kTransActive, value);
+
+  // ----------------------------- Добавление слов из видео -----------------------------
+
+  Future<String> addWordMode() async =>
+      await _prefs.getString(_kAddWordMode) ?? 'manual';
+  Future<void> setAddWordMode(String value) async =>
+      _prefs.setString(_kAddWordMode, value);
+
+  Future<String?> lastVideoDeckId() async =>
+      _prefs.getString(_kLastVideoDeck);
+  Future<void> setLastVideoDeckId(String value) async =>
+      _prefs.setString(_kLastVideoDeck, value);
 
   // ----------------------------- Бэкап -----------------------------
 

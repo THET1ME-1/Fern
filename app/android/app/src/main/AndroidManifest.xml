@@ -4,10 +4,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- Установка скачанного APK при обновлении из приложения (sideload). -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- Онлайн-перевод, свои серверы, субтитры и плеер YouTube. Явно в main,
+         чтобы не зависеть от транзитивного merge из плагинов в release-сборке. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="Fern"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

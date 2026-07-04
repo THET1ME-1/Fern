@@ -11,6 +11,7 @@ import 'models/word_card.dart';
 import 'services/deck_repository.dart';
 import 'services/starter_decks.dart';
 import 'theme/app_theme.dart';
+import 'video/video_import_screen.dart';
 import 'widgets/color_picker_sheet.dart';
 import 'widgets/count_up_number.dart';
 import 'widgets/deck_shapes.dart';
@@ -222,6 +223,11 @@ class _DecksScreenState extends State<DecksScreen> {
       appBar: AppBar(
         title: const Text('Fern'),
         actions: [
+          IconButton(
+            tooltip: tr('video_banner_title'),
+            icon: const Icon(Icons.subtitles_rounded),
+            onPressed: _openVideo,
+          ),
           if (_hasStarter)
             IconButton(
               tooltip: tr('starter_decks'),
@@ -237,6 +243,7 @@ class _DecksScreenState extends State<DecksScreen> {
                 // Дневная сводка нужна, только когда уже есть что учить.
                 if (_cards.isNotEmpty) Reveal(child: _todayHero(scheme)),
                 _languageBanner(scheme),
+                Reveal(child: _videoBanner(scheme)),
                 Expanded(
                   child: decks.isEmpty
                       ? _emptyState(scheme)
@@ -244,6 +251,73 @@ class _DecksScreenState extends State<DecksScreen> {
                 ),
               ],
             ),
+    );
+  }
+
+  void _openVideo() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const VideoImportScreen()),
+    );
+  }
+
+  /// Заметный баннер «Разобрать видео» — вход в разбор субтитров.
+  Widget _videoBanner(ColorScheme scheme) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      child: Material(
+        color: scheme.primaryContainer,
+        borderRadius: BorderRadius.circular(22),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: _openVideo,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: scheme.onPrimaryContainer.withValues(alpha: 0.12),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.subtitles_rounded,
+                      color: scheme.onPrimaryContainer),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tr('video_banner_title'),
+                        style: TextStyle(
+                          fontFamily: AppTheme.displayFont,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
+                          color: scheme.onPrimaryContainer,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        tr('video_banner_sub'),
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontSize: 12.5,
+                          color: scheme.onPrimaryContainer.withValues(alpha: 0.8),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.chevron_right_rounded,
+                    color: scheme.onPrimaryContainer),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 

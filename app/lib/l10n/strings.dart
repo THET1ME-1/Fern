@@ -110,7 +110,132 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'Downloading language model…'
   },
   'translate_failed': {'ru': 'Не удалось перевести', 'en': 'Translation failed'},
+  'translate_variants': {'ru': 'Варианты', 'en': 'Variants'},
   'delete_card': {'ru': 'Удалить карточку', 'en': 'Delete card'},
+
+  // ----------------------------- Перевод и модели -----------------------------
+  'providers_title': {'ru': 'Перевод и модели', 'en': 'Translation & models'},
+  'providers_sub': {
+    'ru': 'Движок перевода, свои серверы',
+    'en': 'Translation engine, your servers'
+  },
+  'providers_intro': {
+    'ru': 'Встроенный ML Kit — лёгкий и офлайн. Для качества выше подключите '
+        'онлайн-перевод или свой сервер.',
+    'en': 'Built-in ML Kit is light and offline. For higher quality add online '
+        'translation or your own server.'
+  },
+  'providers_active': {'ru': 'Активный переводчик', 'en': 'Active translator'},
+  'providers_servers': {'ru': 'Свои серверы', 'en': 'Your servers'},
+  'providers_add_server': {'ru': 'Добавить сервер', 'en': 'Add server'},
+  'providers_edit_server': {'ru': 'Сервер перевода', 'en': 'Translation server'},
+  'providers_hint': {
+    'ru': 'Свой сервер (Ollama, LibreTranslate, OpenAI-совместимый, DeepL) '
+        'работает без Google — полезно, если он недоступен.',
+    'en': 'Your own server (Ollama, LibreTranslate, OpenAI-compatible, DeepL) '
+        'works without Google — handy when it is blocked.'
+  },
+  'provider_offline': {'ru': 'Офлайн', 'en': 'Offline'},
+  'provider_online': {'ru': 'Онлайн', 'en': 'Online'},
+  'provider_endpoint': {'ru': 'Свой сервер', 'en': 'Your server'},
+  'provider_local': {'ru': 'Локальная модель', 'en': 'Local model'},
+  'provider_mlkit_sub': {
+    'ru': 'Лёгкий, офлайн, встроен',
+    'en': 'Light, offline, built-in'
+  },
+  'provider_google_sub': {
+    'ru': 'Высокое качество, нужна сеть',
+    'en': 'High quality, needs network'
+  },
+  'server_kind': {'ru': 'Тип сервера', 'en': 'Server type'},
+  'server_name': {'ru': 'Название', 'en': 'Name'},
+  'server_url': {'ru': 'Адрес (URL)', 'en': 'Address (URL)'},
+  'server_key': {'ru': 'Ключ / токен', 'en': 'Key / token'},
+  'server_model': {'ru': 'Модель', 'en': 'Model'},
+  'server_test': {'ru': 'Проверить', 'en': 'Test'},
+  'server_test_ok': {'ru': 'Работает: {res}', 'en': 'Works: {res}'},
+  'server_test_fail': {
+    'ru': 'Сервер не ответил или ошибка',
+    'en': 'No response or error'
+  },
+  'field_required': {'ru': 'Укажите адрес сервера', 'en': 'Enter server URL'},
+
+  // ----------------------------- Разбор видео -----------------------------
+  'video_banner_title': {'ru': 'Разобрать видео', 'en': 'Learn from a video'},
+  'video_banner_sub': {
+    'ru': 'Слова из субтитров — в колоду',
+    'en': 'Turn subtitles into cards'
+  },
+  'video_import_title': {'ru': 'Видео', 'en': 'Video'},
+  'video_import_headline': {
+    'ru': 'Учи слова из видео',
+    'en': 'Learn words from video'
+  },
+  'video_import_sub': {
+    'ru': 'Вставь ссылку на YouTube — разберём субтитры по словам с переводом '
+        'и озвучкой живым голосом.',
+    'en': 'Paste a YouTube link — we break subtitles into words with '
+        'translation and real-voice audio.'
+  },
+  'video_url_label': {'ru': 'Ссылка на видео', 'en': 'Video link'},
+  'paste': {'ru': 'Вставить', 'en': 'Paste'},
+  'video_parse': {'ru': 'Разобрать', 'en': 'Parse'},
+  'video_parsing': {'ru': 'Загрузка субтитров…', 'en': 'Loading subtitles…'},
+  'video_bad_url': {
+    'ru': 'Не похоже на ссылку YouTube',
+    'en': 'Not a valid YouTube link'
+  },
+  'video_no_captions': {
+    'ru': 'У видео нет субтитров',
+    'en': 'This video has no subtitles'
+  },
+  'video_network_error': {
+    'ru': 'Не удалось загрузить (проверь сеть)',
+    'en': 'Could not load (check network)'
+  },
+  'video_tip_voice': {
+    'ru': 'Озвучка живым голосом из видео или роботом',
+    'en': 'Audio in the real voice from the video, or a robot'
+  },
+  'video_tip_tap': {
+    'ru': 'Тап по слову — перевод и значения',
+    'en': 'Tap a word for translation and senses'
+  },
+  'video_tip_deck': {
+    'ru': 'Сложные слова уходят в колоду на повтор',
+    'en': 'Hard words go to a deck for review'
+  },
+  'translating': {'ru': 'Перевод…', 'en': 'Translating…'},
+  'audio_live': {'ru': 'Живой', 'en': 'Real'},
+  'audio_robot': {'ru': 'Робот', 'en': 'Robot'},
+  'play_word': {'ru': 'Слушать слово', 'en': 'Play word'},
+  'add_to_deck': {'ru': 'В колоду', 'en': 'Add to deck'},
+  'added': {'ru': 'Добавлено', 'en': 'Added'},
+  'already_in_deck': {'ru': 'Уже в колоде', 'en': 'Already added'},
+  'video_deck_name': {'ru': 'Из видео', 'en': 'From video'},
+  'pick_deck': {'ru': 'Выберите колоду', 'en': 'Choose a deck'},
+  'add_new_deck_video': {
+    'ru': 'Новая колода «Из видео»',
+    'en': 'New "From video" deck'
+  },
+  'word_added_to': {'ru': 'Добавлено в «{deck}»', 'en': 'Added to "{deck}"'},
+  // Настройка добавления слов из видео.
+  'add_word_mode': {'ru': 'Добавление слов', 'en': 'Adding words'},
+  'add_mode_auto': {'ru': 'Автоматически', 'en': 'Automatically'},
+  'add_mode_auto_sub': {
+    'ru': 'Сразу в колоду «Из видео»',
+    'en': 'Straight to the "From video" deck'
+  },
+  'add_mode_manual': {'ru': 'Спрашивать колоду', 'en': 'Ask for a deck'},
+  'add_mode_manual_sub': {
+    'ru': 'Выбирать колоду при разборе',
+    'en': 'Pick a deck while parsing'
+  },
+  'add_mode_remember': {'ru': 'Запомнить выбор', 'en': 'Remember choice'},
+  'add_mode_remember_sub': {
+    'ru': 'Использовать последнюю колоду',
+    'en': 'Reuse the last chosen deck'
+  },
   'empty_deck_title': {'ru': 'В колоде нет карточек', 'en': 'No cards yet'},
   'empty_deck_sub': {
     'ru': 'Добавьте слова, чтобы начать учить',

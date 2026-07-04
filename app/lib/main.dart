@@ -13,6 +13,7 @@ import 'onboarding_screen.dart';
 import 'progress_screen.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
+import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
 import 'settings_screen.dart';
 import 'theme/app_theme.dart';
@@ -29,6 +30,7 @@ Future<void> main() async {
   await DeckRepository.instance.init();
   await ThemeController.instance.load();
   await LocaleController.instance.load();
+  await TranslationManager.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
   await _rescheduleReminderIfEnabled();
   final onboarded = await DeckRepository.instance.onboarded();

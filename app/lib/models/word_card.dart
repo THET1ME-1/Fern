@@ -108,6 +108,16 @@ class WordCard {
   String example;
   ReviewState review;
 
+  /// Предложение-контекст из видео (для озвучки живым голосом целой реплики).
+  String sentence;
+
+  /// Ссылка на видео-источник (YouTube) — задел для живого голоса в повторах.
+  String sourceUrl;
+
+  /// Границы фрагмента аудио слова/предложения в источнике (мс), если известны.
+  int? clipStartMs;
+  int? clipEndMs;
+
   WordCard({
     required this.id,
     required this.deckId,
@@ -115,6 +125,10 @@ class WordCard {
     required this.back,
     this.example = '',
     ReviewState? review,
+    this.sentence = '',
+    this.sourceUrl = '',
+    this.clipStartMs,
+    this.clipEndMs,
   }) : review = review ?? ReviewState();
 
   /// Карта «к повтору сейчас»: новая или наступил срок.
@@ -127,6 +141,12 @@ class WordCard {
         'back': back,
         'example': example,
         'review': review.toJson(),
+        // Пишем видео-поля только когда заданы — чтобы не раздувать JSON карт,
+        // созданных вручную (обратная совместимость гарантирована дефолтами).
+        if (sentence.isNotEmpty) 'sentence': sentence,
+        if (sourceUrl.isNotEmpty) 'src': sourceUrl,
+        if (clipStartMs != null) 'cs': clipStartMs,
+        if (clipEndMs != null) 'ce': clipEndMs,
       };
 
   factory WordCard.fromJson(Map<String, dynamic> j) => WordCard(
@@ -139,6 +159,10 @@ class WordCard {
             ? ReviewState()
             : ReviewState.fromJson(
                 (j['review'] as Map).cast<String, dynamic>()),
+        sentence: j['sentence'] as String? ?? '',
+        sourceUrl: j['src'] as String? ?? '',
+        clipStartMs: (j['cs'] as num?)?.toInt(),
+        clipEndMs: (j['ce'] as num?)?.toInt(),
       );
 }
 

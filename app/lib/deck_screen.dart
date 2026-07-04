@@ -6,7 +6,7 @@ import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
-import 'services/translation_service.dart';
+import 'services/translation/translation_manager.dart';
 import 'study/match_screen.dart';
 import 'study/session_screen.dart';
 import 'study/study_models.dart';
@@ -748,6 +748,9 @@ class _DeckScreenState extends State<DeckScreen> {
                   SpeakerButton(
                     text: card.front,
                     languageCode: widget.deck.languageCode,
+                    sourceUrl: card.sourceUrl,
+                    clipStartMs: card.clipStartMs,
+                    clipEndMs: card.clipEndMs,
                   ),
                   const SizedBox(width: 4),
                   Column(
@@ -851,10 +854,18 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   late final TextEditingController _example;
   bool _translating = false;
 
+  /// Варианты перевода/значения для выбора чипсом и словарные подсказки.
+  List<String> _options = [];
+  String? _partOfSpeech;
+  String? _phonetic;
+  List<String> _dictExamples = [];
+
+  final TranslationManager _mgr = TranslationManager.instance;
+
   /// Язык перевода = язык интерфейса пользователя (его родной).
   String get _targetLang => LocaleController.instance.code;
   bool get _canTranslate =>
-      TranslationService.canTranslate(widget.languageCode, _targetLang);
+      _mgr.canTranslate(widget.languageCode, _targetLang);
 
   @override
   void initState() {
@@ -869,31 +880,132 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     final text = _front.text.trim();
     if (text.isEmpty || _translating) return;
     HapticFeedback.selectionClick();
-    // Подсказка про загрузку модели при первом использовании.
-    final ready = await TranslationService.modelsReady(
-      widget.languageCode,
-      _targetLang,
-    );
-    if (mounted && !ready) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(tr('translate_downloading'))));
+    // Для офлайн-провайдера (ML Kit) при первом использовании модель качается —
+    // предупредим, чтобы не выглядело зависанием.
+    if (_mgr.active.isOffline) {
+      final ready =
+          await _mgr.active.isReady(widget.languageCode, _targetLang);
+      if (mounted && !ready) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(tr('translate_downloading'))));
+      }
     }
     setState(() => _translating = true);
-    final result = await TranslationService.translate(
+    final res = await _mgr.translate(
       text,
       widget.languageCode,
       _targetLang,
+      context: _example.text.trim().isEmpty ? null : _example.text.trim(),
     );
     if (!mounted) return;
-    setState(() => _translating = false);
-    if (result != null && result.isNotEmpty) {
-      _back.text = result;
-    } else {
+    setState(() {
+      _translating = false;
+      if (res != null) {
+        _back.text = res.primary;
+        _options = res.options;
+        _partOfSpeech = res.partOfSpeech;
+        _phonetic = res.phonetic;
+        _dictExamples = res.examples;
+      }
+    });
+    if (res == null) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(tr('translate_failed'))));
     }
+  }
+
+  void _pickOption(String value) {
+    HapticFeedback.selectionClick();
+    setState(() => _back.text = value);
+  }
+
+  /// Варианты перевода (чипсы) + словарные подсказки (часть речи, транскрипция,
+  /// примеры). Появляется плавно после перевода. Тап по чипсу подставляет
+  /// значение; тап по примеру заполняет поле примера.
+  Widget _variantsSection(ColorScheme scheme) {
+    final hasOptions = _options.length > 1;
+    final meta = <String>[
+      if (_partOfSpeech != null && _partOfSpeech!.isNotEmpty) _partOfSpeech!,
+      if (_phonetic != null && _phonetic!.isNotEmpty) _phonetic!,
+    ].join('  ·  ');
+    final show = hasOptions || meta.isNotEmpty || _dictExamples.isNotEmpty;
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 260),
+      curve: AppTheme.emphasizedDecelerate,
+      alignment: Alignment.topCenter,
+      child: !show
+          ? const SizedBox(width: double.infinity)
+          : Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (meta.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4, bottom: 6),
+                      child: Text(
+                        meta,
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 12.5,
+                          color: scheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  if (hasOptions)
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: [
+                        for (final opt in _options)
+                          ChoiceChip(
+                            label: Text(opt),
+                            selected: _back.text.trim() == opt,
+                            onSelected: (_) => _pickOption(opt),
+                            visualDensity: VisualDensity.compact,
+                          ),
+                      ],
+                    ),
+                  for (final ex in _dictExamples)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () {
+                          HapticFeedback.selectionClick();
+                          setState(() => _example.text = ex);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 4),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.format_quote_rounded,
+                                  size: 15, color: scheme.onSurfaceVariant),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  ex,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.bodyFont,
+                                    fontSize: 12.5,
+                                    color: scheme.onSurfaceVariant,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+    );
   }
 
   @override
@@ -986,6 +1098,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                   prefixIcon: const Icon(Icons.g_translate_rounded),
                 ),
               ),
+              _variantsSection(scheme),
               const SizedBox(height: 12),
               TextField(
                 controller: _example,
