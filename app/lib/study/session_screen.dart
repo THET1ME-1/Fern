@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -40,13 +42,21 @@ class _SessionScreenState extends State<SessionScreen>
   final DeckRepository _repo = DeckRepository.instance;
   final SessionBuilder _builder = SessionBuilder();
 
-  late List<Exercise> _queue;
+  List<Exercise> _queue = [];
   late List<WordCard> _pool;
   int _index = 0;
   int _answered = 0;
   int _correct = 0;
   bool _logged = false;
+  bool _ready = false; // очередь собрана (лимиты добираются асинхронно)
   late DateTime _start;
+
+  // Динамическая переочередь: карту, которую ещё не закрепили (осталась в
+  // learning/relearning), переспрашиваем в этой же сессии через несколько карт —
+  // настоящие learning-шаги, а не «ошибся и забыл до завтра».
+  static const int _reinsertGap = 3;
+  static const int _maxReinserts = 6; // страховка от бесконечной сессии
+  final Map<String, int> _reinserts = {};
 
   // Данные текущего упражнения (варианты/пары), пересчитываются при смене шага.
   int _dataFor = -1;
@@ -67,12 +77,6 @@ class _SessionScreenState extends State<SessionScreen>
     super.initState();
     _start = DateTime.now();
     _pool = widget.cards;
-    _queue = _builder.build(
-      widget.mode,
-      widget.cards,
-      _start,
-      direction: studyDirectionFromIndex(widget.deck.directionIndex),
-    );
     if (_isSpeed) {
       _speedCtrl =
           AnimationController(
@@ -82,6 +86,30 @@ class _SessionScreenState extends State<SessionScreen>
             if (s == AnimationStatus.completed) _onTimeout();
           });
     }
+    _prepare();
+  }
+
+  /// Добирает лимиты подачи (новые/день, потолок повторов) и строит очередь.
+  Future<void> _prepare() async {
+    final newPerDay = await _repo.newPerDay();
+    final introduced = await _repo.newIntroducedToday(_start);
+    final maxReviews = await _repo.maxReviews();
+    // newPerDay == 0 → без лимита новых.
+    final newAllowed =
+        newPerDay <= 0 ? 1 << 20 : max(0, newPerDay - introduced);
+    final queue = _builder.build(
+      widget.mode,
+      widget.cards,
+      _start,
+      newAllowed: newAllowed,
+      maxReviews: maxReviews,
+      direction: studyDirectionFromIndex(widget.deck.directionIndex),
+    );
+    if (!mounted) return;
+    setState(() {
+      _queue = queue;
+      _ready = true;
+    });
   }
 
   @override
@@ -142,25 +170,45 @@ class _SessionScreenState extends State<SessionScreen>
 
     if (widget.mode.affectsSchedule) {
       if (widget.mode == StudyMode.learn) {
-        ex.card.review.phase = _nextPhase(ex.card.review.phase, correct);
+        ex.card.review.phase =
+            _nextPhase(ex.card.review.phase, correct, ex.card.review);
       }
       await _repo.rateCard(ex.card, rating, DateTime.now());
-    }
-
-    // В режиме «Учить» неверные карты возвращаются в конец очереди.
-    if (!correct && widget.mode == StudyMode.learn) {
-      _queue.add(Exercise(ex.card, ex.kind, reversed: ex.reversed));
+      _maybeReinsert(ex, correct);
     }
     _advance();
   }
 
-  LearnPhase _nextPhase(LearnPhase p, bool correct) {
+  /// Неверную карту (осталась в learning/relearning — не закрепили)
+  /// переспрашиваем в этой же сессии через несколько карт: настоящее
+  /// закрепление ошибки во ВСЕХ режимах, а не «ошибся и забыл до завтра». Верные
+  /// ответы очередь не раздувают; игру «Скорость» не трогаем (крисп).
+  void _maybeReinsert(Exercise ex, bool correct) {
+    if (correct || _isSpeed) return;
+    final st = ex.card.review.state;
+    if (st != FsrsState.learning && st != FsrsState.relearning) return;
+    final n = _reinserts[ex.card.id] ?? 0;
+    if (n >= _maxReinserts) return;
+    _reinserts[ex.card.id] = n + 1;
+    final pos = min(_index + 1 + _reinsertGap, _queue.length);
+    _queue.insert(pos, Exercise(ex.card, ex.kind, reversed: ex.reversed));
+  }
+
+  LearnPhase _nextPhase(LearnPhase p, bool correct, ReviewState r) {
     final base = p == LearnPhase.unseen ? LearnPhase.recognize : p;
     final ni = (correct ? base.index + 1 : base.index - 1).clamp(
       LearnPhase.recognize.index,
       LearnPhase.mastered.index,
     );
-    return LearnPhase.values[ni];
+    // Не пускаем в продуктивные фазы, пока память слаба, — иначе можно
+    // «намастерить» за одно сидение (зубрёжка). Порог по стабильности FSRS:
+    // «recall» (ввод) — от нескольких дней, «mastered» — только зрелая карта.
+    final maxByMemory = r.stability >= 21
+        ? LearnPhase.mastered.index
+        : r.stability >= 4
+            ? LearnPhase.recall.index
+            : LearnPhase.produce.index;
+    return LearnPhase.values[min(ni, maxByMemory)];
   }
 
   void _advance() {
@@ -245,6 +293,9 @@ class _SessionScreenState extends State<SessionScreen>
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
+    if (!_ready) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
     if (_queue.isEmpty) return _emptyState(scheme);
 
     if (_dataFor != _index) {

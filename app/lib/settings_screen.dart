@@ -9,8 +9,12 @@ import 'package:share_plus/share_plus.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'settings/providers_screen.dart';
+import 'services/backup_service.dart';
 import 'services/deck_import.dart';
 import 'services/deck_repository.dart';
+import 'services/fsrs_optimizer.dart';
+import 'services/source_library.dart';
+import 'study/reader_settings.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
@@ -36,6 +40,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   String _version = '';
   int _goal = 20;
+  int _newPerDay = 12;
+  int _maxReviews = 100;
+  double _retention = 0.9;
+  int _reviewEvents = 0;
+  bool _customWeights = false;
+  bool _optimizing = false;
   bool _reminderOn = false;
   bool _showVideoBanner = true;
   bool _posSplitAsk = true;
@@ -49,11 +59,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _loadInfo() async {
     final goal = await _repo.dailyGoal();
+    final newPerDay = await _repo.newPerDay();
+    final maxReviews = await _repo.maxReviews();
     final on = await _repo.reminderEnabled();
     final h = await _repo.reminderHour();
     final m = await _repo.reminderMinute();
     final showBanner = await _repo.showVideoBanner();
     final posSplitAsk = await _repo.posSplitAsk();
+    final retention = await _repo.requestRetention();
+    final events = await _repo.reviewEventCount();
+    final custom = (await _repo.fsrsWeights()) != null;
     try {
       final info = await PackageInfo.fromPlatform();
       if (mounted) {
@@ -65,6 +80,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (mounted) {
       setState(() {
         _goal = goal;
+        _newPerDay = newPerDay;
+        _maxReviews = maxReviews;
+        _retention = retention;
+        _reviewEvents = events;
+        _customWeights = custom;
         _reminderOn = on;
         _showVideoBanner = showBanner;
         _posSplitAsk = posSplitAsk;
@@ -148,6 +168,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 16),
           _sectionTitle(tr('study'), scheme),
           _goalTile(scheme),
+          _newPerDayTile(scheme),
+          _maxReviewsTile(scheme),
+          _retentionTile(scheme),
+          _optimizeTile(scheme),
           _actionTile(
             icon: Icons.translate_rounded,
             title: tr('providers_title'),
@@ -232,6 +256,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
             subtitle: tr('import_deck_sub'),
             onTap: _importDeck,
             scheme: scheme,
+          ),
+          _actionTile(
+            icon: Icons.delete_forever_rounded,
+            title: tr('wipe_data'),
+            subtitle: tr('wipe_data_sub'),
+            onTap: _wipeAllData,
+            scheme: scheme,
+            color: scheme.error,
           ),
           const SizedBox(height: 16),
           _sectionTitle(tr('about'), scheme),
@@ -350,7 +382,62 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   // ------------------------------- Обучение -------------------------------
 
-  Widget _goalTile(ColorScheme scheme) {
+  Widget _goalTile(ColorScheme scheme) => _stepperTile(
+        scheme,
+        icon: Icons.flag_rounded,
+        label: tr('daily_goal'),
+        value: _goal,
+        min: 5,
+        max: 100,
+        step: 5,
+        onChanged: (v) async {
+          setState(() => _goal = v);
+          await _repo.setDailyGoal(v);
+        },
+      );
+
+  Widget _newPerDayTile(ColorScheme scheme) => _stepperTile(
+        scheme,
+        icon: Icons.fiber_new_rounded,
+        label: tr('new_per_day'),
+        sub: tr('new_per_day_sub'),
+        value: _newPerDay,
+        min: 0,
+        max: 100,
+        step: 2,
+        onChanged: (v) async {
+          setState(() => _newPerDay = v);
+          await _repo.setNewPerDay(v);
+        },
+      );
+
+  Widget _maxReviewsTile(ColorScheme scheme) => _stepperTile(
+        scheme,
+        icon: Icons.repeat_rounded,
+        label: tr('max_reviews'),
+        sub: tr('max_reviews_sub'),
+        value: _maxReviews,
+        min: 10,
+        max: 500,
+        step: 10,
+        onChanged: (v) async {
+          setState(() => _maxReviews = v);
+          await _repo.setMaxReviews(v);
+        },
+      );
+
+  /// Плитка-степпер: подпись слева, − N + справа. С необязательным подзаголовком.
+  Widget _stepperTile(
+    ColorScheme scheme, {
+    required IconData icon,
+    required String label,
+    String? sub,
+    required int value,
+    required int min,
+    required int max,
+    required int step,
+    required Future<void> Function(int) onChanged,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Material(
@@ -361,17 +448,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Row(
             children: [
-              Icon(Icons.flag_rounded, color: scheme.onSurfaceVariant),
+              Icon(icon, color: scheme.onSurfaceVariant),
               const SizedBox(width: 16),
-              Expanded(child: Text(tr('daily_goal'))),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(label),
+                    if (sub != null)
+                      Text(
+                        sub,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: scheme.onSurfaceVariant,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
               IconButton(
                 icon: const Icon(Icons.remove_circle_outline_rounded),
-                onPressed: _goal > 5 ? () => _setGoal(_goal - 5) : null,
+                onPressed:
+                    value > min ? () => onChanged((value - step).clamp(min, max)) : null,
               ),
               SizedBox(
-                width: 36,
+                width: 40,
                 child: Text(
-                  '$_goal',
+                  value == 0 ? '∞' : '$value',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: AppTheme.displayFont,
@@ -383,7 +486,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               IconButton(
                 icon: const Icon(Icons.add_circle_outline_rounded),
-                onPressed: _goal < 100 ? () => _setGoal(_goal + 5) : null,
+                onPressed:
+                    value < max ? () => onChanged((value + step).clamp(min, max)) : null,
               ),
             ],
           ),
@@ -392,9 +496,142 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Future<void> _setGoal(int v) async {
-    setState(() => _goal = v);
-    await _repo.setDailyGoal(v);
+  /// Целевое удержание: ползунок 80–97%. Выше — повторов больше, помнишь лучше.
+  Widget _retentionTile(ColorScheme scheme) {
+    final pct = (_retention * 100).round();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(18),
+        clipBehavior: Clip.antiAlias,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.track_changes_rounded,
+                      color: scheme.onSurfaceVariant),
+                  const SizedBox(width: 16),
+                  Expanded(child: Text(tr('retention_target'))),
+                  Text(
+                    '$pct%',
+                    style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                ],
+              ),
+              Slider(
+                value: _retention.clamp(0.80, 0.97),
+                min: 0.80,
+                max: 0.97,
+                divisions: 17,
+                label: '$pct%',
+                onChanged: (v) => setState(() => _retention = v),
+                onChangeEnd: (v) => _repo.setRequestRetention(v),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, bottom: 6),
+                child: Text(
+                  tr('retention_sub'),
+                  style:
+                      TextStyle(fontSize: 12, color: scheme.onSurfaceVariant),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Оптимизация персональных весов FSRS по накопленным повторам.
+  Widget _optimizeTile(ColorScheme scheme) {
+    final ready = _reviewEvents >= FsrsOptimizer.minTotal;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Material(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(18),
+        clipBehavior: Clip.antiAlias,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: Row(
+            children: [
+              Icon(Icons.tune_rounded, color: scheme.onSurfaceVariant),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(tr('optimize_fsrs')),
+                    Text(
+                      _customWeights
+                          ? tr('optimize_active')
+                          : trf('optimize_progress',
+                              {'n': _reviewEvents, 'need': FsrsOptimizer.minTotal}),
+                      style: TextStyle(
+                          fontSize: 12, color: scheme.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              ),
+              if (_customWeights)
+                TextButton(
+                  onPressed: _optimizing ? null : _resetFsrs,
+                  child: Text(tr('reset')),
+                ),
+              _optimizing
+                  ? const Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2)),
+                    )
+                  : FilledButton.tonal(
+                      onPressed: ready ? _optimizeFsrs : null,
+                      child: Text(tr('optimize_run')),
+                    ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _optimizeFsrs() async {
+    setState(() => _optimizing = true);
+    final result = FsrsOptimizer.optimize(await _repo.reviewEvents());
+    if (result.enough) {
+      await _repo.setFsrsWeights(result.weights);
+    }
+    if (!mounted) return;
+    setState(() {
+      _optimizing = false;
+      _customWeights = result.enough || _customWeights;
+    });
+    final msg = result.enough
+        ? trf('optimize_done', {'r': (result.measuredRetention * 100).round()})
+        : tr('optimize_need_more');
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(msg)));
+  }
+
+  Future<void> _resetFsrs() async {
+    await _repo.setFsrsWeights(null);
+    if (!mounted) return;
+    setState(() => _customWeights = false);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(tr('optimize_reset_done'))));
   }
 
   // ------------------------------- Язык -------------------------------
@@ -448,7 +685,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _backup() async {
     try {
-      final json = await _repo.exportJson();
+      final json = await BackupService.exportJson();
       final dir = await getApplicationDocumentsDirectory();
       final file = File('${dir.path}/fern_backup.json');
       await file.writeAsString(json);
@@ -465,7 +702,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
+        ).showSnackBar(SnackBar(content: Text(tr('backup_failed'))));
       }
     }
   }
@@ -548,7 +785,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(tr('restore_failed'))),
+          SnackBar(content: Text(tr('export_failed'))),
         );
       }
     }
@@ -615,9 +852,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     try {
       final result = await FilePicker.platform.pickFiles(type: FileType.any);
       final path = result?.files.single.path;
-      if (path == null) return;
+      if (path == null || !mounted) return;
+      final merge = await _askRestoreMode();
+      if (merge == null) return; // отменили выбор режима
       final raw = await File(path).readAsString();
-      await _repo.importJson(raw);
+      await BackupService.restore(raw, merge: merge);
       await _theme.load();
       await _locale.load();
       await _loadInfo();
@@ -633,6 +872,86 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ).showSnackBar(SnackBar(content: Text(tr('restore_failed'))));
       }
     }
+  }
+
+  /// Полное удаление данных (как свежая установка) — с подтверждением.
+  Future<void> _wipeAllData() async {
+    final scheme = Theme.of(context).colorScheme;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        icon: Icon(Icons.warning_amber_rounded, color: scheme.error),
+        title: Text(tr('wipe_data')),
+        content: Text(tr('wipe_data_confirm')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: scheme.error,
+              foregroundColor: scheme.onError,
+            ),
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text(tr('wipe_data_btn')),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) return;
+    // Стираем библиотеку (файлы), затем БД+настройки, затем — как свежий старт.
+    await SourceLibrary.instance.wipeAll();
+    await _repo.wipeAllData();
+    await _repo.seedDemoIfNeeded();
+    await _repo.applyFsrsSettings();
+    await _theme.load();
+    await _locale.load();
+    await ReaderSettings.instance.load();
+    await _loadInfo();
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(tr('wipe_data_done'))));
+    // На корень — экраны перечитают свежие данные.
+    Navigator.of(context).popUntil((r) => r.isFirst);
+  }
+
+  /// Спрашивает стратегию восстановления. true — объединить, false — заменить
+  /// всё, null — пользователь закрыл диалог.
+  Future<bool?> _askRestoreMode() async {
+    final scheme = Theme.of(context).colorScheme;
+    return showModalBottomSheet<bool>(
+      context: context,
+      backgroundColor: scheme.surfaceContainer,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 14),
+            Text(tr('restore_mode_title'),
+                style: Theme.of(ctx).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            ListTile(
+              leading: const Icon(Icons.merge_rounded),
+              title: Text(tr('restore_mode_merge')),
+              subtitle: Text(tr('restore_mode_merge_sub')),
+              onTap: () => Navigator.pop(ctx, true),
+            ),
+            ListTile(
+              leading: const Icon(Icons.sync_rounded),
+              title: Text(tr('restore_mode_replace')),
+              subtitle: Text(tr('restore_mode_replace_sub')),
+              onTap: () => Navigator.pop(ctx, false),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
   }
 
   // ------------------------------- Строительные блоки -------------------------------
@@ -682,6 +1001,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     String? subtitle,
     required VoidCallback onTap,
     required ColorScheme scheme,
+    Color? color,
   }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -690,8 +1010,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: ListTile(
-          leading: Icon(icon, color: scheme.onSurfaceVariant),
-          title: Text(title),
+          leading: Icon(icon, color: color ?? scheme.onSurfaceVariant),
+          title: Text(title,
+              style: color == null ? null : TextStyle(color: color)),
           subtitle: subtitle == null ? null : Text(subtitle),
           trailing: trailing == null
               ? const Icon(Icons.chevron_right_rounded)

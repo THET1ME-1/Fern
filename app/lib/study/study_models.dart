@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import '../models/fsrs.dart';
 import '../models/word_card.dart';
 
 /// Режимы обучения, запускаемые с экрана колоды. См. `docs/learning-system.md` §2.
@@ -13,6 +14,7 @@ enum StudyMode {
   hard,
   speed,
   cloze,
+  cram,
 }
 
 /// Направление изучения колоды.
@@ -27,9 +29,12 @@ StudyDirection studyDirectionFromIndex(int i) =>
 enum ExerciseKind { flip, choose, type, trueFalse, listen, cloze }
 
 extension StudyModeInfo on StudyMode {
-  /// Влияет ли режим на планировщик FSRS. Тест и игра «Подбор» —
-  /// оценочные/игровые, расписание не меняют.
-  bool get affectsSchedule => this != StudyMode.test && this != StudyMode.match;
+  /// Влияет ли режим на планировщик FSRS. Тест, игра «Подбор» и зубрёжка перед
+  /// экзаменом — оценочные/временные, расписание не меняют.
+  bool get affectsSchedule =>
+      this != StudyMode.test &&
+      this != StudyMode.match &&
+      this != StudyMode.cram;
 }
 
 /// Одно упражнение: карта + тип + направление (термин→перевод / перевод→термин).
@@ -58,13 +63,18 @@ class SessionBuilder {
     StudyDirection.both => _rng.nextBool(),
   };
 
-  /// Возвращает очередь упражнений. [cards] — карты колоды, [goal] — дневная
-  /// цель (лимит новых), [now] — текущий момент, [direction] — направление.
+  /// Возвращает очередь упражнений.
+  ///
+  /// [newAllowed] — сколько НОВЫХ карт разрешено ввести (остаток дневного
+  /// лимита; 0 — новых не добавлять). [maxReviews] — потолок повторов (защита от
+  /// «лавины» после перерыва). Повторы упорядочены по СРОЧНОСТИ (ближе к
+  /// забыванию — раньше), новые вкраплены между ними, а не свалены в конец.
   List<Exercise> build(
     StudyMode mode,
     List<WordCard> cards,
     DateTime now, {
-    int goal = 20,
+    int newAllowed = 12,
+    int maxReviews = 100,
     int testCount = 12,
     StudyDirection direction = StudyDirection.forward,
   }) {
@@ -74,29 +84,29 @@ class SessionBuilder {
 
     switch (mode) {
       case StudyMode.flashcards:
-        final sel = _selectDueAndNew(due, fresh, goal);
         return [
-          for (final c in sel)
+          for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
             Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
         ];
 
       case StudyMode.write:
-        final sel = _selectDueAndNew(due, fresh, goal);
-        return _shuffled([
-          for (final c in sel)
+        return [
+          for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
             Exercise(c, ExerciseKind.type, reversed: _reversedFor(direction)),
-        ]);
+        ];
 
       case StudyMode.speed:
-        final sel = _selectDueAndNew(due, fresh, min(goal, 15));
-        return _shuffled([
-          for (final c in sel)
+        // Быстрая игра — небольшой набор, но по той же логике срочности.
+        final sel = _selectSession(
+            due, fresh, now, min(newAllowed, 5), min(maxReviews, 15));
+        return [
+          for (final c in sel.take(15))
             Exercise(
               c,
               hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
               reversed: _reversedFor(direction),
             ),
-        ]);
+        ];
 
       case StudyMode.hard:
         final hard =
@@ -108,7 +118,7 @@ class SessionBuilder {
                 if (byLapses != 0) return byLapses;
                 return b.review.difficulty.compareTo(a.review.difficulty);
               });
-        final sel = hard.take(goal).toList();
+        final sel = hard.take(max(1, maxReviews)).toList();
         return [
           for (final c in sel)
             Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
@@ -116,10 +126,10 @@ class SessionBuilder {
 
       case StudyMode.learn:
         // «Учить» — адаптивный режим со своим управлением направлением по фазе.
-        final sel = _selectDueAndNew(due, fresh, goal);
-        return _shuffled([
-          for (final c in sel) _learnExercise(c, hasChoicePool),
-        ]);
+        return [
+          for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
+            _learnExercise(c, hasChoicePool),
+        ];
 
       case StudyMode.test:
         final pool = List<WordCard>.from(cards)..shuffle(_rng);
@@ -130,22 +140,31 @@ class SessionBuilder {
 
       case StudyMode.audio:
         // Слушаем слово на изучаемом языке и выбираем перевод.
-        final sel = _selectDueAndNew(due, fresh, goal);
-        return _shuffled([
-          for (final c in sel) Exercise(c, ExerciseKind.listen),
-        ]);
+        return [
+          for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
+            Exercise(c, ExerciseKind.listen),
+        ];
 
       case StudyMode.cloze:
         // «Контекст»: слово пропущено в предложении из книги/видео.
         final eligible = cards.where((c) => buildCloze(c) != null).toList();
-        final due2 = eligible
-            .where((c) => !c.review.isNew && c.isDue(now))
-            .toList();
+        final due2 =
+            eligible.where((c) => !c.review.isNew && c.isDue(now)).toList();
         final fresh2 = eligible.where((c) => c.review.isNew).toList();
-        final sel = _selectDueAndNew(due2, fresh2, goal);
-        return _shuffled([
-          for (final c in sel) Exercise(c, ExerciseKind.cloze),
-        ]);
+        return [
+          for (final c
+              in _selectSession(due2, fresh2, now, newAllowed, maxReviews))
+            Exercise(c, ExerciseKind.cloze),
+        ];
+
+      case StudyMode.cram:
+        // «Перед экзаменом»: прогоняем ВСЕ карты (игнорируя срок), расписание
+        // FSRS не трогаем — это временная зубрёжка.
+        final all = List<WordCard>.from(cards)..shuffle(_rng);
+        return [
+          for (final c in all)
+            Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+        ];
 
       case StudyMode.match:
         // match — отдельный экран-игра.
@@ -153,17 +172,51 @@ class SessionBuilder {
     }
   }
 
-  /// Выбор карт: сперва просроченные повторы, затем новые до лимита [goal].
-  List<WordCard> _selectDueAndNew(
+  /// Карты сессии: просроченные повторы по СРОЧНОСТИ (меньше извлекаемость —
+  /// ближе к забыванию — раньше; потолок [maxReviews]) + новые (до [newAllowed]),
+  /// РАВНОМЕРНО вкраплённые между повторами (новые слова встречаются на
+  /// протяжении сессии, а не пачкой в конце на усталости).
+  List<WordCard> _selectSession(
     List<WordCard> due,
     List<WordCard> fresh,
-    int goal,
+    DateTime now,
+    int newAllowed,
+    int maxReviews,
   ) {
-    final list = <WordCard>[...due];
-    if (list.length < goal) {
-      list.addAll(fresh.take(goal - list.length));
+    final reviews = List<WordCard>.from(due)
+      ..sort((a, b) => _urgency(a, now).compareTo(_urgency(b, now)));
+    final cappedReviews =
+        maxReviews > 0 ? reviews.take(maxReviews).toList() : reviews;
+    final news = newAllowed > 0 ? fresh.take(newAllowed).toList() : <WordCard>[];
+    return _interleave(cappedReviews, news);
+  }
+
+  /// Извлекаемость карты (0..1) сейчас — чем меньше, тем срочнее повтор.
+  double _urgency(WordCard c, DateTime now) {
+    final last = c.review.lastReview;
+    final elapsed = last == null
+        ? 0.0
+        : max(0, now.difference(last).inSeconds / 86400.0).toDouble();
+    return Fsrs.instance.retrievability(elapsed, c.review.stability);
+  }
+
+  /// Равномерно распределяет [news] среди [reviews] (порядок повторов сохранён).
+  List<WordCard> _interleave(List<WordCard> reviews, List<WordCard> news) {
+    if (news.isEmpty) return reviews;
+    if (reviews.isEmpty) return news;
+    final out = <WordCard>[];
+    final gap = max(1, reviews.length ~/ news.length);
+    var ri = 0, ni = 0, since = 0;
+    while (ri < reviews.length || ni < news.length) {
+      if (ni < news.length && (ri >= reviews.length || since >= gap)) {
+        out.add(news[ni++]);
+        since = 0;
+      } else {
+        out.add(reviews[ri++]);
+        since++;
+      }
     }
-    return list;
+    return out;
   }
 
   /// Упражнение для режима «Учить» — тип по фазе владения картой.
@@ -202,24 +255,44 @@ class SessionBuilder {
     return Exercise(c, kind, reversed: _reversedFor(direction));
   }
 
-  List<Exercise> _shuffled(List<Exercise> list) {
-    final copy = List<Exercise>.from(list)..shuffle(_rng);
-    return copy;
-  }
-
-  /// Три отвлекающих варианта (ответы других карт) для MultipleChoice/TrueFalse.
+  /// Отвлекающие варианты (ответы других карт) для выбора/верно-неверно.
+  ///
+  /// Не случайные, а ПОХОЖИЕ: приоритет — та же часть речи и близкая длина.
+  /// Случайный «кот / вторник / бежать» отгадывается исключением абсурда;
+  /// похожие варианты заставляют реально различать значения.
   List<String> distractors(Exercise ex, List<WordCard> pool, {int n = 3}) {
     final correct = ex.answer.trim().toLowerCase();
-    final options = <String>{};
-    final shuffled = List<WordCard>.from(pool)..shuffle(_rng);
-    for (final c in shuffled) {
-      final v = ex.reversed ? c.front : c.back;
-      if (v.trim().isEmpty) continue;
-      if (v.trim().toLowerCase() == correct) continue;
-      options.add(v);
-      if (options.length >= n) break;
+    final targetPos = ex.card.pos;
+    final targetLen = ex.answer.trim().length;
+
+    // Кандидаты (уникальные по значению, без правильного ответа).
+    final seen = <String>{};
+    final cands = <(WordCard, String)>[];
+    for (final c in pool) {
+      if (identical(c, ex.card)) continue;
+      final v = (ex.reversed ? c.front : c.back).trim();
+      if (v.isEmpty) continue;
+      final key = v.toLowerCase();
+      if (key == correct || !seen.add(key)) continue;
+      cands.add((c, v));
     }
-    return options.toList();
+    // Немного случайности (перемешиваем до стабильной сортировки), затем — по
+    // похожести. Так варианты меняются, но остаются правдоподобными.
+    cands.shuffle(_rng);
+    cands.sort((a, b) => _distractorScore(b.$1, b.$2, targetPos, targetLen)
+        .compareTo(_distractorScore(a.$1, a.$2, targetPos, targetLen)));
+    return [for (final e in cands.take(n)) e.$2];
+  }
+
+  /// Похожесть кандидата на правильный ответ: та же часть речи важнее близости
+  /// длины.
+  double _distractorScore(
+      WordCard c, String value, String targetPos, int targetLen) {
+    var s = 0.0;
+    if (targetPos.isNotEmpty && c.pos == targetPos) s += 2.0;
+    final lenDiff = (value.trim().length - targetLen).abs();
+    s += 1.0 / (1 + lenDiff * 0.15); // ближе по длине — больше
+    return s;
   }
 
   /// Случайный «неправильный» перевод для TrueFalse (или null, если нет пары).

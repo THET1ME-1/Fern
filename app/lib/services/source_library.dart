@@ -178,6 +178,13 @@ class SourceLibrary extends ChangeNotifier {
   final List<LibrarySource> _sources = [];
   bool _loaded = false;
 
+  /// Сбрасывает кэш между тестами (перечитает из prefs при следующем доступе).
+  @visibleForTesting
+  void resetForTest() {
+    _sources.clear();
+    _loaded = false;
+  }
+
   Future<void> _ensureLoaded() async {
     if (_loaded) return;
     final raw = await _prefs.getStringList(_kSources) ?? const [];
@@ -465,6 +472,103 @@ class SourceLibrary extends ChangeNotifier {
         /* файл мог не сохраниться — не критично */
       }
     }
+    notifyListeners();
+  }
+
+  /// Полностью очищает библиотеку: метаданные и все файлы контента на диске.
+  Future<void> wipeAll() async {
+    await _ensureLoaded();
+    for (final s in List<LibrarySource>.from(_sources)) {
+      await delete(s.id);
+    }
+    _sources.clear();
+    _loaded = false; // при следующем доступе перечитает (пусто)
+    notifyListeners();
+  }
+
+  // ----------------------------- Бэкап -----------------------------
+
+  /// Полный снимок библиотеки для бэкапа: метаданные каждого источника +
+  /// вложенный «тяжёлый» контент (текст книги / транскрипт видео / обложка в
+  /// base64) — чтобы при переносе на новый телефон книги и видео вернулись
+  /// целиком, а не только их карточки в колодах.
+  Future<List<Map<String, dynamic>>> exportAll() async {
+    await _ensureLoaded();
+    final dir = await _dir();
+    final out = <Map<String, dynamic>>[];
+    for (final s in _sources) {
+      final m = s.toJson();
+      if (dir != null) {
+        try {
+          if (s.isBook) {
+            final f = File('${dir.path}/${s.id}.txt');
+            if (await f.exists()) m['text'] = await f.readAsString();
+          } else {
+            final f = File('${dir.path}/${s.id}.json');
+            if (await f.exists()) m['payload'] = await f.readAsString();
+          }
+          if (s.hasCover) {
+            final cf = File('${dir.path}/${s.id}.cover');
+            if (await cf.exists()) {
+              m['coverB64'] = base64Encode(await cf.readAsBytes());
+            }
+          }
+        } catch (_) {
+          /* контент не прочитали — метаданные всё равно сохранятся */
+        }
+      }
+      out.add(m);
+    }
+    return out;
+  }
+
+  /// Восстанавливает библиотеку из снимка.
+  ///
+  /// [merge] == false — полная замена (текущие источники и их файлы удаляются).
+  /// [merge] == true — добавляются только отсутствующие по id (текущие целы).
+  Future<void> importAll(List<dynamic> data, {bool merge = false}) async {
+    await _ensureLoaded();
+    final dir = await _dir();
+    if (dir == null) return; // без файлового каталога библиотеку не восстановить
+
+    if (!merge) {
+      for (final s in List<LibrarySource>.from(_sources)) {
+        await delete(s.id);
+      }
+    }
+    final have = _sources.map((s) => s.id).toSet();
+
+    for (final raw in data) {
+      if (raw is! Map) continue;
+      final m = raw.cast<String, dynamic>();
+      final LibrarySource src;
+      try {
+        src = LibrarySource.fromJson(m);
+      } catch (_) {
+        continue; // битая запись — пропускаем
+      }
+      if (merge && have.contains(src.id)) continue;
+      try {
+        if (src.isBook && m['text'] is String) {
+          await File('${dir.path}/${src.id}.txt')
+              .writeAsString(m['text'] as String);
+        } else if (src.isVideo && m['payload'] is String) {
+          await File('${dir.path}/${src.id}.json')
+              .writeAsString(m['payload'] as String);
+        }
+        if (m['coverB64'] is String) {
+          await File('${dir.path}/${src.id}.cover')
+              .writeAsBytes(base64Decode(m['coverB64'] as String));
+        }
+      } catch (_) {
+        /* файл не записался — метаданные всё равно добавим */
+      }
+      _sources
+        ..removeWhere((s) => s.id == src.id)
+        ..add(src);
+      have.add(src.id);
+    }
+    await _persist();
     notifyListeners();
   }
 }

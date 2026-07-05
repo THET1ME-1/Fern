@@ -61,4 +61,46 @@ void main() {
     expect(find.byType(SessionScreen), findsOneWidget,
         reason: 'кнопка «Ещё сессия» должна открывать новую сессию');
   });
+
+  testWidgets('неверный ответ переспрашивается в этой же сессии',
+      (WidgetTester tester) async {
+    await resetStorage();
+    await repo.init();
+    await LocaleController.instance.setCode('ru');
+    final deck = Deck(
+      id: 'd1',
+      languageCode: 'en',
+      name: 'D',
+      colorValue: 0xFF2E7D5B,
+      shapeIndex: 0,
+      createdAt: 1,
+    );
+    final card =
+        WordCard(id: 'c1', deckId: 'd1', front: 'hello', back: 'привет');
+    await repo.upsertDeck(deck);
+    await repo.upsertCard(card);
+
+    tester.view.physicalSize = const Size(1200, 2600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(MaterialApp(
+      home: SessionScreen(deck: deck, mode: StudyMode.flashcards, cards: [card]),
+    ));
+    await tester.pumpAndSettle();
+
+    // Единственную карту оцениваем «Не помню» → она должна вернуться в очередь,
+    // а не завершить сессию (нет экрана результатов).
+    await tester.tap(find.text('Показать ответ'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Не помню'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SessionScreen), findsOneWidget);
+    expect(find.text('Ещё сессия'), findsNothing,
+        reason: 'сессия не должна завершиться после единственной ошибки');
+    expect(find.text('Показать ответ'), findsOneWidget,
+        reason: 'карта показана снова');
+  });
 }

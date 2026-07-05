@@ -704,6 +704,17 @@ class _DeckScreenState extends State<DeckScreen> {
                               const SizedBox(width: 8),
                               _posBadge(card.pos, scheme),
                             ],
+                            if (card.isLeech) ...[
+                              const SizedBox(width: 6),
+                              Tooltip(
+                                message: tr('leech_hint'),
+                                child: Icon(
+                                  Icons.healing_rounded,
+                                  size: 14,
+                                  color: scheme.error,
+                                ),
+                              ),
+                            ],
                             if (hasExample) ...[
                               const SizedBox(width: 6),
                               Icon(

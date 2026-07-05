@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:io' show Platform;
 
 import 'package:dynamic_color/dynamic_color.dart';
@@ -12,6 +13,7 @@ import 'l10n/strings.dart';
 import 'library_screen.dart';
 import 'onboarding_screen.dart';
 import 'progress_screen.dart';
+import 'services/backup_service.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
@@ -30,6 +32,7 @@ Future<void> main() async {
     DeviceOrientation.portraitDown,
   ]);
   await DeckRepository.instance.init();
+  await DeckRepository.instance.applyFsrsSettings();
   await ThemeController.instance.load();
   await LocaleController.instance.load();
   await TranslationManager.instance.load();
@@ -38,6 +41,8 @@ Future<void> main() async {
   await _rescheduleReminderIfEnabled();
   final onboarded = await DeckRepository.instance.onboarded();
   runApp(FernApp(onboarded: onboarded));
+  // Тихий авто-бэкап раз в сутки — после первого кадра, не задерживая запуск.
+  unawaited(BackupService.autoBackupIfDue());
 }
 
 /// Перепланирует ежедневное напоминание на старте (на случай обновления

@@ -7,20 +7,27 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/deck.dart';
 import '../models/fsrs.dart';
 import '../models/pack.dart';
+import '../models/review_event.dart';
 import '../models/review_log.dart';
 import '../models/word_card.dart';
+import 'local_db.dart';
 import 'pos.dart';
 
 /// Единый слой доступа к данным Fern.
 ///
-/// ДНК ScoreMaster (там это был `GameRepository`), но хранилище переведено на
-/// **[SharedPreferencesAsync]** + **кэш в памяти**:
+/// ДНК ScoreMaster (там это был `GameRepository`). Хранилище — **SQLite**
+/// ([LocalDb]) для «тяжёлых» коллекций (колоды, паки, карточки) + **кэш в
+/// памяти**, а мелкие одиночные значения (настройки, журнал по дням, рекорды,
+/// статистика чтения) остаются в `SharedPreferencesAsync`:
 ///
+/// * SQLite пишет ОДНУ карту одним `UPDATE` одной строки — прежде каждая оценка
+///   переписывала весь словарь на диск (O(N) на свайп, лаги и риск ANR на
+///   тысячах карт). Плюс индекс по сроку повтора и `updated_at` на строку —
+///   фундамент под виджет/уведомления и будущий честный синк.
 /// * `SharedPreferencesAsync` пишет НАДЁЖНО — метод завершается, когда запись
 ///   реально дошла до нативного стора (в отличие от старого `apply()`, который
-///   стрелял «в фон»: если пользователь добавлял слово и сразу смахивал
-///   приложение из недавних, асинхронный сброс на диск не успевал — слово
-///   пропадало. Это и была причина «новые слова/папки не сохраняются»).
+///   стрелял «в фон»: смахнул приложение сразу после ввода слова — сброс не
+///   успевал, слово пропадало).
 /// * Кэш в памяти (`_decks`/`_cards`) — чтения мгновенные и консистентные, а
 ///   `notifyListeners()` больше не заставляет каждый экран заново парсить весь
 ///   JSON.
@@ -30,6 +37,14 @@ import 'pos.dart';
 class DeckRepository extends ChangeNotifier {
   DeckRepository._();
   static final DeckRepository instance = DeckRepository._();
+
+  /// Путь к файлу БД, переопределяемый в тестах (изоляция между кейсами). На
+  /// устройстве — null, [LocalDb] берёт каталог документов приложения.
+  @visibleForTesting
+  static String? debugDatabasePath;
+
+  /// БД колод/паков/карт. Создаётся в [init].
+  LocalDb? _db;
 
   static const String _kDecks = 'decks';
   static const String _kPacks = 'packs';
@@ -66,8 +81,12 @@ class DeckRepository extends ChangeNotifier {
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
+  // Флаг разовой миграции коллекций из prefs в SQLite.
+  static const String _kMigratedSqliteV1 = 'migratedToSqliteV1';
   // Разовая чистка вклеенной части речи + определение части речи → тег pos.
   static const String _kPosMigrated = 'posMigratedV2';
+  // Момент последнего авто-бэкапа (мс) — см. BackupService.autoBackupIfDue.
+  static const String _kLastAutoBackup = 'lastAutoBackupMs';
 
   // `SharedPreferencesAsync` — тонкая обёртка без собственного кэша (каждый
   // вызов идёт в нативный стор), поэтому создаём её по требованию. Это и лениво
@@ -86,25 +105,54 @@ class DeckRepository extends ChangeNotifier {
   int _readWords = 0;
   bool _loaded = false;
 
-  /// Один раз загружает данные в память (и мигрирует со старого стора).
+  /// Один раз загружает данные в память (и мигрирует со старых сторов).
   /// Вызывать до `runApp`. Идемпотентно.
   Future<void> init() async {
     if (_loaded) return;
+    // 1) старый apply()-стор → надёжный async-стор (как было).
     await _migrateLegacyIfNeeded();
+    // 2) открываем SQLite и разово переносим в неё коллекции из prefs.
+    _db = LocalDb(path: debugDatabasePath);
+    await _db!.open();
+    await _migratePrefsToSqliteIfNeeded();
+    // 3) кэш в память из SQLite (мелкие значения — из prefs, как раньше).
     _decks
       ..clear()
-      ..addAll(_decodeDecks(await _prefs.getStringList(_kDecks) ?? const []));
+      ..addAll(_db!.allDecks());
     _packs
       ..clear()
-      ..addAll(_decodePacks(await _prefs.getStringList(_kPacks) ?? const []));
+      ..addAll(_db!.allPacks());
     _cards
       ..clear()
-      ..addAll(_decodeCards(await _prefs.getStringList(_kCards) ?? const []));
+      ..addAll(_db!.allCards());
     _log = _decodeLog(await _prefs.getString(_kReviewLog));
     _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
     _decodeReading(await _prefs.getString(_kReadingStats));
     await _migratePosIfNeeded();
     _loaded = true;
+  }
+
+  /// Разово переносит колоды/паки/карты из prefs в SQLite. Защита двойная:
+  /// импорт идёт ТОЛЬКО в пустую БД (никогда не затираем уже перенесённые
+  /// данные) и только один раз (флаг). Старые prefs-ключи не удаляем — остаются
+  /// «холодным» запасом на одну версию (после переноса они больше не читаются).
+  Future<void> _migratePrefsToSqliteIfNeeded() async {
+    final db = _db!;
+    if (await _prefs.getBool(_kMigratedSqliteV1) ?? false) return;
+    if (db.deckCount() == 0 && db.cardCount() == 0) {
+      final decks =
+          _decodeDecks(await _prefs.getStringList(_kDecks) ?? const []);
+      final packs =
+          _decodePacks(await _prefs.getStringList(_kPacks) ?? const []);
+      final cards =
+          _decodeCards(await _prefs.getStringList(_kCards) ?? const []);
+      if (decks.isNotEmpty || packs.isNotEmpty || cards.isNotEmpty) {
+        db.replaceAllDecks(decks);
+        db.replaceAllPacks(packs);
+        db.replaceAllCards(cards);
+      }
+    }
+    await _prefs.setBool(_kMigratedSqliteV1, true);
   }
 
   /// Разово (1) вычищает вклеенную в слово часть речи («the артикль» → «the»)
@@ -113,7 +161,7 @@ class DeckRepository extends ChangeNotifier {
   Future<void> _migratePosIfNeeded() async {
     if (await _prefs.getBool(_kPosMigrated) ?? false) return;
     final deckLang = {for (final d in _decks) d.id: d.languageCode};
-    var changed = false;
+    final changed = <WordCard>[];
     for (final c in _cards) {
       if (c.pos.isNotEmpty) continue;
       final lang = deckLang[c.deckId] ?? 'en';
@@ -121,16 +169,16 @@ class DeckRepository extends ChangeNotifier {
       if (stripped.$2 != null) {
         c.front = stripped.$1;
         c.pos = stripped.$2!;
-        changed = true;
+        changed.add(c);
       } else {
         final d = PosDetect.detect(c.front, languageCode: lang);
         if (d.isNotEmpty) {
           c.pos = d;
-          changed = true;
+          changed.add(c);
         }
       }
     }
-    if (changed) await _persistCards();
+    if (changed.isNotEmpty) _db!.upsertCards(changed);
     await _prefs.setBool(_kPosMigrated, true);
   }
 
@@ -174,6 +222,10 @@ class DeckRepository extends ChangeNotifier {
   /// Сбрасывает состояние синглтона между тестами.
   @visibleForTesting
   void resetForTest() {
+    // Закрываем соединение (данные остаются в файле — как «убитое» приложение):
+    // следующий init() поднимет их заново. Файл БД чистится в тестовой обвязке.
+    _db?.close();
+    _db = null;
     _decks.clear();
     _packs.clear();
     _cards.clear();
@@ -285,15 +337,8 @@ class DeckRepository extends ChangeNotifier {
     _decks
       ..clear()
       ..addAll(decks);
-    await _persistDecks();
+    _db!.replaceAllDecks(_decks);
     notifyListeners();
-  }
-
-  Future<void> _persistDecks() async {
-    await _prefs.setStringList(
-      _kDecks,
-      _decks.map((d) => jsonEncode(d.toJson())).toList(),
-    );
   }
 
   Future<void> upsertDeck(Deck deck) async {
@@ -304,7 +349,7 @@ class DeckRepository extends ChangeNotifier {
     } else {
       _decks.add(deck);
     }
-    await _persistDecks();
+    _db!.upsertDeck(deck);
     notifyListeners();
   }
 
@@ -313,8 +358,8 @@ class DeckRepository extends ChangeNotifier {
     await _ensureLoaded();
     _decks.removeWhere((d) => d.id == deckId);
     _cards.removeWhere((c) => c.deckId == deckId);
-    await _persistDecks();
-    await _persistCards();
+    _db!.deleteDeck(deckId);
+    _db!.deleteCardsForDeck(deckId);
     notifyListeners();
   }
 
@@ -328,13 +373,6 @@ class DeckRepository extends ChangeNotifier {
     return List<Pack>.from(_packs);
   }
 
-  Future<void> _persistPacks() async {
-    await _prefs.setStringList(
-      _kPacks,
-      _packs.map((p) => jsonEncode(p.toJson())).toList(),
-    );
-  }
-
   Future<void> upsertPack(Pack pack) async {
     await _ensureLoaded();
     final idx = _packs.indexWhere((p) => p.id == pack.id);
@@ -343,7 +381,7 @@ class DeckRepository extends ChangeNotifier {
     } else {
       _packs.add(pack);
     }
-    await _persistPacks();
+    _db!.upsertPack(pack);
     notifyListeners();
   }
 
@@ -352,11 +390,17 @@ class DeckRepository extends ChangeNotifier {
   Future<void> deletePack(String packId) async {
     await _ensureLoaded();
     _packs.removeWhere((p) => p.id == packId);
+    final touched = <Deck>[];
     for (final d in _decks) {
-      if (d.packId == packId) d.packId = null;
+      if (d.packId == packId) {
+        d.packId = null;
+        touched.add(d);
+      }
     }
-    await _persistPacks();
-    await _persistDecks();
+    _db!.deletePack(packId);
+    for (final d in touched) {
+      _db!.upsertDeck(d);
+    }
     notifyListeners();
   }
 
@@ -366,7 +410,7 @@ class DeckRepository extends ChangeNotifier {
     final idx = _decks.indexWhere((d) => d.id == deckId);
     if (idx < 0) return;
     _decks[idx].packId = packId;
-    await _persistDecks();
+    _db!.upsertDeck(_decks[idx]);
     notifyListeners();
   }
 
@@ -441,15 +485,8 @@ class DeckRepository extends ChangeNotifier {
     _cards
       ..clear()
       ..addAll(cards);
-    await _persistCards();
+    _db!.replaceAllCards(_cards);
     notifyListeners();
-  }
-
-  Future<void> _persistCards() async {
-    await _prefs.setStringList(
-      _kCards,
-      _cards.map((c) => jsonEncode(c.toJson())).toList(),
-    );
   }
 
   Future<List<WordCard>> cardsForDeck(String deckId) async {
@@ -473,22 +510,24 @@ class DeckRepository extends ChangeNotifier {
     } else {
       _cards.add(card);
     }
-    await _persistCards();
+    // Одна строка на диск — раньше здесь переписывался весь словарь.
+    _db!.upsertCard(card);
     notifyListeners();
   }
 
-  /// Добавляет пачку карточек за одну запись на диск (быстрое добавление).
+  /// Добавляет пачку карточек за одну транзакцию (быстрое добавление).
   Future<void> addCards(Iterable<WordCard> cards) async {
     await _ensureLoaded();
-    _cards.addAll(cards);
-    await _persistCards();
+    final list = cards.toList();
+    _cards.addAll(list);
+    _db!.upsertCards(list);
     notifyListeners();
   }
 
   Future<void> deleteCard(String cardId) async {
     await _ensureLoaded();
     _cards.removeWhere((c) => c.id == cardId);
-    await _persistCards();
+    _db!.deleteCard(cardId);
     notifyListeners();
   }
 
@@ -497,17 +536,40 @@ class DeckRepository extends ChangeNotifier {
     await _ensureLoaded();
     final ids = cardIds.toSet();
     if (ids.isEmpty) return;
+    final moved = <WordCard>[];
     for (final c in _cards) {
-      if (ids.contains(c.id)) c.deckId = newDeckId;
+      if (ids.contains(c.id)) {
+        c.deckId = newDeckId;
+        moved.add(c);
+      }
     }
-    await _persistCards();
+    if (moved.isNotEmpty) _db!.upsertCards(moved);
     notifyListeners();
   }
 
-  /// Применяет оценку к карточке (FSRS) и сохраняет новое состояние повторения.
+  /// Применяет оценку к карточке (FSRS), пишет событие в журнал повторов и
+  /// сохраняет новое состояние.
   Future<void> rateCard(WordCard card, Rating rating, DateTime now) async {
-    card.review = Fsrs.instance.review(card.review, rating, now);
+    final prev = card.review;
+    final wasNew = prev.isNew;
+    final elapsedDays = prev.lastReview == null
+        ? 0.0
+        : (now.difference(prev.lastReview!).inSeconds / 86400.0)
+            .clamp(0.0, double.infinity);
+    final stateBefore = prev.state.index;
+
+    card.review = Fsrs.instance.review(prev, rating, now);
     await upsertCard(card);
+    // Сырое событие — фундамент под персональный оптимизатор FSRS.
+    _db!.logReview(ReviewEvent(
+      cardId: card.id,
+      ts: now.millisecondsSinceEpoch,
+      grade: rating.grade,
+      elapsedDays: elapsedDays.toDouble(),
+      stateBefore: stateBefore,
+    ));
+    // Новая карта впервые показана → расходуем дневной лимит новых.
+    if (wasNew) await markNewIntroduced(1, now);
   }
 
   // ----------------------------- Журнал занятий -----------------------------
@@ -625,6 +687,102 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ------------------------- Лимиты подачи (SRS) -------------------------
+  // Раздельные лимиты в духе Anki (а не один «goal»): новые вводятся стабильно
+  // (не «0 новых в тяжёлый день»), а поток повторов ограничен (не «лавина» на
+  // 300 карт после перерыва).
+  static const String _kNewPerDay = 'newPerDay';
+  static const String _kMaxReviews = 'maxReviewsPerSession';
+  static const String _kNewIntroDate = 'newIntroDate';
+  static const String _kNewIntroCount = 'newIntroCount';
+
+  /// Сколько НОВЫХ карт вводить в день (по умолч. 12). 0 — не ограничивать.
+  Future<int> newPerDay() async => await _prefs.getInt(_kNewPerDay) ?? 12;
+  Future<void> setNewPerDay(int value) async {
+    await _prefs.setInt(_kNewPerDay, value.clamp(0, 999));
+    notifyListeners();
+  }
+
+  /// Потолок повторов на одну сессию (по умолч. 100) — защита от «лавины».
+  /// Остальные просроченные подхватит следующая сессия («Ещё сессия»).
+  Future<int> maxReviews() async => await _prefs.getInt(_kMaxReviews) ?? 100;
+  Future<void> setMaxReviews(int value) async {
+    await _prefs.setInt(_kMaxReviews, value.clamp(10, 999));
+    notifyListeners();
+  }
+
+  // ------------------------- Персонализация FSRS -------------------------
+  static const String _kRetention = 'requestRetention';
+  static const String _kFsrsWeights = 'fsrsWeights';
+
+  /// Целевой уровень удержания (0.85..0.97). Выше — интервалы короче, повторов
+  /// больше, но помнишь лучше. По умолчанию 0.9.
+  Future<double> requestRetention() async =>
+      await _prefs.getDouble(_kRetention) ?? 0.9;
+  Future<void> setRequestRetention(double v) async {
+    await _prefs.setDouble(_kRetention, v.clamp(0.80, 0.97));
+    Fsrs.instance.requestRetention = v.clamp(0.80, 0.97);
+    notifyListeners();
+  }
+
+  /// Персональные веса FSRS (или null — дефолтные).
+  Future<List<double>?> fsrsWeights() async {
+    final raw = await _prefs.getString(_kFsrsWeights);
+    if (raw == null || raw.isEmpty) return null;
+    try {
+      return [for (final v in jsonDecode(raw) as List) (v as num).toDouble()];
+    } catch (_) {
+      return null;
+    }
+  }
+
+  Future<void> setFsrsWeights(List<double>? weights) async {
+    if (weights == null) {
+      await _prefs.remove(_kFsrsWeights);
+      Fsrs.instance.setWeights(null);
+    } else {
+      await _prefs.setString(_kFsrsWeights, jsonEncode(weights));
+      Fsrs.instance.setWeights(weights);
+    }
+    notifyListeners();
+  }
+
+  /// Загружает персональные настройки FSRS в планировщик (зовётся на старте).
+  Future<void> applyFsrsSettings() async {
+    Fsrs.instance.requestRetention = await requestRetention();
+    Fsrs.instance.setWeights(await fsrsWeights());
+  }
+
+  /// Число накопленных событий повтора (для готовности оптимизатора).
+  Future<int> reviewEventCount() async {
+    await _ensureLoaded();
+    return _db!.reviewEventCount();
+  }
+
+  /// Все события повтора (для оптимизатора).
+  Future<List<ReviewEvent>> reviewEvents() async {
+    await _ensureLoaded();
+    return _db!.allReviewEvents();
+  }
+
+  /// Сколько новых карт уже введено СЕГОДНЯ (для остатка дневного лимита).
+  Future<int> newIntroducedToday([DateTime? now]) async {
+    final today = ReviewLog.keyFor(now ?? DateTime.now());
+    final date = await _prefs.getString(_kNewIntroDate);
+    if (date != today) return 0;
+    return await _prefs.getInt(_kNewIntroCount) ?? 0;
+  }
+
+  /// Отмечает [delta] введённых сегодня новых карт (обнуляет счётчик при смене
+  /// дня). Зовётся, когда новая карта впервые оценивается.
+  Future<void> markNewIntroduced([int delta = 1, DateTime? now]) async {
+    final today = ReviewLog.keyFor(now ?? DateTime.now());
+    final date = await _prefs.getString(_kNewIntroDate);
+    final base = date == today ? (await _prefs.getInt(_kNewIntroCount) ?? 0) : 0;
+    await _prefs.setString(_kNewIntroDate, today);
+    await _prefs.setInt(_kNewIntroCount, base + delta);
+  }
+
   // Ежедневное напоминание.
   Future<bool> reminderEnabled() async =>
       await _prefs.getBool(_kReminderOn) ?? false;
@@ -687,42 +845,135 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ----------------------------- Удаление всех данных -----------------------------
+
+  /// Полностью стирает данные приложения (как свежая установка): БД
+  /// (колоды/паки/карты/журнал повторов), ВСЕ настройки и флаги, кэш в памяти и
+  /// персонализацию FSRS. Библиотеку книг/видео очищает вызывающая сторона
+  /// (`SourceLibrary.wipeAll` — у неё файлы на диске). Необратимо.
+  Future<void> wipeAllData() async {
+    await _ensureLoaded();
+    _db!.wipeAll();
+    // Чистим оба prefs-стора (async + legacy) целиком, включая флаги миграций.
+    await _prefs.clear();
+    try {
+      await (await SharedPreferences.getInstance()).clear();
+    } catch (_) {
+      /* legacy-стор недоступен — не критично */
+    }
+    _decks.clear();
+    _packs.clear();
+    _cards.clear();
+    _log = ReviewLog.empty();
+    _matchBest = {};
+    _readSeconds = 0;
+    _readWords = 0;
+    // Возвращаем планировщик к дефолтам (снятая персонализация).
+    Fsrs.instance.requestRetention = 0.9;
+    Fsrs.instance.setWeights(null);
+    notifyListeners();
+  }
+
   // ----------------------------- Бэкап -----------------------------
 
-  /// Полный снимок данных (колоды + карты + настройки) как JSON-строка.
-  Future<String> exportJson() async {
+  /// Момент последнего авто-бэкапа (мс) — см. `BackupService.autoBackupIfDue`.
+  Future<int> lastAutoBackupMs() async =>
+      await _prefs.getInt(_kLastAutoBackup) ?? 0;
+  Future<void> setLastAutoBackupMs(int value) async =>
+      _prefs.setInt(_kLastAutoBackup, value);
+
+  /// Полный снимок данных как карта (колоды + паки + карты + журнал + ВСЕ
+  /// настройки + рекорды/статистика чтения + конфиг перевода). Библиотека
+  /// книг/видео добавляется поверх в `BackupService` (у неё «тяжёлый» контент
+  /// на диске). Формат версии 2.
+  Future<Map<String, dynamic>> exportMap() async {
     await _ensureLoaded();
-    return const JsonEncoder.withIndent('  ').convert({
-      'version': 1,
+    return {
+      'version': 2,
       'decks': [for (final d in _decks) d.toJson()],
       'packs': [for (final p in _packs) p.toJson()],
       'cards': [for (final c in _cards) c.toJson()],
       'reviewLog': _log.toJson(),
+      'matchBest': _matchBest,
+      'reading': {'s': _readSeconds, 'w': _readWords},
+      'translation': {
+        'endpoints': await _prefs.getString(_kTransEndpoints),
+        'active': await _prefs.getString(_kTransActive),
+      },
+      'requestRetention': await _prefs.getDouble(_kRetention),
+      'fsrsWeights': await fsrsWeights(),
       'settings': {
         'seedColor': await _prefs.getInt(_kSeedColor),
         'themeMode': await _prefs.getInt(_kThemeMode),
+        'isDarkTheme': await _prefs.getBool(_kIsDarkTheme),
         'dynamicColor': await _prefs.getBool(_kDynamicColor),
         'amoled': await _prefs.getBool(_kAmoled),
         'uiLanguageCode': await _prefs.getString(_kUiLanguage),
         'selectedLanguage': await _prefs.getString(_kSelectedLanguage),
         'dailyGoal': await _prefs.getInt(_kDailyGoal),
+        'newPerDay': await _prefs.getInt(_kNewPerDay),
+        'maxReviews': await _prefs.getInt(_kMaxReviews),
+        'reminderEnabled': await _prefs.getBool(_kReminderOn),
+        'reminderHour': await _prefs.getInt(_kReminderHour),
+        'reminderMinute': await _prefs.getInt(_kReminderMinute),
       },
-    });
+    };
   }
 
-  /// Восстанавливает данные из JSON-снимка (перезаписывает текущие).
-  Future<void> importJson(String raw) async {
+  /// Полный снимок как JSON-строка (обёртка над [exportMap]).
+  Future<String> exportJson() async =>
+      const JsonEncoder.withIndent('  ').convert(await exportMap());
+
+  /// Восстанавливает данные из снимка.
+  ///
+  /// [merge] == false (по умолчанию) — полная замена: текущие колоды/карты
+  /// вытесняются данными из снимка, применяются настройки.
+  ///
+  /// [merge] == true — объединение: добавляются ТОЛЬКО отсутствующие сущности
+  /// (по id), существующие не трогаются (чтобы не потерять текущий прогресс
+  /// повторов); журнал и настройки при слиянии остаются как есть. Это безопасное
+  /// «слить две библиотеки», а не last-write-wins.
+  Future<void> importMap(Map<String, dynamic> data, {bool merge = false}) async {
     await _ensureLoaded();
-    final data = jsonDecode(raw) as Map<String, dynamic>;
-    final decks = (data['decks'] as List? ?? [])
-        .map((e) => Deck.fromJson((e as Map).cast<String, dynamic>()))
-        .toList();
-    final packs = (data['packs'] as List? ?? [])
-        .map((e) => Pack.fromJson((e as Map).cast<String, dynamic>()))
-        .toList();
-    final cards = (data['cards'] as List? ?? [])
-        .map((e) => WordCard.fromJson((e as Map).cast<String, dynamic>()))
-        .toList();
+    final decks = [
+      for (final e in (data['decks'] as List? ?? const []))
+        if (e is Map) Deck.fromJson(e.cast<String, dynamic>()),
+    ];
+    final packs = [
+      for (final e in (data['packs'] as List? ?? const []))
+        if (e is Map) Pack.fromJson(e.cast<String, dynamic>()),
+    ];
+    final cards = [
+      for (final e in (data['cards'] as List? ?? const []))
+        if (e is Map) WordCard.fromJson(e.cast<String, dynamic>()),
+    ];
+
+    if (merge) {
+      final haveDeck = _decks.map((d) => d.id).toSet();
+      for (final d in decks) {
+        if (haveDeck.add(d.id)) {
+          _decks.add(d);
+          _db!.upsertDeck(d);
+        }
+      }
+      final havePack = _packs.map((p) => p.id).toSet();
+      for (final p in packs) {
+        if (havePack.add(p.id)) {
+          _packs.add(p);
+          _db!.upsertPack(p);
+        }
+      }
+      final haveCard = _cards.map((c) => c.id).toSet();
+      final newCards = [for (final c in cards) if (haveCard.add(c.id)) c];
+      if (newCards.isNotEmpty) {
+        _cards.addAll(newCards);
+        _db!.upsertCards(newCards);
+      }
+      notifyListeners();
+      return;
+    }
+
+    // Полная замена.
     _decks
       ..clear()
       ..addAll(decks);
@@ -732,42 +983,86 @@ class DeckRepository extends ChangeNotifier {
     _cards
       ..clear()
       ..addAll(cards);
-    await _persistDecks();
-    await _persistPacks();
-    await _persistCards();
+    _db!.replaceAllDecks(_decks);
+    _db!.replaceAllPacks(_packs);
+    _db!.replaceAllCards(_cards);
+
     if (data['reviewLog'] is Map) {
-      _log = ReviewLog.fromJson(
-        (data['reviewLog'] as Map).cast<String, dynamic>(),
-      );
+      _log = ReviewLog.fromJson((data['reviewLog'] as Map).cast<String, dynamic>());
       await _prefs.setString(_kReviewLog, jsonEncode(_log.toJson()));
     }
-    final s = (data['settings'] as Map?)?.cast<String, dynamic>() ?? {};
-    if (s['seedColor'] is num) {
-      await _prefs.setInt(_kSeedColor, (s['seedColor'] as num).toInt());
+    if (data['matchBest'] is Map) {
+      _matchBest = {
+        for (final e in (data['matchBest'] as Map).entries)
+          if (e.value is num) '${e.key}': (e.value as num).toInt(),
+      };
+      await _prefs.setString(_kMatchBest, jsonEncode(_matchBest));
     }
-    if (s['themeMode'] is num) {
-      await _prefs.setInt(_kThemeMode, (s['themeMode'] as num).toInt());
-    }
-    if (s['dynamicColor'] is bool) {
-      await _prefs.setBool(_kDynamicColor, s['dynamicColor'] as bool);
-    }
-    if (s['amoled'] is bool) {
-      await _prefs.setBool(_kAmoled, s['amoled'] as bool);
-    }
-    if (s['uiLanguageCode'] is String) {
-      await _prefs.setString(_kUiLanguage, s['uiLanguageCode'] as String);
-    }
-    if (s['selectedLanguage'] is String) {
+    if (data['reading'] is Map) {
+      final r = (data['reading'] as Map).cast<String, dynamic>();
+      _readSeconds = (r['s'] as num?)?.toInt() ?? _readSeconds;
+      _readWords = (r['w'] as num?)?.toInt() ?? _readWords;
       await _prefs.setString(
-        _kSelectedLanguage,
-        s['selectedLanguage'] as String,
+        _kReadingStats,
+        jsonEncode({'s': _readSeconds, 'w': _readWords}),
       );
     }
-    if (s['dailyGoal'] is num) {
-      await _prefs.setInt(_kDailyGoal, (s['dailyGoal'] as num).toInt());
+    if (data['translation'] is Map) {
+      final t = (data['translation'] as Map).cast<String, dynamic>();
+      if (t['endpoints'] is String) {
+        await _prefs.setString(_kTransEndpoints, t['endpoints'] as String);
+      }
+      if (t['active'] is String) {
+        await _prefs.setString(_kTransActive, t['active'] as String);
+      }
+    }
+    await _applySettings((data['settings'] as Map?)?.cast<String, dynamic>());
+    // Персонализация FSRS (целевое удержание + личные веса).
+    if (data['requestRetention'] is num) {
+      await setRequestRetention((data['requestRetention'] as num).toDouble());
+    }
+    if (data['fsrsWeights'] is List) {
+      await setFsrsWeights([
+        for (final v in data['fsrsWeights'] as List)
+          if (v is num) v.toDouble(),
+      ]);
     }
     notifyListeners();
   }
+
+  /// Применяет блок настроек из снимка (что задано — то и пишем).
+  Future<void> _applySettings(Map<String, dynamic>? s) async {
+    if (s == null) return;
+    Future<void> setInt(String key, String prefKey) async {
+      if (s[key] is num) await _prefs.setInt(prefKey, (s[key] as num).toInt());
+    }
+
+    Future<void> setBool(String key, String prefKey) async {
+      if (s[key] is bool) await _prefs.setBool(prefKey, s[key] as bool);
+    }
+
+    Future<void> setStr(String key, String prefKey) async {
+      if (s[key] is String) await _prefs.setString(prefKey, s[key] as String);
+    }
+
+    await setInt('seedColor', _kSeedColor);
+    await setInt('themeMode', _kThemeMode);
+    await setBool('isDarkTheme', _kIsDarkTheme);
+    await setBool('dynamicColor', _kDynamicColor);
+    await setBool('amoled', _kAmoled);
+    await setStr('uiLanguageCode', _kUiLanguage);
+    await setStr('selectedLanguage', _kSelectedLanguage);
+    await setInt('dailyGoal', _kDailyGoal);
+    await setInt('newPerDay', _kNewPerDay);
+    await setInt('maxReviews', _kMaxReviews);
+    await setBool('reminderEnabled', _kReminderOn);
+    await setInt('reminderHour', _kReminderHour);
+    await setInt('reminderMinute', _kReminderMinute);
+  }
+
+  /// Восстанавливает из JSON-строки (обёртка над [importMap]).
+  Future<void> importJson(String raw, {bool merge = false}) async =>
+      importMap(jsonDecode(raw) as Map<String, dynamic>, merge: merge);
 
   // ----------------------------- Колоды по умолчанию -----------------------------
 
@@ -816,8 +1111,10 @@ class DeckRepository extends ChangeNotifier {
       _decks.add(entry.$1);
       _cards.addAll(entry.$2);
     }
-    await _persistDecks();
-    await _persistCards();
+    // Сеется на первом запуске / апгрейде старого авто-набора — редко, поэтому
+    // сохраняем весь текущий кэш целиком (память — источник правды на этот шаг).
+    _db!.replaceAllDecks(_decks);
+    _db!.replaceAllCards(_cards);
     await _prefs.setBool(_kSeededDemo, true);
     await _prefs.setInt(_kSeedVersion, _seedVersion);
     notifyListeners();

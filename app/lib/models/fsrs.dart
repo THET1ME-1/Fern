@@ -19,7 +19,23 @@ class Fsrs {
     2.9898, 0.51655, 0.6621,
   ];
 
-  final List<double> w = defaultWeights;
+  /// Текущие веса (по умолчанию — [defaultWeights]; могут быть заменены
+  /// персональными через [setWeights]).
+  List<double> w = List<double>.of(defaultWeights);
+
+  /// Ставит персональные веса (или сбрасывает на дефолтные при null). Принимает
+  /// только корректный набор из 19 значений; каждое — в разумных границах, чтобы
+  /// кривой оптимизатор не сломал планирование.
+  void setWeights(List<double>? weights) {
+    if (weights == null || weights.length != defaultWeights.length) {
+      w = List<double>.of(defaultWeights);
+      return;
+    }
+    w = [
+      for (final v in weights)
+        v.isFinite ? v.clamp(-1.0, 100.0).toDouble() : 0.0,
+    ];
+  }
 
   /// Целевой уровень удержания (вероятность вспомнить на момент повтора).
   double requestRetention = 0.9;
@@ -51,7 +67,26 @@ class Fsrs {
     return ivl.round().clamp(1, maximumInterval);
   }
 
-  Duration _reviewInterval(double s) => Duration(days: _intervalDays(s));
+  /// Интервал review-карты. При [fuzz] — детерминированный разброс вокруг
+  /// оптимального (Anki-подобно): карты, добавленные/пришедшие в один день, не
+  /// слипаются на одну дату повтора навсегда, нагрузка разводится по дням.
+  Duration _reviewInterval(double s, {bool fuzz = false}) {
+    final base = _intervalDays(s);
+    return Duration(days: fuzz ? _fuzzInterval(base, s) : base);
+  }
+
+  /// Разброс интервала. Короткие интервалы (<3 дней) не трогаем — там разброс
+  /// вреден. Ширина растёт с интервалом (±~8%, минимум ±1 день). Сдвиг
+  /// ДЕТЕРМИНИРОВАН (из бит стабильности), а не случаен — воспроизводимо в
+  /// тестах и стабильно при повторном планировании той же карты, но у разных
+  /// карт сдвиги разные → нагрузка расходится.
+  int _fuzzInterval(int ivl, double seed) {
+    if (ivl < 3) return ivl;
+    final spread = math.max(1, (ivl * 0.08).round());
+    final bits = seed.toStringAsFixed(4).hashCode & 0x7fffffff;
+    final offset = (bits % (2 * spread + 1)) - spread; // [-spread, +spread]
+    return (ivl + offset).clamp(1, maximumInterval);
+  }
 
   double _initStability(Rating g) =>
       w[g.grade - 1].clamp(0.1, maximumInterval.toDouble());
@@ -97,7 +132,11 @@ class Fsrs {
   // ------------------------------- Планирование -------------------------------
 
   /// Возвращает НОВОЕ состояние карты после оценки [g] в момент [now].
-  ReviewState review(ReviewState prev, Rating g, DateTime now) {
+  ///
+  /// [fuzz] — разбрасывать ли review-интервал (в реальном планировании да; в
+  /// [preview] нет, чтобы подписи на кнопках были стабильными).
+  ReviewState review(ReviewState prev, Rating g, DateTime now,
+      {bool fuzz = true}) {
     final elapsedDays = prev.lastReview == null
         ? 0.0
         : math.max(0, now.difference(prev.lastReview!).inSeconds / 86400.0)
@@ -130,12 +169,12 @@ class Fsrs {
       ..reps = prev.reps + 1
       ..lastReview = now;
 
-    _schedule(prev, next, g, s, now);
+    _schedule(prev, next, g, s, now, fuzz);
     return next;
   }
 
-  void _schedule(
-      ReviewState prev, ReviewState next, Rating g, double s, DateTime now) {
+  void _schedule(ReviewState prev, ReviewState next, Rating g, double s,
+      DateTime now, bool fuzz) {
     if (g == Rating.again) {
       if (prev.state == FsrsState.review) next.lapses = prev.lapses + 1;
       next.state = prev.state == FsrsState.newCard
@@ -151,7 +190,7 @@ class Fsrs {
     if (g == Rating.easy) {
       next.state = FsrsState.review;
       next.step = 0;
-      next.due = now.add(_reviewInterval(s));
+      next.due = now.add(_reviewInterval(s, fuzz: fuzz));
       return;
     }
 
@@ -174,7 +213,7 @@ class Fsrs {
         if (nextStep >= steps.length) {
           next.state = FsrsState.review;
           next.step = 0;
-          next.due = now.add(_reviewInterval(s));
+          next.due = now.add(_reviewInterval(s, fuzz: fuzz));
         } else {
           next.state = relearn ? FsrsState.relearning : FsrsState.learning;
           next.step = nextStep;
@@ -185,7 +224,7 @@ class Fsrs {
       // Карта в review, успех (hard/good) → новый интервал.
       next.state = FsrsState.review;
       next.step = 0;
-      next.due = now.add(_reviewInterval(s));
+      next.due = now.add(_reviewInterval(s, fuzz: fuzz));
     }
   }
 
@@ -194,7 +233,7 @@ class Fsrs {
   Map<Rating, Duration> preview(ReviewState prev, DateTime now) {
     final map = <Rating, Duration>{};
     for (final g in Rating.values) {
-      final next = review(prev, g, now);
+      final next = review(prev, g, now, fuzz: false);
       final due = next.due ?? now;
       map[g] = due.difference(now);
     }

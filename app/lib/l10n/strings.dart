@@ -100,6 +100,11 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Слово в предложении из книги',
     'en': 'Word in a sentence from a book'
   },
+  'mode_cram': {'ru': 'Перед экзаменом', 'en': 'Cram'},
+  'mode_cram_sub': {
+    'ru': 'Прогон всех карт, интервалы не меняются',
+    'en': 'Run all cards, schedule untouched'
+  },
   'cloze_prompt': {
     'ru': 'Впишите пропущенное слово',
     'en': 'Fill in the missing word'
@@ -476,6 +481,47 @@ const Map<String, Map<String, String>> _strings = {
   'goal_today': {'ru': 'Цель на сегодня', 'en': "Today's goal"},
   'reviews_today': {'ru': 'Повторов сегодня', 'en': 'Reviews today'},
   'daily_goal': {'ru': 'Цель в день', 'en': 'Daily goal'},
+  'leech_hint': {
+    'ru': 'Часто забывается — добавьте пример или мнемонику',
+    'en': 'Often forgotten — add an example or mnemonic'
+  },
+  'new_per_day': {'ru': 'Новых в день', 'en': 'New per day'},
+  'new_per_day_sub': {
+    'ru': 'Сколько новых слов вводить (0 — без лимита)',
+    'en': 'How many new words to introduce (0 — no limit)'
+  },
+  'max_reviews': {'ru': 'Повторов за раз', 'en': 'Reviews per session'},
+  'max_reviews_sub': {
+    'ru': 'Потолок повторов в сессии — без «лавины»',
+    'en': 'Cap on reviews per session — no avalanche'
+  },
+  'retention_target': {'ru': 'Целевое удержание', 'en': 'Target retention'},
+  'retention_sub': {
+    'ru': 'Выше — повторов больше, но помните лучше',
+    'en': 'Higher — more reviews, better recall'
+  },
+  'optimize_fsrs': {'ru': 'Оптимизация FSRS', 'en': 'Optimize FSRS'},
+  'optimize_run': {'ru': 'Оптимизировать', 'en': 'Optimize'},
+  'optimize_active': {
+    'ru': 'Используются ваши персональные веса',
+    'en': 'Using your personal weights'
+  },
+  'optimize_progress': {
+    'ru': 'Повторов накоплено: {n} / {need}',
+    'en': 'Reviews collected: {n} / {need}'
+  },
+  'optimize_done': {
+    'ru': 'Готово. Ваше удержание ≈ {r}%',
+    'en': 'Done. Your retention ≈ {r}%'
+  },
+  'optimize_need_more': {
+    'ru': 'Пока мало данных — позанимайтесь ещё',
+    'en': 'Not enough data yet — keep studying'
+  },
+  'optimize_reset_done': {
+    'ru': 'Вернули стандартные веса',
+    'en': 'Reset to default weights'
+  },
   'cards_total': {'ru': 'Всего карточек', 'en': 'Total cards'},
   'stat_new': {'ru': 'Новые', 'en': 'New'},
   'stat_learning': {'ru': 'Учатся', 'en': 'Learning'},
@@ -549,8 +595,40 @@ const Map<String, Map<String, String>> _strings = {
   'create_backup': {'ru': 'Создать резервную копию', 'en': 'Create backup'},
   'restore_backup': {'ru': 'Восстановить из копии', 'en': 'Restore from backup'},
   'backup_done': {'ru': 'Копия создана', 'en': 'Backup created'},
+  'backup_failed': {
+    'ru': 'Не удалось создать копию',
+    'en': 'Backup failed'
+  },
+  'export_failed': {
+    'ru': 'Не удалось экспортировать',
+    'en': 'Export failed'
+  },
   'restore_done': {'ru': 'Данные восстановлены', 'en': 'Data restored'},
   'restore_failed': {'ru': 'Не удалось восстановить', 'en': 'Restore failed'},
+  'wipe_data': {'ru': 'Удалить все данные', 'en': 'Delete all data'},
+  'wipe_data_sub': {
+    'ru': 'Колоды, слова, книги, статистику — как после установки',
+    'en': 'Decks, words, books, stats — like a fresh install'
+  },
+  'wipe_data_confirm': {
+    'ru': 'Все колоды, слова, прогресс, книги и настройки будут удалены '
+        'безвозвратно. Сделайте резервную копию заранее.',
+    'en': 'All decks, words, progress, books and settings will be erased '
+        'permanently. Make a backup first.'
+  },
+  'wipe_data_btn': {'ru': 'Удалить всё', 'en': 'Delete all'},
+  'wipe_data_done': {'ru': 'Все данные удалены', 'en': 'All data deleted'},
+  'restore_mode_title': {'ru': 'Как восстановить?', 'en': 'How to restore?'},
+  'restore_mode_replace': {'ru': 'Заменить всё', 'en': 'Replace all'},
+  'restore_mode_replace_sub': {
+    'ru': 'Текущие данные заменятся содержимым копии',
+    'en': 'Current data is replaced with the backup'
+  },
+  'restore_mode_merge': {'ru': 'Объединить', 'en': 'Merge'},
+  'restore_mode_merge_sub': {
+    'ru': 'Добавит недостающие колоды и слова, прогресс сохранится',
+    'en': 'Adds missing decks and words, keeps your progress'
+  },
   'about': {'ru': 'О приложении', 'en': 'About'},
   'version': {'ru': 'Версия', 'en': 'Version'},
 

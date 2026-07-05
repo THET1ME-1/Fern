@@ -56,4 +56,25 @@ void main() {
     expect(p.length, 4);
     expect(p[Rating.easy]! >= p[Rating.good]!, true);
   });
+
+  test('fuzz разбрасывает длинный интервал в пределах ~±8%, но не короткий', () {
+    final now = DateTime(2026, 1, 1, 12);
+    final s = ReviewState(
+      state: FsrsState.review,
+      stability: 100, // ⇒ базовый интервал ~100 дней
+      difficulty: 5,
+      reps: 6,
+      lastReview: now.subtract(const Duration(days: 100)),
+    );
+    final base = fsrs.review(s, Rating.good, now, fuzz: false).due!;
+    final fuzzed = fsrs.review(s, Rating.good, now, fuzz: true).due!;
+    final baseDays = base.difference(now).inDays;
+    final fuzzedDays = fuzzed.difference(now).inDays;
+    // Сдвиг детерминирован и ограничен ~8% (минимум ±1 день).
+    expect((fuzzedDays - baseDays).abs() <= (baseDays * 0.08).round() + 1, true);
+    // Тот же вход → тот же результат (воспроизводимость).
+    expect(fsrs.review(s, Rating.good, now, fuzz: true).due, fuzzed);
+    expect(fsrs.review(s, Rating.good, now, fuzz: true).due!.difference(now).inDays,
+        fuzzedDays);
+  });
 }

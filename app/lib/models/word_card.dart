@@ -180,6 +180,10 @@ class WordCard {
 enum CardStatus { fresh, learning, young, mature }
 
 extension WordCardStatus on WordCard {
+  /// «Пиявка» — карту забывали слишком много раз (порог как в Anki: 8 провалов).
+  /// Такую стоит переформулировать / добавить пример или мнемонику.
+  bool get isLeech => review.lapses >= 8;
+
   /// Классификация карты по её FSRS-состоянию для списка колоды.
   CardStatus get status {
     switch (review.state) {
