@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Что подсвечивать в тексте книги: слова из словаря (known), ещё НЕ выученные
+/// (unknown — «что учить»), либо ничего.
+enum HighlightMode { known, unknown, off }
+
 /// Тема оформления читалки (независима от темы приложения): цвет страницы,
 /// цвет текста и акцент для подсветки известных слов.
 class ReaderTheme {
@@ -90,6 +94,7 @@ class ReaderSettings extends ChangeNotifier {
   static const String _kLineHeight = 'readerLineHeight';
   static const String _kFont = 'readerFont';
   static const String _kPaging = 'readerPaging';
+  static const String _kHighlight = 'readerHighlight';
 
   SharedPreferencesAsync get _prefs => SharedPreferencesAsync();
 
@@ -98,6 +103,7 @@ class ReaderSettings extends ChangeNotifier {
   double _lineHeight = 1.55;
   String _font = 'serif'; // 'serif' | 'sans' | 'Onest'
   bool _horizontalPaging = false; // false = прокрутка, true = листание страниц
+  HighlightMode _highlight = HighlightMode.known;
   bool _loaded = false;
 
   int get themeIndex => _themeIndex;
@@ -106,6 +112,7 @@ class ReaderSettings extends ChangeNotifier {
   double get lineHeight => _lineHeight;
   String get font => _font;
   bool get horizontalPaging => _horizontalPaging;
+  HighlightMode get highlight => _highlight;
 
   /// Семейство шрифта для [TextStyle] (null = системный).
   String? get fontFamily => switch (_font) {
@@ -125,7 +132,19 @@ class ReaderSettings extends ChangeNotifier {
     _lineHeight = await _prefs.getDouble(_kLineHeight) ?? 1.55;
     _font = await _prefs.getString(_kFont) ?? 'serif';
     _horizontalPaging = await _prefs.getBool(_kPaging) ?? false;
+    final h = await _prefs.getString(_kHighlight);
+    _highlight = switch (h) {
+      'unknown' => HighlightMode.unknown,
+      'off' => HighlightMode.off,
+      _ => HighlightMode.known,
+    };
     _loaded = true;
+    notifyListeners();
+  }
+
+  Future<void> setHighlight(HighlightMode m) async {
+    _highlight = m;
+    await _prefs.setString(_kHighlight, m.name);
     notifyListeners();
   }
 

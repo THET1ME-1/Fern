@@ -8,6 +8,7 @@ import 'models/language.dart';
 import 'services/book_analysis.dart';
 import 'services/deck_repository.dart';
 import 'services/source_library.dart';
+import 'services/translation/translation_manager.dart';
 import 'study/book_reader_screen.dart';
 import 'study/word_lookup_sheet.dart';
 import 'theme/app_theme.dart';
@@ -44,7 +45,12 @@ class _BookScreenState extends State<BookScreen> {
   bool _loading = true;
   BookAnalysis? _analysis;
   bool _analyzing = false;
+  List<int> _chapterNew = const [];
   Deck? _targetDeck;
+
+  // Мультивыбор в списке «учить в первую очередь».
+  bool _selecting = false;
+  final Set<String> _selected = {};
 
   String get _srcLang => _src.languageCode.split('-').first;
 
@@ -93,9 +99,17 @@ class _BookScreenState extends State<BookScreen> {
     if (mounted) setState(() => _analyzing = true);
     await Future<void>.delayed(Duration.zero);
     final analysis = BookAnalysis.analyze(text, _srcLang);
+    final chapterNew = _src.chapters.isEmpty
+        ? const <int>[]
+        : BookAnalysis.chapterUnknownCounts(
+            text,
+            [for (final c in _src.chapters) c.startParagraph],
+            _srcLang,
+          );
     if (!mounted) return;
     setState(() {
       _analysis = analysis;
+      _chapterNew = chapterNew;
       _analyzing = false;
     });
   }
@@ -262,6 +276,13 @@ class _BookScreenState extends State<BookScreen> {
               delay: const Duration(milliseconds: 100),
               child: _analysisSection(scheme),
             ),
+            if (_src.chapters.isNotEmpty) ...[
+              const SizedBox(height: 16),
+              Reveal(
+                delay: const Duration(milliseconds: 130),
+                child: _chaptersCard(scheme),
+              ),
+            ],
             if (_src.description.isNotEmpty ||
                 _src.genres.isNotEmpty ||
                 _src.tags.isNotEmpty) ...[
@@ -704,53 +725,353 @@ class _BookScreenState extends State<BookScreen> {
   }
 
   Widget _studyFirst(ColorScheme scheme, BookAnalysis a) {
+    final words = a.topUnknown.take(24).toList();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          tr('book_study_first'),
-          style: TextStyle(
-            fontFamily: AppTheme.displayFont,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
-            color: scheme.onSurface,
-          ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          tr('book_study_first_sub'),
-          style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
-            fontSize: 11.5,
-            color: scheme.onSurfaceVariant,
-          ),
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    tr('book_study_first'),
+                    style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    _selecting
+                        ? tr('tap_to_select')
+                        : tr('book_study_first_sub'),
+                    style: TextStyle(
+                      fontFamily: AppTheme.bodyFont,
+                      fontSize: 11.5,
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            TextButton(
+              onPressed: () => setState(() {
+                _selecting = !_selecting;
+                _selected.clear();
+              }),
+              child: Text(_selecting ? tr('cancel') : tr('select')),
+            ),
+          ],
         ),
         const SizedBox(height: 10),
         Wrap(
           spacing: 8,
           runSpacing: 8,
           children: [
-            for (final w in a.topUnknown.take(24))
-              ActionChip(
-                label: Text('${w.word}  ·  ${w.count}'),
-                labelStyle: TextStyle(
-                  fontFamily: AppTheme.bodyFont,
-                  fontSize: 13,
-                  color: scheme.onSurface,
+            for (final w in words)
+              if (_selecting)
+                FilterChip(
+                  label: Text('${w.word}  ·  ${w.count}'),
+                  labelStyle: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 13,
+                    color: scheme.onSurface,
+                  ),
+                  selected: _selected.contains(w.word),
+                  showCheckmark: true,
+                  backgroundColor: _unknownColor.withValues(alpha: 0.10),
+                  selectedColor: _unknownColor.withValues(alpha: 0.28),
+                  side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
+                  onSelected: (sel) => setState(() {
+                    if (sel) {
+                      _selected.add(w.word);
+                    } else {
+                      _selected.remove(w.word);
+                    }
+                  }),
+                )
+              else
+                ActionChip(
+                  label: Text('${w.word}  ·  ${w.count}'),
+                  labelStyle: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 13,
+                    color: scheme.onSurface,
+                  ),
+                  avatar: Icon(Icons.add_rounded, size: 18, color: scheme.primary),
+                  backgroundColor: _unknownColor.withValues(alpha: 0.10),
+                  side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
+                  onPressed: () => _learnWord(w.word),
                 ),
-                avatar: Icon(
-                  Icons.add_rounded,
-                  size: 18,
-                  color: scheme.primary,
-                ),
-                backgroundColor: _unknownColor.withValues(alpha: 0.10),
-                side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
-                onPressed: () => _learnWord(w.word),
-              ),
           ],
+        ),
+        const SizedBox(height: 12),
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 240),
+          switchInCurve: AppTheme.emphasizedDecelerate,
+          transitionBuilder: (child, anim) =>
+              FadeTransition(opacity: anim, child: child),
+          child: _selecting
+              ? SizedBox(
+                  key: const ValueKey('sel'),
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    onPressed: _selected.isEmpty
+                        ? null
+                        : () => _batchAdd(_selected.toList()),
+                    icon: const Icon(Icons.playlist_add_rounded, size: 20),
+                    label: Text(
+                      trf('add_selected_n', {'n': _selected.length}),
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                )
+              : SizedBox(
+                  key: const ValueKey('all'),
+                  width: double.infinity,
+                  child: FilledButton.tonalIcon(
+                    onPressed: () =>
+                        _batchAdd([for (final w in words) w.word]),
+                    icon: const Icon(Icons.done_all_rounded, size: 20),
+                    label: Text(
+                      trf('add_all_n', {'n': words.length}),
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ),
         ),
       ],
     );
+  }
+
+  /// Пакетно переводит и добавляет слова в пак книги (без открытия карточки
+  /// на каждое). Показывает прогресс, можно отменить.
+  Future<void> _batchAdd(List<String> words) async {
+    if (words.isEmpty) return;
+    HapticFeedback.selectionClick();
+    _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
+      context,
+      _srcLang,
+      _src.title,
+    );
+    final deck = _targetDeck;
+    if (deck == null || !mounted) return;
+
+    final progress = ValueNotifier<int>(0);
+    final cancelled = ValueNotifier<bool>(false);
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => _BatchProgressDialog(
+        total: words.length,
+        progress: progress,
+        onCancel: () => cancelled.value = true,
+      ),
+    );
+
+    final tgt = LocaleController.instance.code;
+    var added = 0;
+    for (var i = 0; i < words.length; i++) {
+      if (cancelled.value) break;
+      final w = words[i];
+      final res = await TranslationManager.instance
+          .translate(w, _srcLang, tgt, context: _contextFor(w));
+      if (res != null && res.primary.trim().isNotEmpty) {
+        final ok = await VideoDeckTarget.addWord(
+          deck,
+          front: w,
+          back: res.primary,
+          example: _contextFor(w),
+          sentence: _contextFor(w),
+        );
+        if (ok) {
+          added++;
+          await _library.bumpWordsAdded(_src.id);
+        }
+      }
+      progress.value = i + 1;
+    }
+
+    progress.dispose();
+    cancelled.dispose();
+    if (mounted) {
+      Navigator.of(context, rootNavigator: true).pop(); // закрыть диалог
+      setState(() {
+        _selecting = false;
+        _selected.clear();
+      });
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(content: Text(trf('added_n_cards', {'n': added}))),
+        );
+    }
+    _recompute();
+  }
+
+  // ------------------------------- Главы -------------------------------
+
+  int _currentChapterIndex() {
+    final para = _src.readParagraph;
+    var idx = 0;
+    final ch = _src.chapters;
+    for (var i = 0; i < ch.length; i++) {
+      if (ch[i].startParagraph <= para) {
+        idx = i;
+      } else {
+        break;
+      }
+    }
+    return idx;
+  }
+
+  Widget _chaptersCard(ColorScheme scheme) {
+    final chapters = _src.chapters;
+    final currentIdx = _src.readParagraph > 0 ? _currentChapterIndex() : -1;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.toc_rounded, size: 20, color: scheme.primary),
+              const SizedBox(width: 8),
+              Text(
+                tr('chapters'),
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 16,
+                  color: scheme.onSurface,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '${chapters.length}',
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          for (var i = 0; i < chapters.length; i++)
+            _chapterTile(scheme, i, currentIdx),
+        ],
+      ),
+    );
+  }
+
+  Widget _chapterTile(ColorScheme scheme, int i, int currentIdx) {
+    final c = _src.chapters[i];
+    final isCurrent = i == currentIdx;
+    final isRead = currentIdx >= 0 && i < currentIdx;
+    final newCount = i < _chapterNew.length ? _chapterNew[i] : -1;
+    return Padding(
+      padding: const EdgeInsets.only(top: 4),
+      child: PressableScale(
+        child: Material(
+          color: isCurrent
+              ? scheme.primary.withValues(alpha: 0.10)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
+          clipBehavior: Clip.antiAlias,
+          child: InkWell(
+            onTap: () => _openChapterInReader(c.startParagraph),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              child: Row(
+                children: [
+                  Icon(
+                    isCurrent
+                        ? Icons.play_arrow_rounded
+                        : isRead
+                            ? Icons.check_circle_rounded
+                            : Icons.circle_outlined,
+                    size: 18,
+                    color: isCurrent
+                        ? scheme.primary
+                        : isRead
+                            ? _knownColor
+                            : scheme.onSurfaceVariant.withValues(alpha: 0.6),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      c.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontFamily: AppTheme.bodyFont,
+                        fontSize: 14,
+                        fontWeight:
+                            isCurrent ? FontWeight.w700 : FontWeight.w500,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  if (newCount > 0) ...[
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
+                      decoration: BoxDecoration(
+                        color: _unknownColor.withValues(alpha: 0.14),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        trf('chapter_new_words', {'n': newCount}),
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 11,
+                          color: _unknownColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openChapterInReader(int startParagraph) async {
+    final text = _text;
+    if (text == null) return;
+    HapticFeedback.selectionClick();
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => BookReaderScreen(
+          sourceId: _src.id,
+          title: _src.title,
+          languageCode: _src.languageCode,
+          text: text,
+          initialParagraph: startParagraph,
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
+    _recompute();
   }
 
   // ------------------------------- О книге -------------------------------
@@ -877,6 +1198,44 @@ class _BookScreenState extends State<BookScreen> {
     final d = DateTime.fromMillisecondsSinceEpoch(ms);
     String two(int v) => v.toString().padLeft(2, '0');
     return '${two(d.day)}.${two(d.month)}.${d.year}';
+  }
+}
+
+/// Диалог прогресса пакетного добавления слов (перевод + добавление по одному).
+class _BatchProgressDialog extends StatelessWidget {
+  final int total;
+  final ValueNotifier<int> progress;
+  final VoidCallback onCancel;
+  const _BatchProgressDialog({
+    required this.total,
+    required this.progress,
+    required this.onCancel,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: ValueListenableBuilder<int>(
+        valueListenable: progress,
+        builder: (_, done, _) => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: LinearProgressIndicator(
+                value: total == 0 ? 0 : done / total,
+                minHeight: 8,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(trf('batch_adding', {'i': done, 'n': total})),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(onPressed: onCancel, child: Text(tr('cancel'))),
+      ],
+    );
   }
 }
 

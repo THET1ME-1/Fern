@@ -5,6 +5,7 @@ import 'l10n/strings.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/source_library.dart';
 import 'theme/app_theme.dart';
 import 'widgets/reveal.dart';
 
@@ -18,7 +19,9 @@ class ProgressScreen extends StatefulWidget {
 
 class _ProgressScreenState extends State<ProgressScreen> {
   final DeckRepository _repo = DeckRepository.instance;
+  final SourceLibrary _library = SourceLibrary.instance;
   List<WordCard> _cards = [];
+  List<LibrarySource> _books = [];
   ReviewLog _log = ReviewLog.empty();
   bool _loading = true;
 
@@ -26,21 +29,25 @@ class _ProgressScreenState extends State<ProgressScreen> {
   void initState() {
     super.initState();
     _repo.addListener(_load);
+    _library.addListener(_load);
     _load();
   }
 
   @override
   void dispose() {
     _repo.removeListener(_load);
+    _library.removeListener(_load);
     super.dispose();
   }
 
   Future<void> _load() async {
     final cards = await _repo.loadCards();
     final log = await _repo.reviewLog();
+    final sources = await _library.list();
     if (!mounted) return;
     setState(() {
       _cards = cards;
+      _books = sources.where((s) => s.isBook).toList();
       _log = log;
       _loading = false;
     });
@@ -139,6 +146,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     ],
                   ),
                 ),
+                ..._readingSection(scheme),
                 const SizedBox(height: 24),
                 _sectionTitle(tr('activity'), scheme),
                 const SizedBox(height: 12),
@@ -190,6 +198,54 @@ class _ProgressScreenState extends State<ProgressScreen> {
         ],
       ),
     );
+  }
+
+  /// Секция «Чтение»: время, скорость (слов/мин), книг прочитано / в процессе.
+  List<Widget> _readingSection(ColorScheme scheme) {
+    final seconds = _repo.readingSeconds;
+    final words = _repo.readingWords;
+    if (_books.isEmpty && seconds <= 0) return const [];
+    final finished = _books.where((b) => b.isFinished).length;
+    final reading =
+        _books.where((b) => b.isStarted && !b.isFinished).length;
+    final wpm = seconds > 0 ? (words / (seconds / 60)).round() : 0;
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('reading_stats'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 170),
+        child: Row(
+          children: [
+            _stat(_fmtDuration(seconds), tr('stat_read_time'), scheme),
+            const SizedBox(width: 10),
+            _stat(wpm > 0 ? '$wpm' : '—', tr('stat_read_speed'), scheme),
+          ],
+        ),
+      ),
+      const SizedBox(height: 10),
+      Reveal(
+        delay: const Duration(milliseconds: 190),
+        child: Row(
+          children: [
+            _stat('$finished', tr('stat_books_read'), scheme,
+                highlight: finished > 0),
+            const SizedBox(width: 10),
+            _stat('$reading', tr('stat_books_reading'), scheme),
+          ],
+        ),
+      ),
+    ];
+  }
+
+  String _fmtDuration(int seconds) {
+    final m = seconds ~/ 60;
+    if (m < 60) return trf('read_min', {'m': m});
+    final h = m ~/ 60;
+    final rem = m % 60;
+    return rem == 0
+        ? trf('read_hr', {'h': h})
+        : trf('read_hr_min', {'h': h, 'm': rem});
   }
 
   Widget _stat(

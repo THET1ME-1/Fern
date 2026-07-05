@@ -2,7 +2,7 @@ name: fern
 description: "Fern — красивые флеш-карточки для изучения языков (офлайн, Material You)."
 publish_to: 'none'
 
-version: 1.7.0+10
+version: 1.8.0+11
 
 environment:
   sdk: ^3.11.5
@@ -36,6 +36,9 @@ dependencies:
   archive: ^4.0.0
   # Читалка книг: прыжок к абзацу (восстановление позиции, закладки).
   scrollable_positioned_list: ^0.3.8
+  # Чтение Anki .apkg (внутри — SQLite-база collection.anki2/anki21).
+  sqlite3: ^2.4.0
+  sqlite3_flutter_libs: ^0.5.24
 
 dev_dependencies:
   flutter_test:

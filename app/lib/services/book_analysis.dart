@@ -177,4 +177,42 @@ class BookAnalysis {
       topUnknown: unknown.take(_topUnknownLimit).toList(),
     );
   }
+
+  /// Сколько уникальных НЕзнакомых слов в каждой главе (по [chapterStarts] —
+  /// индексам стартовых абзацев). Для «словаря по главам».
+  static List<int> chapterUnknownCounts(
+    String text,
+    List<int> chapterStarts,
+    String languageCode,
+  ) {
+    if (chapterStarts.isEmpty) return const [];
+    final byFront =
+        DeckRepository.instance.cardsByFrontForLanguage(languageCode);
+    final knownStems = <String>{
+      for (final f in byFront.keys) Lemmatizer.stem(f, languageCode),
+    };
+    final paragraphs = text
+        .split('\n')
+        .map((p) => p.trim())
+        .where((p) => p.isNotEmpty)
+        .toList();
+    final counts = List<int>.filled(chapterStarts.length, 0);
+    for (var ci = 0; ci < chapterStarts.length; ci++) {
+      final start = chapterStarts[ci];
+      final end = ci + 1 < chapterStarts.length
+          ? chapterStarts[ci + 1]
+          : paragraphs.length;
+      final seen = <String>{};
+      for (var p = start; p < end && p < paragraphs.length; p++) {
+        for (final m in _ws.allMatches(paragraphs[p])) {
+          final clean = m.group(0)!.replaceAll(_edge, '');
+          if (clean.isEmpty || !_letter.hasMatch(clean)) continue;
+          final stem = Lemmatizer.stem(clean.toLowerCase(), languageCode);
+          if (!knownStems.contains(stem)) seen.add(stem);
+        }
+      }
+      counts[ci] = seen.length;
+    }
+    return counts;
+  }
 }

@@ -38,6 +38,7 @@ class DeckRepository extends ChangeNotifier {
   static const String _kSeedVersion = 'seedVersion';
   static const String _kReviewLog = 'reviewLog';
   static const String _kMatchBest = 'matchBest'; // deckId -> лучшее время, мс
+  static const String _kReadingStats = 'readingStats'; // {s: секунды, w: слова}
 
   // Настройки (совместимы по смыслу с ScoreMaster).
   static const String _kSeedColor = 'seedColor';
@@ -78,6 +79,8 @@ class DeckRepository extends ChangeNotifier {
   final List<WordCard> _cards = [];
   ReviewLog _log = ReviewLog.empty();
   Map<String, int> _matchBest = {};
+  int _readSeconds = 0;
+  int _readWords = 0;
   bool _loaded = false;
 
   /// Один раз загружает данные в память (и мигрирует со старого стора).
@@ -96,7 +99,21 @@ class DeckRepository extends ChangeNotifier {
       ..addAll(_decodeCards(await _prefs.getStringList(_kCards) ?? const []));
     _log = _decodeLog(await _prefs.getString(_kReviewLog));
     _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
+    _decodeReading(await _prefs.getString(_kReadingStats));
     _loaded = true;
+  }
+
+  void _decodeReading(String? raw) {
+    _readSeconds = 0;
+    _readWords = 0;
+    if (raw == null || raw.isEmpty) return;
+    try {
+      final m = (jsonDecode(raw) as Map).cast<String, dynamic>();
+      _readSeconds = (m['s'] as num?)?.toInt() ?? 0;
+      _readWords = (m['w'] as num?)?.toInt() ?? 0;
+    } catch (_) {
+      /* битая запись — оставляем нули */
+    }
   }
 
   Map<String, int> _decodeMatchBest(String? raw) {
@@ -131,6 +148,8 @@ class DeckRepository extends ChangeNotifier {
     _cards.clear();
     _log = ReviewLog.empty();
     _matchBest = {};
+    _readSeconds = 0;
+    _readWords = 0;
     _loaded = false;
   }
 
@@ -488,6 +507,27 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setString(_kMatchBest, jsonEncode(_matchBest));
     notifyListeners();
     return true;
+  }
+
+  // ----------------------------- Статистика чтения -----------------------------
+
+  /// Всего секунд, проведённых в читалке.
+  int get readingSeconds => _readSeconds;
+
+  /// Оценка прочитанных слов (по продвижению позиции чтения).
+  int get readingWords => _readWords;
+
+  /// Прибавляет время/слова чтения (в конце сессии чтения).
+  Future<void> addReading({int seconds = 0, int words = 0}) async {
+    if (seconds <= 0 && words <= 0) return;
+    await _ensureLoaded();
+    _readSeconds += seconds < 0 ? 0 : seconds;
+    _readWords += words < 0 ? 0 : words;
+    await _prefs.setString(
+      _kReadingStats,
+      jsonEncode({'s': _readSeconds, 'w': _readWords}),
+    );
+    notifyListeners();
   }
 
   // ----------------------------- Выбранный язык -----------------------------

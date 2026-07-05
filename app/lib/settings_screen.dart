@@ -9,10 +9,12 @@ import 'package:share_plus/share_plus.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'settings/providers_screen.dart';
+import 'services/deck_import.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
+import 'services/vocab_export.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
 import 'utils/app_version.dart';
@@ -202,6 +204,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             icon: Icons.restore_rounded,
             title: tr('restore_backup'),
             onTap: _restore,
+            scheme: scheme,
+          ),
+          _actionTile(
+            icon: Icons.ios_share_rounded,
+            title: tr('export_vocab'),
+            onTap: _exportVocab,
+            scheme: scheme,
+          ),
+          _actionTile(
+            icon: Icons.file_download_rounded,
+            title: tr('import_deck'),
+            subtitle: tr('import_deck_sub'),
+            onTap: _importDeck,
             scheme: scheme,
           ),
           const SizedBox(height: 16),
@@ -441,6 +456,126 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  /// Экспорт личного словаря: выбор формата → генерация файла → «Поделиться».
+  Future<void> _exportVocab() async {
+    final scheme = Theme.of(context).colorScheme;
+    final fmt = await showModalBottomSheet<VocabFormat>(
+      context: context,
+      backgroundColor: scheme.surfaceContainer,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(height: 14),
+            Text(tr('export_vocab'), style: Theme.of(ctx).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            _exportOption(ctx, VocabFormat.csv, Icons.grid_on_rounded,
+                'CSV', tr('fmt_csv_sub')),
+            _exportOption(ctx, VocabFormat.ankiTsv, Icons.school_rounded,
+                'Anki / Quizlet (TSV)', tr('fmt_anki_sub')),
+            _exportOption(ctx, VocabFormat.json, Icons.data_object_rounded,
+                'JSON', tr('fmt_json_sub')),
+            _exportOption(ctx, VocabFormat.list, Icons.list_rounded,
+                tr('fmt_list'), tr('fmt_list_sub')),
+            const SizedBox(height: 8),
+          ],
+        ),
+      ),
+    );
+    if (fmt == null) return;
+    await _doExport(fmt);
+  }
+
+  Widget _exportOption(
+    BuildContext ctx,
+    VocabFormat fmt,
+    IconData icon,
+    String title,
+    String sub,
+  ) {
+    return ListTile(
+      leading: Icon(icon),
+      title: Text(title),
+      subtitle: Text(sub),
+      onTap: () => Navigator.pop(ctx, fmt),
+    );
+  }
+
+  Future<void> _doExport(VocabFormat fmt) async {
+    try {
+      final cards = await _repo.loadCards();
+      if (cards.isEmpty) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(tr('export_empty'))),
+          );
+        }
+        return;
+      }
+      final content = VocabExport.build(fmt, cards);
+      final dir = await getApplicationDocumentsDirectory();
+      final file = File(
+        '${dir.path}/${VocabExport.fileBaseName(fmt)}.'
+        '${VocabExport.extensionFor(fmt)}',
+      );
+      await file.writeAsString(content);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(trf('export_done', {'n': cards.length}))),
+      );
+      try {
+        await Share.shareXFiles([XFile(file.path)]);
+      } catch (_) {
+        /* share не поддержан на десктопе — файл уже сохранён */
+      }
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(tr('restore_failed'))),
+        );
+      }
+    }
+  }
+
+  /// Импорт колоды из Anki (.apkg) или текстового списка (CSV/TSV/TXT).
+  Future<void> _importDeck() async {
+    String? path;
+    try {
+      final result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: DeckImport.supportedExtensions,
+      );
+      path = result?.files.single.path;
+    } catch (_) {
+      final result = await FilePicker.platform.pickFiles(type: FileType.any);
+      path = result?.files.single.path;
+    }
+    if (path == null || !mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(tr('importing'))),
+    );
+    final lang = await _repo.selectedLanguageCode() ?? 'en';
+    final res = await DeckImport.import(path, lang);
+    if (!mounted) return;
+    final String msg;
+    switch (res.outcome) {
+      case ImportOutcome.ok:
+        msg = trf('import_done', {'n': res.count, 'name': res.deckName});
+      case ImportOutcome.unsupported:
+        msg = tr('import_unsupported');
+      case ImportOutcome.empty:
+        msg = tr('import_empty');
+      case ImportOutcome.failed:
+        msg = tr('import_failed');
+    }
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(msg)));
+  }
+
   /// Ручная проверка обновления: показывает меню обновления или сообщает, что
   /// установлена последняя версия.
   Future<void> _checkUpdates() async {
@@ -530,6 +665,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required IconData icon,
     required String title,
     String? trailing,
+    String? subtitle,
     required VoidCallback onTap,
     required ColorScheme scheme,
   }) {
@@ -542,6 +678,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: ListTile(
           leading: Icon(icon, color: scheme.onSurfaceVariant),
           title: Text(title),
+          subtitle: subtitle == null ? null : Text(subtitle),
           trailing: trailing == null
               ? const Icon(Icons.chevron_right_rounded)
               : Text(

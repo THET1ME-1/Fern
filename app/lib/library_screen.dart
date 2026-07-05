@@ -97,6 +97,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
       languageCode: lang,
       format: BookImport.extensionOf(path),
       text: book.text,
+      chapters: book.chapters,
     );
     if (!mounted) return;
     setState(() => _importing = false);
@@ -347,6 +348,25 @@ class _LibraryScreenState extends State<LibraryScreen> {
                             color: scheme.onSurfaceVariant,
                           ),
                         ),
+                        // Тонкий индикатор прогресса чтения для начатых книг.
+                        if (s.isBook && s.isStarted && !s.isFinished) ...[
+                          const SizedBox(height: 7),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: TweenAnimationBuilder<double>(
+                              tween: Tween(end: s.readProgress),
+                              duration: const Duration(milliseconds: 700),
+                              curve: AppTheme.emphasizedDecelerate,
+                              builder: (_, v, _) => LinearProgressIndicator(
+                                value: v,
+                                minHeight: 4,
+                                backgroundColor: scheme.surfaceContainerHighest,
+                                valueColor:
+                                    AlwaysStoppedAnimation(scheme.tertiary),
+                              ),
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ),
@@ -390,6 +410,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
           : (s.author.isNotEmpty ? s.author : tr('source_kind_book')),
     ];
     if (s.isBook && s.format != null) parts.add(s.format!.toUpperCase());
+    if (s.isBook && s.isFinished) parts.add(tr('book_finished'));
     if (s.wordsAdded > 0) parts.add(trf('source_words_added', {'n': s.wordsAdded}));
     return parts.join(' · ');
   }

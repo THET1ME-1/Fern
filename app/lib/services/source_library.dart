@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/book_chapter.dart';
 import '../video/subtitle.dart';
 
 /// Тип разобранного источника в библиотеке.
@@ -47,6 +48,13 @@ class LibrarySource {
   int readParagraph;
   List<int> bookmarks;
 
+  /// Книга: всего абзацев (для прогресса и «книг прочитано» без загрузки текста).
+  int paragraphCount;
+
+  /// Книга: оглавление (главы + индекс стартового абзаца). Пусто, если формат
+  /// без структуры.
+  List<BookChapter> chapters;
+
   LibrarySource({
     required this.id,
     required this.kind,
@@ -64,9 +72,23 @@ class LibrarySource {
     this.description = '',
     List<String>? tags,
     List<String>? genres,
+    this.paragraphCount = 0,
+    List<BookChapter>? chapters,
   })  : bookmarks = bookmarks ?? [],
         tags = tags ?? [],
-        genres = genres ?? [];
+        genres = genres ?? [],
+        chapters = chapters ?? [];
+
+  /// Прогресс чтения 0..1 (0, если число абзацев ещё неизвестно).
+  double get readProgress => paragraphCount <= 1
+      ? (readParagraph > 0 ? 1 : 0)
+      : (readParagraph / (paragraphCount - 1)).clamp(0.0, 1.0);
+
+  /// Считаем книгу «прочитанной», если дошли почти до конца.
+  bool get isFinished => paragraphCount > 1 && readParagraph >= paragraphCount - 2;
+
+  /// Начата ли книга (позиция сдвинута с начала).
+  bool get isStarted => readParagraph > 0;
 
   bool get isVideo => kind == SourceKind.video;
   bool get isBook => kind == SourceKind.book;
@@ -88,6 +110,9 @@ class LibrarySource {
         if (description.isNotEmpty) 'desc': description,
         if (tags.isNotEmpty) 'tags': tags,
         if (genres.isNotEmpty) 'genres': genres,
+        if (paragraphCount > 0) 'paras': paragraphCount,
+        if (chapters.isNotEmpty)
+          'chapters': [for (final c in chapters) c.toJson()],
       };
 
   factory LibrarySource.fromJson(Map<String, dynamic> j) => LibrarySource(
@@ -117,6 +142,11 @@ class LibrarySource {
         genres: [
           for (final g in (j['genres'] as List? ?? const []))
             if (g is String) g,
+        ],
+        paragraphCount: (j['paras'] as num?)?.toInt() ?? 0,
+        chapters: [
+          for (final c in (j['chapters'] as List? ?? const []))
+            if (c is Map) BookChapter.fromJson(c.cast<String, dynamic>()),
         ],
       );
 }
@@ -240,6 +270,7 @@ class SourceLibrary extends ChangeNotifier {
     required String languageCode,
     required String format,
     required String text,
+    List<BookChapter>? chapters,
     DateTime? now,
   }) async {
     await _ensureLoaded();
@@ -258,6 +289,8 @@ class SourceLibrary extends ChangeNotifier {
           createdAt: stamp,
           format: format,
           charCount: text.length,
+          paragraphCount: countParagraphs(text),
+          chapters: chapters,
         ),
       );
       await _persist();
@@ -281,6 +314,22 @@ class SourceLibrary extends ChangeNotifier {
   }
 
   // ----------------------------- Общее -----------------------------
+
+  /// Число непустых абзацев в тексте (как их видит читалка).
+  static int countParagraphs(String text) => text
+      .split('\n')
+      .map((p) => p.trim())
+      .where((p) => p.isNotEmpty)
+      .length;
+
+  /// Тихо проставляет число абзацев (бэкфилл старых книг из читалки).
+  Future<void> setParagraphCount(String id, int count) async {
+    await _ensureLoaded();
+    final s = _sources.where((e) => e.id == id).firstOrNull;
+    if (s == null || s.paragraphCount == count || count <= 0) return;
+    s.paragraphCount = count;
+    await _persist();
+  }
 
   /// Запоминает абзац, на котором остановился читатель (тихо, без notify —
   /// зовётся часто при скролле).

@@ -6,6 +6,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
+import '../models/book_chapter.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
 import '../services/lemmatizer.dart';
@@ -27,12 +28,17 @@ class BookReaderScreen extends StatefulWidget {
   final String languageCode;
   final String text;
 
+  /// Открыть на конкретном абзаце (напр., переход к главе), иначе — с
+  /// сохранённой позиции.
+  final int? initialParagraph;
+
   const BookReaderScreen({
     super.key,
     required this.sourceId,
     required this.title,
     required this.languageCode,
     required this.text,
+    this.initialParagraph,
   });
 
   @override
@@ -60,6 +66,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   final Set<String> _sessionAdded = {};
   int _knownVersion = 0;
   final Set<int> _bookmarks = {};
+  final List<BookChapter> _chapters = [];
 
   // Текущий верхний абзац. Держим и в поле (для сохранения/закладок), и в
   // [ValueNotifier] — чтобы полоса прогресса и футер обновлялись при прокрутке
@@ -77,6 +84,12 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   bool _playing = false;
   int _speakingIndex = -1;
   int _playToken = 0;
+
+  // Статистика чтения: время открытого экрана + оценка прочитанных слов
+  // (по продвижению «дальше всего прочитанного» абзаца за сессию).
+  final DateTime _openedAt = DateTime.now();
+  int _furthest = 0;
+  int _sessionWords = 0;
 
   @override
   void initState() {
@@ -103,13 +116,21 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     final src = await _library.get(widget.sourceId);
     if (src != null && _paragraphs.isNotEmpty) {
       _bookmarks.addAll(src.bookmarks);
-      _startIndex = src.readParagraph.clamp(0, _paragraphs.length - 1);
+      _chapters.addAll(src.chapters);
+      final start = widget.initialParagraph ?? src.readParagraph;
+      _startIndex = start.clamp(0, _paragraphs.length - 1);
       _addedCount = src.wordsAdded;
       _topIndex = _startIndex;
       _topIndexN.value = _startIndex;
+      _furthest = _startIndex;
     }
+    // Бэкфилл числа абзацев (для прогресса/«книг прочитано» без загрузки текста).
+    _library.setParagraphCount(widget.sourceId, _paragraphs.length);
     if (mounted) setState(() => _ready = true);
   }
+
+  int _wordsIn(String p) =>
+      p.split(RegExp(r'\s+')).where((w) => w.trim().isNotEmpty).length;
 
   void _onSettings() {
     if (mounted) setState(() {});
@@ -129,6 +150,13 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   /// без пересборки списка) и отдельно кэшируем в поле для закладок/сохранения.
   void _updateTop(int index) {
     if (index == _topIndex) return;
+    // Слова абзацев, впервые прочитанных за эту сессию (продвижение вперёд).
+    if (index > _furthest) {
+      for (var i = _furthest + 1; i <= index && i < _paragraphs.length; i++) {
+        _sessionWords += _wordsIn(_paragraphs[i]);
+      }
+      _furthest = index;
+    }
     _topIndex = index;
     _topIndexN.value = index;
     _saveTimer?.cancel();
@@ -165,6 +193,9 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     _saveTimer?.cancel();
     _playToken++;
     TtsService.instance.stop();
+    // Итог сессии чтения в общую статистику.
+    final seconds = DateTime.now().difference(_openedAt).inSeconds;
+    _repo.addReading(seconds: seconds, words: _sessionWords);
     _library.setBookPosition(widget.sourceId, _topIndex);
     _positions.itemPositions.removeListener(_onScroll);
     _settings.removeListener(_onSettings);
@@ -237,6 +268,42 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         _addedCount++;
       });
     }
+    return LookupAddResult.added;
+  }
+
+  /// Перевод выделенной фразы (long-press + drag) → карточка (front = фраза).
+  Future<void> _onPhrase(String selected) async {
+    var phrase = selected.trim().replaceAll(RegExp(r'\s+'), ' ');
+    if (phrase.isEmpty) return;
+    if (phrase.length > 120) phrase = phrase.substring(0, 120);
+    if (_playing) _stopRead();
+    HapticFeedback.selectionClick();
+    if (!mounted) return;
+    await showWordLookup(
+      context,
+      word: phrase,
+      sentence: phrase,
+      sourceLang: _srcLang,
+      targetLang: _tgtLang,
+      alreadyKnown: false,
+      onAdd: (back, example) => _addPhrase(phrase, back),
+    );
+  }
+
+  Future<LookupAddResult> _addPhrase(String front, String back) async {
+    _targetDeck ??= await _resolveDeck();
+    final deck = _targetDeck;
+    if (deck == null) return LookupAddResult.cancelled;
+    final ok = await VideoDeckTarget.addWord(
+      deck,
+      front: front,
+      back: back,
+      example: front,
+      sentence: front,
+    );
+    if (!ok) return LookupAddResult.duplicate;
+    await _library.bumpWordsAdded(widget.sourceId);
+    if (mounted) setState(() => _addedCount++);
     return LookupAddResult.added;
   }
 
@@ -427,6 +494,12 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
             onPressed: _ready ? _openBookmarks : null,
             icon: Icon(Icons.bookmarks_outlined, color: t.text),
           ),
+          if (_chapters.isNotEmpty)
+            IconButton(
+              tooltip: tr('chapters'),
+              onPressed: _ready ? _openChapters : null,
+              icon: Icon(Icons.toc_rounded, color: t.text),
+            ),
           IconButton(
             tooltip: tr('reader_settings'),
             onPressed: _ready ? _openReaderSettings : null,
@@ -486,7 +559,9 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         initialOffset: startOffset,
         onWord: (w, pageText) => _onWordTap(w, pageText),
         onParagraph: (offset) => _updateTop(_paragraphAtOffset(offset)),
+        onPhrase: _onPhrase,
         normalize: _normalize,
+        highlightMode: _settings.highlight,
       );
     }
     return Column(
@@ -494,7 +569,11 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         Expanded(child: _scrollList(t, baseStyle)),
         ValueListenableBuilder<int>(
           valueListenable: _topIndexN,
-          builder: (_, top, _) => _readFooter(t, _percentFor(top)),
+          builder: (_, top, _) => _readFooter(
+            t,
+            _percentFor(top),
+            _chapters.isEmpty ? null : _chapters[_chapterAt(top)].title,
+          ),
         ),
       ],
     );
@@ -506,13 +585,21 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     return (top / (_paragraphs.length - 1) * 100).clamp(0, 100).round();
   }
 
-  /// Нижняя плашка с процентом прочитанного (режим прокрутки).
-  Widget _readFooter(ReaderTheme t, int percent) {
+  /// Нижняя плашка с процентом прочитанного + текущая глава (режим прокрутки).
+  Widget _readFooter(ReaderTheme t, int percent, String? chapter) {
+    final line = chapter == null || chapter.isEmpty
+        ? trf('read_progress', {'p': percent})
+        : '${trf('read_progress', {'p': percent})}  ·  $chapter';
     return Container(
-      padding: const EdgeInsets.only(bottom: 8, top: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(
+        bottom: 8,
+        top: 4,
+      ),
       alignment: Alignment.center,
       child: Text(
-        trf('read_progress', {'p': percent}),
+        line,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: TextStyle(
           fontFamily: AppTheme.bodyFont,
           fontSize: 12.5,
@@ -554,7 +641,9 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
               highlightVersion: _knownVersion,
               knownColor: t.accent,
               addedColor: t.added,
+              highlightMode: _settings.highlight,
               onWord: (w) => _onWordTap(w, para),
+              onPhrase: _onPhrase,
               normalize: _normalize,
             ),
           ),
@@ -655,6 +744,109 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     );
   }
 
+  // ------------------------------- Главы -------------------------------
+
+  /// Индекс текущей главы по абзацу [para] (последняя, начавшаяся до него).
+  int _chapterAt(int para) {
+    var idx = 0;
+    for (var i = 0; i < _chapters.length; i++) {
+      if (_chapters[i].startParagraph <= para) {
+        idx = i;
+      } else {
+        break;
+      }
+    }
+    return idx;
+  }
+
+  void _openChapters() {
+    final t = _settings.theme;
+    final current = _chapterAt(_topIndex);
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: t.background,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(ctx).size.height * 0.72,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 14, 20, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _grabber(t),
+                const SizedBox(height: 14),
+                Text(
+                  tr('chapters'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.displayFont,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    color: t.text,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Flexible(
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: _chapters.length,
+                    separatorBuilder: (_, _) => const SizedBox(height: 6),
+                    itemBuilder: (_, i) {
+                      final c = _chapters[i];
+                      final isCurrent = i == current;
+                      final isRead = c.startParagraph < _topIndex && !isCurrent;
+                      return Material(
+                        color: isCurrent
+                            ? t.accent.withValues(alpha: 0.16)
+                            : t.faint.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(14),
+                        clipBehavior: Clip.antiAlias,
+                        child: ListTile(
+                          dense: true,
+                          leading: Icon(
+                            isCurrent
+                                ? Icons.play_arrow_rounded
+                                : isRead
+                                    ? Icons.check_rounded
+                                    : Icons.circle_outlined,
+                            size: 18,
+                            color: isCurrent ? t.accent : t.faint,
+                          ),
+                          title: Text(
+                            c.title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: isCurrent
+                                  ? FontWeight.w700
+                                  : FontWeight.w500,
+                              color: t.text,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.pop(ctx);
+                            _jumpTo(c.startParagraph);
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   // ------------------------------- Настройки чтения -------------------------------
 
   void _openReaderSettings() {
@@ -697,7 +889,9 @@ class _PagedReader extends StatefulWidget {
   final int initialOffset;
   final void Function(String word, String pageText) onWord;
   final void Function(int startOffset) onParagraph;
+  final ValueChanged<String> onPhrase;
   final String Function(String lower) normalize;
+  final HighlightMode highlightMode;
 
   const _PagedReader({
     super.key,
@@ -710,7 +904,9 @@ class _PagedReader extends StatefulWidget {
     required this.initialOffset,
     required this.onWord,
     required this.onParagraph,
+    required this.onPhrase,
     required this.normalize,
+    required this.highlightMode,
   });
 
   @override
@@ -879,7 +1075,9 @@ class _PagedReaderState extends State<_PagedReader> {
               highlightVersion: widget.knownVersion,
               knownColor: widget.theme.accent,
               addedColor: widget.theme.added,
+              highlightMode: widget.highlightMode,
               onWord: (w) => widget.onWord(w, pageText),
+              onPhrase: widget.onPhrase,
               normalize: widget.normalize,
               // Тап мимо слова = листание: левая половина назад, правая вперёд.
               onMiss: (local, width) => local.dx < width / 2 ? _prev() : _next(),
@@ -938,6 +1136,10 @@ class _ReaderSettingsSheet extends StatelessWidget {
             _label(tr('reader_mode'), t),
             const SizedBox(height: 8),
             _modeChoice(t),
+            const SizedBox(height: 20),
+            _label(tr('highlight_words'), t),
+            const SizedBox(height: 8),
+            _highlightChoice(t),
             const SizedBox(height: 20),
             _label(tr('reader_theme'), t),
             const SizedBox(height: 10),
@@ -1119,6 +1321,61 @@ class _ReaderSettingsSheet extends StatelessWidget {
       children: [
         opt(false, Icons.swap_vert_rounded, tr('reader_mode_scroll')),
         opt(true, Icons.menu_book_rounded, tr('reader_mode_paged')),
+      ],
+    );
+  }
+
+  Widget _highlightChoice(ReaderTheme t) {
+    Widget opt(HighlightMode mode, IconData icon, String label) {
+      final selected = settings.highlight == mode;
+      return Expanded(
+        child: PressableScale(
+          child: GestureDetector(
+            onTap: () {
+              HapticFeedback.selectionClick();
+              settings.setHighlight(mode);
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: selected
+                    ? t.accent.withValues(alpha: 0.18)
+                    : t.faint.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color: selected ? t.accent : Colors.transparent,
+                  width: 1.6,
+                ),
+              ),
+              child: Column(
+                children: [
+                  Icon(icon, color: selected ? t.accent : t.text, size: 20),
+                  const SizedBox(height: 6),
+                  Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: t.text,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Row(
+      children: [
+        opt(HighlightMode.known, Icons.check_circle_outline_rounded,
+            tr('highlight_known')),
+        opt(HighlightMode.unknown, Icons.help_outline_rounded,
+            tr('highlight_unknown')),
+        opt(HighlightMode.off, Icons.format_clear_rounded, tr('highlight_off')),
       ],
     );
   }
