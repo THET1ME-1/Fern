@@ -1,3 +1,6 @@
+import 'lemmatizer.dart';
+import 'pos_dictionary.dart';
+
 /// Определение части речи (part of speech) слова.
 ///
 /// Каноничные коды: noun/verb/adj/adv/pronoun/article/prep/conj/num/particle/
@@ -116,9 +119,15 @@ class PosDetect {
     'since': 'conj', 'unless': 'conj', 'nor': 'conj', 'yet': 'conj',
   };
 
-  /// Итоговая часть речи: сперва уже известная [existing], затем словарь
-  /// [dictPos], затем эвристики английского (служебные слова + суффиксы);
-  /// иначе '' (неизвестно).
+  /// Итоговая часть речи по приоритету достоверности:
+  ///  1) уже известная [existing];
+  ///  2) часть речи из словаря перевода [dictPos];
+  ///  3) частые английские служебные слова (гарантированно верно);
+  ///  4) ОФЛАЙН-СЛОВАРЬ ([PosDictionary]) — точное совпадение (должен быть
+  ///     предзагружен через `PosDictionary.instance.ensureLoaded('en')`);
+  ///  5) словарь по лемме (формы слова: cats→cat, running→run);
+  ///  6) консервативная эвристика по надёжным суффиксам;
+  ///  иначе '' (неизвестно — лучше без тега, чем неверный).
   static String detect(
     String front, {
     String? existing,
@@ -128,14 +137,19 @@ class PosDetect {
     if (existing != null && existing.isNotEmpty) return existing;
     final d = fromDictionary(dictPos);
     if (d != null) return d;
-    if (languageCode == 'en') {
-      final w = front.trim().toLowerCase();
-      if (w.contains(' ')) return ''; // фразы — не угадываем
-      final f = _enFunction[w];
-      if (f != null) return f;
-      return _enSuffix(w);
+    if (languageCode != 'en') return '';
+    final w = front.trim().toLowerCase();
+    if (w.isEmpty || w.contains(' ')) return ''; // фразы — не угадываем
+    final f = _enFunction[w];
+    if (f != null) return f;
+    final direct = PosDictionary.instance.lookup(w, 'en');
+    if (direct != null) return direct;
+    final stem = Lemmatizer.stem(w, 'en');
+    if (stem.isNotEmpty && stem != w) {
+      final viaStem = PosDictionary.instance.lookup(stem, 'en');
+      if (viaStem != null) return viaStem;
     }
-    return '';
+    return _enSuffix(w);
   }
 
   // Часть речи по окончанию английского слова. Не идеально (бывают исключения),
@@ -145,19 +159,21 @@ class PosDetect {
     'ally', 'jelly', 'belly', 'rally', 'bully', 'fully',
   ];
 
+  // Фолбэк для слов ВНЕ словаря. Только высокоточные суффиксы — неоднозначные
+  // (-ary у library/salary, -ive у motive/native, -ish у rubbish, -ical) убраны:
+  // неверный тег хуже отсутствия, а словарь их и так покрывает.
   static String _enSuffix(String w) {
     if (w.length < 4) return '';
     bool ends(String s) => w.endsWith(s);
-    // Существительные.
+    // Существительные (надёжные).
     if (ends('tion') || ends('sion') || ends('ment') || ends('ness') ||
         ends('ity') || ends('ance') || ends('ence') || ends('ship') ||
         ends('hood') || ends('ism') || ends('ology')) {
       return 'noun';
     }
-    // Прилагательные.
-    if (ends('ous') || ends('ful') || ends('less') || ends('ive') ||
-        ends('able') || ends('ible') || ends('ical') || ends('ish') ||
-        ends('ary')) {
+    // Прилагательные (надёжные).
+    if (ends('ous') || ends('ful') || ends('less') ||
+        ends('able') || ends('ible')) {
       return 'adj';
     }
     // Наречия на -ly (с небольшим списком исключений).

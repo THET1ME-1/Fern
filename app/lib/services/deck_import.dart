@@ -8,6 +8,7 @@ import '../models/deck.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
 import 'pos.dart';
+import 'pos_dictionary.dart';
 
 /// Итог импорта колоды из внешнего файла.
 enum ImportOutcome { ok, unsupported, empty, failed }
@@ -211,6 +212,8 @@ class DeckImport {
     List<_Row> rows,
   ) async {
     final repo = DeckRepository.instance;
+    // Точные части речи при импорте — из офлайн-словаря.
+    await PosDictionary.instance.ensureLoaded(lang);
     final stamp = DateTime.now().microsecondsSinceEpoch;
     final id = 'deck_imp_$stamp';
     await repo.upsertDeck(Deck(

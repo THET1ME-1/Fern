@@ -15,6 +15,7 @@ import 'onboarding_screen.dart';
 import 'progress_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_repository.dart';
+import 'services/pos_dictionary.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
@@ -43,6 +44,8 @@ Future<void> main() async {
   runApp(FernApp(onboarded: onboarded));
   // Тихий авто-бэкап раз в сутки — после первого кадра, не задерживая запуск.
   unawaited(BackupService.autoBackupIfDue());
+  // Фоновая загрузка словаря частей речи (чтобы теги новых слов были точными).
+  unawaited(PosDictionary.instance.ensureLoaded('en'));
 }
 
 /// Перепланирует ежедневное напоминание на старте (на случай обновления

@@ -12,6 +12,7 @@ import '../models/review_log.dart';
 import '../models/word_card.dart';
 import 'local_db.dart';
 import 'pos.dart';
+import 'pos_dictionary.dart';
 
 /// Единый слой доступа к данным Fern.
 ///
@@ -83,8 +84,9 @@ class DeckRepository extends ChangeNotifier {
   static const String _kMigratedV1 = 'migratedToAsyncV1';
   // Флаг разовой миграции коллекций из prefs в SQLite.
   static const String _kMigratedSqliteV1 = 'migratedToSqliteV1';
-  // Разовая чистка вклеенной части речи + определение части речи → тег pos.
-  static const String _kPosMigrated = 'posMigratedV2';
+  // Пере-определение части речи по офлайн-словарю (исправляет ошибки эвристик).
+  // Заменяет прежние разовые чистки part-of-speech (posMigratedV2 и ранее).
+  static const String _kPosMigratedV3 = 'posMigratedV3';
   // Момент последнего авто-бэкапа (мс) — см. BackupService.autoBackupIfDue.
   static const String _kLastAutoBackup = 'lastAutoBackupMs';
 
@@ -155,31 +157,35 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setBool(_kMigratedSqliteV1, true);
   }
 
-  /// Разово (1) вычищает вклеенную в слово часть речи («the артикль» → «the»)
-  /// и (2) определяет часть речи по слову → тег [WordCard.pos]. Так теги
-  /// появляются и у старых колод, и у слов без явной метки.
+  /// Пере-определяет часть речи по офлайн-словарю (Moby POS) — исправляет
+  /// ошибки прежних эвристик (напр. `library`/`salary` были помечены как
+  /// прилагательные) и заодно снимает вклеенную в слово метку. Перетегируем ВСЕ
+  /// английские карты, но перезаписываем тег только при уверенном ответе
+  /// словаря/эвристики (чтобы не стереть верные метки без покрытия).
   Future<void> _migratePosIfNeeded() async {
-    if (await _prefs.getBool(_kPosMigrated) ?? false) return;
-    final deckLang = {for (final d in _decks) d.id: d.languageCode};
-    final changed = <WordCard>[];
-    for (final c in _cards) {
-      if (c.pos.isNotEmpty) continue;
-      final lang = deckLang[c.deckId] ?? 'en';
-      final stripped = PosDetect.strip(c.front);
-      if (stripped.$2 != null) {
-        c.front = stripped.$1;
-        c.pos = stripped.$2!;
-        changed.add(c);
-      } else {
-        final d = PosDetect.detect(c.front, languageCode: lang);
-        if (d.isNotEmpty) {
-          c.pos = d;
+    if (await _prefs.getBool(_kPosMigratedV3) ?? false) return;
+    if (_cards.isNotEmpty) {
+      await PosDictionary.instance.ensureLoaded('en');
+      final deckLang = {for (final d in _decks) d.id: d.languageCode};
+      final changed = <WordCard>[];
+      for (final c in _cards) {
+        final lang = deckLang[c.deckId] ?? 'en';
+        final stripped = PosDetect.strip(c.front);
+        if (stripped.$2 != null) {
+          c.front = stripped.$1;
+          c.pos = stripped.$2!;
+          changed.add(c);
+          continue;
+        }
+        final detected = PosDetect.detect(c.front, languageCode: lang);
+        if (detected.isNotEmpty && detected != c.pos) {
+          c.pos = detected;
           changed.add(c);
         }
       }
+      if (changed.isNotEmpty) _db!.upsertCards(changed);
     }
-    if (changed.isNotEmpty) _db!.upsertCards(changed);
-    await _prefs.setBool(_kPosMigrated, true);
+    await _prefs.setBool(_kPosMigratedV3, true);
   }
 
   void _decodeReading(String? raw) {

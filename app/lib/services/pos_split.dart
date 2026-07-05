@@ -4,6 +4,7 @@ import '../models/pack.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
 import 'pos.dart';
+import 'pos_dictionary.dart';
 
 /// Разбивка колоды на отдельные колоды по частям речи (глаголы, существительные,
 /// артикли …) — по полю [WordCard.pos] (или определяя на лету). Новые колоды
@@ -22,6 +23,7 @@ class PosSplit {
 
   /// Сколько РАЗНЫХ частей речи можно выделить в колоде (для предложения).
   static Future<int> countGroups(Deck deck) async {
+    await PosDictionary.instance.ensureLoaded(deck.languageCode);
     final cards = await DeckRepository.instance.cardsForDeck(deck.id);
     final codes = <String>{};
     for (final c in cards) {
@@ -36,6 +38,7 @@ class PosSplit {
   /// вклеенную в слово метку («the артикль» → «the») у старых карт.
   static Future<int> split(Deck deck, {DateTime? now}) async {
     final repo = DeckRepository.instance;
+    await PosDictionary.instance.ensureLoaded(deck.languageCode);
     final cards = await repo.cardsForDeck(deck.id);
 
     final byPos = <String, List<WordCard>>{};
