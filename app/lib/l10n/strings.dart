@@ -95,6 +95,15 @@ const Map<String, Map<String, String>> _strings = {
   'mode_hard_sub': {'ru': 'Только сложные карты', 'en': 'Only tricky cards'},
   'mode_speed': {'ru': 'Быстрый повтор', 'en': 'Speed review'},
   'mode_speed_sub': {'ru': 'Короткая разминка', 'en': 'Quick warm-up'},
+  'mode_cloze': {'ru': 'Контекст', 'en': 'Context'},
+  'mode_cloze_sub': {
+    'ru': 'Слово в предложении из книги',
+    'en': 'Word in a sentence from a book'
+  },
+  'cloze_prompt': {
+    'ru': 'Впишите пропущенное слово',
+    'en': 'Fill in the missing word'
+  },
   'soon': {'ru': 'Скоро', 'en': 'Soon'},
 
   // ----------------------------- Экран колоды: карточки -----------------------------
@@ -490,6 +499,11 @@ const Map<String, Map<String, String>> _strings = {
   'bookmark_added': {'ru': 'Закладка добавлена', 'en': 'Bookmark added'},
   'bookmark_removed': {'ru': 'Закладка удалена', 'en': 'Bookmark removed'},
   'bookmarks_empty': {'ru': 'Пока нет закладок', 'en': 'No bookmarks yet'},
+  'read_aloud': {'ru': 'Читать вслух', 'en': 'Read aloud'},
+  'tts_unavailable': {
+    'ru': 'Озвучка недоступна для этого языка',
+    'en': 'Speech is unavailable for this language'
+  },
   'reader_settings': {'ru': 'Оформление', 'en': 'Reading'},
   'reader_mode': {'ru': 'Режим чтения', 'en': 'Reading mode'},
   'read_progress': {'ru': 'прочитано {p}%', 'en': '{p}% read'},
@@ -514,6 +528,7 @@ const Map<String, Map<String, String>> _strings = {
   },
   'book_title_label': {'ru': 'Название', 'en': 'Title'},
   'book_author': {'ru': 'Автор', 'en': 'Author'},
+  'book_language': {'ru': 'Язык книги', 'en': 'Book language'},
   'book_unknown_author': {'ru': 'Автор не указан', 'en': 'Unknown author'},
   'book_description': {'ru': 'Описание', 'en': 'Description'},
   'book_genres': {'ru': 'Жанры', 'en': 'Genres'},

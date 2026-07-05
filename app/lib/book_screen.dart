@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
+import 'models/language.dart';
 import 'services/book_analysis.dart';
 import 'services/deck_repository.dart';
 import 'services/source_library.dart';
@@ -124,6 +125,7 @@ class _BookScreenState extends State<BookScreen> {
     HapticFeedback.selectionClick();
     await showBookMetaEditor(context, _src);
     if (mounted) setState(() {});
+    _recompute(); // язык мог смениться — пересчитать анализ
   }
 
   Future<void> _confirmDelete() async {
@@ -351,6 +353,8 @@ class _BookScreenState extends State<BookScreen> {
 
   String _metaLine() {
     final parts = <String>[];
+    final lang = languageByCode(_src.languageCode);
+    if (lang != null) parts.add('${lang.emoji} ${lang.name}');
     if (_src.format != null) parts.add(_src.format!.toUpperCase());
     final words = _analysis?.totalTokens ?? 0;
     if (words > 0) parts.add(trf('words_n', {'n': _grouped(words)}));

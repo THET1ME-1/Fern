@@ -33,6 +33,10 @@ class TappableText extends StatefulWidget {
   /// Тап мимо слова: локальная точка + ширина блока (для лево/право листания).
   final void Function(Offset localPosition, double width)? onMiss;
 
+  /// Приведение слова к ключу сверки (лемматизация). null — сверка как есть.
+  /// Множества [known]/[sessionAdded] должны содержать уже нормализованные ключи.
+  final String Function(String lower)? normalize;
+
   const TappableText({
     super.key,
     required this.text,
@@ -44,6 +48,7 @@ class TappableText extends StatefulWidget {
     required this.addedColor,
     required this.onWord,
     this.onMiss,
+    this.normalize,
   });
 
   @override
@@ -126,10 +131,11 @@ class _TappableTextState extends State<TappableText> {
         spans.add(TextSpan(text: widget.text.substring(cursor, r.start)));
       }
       final display = widget.text.substring(r.start, r.end);
+      final key = widget.normalize?.call(r.lower) ?? r.lower;
       TextStyle? s;
-      if (widget.sessionAdded.contains(r.lower)) {
+      if (widget.sessionAdded.contains(key)) {
         s = addedStyle;
-      } else if (widget.known.contains(r.lower)) {
+      } else if (widget.known.contains(key)) {
         s = knownStyle;
       }
       spans.add(TextSpan(text: display, style: s));

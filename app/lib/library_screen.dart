@@ -6,6 +6,7 @@ import 'book_screen.dart';
 import 'l10n/strings.dart';
 import 'services/book_import.dart';
 import 'services/deck_repository.dart';
+import 'services/language_detect.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
 import 'video/subtitle.dart';
@@ -86,8 +87,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ..showSnackBar(SnackBar(content: Text(tr('book_import_failed'))));
       return;
     }
-    final lang =
-        await DeckRepository.instance.selectedLanguageCode() ?? 'en';
+    // Язык книги определяем по её тексту (а не по текущему языку изучения),
+    // иначе анализ/подсветка сверялись бы не с тем словарём.
+    final lang = LanguageDetect.detect(book.text) ??
+        await DeckRepository.instance.selectedLanguageCode() ??
+        'en';
     final id = await _library.saveBook(
       title: book.title,
       languageCode: lang,

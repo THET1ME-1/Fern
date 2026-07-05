@@ -458,6 +458,13 @@ class _DeckScreenState extends State<DeckScreen> {
         'mode_audio_sub',
         true,
       ),
+      (
+        StudyMode.cloze,
+        Icons.short_text_rounded,
+        'mode_cloze',
+        'mode_cloze_sub',
+        true,
+      ),
     ];
     final learn = modes.first;
     final rest = modes.skip(1).toList();

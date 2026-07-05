@@ -18,8 +18,9 @@ class LibrarySource {
   final SourceKind kind;
   String title;
 
-  /// Изучаемый язык источника (для сверки слов и перевода).
-  final String languageCode;
+  /// Изучаемый язык источника (для сверки слов и перевода). Для книги можно
+  /// сменить вручную, если авто-определение ошиблось.
+  String languageCode;
 
   /// Момент добавления (мс от эпохи) — сортировка «сначала новые».
   final int createdAt;
@@ -322,6 +323,7 @@ class SourceLibrary extends ChangeNotifier {
     String? description,
     List<String>? tags,
     List<String>? genres,
+    String? languageCode,
   }) async {
     await _ensureLoaded();
     final s = _sources.where((e) => e.id == id).firstOrNull;
@@ -329,6 +331,9 @@ class SourceLibrary extends ChangeNotifier {
     if (title != null && title.trim().isNotEmpty) s.title = title.trim();
     if (author != null) s.author = author.trim();
     if (description != null) s.description = description.trim();
+    if (languageCode != null && languageCode.trim().isNotEmpty) {
+      s.languageCode = languageCode.trim();
+    }
     if (tags != null) {
       s.tags = [
         for (final t in tags)

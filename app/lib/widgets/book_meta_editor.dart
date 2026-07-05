@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
+import '../language_picker_sheet.dart';
+import '../models/language.dart';
 import '../services/source_library.dart';
 import '../theme/app_theme.dart';
 
@@ -37,6 +39,7 @@ class _BookMetaEditorState extends State<_BookMetaEditor> {
   late final TextEditingController _description;
   late List<String> _genres;
   late List<String> _tags;
+  late String _lang;
 
   @override
   void initState() {
@@ -47,6 +50,7 @@ class _BookMetaEditorState extends State<_BookMetaEditor> {
     _description = TextEditingController(text: s.description);
     _genres = List<String>.from(s.genres);
     _tags = List<String>.from(s.tags);
+    _lang = s.languageCode;
   }
 
   @override
@@ -67,8 +71,56 @@ class _BookMetaEditorState extends State<_BookMetaEditor> {
       description: _description.text,
       genres: _genres,
       tags: _tags,
+      languageCode: _lang,
     );
     if (mounted) Navigator.pop(context, true);
+  }
+
+  Future<void> _pickLanguage() async {
+    final code = await showLanguagePicker(context, _lang);
+    if (code != null && mounted) setState(() => _lang = code);
+  }
+
+  Widget _languageRow(ColorScheme scheme) {
+    final lang = languageByCode(_lang);
+    final label = lang == null ? _lang.toUpperCase() : '${lang.emoji}  ${lang.name}';
+    return Material(
+      color: scheme.surfaceContainerHigh,
+      borderRadius: BorderRadius.circular(16),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: _pickLanguage,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          child: Row(
+            children: [
+              Icon(Icons.translate_rounded, color: scheme.onSurfaceVariant),
+              const SizedBox(width: 12),
+              Text(
+                tr('book_language'),
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 14,
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                label,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  color: scheme.onSurface,
+                ),
+              ),
+              const SizedBox(width: 4),
+              Icon(Icons.expand_more_rounded, color: scheme.onSurfaceVariant),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -121,6 +173,8 @@ class _BookMetaEditorState extends State<_BookMetaEditor> {
                   prefixIcon: const Icon(Icons.person_outline_rounded),
                 ),
               ),
+              const SizedBox(height: 12),
+              _languageRow(scheme),
               const SizedBox(height: 12),
               TextField(
                 controller: _description,

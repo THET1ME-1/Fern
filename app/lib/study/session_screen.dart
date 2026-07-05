@@ -111,6 +111,7 @@ class _SessionScreenState extends State<SessionScreen>
         return _ExData(tfShown: wrong, tfIsTrue: false);
       case ExerciseKind.flip:
       case ExerciseKind.type:
+      case ExerciseKind.cloze:
         return const _ExData();
     }
   }
@@ -383,6 +384,14 @@ class _SessionScreenState extends State<SessionScreen>
         return _TypeExercise(
           key: key,
           ex: ex,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+        );
+      case ExerciseKind.cloze:
+        return _ClozeExercise(
+          key: key,
+          ex: ex,
+          languageCode: widget.deck.languageCode,
           onAnswered: (correct) =>
               _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
@@ -1107,6 +1116,186 @@ class _TypeExerciseState extends State<_TypeExercise> {
           const SizedBox(height: 12),
           Text(
             trf('answer_was', {'a': ex.answer}),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: scheme.primary,
+            ),
+          ),
+        ],
+        const Spacer(),
+        if (!answered)
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.tonal(
+                  onPressed: _skip,
+                  child: Text(tr('dont_know')),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                flex: 2,
+                child: FilledButton(
+                  onPressed: _check,
+                  child: Text(tr('check')),
+                ),
+              ),
+            ],
+          )
+        else
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () => widget.onAnswered(_correct!),
+              child: Text(tr('continue_btn')),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+// ============================ Упражнение: контекст (клоуз) ============================
+
+class _ClozeExercise extends StatefulWidget {
+  final Exercise ex;
+  final String languageCode;
+  final void Function(bool correct) onAnswered;
+
+  const _ClozeExercise({
+    super.key,
+    required this.ex,
+    required this.languageCode,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_ClozeExercise> createState() => _ClozeExerciseState();
+}
+
+class _ClozeExerciseState extends State<_ClozeExercise> {
+  final TextEditingController _controller = TextEditingController();
+  bool? _correct;
+  late final Cloze? _cloze = buildCloze(widget.ex.card);
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _check() {
+    if (_correct != null) return;
+    final cloze = _cloze;
+    final ok =
+        cloze != null &&
+        (answerMatches(_controller.text, cloze.answer) ||
+            answerMatches(_controller.text, widget.ex.card.front));
+    setState(() => _correct = ok);
+    HapticFeedback.mediumImpact();
+  }
+
+  void _skip() {
+    if (_correct != null) return;
+    setState(() => _correct = false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final cloze = _cloze;
+    final answered = _correct != null;
+    final answer = cloze?.answer ?? widget.ex.card.front;
+    // После ответа показываем предложение целиком (со вставленным словом).
+    final sentence = cloze == null
+        ? widget.ex.card.front
+        : (answered
+              ? cloze.blanked.replaceFirst('_____', answer)
+              : cloze.blanked);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 12),
+        Text(
+          tr('cloze_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(28),
+          ),
+          child: Column(
+            children: [
+              Text(
+                sentence,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 20,
+                  height: 1.45,
+                  fontWeight: FontWeight.w600,
+                  color: scheme.onSurface,
+                ),
+              ),
+              if (widget.ex.card.back.trim().isNotEmpty) ...[
+                const SizedBox(height: 14),
+                Text(
+                  '≈ ${widget.ex.card.back}',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 15,
+                    fontStyle: FontStyle.italic,
+                    color: scheme.primary,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        TextField(
+          controller: _controller,
+          autofocus: true,
+          enabled: !answered,
+          textAlign: TextAlign.center,
+          textInputAction: TextInputAction.done,
+          onSubmitted: (_) => _check(),
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: answered
+                ? (_correct! ? scheme.primary : scheme.error)
+                : scheme.onSurface,
+          ),
+          decoration: InputDecoration(
+            hintText: '…',
+            suffixIcon: answered
+                ? Icon(
+                    _correct! ? Icons.check_rounded : Icons.close_rounded,
+                    color: _correct! ? scheme.primary : scheme.error,
+                  )
+                : null,
+          ),
+        ),
+        if (answered && !_correct!) ...[
+          const SizedBox(height: 12),
+          Text(
+            trf('answer_was', {'a': answer}),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontFamily: AppTheme.bodyFont,

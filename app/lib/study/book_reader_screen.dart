@@ -8,7 +8,9 @@ import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
+import '../services/lemmatizer.dart';
 import '../services/source_library.dart';
+import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../video/add_target.dart';
 import '../widgets/pressable.dart';
@@ -70,6 +72,12 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   bool _ready = false;
   Timer? _saveTimer;
 
+  // Чтение вслух: читаем абзацы по очереди, подсвечивая текущий; [_playToken]
+  // отменяет цикл при остановке/перезапуске.
+  bool _playing = false;
+  int _speakingIndex = -1;
+  int _playToken = 0;
+
   @override
   void initState() {
     super.initState();
@@ -88,7 +96,10 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
 
   Future<void> _init() async {
     await _settings.load();
-    _known.addAll(_repo.knownFrontsForLanguage(_srcLang));
+    // Храним ОСНОВЫ известных слов — подсветка засчитывает словоформы.
+    _known.addAll(
+      _repo.knownFrontsForLanguage(_srcLang).map(_normalize),
+    );
     final src = await _library.get(widget.sourceId);
     if (src != null && _paragraphs.isNotEmpty) {
       _bookmarks.addAll(src.bookmarks);
@@ -152,6 +163,8 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   @override
   void dispose() {
     _saveTimer?.cancel();
+    _playToken++;
+    TtsService.instance.stop();
     _library.setBookPosition(widget.sourceId, _topIndex);
     _positions.itemPositions.removeListener(_onScroll);
     _settings.removeListener(_onSettings);
@@ -166,6 +179,9 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     unicode: true,
   );
   String _clean(String s) => s.replaceAll(_edge, '');
+
+  /// Ключ сверки слова (лемматизация) — общий для подсветки и добавления.
+  String _normalize(String w) => Lemmatizer.stem(w, _srcLang);
 
   /// Предложение, содержащее слово (для контекста и озвучки).
   String _sentenceFor(String paragraph, String word) {
@@ -182,6 +198,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   Future<void> _onWordTap(String token, String paragraph) async {
     final clean = _clean(token);
     if (clean.isEmpty) return;
+    if (_playing) _stopRead(); // не мешаем озвучку слова с чтением вслух
     HapticFeedback.selectionClick();
     await showWordLookup(
       context,
@@ -189,8 +206,8 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       sentence: _sentenceFor(paragraph, clean),
       sourceLang: _srcLang,
       targetLang: _tgtLang,
-      alreadyKnown: _known.contains(clean.toLowerCase()) ||
-          _sessionAdded.contains(clean.toLowerCase()),
+      alreadyKnown: _known.contains(_normalize(clean)) ||
+          _sessionAdded.contains(_normalize(clean)),
       onAdd: (back, example) => _addWord(clean, back, example, paragraph),
     );
   }
@@ -215,7 +232,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     await _library.bumpWordsAdded(widget.sourceId);
     if (mounted) {
       setState(() {
-        _sessionAdded.add(front.toLowerCase());
+        _sessionAdded.add(_normalize(front));
         _knownVersion++;
         _addedCount++;
       });
@@ -263,6 +280,70 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     );
   }
 
+  // ------------------------------- Чтение вслух -------------------------------
+
+  Future<void> _toggleRead() async {
+    HapticFeedback.selectionClick();
+    if (_playing) {
+      _stopRead();
+      return;
+    }
+    // Чтение — это «следование» по тексту, поэтому в постраничном режиме
+    // переключаемся на прокрутку.
+    if (_settings.horizontalPaging) {
+      await _settings.setHorizontalPaging(false);
+      await Future<void>.delayed(const Duration(milliseconds: 60));
+    }
+    if (!await TtsService.instance.isAvailable(_srcLang)) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr('tts_unavailable'))));
+      return;
+    }
+    _startRead();
+  }
+
+  void _stopRead() {
+    _playToken++;
+    TtsService.instance.stop();
+    if (mounted) {
+      setState(() {
+        _playing = false;
+        _speakingIndex = -1;
+      });
+    } else {
+      _playing = false;
+      _speakingIndex = -1;
+    }
+  }
+
+  Future<void> _startRead() async {
+    final token = ++_playToken;
+    if (mounted) setState(() => _playing = true);
+    final start = _topIndex.clamp(0, _paragraphs.length - 1);
+    for (var i = start; i < _paragraphs.length; i++) {
+      if (!_playing || token != _playToken || !mounted) return;
+      setState(() => _speakingIndex = i);
+      _updateTop(i);
+      if (_scroll.isAttached) {
+        _scroll.scrollTo(
+          index: i,
+          duration: const Duration(milliseconds: 400),
+          curve: AppTheme.emphasizedDecelerate,
+          alignment: 0.16,
+        );
+      }
+      await TtsService.instance.speak(_paragraphs[i], _srcLang);
+    }
+    if (mounted && token == _playToken) {
+      setState(() {
+        _playing = false;
+        _speakingIndex = -1;
+      });
+    }
+  }
+
   // ------------------------------- UI -------------------------------
 
   @override
@@ -289,6 +370,14 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
           ),
         ),
         actions: [
+          IconButton(
+            tooltip: tr('read_aloud'),
+            onPressed: _ready ? _toggleRead : null,
+            icon: Icon(
+              _playing ? Icons.stop_circle_rounded : Icons.headphones_rounded,
+              color: _playing ? t.accent : t.text,
+            ),
+          ),
           if (_addedCount > 0)
             Center(
               child: Container(
@@ -397,6 +486,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         initialOffset: startOffset,
         onWord: (w, pageText) => _onWordTap(w, pageText),
         onParagraph: (offset) => _updateTop(_paragraphAtOffset(offset)),
+        normalize: _normalize,
       );
     }
     return Column(
@@ -443,34 +533,46 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       itemBuilder: (context, i) {
         final para = _paragraphs[i];
         final bookmarked = _bookmarks.contains(i);
-        // RepaintBoundary изолирует перерисовку абзаца — прокрутка не гоняет
-        // растеризацию соседей.
-        return RepaintBoundary(
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 9),
-            decoration: bookmarked
-                ? BoxDecoration(
-                    border: Border(
-                      left: BorderSide(color: t.accent, width: 3),
-                    ),
-                  )
-                : null,
-            child: Padding(
-              padding: EdgeInsets.only(left: bookmarked ? 12 : 0),
-              child: TappableText(
-                key: ValueKey('p$i'),
-                text: para,
-                style: baseStyle,
-                known: _known,
-                sessionAdded: _sessionAdded,
-                highlightVersion: _knownVersion,
-                knownColor: t.accent,
-                addedColor: t.added,
-                onWord: (w) => _onWordTap(w, para),
-              ),
+        final speaking = i == _speakingIndex;
+        Widget content = Container(
+          padding: const EdgeInsets.symmetric(vertical: 9),
+          decoration: bookmarked
+              ? BoxDecoration(
+                  border: Border(
+                    left: BorderSide(color: t.accent, width: 3),
+                  ),
+                )
+              : null,
+          child: Padding(
+            padding: EdgeInsets.only(left: bookmarked ? 12 : 0),
+            child: TappableText(
+              key: ValueKey('p$i'),
+              text: para,
+              style: baseStyle,
+              known: _known,
+              sessionAdded: _sessionAdded,
+              highlightVersion: _knownVersion,
+              knownColor: t.accent,
+              addedColor: t.added,
+              onWord: (w) => _onWordTap(w, para),
+              normalize: _normalize,
             ),
           ),
         );
+        // Подсветка абзаца, который сейчас читается вслух.
+        if (speaking) {
+          content = Container(
+            decoration: BoxDecoration(
+              color: t.accent.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: content,
+          );
+        }
+        // RepaintBoundary изолирует перерисовку абзаца — прокрутка не гоняет
+        // растеризацию соседей.
+        return RepaintBoundary(child: content);
       },
     );
   }
@@ -595,6 +697,7 @@ class _PagedReader extends StatefulWidget {
   final int initialOffset;
   final void Function(String word, String pageText) onWord;
   final void Function(int startOffset) onParagraph;
+  final String Function(String lower) normalize;
 
   const _PagedReader({
     super.key,
@@ -607,6 +710,7 @@ class _PagedReader extends StatefulWidget {
     required this.initialOffset,
     required this.onWord,
     required this.onParagraph,
+    required this.normalize,
   });
 
   @override
@@ -776,6 +880,7 @@ class _PagedReaderState extends State<_PagedReader> {
               knownColor: widget.theme.accent,
               addedColor: widget.theme.added,
               onWord: (w) => widget.onWord(w, pageText),
+              normalize: widget.normalize,
               // Тап мимо слова = листание: левая половина назад, правая вперёд.
               onMiss: (local, width) => local.dx < width / 2 ? _prev() : _next(),
             ),

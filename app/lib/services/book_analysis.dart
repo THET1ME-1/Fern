@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import '../models/fsrs.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
+import 'lemmatizer.dart';
 
 /// Слово книги с частотой встречаемости.
 class WordFreq {
@@ -118,8 +119,19 @@ class BookAnalysis {
     final freq = tokenize(text);
     if (freq.isEmpty) return empty;
 
-    final cards =
+    // Индексируем карточки по ОСНОВЕ слова (лемматизация) — чтобы «foxes»
+    // засчитывалось к карточке «fox», «runs» к «run» и т.п.
+    final byFront =
         DeckRepository.instance.cardsByFrontForLanguage(languageCode);
+    final cards = <String, WordCard>{};
+    byFront.forEach((front, card) {
+      final stem = Lemmatizer.stem(front, languageCode);
+      final existing = cards[stem];
+      if (existing == null ||
+          card.review.stability > existing.review.stability) {
+        cards[stem] = card;
+      }
+    });
     final now = DateTime.now();
 
     var totalTokens = 0;
@@ -132,7 +144,7 @@ class BookAnalysis {
 
     freq.forEach((word, count) {
       totalTokens += count;
-      final card = cards[word];
+      final card = cards[Lemmatizer.stem(word, languageCode)];
       if (card == null) {
         unknownTypes++;
         unknown.add(WordFreq(word, count));

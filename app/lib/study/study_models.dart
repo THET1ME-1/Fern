@@ -3,7 +3,17 @@ import 'dart:math';
 import '../models/word_card.dart';
 
 /// Режимы обучения, запускаемые с экрана колоды. См. `docs/learning-system.md` §2.
-enum StudyMode { learn, flashcards, test, match, write, audio, hard, speed }
+enum StudyMode {
+  learn,
+  flashcards,
+  test,
+  match,
+  write,
+  audio,
+  hard,
+  speed,
+  cloze,
+}
 
 /// Направление изучения колоды.
 enum StudyDirection { forward, reverse, both }
@@ -14,7 +24,7 @@ StudyDirection studyDirectionFromIndex(int i) =>
     : StudyDirection.forward;
 
 /// Тип одного упражнения (виджета) внутри сессии.
-enum ExerciseKind { flip, choose, type, trueFalse, listen }
+enum ExerciseKind { flip, choose, type, trueFalse, listen, cloze }
 
 extension StudyModeInfo on StudyMode {
   /// Влияет ли режим на планировщик FSRS. Тест и игра «Подбор» —
@@ -125,6 +135,18 @@ class SessionBuilder {
           for (final c in sel) Exercise(c, ExerciseKind.listen),
         ]);
 
+      case StudyMode.cloze:
+        // «Контекст»: слово пропущено в предложении из книги/видео.
+        final eligible = cards.where((c) => buildCloze(c) != null).toList();
+        final due2 = eligible
+            .where((c) => !c.review.isNew && c.isDue(now))
+            .toList();
+        final fresh2 = eligible.where((c) => c.review.isNew).toList();
+        final sel = _selectDueAndNew(due2, fresh2, goal);
+        return _shuffled([
+          for (final c in sel) Exercise(c, ExerciseKind.cloze),
+        ]);
+
       case StudyMode.match:
         // match — отдельный экран-игра.
         return const [];
@@ -205,6 +227,49 @@ class SessionBuilder {
     final d = distractors(ex, pool, n: 1);
     return d.isEmpty ? null : d.first;
   }
+}
+
+/// Предложение-«пропуск»: контекст из книги/видео с вырезанным словом.
+class Cloze {
+  /// Предложение с пропуском (____) вместо изучаемого слова.
+  final String blanked;
+
+  /// Слово, которое было вырезано (как оно стоит в тексте) — правильный ответ.
+  final String answer;
+
+  const Cloze(this.blanked, this.answer);
+}
+
+final RegExp _clozeToken = RegExp(r'\S+');
+final RegExp _clozeEdge = RegExp(
+  r'^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$',
+  unicode: true,
+);
+const String _clozeGap = '_____'; // пропуск фиксированной длины
+
+/// Строит клоуз-упражнение из карточки: берём её предложение-контекст
+/// ([WordCard.sentence] или [WordCard.example]) и вырезаем изучаемое слово.
+/// null — если контекста нет или слово в нём не найдено (карта не подходит).
+Cloze? buildCloze(WordCard card) {
+  final text = card.sentence.trim().isNotEmpty
+      ? card.sentence.trim()
+      : card.example.trim();
+  if (text.isEmpty) return null;
+  final front = card.front.trim().toLowerCase();
+  if (front.isEmpty) return null;
+
+  for (final m in _clozeToken.allMatches(text)) {
+    final raw = m.group(0)!;
+    final clean = raw.replaceAll(_clozeEdge, '');
+    if (clean.isEmpty) continue;
+    if (clean.toLowerCase() == front) {
+      // Меняем только «чистую» часть токена, сохраняя пунктуацию вокруг.
+      final blankToken = raw.replaceFirst(clean, _clozeGap);
+      final blanked = text.replaceRange(m.start, m.end, blankToken);
+      return Cloze(blanked, clean);
+    }
+  }
+  return null;
 }
 
 /// Нормализация ответа для проверки ввода: регистр, пробелы, артикли-хвосты.
