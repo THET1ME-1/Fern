@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -41,6 +43,7 @@ class _BookScreenState extends State<BookScreen> {
   late final LibrarySource _src = widget.source;
   String? _text;
   String? _lowerText;
+  String? _coverPath;
   int _paraCount = 0;
   bool _loading = true;
   BookAnalysis? _analysis;
@@ -77,6 +80,7 @@ class _BookScreenState extends State<BookScreen> {
 
   Future<void> _load() async {
     final text = await _library.loadBookText(_src.id);
+    if (_src.hasCover) _coverPath = await _library.coverPath(_src.id);
     if (!mounted) return;
     setState(() {
       _text = text;
@@ -112,6 +116,8 @@ class _BookScreenState extends State<BookScreen> {
       _chapterNew = chapterNew;
       _analyzing = false;
     });
+    // Кэшируем долю знакомых слов для сортировки библиотеки.
+    _library.setKnownPercent(_src.id, (analysis.coverage * 100).round());
   }
 
   // ------------------------------- Действия -------------------------------
@@ -315,19 +321,7 @@ class _BookScreenState extends State<BookScreen> {
       children: [
         Hero(
           tag: 'src-cover-${_src.id}',
-          child: Container(
-            width: 76,
-            height: 100,
-            decoration: BoxDecoration(
-              color: scheme.tertiaryContainer,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Icon(
-              Icons.menu_book_rounded,
-              size: 38,
-              color: scheme.onTertiaryContainer,
-            ),
-          ),
+          child: _coverWidget(scheme),
         ),
         const SizedBox(width: 16),
         Expanded(
@@ -371,6 +365,37 @@ class _BookScreenState extends State<BookScreen> {
       ],
     );
   }
+
+  Widget _coverWidget(ColorScheme scheme) {
+    const w = 76.0, h = 100.0;
+    if (_coverPath != null) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Image.file(
+          File(_coverPath!),
+          width: w,
+          height: h,
+          fit: BoxFit.cover,
+          errorBuilder: (_, _, _) => _coverPlaceholder(scheme, w, h),
+        ),
+      );
+    }
+    return _coverPlaceholder(scheme, w, h);
+  }
+
+  Widget _coverPlaceholder(ColorScheme scheme, double w, double h) => Container(
+        width: w,
+        height: h,
+        decoration: BoxDecoration(
+          color: scheme.tertiaryContainer,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Icon(
+          Icons.menu_book_rounded,
+          size: 38,
+          color: scheme.onTertiaryContainer,
+        ),
+      );
 
   String _metaLine() {
     final parts = <String>[];

@@ -55,6 +55,13 @@ class LibrarySource {
   /// без структуры.
   List<BookChapter> chapters;
 
+  /// Книга: есть ли извлечённая обложка (файл `library/<id>.cover`).
+  bool hasCover;
+
+  /// Книга: доля знакомых слов текста в процентах (кэш последнего анализа,
+  /// −1 = ещё не анализировалась). Для сортировки библиотеки «по знакомости».
+  int knownPercent;
+
   LibrarySource({
     required this.id,
     required this.kind,
@@ -74,6 +81,8 @@ class LibrarySource {
     List<String>? genres,
     this.paragraphCount = 0,
     List<BookChapter>? chapters,
+    this.hasCover = false,
+    this.knownPercent = -1,
   })  : bookmarks = bookmarks ?? [],
         tags = tags ?? [],
         genres = genres ?? [],
@@ -113,6 +122,8 @@ class LibrarySource {
         if (paragraphCount > 0) 'paras': paragraphCount,
         if (chapters.isNotEmpty)
           'chapters': [for (final c in chapters) c.toJson()],
+        if (hasCover) 'cover': true,
+        if (knownPercent >= 0) 'known': knownPercent,
       };
 
   factory LibrarySource.fromJson(Map<String, dynamic> j) => LibrarySource(
@@ -148,6 +159,8 @@ class LibrarySource {
           for (final c in (j['chapters'] as List? ?? const []))
             if (c is Map) BookChapter.fromJson(c.cast<String, dynamic>()),
         ],
+        hasCover: j['cover'] == true,
+        knownPercent: (j['known'] as num?)?.toInt() ?? -1,
       );
 }
 
@@ -271,6 +284,7 @@ class SourceLibrary extends ChangeNotifier {
     required String format,
     required String text,
     List<BookChapter>? chapters,
+    List<int>? cover,
     DateTime? now,
   }) async {
     await _ensureLoaded();
@@ -280,6 +294,13 @@ class SourceLibrary extends ChangeNotifier {
     if (dir == null) return null;
     try {
       await File('${dir.path}/$id.txt').writeAsString(text);
+      var hasCover = false;
+      if (cover != null && cover.isNotEmpty) {
+        try {
+          await File('${dir.path}/$id.cover').writeAsBytes(cover);
+          hasCover = true;
+        } catch (_) {/* обложку не смогли сохранить — не критично */}
+      }
       _sources.add(
         LibrarySource(
           id: id,
@@ -291,6 +312,7 @@ class SourceLibrary extends ChangeNotifier {
           charCount: text.length,
           paragraphCount: countParagraphs(text),
           chapters: chapters,
+          hasCover: hasCover,
         ),
       );
       await _persist();
@@ -321,6 +343,24 @@ class SourceLibrary extends ChangeNotifier {
       .map((p) => p.trim())
       .where((p) => p.isNotEmpty)
       .length;
+
+  /// Путь к файлу обложки книги (или null, если её нет).
+  Future<String?> coverPath(String id) async {
+    final dir = await _dir();
+    if (dir == null) return null;
+    final f = File('${dir.path}/$id.cover');
+    return await f.exists() ? f.path : null;
+  }
+
+  /// Кэширует долю знакомых слов (проценты) — для сортировки библиотеки.
+  Future<void> setKnownPercent(String id, int percent) async {
+    await _ensureLoaded();
+    final s = _sources.where((e) => e.id == id).firstOrNull;
+    if (s == null || s.knownPercent == percent) return;
+    s.knownPercent = percent;
+    await _persist();
+    // notify без шума не нужен — библиотека перечитает при следующем показе.
+  }
 
   /// Тихо проставляет число абзацев (бэкфилл старых книг из читалки).
   Future<void> setParagraphCount(String id, int count) async {
@@ -419,6 +459,8 @@ class SourceLibrary extends ChangeNotifier {
       try {
         final f = _payloadFile(dir, s);
         if (f != null && await f.exists()) await f.delete();
+        final cover = File('${dir.path}/${s.id}.cover');
+        if (await cover.exists()) await cover.delete();
       } catch (_) {
         /* файл мог не сохраниться — не критично */
       }

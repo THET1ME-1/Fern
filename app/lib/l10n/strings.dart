@@ -494,6 +494,14 @@ const Map<String, Map<String, String>> _strings = {
   // ----------------------------- Библиотека -----------------------------
   'library_title': {'ru': 'Библиотека', 'en': 'Library'},
   'library_recent': {'ru': 'Недавнее', 'en': 'Recent'},
+  'reading_now': {'ru': 'Читаю сейчас', 'en': 'Reading now'},
+  'library_search_hint': {
+    'ru': 'Поиск: название, автор, жанр…',
+    'en': 'Search: title, author, genre…'
+  },
+  'sort_recent': {'ru': 'Сначала новые', 'en': 'Newest first'},
+  'sort_progress': {'ru': 'По прогрессу', 'en': 'By progress'},
+  'sort_known': {'ru': 'По знакомости', 'en': 'By familiarity'},
   'library_video_sub': {
     'ru': 'Слова из субтитров',
     'en': 'Words from subtitles'

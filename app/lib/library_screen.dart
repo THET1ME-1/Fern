@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +17,9 @@ import 'video/video_study_screen.dart';
 import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
 
+/// Сортировка библиотеки.
+enum LibrarySort { recent, progress, known }
+
 /// Библиотека: вход в разбор видео и импорт книг + история всех разобранных
 /// источников. Всё сохраняется — можно вернуться к видео/книге позже.
 class LibraryScreen extends StatefulWidget {
@@ -26,7 +31,12 @@ class LibraryScreen extends StatefulWidget {
 
 class _LibraryScreenState extends State<LibraryScreen> {
   final SourceLibrary _library = SourceLibrary.instance;
+  final TextEditingController _search = TextEditingController();
   List<LibrarySource> _sources = [];
+  final Map<String, String> _covers = {}; // id → путь к обложке
+  String _query = '';
+  LibrarySort _sort = LibrarySort.recent;
+  final Set<String> _filters = {}; // активные жанры/теги
   bool _loading = true;
   bool _importing = false;
 
@@ -40,16 +50,81 @@ class _LibraryScreenState extends State<LibraryScreen> {
   @override
   void dispose() {
     _library.removeListener(_load);
+    _search.dispose();
     super.dispose();
   }
 
   Future<void> _load() async {
     final sources = await _library.list();
+    // Пути обложек для книг, у которых они есть.
+    final covers = <String, String>{};
+    for (final s in sources.where((s) => s.isBook && s.hasCover)) {
+      final p = await _library.coverPath(s.id);
+      if (p != null) covers[s.id] = p;
+    }
     if (!mounted) return;
     setState(() {
       _sources = sources;
+      _covers
+        ..clear()
+        ..addAll(covers);
+      // Убираем фильтры, которых больше нет.
+      _filters.removeWhere((f) => !_allTags.contains(f));
       _loading = false;
     });
+  }
+
+  // ------------------------------- Данные экрана -------------------------------
+
+  /// Все жанры и теги книг (для фильтр-чипов), по алфавиту.
+  List<String> get _allTags {
+    final set = <String>{};
+    for (final s in _sources) {
+      set.addAll(s.genres);
+      set.addAll(s.tags);
+    }
+    final list = set.toList()..sort();
+    return list;
+  }
+
+  /// Начатые, но не дочитанные книги — для полки «Читаю сейчас».
+  List<LibrarySource> get _readingNow {
+    final list = _sources
+        .where((s) => s.isBook && s.isStarted && !s.isFinished)
+        .toList()
+      ..sort((a, b) => b.readProgress.compareTo(a.readProgress));
+    return list;
+  }
+
+  /// Источники после поиска, фильтров и сортировки.
+  List<LibrarySource> get _visible {
+    final q = _query.trim().toLowerCase();
+    var list = _sources.where((s) {
+      if (q.isNotEmpty) {
+        final hay = [
+          s.title,
+          s.author,
+          ...s.genres,
+          ...s.tags,
+        ].join(' ').toLowerCase();
+        if (!hay.contains(q)) return false;
+      }
+      if (_filters.isNotEmpty) {
+        final tags = {...s.genres, ...s.tags};
+        if (!_filters.any(tags.contains)) return false;
+      }
+      return true;
+    }).toList();
+
+    switch (_sort) {
+      case LibrarySort.recent:
+        list.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      case LibrarySort.progress:
+        list.sort((a, b) => b.readProgress.compareTo(a.readProgress));
+      case LibrarySort.known:
+        list.sort((a, b) => b.knownPercent.compareTo(a.knownPercent));
+    }
+    return list;
   }
 
   // ------------------------------- Действия -------------------------------
@@ -98,6 +173,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
       format: BookImport.extensionOf(path),
       text: book.text,
       chapters: book.chapters,
+      cover: book.cover,
     );
     if (!mounted) return;
     setState(() => _importing = false);
@@ -163,40 +239,243 @@ class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final reading = _readingNow;
+    final visible = _visible;
+    final tags = _allTags;
     return Scaffold(
-      appBar: AppBar(title: Text(tr('library_title'))),
+      appBar: AppBar(
+        title: Text(tr('library_title')),
+        actions: [
+          if (_sources.length > 1)
+            PopupMenuButton<LibrarySort>(
+              icon: const Icon(Icons.sort_rounded),
+              tooltip: tr('sort_by'),
+              initialValue: _sort,
+              onSelected: (s) => setState(() => _sort = s),
+              itemBuilder: (_) => [
+                _sortItem(LibrarySort.recent, tr('sort_recent')),
+                _sortItem(LibrarySort.progress, tr('sort_progress')),
+                _sortItem(LibrarySort.known, tr('sort_known')),
+              ],
+            ),
+        ],
+      ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [
                 Reveal(child: _actionRow(scheme)),
-                const SizedBox(height: 22),
-                Reveal(
-                  delay: const Duration(milliseconds: 80),
-                  child: Text(
-                    tr('library_recent'),
-                    style: TextStyle(
-                      fontFamily: AppTheme.displayFont,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                      color: scheme.primary,
-                    ),
+                if (reading.isNotEmpty) ...[
+                  const SizedBox(height: 22),
+                  Reveal(
+                    delay: const Duration(milliseconds: 60),
+                    child: _sectionTitle(tr('reading_now'), scheme),
                   ),
-                ),
-                const SizedBox(height: 12),
+                  const SizedBox(height: 12),
+                  Reveal(
+                    delay: const Duration(milliseconds: 80),
+                    child: _readingShelf(reading, scheme),
+                  ),
+                ],
+                const SizedBox(height: 22),
                 if (_sources.isEmpty)
                   _emptyState(scheme)
-                else
-                  for (var i = 0; i < _sources.length; i++)
+                else ...[
+                  Reveal(
+                    delay: const Duration(milliseconds: 100),
+                    child: _searchField(scheme),
+                  ),
+                  if (tags.isNotEmpty) ...[
+                    const SizedBox(height: 10),
                     Reveal(
-                      delay: Duration(milliseconds: 100 + 40 * i),
-                      child: _sourceTile(_sources[i], scheme),
+                      delay: const Duration(milliseconds: 120),
+                      child: _filterChips(tags, scheme),
                     ),
+                  ],
+                  const SizedBox(height: 14),
+                  if (visible.isEmpty)
+                    _noMatches(scheme)
+                  else
+                    for (var i = 0; i < visible.length; i++)
+                      Reveal(
+                        delay: Duration(milliseconds: 120 + 30 * i),
+                        child: _sourceTile(visible[i], scheme),
+                      ),
+                ],
               ],
             ),
     );
   }
+
+  PopupMenuItem<LibrarySort> _sortItem(LibrarySort s, String label) {
+    return PopupMenuItem<LibrarySort>(
+      value: s,
+      child: Row(
+        children: [
+          Icon(
+            _sort == s ? Icons.radio_button_checked : Icons.radio_button_off,
+            size: 18,
+          ),
+          const SizedBox(width: 10),
+          Text(label),
+        ],
+      ),
+    );
+  }
+
+  Widget _sectionTitle(String text, ColorScheme scheme) => Text(
+        text,
+        style: TextStyle(
+          fontFamily: AppTheme.displayFont,
+          fontWeight: FontWeight.w700,
+          fontSize: 16,
+          color: scheme.primary,
+        ),
+      );
+
+  // ------------------------------- Полка «Читаю сейчас» -------------------------------
+
+  Widget _readingShelf(List<LibrarySource> books, ColorScheme scheme) {
+    return SizedBox(
+      height: 210,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        clipBehavior: Clip.none,
+        itemCount: books.length,
+        separatorBuilder: (_, _) => const SizedBox(width: 14),
+        itemBuilder: (_, i) => _shelfCard(books[i], scheme),
+      ),
+    );
+  }
+
+  Widget _shelfCard(LibrarySource s, ColorScheme scheme) {
+    return PressableScale(
+      child: GestureDetector(
+        onTap: () => _openBookScreen(s),
+        child: SizedBox(
+          width: 116,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Отдельный тег: та же книга может быть и в списке ниже (Hero
+              // 'src-cover-…') — одинаковые теги на одном экране запрещены.
+              Hero(
+                tag: 'shelf-cover-${s.id}',
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.20),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: _bookCover(s, scheme, 116, 154),
+                ),
+              ),
+              const SizedBox(height: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: TweenAnimationBuilder<double>(
+                  tween: Tween(end: s.readProgress),
+                  duration: const Duration(milliseconds: 700),
+                  curve: AppTheme.emphasizedDecelerate,
+                  builder: (_, v, _) => LinearProgressIndicator(
+                    value: v,
+                    minHeight: 4,
+                    backgroundColor: scheme.surfaceContainerHighest,
+                    valueColor: AlwaysStoppedAnimation(scheme.tertiary),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                s.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12.5,
+                  height: 1.15,
+                  color: scheme.onSurface,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ------------------------------- Поиск и фильтры -------------------------------
+
+  Widget _searchField(ColorScheme scheme) {
+    return TextField(
+      controller: _search,
+      onChanged: (v) => setState(() => _query = v),
+      decoration: InputDecoration(
+        hintText: tr('library_search_hint'),
+        prefixIcon: const Icon(Icons.search_rounded),
+        suffixIcon: _query.isEmpty
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.close_rounded),
+                onPressed: () {
+                  _search.clear();
+                  setState(() => _query = '');
+                },
+              ),
+        isDense: true,
+        filled: true,
+        fillColor: scheme.surfaceContainerHigh,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+
+  Widget _filterChips(List<String> tags, ColorScheme scheme) {
+    return SizedBox(
+      height: 36,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: tags.length,
+        separatorBuilder: (_, _) => const SizedBox(width: 8),
+        itemBuilder: (_, i) {
+          final tag = tags[i];
+          final selected = _filters.contains(tag);
+          return FilterChip(
+            label: Text(tag),
+            selected: selected,
+            visualDensity: VisualDensity.compact,
+            onSelected: (sel) => setState(() {
+              if (sel) {
+                _filters.add(tag);
+              } else {
+                _filters.remove(tag);
+              }
+            }),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _noMatches(ColorScheme scheme) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 40),
+        child: Center(
+          child: Text(
+            tr('no_matches'),
+            style: TextStyle(color: scheme.onSurfaceVariant),
+          ),
+        ),
+      );
 
   Widget _actionRow(ColorScheme scheme) {
     return Row(
@@ -382,25 +661,50 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
-  /// Обложка-иконка источника. Для книги — Hero, чтобы плавно «улететь» в
-  /// шапку страницы книги при открытии.
+  /// Обложка источника в плитке. Видео — квадратная иконка; книга — вертикальная
+  /// обложка (картинка или заглушка) в Hero, чтобы «улететь» в страницу книги.
   Widget _leadingCover(LibrarySource s, bool isVideo, ColorScheme scheme) {
-    final cover = Container(
-      width: 52,
-      height: 52,
+    if (isVideo) return _coverBox(s, scheme, 52, 52);
+    return Hero(
+      tag: 'src-cover-${s.id}',
+      child: _bookCover(s, scheme, 46, 62),
+    );
+  }
+
+  /// Обложка книги: картинка (если извлечена из epub/fb2) либо заглушка.
+  Widget _bookCover(LibrarySource s, ColorScheme scheme, double w, double h) {
+    final path = _covers[s.id];
+    if (path != null) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.file(
+          File(path),
+          width: w,
+          height: h,
+          fit: BoxFit.cover,
+          errorBuilder: (_, _, _) => _coverBox(s, scheme, w, h),
+        ),
+      );
+    }
+    return _coverBox(s, scheme, w, h);
+  }
+
+  Widget _coverBox(LibrarySource s, ColorScheme scheme, double w, double h) {
+    final isVideo = s.isVideo;
+    return Container(
+      width: w,
+      height: h,
       decoration: BoxDecoration(
         color: (isVideo ? scheme.primary : scheme.tertiary)
             .withValues(alpha: 0.16),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(
-        isVideo ? Icons.play_circle_fill_rounded : Icons.menu_book_rounded,
+        isVideo ? Icons.play_circle_fill_rounded : Icons.auto_stories_rounded,
         color: isVideo ? scheme.primary : scheme.tertiary,
-        size: 26,
+        size: w * 0.42,
       ),
     );
-    if (isVideo) return cover;
-    return Hero(tag: 'src-cover-${s.id}', child: cover);
   }
 
   String _subtitleFor(LibrarySource s) {

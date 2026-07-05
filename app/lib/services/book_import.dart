@@ -6,15 +6,18 @@ import 'package:flutter/foundation.dart';
 
 import '../models/book_chapter.dart';
 
-/// Извлечённый из файла текст книги + предполагаемое название + оглавление.
+/// Извлечённый из файла текст книги + предполагаемое название + оглавление +
+/// байты обложки (если удалось извлечь из epub/fb2).
 class BookText {
   final String title;
   final String text;
   final List<BookChapter> chapters;
+  final List<int>? cover;
   const BookText({
     required this.title,
     required this.text,
     this.chapters = const [],
+    this.cover,
   });
 
   bool get isEmpty => text.trim().isEmpty;
@@ -147,6 +150,7 @@ class BookImport {
 
     // Ищем .opf (спайн = порядок чтения, манифест = id→href, dc:title).
     String? title;
+    List<int>? cover;
     List<String> spineHrefs = [];
     final tocTitles = <String, String>{}; // basename → заголовок из оглавления
 
@@ -155,9 +159,12 @@ class BookImport {
       final raw = _decode(opf.first.content as List<int>);
       title = _fb2Title(raw);
       spineHrefs = _opfSpine(raw);
+      cover = _epubCover(byName, raw);
       // Оглавление: ncx или nav.xhtml.
       _collectToc(byName, tocTitles);
     }
+    // Запасной вариант обложки — файл-картинка с «cover» в имени.
+    cover ??= _fallbackCover(byName);
 
     final a = _Assembler();
     Iterable<ArchiveFile> ordered;
@@ -189,7 +196,58 @@ class BookImport {
       title: title ?? fallbackTitle,
       text: a.text,
       chapters: a.cleanChapters,
+      cover: cover,
     );
+  }
+
+  static bool _isImage(String name) {
+    final l = name.toLowerCase();
+    return l.endsWith('.jpg') ||
+        l.endsWith('.jpeg') ||
+        l.endsWith('.png') ||
+        l.endsWith('.gif') ||
+        l.endsWith('.webp');
+  }
+
+  static List<int>? _bytes(ArchiveFile? f) {
+    if (f == null) return null;
+    final b = f.content as List<int>;
+    return b.isEmpty ? null : b;
+  }
+
+  static List<int>? _epubCover(Map<String, ArchiveFile> byName, String opf) {
+    String? href;
+    // 1) <meta name="cover" content="ID"/> → item id=ID.
+    final meta = RegExp(r'<meta\b[^>]*>', caseSensitive: false)
+        .allMatches(opf)
+        .map((m) => m.group(0)!)
+        .firstWhere(
+          (t) => _attr(t, 'name')?.toLowerCase() == 'cover',
+          orElse: () => '',
+        );
+    final coverId = meta.isEmpty ? null : _attr(meta, 'content');
+    // Перебираем manifest-item: ищем по id, либо properties="cover-image".
+    for (final m in RegExp(r'<item\b[^>]*>', caseSensitive: false)
+        .allMatches(opf)) {
+      final tag = m.group(0)!;
+      final props = (_attr(tag, 'properties') ?? '').toLowerCase();
+      if ((coverId != null && _attr(tag, 'id') == coverId) ||
+          props.contains('cover-image')) {
+        href = _attr(tag, 'href');
+        if (href != null) break;
+      }
+    }
+    if (href == null) return null;
+    return _bytes(_matchByBase(byName, href));
+  }
+
+  static List<int>? _fallbackCover(Map<String, ArchiveFile> byName) {
+    for (final f in byName.values) {
+      if (_isImage(f.name) && f.name.toLowerCase().contains('cover')) {
+        return _bytes(f);
+      }
+    }
+    return null;
   }
 
   static bool _isContent(String name) {
@@ -332,7 +390,43 @@ class BookImport {
       a.add(_htmlToText(body));
     }
 
-    return BookText(title: title, text: a.text, chapters: a.cleanChapters);
+    return BookText(
+      title: title,
+      text: a.text,
+      chapters: a.cleanChapters,
+      cover: _fb2Cover(raw),
+    );
+  }
+
+  static List<int>? _fb2Cover(String raw) {
+    // Id обложки из <coverpage>…<image href="#id"/>.
+    String? coverId;
+    final cp = RegExp(r'<coverpage\b.*?</coverpage>',
+            dotAll: true, caseSensitive: false)
+        .firstMatch(raw);
+    if (cp != null) {
+      final img = RegExp(r'href="#?([^"]+)"', caseSensitive: false)
+          .firstMatch(cp.group(0)!);
+      coverId = img?.group(1);
+    }
+    // Ищем нужный <binary> (по id) или первую картинку.
+    for (final m in RegExp(r'<binary\b([^>]*)>(.*?)</binary>',
+            dotAll: true, caseSensitive: false)
+        .allMatches(raw)) {
+      final attrs = m.group(1) ?? '';
+      final id = _attr('<x$attrs>', 'id');
+      final ct = (_attr('<x$attrs>', 'content-type') ?? '').toLowerCase();
+      final matches = coverId != null ? id == coverId : ct.startsWith('image/');
+      if (!matches) continue;
+      final b64 = (m.group(2) ?? '').replaceAll(RegExp(r'\s+'), '');
+      if (b64.isEmpty) continue;
+      try {
+        return base64.decode(b64);
+      } catch (_) {
+        return null;
+      }
+    }
+    return null;
   }
 
   static String? _fb2Title(String raw) {
