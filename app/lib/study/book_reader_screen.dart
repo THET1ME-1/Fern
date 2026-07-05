@@ -10,6 +10,7 @@ import '../models/book_chapter.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
 import '../services/lemmatizer.dart';
+import '../services/pos.dart';
 import '../services/source_library.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
@@ -239,7 +240,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       targetLang: _tgtLang,
       alreadyKnown: _known.contains(_normalize(clean)) ||
           _sessionAdded.contains(_normalize(clean)),
-      onAdd: (back, example) => _addWord(clean, back, example, paragraph),
+      onAdd: (back, example, pos) => _addWord(clean, back, example, paragraph, pos),
     );
   }
 
@@ -248,6 +249,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     String back,
     String example,
     String paragraph,
+    String? dictPos,
   ) async {
     _targetDeck ??= await _resolveDeck();
     final deck = _targetDeck;
@@ -258,6 +260,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       back: back,
       example: _sentenceFor(paragraph, front),
       sentence: _sentenceFor(paragraph, front),
+      pos: PosDetect.detect(front, dictPos: dictPos, languageCode: _srcLang),
     );
     if (!ok) return LookupAddResult.duplicate;
     await _library.bumpWordsAdded(widget.sourceId);
@@ -286,7 +289,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       sourceLang: _srcLang,
       targetLang: _tgtLang,
       alreadyKnown: false,
-      onAdd: (back, example) => _addPhrase(phrase, back),
+      onAdd: (back, example, pos) => _addPhrase(phrase, back),
     );
   }
 

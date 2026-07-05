@@ -6,6 +6,7 @@ import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'study/match_screen.dart';
 import 'study/session_screen.dart';
@@ -98,6 +99,19 @@ class _DeckScreenState extends State<DeckScreen> {
         });
     }
     return list;
+  }
+
+  /// Раскладывает колоду по частям речи (в отдельный пак с колодами по типам).
+  Future<void> _splitByPos() async {
+    final created = await PosSplit.split(widget.deck);
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(created > 0
+            ? trf('split_done', {'n': created})
+            : tr('split_none')),
+      ));
   }
 
   Future<void> _load() async {
@@ -200,6 +214,23 @@ class _DeckScreenState extends State<DeckScreen> {
             tooltip: tr('quick_add'),
             icon: const Icon(Icons.playlist_add_rounded),
             onPressed: _quickAdd,
+          ),
+          PopupMenuButton<String>(
+            onSelected: (v) {
+              if (v == 'split') _splitByPos();
+            },
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                value: 'split',
+                child: Row(
+                  children: [
+                    const Icon(Icons.category_outlined, size: 20),
+                    const SizedBox(width: 10),
+                    Text(tr('split_by_pos')),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -665,6 +696,26 @@ class _DeckScreenState extends State<DeckScreen> {
     return trf('due_in', {'t': durationLabel(due.difference(now))});
   }
 
+  /// Маленькая метка части речи рядом со словом (гл./сущ./арт.…).
+  Widget _posBadge(String code, ColorScheme scheme) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+      decoration: BoxDecoration(
+        color: scheme.secondaryContainer,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        tr('pos_short_$code'),
+        style: TextStyle(
+          fontFamily: AppTheme.bodyFont,
+          fontWeight: FontWeight.w600,
+          fontSize: 10.5,
+          color: scheme.onSecondaryContainer,
+        ),
+      ),
+    );
+  }
+
   Widget _cardTile(WordCard card, ColorScheme scheme) {
     final now = DateTime.now();
     final vis = _statusVisual(card.status, scheme);
@@ -728,6 +779,10 @@ class _DeckScreenState extends State<DeckScreen> {
                                 ),
                               ),
                             ),
+                            if (card.pos.isNotEmpty) ...[
+                              const SizedBox(width: 8),
+                              _posBadge(card.pos, scheme),
+                            ],
                             if (hasExample) ...[
                               const SizedBox(width: 6),
                               Icon(

@@ -158,6 +158,7 @@ class VideoDeckTarget {
     String sourceUrl = '',
     int? clipStartMs,
     int? clipEndMs,
+    String pos = '',
   }) async {
     final repo = DeckRepository.instance;
     final f = front.trim();
@@ -174,6 +175,7 @@ class VideoDeckTarget {
         sourceUrl: sourceUrl.trim(),
         clipStartMs: clipStartMs,
         clipEndMs: clipEndMs,
+        pos: pos,
       ),
     );
     return true;

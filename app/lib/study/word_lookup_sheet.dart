@@ -20,7 +20,11 @@ Future<void> showWordLookup(
   required String sourceLang,
   required String targetLang,
   required bool alreadyKnown,
-  required Future<LookupAddResult> Function(String back, String example) onAdd,
+  required Future<LookupAddResult> Function(
+    String back,
+    String example,
+    String? pos,
+  ) onAdd,
 }) {
   final scheme = Theme.of(context).colorScheme;
   return showModalBottomSheet(
@@ -47,7 +51,11 @@ class _WordLookup extends StatefulWidget {
   final String sourceLang;
   final String targetLang;
   final bool alreadyKnown;
-  final Future<LookupAddResult> Function(String back, String example) onAdd;
+  final Future<LookupAddResult> Function(
+    String back,
+    String example,
+    String? pos,
+  ) onAdd;
 
   const _WordLookup({
     required this.word,
@@ -108,7 +116,7 @@ class _WordLookupState extends State<_WordLookup> {
   Future<void> _add() async {
     if (_back.trim().isEmpty) return;
     HapticFeedback.mediumImpact();
-    final r = await widget.onAdd(_back.trim(), widget.sentence);
+    final r = await widget.onAdd(_back.trim(), widget.sentence, _pos);
     if (!mounted) return;
     setState(() => _addResult = r);
     if (r != LookupAddResult.cancelled) {

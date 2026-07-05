@@ -453,6 +453,18 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Переносит карты в другую колоду (напр. при разбивке по частям речи).
+  Future<void> moveCards(Iterable<String> cardIds, String newDeckId) async {
+    await _ensureLoaded();
+    final ids = cardIds.toSet();
+    if (ids.isEmpty) return;
+    for (final c in _cards) {
+      if (ids.contains(c.id)) c.deckId = newDeckId;
+    }
+    await _persistCards();
+    notifyListeners();
+  }
+
   /// Применяет оценку к карточке (FSRS) и сохраняет новое состояние повторения.
   Future<void> rateCard(WordCard card, Rating rating, DateTime now) async {
     card.review = Fsrs.instance.review(card.review, rating, now);

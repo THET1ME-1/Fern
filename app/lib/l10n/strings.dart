@@ -122,6 +122,45 @@ const Map<String, Map<String, String>> _strings = {
   'translate_variants': {'ru': 'Варианты', 'en': 'Variants'},
   'delete_card': {'ru': 'Удалить карточку', 'en': 'Delete card'},
 
+  // ----------------------------- Части речи -----------------------------
+  'split_by_pos': {
+    'ru': 'Разложить по частям речи',
+    'en': 'Split by part of speech'
+  },
+  'split_by_pos_offer': {
+    'ru': 'Разложить {n} слов по частям речи (глаголы, существительные…) в отдельные колоды?',
+    'en': 'Split {n} words by part of speech (verbs, nouns…) into separate decks?'
+  },
+  'split_done': {'ru': 'Готово: {n} колод', 'en': 'Done: {n} decks'},
+  'split_none': {
+    'ru': 'Не удалось определить части речи',
+    'en': "Couldn't detect parts of speech"
+  },
+  'split_pack': {'ru': '{name} · по типам', 'en': '{name} · by type'},
+  'pos_deck_noun': {'ru': 'Существительные', 'en': 'Nouns'},
+  'pos_deck_verb': {'ru': 'Глаголы', 'en': 'Verbs'},
+  'pos_deck_adj': {'ru': 'Прилагательные', 'en': 'Adjectives'},
+  'pos_deck_adv': {'ru': 'Наречия', 'en': 'Adverbs'},
+  'pos_deck_pronoun': {'ru': 'Местоимения', 'en': 'Pronouns'},
+  'pos_deck_article': {'ru': 'Артикли', 'en': 'Articles'},
+  'pos_deck_prep': {'ru': 'Предлоги', 'en': 'Prepositions'},
+  'pos_deck_conj': {'ru': 'Союзы', 'en': 'Conjunctions'},
+  'pos_deck_num': {'ru': 'Числительные', 'en': 'Numerals'},
+  'pos_deck_particle': {'ru': 'Частицы', 'en': 'Particles'},
+  'pos_deck_interj': {'ru': 'Междометия', 'en': 'Interjections'},
+  'pos_deck_other': {'ru': 'Прочее', 'en': 'Other'},
+  'pos_short_noun': {'ru': 'сущ.', 'en': 'n.'},
+  'pos_short_verb': {'ru': 'гл.', 'en': 'v.'},
+  'pos_short_adj': {'ru': 'прил.', 'en': 'adj.'},
+  'pos_short_adv': {'ru': 'нареч.', 'en': 'adv.'},
+  'pos_short_pronoun': {'ru': 'мест.', 'en': 'pron.'},
+  'pos_short_article': {'ru': 'арт.', 'en': 'art.'},
+  'pos_short_prep': {'ru': 'предл.', 'en': 'prep.'},
+  'pos_short_conj': {'ru': 'союз', 'en': 'conj.'},
+  'pos_short_num': {'ru': 'числ.', 'en': 'num.'},
+  'pos_short_particle': {'ru': 'част.', 'en': 'part.'},
+  'pos_short_interj': {'ru': 'межд.', 'en': 'interj.'},
+
   // ----------------------------- Перевод и модели -----------------------------
   'providers_title': {'ru': 'Перевод и модели', 'en': 'Translation & models'},
   'providers_sub': {

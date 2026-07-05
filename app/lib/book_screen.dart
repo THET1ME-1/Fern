@@ -9,6 +9,7 @@ import 'models/deck.dart';
 import 'models/language.dart';
 import 'services/book_analysis.dart';
 import 'services/deck_repository.dart';
+import 'services/pos.dart';
 import 'services/source_library.dart';
 import 'services/translation/translation_manager.dart';
 import 'study/book_reader_screen.dart';
@@ -181,7 +182,7 @@ class _BookScreenState extends State<BookScreen> {
       sourceLang: _srcLang,
       targetLang: LocaleController.instance.code,
       alreadyKnown: false,
-      onAdd: (back, example) => _addWord(word, back, example),
+      onAdd: (back, example, pos) => _addWord(word, back, example, pos),
     );
     _recompute();
   }
@@ -190,6 +191,7 @@ class _BookScreenState extends State<BookScreen> {
     String front,
     String back,
     String example,
+    String? dictPos,
   ) async {
     _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
       context,
@@ -204,6 +206,7 @@ class _BookScreenState extends State<BookScreen> {
       back: back,
       example: example,
       sentence: example,
+      pos: PosDetect.detect(front, dictPos: dictPos, languageCode: _srcLang),
     );
     if (!ok) return LookupAddResult.duplicate;
     await _library.bumpWordsAdded(_src.id);
@@ -912,6 +915,11 @@ class _BookScreenState extends State<BookScreen> {
           back: res.primary,
           example: _contextFor(w),
           sentence: _contextFor(w),
+          pos: PosDetect.detect(
+            w,
+            dictPos: res.partOfSpeech,
+            languageCode: _srcLang,
+          ),
         );
         if (ok) {
           added++;

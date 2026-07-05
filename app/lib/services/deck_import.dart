@@ -7,6 +7,7 @@ import 'package:sqlite3/sqlite3.dart';
 import '../models/deck.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
+import 'pos.dart';
 
 /// Итог импорта колоды из внешнего файла.
 enum ImportOutcome { ok, unsupported, empty, failed }
@@ -224,13 +225,19 @@ class DeckImport {
     final seen = <String>{};
     var i = 0;
     for (final r in rows) {
-      if (!seen.add(r.front.toLowerCase())) continue; // дедуп внутри импорта
+      // Часть речи бывает вклеена в слово («the артикль») — отрезаем её и
+      // сохраняем отдельно; иначе пробуем определить по служебному слову.
+      final stripped = PosDetect.strip(r.front);
+      final front = stripped.$1;
+      final pos = stripped.$2 ?? PosDetect.detect(front, languageCode: lang);
+      if (front.isEmpty || !seen.add(front.toLowerCase())) continue;
       cards.add(WordCard(
         id: '${id}_$i',
         deckId: id,
-        front: r.front,
+        front: front,
         back: r.back,
         example: r.example,
+        pos: pos,
       ));
       i++;
     }

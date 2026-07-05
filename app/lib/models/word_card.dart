@@ -102,11 +102,18 @@ class ReviewState {
 /// Карточка слова: перёд (изучаемое слово) → зад (перевод) + пример.
 class WordCard {
   final String id;
-  final String deckId;
+
+  /// Колода, которой принадлежит карта. Изменяема — карту можно перенести
+  /// (напр. при разбивке колоды по частям речи).
+  String deckId;
   String front;
   String back;
   String example;
   ReviewState review;
+
+  /// Часть речи (канонический код: noun/verb/adj/adv/pronoun/article/prep/
+  /// conj/num/particle/interj), либо '' — неизвестно. Для разбивки по типам.
+  String pos;
 
   /// Предложение-контекст из видео (для озвучки живым голосом целой реплики).
   String sentence;
@@ -129,6 +136,7 @@ class WordCard {
     this.sourceUrl = '',
     this.clipStartMs,
     this.clipEndMs,
+    this.pos = '',
   }) : review = review ?? ReviewState();
 
   /// Карта «к повтору сейчас»: новая или наступил срок.
@@ -147,6 +155,7 @@ class WordCard {
         if (sourceUrl.isNotEmpty) 'src': sourceUrl,
         if (clipStartMs != null) 'cs': clipStartMs,
         if (clipEndMs != null) 'ce': clipEndMs,
+        if (pos.isNotEmpty) 'pos': pos,
       };
 
   factory WordCard.fromJson(Map<String, dynamic> j) => WordCard(
@@ -163,6 +172,7 @@ class WordCard {
         sourceUrl: j['src'] as String? ?? '',
         clipStartMs: (j['cs'] as num?)?.toInt(),
         clipEndMs: (j['ce'] as num?)?.toInt(),
+        pos: j['pos'] as String? ?? '',
       );
 }
 
