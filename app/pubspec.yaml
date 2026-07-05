@@ -2,7 +2,7 @@ name: fern
 description: "Fern — красивые флеш-карточки для изучения языков (офлайн, Material You)."
 publish_to: 'none'
 
-version: 1.6.0+8
+version: 1.6.1+9
 
 environment:
   sdk: ^3.11.5
@@ -43,6 +43,9 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   # Тестовый in-memory backend для SharedPreferencesAsync (см. test/test_helpers.dart).
   shared_preferences_platform_interface: ^2.4.2
+  # Мок path_provider в тестах (загрузка текста книги, см. book_screen_render_test).
+  path_provider_platform_interface: ^2.1.3
+  plugin_platform_interface: ^2.1.8
   flutter_launcher_icons: ^0.14.4
 
 flutter:

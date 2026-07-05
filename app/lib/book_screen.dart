@@ -76,10 +76,10 @@ class _BookScreenState extends State<BookScreen> {
       _paraCount = text == null
           ? 0
           : text
-              .split('\n')
-              .map((p) => p.trim())
-              .where((p) => p.isNotEmpty)
-              .length;
+                .split('\n')
+                .map((p) => p.trim())
+                .where((p) => p.isNotEmpty)
+                .length;
       _loading = false;
     });
     _recompute();
@@ -169,8 +169,11 @@ class _BookScreenState extends State<BookScreen> {
     String back,
     String example,
   ) async {
-    _targetDeck ??=
-        await VideoDeckTarget.resolveInSourcePack(context, _srcLang, _src.title);
+    _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
+      context,
+      _srcLang,
+      _src.title,
+    );
     final deck = _targetDeck;
     if (deck == null) return LookupAddResult.cancelled;
     final ok = await VideoDeckTarget.addWord(
@@ -217,11 +220,7 @@ class _BookScreenState extends State<BookScreen> {
     final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          _src.title,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+        title: Text(_src.title, maxLines: 1, overflow: TextOverflow.ellipsis),
         actions: [
           IconButton(
             tooltip: tr('book_edit'),
@@ -272,20 +271,20 @@ class _BookScreenState extends State<BookScreen> {
             ],
           ],
         ],
-                ),
+      ),
     );
   }
 
   Widget _unavailable(ColorScheme scheme) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Text(
-            tr('book_no_text'),
-            textAlign: TextAlign.center,
-            style: TextStyle(color: scheme.onSurfaceVariant),
-          ),
-        ),
-      );
+    child: Padding(
+      padding: const EdgeInsets.all(32),
+      child: Text(
+        tr('book_no_text'),
+        textAlign: TextAlign.center,
+        style: TextStyle(color: scheme.onSurfaceVariant),
+      ),
+    ),
+  );
 
   Widget _header(ColorScheme scheme) {
     return Row(
@@ -328,8 +327,9 @@ class _BookScreenState extends State<BookScreen> {
                 style: TextStyle(
                   fontFamily: AppTheme.bodyFont,
                   fontSize: 14,
-                  fontStyle:
-                      _src.author.isEmpty ? FontStyle.italic : FontStyle.normal,
+                  fontStyle: _src.author.isEmpty
+                      ? FontStyle.italic
+                      : FontStyle.normal,
                   color: scheme.onSurfaceVariant,
                 ),
               ),
@@ -368,15 +368,12 @@ class _BookScreenState extends State<BookScreen> {
           style: FilledButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
           ),
-          icon: Icon(started
-              ? Icons.play_arrow_rounded
-              : Icons.auto_stories_rounded),
+          icon: Icon(
+            started ? Icons.play_arrow_rounded : Icons.auto_stories_rounded,
+          ),
           label: Text(
             started ? tr('read_continue') : tr('read_start'),
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 15,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15),
           ),
         ),
       ),
@@ -581,29 +578,53 @@ class _BookScreenState extends State<BookScreen> {
   }
 
   Widget _bucketLegend(ColorScheme scheme, BookAnalysis a) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Expanded(
-          child: _bucketTile(scheme, _knownColor, a.knownTypes,
-              tr('analysis_known'), tr('analysis_known_sub')),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: _bucketTile(scheme, _learningColor, a.learningTypes,
-              tr('analysis_learning'), tr('analysis_learning_sub')),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: _bucketTile(scheme, _unknownColor, a.unknownTypes,
-              tr('analysis_unknown'), tr('analysis_unknown_sub')),
-        ),
-      ],
+    // IntrinsicHeight даёт Row ограниченную высоту — иначе stretch в Column
+    // тянет плитки на бесконечную высоту и ломает всю карточку.
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: _bucketTile(
+              scheme,
+              _knownColor,
+              a.knownTypes,
+              tr('analysis_known'),
+              tr('analysis_known_sub'),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: _bucketTile(
+              scheme,
+              _learningColor,
+              a.learningTypes,
+              tr('analysis_learning'),
+              tr('analysis_learning_sub'),
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: _bucketTile(
+              scheme,
+              _unknownColor,
+              a.unknownTypes,
+              tr('analysis_unknown'),
+              tr('analysis_unknown_sub'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _bucketTile(ColorScheme scheme, Color color, int count, String label,
-      String sub) {
+  Widget _bucketTile(
+    ColorScheme scheme,
+    Color color,
+    int count,
+    String label,
+    String sub,
+  ) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
       decoration: BoxDecoration(
@@ -613,8 +634,11 @@ class _BookScreenState extends State<BookScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(width: 10, height: 10,
-              decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
+          Container(
+            width: 10,
+            height: 10,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          ),
           const SizedBox(height: 8),
           _animatedInt(
             count,
@@ -710,7 +734,11 @@ class _BookScreenState extends State<BookScreen> {
                   fontSize: 13,
                   color: scheme.onSurface,
                 ),
-                avatar: Icon(Icons.add_rounded, size: 18, color: scheme.primary),
+                avatar: Icon(
+                  Icons.add_rounded,
+                  size: 18,
+                  color: scheme.primary,
+                ),
                 backgroundColor: _unknownColor.withValues(alpha: 0.10),
                 side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
                 onPressed: () => _learnWord(w.word),
@@ -769,7 +797,11 @@ class _BookScreenState extends State<BookScreen> {
   }
 
   Widget _tagWrap(
-      ColorScheme scheme, String label, List<String> values, Color color) {
+    ColorScheme scheme,
+    String label,
+    List<String> values,
+    Color color,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -789,8 +821,10 @@ class _BookScreenState extends State<BookScreen> {
           children: [
             for (final v in values)
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
                 decoration: BoxDecoration(
                   color: color.withValues(alpha: 0.14),
                   borderRadius: BorderRadius.circular(30),
@@ -819,11 +853,8 @@ class _BookScreenState extends State<BookScreen> {
       tween: Tween(begin: 0, end: value.toDouble()),
       duration: const Duration(milliseconds: 800),
       curve: AppTheme.emphasizedDecelerate,
-      builder: (_, v, _) => Text(
-        '${_grouped(v.round())}$suffix',
-        maxLines: 1,
-        style: style,
-      ),
+      builder: (_, v, _) =>
+          Text('${_grouped(v.round())}$suffix', maxLines: 1, style: style),
     );
   }
 
@@ -897,8 +928,12 @@ class _SegmentBarPainter extends CustomPainter {
     for (final (count, color) in segments) {
       if (count <= 0) continue;
       final w = size.width * count / total;
-      final clipped = Rect.fromLTWH(x, 0, w, size.height)
-          .intersect(Rect.fromLTWH(0, 0, revealed, size.height));
+      final clipped = Rect.fromLTWH(
+        x,
+        0,
+        w,
+        size.height,
+      ).intersect(Rect.fromLTWH(0, 0, revealed, size.height));
       if (clipped.width > 0) canvas.drawRect(clipped, Paint()..color = color);
       x += w;
     }
