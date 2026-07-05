@@ -11,6 +11,7 @@ import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_tiles.dart';
 import 'widgets/pack_editor_sheet.dart';
 import 'widgets/reveal.dart';
+import 'widgets/study_modes.dart';
 
 /// Экран пака: колоды внутри одной «папки». Открывается тапом по плитке пака на
 /// главном экране. Вложенности пак-в-пак нет — только колоды.
@@ -344,14 +345,69 @@ class _PackScreenState extends State<PackScreen> {
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
-          : Column(
+          : ListView(
+              padding: const EdgeInsets.only(bottom: 24),
               children: [
                 Reveal(child: _hero(scheme)),
-                Expanded(child: _grid(scheme)),
+                if (_totalCards > 0) ...[
+                  const SizedBox(height: 20),
+                  Reveal(
+                    delay: const Duration(milliseconds: 60),
+                    child: _sectionTitle(tr('modes_title'), scheme),
+                  ),
+                  const SizedBox(height: 12),
+                  Reveal(
+                    delay: const Duration(milliseconds: 90),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: StudyModesGrid(
+                        deck: _packDeck,
+                        cards: _packCards,
+                        reload: () => _repo.cardsForPack(_pack.id),
+                      ),
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 24),
+                Reveal(
+                  delay: const Duration(milliseconds: 120),
+                  child: _sectionTitle(tr('manage_decks'), scheme),
+                ),
+                const SizedBox(height: 12),
+                _grid(scheme),
               ],
             ),
     );
   }
+
+  /// Синтетическая «колода пака» — чтобы прогнать режимы обучения по всем его
+  /// картам сразу (рейтинг обновляет карты по id, независимо от колоды).
+  Deck get _packDeck => Deck(
+        id: 'pack_${_pack.id}',
+        languageCode: _pack.languageCode,
+        name: _pack.name,
+        colorValue: _pack.colorValue,
+        shapeIndex: 0,
+        createdAt: _pack.createdAt,
+      );
+
+  List<WordCard> get _packCards {
+    final ids = _decks.map((d) => d.id).toSet();
+    return _cards.where((c) => ids.contains(c.deckId)).toList();
+  }
+
+  Widget _sectionTitle(String text, ColorScheme scheme) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontFamily: AppTheme.displayFont,
+            fontWeight: FontWeight.w700,
+            fontSize: 16,
+            color: scheme.onSurface,
+          ),
+        ),
+      );
 
   Widget _hero(ColorScheme scheme) {
     final tint = Color.alphaBlend(
@@ -433,7 +489,9 @@ class _PackScreenState extends State<PackScreen> {
       ),
     ];
     return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 12,

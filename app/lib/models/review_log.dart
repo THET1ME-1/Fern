@@ -54,6 +54,33 @@ class ReviewLog {
   int get totalReviews =>
       days.values.fold(0, (s, v) => s + v.reviews);
 
+  /// Всего дней с занятиями.
+  int get daysStudied => days.values.where((v) => v.reviews > 0).length;
+
+  /// Самая длинная серия занятий подряд за всю историю.
+  int bestStreak() {
+    final active = days.entries
+        .where((e) => e.value.reviews > 0)
+        .map((e) => e.key)
+        .toList()
+      ..sort();
+    if (active.isEmpty) return 0;
+    var best = 1, cur = 1;
+    var prev = _parseKey(active.first);
+    for (var i = 1; i < active.length; i++) {
+      final d = _parseKey(active[i]);
+      cur = d.difference(prev).inDays == 1 ? cur + 1 : 1;
+      if (cur > best) best = cur;
+      prev = d;
+    }
+    return best;
+  }
+
+  static DateTime _parseKey(String k) {
+    final p = k.split('-');
+    return DateTime(int.parse(p[0]), int.parse(p[1]), int.parse(p[2]));
+  }
+
   /// Максимальное число повторов за день среди [days] (для нормировки heatmap).
   int get maxDailyReviews =>
       days.values.fold(0, (m, v) => v.reviews > m ? v.reviews : m);

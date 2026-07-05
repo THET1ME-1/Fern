@@ -12,21 +12,6 @@ import 'pos.dart';
 class PosSplit {
   const PosSplit._();
 
-  // Отдельный цвет каждой части речи (для наглядных обложек).
-  static const Map<String, int> _colors = {
-    'noun': 0xFF2E7D5B,
-    'verb': 0xFFB5622E,
-    'adj': 0xFF3F6FB0,
-    'adv': 0xFF7A5AA8,
-    'pronoun': 0xFF2E9E6B,
-    'article': 0xFF8A8A85,
-    'prep': 0xFFC28A2B,
-    'conj': 0xFF6B8E23,
-    'num': 0xFF4F7A34,
-    'particle': 0xFFA0522D,
-    'interj': 0xFFCB4E6B,
-  };
-
   /// Часть речи карты: сохранённая → метка, вклеенная в слово → эвристика.
   static String _codeFor(WordCard c, String lang) {
     if (c.pos.isNotEmpty) return c.pos;
@@ -91,7 +76,7 @@ class PosSplit {
         id: 'deck_pos_${code}_${stamp}_$created',
         languageCode: deck.languageCode,
         name: tr('pos_deck_$code'),
-        colorValue: _colors[code] ?? 0xFF2E7D5B,
+        colorValue: PosDetect.colorOf(code),
         shapeIndex: created % 6,
         createdAt: stamp + created,
         packId: pack.id,

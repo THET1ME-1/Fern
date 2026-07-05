@@ -19,11 +19,16 @@ class SessionScreen extends StatefulWidget {
   final StudyMode mode;
   final List<WordCard> cards;
 
+  /// Как перезагрузить карты для «Ещё сессия» (для пака — все карты пака).
+  /// null — берём карты колоды [deck].
+  final Future<List<WordCard>> Function()? reload;
+
   const SessionScreen({
     super.key,
     required this.deck,
     required this.mode,
     required this.cards,
+    this.reload,
   });
 
   @override
@@ -187,17 +192,23 @@ class _SessionScreenState extends State<SessionScreen>
     final deck = widget.deck;
     final mode = widget.mode;
     final repo = _repo;
+    final reload = widget.reload;
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (_) => ResultsScreen(
           result: result,
           onStudyMore: (resultsContext) async {
-            final cards = await repo.cardsForDeck(deck.id);
+            final cards =
+                reload != null ? await reload() : await repo.cardsForDeck(deck.id);
             if (!resultsContext.mounted) return;
             Navigator.of(resultsContext).pushReplacement(
               MaterialPageRoute(
-                builder: (_) =>
-                    SessionScreen(deck: deck, mode: mode, cards: cards),
+                builder: (_) => SessionScreen(
+                  deck: deck,
+                  mode: mode,
+                  cards: cards,
+                  reload: reload,
+                ),
               ),
             );
           },

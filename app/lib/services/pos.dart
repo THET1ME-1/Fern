@@ -14,6 +14,23 @@ class PosDetect {
     'prep', 'conj', 'num', 'particle', 'interj',
   ];
 
+  /// Свой цвет (ARGB) каждой части речи — для тега на карточке и обложек колод.
+  static const Map<String, int> colors = {
+    'noun': 0xFF2E7D5B,
+    'verb': 0xFFB5622E,
+    'adj': 0xFF3F6FB0,
+    'adv': 0xFF7A5AA8,
+    'pronoun': 0xFF2E9E6B,
+    'article': 0xFF8A8A85,
+    'prep': 0xFFC28A2B,
+    'conj': 0xFF6B8E23,
+    'num': 0xFF4F7A34,
+    'particle': 0xFFA0522D,
+    'interj': 0xFFCB4E6B,
+  };
+
+  static int colorOf(String code) => colors[code] ?? 0xFF2E7D5B;
+
   // Слово-метка (нижний регистр, без пунктуации) → код. RU + EN + сокращения.
   static const Map<String, String> _labels = {
     // существительное

@@ -38,6 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   int _goal = 20;
   bool _reminderOn = false;
   bool _showVideoBanner = true;
+  bool _posSplitAsk = true;
   TimeOfDay _reminderTime = const TimeOfDay(hour: 20, minute: 0);
 
   @override
@@ -52,6 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final h = await _repo.reminderHour();
     final m = await _repo.reminderMinute();
     final showBanner = await _repo.showVideoBanner();
+    final posSplitAsk = await _repo.posSplitAsk();
     try {
       final info = await PackageInfo.fromPlatform();
       if (mounted) {
@@ -65,6 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _goal = goal;
         _reminderOn = on;
         _showVideoBanner = showBanner;
+        _posSplitAsk = posSplitAsk;
         _reminderTime = TimeOfDay(hour: h, minute: m);
       });
     }
@@ -155,6 +158,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 MaterialPageRoute(builder: (_) => const ProvidersScreen()),
               );
               if (mounted) setState(() {});
+            },
+            scheme: scheme,
+          ),
+          _switchTile(
+            icon: Icons.category_outlined,
+            title: tr('pos_split_ask'),
+            subtitle: tr('pos_split_ask_sub'),
+            value: _posSplitAsk,
+            onChanged: (v) async {
+              setState(() => _posSplitAsk = v);
+              await _repo.setPosSplitAsk(v);
             },
             scheme: scheme,
           ),

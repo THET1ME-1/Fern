@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'achievements_screen.dart';
 import 'l10n/strings.dart';
+import 'models/deck.dart';
+import 'models/language.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/pos.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
 import 'widgets/reveal.dart';
@@ -21,6 +24,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
   final DeckRepository _repo = DeckRepository.instance;
   final SourceLibrary _library = SourceLibrary.instance;
   List<WordCard> _cards = [];
+  List<Deck> _decks = [];
   List<LibrarySource> _books = [];
   ReviewLog _log = ReviewLog.empty();
   bool _loading = true;
@@ -42,11 +46,13 @@ class _ProgressScreenState extends State<ProgressScreen> {
 
   Future<void> _load() async {
     final cards = await _repo.loadCards();
+    final decks = await _repo.loadDecks();
     final log = await _repo.reviewLog();
     final sources = await _library.list();
     if (!mounted) return;
     setState(() {
       _cards = cards;
+      _decks = decks;
       _books = sources.where((s) => s.isBook).toList();
       _log = log;
       _loading = false;
@@ -146,7 +152,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     ],
                   ),
                 ),
+                ..._extraStats(scheme),
+                ..._vocabSection(scheme),
+                ..._posSection(scheme),
                 ..._readingSection(scheme),
+                ..._weeklySection(scheme, now),
+                ..._languageSection(scheme),
                 const SizedBox(height: 24),
                 _sectionTitle(tr('activity'), scheme),
                 const SizedBox(height: 12),
@@ -246,6 +257,346 @@ class _ProgressScreenState extends State<ProgressScreen> {
     return rem == 0
         ? trf('read_hr', {'h': h})
         : trf('read_hr_min', {'h': h, 'm': rem});
+  }
+
+  // Цвета статусов словаря (согласованы с анализом книги).
+  static const Color _cNew = Color(0xFF5B8DEF);
+  static const Color _cLearning = Color(0xFFDDA13F);
+  static const Color _cYoung = Color(0xFF7A5AA8);
+  static const Color _cMature = Color(0xFF2E9E6B);
+
+  ({int fresh, int learning, int young, int mature}) _vocabCounts() {
+    var f = 0, l = 0, y = 0, m = 0;
+    for (final c in _cards) {
+      switch (c.status) {
+        case CardStatus.fresh:
+          f++;
+        case CardStatus.learning:
+          l++;
+        case CardStatus.young:
+          y++;
+        case CardStatus.mature:
+          m++;
+      }
+    }
+    return (fresh: f, learning: l, young: y, mature: m);
+  }
+
+  // Доп. статистика: рекорд серии, дней занятий, повторов/день, % выучено.
+  List<Widget> _extraStats(ColorScheme scheme) {
+    final best = _log.bestStreak();
+    final days = _log.daysStudied;
+    final avg = days > 0 ? (_log.totalReviews / days).round() : 0;
+    final v = _vocabCounts();
+    final total = _cards.length;
+    final masteredPct = total > 0 ? (v.mature / total * 100).round() : 0;
+    return [
+      const SizedBox(height: 10),
+      Reveal(
+        delay: const Duration(milliseconds: 165),
+        child: Row(
+          children: [
+            _stat('$best', tr('best_streak'), scheme, highlight: best > 0),
+            const SizedBox(width: 10),
+            _stat('$days', tr('days_studied'), scheme),
+          ],
+        ),
+      ),
+      const SizedBox(height: 10),
+      Reveal(
+        delay: const Duration(milliseconds: 185),
+        child: Row(
+          children: [
+            _stat('$avg', tr('reviews_per_day'), scheme),
+            const SizedBox(width: 10),
+            _stat('$masteredPct%', tr('mastered_pct'), scheme),
+          ],
+        ),
+      ),
+    ];
+  }
+
+  // Состав словаря: полоса new/learning/young/mature + легенда.
+  List<Widget> _vocabSection(ColorScheme scheme) {
+    if (_cards.isEmpty) return const [];
+    final v = _vocabCounts();
+    final segs = <(int, Color, String)>[
+      (v.fresh, _cNew, tr('stat_new')),
+      (v.learning, _cLearning, tr('status_learning')),
+      (v.young, _cYoung, tr('status_young')),
+      (v.mature, _cMature, tr('status_mature')),
+    ];
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('vocabulary'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 175),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _segmentBar([for (final s in segs) (s.$1, s.$2)], scheme),
+              const SizedBox(height: 14),
+              Wrap(
+                spacing: 16,
+                runSpacing: 8,
+                children: [
+                  for (final s in segs) _legendItem(s.$2, s.$3, s.$1, scheme),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ];
+  }
+
+  // Распределение по частям речи (если у карт есть теги).
+  List<Widget> _posSection(ColorScheme scheme) {
+    final counts = <String, int>{};
+    for (final c in _cards) {
+      if (c.pos.isNotEmpty) counts[c.pos] = (counts[c.pos] ?? 0) + 1;
+    }
+    if (counts.isEmpty) return const [];
+    final codes = PosDetect.order.where(counts.containsKey).toList()
+      ..sort((a, b) => counts[b]!.compareTo(counts[a]!));
+    final max = counts.values.fold(0, (m, v) => v > m ? v : m);
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('by_pos'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 175),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Column(
+            children: [
+              for (final code in codes)
+                _barRow(
+                  tr('pos_deck_$code'),
+                  counts[code]!,
+                  max,
+                  Color(PosDetect.colorOf(code)),
+                  scheme,
+                ),
+            ],
+          ),
+        ),
+      ),
+    ];
+  }
+
+  // Повторы по дням за последние 14 дней (мини-гистограмма).
+  List<Widget> _weeklySection(ColorScheme scheme, DateTime now) {
+    const days = 14;
+    final today = DateTime(now.year, now.month, now.day);
+    final vals = [
+      for (var i = days - 1; i >= 0; i--)
+        _log.reviewsOn(today.subtract(Duration(days: i))),
+    ];
+    if (vals.every((v) => v == 0)) return const [];
+    final max = vals.fold(0, (m, v) => v > m ? v : m);
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('weekly_reviews'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 175),
+        child: Container(
+          height: 120,
+          padding: const EdgeInsets.fromLTRB(14, 16, 14, 12),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              for (final v in vals)
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TweenAnimationBuilder<double>(
+                          tween: Tween(end: max == 0 ? 0.0 : v / max),
+                          duration: const Duration(milliseconds: 600),
+                          curve: AppTheme.emphasizedDecelerate,
+                          builder: (_, t, _) => Container(
+                            height: 6 + t * 62,
+                            decoration: BoxDecoration(
+                              color: v == 0
+                                  ? scheme.surfaceContainerHighest
+                                  : scheme.primary,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    ];
+  }
+
+  // Разбивка словаря по изучаемым языкам.
+  List<Widget> _languageSection(ColorScheme scheme) {
+    final deckLang = {for (final d in _decks) d.id: d.languageCode};
+    final counts = <String, int>{};
+    for (final c in _cards) {
+      final l = deckLang[c.deckId];
+      if (l != null) counts[l] = (counts[l] ?? 0) + 1;
+    }
+    if (counts.length < 2) return const [];
+    final langs = counts.keys.toList()
+      ..sort((a, b) => counts[b]!.compareTo(counts[a]!));
+    final max = counts.values.fold(0, (m, v) => v > m ? v : m);
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('by_language'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 175),
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(24),
+          ),
+          child: Column(
+            children: [
+              for (final code in langs)
+                _barRow(
+                  _langName(code),
+                  counts[code]!,
+                  max,
+                  scheme.primary,
+                  scheme,
+                ),
+            ],
+          ),
+        ),
+      ),
+    ];
+  }
+
+  String _langName(String code) {
+    final l = languageByCode(code);
+    return l == null ? code.toUpperCase() : '${l.emoji} ${l.name}';
+  }
+
+  // ---- мелкие строительные блоки ----
+
+  Widget _segmentBar(List<(int, Color)> segs, ColorScheme scheme) {
+    final total = segs.fold(0, (s, e) => s + e.$1);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: SizedBox(
+        height: 14,
+        child: total == 0
+            ? ColoredBox(color: scheme.surfaceContainerHighest)
+            : Row(
+                children: [
+                  for (final s in segs)
+                    if (s.$1 > 0)
+                      Expanded(flex: s.$1, child: ColoredBox(color: s.$2)),
+                ],
+              ),
+      ),
+    );
+  }
+
+  Widget _legendItem(Color color, String label, int count, ColorScheme scheme) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 10,
+          height: 10,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
+        const SizedBox(width: 6),
+        Text(
+          '$label · $count',
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 12.5,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _barRow(
+    String label,
+    int count,
+    int max,
+    Color color,
+    ColorScheme scheme,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 120,
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontSize: 13,
+                color: scheme.onSurface,
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: TweenAnimationBuilder<double>(
+                tween: Tween(end: max == 0 ? 0.0 : count / max),
+                duration: const Duration(milliseconds: 650),
+                curve: AppTheme.emphasizedDecelerate,
+                builder: (_, t, _) => LinearProgressIndicator(
+                  value: t,
+                  minHeight: 10,
+                  backgroundColor: scheme.surfaceContainerHighest,
+                  valueColor: AlwaysStoppedAnimation(color),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            '$count',
+            style: TextStyle(
+              fontFamily: AppTheme.displayFont,
+              fontWeight: FontWeight.w700,
+              fontSize: 13,
+              color: scheme.onSurface,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _stat(

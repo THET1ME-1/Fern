@@ -9,13 +9,11 @@ import 'services/deck_repository.dart';
 import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
-import 'study/match_screen.dart';
-import 'study/session_screen.dart';
-import 'study/study_models.dart';
 import 'theme/app_theme.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/reveal.dart';
 import 'widgets/speaker_button.dart';
+import 'widgets/study_modes.dart';
 
 /// Порядок сортировки списка карточек в колоде.
 enum _CardSort { added, alpha, status, due }
@@ -116,7 +114,48 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   /// Раскладывает колоду по частям речи (в отдельный пак с колодами по типам).
+  /// По умолчанию сперва спрашивает подтверждение (с галочкой «не спрашивать»).
   Future<void> _splitByPos() async {
+    if (await _repo.posSplitAsk()) {
+      if (!mounted) return;
+      var dontAsk = false;
+      final ok = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => StatefulBuilder(
+          builder: (ctx, setD) => AlertDialog(
+            title: Text(tr('split_by_pos')),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(tr('split_confirm')),
+                const SizedBox(height: 8),
+                CheckboxListTile(
+                  value: dontAsk,
+                  onChanged: (v) => setD(() => dontAsk = v ?? false),
+                  title: Text(tr('dont_ask_again')),
+                  contentPadding: EdgeInsets.zero,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  dense: true,
+                ),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: Text(tr('cancel')),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                child: Text(tr('apply')),
+              ),
+            ],
+          ),
+        ),
+      );
+      if (ok != true) return;
+      if (dontAsk) await _repo.setPosSplitAsk(false);
+    }
     final created = await PosSplit.split(widget.deck);
     if (!mounted) return;
     ScaffoldMessenger.of(context)
@@ -150,28 +189,6 @@ class _DeckScreenState extends State<DeckScreen> {
       }
     }
     return (total: _cards.length, due: due, fresh: fresh, mature: mature);
-  }
-
-  void _launch(StudyMode mode, bool enabled) {
-    if (!enabled) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(tr('soon'))));
-      return;
-    }
-    if (_cards.isEmpty) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(tr('empty_deck_sub'))));
-      return;
-    }
-    HapticFeedback.selectionClick();
-    final route = MaterialPageRoute(
-      builder: (_) => mode == StudyMode.match
-          ? MatchScreen(deck: widget.deck, cards: _cards)
-          : SessionScreen(deck: widget.deck, mode: mode, cards: _cards),
-    );
-    Navigator.push(context, route);
   }
 
   Future<void> _addOrEditCard([WordCard? existing]) async {
@@ -262,7 +279,7 @@ class _DeckScreenState extends State<DeckScreen> {
                 const SizedBox(height: 24),
                 _sectionTitle(tr('modes_title'), scheme),
                 const SizedBox(height: 12),
-                _modesGrid(scheme),
+                StudyModesGrid(deck: widget.deck, cards: _cards),
                 const SizedBox(height: 24),
                 _cardsHeader(scheme),
                 const SizedBox(height: 12),
@@ -454,214 +471,6 @@ class _DeckScreenState extends State<DeckScreen> {
     );
   }
 
-  Widget _modesGrid(ColorScheme scheme) {
-    // (режим, иконка, ключ названия, ключ подписи, доступен)
-    final modes = <(StudyMode, IconData, String, String, bool)>[
-      (
-        StudyMode.learn,
-        Icons.auto_awesome_rounded,
-        'mode_learn',
-        'mode_learn_sub',
-        true,
-      ),
-      (
-        StudyMode.flashcards,
-        Icons.style_rounded,
-        'mode_flashcards',
-        'mode_flashcards_sub',
-        true,
-      ),
-      (StudyMode.test, Icons.quiz_rounded, 'mode_test', 'mode_test_sub', true),
-      (
-        StudyMode.match,
-        Icons.extension_rounded,
-        'mode_match',
-        'mode_match_sub',
-        true,
-      ),
-      (
-        StudyMode.write,
-        Icons.edit_rounded,
-        'mode_write',
-        'mode_write_sub',
-        true,
-      ),
-      (
-        StudyMode.hard,
-        Icons.local_fire_department_rounded,
-        'mode_hard',
-        'mode_hard_sub',
-        true,
-      ),
-      (
-        StudyMode.speed,
-        Icons.bolt_rounded,
-        'mode_speed',
-        'mode_speed_sub',
-        true,
-      ),
-      (
-        StudyMode.audio,
-        Icons.headphones_rounded,
-        'mode_audio',
-        'mode_audio_sub',
-        true,
-      ),
-      (
-        StudyMode.cloze,
-        Icons.short_text_rounded,
-        'mode_cloze',
-        'mode_cloze_sub',
-        true,
-      ),
-    ];
-    final learn = modes.first;
-    final rest = modes.skip(1).toList();
-
-    return Column(
-      children: [
-        // «Учить» — крупная главная плитка во всю ширину.
-        _heroMode(learn, scheme),
-        const SizedBox(height: 12),
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.55,
-          ),
-          itemCount: rest.length,
-          itemBuilder: (_, i) => _modeTile(rest[i], scheme),
-        ),
-      ],
-    );
-  }
-
-  Widget _heroMode(
-    (StudyMode, IconData, String, String, bool) m,
-    ColorScheme scheme,
-  ) {
-    return Material(
-      color: scheme.primaryContainer,
-      borderRadius: BorderRadius.circular(24),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => _launch(m.$1, m.$5),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Row(
-            children: [
-              Icon(m.$2, size: 40, color: scheme.onPrimaryContainer),
-              const SizedBox(width: 18),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      tr(m.$3),
-                      style: TextStyle(
-                        fontFamily: AppTheme.displayFont,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 22,
-                        color: scheme.onPrimaryContainer,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      tr(m.$4),
-                      style: TextStyle(
-                        fontFamily: AppTheme.bodyFont,
-                        fontSize: 13,
-                        color: scheme.onPrimaryContainer.withValues(
-                          alpha: 0.85,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.play_circle_rounded,
-                size: 32,
-                color: scheme.onPrimaryContainer,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _modeTile(
-    (StudyMode, IconData, String, String, bool) m,
-    ColorScheme scheme,
-  ) {
-    final enabled = m.$5;
-    return Material(
-      color: scheme.surfaceContainerHigh,
-      borderRadius: BorderRadius.circular(20),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () => _launch(m.$1, enabled),
-        child: Opacity(
-          opacity: enabled ? 1 : 0.5,
-          child: Padding(
-            padding: const EdgeInsets.all(14),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Icon(m.$2, size: 26, color: scheme.primary),
-                const SizedBox(height: 6),
-                Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        tr(m.$3),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontFamily: AppTheme.displayFont,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                          color: scheme.onSurface,
-                        ),
-                      ),
-                    ),
-                    if (!enabled) ...[
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: scheme.tertiaryContainer,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Text(
-                          tr('soon'),
-                          style: TextStyle(
-                            fontFamily: AppTheme.bodyFont,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w700,
-                            color: scheme.onTertiaryContainer,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _sectionTitle(String text, ColorScheme scheme) => Text(
     text,
     style: TextStyle(
@@ -755,21 +564,23 @@ class _DeckScreenState extends State<DeckScreen> {
     );
   }
 
-  /// Маленькая метка части речи рядом со словом (гл./сущ./арт.…).
+  /// Цветной тег части речи рядом со словом (гл./сущ./арт.…).
   Widget _posBadge(String code, ColorScheme scheme) {
+    final color = Color(PosDetect.colorOf(code));
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
       decoration: BoxDecoration(
-        color: scheme.secondaryContainer,
+        color: color.withValues(alpha: 0.18),
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: color.withValues(alpha: 0.5)),
       ),
       child: Text(
         tr('pos_short_$code'),
         style: TextStyle(
           fontFamily: AppTheme.bodyFont,
-          fontWeight: FontWeight.w600,
-          fontSize: 10.5,
-          color: scheme.onSecondaryContainer,
+          fontWeight: FontWeight.w700,
+          fontSize: 11,
+          color: color,
         ),
       ),
     );
@@ -973,6 +784,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   late final TextEditingController _front;
   late final TextEditingController _back;
   late final TextEditingController _example;
+  String _pos = '';
   bool _translating = false;
 
   /// Варианты перевода/значения для выбора чипсом и словарные подсказки.
@@ -995,6 +807,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     _front = TextEditingController(text: e?.front ?? '');
     _back = TextEditingController(text: e?.back ?? '');
     _example = TextEditingController(text: e?.example ?? '');
+    _pos = e?.pos ?? '';
   }
 
   Future<void> _translate() async {
@@ -1028,6 +841,13 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
         _partOfSpeech = res.partOfSpeech;
         _phonetic = res.phonetic;
         _dictExamples = res.examples;
+        // Авто-определение части речи из словаря (если ещё не выбрана вручную).
+        final detected = PosDetect.detect(
+          text,
+          dictPos: res.partOfSpeech,
+          languageCode: widget.languageCode,
+        );
+        if (detected.isNotEmpty) _pos = detected;
       }
     });
     if (res == null) {
@@ -1137,6 +957,46 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     super.dispose();
   }
 
+  /// Выбор части речи (тег карточки) — чипсы по типам + «не указана».
+  Widget _posChooser(ColorScheme scheme) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 8),
+          child: Text(
+            tr('part_of_speech'),
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontWeight: FontWeight.w600,
+              fontSize: 13,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            ChoiceChip(
+              label: Text(tr('pos_none')),
+              selected: _pos.isEmpty,
+              visualDensity: VisualDensity.compact,
+              onSelected: (_) => setState(() => _pos = ''),
+            ),
+            for (final code in PosDetect.order)
+              ChoiceChip(
+                label: Text(tr('pos_deck_$code')),
+                selected: _pos == code,
+                visualDensity: VisualDensity.compact,
+                onSelected: (_) => setState(() => _pos = code),
+              ),
+          ],
+        ),
+      ],
+    );
+  }
+
   void _save() {
     final front = _front.text.trim();
     final back = _back.text.trim();
@@ -1150,6 +1010,12 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
       back: back,
       example: _example.text.trim(),
       review: e?.review,
+      pos: _pos,
+      // Сохраняем поля источника при редактировании.
+      sentence: e?.sentence ?? '',
+      sourceUrl: e?.sourceUrl ?? '',
+      clipStartMs: e?.clipStartMs,
+      clipEndMs: e?.clipEndMs,
     );
     Navigator.pop(context, card);
   }
@@ -1231,6 +1097,8 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                   prefixIcon: const Icon(Icons.format_quote_rounded),
                 ),
               ),
+              const SizedBox(height: 16),
+              _posChooser(scheme),
               const SizedBox(height: 20),
               Row(
                 children: [

@@ -449,6 +449,14 @@ class DeckRepository extends ChangeNotifier {
     return _cards.where((c) => c.deckId == deckId).toList();
   }
 
+  /// Все карты пака (из всех его колод) — для обучения по всему паку сразу.
+  Future<List<WordCard>> cardsForPack(String packId) async {
+    await _ensureLoaded();
+    final deckIds =
+        _decks.where((d) => d.packId == packId).map((d) => d.id).toSet();
+    return _cards.where((c) => deckIds.contains(c.deckId)).toList();
+  }
+
   Future<void> upsertCard(WordCard card) async {
     await _ensureLoaded();
     final idx = _cards.indexWhere((c) => c.id == card.id);
@@ -657,6 +665,17 @@ class DeckRepository extends ChangeNotifier {
       await _prefs.getBool(_kShowVideoBanner) ?? true;
   Future<void> setShowVideoBanner(bool value) async {
     await _prefs.setBool(_kShowVideoBanner, value);
+    notifyListeners();
+  }
+
+  /// Спрашивать ли подтверждение перед разбивкой колоды по частям речи (на
+  /// отдельные колоды). По умолчанию ДА — папки не создаются молча; можно
+  /// отключить предупреждение галочкой «больше не спрашивать».
+  static const String _kPosSplitAsk = 'posSplitAsk';
+  Future<bool> posSplitAsk() async =>
+      await _prefs.getBool(_kPosSplitAsk) ?? true;
+  Future<void> setPosSplitAsk(bool value) async {
+    await _prefs.setBool(_kPosSplitAsk, value);
     notifyListeners();
   }
 

@@ -127,6 +127,19 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Разложить по частям речи',
     'en': 'Split by part of speech'
   },
+  'split_confirm': {
+    'ru': 'Создать раздельные колоды для каждой части речи?',
+    'en': 'Create separate decks for each part of speech?'
+  },
+  'dont_ask_again': {'ru': 'Больше не спрашивать', 'en': "Don't ask again"},
+  'pos_split_ask': {
+    'ru': 'Спрашивать перед разбивкой',
+    'en': 'Ask before splitting'
+  },
+  'pos_split_ask_sub': {
+    'ru': 'Подтверждать создание отдельных колод по частям речи',
+    'en': 'Confirm creating separate decks by part of speech'
+  },
   'split_by_pos_offer': {
     'ru': 'Разложить {n} слов по частям речи (глаголы, существительные…) в отдельные колоды?',
     'en': 'Split {n} words by part of speech (verbs, nouns…) into separate decks?'
@@ -150,6 +163,8 @@ const Map<String, Map<String, String>> _strings = {
   'pos_deck_interj': {'ru': 'Междометия', 'en': 'Interjections'},
   'pos_deck_other': {'ru': 'Прочее', 'en': 'Other'},
   'pos_filter_all': {'ru': 'Все', 'en': 'All'},
+  'part_of_speech': {'ru': 'Часть речи', 'en': 'Part of speech'},
+  'pos_none': {'ru': 'Не указана', 'en': 'None'},
   'pos_short_noun': {'ru': 'сущ.', 'en': 'n.'},
   'pos_short_verb': {'ru': 'гл.', 'en': 'v.'},
   'pos_short_adj': {'ru': 'прил.', 'en': 'adj.'},
@@ -466,6 +481,14 @@ const Map<String, Map<String, String>> _strings = {
   'stat_learning': {'ru': 'Учатся', 'en': 'Learning'},
   'stat_mature': {'ru': 'Выучено', 'en': 'Mature'},
   'stat_due': {'ru': 'К повтору', 'en': 'Due'},
+  'best_streak': {'ru': 'Рекорд серии', 'en': 'Best streak'},
+  'days_studied': {'ru': 'Дней занятий', 'en': 'Days studied'},
+  'reviews_per_day': {'ru': 'Повторов/день', 'en': 'Reviews/day'},
+  'mastered_pct': {'ru': 'Выучено', 'en': 'Mastered'},
+  'vocabulary': {'ru': 'Словарь', 'en': 'Vocabulary'},
+  'by_pos': {'ru': 'По частям речи', 'en': 'By part of speech'},
+  'weekly_reviews': {'ru': 'Повторы за 2 недели', 'en': 'Reviews · 14 days'},
+  'by_language': {'ru': 'По языкам', 'en': 'By language'},
   'reading_stats': {'ru': 'Чтение', 'en': 'Reading'},
   'stat_read_time': {'ru': 'Время чтения', 'en': 'Reading time'},
   'stat_read_speed': {'ru': 'Слов/мин', 'en': 'Words/min'},
