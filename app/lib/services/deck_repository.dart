@@ -66,8 +66,8 @@ class DeckRepository extends ChangeNotifier {
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
-  // Разовая чистка вклеенной в слово части речи → тег pos.
-  static const String _kPosMigrated = 'posMigratedV1';
+  // Разовая чистка вклеенной части речи + определение части речи → тег pos.
+  static const String _kPosMigrated = 'posMigratedV2';
 
   // `SharedPreferencesAsync` — тонкая обёртка без собственного кэша (каждый
   // вызов идёт в нативный стор), поэтому создаём её по требованию. Это и лениво
@@ -107,19 +107,27 @@ class DeckRepository extends ChangeNotifier {
     _loaded = true;
   }
 
-  /// Разово вычищает вклеенную в слово часть речи («the артикль» → «the») и
-  /// переносит её в тег [WordCard.pos]. Для колод, импортированных до появления
-  /// поля pos.
+  /// Разово (1) вычищает вклеенную в слово часть речи («the артикль» → «the»)
+  /// и (2) определяет часть речи по слову → тег [WordCard.pos]. Так теги
+  /// появляются и у старых колод, и у слов без явной метки.
   Future<void> _migratePosIfNeeded() async {
     if (await _prefs.getBool(_kPosMigrated) ?? false) return;
+    final deckLang = {for (final d in _decks) d.id: d.languageCode};
     var changed = false;
     for (final c in _cards) {
       if (c.pos.isNotEmpty) continue;
+      final lang = deckLang[c.deckId] ?? 'en';
       final stripped = PosDetect.strip(c.front);
       if (stripped.$2 != null) {
         c.front = stripped.$1;
         c.pos = stripped.$2!;
         changed = true;
+      } else {
+        final d = PosDetect.detect(c.front, languageCode: lang);
+        if (d.isNotEmpty) {
+          c.pos = d;
+          changed = true;
+        }
       }
     }
     if (changed) await _persistCards();

@@ -674,6 +674,13 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'Most frequent new words — tap to add'
   },
   'select': {'ru': 'Выбрать', 'en': 'Select'},
+  'select_all': {'ru': 'Выбрать все', 'en': 'Select all'},
+  'n_selected': {'ru': 'Выбрано: {n}', 'en': '{n} selected'},
+  'delete_n_decks': {'ru': 'Удалить {n} колод?', 'en': 'Delete {n} decks?'},
+  'delete_n_decks_confirm': {
+    'ru': 'Колоды и все их карточки будут удалены.',
+    'en': 'The decks and all their cards will be deleted.'
+  },
   'tap_to_select': {'ru': 'Отметьте слова', 'en': 'Tap words to select'},
   'add_selected_n': {'ru': 'Добавить ({n})', 'en': 'Add ({n})'},
   'add_all_n': {'ru': 'Добавить все ({n})', 'en': 'Add all ({n})'},

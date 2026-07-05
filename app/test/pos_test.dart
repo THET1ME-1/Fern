@@ -29,6 +29,15 @@ void main() {
       expect(PosDetect.detect('and', languageCode: 'en'), 'conj');
       expect(PosDetect.detect('xyzzy', languageCode: 'en'), ''); // неизвестно
     });
+
+    test('detect: часть речи по суффиксу английского слова', () {
+      expect(PosDetect.detect('nation', languageCode: 'en'), 'noun');
+      expect(PosDetect.detect('happiness', languageCode: 'en'), 'noun');
+      expect(PosDetect.detect('beautiful', languageCode: 'en'), 'adj');
+      expect(PosDetect.detect('quickly', languageCode: 'en'), 'adv');
+      expect(PosDetect.detect('realize', languageCode: 'en'), 'verb');
+      expect(PosDetect.detect('family', languageCode: 'en'), ''); // -ly искл.
+    });
   });
 
   group('Импорт: POS не вклеивается в слово', () {

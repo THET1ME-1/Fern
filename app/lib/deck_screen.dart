@@ -10,6 +10,7 @@ import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'theme/app_theme.dart';
+import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/reveal.dart';
 import 'widgets/speaker_button.dart';
@@ -111,6 +112,56 @@ class _DeckScreenState extends State<DeckScreen> {
         });
     }
     return list;
+  }
+
+  PopupMenuItem<String> _menuItem(String value, IconData icon, String label) {
+    return PopupMenuItem<String>(
+      value: value,
+      child: Row(
+        children: [
+          Icon(icon, size: 20),
+          const SizedBox(width: 10),
+          Text(label),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _editDeck() async {
+    final result = await showDeckEditor(
+      context,
+      existing: widget.deck,
+      languageCode: widget.deck.languageCode,
+    );
+    if (result != null) await _repo.upsertDeck(result);
+  }
+
+  Future<void> _deleteDeck() async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(widget.deck.name),
+        content: Text(tr('delete_deck_confirm')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(ctx).colorScheme.errorContainer,
+              foregroundColor: Theme.of(ctx).colorScheme.onErrorContainer,
+            ),
+            child: Text(tr('delete')),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) {
+      await _repo.deleteDeck(widget.deck.id);
+      if (mounted) Navigator.of(context).pop();
+    }
   }
 
   /// Раскладывает колоду по частям речи (в отдельный пак с колодами по типам).
@@ -248,19 +299,19 @@ class _DeckScreenState extends State<DeckScreen> {
           ),
           PopupMenuButton<String>(
             onSelected: (v) {
-              if (v == 'split') _splitByPos();
+              if (v == 'split') {
+                _splitByPos();
+              } else if (v == 'edit') {
+                _editDeck();
+              } else if (v == 'delete') {
+                _deleteDeck();
+              }
             },
             itemBuilder: (_) => [
-              PopupMenuItem(
-                value: 'split',
-                child: Row(
-                  children: [
-                    const Icon(Icons.category_outlined, size: 20),
-                    const SizedBox(width: 10),
-                    Text(tr('split_by_pos')),
-                  ],
-                ),
-              ),
+              _menuItem('edit', Icons.edit_rounded, tr('edit_deck')),
+              _menuItem('split', Icons.category_outlined, tr('split_by_pos')),
+              _menuItem('delete', Icons.delete_outline_rounded,
+                  tr('delete_deck')),
             ],
           ),
         ],

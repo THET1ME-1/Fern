@@ -28,6 +28,10 @@ class DeckCoverCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback? onLongPress;
 
+  /// Режим множественного выбора: обводка + галочка вместо обычного вида.
+  final bool selectable;
+  final bool selected;
+
   const DeckCoverCard({
     super.key,
     required this.name,
@@ -37,6 +41,8 @@ class DeckCoverCard extends StatelessWidget {
     required this.due,
     required this.onTap,
     this.onLongPress,
+    this.selectable = false,
+    this.selected = false,
   });
 
   @override
@@ -48,8 +54,13 @@ class DeckCoverCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: scheme.surfaceContainerHigh,
+          color: selected
+              ? scheme.primaryContainer.withValues(alpha: 0.6)
+              : scheme.surfaceContainerHigh,
           borderRadius: BorderRadius.circular(28),
+          border: selected
+              ? Border.all(color: scheme.primary, width: 2)
+              : null,
         ),
         child: Stack(
           clipBehavior: Clip.none,
@@ -90,7 +101,19 @@ class DeckCoverCard extends StatelessWidget {
                 ],
               ),
             ),
-            if (due > 0) _dueBadge(scheme, due),
+            if (due > 0 && !selectable) _dueBadge(scheme, due),
+            if (selectable)
+              Positioned(
+                top: -4,
+                right: -4,
+                child: Icon(
+                  selected
+                      ? Icons.check_circle_rounded
+                      : Icons.circle_outlined,
+                  color: selected ? scheme.primary : scheme.onSurfaceVariant,
+                  size: 24,
+                ),
+              ),
           ],
         ),
       ),

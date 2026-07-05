@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'deck_screen.dart';
 import 'l10n/strings.dart';
@@ -42,6 +43,10 @@ class _DecksScreenState extends State<DecksScreen> {
   bool _loading = true;
   bool _hasStarter = false;
   bool _showVideoBanner = true;
+
+  // Множественный выбор колод (по удержанию) для удаления.
+  bool _selecting = false;
+  final Set<String> _selectedDecks = {};
 
   @override
   void initState() {
@@ -212,48 +217,106 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  Future<void> _deckMenu(Deck deck) async {
+  @override
+  Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    await showModalBottomSheet(
-      context: context,
-      backgroundColor: scheme.surfaceContainer,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
-      builder: (ctx) => SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 8),
-            ListTile(
-              leading: const Icon(Icons.edit_rounded),
-              title: Text(tr('edit_deck')),
-              onTap: () {
-                Navigator.pop(ctx);
-                _createOrEditDeck(deck);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.delete_rounded, color: scheme.error),
-              title: Text(tr('delete_deck')),
-              onTap: () {
-                Navigator.pop(ctx);
-                _deleteDeck(deck);
-              },
-            ),
-            const SizedBox(height: 8),
-          ],
-        ),
+    final decks = _visibleDecks;
+    final packs = _visiblePacks;
+
+    return PopScope(
+      canPop: !_selecting,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop && _selecting) _exitSelection();
+      },
+      child: Scaffold(
+        appBar: _selecting ? _selectionBar(scheme) : _normalBar(scheme),
+        body: _loading
+            ? const Center(child: CircularProgressIndicator())
+            : Column(
+                children: [
+                  // Дневная сводка / баннеры прячем в режиме выбора.
+                  if (!_selecting) ...[
+                    if (_cards.isNotEmpty) Reveal(child: _todayHero(scheme)),
+                    _languageBanner(scheme),
+                    if (_showVideoBanner)
+                      Reveal(child: _videoBanner(scheme)),
+                  ],
+                  Expanded(
+                    child: decks.isEmpty && packs.isEmpty
+                        ? _emptyState(scheme)
+                        : _grid(packs, decks, scheme),
+                  ),
+                ],
+              ),
       ),
     );
   }
 
-  Future<void> _deleteDeck(Deck deck) async {
+  AppBar _normalBar(ColorScheme scheme) => AppBar(
+        title: const Text('Fern'),
+        actions: [
+          if (_hasStarter)
+            IconButton(
+              tooltip: tr('starter_decks'),
+              icon: const Icon(Icons.auto_stories_rounded),
+              onPressed: _openStarter,
+            ),
+        ],
+      );
+
+  AppBar _selectionBar(ColorScheme scheme) => AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.close_rounded),
+          onPressed: _exitSelection,
+        ),
+        title: Text(trf('n_selected', {'n': _selectedDecks.length})),
+        actions: [
+          IconButton(
+            tooltip: tr('select_all'),
+            icon: const Icon(Icons.select_all_rounded),
+            onPressed: _selectAllDecks,
+          ),
+          IconButton(
+            tooltip: tr('delete'),
+            icon: const Icon(Icons.delete_rounded),
+            onPressed:
+                _selectedDecks.isEmpty ? null : _deleteSelectedDecks,
+          ),
+        ],
+      );
+
+  void _enterSelection(String deckId) {
+    HapticFeedback.mediumImpact();
+    setState(() {
+      _selecting = true;
+      _selectedDecks.add(deckId);
+    });
+  }
+
+  void _toggleDeck(String deckId) {
+    setState(() {
+      if (!_selectedDecks.remove(deckId)) _selectedDecks.add(deckId);
+    });
+  }
+
+  void _exitSelection() {
+    setState(() {
+      _selecting = false;
+      _selectedDecks.clear();
+    });
+  }
+
+  void _selectAllDecks() {
+    setState(() => _selectedDecks.addAll(_visibleDecks.map((d) => d.id)));
+  }
+
+  Future<void> _deleteSelectedDecks() async {
+    final n = _selectedDecks.length;
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(deck.name),
-        content: Text(tr('delete_deck_confirm')),
+        title: Text(trf('delete_n_decks', {'n': n})),
+        content: Text(tr('delete_n_decks_confirm')),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
@@ -270,43 +333,11 @@ class _DecksScreenState extends State<DecksScreen> {
         ],
       ),
     );
-    if (ok == true) await _repo.deleteDeck(deck.id);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final decks = _visibleDecks;
-    final packs = _visiblePacks;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fern'),
-        actions: [
-          if (_hasStarter)
-            IconButton(
-              tooltip: tr('starter_decks'),
-              icon: const Icon(Icons.auto_stories_rounded),
-              onPressed: _openStarter,
-            ),
-        ],
-      ),
-      body: _loading
-          ? const Center(child: CircularProgressIndicator())
-          : Column(
-              children: [
-                // Дневная сводка нужна, только когда уже есть что учить.
-                if (_cards.isNotEmpty) Reveal(child: _todayHero(scheme)),
-                _languageBanner(scheme),
-                if (_showVideoBanner) Reveal(child: _videoBanner(scheme)),
-                Expanded(
-                  child: decks.isEmpty && packs.isEmpty
-                      ? _emptyState(scheme)
-                      : _grid(packs, decks, scheme),
-                ),
-              ],
-            ),
-    );
+    if (ok != true) return;
+    for (final id in _selectedDecks.toList()) {
+      await _repo.deleteDeck(id);
+    }
+    _exitSelection();
   }
 
   void _openVideo() {
@@ -581,11 +612,12 @@ class _DecksScreenState extends State<DecksScreen> {
     final items = <Widget>[
       for (final p in packs) _packCard(p),
       for (final d in decks) _deckCard(d),
-      AddDashedCard(
-        icon: Icons.add_rounded,
-        label: tr('add'),
-        onTap: _addChooser,
-      ),
+      if (!_selecting)
+        AddDashedCard(
+          icon: Icons.add_rounded,
+          label: tr('add'),
+          onTap: _addChooser,
+        ),
     ];
     return GridView.builder(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
@@ -612,11 +644,13 @@ class _DecksScreenState extends State<DecksScreen> {
       deckColors: deckColors,
       deckCount: _decksInPack(pack.id).length,
       due: c.due,
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => PackScreen(pack: pack)),
-      ),
-      onLongPress: () => _packMenu(pack),
+      onTap: _selecting
+          ? () {} // в режиме выбора паки не трогаем (выбираем только колоды)
+          : () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => PackScreen(pack: pack)),
+              ),
+      onLongPress: _selecting ? null : () => _packMenu(pack),
     );
   }
 
@@ -703,11 +737,15 @@ class _DecksScreenState extends State<DecksScreen> {
       shapeIndex: deck.shapeIndex,
       total: c.total,
       due: c.due,
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => DeckScreen(deck: deck)),
-      ),
-      onLongPress: () => _deckMenu(deck),
+      selectable: _selecting,
+      selected: _selectedDecks.contains(deck.id),
+      onTap: () => _selecting
+          ? _toggleDeck(deck.id)
+          : Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => DeckScreen(deck: deck)),
+            ),
+      onLongPress: _selecting ? null : () => _enterSelection(deck.id),
     );
   }
 

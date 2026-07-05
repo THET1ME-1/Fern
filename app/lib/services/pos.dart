@@ -117,7 +117,8 @@ class PosDetect {
   };
 
   /// Итоговая часть речи: сперва уже известная [existing], затем словарь
-  /// [dictPos], затем эвристика английских служебных слов; иначе '' (неизвестно).
+  /// [dictPos], затем эвристики английского (служебные слова + суффиксы);
+  /// иначе '' (неизвестно).
   static String detect(
     String front, {
     String? existing,
@@ -128,9 +129,43 @@ class PosDetect {
     final d = fromDictionary(dictPos);
     if (d != null) return d;
     if (languageCode == 'en') {
-      final e = _enFunction[front.trim().toLowerCase()];
-      if (e != null) return e;
+      final w = front.trim().toLowerCase();
+      if (w.contains(' ')) return ''; // фразы — не угадываем
+      final f = _enFunction[w];
+      if (f != null) return f;
+      return _enSuffix(w);
     }
+    return '';
+  }
+
+  // Часть речи по окончанию английского слова. Не идеально (бывают исключения),
+  // но покрывает МНОГО слов без словаря, чтобы теги/фильтры/разбивка работали.
+  static const List<String> _lyExceptions = [
+    'family', 'reply', 'apply', 'supply', 'italy', 'rely', 'multiply', 'imply',
+    'ally', 'jelly', 'belly', 'rally', 'bully', 'fully',
+  ];
+
+  static String _enSuffix(String w) {
+    if (w.length < 4) return '';
+    bool ends(String s) => w.endsWith(s);
+    // Существительные.
+    if (ends('tion') || ends('sion') || ends('ment') || ends('ness') ||
+        ends('ity') || ends('ance') || ends('ence') || ends('ship') ||
+        ends('hood') || ends('ism') || ends('ology')) {
+      return 'noun';
+    }
+    // Прилагательные.
+    if (ends('ous') || ends('ful') || ends('less') || ends('ive') ||
+        ends('able') || ends('ible') || ends('ical') || ends('ish') ||
+        ends('ary')) {
+      return 'adj';
+    }
+    // Наречия на -ly (с небольшим списком исключений).
+    if (ends('ly') && w.length > 4 && !_lyExceptions.contains(w)) {
+      return 'adv';
+    }
+    // Глаголы.
+    if (ends('ize') || ends('ise') || ends('ify')) return 'verb';
     return '';
   }
 }

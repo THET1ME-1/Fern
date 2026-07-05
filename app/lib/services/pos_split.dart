@@ -49,6 +49,7 @@ class PosSplit {
         } else {
           code = PosDetect.detect(c.front, languageCode: deck.languageCode);
         }
+        if (code.isNotEmpty) c.pos = code; // сохраняем в тег
       }
       if (code.isEmpty) continue;
       byPos.putIfAbsent(code, () => []).add(c);
