@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/models/deck.dart';
@@ -50,6 +52,20 @@ void main() {
       final be = cards.firstWhere((c) => c.back == 'быть');
       expect(be.front, 'be');
       expect(be.pos, 'verb');
+    });
+  });
+
+  group('Авто-миграция', () {
+    test('чистит вклеенную часть речи у старых карт при старте', () async {
+      await resetStorage();
+      // Кладём «грязную» карту в хранилище ДО инициализации.
+      final dirty = WordCard(id: 'c1', deckId: 'd1', front: 'the артикль', back: 'этот');
+      await SharedPreferencesAsync()
+          .setStringList('cards', [jsonEncode(dirty.toJson())]);
+      await DeckRepository.instance.init();
+      final cards = await DeckRepository.instance.loadCards();
+      expect(cards.first.front, 'the'); // слово очищено
+      expect(cards.first.pos, 'article'); // часть речи — в теге
     });
   });
 

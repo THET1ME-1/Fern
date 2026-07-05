@@ -9,6 +9,7 @@ import '../models/fsrs.dart';
 import '../models/pack.dart';
 import '../models/review_log.dart';
 import '../models/word_card.dart';
+import 'pos.dart';
 
 /// Единый слой доступа к данным Fern.
 ///
@@ -65,6 +66,8 @@ class DeckRepository extends ChangeNotifier {
 
   // Флаг разовой миграции со старого (legacy) хранилища на async.
   static const String _kMigratedV1 = 'migratedToAsyncV1';
+  // Разовая чистка вклеенной в слово части речи → тег pos.
+  static const String _kPosMigrated = 'posMigratedV1';
 
   // `SharedPreferencesAsync` — тонкая обёртка без собственного кэша (каждый
   // вызов идёт в нативный стор), поэтому создаём её по требованию. Это и лениво
@@ -100,7 +103,27 @@ class DeckRepository extends ChangeNotifier {
     _log = _decodeLog(await _prefs.getString(_kReviewLog));
     _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
     _decodeReading(await _prefs.getString(_kReadingStats));
+    await _migratePosIfNeeded();
     _loaded = true;
+  }
+
+  /// Разово вычищает вклеенную в слово часть речи («the артикль» → «the») и
+  /// переносит её в тег [WordCard.pos]. Для колод, импортированных до появления
+  /// поля pos.
+  Future<void> _migratePosIfNeeded() async {
+    if (await _prefs.getBool(_kPosMigrated) ?? false) return;
+    var changed = false;
+    for (final c in _cards) {
+      if (c.pos.isNotEmpty) continue;
+      final stripped = PosDetect.strip(c.front);
+      if (stripped.$2 != null) {
+        c.front = stripped.$1;
+        c.pos = stripped.$2!;
+        changed = true;
+      }
+    }
+    if (changed) await _persistCards();
+    await _prefs.setBool(_kPosMigrated, true);
   }
 
   void _decodeReading(String? raw) {

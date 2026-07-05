@@ -6,6 +6,7 @@ import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'study/match_screen.dart';
@@ -50,6 +51,7 @@ class _DeckScreenState extends State<DeckScreen> {
   bool _loading = true;
   String _query = '';
   _CardSort _sort = _CardSort.added;
+  String _posFilter = ''; // '' = все части речи
 
   @override
   void initState() {
@@ -66,9 +68,18 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   /// Карточки после применения поиска и выбранной сортировки.
+  /// Части речи, встречающиеся в колоде → число карт (для фильтр-чипов).
+  Map<String, int> get _posCounts {
+    final counts = <String, int>{};
+    for (final c in _cards) {
+      if (c.pos.isNotEmpty) counts[c.pos] = (counts[c.pos] ?? 0) + 1;
+    }
+    return counts;
+  }
+
   List<WordCard> get _visibleCards {
     final q = _query.trim().toLowerCase();
-    final list = q.isEmpty
+    var list = q.isEmpty
         ? List<WordCard>.from(_cards)
         : _cards
               .where(
@@ -78,6 +89,9 @@ class _DeckScreenState extends State<DeckScreen> {
                     c.example.toLowerCase().contains(q),
               )
               .toList();
+    if (_posFilter.isNotEmpty) {
+      list = list.where((c) => c.pos == _posFilter).toList();
+    }
     final now = DateTime.now();
     switch (_sort) {
       case _CardSort.added:
@@ -257,6 +271,10 @@ class _DeckScreenState extends State<DeckScreen> {
                 else ...[
                   if (_cards.length >= 6) ...[
                     _searchField(scheme),
+                    const SizedBox(height: 12),
+                  ],
+                  if (_posCounts.length >= 2) ...[
+                    _posFilterRow(scheme),
                     const SizedBox(height: 12),
                   ],
                   ..._buildCardList(scheme),
@@ -694,6 +712,47 @@ class _DeckScreenState extends State<DeckScreen> {
     if (due == null) return '';
     if (!due.isAfter(now)) return tr('due_now');
     return trf('due_in', {'t': durationLabel(due.difference(now))});
+  }
+
+  /// Горизонтальный ряд фильтр-чипов по частям речи (+«Все»).
+  Widget _posFilterRow(ColorScheme scheme) {
+    final counts = _posCounts;
+    // По порядку частотности типов.
+    final codes =
+        PosDetect.order.where((c) => counts.containsKey(c)).toList();
+    return SizedBox(
+      height: 36,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          _posFilterChip('', tr('pos_filter_all'), _cards.length, scheme),
+          for (final code in codes) ...[
+            const SizedBox(width: 8),
+            _posFilterChip(
+              code,
+              tr('pos_deck_$code'),
+              counts[code]!,
+              scheme,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _posFilterChip(
+    String code,
+    String label,
+    int count,
+    ColorScheme scheme,
+  ) {
+    final selected = _posFilter == code;
+    return FilterChip(
+      label: Text('$label · $count'),
+      selected: selected,
+      visualDensity: VisualDensity.compact,
+      onSelected: (_) => setState(() => _posFilter = selected ? '' : code),
+    );
   }
 
   /// Маленькая метка части речи рядом со словом (гл./сущ./арт.…).

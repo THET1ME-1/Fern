@@ -149,6 +149,7 @@ const Map<String, Map<String, String>> _strings = {
   'pos_deck_particle': {'ru': 'Частицы', 'en': 'Particles'},
   'pos_deck_interj': {'ru': 'Междометия', 'en': 'Interjections'},
   'pos_deck_other': {'ru': 'Прочее', 'en': 'Other'},
+  'pos_filter_all': {'ru': 'Все', 'en': 'All'},
   'pos_short_noun': {'ru': 'сущ.', 'en': 'n.'},
   'pos_short_verb': {'ru': 'гл.', 'en': 'v.'},
   'pos_short_adj': {'ru': 'прил.', 'en': 'adj.'},

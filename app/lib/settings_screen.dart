@@ -9,11 +9,9 @@ import 'package:share_plus/share_plus.dart';
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'settings/providers_screen.dart';
-import 'models/deck.dart';
 import 'services/deck_import.dart';
 import 'services/deck_repository.dart';
 import 'services/notification_service.dart';
-import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
 import 'services/vocab_export.dart';
@@ -576,50 +574,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text(msg)));
-    if (res.outcome == ImportOutcome.ok) {
-      await _offerSplitByPos(res.deckId, res.count);
-    }
-  }
-
-  /// Предлагает разложить только что импортированную колоду по частям речи.
-  Future<void> _offerSplitByPos(String? deckId, int wordCount) async {
-    if (deckId == null || !mounted) return;
-    Deck? deck;
-    for (final d in _repo.decks) {
-      if (d.id == deckId) {
-        deck = d;
-        break;
-      }
-    }
-    if (deck == null) return;
-    if (await PosSplit.countGroups(deck) < 2 || !mounted) return;
-    final ok = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(tr('split_by_pos')),
-        content: Text(trf('split_by_pos_offer', {'n': wordCount})),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text(tr('cancel')),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: Text(tr('apply')),
-          ),
-        ],
-      ),
-    );
-    if (ok != true || !mounted) return;
-    final created = await PosSplit.split(deck);
-    if (!mounted) return;
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-        content: Text(created > 0
-            ? trf('split_done', {'n': created})
-            : tr('split_none')),
-      ));
   }
 
   /// Ручная проверка обновления: показывает меню обновления или сообщает, что
