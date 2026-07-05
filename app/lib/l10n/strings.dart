@@ -503,6 +503,55 @@ const Map<String, Map<String, String>> _strings = {
   'reader_font_sans': {'ru': 'Без засечек', 'en': 'Sans'},
   'word_already_known': {'ru': 'Уже в словаре', 'en': 'Already in your words'},
 
+  // ----------------------------- Страница книги -----------------------------
+  'read_continue': {'ru': 'Продолжить чтение', 'en': 'Continue reading'},
+  'read_start': {'ru': 'Читать', 'en': 'Read'},
+  'book_edit': {'ru': 'Изменить книгу', 'en': 'Edit book'},
+  'book_delete': {'ru': 'Удалить книгу', 'en': 'Delete book'},
+  'book_delete_confirm': {
+    'ru': 'Удалить книгу и её текст? Слова в колодах останутся.',
+    'en': 'Delete the book and its text? Words in your decks are kept.'
+  },
+  'book_title_label': {'ru': 'Название', 'en': 'Title'},
+  'book_author': {'ru': 'Автор', 'en': 'Author'},
+  'book_unknown_author': {'ru': 'Автор не указан', 'en': 'Unknown author'},
+  'book_description': {'ru': 'Описание', 'en': 'Description'},
+  'book_genres': {'ru': 'Жанры', 'en': 'Genres'},
+  'book_tags': {'ru': 'Теги', 'en': 'Tags'},
+  'chips_add_hint': {'ru': 'Введите и Enter', 'en': 'Type and press Enter'},
+  'book_about': {'ru': 'О книге', 'en': 'About the book'},
+  'book_no_text': {
+    'ru': 'Текст книги недоступен',
+    'en': 'Book text is unavailable'
+  },
+  'book_reading_progress': {'ru': 'Прогресс чтения', 'en': 'Reading progress'},
+  'book_bookmarks_n': {'ru': 'Закладок: {n}', 'en': 'Bookmarks: {n}'},
+  'book_analysis_title': {'ru': 'Анализ слов', 'en': 'Word analysis'},
+  'analyzing': {'ru': 'Анализируем…', 'en': 'Analyzing…'},
+  'book_coverage': {
+    'ru': 'Знакомо {p}% текста',
+    'en': 'You know {p}% of the text'
+  },
+  'book_coverage_sub': {
+    'ru': 'Доля всех слов книги (с повторами), которые вы уже знаете',
+    'en': "Share of all the book's running words you already know"
+  },
+  'analysis_known': {'ru': 'Помнит', 'en': 'Knows'},
+  'analysis_known_sub': {'ru': 'Крепко в памяти', 'en': 'Solid in memory'},
+  'analysis_learning': {'ru': 'Учит', 'en': 'Learning'},
+  'analysis_learning_sub': {'ru': 'В словаре, слабо', 'en': 'In dictionary, weak'},
+  'analysis_unknown': {'ru': 'Не знает', 'en': 'New'},
+  'analysis_unknown_sub': {'ru': 'Ещё нет в словаре', 'en': 'Not in dictionary'},
+  'book_vocab_line': {
+    'ru': 'Уникальных слов: {unique}. В словаре: {indict} ({share}%).',
+    'en': 'Unique words: {unique}. In your dictionary: {indict} ({share}%).'
+  },
+  'book_study_first': {'ru': 'Учить в первую очередь', 'en': 'Learn these first'},
+  'book_study_first_sub': {
+    'ru': 'Самые частые незнакомые слова — тап, чтобы добавить',
+    'en': 'Most frequent new words — tap to add'
+  },
+
   // ----------------------------- Паки -----------------------------
   'deck_pack': {'ru': 'Пак', 'en': 'Pack'},
   'pack_none': {'ru': 'Без пака', 'en': 'No pack'},

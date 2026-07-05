@@ -340,6 +340,28 @@ class DeckRepository extends ChangeNotifier {
     return out;
   }
 
+  /// Карты языка, сгруппированные по «переду» (нижний регистр) → карта с самым
+  /// крепким запоминанием. Нужно анализу книги: по слову из текста мгновенно
+  /// узнать, есть ли оно в словаре и насколько прочно закреплено (FSRS).
+  Map<String, WordCard> cardsByFrontForLanguage(String languageCode) {
+    final deckIds = _decks
+        .where((d) => d.languageCode == languageCode)
+        .map((d) => d.id)
+        .toSet();
+    final out = <String, WordCard>{};
+    for (final c in _cards) {
+      if (!deckIds.contains(c.deckId)) continue;
+      final f = c.front.trim().toLowerCase();
+      if (f.isEmpty) continue;
+      final existing = out[f];
+      // Если слово встречается в нескольких колодах — берём самую «выученную».
+      if (existing == null || c.review.stability > existing.review.stability) {
+        out[f] = c;
+      }
+    }
+    return out;
+  }
+
   /// Есть ли слово [front] уже в какой-либо колоде языка [languageCode].
   bool hasWordInLanguage(String front, String languageCode) {
     final f = front.trim().toLowerCase();

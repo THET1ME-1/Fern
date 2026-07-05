@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Собранные релизные APK (переименованные, не в git)
+dist/

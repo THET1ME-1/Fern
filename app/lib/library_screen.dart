@@ -2,11 +2,11 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'book_screen.dart';
 import 'l10n/strings.dart';
 import 'services/book_import.dart';
 import 'services/deck_repository.dart';
 import 'services/source_library.dart';
-import 'study/book_reader_screen.dart';
 import 'theme/app_theme.dart';
 import 'video/subtitle.dart';
 import 'video/video_import_screen.dart';
@@ -102,32 +102,21 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ..showSnackBar(SnackBar(content: Text(tr('book_import_failed'))));
       return;
     }
-    _openBook(id, book.title, lang, book.text);
+    final src = await _library.get(id);
+    if (!mounted || src == null) return;
+    _openBookScreen(src);
   }
 
-  void _openBook(String id, String title, String lang, String text) {
+  void _openBookScreen(LibrarySource s) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => BookReaderScreen(
-          sourceId: id,
-          title: title,
-          languageCode: lang,
-          text: text,
-        ),
-      ),
+      MaterialPageRoute(builder: (_) => BookScreen(source: s)),
     );
   }
 
   Future<void> _openSource(LibrarySource s) async {
     if (s.isBook) {
-      final text = await _library.loadBookText(s.id);
-      if (!mounted) return;
-      if (text == null) {
-        _notOpenable();
-        return;
-      }
-      _openBook(s.id, s.title, s.languageCode, text);
+      _openBookScreen(s);
       return;
     }
     // Видео: пробуем из кэша, иначе перезагружаем по ссылке.
@@ -326,22 +315,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
               padding: const EdgeInsets.all(12),
               child: Row(
                 children: [
-                  Container(
-                    width: 52,
-                    height: 52,
-                    decoration: BoxDecoration(
-                      color: (isVideo ? scheme.primary : scheme.tertiary)
-                          .withValues(alpha: 0.16),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Icon(
-                      isVideo
-                          ? Icons.play_circle_fill_rounded
-                          : Icons.menu_book_rounded,
-                      color: isVideo ? scheme.primary : scheme.tertiary,
-                      size: 26,
-                    ),
-                  ),
+                  _leadingCover(s, isVideo, scheme),
                   const SizedBox(width: 14),
                   Expanded(
                     child: Column(
@@ -384,9 +358,33 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
+  /// Обложка-иконка источника. Для книги — Hero, чтобы плавно «улететь» в
+  /// шапку страницы книги при открытии.
+  Widget _leadingCover(LibrarySource s, bool isVideo, ColorScheme scheme) {
+    final cover = Container(
+      width: 52,
+      height: 52,
+      decoration: BoxDecoration(
+        color: (isVideo ? scheme.primary : scheme.tertiary)
+            .withValues(alpha: 0.16),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Icon(
+        isVideo ? Icons.play_circle_fill_rounded : Icons.menu_book_rounded,
+        color: isVideo ? scheme.primary : scheme.tertiary,
+        size: 26,
+      ),
+    );
+    if (isVideo) return cover;
+    return Hero(tag: 'src-cover-${s.id}', child: cover);
+  }
+
   String _subtitleFor(LibrarySource s) {
-    final kind = s.isVideo ? tr('source_kind_video') : tr('source_kind_book');
-    final parts = <String>[kind];
+    final parts = <String>[
+      s.isVideo
+          ? tr('source_kind_video')
+          : (s.author.isNotEmpty ? s.author : tr('source_kind_book')),
+    ];
     if (s.isBook && s.format != null) parts.add(s.format!.toUpperCase());
     if (s.wordsAdded > 0) parts.add(trf('source_words_added', {'n': s.wordsAdded}));
     return parts.join(' · ');

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -14,6 +13,7 @@ import '../theme/app_theme.dart';
 import '../video/add_target.dart';
 import '../widgets/pressable.dart';
 import 'reader_settings.dart';
+import 'tappable_text.dart';
 import 'word_lookup_sheet.dart';
 
 /// Читалка книги в духе Linga: непрерывный текст, тап по слову → перевод и
@@ -59,7 +59,11 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   int _knownVersion = 0;
   final Set<int> _bookmarks = {};
 
+  // Текущий верхний абзац. Держим и в поле (для сохранения/закладок), и в
+  // [ValueNotifier] — чтобы полоса прогресса и футер обновлялись при прокрутке
+  // БЕЗ setState на весь экран (иначе список пересобирается на каждый абзац).
   int _topIndex = 0;
+  final ValueNotifier<int> _topIndexN = ValueNotifier(0);
   int _startIndex = 0;
   int _addedCount = 0;
   Deck? _targetDeck;
@@ -91,6 +95,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       _startIndex = src.readParagraph.clamp(0, _paragraphs.length - 1);
       _addedCount = src.wordsAdded;
       _topIndex = _startIndex;
+      _topIndexN.value = _startIndex;
     }
     if (mounted) setState(() => _ready = true);
   }
@@ -109,9 +114,12 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   }
 
   /// Единая точка обновления «текущего абзаца» (из прокрутки или из страницы) +
-  /// отложенное сохранение позиции.
+  /// отложенное сохранение позиции. Пишем в [ValueNotifier] (обновит прогресс
+  /// без пересборки списка) и отдельно кэшируем в поле для закладок/сохранения.
   void _updateTop(int index) {
-    if (index != _topIndex && mounted) setState(() => _topIndex = index);
+    if (index == _topIndex) return;
+    _topIndex = index;
+    _topIndexN.value = index;
     _saveTimer?.cancel();
     _saveTimer = Timer(const Duration(milliseconds: 400), () {
       _library.setBookPosition(widget.sourceId, _topIndex);
@@ -147,6 +155,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     _library.setBookPosition(widget.sourceId, _topIndex);
     _positions.itemPositions.removeListener(_onScroll);
     _settings.removeListener(_onSettings);
+    _topIndexN.dispose();
     super.dispose();
   }
 
@@ -260,10 +269,6 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   Widget build(BuildContext context) {
     final t = _settings.theme;
     final barColor = t.background;
-    final isBookmarked = _bookmarks.contains(_topIndex);
-    final progress = _paragraphs.length <= 1
-        ? 1.0
-        : (_topIndex / (_paragraphs.length - 1)).clamp(0.0, 1.0);
 
     return Scaffold(
       backgroundColor: t.background,
@@ -312,15 +317,21 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                 ),
               ),
             ),
-          IconButton(
-            tooltip: tr('bookmark'),
-            onPressed: _ready ? _toggleBookmark : null,
-            icon: Icon(
-              isBookmarked
-                  ? Icons.bookmark_rounded
-                  : Icons.bookmark_border_rounded,
-              color: isBookmarked ? t.accent : t.text,
-            ),
+          ValueListenableBuilder<int>(
+            valueListenable: _topIndexN,
+            builder: (_, top, _) {
+              final isBookmarked = _bookmarks.contains(top);
+              return IconButton(
+                tooltip: tr('bookmark'),
+                onPressed: _ready ? _toggleBookmark : null,
+                icon: Icon(
+                  isBookmarked
+                      ? Icons.bookmark_rounded
+                      : Icons.bookmark_border_rounded,
+                  color: isBookmarked ? t.accent : t.text,
+                ),
+              );
+            },
           ),
           IconButton(
             tooltip: tr('bookmarks'),
@@ -335,15 +346,23 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(3),
-          child: TweenAnimationBuilder<double>(
-            tween: Tween(end: progress),
-            duration: const Duration(milliseconds: 300),
-            builder: (_, v, _) => LinearProgressIndicator(
-              value: v,
-              minHeight: 3,
-              backgroundColor: t.faint.withValues(alpha: 0.18),
-              valueColor: AlwaysStoppedAnimation(t.accent),
-            ),
+          child: ValueListenableBuilder<int>(
+            valueListenable: _topIndexN,
+            builder: (_, top, _) {
+              final progress = _paragraphs.length <= 1
+                  ? 1.0
+                  : (top / (_paragraphs.length - 1)).clamp(0.0, 1.0);
+              return TweenAnimationBuilder<double>(
+                tween: Tween(end: progress),
+                duration: const Duration(milliseconds: 300),
+                builder: (_, v, _) => LinearProgressIndicator(
+                  value: v,
+                  minHeight: 3,
+                  backgroundColor: t.faint.withValues(alpha: 0.18),
+                  valueColor: AlwaysStoppedAnimation(t.accent),
+                ),
+              );
+            },
           ),
         ),
       ),
@@ -383,15 +402,18 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     return Column(
       children: [
         Expanded(child: _scrollList(t, baseStyle)),
-        _readFooter(t, _readPercent()),
+        ValueListenableBuilder<int>(
+          valueListenable: _topIndexN,
+          builder: (_, top, _) => _readFooter(t, _percentFor(top)),
+        ),
       ],
     );
   }
 
-  /// Прогресс чтения в процентах (по абзацу, видимому сверху).
-  int _readPercent() {
+  /// Прогресс чтения в процентах для абзаца, видимого сверху.
+  int _percentFor(int top) {
     if (_paragraphs.length <= 1) return 100;
-    return (_topIndex / (_paragraphs.length - 1) * 100).clamp(0, 100).round();
+    return (top / (_paragraphs.length - 1) * 100).clamp(0, 100).round();
   }
 
   /// Нижняя плашка с процентом прочитанного (режим прокрутки).
@@ -421,27 +443,31 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
       itemBuilder: (context, i) {
         final para = _paragraphs[i];
         final bookmarked = _bookmarks.contains(i);
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 9),
-          decoration: bookmarked
-              ? BoxDecoration(
-                  border: Border(
-                    left: BorderSide(color: t.accent, width: 3),
-                  ),
-                )
-              : null,
-          child: Padding(
-            padding: EdgeInsets.only(left: bookmarked ? 12 : 0),
-            child: _ReaderParagraph(
-              key: ValueKey('p$i'),
-              text: para,
-              style: baseStyle,
-              known: _known,
-              sessionAdded: _sessionAdded,
-              knownVersion: _knownVersion,
-              knownColor: t.accent,
-              addedColor: t.added,
-              onWord: (w) => _onWordTap(w, para),
+        // RepaintBoundary изолирует перерисовку абзаца — прокрутка не гоняет
+        // растеризацию соседей.
+        return RepaintBoundary(
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 9),
+            decoration: bookmarked
+                ? BoxDecoration(
+                    border: Border(
+                      left: BorderSide(color: t.accent, width: 3),
+                    ),
+                  )
+                : null,
+            child: Padding(
+              padding: EdgeInsets.only(left: bookmarked ? 12 : 0),
+              child: TappableText(
+                key: ValueKey('p$i'),
+                text: para,
+                style: baseStyle,
+                known: _known,
+                sessionAdded: _sessionAdded,
+                highlightVersion: _knownVersion,
+                knownColor: t.accent,
+                addedColor: t.added,
+                onWord: (w) => _onWordTap(w, para),
+              ),
             ),
           ),
         );
@@ -741,15 +767,17 @@ class _PagedReaderState extends State<_PagedReader> {
           padding: const EdgeInsets.symmetric(horizontal: _hPad, vertical: _vPad),
           child: Align(
             alignment: Alignment.topLeft,
-            child: _ReaderParagraph(
+            child: TappableText(
               text: pageText,
               style: widget.style,
               known: widget.known,
               sessionAdded: widget.sessionAdded,
-              knownVersion: widget.knownVersion,
+              highlightVersion: widget.knownVersion,
               knownColor: widget.theme.accent,
               addedColor: widget.theme.added,
               onWord: (w) => widget.onWord(w, pageText),
+              // Тап мимо слова = листание: левая половина назад, правая вперёд.
+              onMiss: (local, width) => local.dx < width / 2 ? _prev() : _next(),
             ),
           ),
         ),
@@ -773,140 +801,6 @@ class _PagedReaderState extends State<_PagedReader> {
       ),
     );
   }
-}
-
-/// Один абзац читалки: разбивает текст на слова с тап-распознавателями. Слова,
-/// уже присутствующие в базе (известные), подчёркиваются акцентом.
-class _ReaderParagraph extends StatefulWidget {
-  final String text;
-  final TextStyle style;
-
-  /// Слова из базы (известные) и слова, добавленные в этой сессии — раскрашены
-  /// разными цветами [knownColor] и [addedColor].
-  final Set<String> known;
-  final Set<String> sessionAdded;
-  final int knownVersion;
-  final Color knownColor;
-  final Color addedColor;
-  final ValueChanged<String> onWord;
-
-  const _ReaderParagraph({
-    super.key,
-    required this.text,
-    required this.style,
-    required this.known,
-    required this.sessionAdded,
-    required this.knownVersion,
-    required this.knownColor,
-    required this.addedColor,
-    required this.onWord,
-  });
-
-  @override
-  State<_ReaderParagraph> createState() => _ReaderParagraphState();
-}
-
-class _ReaderParagraphState extends State<_ReaderParagraph> {
-  static final RegExp _edge = RegExp(
-    r'^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$',
-    unicode: true,
-  );
-  static final RegExp _token = RegExp(r'\S+|\s+');
-
-  late List<_Tok> _toks;
-
-  @override
-  void initState() {
-    super.initState();
-    _build();
-  }
-
-  @override
-  void didUpdateWidget(_ReaderParagraph old) {
-    super.didUpdateWidget(old);
-    if (old.text != widget.text) {
-      _disposeRecognizers();
-      _build();
-    }
-  }
-
-  void _build() {
-    _toks = [];
-    for (final m in _token.allMatches(widget.text)) {
-      final raw = m.group(0)!;
-      if (raw.trim().isEmpty) {
-        _toks.add(_Tok(raw, '', null));
-        continue;
-      }
-      final clean = raw.replaceAll(_edge, '');
-      TapGestureRecognizer? rec;
-      if (clean.isNotEmpty) {
-        rec = TapGestureRecognizer()..onTap = () => widget.onWord(clean);
-      }
-      _toks.add(_Tok(raw, clean, rec));
-    }
-  }
-
-  void _disposeRecognizers() {
-    for (final t in _toks) {
-      t.rec?.dispose();
-    }
-  }
-
-  @override
-  void dispose() {
-    _disposeRecognizers();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // Известные (из базы) — акцентом; добавленные в этой сессии — другим цветом
-    // и пожирнее, чтобы «свежие» слова были заметны отдельно.
-    final knownStyle = widget.style.copyWith(
-      color: widget.knownColor,
-      decoration: TextDecoration.underline,
-      decorationColor: widget.knownColor.withValues(alpha: 0.5),
-      decorationThickness: 2,
-    );
-    final addedStyle = widget.style.copyWith(
-      color: widget.addedColor,
-      fontWeight: FontWeight.w700,
-      decoration: TextDecoration.underline,
-      decorationColor: widget.addedColor.withValues(alpha: 0.6),
-      decorationThickness: 2,
-    );
-
-    TextStyle styleFor(String clean) {
-      final lower = clean.toLowerCase();
-      if (widget.sessionAdded.contains(lower)) return addedStyle;
-      if (widget.known.contains(lower)) return knownStyle;
-      return widget.style;
-    }
-
-    return Text.rich(
-      TextSpan(
-        children: [
-          for (final tok in _toks)
-            if (tok.rec == null)
-              TextSpan(text: tok.display, style: widget.style)
-            else
-              TextSpan(
-                text: tok.display,
-                style: styleFor(tok.clean),
-                recognizer: tok.rec,
-              ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Tok {
-  final String display;
-  final String clean;
-  final TapGestureRecognizer? rec;
-  _Tok(this.display, this.clean, this.rec);
 }
 
 /// Панель настроек чтения: тема страницы, размер шрифта, интервал, шрифт.

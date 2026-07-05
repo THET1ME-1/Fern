@@ -27,6 +27,12 @@ class LibrarySource {
   /// Сколько слов уже добавлено из этого источника в колоды.
   int wordsAdded;
 
+  /// Книга: редактируемые метаданные — автор, описание, теги, жанры.
+  String author;
+  String description;
+  List<String> tags;
+  List<String> genres;
+
   /// Видео: id ролика YouTube и ссылка. Книга: null.
   final String? videoId;
   final String? url;
@@ -53,7 +59,13 @@ class LibrarySource {
     this.charCount,
     this.readParagraph = 0,
     List<int>? bookmarks,
-  }) : bookmarks = bookmarks ?? [];
+    this.author = '',
+    this.description = '',
+    List<String>? tags,
+    List<String>? genres,
+  })  : bookmarks = bookmarks ?? [],
+        tags = tags ?? [],
+        genres = genres ?? [];
 
   bool get isVideo => kind == SourceKind.video;
   bool get isBook => kind == SourceKind.book;
@@ -71,6 +83,10 @@ class LibrarySource {
         if (charCount != null) 'chars': charCount,
         if (readParagraph > 0) 'pos': readParagraph,
         if (bookmarks.isNotEmpty) 'bm': bookmarks,
+        if (author.isNotEmpty) 'author': author,
+        if (description.isNotEmpty) 'desc': description,
+        if (tags.isNotEmpty) 'tags': tags,
+        if (genres.isNotEmpty) 'genres': genres,
       };
 
   factory LibrarySource.fromJson(Map<String, dynamic> j) => LibrarySource(
@@ -90,6 +106,16 @@ class LibrarySource {
         bookmarks: [
           for (final b in (j['bm'] as List? ?? const []))
             if (b is num) b.toInt(),
+        ],
+        author: j['author'] as String? ?? '',
+        description: j['desc'] as String? ?? '',
+        tags: [
+          for (final t in (j['tags'] as List? ?? const []))
+            if (t is String) t,
+        ],
+        genres: [
+          for (final g in (j['genres'] as List? ?? const []))
+            if (g is String) g,
         ],
       );
 }
@@ -286,6 +312,37 @@ class SourceLibrary extends ChangeNotifier {
   Future<LibrarySource?> get(String id) async {
     await _ensureLoaded();
     return _sources.where((e) => e.id == id).firstOrNull;
+  }
+
+  /// Обновляет редактируемые метаданные книги (что передано — то и меняем).
+  Future<void> updateBook(
+    String id, {
+    String? title,
+    String? author,
+    String? description,
+    List<String>? tags,
+    List<String>? genres,
+  }) async {
+    await _ensureLoaded();
+    final s = _sources.where((e) => e.id == id).firstOrNull;
+    if (s == null) return;
+    if (title != null && title.trim().isNotEmpty) s.title = title.trim();
+    if (author != null) s.author = author.trim();
+    if (description != null) s.description = description.trim();
+    if (tags != null) {
+      s.tags = [
+        for (final t in tags)
+          if (t.trim().isNotEmpty) t.trim(),
+      ];
+    }
+    if (genres != null) {
+      s.genres = [
+        for (final g in genres)
+          if (g.trim().isNotEmpty) g.trim(),
+      ];
+    }
+    await _persist();
+    notifyListeners();
   }
 
   /// Увеличивает счётчик добавленных слов у источника.
