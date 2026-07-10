@@ -23,7 +23,20 @@ import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
 import 'utils/app_version.dart';
 import 'widgets/color_picker_sheet.dart';
+import 'widgets/seed_swatch.dart';
 import 'widgets/update_sheet.dart';
+
+/// Готовые seed-цвета для быстрых цветовых схем (первый — фирменный зелёный Fern).
+const List<Color> _kSeedPalettes = [
+  Color(0xFF2E7D5B), // папоротниковый зелёный (по умолчанию)
+  Color(0xFF00897B), // бирюзовый
+  Color(0xFF1E88E5), // синий
+  Color(0xFF7C4DFF), // фиолетовый
+  Color(0xFFE53935), // красный
+  Color(0xFFFF7043), // коралловый
+  Color(0xFFFFB300), // янтарный
+  Color(0xFFEC407A), // розовый
+];
 
 /// Экран настроек: внешний вид, обучение, язык интерфейса, данные, о программе.
 class SettingsScreen extends StatefulWidget {
@@ -148,6 +161,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _sectionTitle(tr('appearance'), scheme),
           _themeModeTile(scheme),
           _colorTile(scheme),
+          // Готовые цветовые схемы — кружки из 4 тонов темы (как в системном
+          // пикере Material You). В режиме «цвет из обоев» пресеты не нужны.
+          if (!_theme.useDynamicColor) _paletteRow(scheme),
           _switchTile(
             icon: Icons.palette_rounded,
             title: tr('dynamic_color'),
@@ -357,15 +373,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ? tr('theme_color_default')
                 : colorToHex(_theme.seedColor),
           ),
-          trailing: Container(
-            width: 28,
-            height: 28,
-            decoration: BoxDecoration(
-              color: _theme.seedColor,
-              shape: BoxShape.circle,
-              border: Border.all(color: scheme.outlineVariant),
-            ),
-          ),
+          trailing: SeedSwatch(seed: _theme.seedColor, size: 30),
           onTap: () async {
             final picked = await showColorPickerSheet(
               context,
@@ -379,6 +387,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
   }
+
+  /// Готовые цветовые схемы — кружки из 4 тонов темы. Тап меняет seed.
+  Widget _paletteRow(ColorScheme scheme) => Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Material(
+          color: scheme.surfaceContainerHigh,
+          borderRadius: BorderRadius.circular(18),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [
+                for (final c in _kSeedPalettes)
+                  SeedSwatch(
+                    seed: c,
+                    selected: _theme.seedColor.toARGB32() == c.toARGB32(),
+                    onTap: () => _theme.setSeedColor(c),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
 
   // ------------------------------- Обучение -------------------------------
 
