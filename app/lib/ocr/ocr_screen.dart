@@ -38,6 +38,7 @@ class _OcrScreenState extends State<OcrScreen> {
   String _text = '';
   List<String> _words = const [];
   bool _busy = false;
+  bool _unsupported = false; // алфавит языка не читается движком
   Deck? _targetDeck;
 
   @override
@@ -52,23 +53,43 @@ class _OcrScreenState extends State<OcrScreen> {
     try {
       final x = await ImagePicker()
           .pickImage(source: source, imageQuality: 90, maxWidth: 2200);
-      if (x == null) return;
+      if (x == null || !mounted) return;
       setState(() {
         _image = File(x.path);
-        _busy = true;
         _text = '';
         _words = const [];
       });
-      final text = await OcrService.instance.recognize(x.path, _lang);
-      if (!mounted) return;
-      setState(() {
-        _text = text;
-        _words = _extractWords(text, _lang);
-        _busy = false;
-      });
+      await _runOcr();
     } catch (_) {
       if (mounted) setState(() => _busy = false);
     }
+  }
+
+  /// Распознаёт текущее фото на текущем языке. Если алфавит языка не читается
+  /// движком (кириллица и т.п.) — выставляет [_unsupported] вместо мусора.
+  Future<void> _runOcr() async {
+    final img = _image;
+    if (img == null) return;
+    if (!OcrService.supports(_lang)) {
+      setState(() {
+        _unsupported = true;
+        _busy = false;
+        _text = '';
+        _words = const [];
+      });
+      return;
+    }
+    setState(() {
+      _unsupported = false;
+      _busy = true;
+    });
+    final text = await OcrService.instance.recognize(img.path, _lang);
+    if (!mounted) return;
+    setState(() {
+      _text = text;
+      _words = _extractWords(text, _lang);
+      _busy = false;
+    });
   }
 
   /// Уникальные буквенные слова, которых ещё нет в словаре языка, по убыванию
@@ -93,16 +114,7 @@ class _OcrScreenState extends State<OcrScreen> {
     if (picked == null || picked == _lang) return;
     setState(() => _lang = picked);
     _targetDeck = null;
-    if (_image != null) {
-      setState(() => _busy = true);
-      final text = await OcrService.instance.recognize(_image!.path, _lang);
-      if (!mounted) return;
-      setState(() {
-        _text = text;
-        _words = _extractWords(text, _lang);
-        _busy = false;
-      });
-    }
+    await _runOcr();
   }
 
   Future<void> _learn(String word) async {
@@ -217,6 +229,16 @@ class _OcrScreenState extends State<OcrScreen> {
                 ],
               ),
             ),
+          ] else if (_unsupported) ...[
+            const SizedBox(height: 16),
+            Reveal(
+              child: LanguageCheckCard(
+                  languageCode: _lang, onChange: _changeLanguage),
+            ),
+            const SizedBox(height: 16),
+            Reveal(
+                delay: const Duration(milliseconds: 60),
+                child: _unsupportedCard(scheme)),
           ] else if (_image != null && _text.trim().isEmpty) ...[
             const SizedBox(height: 24),
             Center(
@@ -269,6 +291,51 @@ class _OcrScreenState extends State<OcrScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _unsupportedCard(ColorScheme scheme) {
+    const warn = Color(0xFFDDA13F);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: warn.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.info_outline_rounded, size: 22, color: warn),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr('ocr_unsupported_title'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.displayFont,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                    color: scheme.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  tr('ocr_unsupported'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 13,
+                    height: 1.4,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 

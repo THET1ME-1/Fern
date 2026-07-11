@@ -923,6 +923,18 @@ const Map<String, Map<String, String>> _strings = {
   'ocr_words_sub': {'ru': 'Тап, чтобы добавить', 'en': 'Tap to add'},
   'ocr_source': {'ru': 'Фото', 'en': 'Photo'},
   'recognized_text': {'ru': 'Распознанный текст', 'en': 'Recognized text'},
+  'ocr_unsupported_title': {
+    'ru': 'Алфавит не поддерживается',
+    'en': 'Script not supported'
+  },
+  'ocr_unsupported': {
+    'ru': 'Офлайн-распознавание читает только латиницу (испанский, английский, '
+        'немецкий, французский, итальянский…). Для кириллицы и других алфавитов '
+        'оно недоступно — смените язык или сфотографируйте латинский текст.',
+    'en': 'Offline recognition reads Latin script only (Spanish, English, '
+        'German, French, Italian…). Cyrillic and other scripts are not '
+        'supported — change the language or photograph Latin text.'
+  },
   // «Поделиться» → Fern
   'share_import_title': {'ru': 'Добавить в Fern', 'en': 'Add to Fern'},
   'share_as_word': {'ru': 'Как слово', 'en': 'As a word'},

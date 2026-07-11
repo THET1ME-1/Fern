@@ -587,6 +587,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'share_open_video': 'Video analysieren',
     'shared_text': 'Geteilter Text',
     'share_source': 'Geteilt',
+    // OCR: неподдерживаемый алфавит
+    'ocr_unsupported_title': 'Schrift nicht unterstützt',
+    'ocr_unsupported': 'Die Offline-Erkennung liest nur lateinische Schrift (Spanisch, Englisch, Deutsch, Französisch, Italienisch…). Kyrillisch und andere Schriften werden nicht unterstützt — ändere die Sprache oder fotografiere lateinischen Text.',
     // ----------------------------- Языки (родные названия для баннера) --------------
     'lang_en': 'Englisch',
     'lang_es': 'Spanisch',
@@ -1184,6 +1187,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'share_open_video': 'Analyser la vidéo',
     'shared_text': 'Texte partagé',
     'share_source': 'Partagé',
+    // OCR: неподдерживаемый алфавит
+    'ocr_unsupported_title': 'Écriture non prise en charge',
+    'ocr_unsupported': 'La reconnaissance hors ligne ne lit que l’écriture latine (espagnol, anglais, allemand, français, italien…). Le cyrillique et les autres écritures ne sont pas pris en charge — changez de langue ou photographiez du texte latin.',
     // ----------------------------- Языки (родные названия для баннера) --------------
     'lang_en': 'Anglais',
     'lang_es': 'Espagnol',
@@ -1781,6 +1787,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'share_open_video': 'Analizar vídeo',
     'shared_text': 'Texto compartido',
     'share_source': 'Compartido',
+    // OCR: неподдерживаемый алфавит
+    'ocr_unsupported_title': 'Alfabeto no compatible',
+    'ocr_unsupported': 'El reconocimiento sin conexión solo lee el alfabeto latino (español, inglés, alemán, francés, italiano…). El cirílico y otros alfabetos no son compatibles: cambia el idioma o fotografía texto en alfabeto latino.',
     // ----------------------------- Языки (родные названия для баннера) --------------
     'lang_en': 'Inglés',
     'lang_es': 'Español',
@@ -2378,6 +2387,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'share_open_video': 'Analizza video',
     'shared_text': 'Testo condiviso',
     'share_source': 'Condiviso',
+    // OCR: неподдерживаемый алфавит
+    'ocr_unsupported_title': 'Alfabeto non supportato',
+    'ocr_unsupported': 'Il riconoscimento offline legge solo l’alfabeto latino (spagnolo, inglese, tedesco, francese, italiano…). Il cirillico e altri alfabeti non sono supportati: cambia lingua o fotografa testo in alfabeto latino.',
     // ----------------------------- Языки (родные названия для баннера) --------------
     'lang_en': 'Inglese',
     'lang_es': 'Spagnolo',
@@ -2975,6 +2987,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'share_open_video': 'Analisar vídeo',
     'shared_text': 'Texto compartilhado',
     'share_source': 'Compartilhado',
+    // OCR: неподдерживаемый алфавит
+    'ocr_unsupported_title': 'Alfabeto não suportado',
+    'ocr_unsupported': 'O reconhecimento offline lê apenas o alfabeto latino (espanhol, inglês, alemão, francês, italiano…). Cirílico e outros alfabetos não são suportados — mude o idioma ou fotografe texto em alfabeto latino.',
     // ----------------------------- Языки (родные названия для баннера) --------------
     'lang_en': 'Inglês',
     'lang_es': 'Espanhol',

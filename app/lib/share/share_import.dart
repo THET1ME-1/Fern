@@ -98,8 +98,24 @@ class ShareImport {
 
   // ------------------------------- Действия -------------------------------
 
+  static final RegExp _urlRe = RegExp(r'https?://\S+', caseSensitive: false);
+
+  /// Выделяет из общего текста слово/фразу (без ссылок и кавычек) и первую
+  /// ссылку отдельно — чтобы в карточку шло только слово, а ссылка в источник.
+  @visibleForTesting
+  static (String word, String url) wordAndUrl(String text) {
+    final url = _urlRe.firstMatch(text)?.group(0) ?? '';
+    var word = text
+        .replaceAll(_urlRe, ' ')
+        .replaceAll(RegExp(r'''["«»“”‘’]'''), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+    if (word.isEmpty) word = text.trim(); // на случай «только ссылка»
+    return (word, url);
+  }
+
   static Future<void> addAsWord(BuildContext context, String text) async {
-    final word = text.split(RegExp(r'\s+')).take(4).join(' ').trim();
+    final (word, url) = wordAndUrl(text);
     final lang = await DeckRepository.instance.selectedLanguageCode() ?? 'en';
     if (!context.mounted) return;
     final deck = await VideoDeckTarget.resolveInSourcePack(
@@ -119,6 +135,7 @@ class ShareImport {
           back: back,
           example: example,
           sentence: example,
+          sourceUrl: url, // ссылка — в источник карточки, не в само слово
           pos: PosDetect.detect(word, dictPos: pos, languageCode: lang),
         );
         return ok ? LookupAddResult.added : LookupAddResult.duplicate;
