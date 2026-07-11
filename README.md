@@ -1,161 +1,114 @@
-# 🌿 Fern
+<div align="center">
 
-**Красивые флеш-карточки для изучения языков.** Мощь интервального повторения из Anki, простота Quizlet и визуальный язык ScoreMaster — тёмный зелёный Material You. Всё локально, без аккаунта, честная монетизация.
+<img src="docs/branding/readme-banner.png" alt="Fern — Language Flashcards" width="100%">
 
-> `Fern` — рабочее имя (папоротник растёт из спор так же, как словарь из карточек). Легко заменить перед первым релизом.
+# 🌿 Fern — Language Flashcards
 
-Концепт-макет экранов: [`docs/concept-mockup.html`](docs/concept-mockup.html) — открыть в браузере.
-Разбор рынка и конкурентов: [`docs/market-research.md`](docs/market-research.md).
+<br>
 
----
+[![Release](https://img.shields.io/github/v/release/THET1ME-1/fern_releases?style=for-the-badge&label=release&color=2E9E6B)](https://github.com/THET1ME-1/fern_releases/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/THET1ME-1/fern_releases/total?style=for-the-badge&color=31473C)](https://github.com/THET1ME-1/fern_releases/releases)
 
-## 1. Позиционирование
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Material 3](https://img.shields.io/badge/Material_3-Expressive-2E9E6B?style=for-the-badge)
+![Offline](https://img.shields.io/badge/Offline-first-31473C?style=for-the-badge)
 
-«Красивый Anki» сам по себе — **перегретая ниша** (Mochi, RemNote, Noji, Brainscape + десятки open-source на Flutter). FSRS и AI-генерация карт стали *ожидаемым минимумом*, а не козырем.
+**Beautiful flashcards for learning languages** — Material You design, offline-first, FSRS spaced repetition. Learn words from videos, books and photos. No account, no cloud.
 
-Мы не выигрываем одним козырем. Мы выигрываем **пересечением клиньев**, каждый из которых совпадает с уже наработанной инфраструктурой (реклама, RuStore, виджеты, PocketBase VPS — всё из Togetherly):
+🇬🇧 🇷🇺 🇩🇪 🇫🇷 🇪🇸 🇮🇹 🇵🇹 · 7 languages
 
-| # | Клин | Против чего бьёт |
-|---|------|------------------|
-| 1 | **Нативный Material You** (dynamic color из обоев) | «Красивые» аналоги — iOS-first; AnkiDroid устарел. Эту нишу не занял никто. |
-| 2 | **Честный офлайн + приватность** (без аккаунта, экспорт в любой момент) | Платный офлайн Quizlet; выжженное доверие после Noji/AnkiPro. |
-| 3 | **FSRS по умолчанию** | В самом Anki FSRS всё ещё opt-in. |
-| 4 | **Импорт `.apkg` без подвоха** | Переманивает платёжеспособную аудиторию Anki. |
-| 5 | **Мобильный майнинг слов** (OCR фото/субтитров, share-sheet → карта) | Migaku/jpdb/Yomitan на телефоне без десктоп-ада не обслуживает почти никто. |
-| 6 | **Честная монетизация для РФ** (RuStore-оплата + разовое «убрать рекламу») | Сломанный Google Pay у Quizlet; агрессивная реклама у инди-аналогов. |
+[**⬇ Download**](https://github.com/THET1ME-1/fern_releases/releases/latest) · [English](#english) · [Русский](#-fern-русский)
 
-**Целевой рынок в первую очередь — РФ / RuStore.** По запросу «карточки» там ~498 приложений, но живых мало: топ — курсы с готовым контентом, где создание *своих* колод слабое; Anki мощный, но некрасивый; Quizlet со сломанной оплатой. Качественного офлайн-first русскоязычного SRS для своих колод — нет.
+</div>
 
 ---
 
-## 2. Система
+## English
 
-### 2.1. Ядро — FSRS, спрятанный от глаз
-- Планировщик: пакет [`fsrs`](https://pub.dev/packages/fsrs) (v2.0.1, MIT) — официальный Dart-порт open-spaced-repetition. Интеграция не сложнее самописного SM-2.
-- ⚠️ Пакет содержит **только планировщик, без оптимизатора** персональных параметров. На дефолтных весах всё равно заметно лучше SM-2. Оптимизацию (обучение по истории) добавляем позже — через FFI к `fsrs-rs` или серверным батчем.
-- Пользователь **не видит** интервалов и факторов. Только оценка + подпись «когда карта вернётся».
-- SM-2 (~30 строк) держим опционально как простой фолбэк.
+### Stack
+- **Flutter** (Material 3 Expressive, dynamic color / Material You, dark green theme)
+- **Local-first** — everything on device: SQLite storage, JSON backup + merge, no account, no server
+- **Offline engines** — [ML Kit](https://developers.google.com/ml-kit) translation & OCR on device; optional own translation servers (Ollama / LibreTranslate / DeepL / OpenAI-compatible)
+- **FSRS** — own spaced-repetition scheduler (personalizable)
 
-### 2.2. Оценка карты — два способа сразу
-FSRS хочет 4 градации, но каждый раз выбирать из четырёх — трение. Поэтому:
-- **Свайп** влево/вправо = быстрое «Не помню / Помню» (мапится на `Again` / `Good`). Массовому пользователю.
-- **4 кнопки** (Не помню / Трудно / Хорошо / Легко) с семантическими цветами и подписью интервала — тем, кто хочет контроля.
+### Features
+- **Smart study** — FSRS scheduling, adaptive **Learn** mode, daily goals, streaks with freezes, achievements, rich progress stats
+- **Study modes** — Learn · Flashcards · Test · Match · Write · Dictation · Build-a-phrase · Audio · Context (cloze) · Hard words · Speed · Cram
+- **Learn from videos** — paste a YouTube link → subtitles become word cards with translation, real-voice audio and karaoke reading
+- **Learn from books** — EPUB / FB2 / TXT / SRT reader with tap-to-translate, chapters, bookmarks, reading themes, read-aloud, and a smart vocabulary analysis (how much of a text you already know)
+- **Learn from photos (OCR)** — snap a page and turn words into cards
+- **Fast word capture** — from the clipboard, from the system **Share** sheet, from photos
+- **Grammar tables** — verb conjugation & noun forms right on the card (es / fr / de / it / pt / ru)
+- **Pronunciation (TTS)**, part-of-speech tags, ready-made starter decks, deck import (Anki `.apkg` / CSV / TSV), vocabulary export
+- **Custom study languages** — create, edit and pin your own; source language of videos/books is auto-detected
+- **Themes** — light / dark / system / time-based, dynamic color, AMOLED
+- **7 interface languages** 🇬🇧 🇷🇺 🇩🇪 🇫🇷 🇪🇸 🇮🇹 🇵🇹 (auto-detected from the phone)
 
-### 2.3. Типы карточек
-- Базовая (перед → зад) и двусторонняя (авто-обратная карта).
-- Аудио (звук → угадай слово) — офлайн TTS.
-- «Впиши перевод» (проверка ввода).
-- Пропуск в фразе (cloze) — контекст.
-- Image occlusion — вторая волна.
+### Install (Android)
+Distributed **via GitHub Releases** (not on Google Play).
 
-### 2.4. Создание карт — **боль №1 у всех конкурентов, наш главный клин**
-У медстудентов «1500 карт ≈ 12 часов ручной работы». Что делаем иначе (всё офлайн, ноль опекса):
-- Вписал слово → **офлайн-перевод** ([`google_mlkit_translation`](https://pub.dev/packages/google_mlkit_translation), MIT, бесплатно, 50+ языков, ~30 МБ/язык) заполняет зад, `flutter_tts` озвучивает. Один тап — готово.
-  - ⚠️ Модели англо-центричны: между двумя неанглийскими языками английский используется как мост (потеря качества).
-- **Вставка списком** (построчно `слово — перевод` → N карт).
-- **OCR с фото/скриншота субтитров** (ML Kit text recognition, офлайн) → выделил слова → карты. Мобильный «майнинг».
-- **Share-sheet**: выделил слово в браузере/читалке → «Поделиться» → в инбокс приложения → ревью.
-- **Импорт `.apkg`**: ZIP с SQLite внутри. Старый формат (`anki2`/`anki21`) парсится тривиально; новейший `anki21b` сжат zstd + protobuf-маппинг медиа — сложнее, но реально. Нарратив: «твои Anki-колоды остаются твоими».
+**Recommended — [Obtainium](https://github.com/ImranR98/Obtainium)** (auto-updates):
+1. Install Obtainium.
+2. **Add App** → paste `https://github.com/THET1ME-1/fern_releases` → Add.
+3. Pick the APK for your CPU (`arm64-v8a` — almost all modern phones).
 
-### 2.5. Синхронизация — позже и без выстрела в ногу
-- MVP полностью локальный, без аккаунта.
-- Облако позже — на **готовом PocketBase VPS**. Обязателен **честный merge** (не last-write-wins как у Anki, иначе получим «я потерял карты»).
-- Экспорт/бэкап (JSON и/или `.apkg`) — в любой момент.
+One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 
-### 2.6. Возвращение пользователя
-- Готовые колоды-примеры при первом запуске (топ-1000 слов и т.п.), ноль настройки чтобы начать.
-- **Домашний виджет «N к повтору»** (Glance) — опыт виджетов уже есть из Togetherly.
-- Локальные уведомления о накопившихся повторах (`flutter_local_notifications`).
+Or download the APK from the [releases page](https://github.com/THET1ME-1/fern_releases/releases/latest). The app also **updates itself** from within.
 
----
+Signing fingerprint (SHA-256) to verify the APK:
+`C7:72:9A:19:D0:EA:2E:D9:E5:69:51:68:3A:35:60:3A:6A:B8:39:59:D1:B3:22:86:F7:D6:98:5C:FB:34:EB:F7`
 
-## 3. Дизайн — ДНК ScoreMaster
-
-- **Формы-аватары** (гексагон / круг / звезда / восьмиугольник) → обложки колод. Уникально для ниши.
-- Tonal-селектор языка сверху (как «Игры: 101» в ScoreMaster).
-- Сетка колод 2×N, активный элемент залит `primary-container`, badge «18 к повтору».
-- Нижняя навигация с зелёным pill-индикатором. FAB для быстрой карты.
-- **Dynamic color из обоев** (Material You) — в нише не занял никто. Плюс пресет-темы (как 20 тем в Togetherly).
-- Экран повторения: **wavy-прогресс M3 Expressive** + flip-анимация карты + haptics.
-
-Экраны см. в [`docs/concept-mockup.html`](docs/concept-mockup.html): **Колоды · Повторение · Создание · Прогресс**.
+### Privacy
+No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it.
 
 ---
 
-## 4. Тех-стек (Flutter, всё офлайн)
+## 🌿 Fern (Русский)
 
-| Задача | Пакет | Лицензия |
-|--------|-------|----------|
-| SRS-планировщик | `fsrs` | MIT |
-| Локальная БД | `drift` (SQLite) или `isar` | MIT |
-| Офлайн-перевод | `google_mlkit_translation` | MIT |
-| OCR | `google_mlkit_text_recognition` | MIT |
-| TTS | `flutter_tts` | MIT |
-| Графики | `fl_chart` | BSD-3 |
-| Уведомления | `flutter_local_notifications` | BSD-3 |
-| Домашний виджет | `home_widget` (+ нативный Glance) | MIT |
-| Импорт `.apkg` | `archive` + `sqlite3` + zstd (FFI) | — |
-| Реклама | Яндекс Mobile Ads SDK | — |
-| Платежи | RuStore Billing SDK (комиссия 0,9–3,35%) | — |
+**Fern** — красивые флеш-карточки для изучения языков в стиле **Material You**: тёмно-зелёная тема, офлайн-первично, умное интервальное повторение (FSRS). Учи слова из видео, книг и фото. Без аккаунта и облака.
 
-Бэкенд для MVP **не нужен**. Опциональный синк позже — PocketBase VPS.
+### Стек
+- **Flutter** (Material 3 Expressive, dynamic color / Material You)
+- **Локально-первично** — всё на устройстве: хранилище SQLite, JSON-бэкап + слияние, без аккаунта и сервера
+- **Офлайн-движки** — перевод и OCR через [ML Kit](https://developers.google.com/ml-kit) на устройстве; по желанию — свои серверы перевода (Ollama / LibreTranslate / DeepL / OpenAI-совместимые)
+- **FSRS** — свой планировщик интервального повторения (персонализируемый)
 
----
+### Особенности
+- **Умное обучение** — FSRS-планировщик, адаптивный режим **«Учить»**, дневные цели, серии со щитами-заморозками, достижения, богатая статистика прогресса
+- **Режимы** — Учить · Карточки · Тест · Подбор · Письмо · Диктант · Собери фразу · Аудио · Контекст · Трудные · Скорость · Перед экзаменом
+- **Из видео** — вставь ссылку на YouTube → субтитры превращаются в карточки слов с переводом, живой озвучкой и караоке-чтением
+- **Из книг** — читалка EPUB / FB2 / TXT / SRT с тапом-переводом, главами, закладками, темами чтения, чтением вслух и умным анализом словаря (сколько текста ты уже знаешь)
+- **Из фото (OCR)** — сфотографируй страницу и добавь слова в колоду
+- **Быстрый захват слов** — из буфера обмена, через системное **«Поделиться»**, с фото
+- **Грамматика на карточке** — спряжение глаголов и формы существительных (es / fr / de / it / pt / ru)
+- **Озвучка (TTS)**, теги частей речи, готовые стартовые колоды, импорт колод (Anki `.apkg` / CSV / TSV), экспорт словаря
+- **Свои изучаемые языки** — создавай, редактируй и закрепляй свои; язык источника видео/книг определяется автоматически
+- **Темы** — светлая / тёмная / системная / по времени, dynamic color, AMOLED
+- **7 языков интерфейса** 🇷🇺 🇬🇧 🇩🇪 🇫🇷 🇪🇸 🇮🇹 🇵🇹 (определяются по телефону)
 
-## 5. Модель данных (набросок)
+### Установка (Android)
+Распространяется **через GitHub Releases** (не в Google Play).
 
-```
-Deck        { id, name, langFrom, langTo, shape, color, createdAt }
-Card        { id, deckId, type, front, back, example, audioPath, imagePath }
-ReviewState { cardId, due, stability, difficulty, reps, lapses, lastReview, state }  // FSRS
-ReviewLog   { id, cardId, rating, reviewedAt, elapsedDays, scheduledDays }           // для будущего оптимизатора
-Settings    { targetPerDay, theme, dynamicColor, algo(fsrs|sm2) }
-```
+**Рекомендуется — [Obtainium](https://github.com/ImranR98/Obtainium)** (авто-обновления):
+1. Установи Obtainium.
+2. **Add App** → вставь `https://github.com/THET1ME-1/fern_releases` → Add.
+3. Выбери APK под свой процессор (`arm64-v8a` — почти все телефоны).
 
----
+One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 
-## 6. Дорожная карта
+Или скачай APK со [страницы релизов](https://github.com/THET1ME-1/fern_releases/releases/latest). Приложение также **обновляется само** изнутри.
 
-### MVP (~3–4 недели) — работающий красивый локальный SRS
-- [ ] Модель данных + локальная БД (drift/isar)
-- [ ] Экран «Колоды» (формы-аватары, селектор языка) — экран 1 макета
-- [ ] Экран «Повторение» (FSRS, свайп + 4 кнопки, flip) — экран 2 макета
-- [ ] Создание карты: ручной ввод + офлайн-перевод + TTS + вставка списком
-- [ ] Material You + dynamic color, тёмная зелёная тема ScoreMaster
-- [ ] Готовые колоды-примеры + онбординг
-- [ ] Экран «Прогресс» (стрик, кольцо цели, heatmap)
+Отпечаток подписи (SHA-256) для проверки APK:
+`C7:72:9A:19:D0:EA:2E:D9:E5:69:51:68:3A:35:60:3A:6A:B8:39:59:D1:B3:22:86:F7:D6:98:5C:FB:34:EB:F7`
 
-### Волна 2 — переманивание и удержание
-- [ ] Импорт `.apkg`
-- [ ] OCR-майнинг (скан фото/субтитров)
-- [ ] Share-sheet «добавить слово»
-- [ ] Домашний виджет «N к повтору»
-- [ ] Локальные уведомления
-
-### Волна 3 — монетизация и облако
-- [ ] Реклама Яндекса (ненавязчивая, между сессиями) + разовое «убрать рекламу» (RuStore)
-- [ ] Pro: облачный синк (PocketBase, честный merge), OCR, темы, статистика-про
-- [ ] Экспорт/бэкап
+### Приватность
+Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь.
 
 ---
 
-## 7. Монетизация
-
-Не золотая жила (ниша небогатая), но экономика сходится за счёт переиспользования инфраструктуры Togetherly:
-- **Реклама Яндекса** между сессиями — НЕ полноэкранная с микрокрестиком (главная жалоба рынка).
-- **Разовая покупка «убрать рекламу»** через RuStore — все просят, никто не даёт.
-- **Pro**: синк, OCR-майнинг, темы, расширенная статистика.
-- Оплата через RuStore Billing (рабочая, в отличие от сломанного Google Pay у Quizlet в РФ).
-
----
-
-## 8. Открытые решения
-- Финальное имя приложения и bundle id.
-- FSRS-оптимизатор: FFI к `fsrs-rs` или серверный батч — решить, когда наберётся история повторов (нужно ≥~1000).
-- `.apkg` `anki21b`: тянуть ли zstd+protobuf сразу или ограничиться legacy-форматом на старте.
-- Набор языков офлайн-TTS зависит от голосов устройства — проверить на целевых прошивках (Xiaomi/Samsung).
-
----
-
-## 9. Git
-Идентичность коммитов: `THET1ME-1 <badzoff@gmail.com>` (проверяется `git config --local`). Приватный репозиторий под аккаунтом `THET1ME-1`.
+<div align="center">
+<sub>🌿 Fern · Flutter · Material 3 Expressive · offline-first</sub>
+</div>
