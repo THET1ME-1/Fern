@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter/services.dart';
+
 import 'achievements_screen.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
+import 'models/review_event.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
+import 'services/notification_service.dart';
 import 'services/pos.dart';
 import 'services/source_library.dart';
+import 'services/study_insights.dart';
+import 'study/session_screen.dart';
+import 'study/study_models.dart';
 import 'theme/app_theme.dart';
+import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
 import 'widgets/weekly_recap.dart';
 
@@ -28,6 +36,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
   List<Deck> _decks = [];
   List<LibrarySource> _books = [];
   ReviewLog _log = ReviewLog.empty();
+  List<ReviewEvent> _events = [];
   bool _loading = true;
 
   @override
@@ -49,6 +58,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final cards = await _repo.loadCards();
     final decks = await _repo.loadDecks();
     final log = await _repo.reviewLog();
+    final events = await _repo.reviewEvents();
     final sources = await _library.list();
     if (!mounted) return;
     setState(() {
@@ -56,6 +66,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       _decks = decks;
       _books = sources.where((s) => s.isBook).toList();
       _log = log;
+      _events = events;
       _loading = false;
     });
   }
@@ -164,6 +175,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     streak: streak,
                   ),
                 ),
+                ..._atRiskSection(scheme, now),
+                ..._bestTimeSection(scheme, now),
                 ..._extraStats(scheme),
                 ..._vocabSection(scheme),
                 ..._posSection(scheme),
@@ -862,6 +875,190 @@ class _ProgressScreenState extends State<ProgressScreen> {
         ),
       ),
     );
+  }
+
+  // ------------------------- Под угрозой забывания -------------------------
+
+  List<Widget> _atRiskSection(ColorScheme scheme, DateTime now) {
+    final risk = StudyInsights.atRisk(_cards, now);
+    if (risk.length < 3) return const []; // мало данных — не шумим
+    final top = risk.take(6).toList();
+    final reviewCount = risk.length > 40 ? 40 : risk.length;
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('at_risk_title'), scheme),
+      const SizedBox(height: 4),
+      Text(
+        tr('at_risk_sub'),
+        style: TextStyle(
+          fontFamily: AppTheme.bodyFont,
+          fontSize: 12.5,
+          color: scheme.onSurfaceVariant,
+        ),
+      ),
+      const SizedBox(height: 12),
+      for (final w in top) _riskTile(scheme, w),
+      const SizedBox(height: 4),
+      SizedBox(
+        width: double.infinity,
+        child: FilledButton.tonalIcon(
+          onPressed: () => _reviveSession(risk),
+          icon: const Icon(Icons.restart_alt_rounded, size: 20),
+          label: Text(trf('review_n', {'n': reviewCount})),
+        ),
+      ),
+    ];
+  }
+
+  Widget _riskTile(ColorScheme scheme, RiskWord w) {
+    // Ниже память — «горячее» цвет пилюли (красный), иначе — янтарный.
+    final hot = w.retrievability < 0.75;
+    final accent = hot ? const Color(0xFFC7443F) : const Color(0xFFDDA13F);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        decoration: BoxDecoration(
+          color: scheme.surfaceContainerHigh,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.hourglass_bottom_rounded, color: accent, size: 20),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                '${w.card.front} — ${w.card.back}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontWeight: FontWeight.w600,
+                  color: scheme.onSurface,
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: accent.withValues(alpha: 0.16),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                '${w.memoryPercent}%',
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12.5,
+                  color: accent,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _reviveSession(List<RiskWord> risk) async {
+    final cards = [for (final w in risk.take(40)) w.card];
+    if (cards.isEmpty) return;
+    HapticFeedback.selectionClick();
+    final lang = _decks
+            .where((d) => d.id == cards.first.deckId)
+            .map((d) => d.languageCode)
+            .followedBy(['en']).first;
+    final deck = Deck(
+      id: 'at_risk',
+      languageCode: lang,
+      name: tr('at_risk_title'),
+      colorValue: 0xFF5B8DEF,
+      shapeIndex: 0,
+      createdAt: 0,
+    );
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) =>
+            SessionScreen(deck: deck, mode: StudyMode.revive, cards: cards),
+      ),
+    );
+  }
+
+  // ------------------------- Лучшее время учить -------------------------
+
+  List<Widget> _bestTimeSection(ColorScheme scheme, DateTime now) {
+    final hour = StudyInsights.bestStudyHour(_events);
+    if (hour == null) return const [];
+    final hh = hour.toString().padLeft(2, '0');
+    return [
+      const SizedBox(height: 16),
+      PressableScale(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.schedule_rounded, color: scheme.primary, size: 24),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tr('best_time_title'),
+                      style: TextStyle(
+                        fontFamily: AppTheme.displayFont,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      trf('best_time_body', {'h': hh}),
+                      style: TextStyle(
+                        fontFamily: AppTheme.bodyFont,
+                        fontSize: 12.5,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 8),
+              FilledButton.tonal(
+                onPressed: () => _setBestTimeReminder(hour),
+                child: Text(tr('best_time_set')),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ];
+  }
+
+  Future<void> _setBestTimeReminder(int hour) async {
+    HapticFeedback.selectionClick();
+    await _repo.setReminderTime(hour, 0);
+    await _repo.setReminderEnabled(true);
+    await NotificationService.instance.scheduleDaily(
+      hour: hour,
+      minute: 0,
+      title: tr('reminder_push_title'),
+      body: tr('reminder_push_body'),
+    );
+    if (mounted) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+            content: Text(
+                trf('best_time_done', {'h': hour.toString().padLeft(2, '0')}))));
+    }
   }
 
   List<Widget> _hardest(ColorScheme scheme) {

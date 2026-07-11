@@ -17,6 +17,7 @@ enum StudyMode {
   speed,
   cloze,
   cram,
+  revive,
 }
 
 /// Направление изучения колоды.
@@ -186,6 +187,11 @@ class SessionBuilder {
           for (final c in all)
             Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
         ];
+
+      case StudyMode.revive:
+        // «Под угрозой»: прогоняем ИМЕННО переданные карты (уже отобраны/
+        // отсортированы по слабости памяти) флип-карточками, влияя на FSRS.
+        return [for (final c in cards) Exercise(c, ExerciseKind.flip)];
 
       case StudyMode.match:
         // match — отдельный экран-игра.

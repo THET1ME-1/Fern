@@ -8,6 +8,7 @@ import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import '../book_screen.dart';
 import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
+import '../services/article_import.dart';
 import '../services/deck_repository.dart';
 import '../services/language_detect.dart';
 import '../services/pos.dart';
@@ -163,6 +164,39 @@ class ShareImport {
     );
   }
 
+  /// Загружает статью по ссылке [url] и открывает её как книгу в Библиотеке.
+  static Future<void> importArticle(BuildContext context, String url) async {
+    final messenger = ScaffoldMessenger.of(context);
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(tr('article_fetching'))));
+    final article = await ArticleImport.fetch(url);
+    if (!context.mounted) return;
+    if (article == null || !article.hasText) {
+      messenger
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr('article_failed'))));
+      return;
+    }
+    final lang = LanguageDetect.detect(article.text) ??
+        await DeckRepository.instance.selectedLanguageCode() ??
+        'en';
+    final id = await SourceLibrary.instance.saveBook(
+      title: article.title,
+      languageCode: lang,
+      format: 'web',
+      text: article.text,
+    );
+    if (id == null || !context.mounted) return;
+    final src = await SourceLibrary.instance.get(id);
+    if (src == null || !context.mounted) return;
+    messenger.hideCurrentSnackBar();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => BookScreen(source: src)),
+    );
+  }
+
   static String _titleFrom(String text) {
     final firstLine = text.split('\n').first.trim();
     final base = firstLine.isEmpty ? text.trim() : firstLine;
@@ -178,9 +212,11 @@ class _ShareSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    // Короткий текст → скорее слово; длинный → скорее чтение.
+    // Есть ссылка → предлагаем загрузить статью; иначе слово/чтение по длине.
+    final url = ArticleImport.firstUrl(text);
+    final hasUrl = url != null;
     final wordCount = text.trim().split(RegExp(r'\s+')).length;
-    final looksLikeWord = wordCount <= 4;
+    final looksLikeWord = !hasUrl && wordCount <= 4;
 
     return SafeArea(
       child: Padding(
@@ -230,6 +266,21 @@ class _ShareSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+            if (hasUrl) ...[
+              _option(
+                context,
+                scheme,
+                icon: Icons.article_rounded,
+                title: tr('share_as_article'),
+                subtitle: tr('share_as_article_sub'),
+                highlight: true,
+                onTap: () {
+                  Navigator.pop(context);
+                  ShareImport.importArticle(context, url);
+                },
+              ),
+              const SizedBox(height: 10),
+            ],
             _option(
               context,
               scheme,
@@ -249,7 +300,7 @@ class _ShareSheet extends StatelessWidget {
               icon: Icons.auto_stories_rounded,
               title: tr('share_as_book'),
               subtitle: tr('share_as_book_sub'),
-              highlight: !looksLikeWord,
+              highlight: !hasUrl && !looksLikeWord,
               onTap: () {
                 Navigator.pop(context);
                 ShareImport.addAsBook(context, text);

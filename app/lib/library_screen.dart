@@ -12,6 +12,7 @@ import 'services/language_detect.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
 import 'ocr/ocr_screen.dart';
+import 'share/share_import.dart';
 import 'video/subtitle.dart';
 import 'video/video_import_screen.dart';
 import 'video/video_screen.dart';
@@ -510,16 +511,77 @@ class _LibraryScreenState extends State<LibraryScreen> {
           ],
         ),
         const SizedBox(height: 12),
-        _actionCard(
-          title: tr('ocr_hub_title'),
-          subtitle: tr('ocr_hub_sub'),
-          icon: Icons.document_scanner_rounded,
-          bg: scheme.secondaryContainer,
-          fg: scheme.onSecondaryContainer,
-          onTap: _openOcr,
-          busy: false,
+        Row(
+          children: [
+            Expanded(
+              child: _actionCard(
+                title: tr('ocr_hub_title'),
+                subtitle: tr('ocr_hub_sub'),
+                icon: Icons.document_scanner_rounded,
+                bg: scheme.secondaryContainer,
+                fg: scheme.onSecondaryContainer,
+                onTap: _openOcr,
+                busy: false,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: _actionCard(
+                title: tr('article_import_title'),
+                subtitle: tr('article_import_sub'),
+                icon: Icons.article_rounded,
+                bg: scheme.surfaceContainerHighest,
+                fg: scheme.onSurface,
+                onTap: _addArticle,
+                busy: false,
+              ),
+            ),
+          ],
         ),
       ],
+    );
+  }
+
+  Future<void> _addArticle() async {
+    final url = await _askUrl();
+    if (url == null || url.trim().isEmpty || !mounted) return;
+    await ShareImport.importArticle(context, url.trim());
+  }
+
+  /// Диалог ввода ссылки на статью (с кнопкой «Вставить» из буфера).
+  Future<String?> _askUrl() {
+    final controller = TextEditingController();
+    return showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(tr('article_import_title')),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          keyboardType: TextInputType.url,
+          decoration: InputDecoration(
+            hintText: tr('article_paste_url'),
+            suffixIcon: IconButton(
+              icon: const Icon(Icons.content_paste_rounded),
+              onPressed: () async {
+                final data = await Clipboard.getData(Clipboard.kTextPlain);
+                if (data?.text != null) controller.text = data!.text!.trim();
+              },
+            ),
+          ),
+          onSubmitted: (v) => Navigator.pop(ctx, v),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, controller.text),
+            child: Text(tr('video_parse')),
+          ),
+        ],
+      ),
     );
   }
 

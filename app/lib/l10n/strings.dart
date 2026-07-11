@@ -588,6 +588,19 @@ const Map<String, Map<String, String>> _strings = {
   'read_hr_min': {'ru': '{h} ч {m} мин', 'en': '{h}h {m}m'},
   'forecast': {'ru': 'Нагрузка на неделю', 'en': 'Week forecast'},
   'hardest_words': {'ru': 'Трудные слова', 'en': 'Hardest words'},
+  'at_risk_title': {'ru': 'Под угрозой забывания', 'en': 'At risk of forgetting'},
+  'at_risk_sub': {
+    'ru': 'Слова, которые вот-вот забудутся — повтори их первыми',
+    'en': 'Words about to fade — review these first'
+  },
+  'review_n': {'ru': 'Повторить ({n})', 'en': 'Review ({n})'},
+  'best_time_title': {'ru': 'Лучшее время учить', 'en': 'Best time to study'},
+  'best_time_body': {
+    'ru': 'Ты чаще занимаешься около {h}:00',
+    'en': 'You usually study around {h}:00'
+  },
+  'best_time_set': {'ru': 'Напоминать тогда', 'en': 'Remind me then'},
+  'best_time_done': {'ru': 'Напоминание на {h}:00', 'en': 'Reminder set for {h}:00'},
   'no_data': {'ru': 'Пока нет данных', 'en': 'No data yet'},
   'overview': {'ru': 'Обзор', 'en': 'Overview'},
 
@@ -734,6 +747,10 @@ const Map<String, Map<String, String>> _strings = {
   'reader_mode_scroll': {'ru': 'Прокрутка', 'en': 'Scroll'},
   'reader_mode_paged': {'ru': 'Страницы', 'en': 'Pages'},
   'highlight_words': {'ru': 'Подсветка слов', 'en': 'Highlight words'},
+  'reader_bilingual': {
+    'ru': 'Перевод под абзацем',
+    'en': 'Translation under paragraphs'
+  },
   'highlight_known': {'ru': 'Знакомые', 'en': 'Known'},
   'highlight_unknown': {'ru': 'Незнакомые', 'en': 'Unknown'},
   'highlight_off': {'ru': 'Выкл', 'en': 'Off'},
@@ -950,6 +967,20 @@ const Map<String, Map<String, String>> _strings = {
   'share_open_video': {'ru': 'Разобрать видео', 'en': 'Learn from video'},
   'shared_text': {'ru': 'Полученный текст', 'en': 'Shared text'},
   'share_source': {'ru': 'Из общего доступа', 'en': 'Shared'},
+  'share_as_article': {'ru': 'Статья по ссылке', 'en': 'Article from link'},
+  'share_as_article_sub': {
+    'ru': 'Загрузить страницу в Библиотеку',
+    'en': 'Fetch the page into the Library'
+  },
+  // Импорт статьи по ссылке
+  'article_import_title': {'ru': 'Статья по ссылке', 'en': 'Article from a link'},
+  'article_import_sub': {'ru': 'Веб-страница → чтение', 'en': 'A web page → reading'},
+  'article_paste_url': {'ru': 'Ссылка на статью', 'en': 'Article URL'},
+  'article_fetching': {'ru': 'Загружаем статью…', 'en': 'Fetching the article…'},
+  'article_failed': {
+    'ru': 'Не удалось загрузить статью',
+    'en': 'Could not fetch the article'
+  },
 
   // ----------------------------- Грамматика карточки ------------------------------
   'grammar_title': {'ru': 'Грамматика', 'en': 'Grammar'},

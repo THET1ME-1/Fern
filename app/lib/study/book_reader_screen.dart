@@ -12,6 +12,7 @@ import '../services/deck_repository.dart';
 import '../services/lemmatizer.dart';
 import '../services/pos.dart';
 import '../services/source_library.dart';
+import '../services/translation/translation_manager.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../video/add_target.dart';
@@ -68,6 +69,10 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   int _knownVersion = 0;
   final Set<int> _bookmarks = {};
   final List<BookChapter> _chapters = [];
+
+  // Билингва: перевод абзаца по индексу (лениво, кэшируется).
+  final Map<int, String> _paraTr = {};
+  final Set<int> _paraTrBusy = {};
 
   // Текущий верхний абзац. Держим и в поле (для сохранения/закладок), и в
   // [ValueNotifier] — чтобы полоса прогресса и футер обновлялись при прокрутке
@@ -651,6 +656,32 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
             ),
           ),
         );
+        // Билингва: под оригиналом — перевод абзаца (лениво подгружается).
+        if (_settings.bilingual && _srcLang != _tgtLang) {
+          if (!_paraTr.containsKey(i) && !_paraTrBusy.contains(i)) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => _translatePara(i));
+          }
+          content = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              content,
+              Padding(
+                padding: EdgeInsets.only(left: bookmarked ? 12 : 0, bottom: 6),
+                child: Text(
+                  _paraTr[i] ?? '…',
+                  style: TextStyle(
+                    fontFamily: _settings.fontFamily,
+                    fontSize: 15 * _settings.fontScale,
+                    height: _settings.lineHeight,
+                    fontStyle: FontStyle.italic,
+                    color: t.faint,
+                  ),
+                ),
+              ),
+            ],
+          );
+        }
         // Подсветка абзаца, который сейчас читается вслух.
         if (speaking) {
           content = Container(
@@ -667,6 +698,26 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         return RepaintBoundary(child: content);
       },
     );
+  }
+
+  /// Лениво переводит абзац [i] на язык интерфейса (кэшируется). Ничего не
+  /// делает, если билингва выключена, языки совпадают, перевод недоступен или
+  /// абзац уже переведён / переводится.
+  Future<void> _translatePara(int i) async {
+    if (!_settings.bilingual || _srcLang == _tgtLang) return;
+    if (i < 0 || i >= _paragraphs.length) return;
+    if (_paraTr.containsKey(i) || _paraTrBusy.contains(i)) return;
+    if (!TranslationManager.instance.canTranslate(_srcLang, _tgtLang)) return;
+    _paraTrBusy.add(i);
+    final res = await TranslationManager.instance
+        .translate(_paragraphs[i], _srcLang, _tgtLang, enrich: false);
+    if (!mounted) return;
+    setState(() {
+      _paraTrBusy.remove(i);
+      if (res != null && res.primary.trim().isNotEmpty) {
+        _paraTr[i] = res.primary.trim();
+      }
+    });
   }
 
   // ------------------------------- Закладки: лист -------------------------------
@@ -1144,6 +1195,8 @@ class _ReaderSettingsSheet extends StatelessWidget {
             const SizedBox(height: 8),
             _highlightChoice(t),
             const SizedBox(height: 20),
+            _bilingualToggle(t),
+            const SizedBox(height: 20),
             _label(tr('reader_theme'), t),
             const SizedBox(height: 10),
             Row(
@@ -1325,6 +1378,46 @@ class _ReaderSettingsSheet extends StatelessWidget {
         opt(false, Icons.swap_vert_rounded, tr('reader_mode_scroll')),
         opt(true, Icons.menu_book_rounded, tr('reader_mode_paged')),
       ],
+    );
+  }
+
+  /// Тумблер билингвы: перевод абзаца под оригиналом (только в режиме прокрутки —
+  /// при включении переходим на прокрутку).
+  Widget _bilingualToggle(ReaderTheme t) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(14, 4, 8, 4),
+      decoration: BoxDecoration(
+        color: t.faint.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.translate_rounded, size: 20, color: t.accent),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              tr('reader_bilingual'),
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontWeight: FontWeight.w600,
+                fontSize: 14.5,
+                color: t.text,
+              ),
+            ),
+          ),
+          Switch(
+            value: settings.bilingual,
+            activeThumbColor: t.accent,
+            onChanged: (v) {
+              HapticFeedback.selectionClick();
+              settings.setBilingual(v);
+              if (v && settings.horizontalPaging) {
+                settings.setHorizontalPaging(false); // билингва — в прокрутке
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 
