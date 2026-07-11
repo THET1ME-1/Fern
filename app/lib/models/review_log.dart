@@ -20,8 +20,15 @@ class DayStat {
 /// Журнал по дням. Ключ — локальная дата `yyyy-MM-dd`.
 class ReviewLog {
   final Map<String, DayStat> days;
-  const ReviewLog(this.days);
-  ReviewLog.empty() : days = {};
+
+  /// Дни, «прикрытые» серией-щитом (заморозка): считаются активными для стрика,
+  /// даже если занятий не было. Хранятся отдельно (в prefs), см. DeckRepository.
+  final Set<String> frozen;
+
+  const ReviewLog(this.days, {this.frozen = const {}});
+  ReviewLog.empty()
+      : days = {},
+        frozen = const {};
 
   /// Ключ дня по локальному времени.
   static String keyFor(DateTime d) {
@@ -34,17 +41,21 @@ class ReviewLog {
   DayStat statOn(DateTime d) => days[keyFor(d)] ?? const DayStat();
   int reviewsOn(DateTime d) => statOn(d).reviews;
 
+  /// День «активен» для серии: были занятия ИЛИ он прикрыт щитом (заморозкой).
+  bool activeOn(DateTime d) => reviewsOn(d) > 0 || frozen.contains(keyFor(d));
+
   /// Серия: сколько дней подряд заканчиваются сегодня (или вчера) занятиями.
   ///
   /// Если сегодня ещё не занимались — серия НЕ рвётся до конца дня: считаем от
-  /// вчера. Это привычный «прощающий» стрик (как в Duolingo).
+  /// вчера. Это привычный «прощающий» стрик (как в Duolingo). Замороженные щитом
+  /// дни считаются активными.
   int streak(DateTime now) {
     var day = DateTime(now.year, now.month, now.day);
-    if (reviewsOn(day) == 0) {
+    if (!activeOn(day)) {
       day = day.subtract(const Duration(days: 1));
     }
     var count = 0;
-    while (reviewsOn(day) > 0) {
+    while (activeOn(day)) {
       count++;
       day = day.subtract(const Duration(days: 1));
     }

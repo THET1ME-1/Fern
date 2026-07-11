@@ -1,37 +1,350 @@
 {
-  "lang": "es",
-  "decks": [
+ "lang": "es",
+ "decks": [
+  {
+   "name": "First words",
+   "shape": 0,
+   "cards": [
     {
-      "name": "Первые слова",
-      "shape": 0,
-      "cards": [
-        {"front": "hola", "back": "привет", "example": "¡Hola! ¿Cómo estás?"},
-        {"front": "adiós", "back": "до свидания", "example": "Adiós, hasta mañana."},
-        {"front": "sí", "back": "да", "example": "Sí, claro."},
-        {"front": "no", "back": "нет", "example": "No, gracias."},
-        {"front": "por favor", "back": "пожалуйста", "example": "Un café, por favor."},
-        {"front": "gracias", "back": "спасибо", "example": "Muchas gracias."},
-        {"front": "perdón", "back": "извините", "example": "Perdón, llego tarde."},
-        {"front": "agua", "back": "вода", "example": "Un vaso de agua."},
-        {"front": "comida", "back": "еда", "example": "La comida está lista."},
-        {"front": "amigo", "back": "друг", "example": "Él es mi amigo."},
-        {"front": "familia", "back": "семья", "example": "Amo a mi familia."},
-        {"front": "casa", "back": "дом", "example": "Mi casa es pequeña."},
-        {"front": "día", "back": "день", "example": "¡Buen día!"},
-        {"front": "noche", "back": "ночь", "example": "Buenas noches."},
-        {"front": "hombre", "back": "мужчина", "example": "El hombre trabaja."},
-        {"front": "mujer", "back": "женщина", "example": "La mujer es médica."},
-        {"front": "niño", "back": "ребёнок", "example": "El niño juega."},
-        {"front": "bueno", "back": "хороший", "example": "Es una buena idea."},
-        {"front": "malo", "back": "плохой", "example": "El tiempo está malo."},
-        {"front": "grande", "back": "большой", "example": "Una ciudad grande."},
-        {"front": "pequeño", "back": "маленький", "example": "Un perro pequeño."},
-        {"front": "hoy", "back": "сегодня", "example": "Hoy estoy ocupado."},
-        {"front": "mañana", "back": "завтра", "example": "Hasta mañana."},
-        {"front": "tiempo", "back": "время", "example": "No tengo tiempo."},
-        {"front": "dinero", "back": "деньги", "example": "No tengo dinero."},
-        {"front": "amor", "back": "любовь", "example": "El amor es bonito."}
-      ]
+     "front": "hola",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "saludo",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "¡Hola! ¿Cómo estás?"
+    },
+    {
+     "front": "adiós",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "despedida",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Adiós, hasta mañana."
+    },
+    {
+     "front": "sí",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "afirmación",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Sí, claro."
+    },
+    {
+     "front": "no",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "negación",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "No, gracias."
+    },
+    {
+     "front": "por favor",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "cortesía",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Un café, por favor."
+    },
+    {
+     "front": "gracias",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "agradecimiento",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Muchas gracias."
+    },
+    {
+     "front": "perdón",
+     "back": {
+      "ru": "извините",
+      "en": "sorry, excuse me",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "disculpa",
+      "it": "scusa",
+      "pt": "desculpe"
+     },
+     "example": "Perdón, llego tarde."
+    },
+    {
+     "front": "agua",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "das Wasser",
+      "fr": "l'eau",
+      "es": "líquido vital",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Un vaso de agua."
+    },
+    {
+     "front": "comida",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "das Essen",
+      "fr": "la nourriture",
+      "es": "alimento",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "La comida está lista."
+    },
+    {
+     "front": "amigo",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "der Freund",
+      "fr": "l'ami",
+      "es": "compañero cercano",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Él es mi amigo."
+    },
+    {
+     "front": "familia",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "die Familie",
+      "fr": "la famille",
+      "es": "parientes",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Amo a mi familia."
+    },
+    {
+     "front": "casa",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "das Haus",
+      "fr": "la maison",
+      "es": "vivienda",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Mi casa es pequeña."
+    },
+    {
+     "front": "día",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "der Tag",
+      "fr": "le jour",
+      "es": "jornada",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "¡Buen día!"
+    },
+    {
+     "front": "noche",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "die Nacht",
+      "fr": "la nuit",
+      "es": "período nocturno",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Buenas noches."
+    },
+    {
+     "front": "hombre",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "der Mann",
+      "fr": "l'homme",
+      "es": "varón",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "El hombre trabaja."
+    },
+    {
+     "front": "mujer",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "die Frau",
+      "fr": "la femme",
+      "es": "fémina",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "La mujer es médica."
+    },
+    {
+     "front": "niño",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "das Kind",
+      "fr": "l'enfant",
+      "es": "infante",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "El niño juega."
+    },
+    {
+     "front": "bueno",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "favorable",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Es una buena idea."
+    },
+    {
+     "front": "malo",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "deficiente",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "El tiempo está malo."
+    },
+    {
+     "front": "grande",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "amplio",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Una ciudad grande."
+    },
+    {
+     "front": "pequeño",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "reducido",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Un perro pequeño."
+    },
+    {
+     "front": "hoy",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "este día",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Hoy estoy ocupado."
+    },
+    {
+     "front": "mañana",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "día siguiente",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Hasta mañana."
+    },
+    {
+     "front": "tiempo",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "die Zeit",
+      "fr": "le temps",
+      "es": "duración",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "No tengo tiempo."
+    },
+    {
+     "front": "dinero",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "das Geld",
+      "fr": "l'argent",
+      "es": "efectivo",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "No tengo dinero."
+    },
+    {
+     "front": "amor",
+     "back": {
+      "ru": "любовь",
+      "en": "love",
+      "de": "die Liebe",
+      "fr": "l'amour",
+      "es": "cariño profundo",
+      "it": "amore",
+      "pt": "amor"
+     },
+     "example": "El amor es bonito."
     }
-  ]
+   ],
+   "nameKey": "seed_deck_first_words"
+  }
+ ]
 }

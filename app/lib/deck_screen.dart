@@ -6,12 +6,14 @@ import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/grammar.dart';
 import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'theme/app_theme.dart';
 import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_shapes.dart';
+import 'widgets/grammar_card.dart';
 import 'widgets/reveal.dart';
 import 'widgets/speaker_button.dart';
 import 'widgets/study_modes.dart';
@@ -242,7 +244,7 @@ class _DeckScreenState extends State<DeckScreen> {
     return (total: _cards.length, due: due, fresh: fresh, mature: mature);
   }
 
-  Future<void> _addOrEditCard([WordCard? existing]) async {
+  Future<void> _addOrEditCard([WordCard? existing, String? initialFront]) async {
     final result = await showModalBottomSheet<WordCard>(
       context: context,
       isScrollControlled: true,
@@ -254,10 +256,27 @@ class _DeckScreenState extends State<DeckScreen> {
         existing: existing,
         deckId: widget.deck.id,
         languageCode: widget.deck.languageCode,
+        initialFront: initialFront,
       ),
     );
     if (result == null) return;
     await _repo.upsertCard(result);
+  }
+
+  /// Добавляет слово из буфера обмена: открывает редактор с подставленным словом
+  /// (и авто-переводом, если доступен). Одним тапом — «увидел слово → в колоду».
+  Future<void> _pasteFromClipboard() async {
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    final text = (data?.text ?? '').trim();
+    if (!mounted) return;
+    if (text.isEmpty) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr('clipboard_empty'))));
+      return;
+    }
+    HapticFeedback.selectionClick();
+    await _addOrEditCard(null, text.split('\n').first.trim());
   }
 
   Future<void> _quickAdd() async {
@@ -292,6 +311,11 @@ class _DeckScreenState extends State<DeckScreen> {
       appBar: AppBar(
         title: Text(deck.name),
         actions: [
+          IconButton(
+            tooltip: tr('paste_clipboard'),
+            icon: const Icon(Icons.content_paste_rounded),
+            onPressed: _pasteFromClipboard,
+          ),
           IconButton(
             tooltip: tr('quick_add'),
             icon: const Icon(Icons.playlist_add_rounded),
@@ -832,10 +856,15 @@ class _CardEditorSheet extends StatefulWidget {
   final WordCard? existing;
   final String deckId;
   final String languageCode;
+
+  /// Предзаполненное слово (например, из буфера обмена) — с авто-переводом.
+  final String? initialFront;
+
   const _CardEditorSheet({
     this.existing,
     required this.deckId,
     required this.languageCode,
+    this.initialFront,
   });
 
   @override
@@ -866,10 +895,17 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   void initState() {
     super.initState();
     final e = widget.existing;
-    _front = TextEditingController(text: e?.front ?? '');
+    _front = TextEditingController(text: e?.front ?? widget.initialFront ?? '');
     _back = TextEditingController(text: e?.back ?? '');
     _example = TextEditingController(text: e?.example ?? '');
     _pos = e?.pos ?? '';
+    // Слово подставлено из буфера — сразу пробуем перевести.
+    if (e == null &&
+        (widget.initialFront?.trim().isNotEmpty ?? false)) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _canTranslate && _back.text.trim().isEmpty) _translate();
+      });
+    }
   }
 
   Future<void> _translate() async {
@@ -1059,6 +1095,17 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     );
   }
 
+  /// Секция грамматики (спряжение/формы), если для слова+части речи есть таблица.
+  List<Widget> _grammarSection(ColorScheme scheme) {
+    final tables =
+        Grammar.forWord(_front.text, _pos, widget.languageCode);
+    if (tables.isEmpty) return const [];
+    return [
+      const SizedBox(height: 16),
+      GrammarCard(tables: tables),
+    ];
+  }
+
   void _save() {
     final front = _front.text.trim();
     final back = _back.text.trim();
@@ -1118,6 +1165,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                 controller: _front,
                 autofocus: widget.existing == null,
                 textCapitalization: TextCapitalization.sentences,
+                onChanged: (_) => setState(() {}), // обновить грамматику
                 decoration: InputDecoration(
                   labelText: tr('card_front'),
                   prefixIcon: const Icon(Icons.text_fields_rounded),
@@ -1161,6 +1209,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
               ),
               const SizedBox(height: 16),
               _posChooser(scheme),
+              ..._grammarSection(scheme),
               const SizedBox(height: 20),
               Row(
                 children: [
@@ -1276,7 +1325,7 @@ class _QuickAddSheetState extends State<_QuickAddSheet> {
                 maxLines: 8,
                 minLines: 5,
                 decoration: InputDecoration(
-                  hintText: 'hello — привет\nwater — вода',
+                  hintText: tr('quick_add_example'),
                   alignLabelWithHint: true,
                 ),
               ),

@@ -24,10 +24,15 @@ class VideoStudyScreen extends StatefulWidget {
   /// добавленных слов. Может быть null (например, если сохранение не удалось).
   final String? sourceId;
 
+  /// Язык субтитров, если пользователь исправил автоопределение на странице
+  /// видео. Если null — берём язык из самого транскрипта.
+  final String? languageOverride;
+
   const VideoStudyScreen({
     super.key,
     required this.transcript,
     this.sourceId,
+    this.languageOverride,
   });
 
   @override
@@ -51,7 +56,8 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
   Deck? _targetDeck;
   String _pendingWord = '';
 
-  late final String _srcLang = widget.transcript.langCode.split('-').first;
+  late final String _srcLang =
+      (widget.languageOverride ?? widget.transcript.langCode).split('-').first;
   final String _tgtLang = LocaleController.instance.code;
 
   @override

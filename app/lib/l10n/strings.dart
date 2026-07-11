@@ -22,6 +22,34 @@ String trf(String key, Map<String, Object> params) {
   return s;
 }
 
+/// Выбирает перевод значения карточки (`back`) под текущий язык интерфейса.
+///
+/// В ассете `back` может быть строкой (легаси-формат, русский) или картой
+/// `{код_языка: перевод}`. Порядок отката: язык UI → английский → русский →
+/// первое доступное значение.
+String localizedBack(Object? back, [String? uiLang]) {
+  if (back is String) return back;
+  if (back is Map) {
+    final lang = uiLang ?? LocaleController.instance.code;
+    final v = back[lang] ?? back['en'] ?? back['ru'];
+    if (v is String && v.isNotEmpty) return v;
+    for (final e in back.values) {
+      if (e is String && e.isNotEmpty) return e;
+    }
+  }
+  return '';
+}
+
+/// Локализованное имя готовой/дефолтной колоды: если задан [nameKey] и он есть
+/// в словаре — через [tr], иначе — литерал [name].
+String localizedDeckName({String? nameKey, String? name}) {
+  if (nameKey != null && nameKey.isNotEmpty) {
+    final t = tr(nameKey);
+    if (t != nameKey) return t; // ключ найден в словаре
+  }
+  return name ?? '—';
+}
+
 /// Словарь интерфейсных строк (ru/en). Доп. языки — в translations.dart.
 const Map<String, Map<String, String>> _strings = {
   // ----------------------------- Общее -----------------------------
@@ -89,6 +117,13 @@ const Map<String, Map<String, String>> _strings = {
   'mode_match_sub': {'ru': 'Соедини пары на скорость', 'en': 'Match pairs fast'},
   'mode_write': {'ru': 'Письмо', 'en': 'Write'},
   'mode_write_sub': {'ru': 'Впиши перевод', 'en': 'Type the translation'},
+  'mode_spell': {'ru': 'Диктант', 'en': 'Dictation'},
+  'mode_spell_sub': {'ru': 'Слушай и пиши слово', 'en': 'Listen and spell'},
+  'mode_assemble': {'ru': 'Собери фразу', 'en': 'Build a phrase'},
+  'mode_assemble_sub': {
+    'ru': 'Слова в правильном порядке',
+    'en': 'Words in the right order'
+  },
   'mode_audio': {'ru': 'Аудио', 'en': 'Audio'},
   'mode_audio_sub': {'ru': 'Слушай и отвечай', 'en': 'Listen and answer'},
   'mode_hard': {'ru': 'Трудные слова', 'en': 'Hard words'},
@@ -108,6 +143,14 @@ const Map<String, Map<String, String>> _strings = {
   'cloze_prompt': {
     'ru': 'Впишите пропущенное слово',
     'en': 'Fill in the missing word'
+  },
+  'spell_prompt': {
+    'ru': 'Послушайте и впишите слово',
+    'en': 'Listen and type the word'
+  },
+  'assemble_prompt': {
+    'ru': 'Соберите предложение из слов',
+    'en': 'Put the words in the right order'
   },
   'soon': {'ru': 'Скоро', 'en': 'Soon'},
 
@@ -820,6 +863,124 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'Show it on the home screen'
   },
   'search_language': {'ru': 'Поиск языка', 'en': 'Search language'},
+
+  // ----------------------- Готовые/дефолтные колоды: названия ---------------------
+  'seed_deck_first_words': {'ru': 'Первые слова', 'en': 'First words'},
+  'seed_deck_verbs': {'ru': 'Глаголы', 'en': 'Verbs'},
+  'seed_deck_food': {'ru': 'Еда и напитки', 'en': 'Food & drinks'},
+  'seed_deck_clothes': {'ru': 'Одежда', 'en': 'Clothes'},
+
+  // ----------------------------- Прочие строки интерфейса -------------------------
+  'custom_color': {'ru': 'Свой цвет', 'en': 'Custom color'},
+  'quick_add_example': {
+    'ru': 'hello — привет\nwater — вода',
+    'en': 'hello — hola\nwater — agua'
+  },
+  'dur_min_sec': {'ru': '{m} мин {s} с', 'en': '{m} min {s} s'},
+  'dur_sec': {'ru': '{s} с', 'en': '{s} s'},
+  'forecast_today': {'ru': 'Сег', 'en': 'Now'},
+  'notif_channel_name': {
+    'ru': 'Ежедневные напоминания',
+    'en': 'Daily reminders'
+  },
+  'notif_channel_desc': {
+    'ru': 'Напоминание позаниматься в Fern',
+    'en': 'A reminder to study in Fern'
+  },
+
+  // ----------------------- Видео-страница и проверка языка ------------------------
+  'lang_check_title': {'ru': 'Проверьте язык', 'en': 'Check the language'},
+  'lang_detect_warning': {
+    'ru': 'Язык определён автоматически и может быть неверным — проверьте его '
+        'перед изучением.',
+    'en': 'The language was detected automatically and may be wrong — check it '
+        'before studying.'
+  },
+  'change_language': {'ru': 'Изменить язык', 'en': 'Change language'},
+  'video_open_study': {'ru': 'Смотреть и учить', 'en': 'Watch & learn'},
+  'video_delete': {'ru': 'Удалить видео', 'en': 'Delete video'},
+  'video_delete_confirm': {
+    'ru': 'Удалить видео и его субтитры? Слова в колодах останутся.',
+    'en': 'Delete the video and its subtitles? Words in your decks are kept.'
+  },
+  'video_no_transcript': {
+    'ru': 'Субтитры недоступны',
+    'en': 'Subtitles are unavailable'
+  },
+
+  // ----------------------- Захват слов: буфер / фото / «Поделиться» ---------------
+  'paste_clipboard': {'ru': 'Из буфера', 'en': 'From clipboard'},
+  'clipboard_empty': {'ru': 'Буфер обмена пуст', 'en': 'Clipboard is empty'},
+  // OCR (текст с фото)
+  'ocr_title': {'ru': 'Текст с фото', 'en': 'Text from photo'},
+  'ocr_hub_title': {'ru': 'Сфотографировать текст', 'en': 'Scan text'},
+  'ocr_hub_sub': {'ru': 'Слова с фото — в колоду', 'en': 'Photo words into a deck'},
+  'ocr_take_photo': {'ru': 'Снять фото', 'en': 'Take a photo'},
+  'ocr_from_gallery': {'ru': 'Из галереи', 'en': 'From gallery'},
+  'ocr_recognizing': {'ru': 'Распознаём…', 'en': 'Recognizing…'},
+  'ocr_no_text': {'ru': 'Текст не распознан', 'en': 'No text recognized'},
+  'ocr_words_title': {'ru': 'Новые слова', 'en': 'New words'},
+  'ocr_words_sub': {'ru': 'Тап, чтобы добавить', 'en': 'Tap to add'},
+  'ocr_source': {'ru': 'Фото', 'en': 'Photo'},
+  'recognized_text': {'ru': 'Распознанный текст', 'en': 'Recognized text'},
+  // «Поделиться» → Fern
+  'share_import_title': {'ru': 'Добавить в Fern', 'en': 'Add to Fern'},
+  'share_as_word': {'ru': 'Как слово', 'en': 'As a word'},
+  'share_as_word_sub': {
+    'ru': 'В колоду с переводом',
+    'en': 'Into a deck with translation'
+  },
+  'share_as_book': {'ru': 'Как текст для чтения', 'en': 'As reading text'},
+  'share_as_book_sub': {
+    'ru': 'Импортировать в Библиотеку',
+    'en': 'Import into the Library'
+  },
+  'share_open_video': {'ru': 'Разобрать видео', 'en': 'Learn from video'},
+  'shared_text': {'ru': 'Полученный текст', 'en': 'Shared text'},
+  'share_source': {'ru': 'Из общего доступа', 'en': 'Shared'},
+
+  // ----------------------------- Грамматика карточки ------------------------------
+  'grammar_title': {'ru': 'Грамматика', 'en': 'Grammar'},
+  'grammar_present': {'ru': 'Настоящее время', 'en': 'Present tense'},
+  'grammar_forms': {'ru': 'Формы', 'en': 'Forms'},
+  'grammar_singular': {'ru': 'Ед. ч.', 'en': 'Singular'},
+  'grammar_plural': {'ru': 'Мн. ч.', 'en': 'Plural'},
+  'grammar_approx': {
+    'ru': 'Формы построены по правилам — возможны исключения',
+    'en': 'Rule-based forms — exceptions are possible'
+  },
+
+  // ----------------------- Свои изучаемые языки / закрепление ---------------------
+  'pinned': {'ru': 'Закреплённые', 'en': 'Pinned'},
+  'all_languages': {'ru': 'Все языки', 'en': 'All languages'},
+  'pin_language': {'ru': 'Закрепить', 'en': 'Pin'},
+  'unpin_language': {'ru': 'Открепить', 'en': 'Unpin'},
+  'create_language': {'ru': 'Создать свой язык', 'en': 'Add a custom language'},
+  'edit_language': {'ru': 'Изменить язык', 'en': 'Edit language'},
+  'delete_language': {'ru': 'Удалить язык', 'en': 'Delete language'},
+  'delete_language_confirm': {
+    'ru': 'Убрать этот язык из списка? Колоды и слова на нём сохранятся.',
+    'en': 'Remove this language from the list? Its decks and words are kept.'
+  },
+  'add_language_named': {'ru': 'Добавить «{code}»', 'en': 'Add "{code}"'},
+  'lang_name_hint': {'ru': 'Название (напр. Suomi)', 'en': 'Name (e.g. Suomi)'},
+  'lang_emoji_hint': {'ru': 'Флаг / эмодзи', 'en': 'Flag / emoji'},
+  'lang_code_taken': {
+    'ru': 'Такой код уже используется',
+    'en': 'This code is already used'
+  },
+  'unknown_language': {'ru': 'Неизвестный язык', 'en': 'Unknown language'},
+  'custom_lang_tag': {'ru': 'свой', 'en': 'custom'},
+
+  // ----------------------------- Мотивация / итоги недели -------------------------
+  'your_week': {'ru': 'Твоя неделя', 'en': 'Your week'},
+  'week_days': {'ru': 'дней', 'en': 'days'},
+  'freezes_n': {'ru': 'Щиты: {n}', 'en': 'Freezes: {n}'},
+  'share': {'ru': 'Поделиться', 'en': 'Share'},
+  'streak_saved': {
+    'ru': 'Щит спас твою серию за пропущенный день ❄️',
+    'en': 'A freeze saved your streak for a missed day ❄️'
+  },
 
   // ----------------------------- Языки (родные названия для баннера) --------------
   'lang_en': {'ru': 'Английский', 'en': 'English'},

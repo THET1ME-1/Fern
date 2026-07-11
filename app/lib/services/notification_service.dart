@@ -6,6 +6,8 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
+import '../l10n/strings.dart';
+
 /// Локальные уведомления: ежедневное напоминание позаниматься.
 ///
 /// Всё обёрнуто в проверки платформы и try/catch: на десктопе/в тестах методы
@@ -90,10 +92,10 @@ class NotificationService {
     if (!_tzReady) return;
     try {
       await _plugin.cancel(id: _dailyId);
-      const androidDetails = AndroidNotificationDetails(
+      final androidDetails = AndroidNotificationDetails(
         _channelId,
-        'Ежедневные напоминания',
-        channelDescription: 'Напоминание позаниматься в Fern',
+        tr('notif_channel_name'),
+        channelDescription: tr('notif_channel_desc'),
         importance: Importance.high,
         priority: Priority.high,
       );
@@ -102,9 +104,9 @@ class NotificationService {
         title: title,
         body: body,
         scheduledDate: _nextInstanceOf(hour, minute),
-        notificationDetails: const NotificationDetails(
+        notificationDetails: NotificationDetails(
           android: androidDetails,
-          iOS: DarwinNotificationDetails(),
+          iOS: const DarwinNotificationDetails(),
         ),
         androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
         matchDateTimeComponents: DateTimeComponents.time, // каждый день

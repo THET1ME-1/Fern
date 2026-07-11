@@ -10,6 +10,8 @@ enum StudyMode {
   test,
   match,
   write,
+  spell,
+  assemble,
   audio,
   hard,
   speed,
@@ -26,7 +28,7 @@ StudyDirection studyDirectionFromIndex(int i) =>
     : StudyDirection.forward;
 
 /// Тип одного упражнения (виджета) внутри сессии.
-enum ExerciseKind { flip, choose, type, trueFalse, listen, cloze }
+enum ExerciseKind { flip, choose, type, trueFalse, listen, cloze, spell, assemble }
 
 extension StudyModeInfo on StudyMode {
   /// Влияет ли режим на планировщик FSRS. Тест, игра «Подбор» и зубрёжка перед
@@ -93,6 +95,25 @@ class SessionBuilder {
         return [
           for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
             Exercise(c, ExerciseKind.type, reversed: _reversedFor(direction)),
+        ];
+
+      case StudyMode.spell:
+        // «Диктант»: слышим слово на изучаемом языке и вписываем его по буквам.
+        return [
+          for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
+            Exercise(c, ExerciseKind.spell),
+        ];
+
+      case StudyMode.assemble:
+        // «Собери фразу»: из перемешанных слов собрать предложение-контекст.
+        final eligible = cards.where((c) => buildAssemble(c) != null).toList();
+        final dueA =
+            eligible.where((c) => !c.review.isNew && c.isDue(now)).toList();
+        final freshA = eligible.where((c) => c.review.isNew).toList();
+        return [
+          for (final c
+              in _selectSession(dueA, freshA, now, newAllowed, maxReviews))
+            Exercise(c, ExerciseKind.assemble),
         ];
 
       case StudyMode.speed:
@@ -344,6 +365,46 @@ Cloze? buildCloze(WordCard card) {
   }
   return null;
 }
+
+/// Упражнение «собери фразу»: целевое предложение и его слова-осколки.
+class Assemble {
+  /// Целевое предложение (на изучаемом языке) — эталон.
+  final String sentence;
+
+  /// Слова предложения по порядку (в UI показываются перемешанными).
+  final List<String> tokens;
+
+  const Assemble(this.sentence, this.tokens);
+}
+
+final RegExp _assembleWs = RegExp(r'\s+');
+final RegExp _assemblePunct = RegExp(r'''[^\p{L}\p{N}\s]''', unicode: true);
+
+/// Строит «собери фразу» из предложения-контекста карточки
+/// ([WordCard.sentence] или [WordCard.example]). Годится, если в предложении
+/// 2–12 слов; иначе null (одно слово нечего собирать, а длинное — муторно).
+Assemble? buildAssemble(WordCard card) {
+  final text = card.sentence.trim().isNotEmpty
+      ? card.sentence.trim()
+      : card.example.trim();
+  if (text.isEmpty) return null;
+  final words = text.split(_assembleWs).where((w) => w.trim().isNotEmpty).toList();
+  if (words.length < 2 || words.length > 12) return null;
+  return Assemble(text, words);
+}
+
+/// Нормализует фразу для сравнения: убирает пунктуацию, регистр и лишние
+/// пробелы (порядок слов при этом сохраняется — именно его и проверяем).
+String normalizePhrase(String s) => s
+    .replaceAll(_assemblePunct, ' ')
+    .toLowerCase()
+    .replaceAll(_assembleWs, ' ')
+    .trim();
+
+/// Верно ли собрана фраза [tokens] относительно эталонного [sentence]
+/// (сравнение без учёта пунктуации/регистра).
+bool assembleMatches(List<String> tokens, String sentence) =>
+    normalizePhrase(tokens.join(' ')) == normalizePhrase(sentence);
 
 /// Нормализация ответа для проверки ввода: регистр, пробелы, артикли-хвосты.
 String normalizeAnswer(String s) {

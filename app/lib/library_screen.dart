@@ -11,9 +11,10 @@ import 'services/deck_repository.dart';
 import 'services/language_detect.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
+import 'ocr/ocr_screen.dart';
 import 'video/subtitle.dart';
 import 'video/video_import_screen.dart';
-import 'video/video_study_screen.dart';
+import 'video/video_screen.dart';
 import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
 
@@ -200,7 +201,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
       _openBookScreen(s);
       return;
     }
-    // Видео: пробуем из кэша, иначе перезагружаем по ссылке.
+    // Видео: убеждаемся, что транскрипт есть в кэше (иначе перезагружаем по
+    // ссылке), а затем открываем страницу видео — она грузит его сама.
     VideoTranscript? t = await _library.loadVideo(s.id);
     if (t == null && (s.url != null || s.videoId != null)) {
       final res =
@@ -215,11 +217,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
       _notOpenable();
       return;
     }
+    final cur = await _library.get(s.id) ?? s;
+    if (!mounted) return;
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => VideoStudyScreen(transcript: t!, sourceId: s.id),
-      ),
+      MaterialPageRoute(builder: (_) => VideoScreen(source: cur)),
     );
   }
 
@@ -478,32 +480,54 @@ class _LibraryScreenState extends State<LibraryScreen> {
       );
 
   Widget _actionRow(ColorScheme scheme) {
-    return Row(
+    return Column(
       children: [
-        Expanded(
-          child: _actionCard(
-            title: tr('video_banner_title'),
-            subtitle: tr('library_video_sub'),
-            icon: Icons.subtitles_rounded,
-            bg: scheme.primaryContainer,
-            fg: scheme.onPrimaryContainer,
-            onTap: _openVideoImport,
-            busy: false,
-          ),
+        Row(
+          children: [
+            Expanded(
+              child: _actionCard(
+                title: tr('video_banner_title'),
+                subtitle: tr('library_video_sub'),
+                icon: Icons.subtitles_rounded,
+                bg: scheme.primaryContainer,
+                fg: scheme.onPrimaryContainer,
+                onTap: _openVideoImport,
+                busy: false,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: _actionCard(
+                title: tr('library_add_book'),
+                subtitle: tr('library_book_sub'),
+                icon: Icons.menu_book_rounded,
+                bg: scheme.tertiaryContainer,
+                fg: scheme.onTertiaryContainer,
+                onTap: _importBook,
+                busy: _importing,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: _actionCard(
-            title: tr('library_add_book'),
-            subtitle: tr('library_book_sub'),
-            icon: Icons.menu_book_rounded,
-            bg: scheme.tertiaryContainer,
-            fg: scheme.onTertiaryContainer,
-            onTap: _importBook,
-            busy: _importing,
-          ),
+        const SizedBox(height: 12),
+        _actionCard(
+          title: tr('ocr_hub_title'),
+          subtitle: tr('ocr_hub_sub'),
+          icon: Icons.document_scanner_rounded,
+          bg: scheme.secondaryContainer,
+          fg: scheme.onSecondaryContainer,
+          onTap: _openOcr,
+          busy: false,
         ),
       ],
+    );
+  }
+
+  void _openOcr() {
+    HapticFeedback.selectionClick();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const OcrScreen()),
     );
   }
 

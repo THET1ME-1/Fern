@@ -8,6 +8,7 @@ import 'package:sqlite3/open.dart';
 
 import 'package:fern/models/fsrs.dart';
 import 'package:fern/services/deck_repository.dart';
+import 'package:fern/services/language_registry.dart';
 import 'package:fern/services/source_library.dart';
 
 bool _sqliteReady = false;
@@ -31,6 +32,7 @@ Future<void> resetStorage() async {
   // Закрываем прежнее соединение (если было) до удаления файла БД.
   DeckRepository.instance.resetForTest();
   SourceLibrary.instance.resetForTest();
+  LanguageRegistry.instance.resetForTest();
   // Планировщик — синглтон: возвращаем дефолтные веса/удержание между кейсами.
   Fsrs.instance.requestRetention = 0.9;
   Fsrs.instance.setWeights(null);

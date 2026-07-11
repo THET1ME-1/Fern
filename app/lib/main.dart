@@ -15,10 +15,12 @@ import 'onboarding_screen.dart';
 import 'progress_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_repository.dart';
+import 'services/language_registry.dart';
 import 'services/pos_dictionary.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'services/update_service.dart';
+import 'share/share_import.dart';
 import 'settings_screen.dart';
 import 'study/reader_settings.dart';
 import 'theme/app_theme.dart';
@@ -36,9 +38,11 @@ Future<void> main() async {
   await DeckRepository.instance.applyFsrsSettings();
   await ThemeController.instance.load();
   await LocaleController.instance.load();
+  await LanguageRegistry.instance.load();
   await TranslationManager.instance.load();
   await ReaderSettings.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
+  await DeckRepository.instance.protectStreakIfNeeded();
   await _rescheduleReminderIfEnabled();
   final onboarded = await DeckRepository.instance.onboarded();
   runApp(FernApp(onboarded: onboarded));
@@ -136,6 +140,13 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _checkForUpdate();
+    ShareImport.start(context); // приём «Поделиться» из других приложений
+  }
+
+  @override
+  void dispose() {
+    ShareImport.dispose();
+    super.dispose();
   }
 
   /// Тихая проверка обновления на GitHub при запуске. Если есть версия новее —

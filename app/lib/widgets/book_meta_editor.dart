@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
 import '../language_picker_sheet.dart';
-import '../models/language.dart';
+import '../services/language_registry.dart';
 import '../services/source_library.dart';
 import '../theme/app_theme.dart';
 
@@ -77,12 +77,12 @@ class _BookMetaEditorState extends State<_BookMetaEditor> {
   }
 
   Future<void> _pickLanguage() async {
-    final code = await showLanguagePicker(context, _lang);
+    final code = await showLanguagePicker(context, _lang, unknownCode: _lang);
     if (code != null && mounted) setState(() => _lang = code);
   }
 
   Widget _languageRow(ColorScheme scheme) {
-    final lang = languageByCode(_lang);
+    final lang = LanguageRegistry.instance.byCode(_lang);
     final label = lang == null ? _lang.toUpperCase() : '${lang.emoji}  ${lang.name}';
     return Material(
       color: scheme.surfaceContainerHigh,

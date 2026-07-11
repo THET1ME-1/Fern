@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/services/deck_repository.dart';
 import 'package:fern/services/starter_decks.dart';
 
@@ -31,6 +32,22 @@ void main() {
     expect(await StarterDecks.hasPacksFor('es'), true);
     // Английский — дефолтный, среди стартеров его быть не должно.
     expect(await StarterDecks.hasPacksFor('en'), false);
+  });
+
+  test('название и перевод колоды локализуются под язык интерфейса', () async {
+    // Немецкий интерфейс: имя колоды и значения карточек — на немецком.
+    await LocaleController.instance.setCode('de');
+    final packsDe = await StarterDecks.forLanguage('es');
+    expect(packsDe.first.name, 'Erste Wörter'); // seed_deck_first_words → de
+    final holaDe = packsDe.first.cards.firstWhere((c) => c.front == 'hola');
+    expect(holaDe.back, 'hallo');
+
+    // Русский интерфейс: те же карточки — на русском.
+    await LocaleController.instance.setCode('ru');
+    final packsRu = await StarterDecks.forLanguage('es');
+    expect(packsRu.first.name, 'Первые слова');
+    final holaRu = packsRu.first.cards.firstWhere((c) => c.front == 'hola');
+    expect(holaRu.back, 'привет');
   });
 
   test('добавление готовой колоды создаёт колоду и карты', () async {

@@ -145,6 +145,8 @@ class _SessionScreenState extends State<SessionScreen>
       case ExerciseKind.flip:
       case ExerciseKind.type:
       case ExerciseKind.cloze:
+      case ExerciseKind.spell:
+      case ExerciseKind.assemble:
         return const _ExData();
     }
   }
@@ -451,6 +453,22 @@ class _SessionScreenState extends State<SessionScreen>
         );
       case ExerciseKind.cloze:
         return _ClozeExercise(
+          key: key,
+          ex: ex,
+          languageCode: widget.deck.languageCode,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+        );
+      case ExerciseKind.spell:
+        return _SpellExercise(
+          key: key,
+          ex: ex,
+          languageCode: widget.deck.languageCode,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+        );
+      case ExerciseKind.assemble:
+        return _AssembleExercise(
           key: key,
           ex: ex,
           languageCode: widget.deck.languageCode,
@@ -1559,6 +1577,394 @@ class _TrueFalseExerciseState extends State<_TrueFalseExercise> {
                   ),
                 ),
               ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ============================ Упражнение: диктант (Spell) ============================
+
+/// Слышим слово на изучаемом языке (озвучка) + видим перевод-подсказку —
+/// вписываем само слово по буквам. Тренирует восприятие на слух и правописание.
+class _SpellExercise extends StatefulWidget {
+  final Exercise ex;
+  final String languageCode;
+  final void Function(bool correct) onAnswered;
+
+  const _SpellExercise({
+    super.key,
+    required this.ex,
+    required this.languageCode,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_SpellExercise> createState() => _SpellExerciseState();
+}
+
+class _SpellExerciseState extends State<_SpellExercise> {
+  final TextEditingController _controller = TextEditingController();
+  bool? _correct;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _play() => TtsService.instance.speak(widget.ex.card.front, widget.languageCode);
+
+  void _check() {
+    if (_correct != null) return;
+    final ok = answerMatches(_controller.text, widget.ex.card.front);
+    setState(() => _correct = ok);
+    HapticFeedback.mediumImpact();
+  }
+
+  void _skip() {
+    if (_correct != null) return;
+    setState(() => _correct = false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final ex = widget.ex;
+    final answered = _correct != null;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 12),
+        Text(
+          tr('spell_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Большая кнопка-динамик — тап повторяет слово.
+        GestureDetector(
+          onTap: _play,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 28),
+            decoration: BoxDecoration(
+              color: scheme.primaryContainer,
+              borderRadius: BorderRadius.circular(28),
+            ),
+            child: Column(
+              children: [
+                Icon(Icons.volume_up_rounded,
+                    size: 52, color: scheme.onPrimaryContainer),
+                const SizedBox(height: 6),
+                Text(
+                  ex.card.back,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: scheme.onPrimaryContainer.withValues(alpha: 0.9),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+        TextField(
+          controller: _controller,
+          autofocus: true,
+          enabled: !answered,
+          textAlign: TextAlign.center,
+          textInputAction: TextInputAction.done,
+          autocorrect: false,
+          enableSuggestions: false,
+          onSubmitted: (_) => _check(),
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: answered
+                ? (_correct! ? scheme.primary : scheme.error)
+                : scheme.onSurface,
+          ),
+          decoration: InputDecoration(
+            hintText: '…',
+            suffixIcon: answered
+                ? Icon(_correct! ? Icons.check_rounded : Icons.close_rounded,
+                    color: _correct! ? scheme.primary : scheme.error)
+                : null,
+          ),
+        ),
+        if (answered && !_correct!) ...[
+          const SizedBox(height: 12),
+          Text(
+            trf('answer_was', {'a': ex.card.front}),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              color: scheme.primary,
+            ),
+          ),
+        ],
+        const Spacer(),
+        if (!answered)
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.tonal(
+                  onPressed: _skip,
+                  child: Text(tr('dont_know')),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                flex: 2,
+                child: FilledButton(
+                  onPressed: _check,
+                  child: Text(tr('check')),
+                ),
+              ),
+            ],
+          )
+        else
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () => widget.onAnswered(_correct!),
+              child: Text(tr('continue_btn')),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+// ============================ Упражнение: собери фразу ============================
+
+/// Из перемешанных слов собрать предложение-контекст (порядок слов). После
+/// ответа показываем эталон и озвучиваем его.
+class _AssembleExercise extends StatefulWidget {
+  final Exercise ex;
+  final String languageCode;
+  final void Function(bool correct) onAnswered;
+
+  const _AssembleExercise({
+    super.key,
+    required this.ex,
+    required this.languageCode,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_AssembleExercise> createState() => _AssembleExerciseState();
+}
+
+class _AssembleExerciseState extends State<_AssembleExercise> {
+  late final Assemble? _asm = buildAssemble(widget.ex.card);
+  // Индексы слов исходного предложения: в пуле (перемешаны) и уже выбранные.
+  late final List<int> _pool;
+  final List<int> _chosen = [];
+  bool? _correct;
+
+  @override
+  void initState() {
+    super.initState();
+    final n = _asm?.tokens.length ?? 0;
+    _pool = [for (var i = 0; i < n; i++) i]..shuffle(Random());
+  }
+
+  List<String> get _chosenWords => [for (final i in _chosen) _asm!.tokens[i]];
+
+  void _pick(int i) {
+    if (_correct != null) return;
+    setState(() {
+      _pool.remove(i);
+      _chosen.add(i);
+    });
+  }
+
+  void _unpick(int i) {
+    if (_correct != null) return;
+    setState(() {
+      _chosen.remove(i);
+      _pool.add(i);
+    });
+  }
+
+  void _check() {
+    final asm = _asm;
+    if (_correct != null || asm == null) return;
+    final ok = assembleMatches(_chosenWords, asm.sentence);
+    setState(() => _correct = ok);
+    HapticFeedback.mediumImpact();
+    TtsService.instance.speak(asm.sentence, widget.languageCode);
+  }
+
+  void _skip() {
+    if (_correct != null) return;
+    setState(() => _correct = false);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final asm = _asm;
+    if (asm == null) {
+      // Подстраховка: карта без пригодного предложения — засчитываем «дальше».
+      WidgetsBinding.instance
+          .addPostFrameCallback((_) => widget.onAnswered(false));
+      return const SizedBox.shrink();
+    }
+    final answered = _correct != null;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 12),
+        Text(
+          tr('assemble_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 8),
+        // Изучаемое слово (тема) — слово + перевод.
+        Text(
+          '${widget.ex.card.front}  ·  ${widget.ex.card.back}',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.displayFont,
+            fontWeight: FontWeight.w700,
+            fontSize: 17,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Область собранного предложения.
+        Container(
+          width: double.infinity,
+          constraints: const BoxConstraints(minHeight: 96),
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: answered
+                ? (_correct!
+                    ? scheme.primary.withValues(alpha: 0.12)
+                    : scheme.error.withValues(alpha: 0.12))
+                : scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: _chosen.isEmpty
+              ? Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    '…',
+                    style: TextStyle(color: scheme.onSurfaceVariant),
+                  ),
+                )
+              : Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final i in _chosen)
+                      _chip(asm.tokens[i], scheme,
+                          onTap: answered ? null : () => _unpick(i),
+                          filled: true),
+                  ],
+                ),
+        ),
+        if (answered && !_correct!) ...[
+          const SizedBox(height: 12),
+          Text(
+            asm.sentence,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: scheme.primary,
+            ),
+          ),
+        ],
+        const SizedBox(height: 16),
+        // Пул слов.
+        if (!answered)
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            alignment: WrapAlignment.center,
+            children: [
+              for (final i in _pool)
+                _chip(asm.tokens[i], scheme, onTap: () => _pick(i)),
+            ],
+          ),
+        const Spacer(),
+        if (!answered)
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton.tonal(
+                  onPressed: _skip,
+                  child: Text(tr('dont_know')),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                flex: 2,
+                child: FilledButton(
+                  onPressed: _pool.isEmpty ? _check : null,
+                  child: Text(tr('check')),
+                ),
+              ),
+            ],
+          )
+        else
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              onPressed: () => widget.onAnswered(_correct!),
+              child: Text(tr('continue_btn')),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _chip(String word, ColorScheme scheme,
+      {VoidCallback? onTap, bool filled = false}) {
+    return Material(
+      color: filled ? scheme.primaryContainer : scheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(14),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          child: Text(
+            word,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: filled ? scheme.onPrimaryContainer : scheme.onSurface,
             ),
           ),
         ),

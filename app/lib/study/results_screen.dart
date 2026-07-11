@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
+import '../services/deck_repository.dart';
 import '../theme/app_theme.dart';
+import '../widgets/confetti_overlay.dart';
 import '../widgets/reveal.dart';
 
 /// Итог сессии обучения.
@@ -9,14 +12,14 @@ class SessionResult {
   final int answered;
   final int correct;
   final Duration elapsed;
-  final int? score; // очки режима «Быстрый повтор» (иначе null)
+  final int? score; // очки режима «Быстрый повtор» (иначе null)
   const SessionResult(this.answered, this.correct, this.elapsed, {this.score});
 
   int get accuracy => answered == 0 ? 0 : ((correct / answered) * 100).round();
 }
 
 /// Экран результатов после завершённой сессии.
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends StatefulWidget {
   final SessionResult result;
 
   /// Колбэк «Ещё сессия». Получает ЖИВОЙ контекст экрана результатов, чтобы
@@ -26,48 +29,82 @@ class ResultsScreen extends StatelessWidget {
   const ResultsScreen({super.key, required this.result, this.onStudyMore});
 
   @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
+  bool _goalReached = false; // дневная цель выполнена этой сессией
+  bool _confettiDone = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkGoal();
+  }
+
+  Future<void> _checkGoal() async {
+    final reached = await DeckRepository.instance.consumeDailyGoalCelebration();
+    if (reached && mounted) {
+      HapticFeedback.heavyImpact();
+      setState(() => _goalReached = true);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final result = widget.result;
     final acc = result.accuracy;
     final mins = result.elapsed.inMinutes;
     final secs = result.elapsed.inSeconds % 60;
-    final timeStr = mins > 0 ? '$mins мин $secs с' : '$secs с';
+    final timeStr = mins > 0
+        ? trf('dur_min_sec', {'m': mins, 's': secs})
+        : trf('dur_sec', {'s': secs});
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
-          child: Column(
-            children: [
-              const Spacer(),
-              Reveal(
-                child: Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: scheme.primaryContainer,
-                    shape: BoxShape.circle,
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 20),
+              child: Column(
+                children: [
+                  const Spacer(),
+                  Reveal(
+                    child: Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: _goalReached
+                            ? scheme.tertiaryContainer
+                            : scheme.primaryContainer,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        _goalReached
+                            ? Icons.emoji_events_rounded
+                            : Icons.check_rounded,
+                        size: 68,
+                        color: _goalReached
+                            ? scheme.onTertiaryContainer
+                            : scheme.onPrimaryContainer,
+                      ),
+                    ),
                   ),
-                  child: Icon(
-                    Icons.check_rounded,
-                    size: 68,
-                    color: scheme.onPrimaryContainer,
+                  const SizedBox(height: 24),
+                  Reveal(
+                    delay: const Duration(milliseconds: 80),
+                    child: Text(
+                      _goalReached ? tr('goal_done') : tr('session_done'),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: AppTheme.displayFont,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 26,
+                        color: scheme.onSurface,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 24),
-              Reveal(
-                delay: const Duration(milliseconds: 80),
-                child: Text(
-                  tr('session_done'),
-                  style: TextStyle(
-                    fontFamily: AppTheme.displayFont,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 26,
-                    color: scheme.onSurface,
-                  ),
-                ),
-              ),
               if (result.score != null) ...[
                 const SizedBox(height: 20),
                 Reveal(
@@ -75,7 +112,7 @@ class ResultsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        '${result.score}',
+                        '${widget.result.score}',
                         style: TextStyle(
                           fontFamily: AppTheme.displayFont,
                           fontWeight: FontWeight.w800,
@@ -109,13 +146,13 @@ class ResultsScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              if (onStudyMore != null)
+              if (widget.onStudyMore != null)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: SizedBox(
                     width: double.infinity,
                     child: FilledButton.tonal(
-                      onPressed: () => onStudyMore!(context),
+                      onPressed: () => widget.onStudyMore!(context),
                       child: Text(tr('study_more')),
                     ),
                   ),
@@ -127,8 +164,18 @@ class ResultsScreen extends StatelessWidget {
                   child: Text(tr('back_to_deck')),
                 ),
               ),
-            ],
-          ),
+                ],
+              ),
+            ),
+            if (_goalReached && !_confettiDone)
+              Positioned.fill(
+                child: ConfettiOverlay(
+                  onDone: () {
+                    if (mounted) setState(() => _confettiDone = true);
+                  },
+                ),
+              ),
+          ],
         ),
       ),
     );

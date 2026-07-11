@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 import 'achievements_screen.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
-import 'models/language.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
+import 'services/language_registry.dart';
 import 'services/pos.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
 import 'widgets/reveal.dart';
+import 'widgets/weekly_recap.dart';
 
 /// Экран «Прогресс»: обзор по всем карточкам, нагрузка на неделю, трудные слова.
 class ProgressScreen extends StatefulWidget {
@@ -80,11 +81,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
     }
 
     final streak = _log.streak(now);
-    var r7 = 0, c7 = 0;
+    var r7 = 0, c7 = 0, activeDays7 = 0;
     for (var i = 0; i < 7; i++) {
       final s = _log.statOn(now.subtract(Duration(days: i)));
       r7 += s.reviews;
       c7 += s.correct;
+      if (s.reviews > 0) activeDays7++;
     }
     final acc7 = r7 == 0 ? 0 : ((c7 / r7) * 100).round();
 
@@ -150,6 +152,16 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         scheme,
                       ),
                     ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Reveal(
+                  delay: const Duration(milliseconds: 160),
+                  child: WeeklyRecapCard(
+                    reviews: r7,
+                    activeDays: activeDays7,
+                    accuracy: acc7,
+                    streak: streak,
                   ),
                 ),
                 ..._extraStats(scheme),
@@ -496,7 +508,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   String _langName(String code) {
-    final l = languageByCode(code);
+    final l = LanguageRegistry.instance.byCode(code);
     return l == null ? code.toUpperCase() : '${l.emoji} ${l.name}';
   }
 
@@ -791,7 +803,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       }
     }
     final maxV = counts.fold<int>(1, (m, v) => v > m ? v : m);
-    const labels = ['Сег', '+1', '+2', '+3', '+4', '+5', '+6'];
+    final labels = [tr('forecast_today'), '+1', '+2', '+3', '+4', '+5', '+6'];
 
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),

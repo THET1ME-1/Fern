@@ -2,7 +2,7 @@ name: fern
 description: "Fern — красивые флеш-карточки для изучения языков (офлайн, Material You)."
 publish_to: 'none'
 
-version: 1.12.2+20
+version: 1.13.0+21
 
 environment:
   sdk: ^3.11.5
@@ -39,6 +39,10 @@ dependencies:
   # Чтение Anki .apkg (внутри — SQLite-база collection.anki2/anki21).
   sqlite3: ^2.4.0
   sqlite3_flutter_libs: ^0.5.24
+  image_picker: ^1.2.3
+  google_mlkit_text_recognition: ^0.15.1
+  # 1.9.0 требует compileSdk 37 и ломает gradle (kotlin()) — держим 1.8.x.
+  receive_sharing_intent: ">=1.8.0 <1.9.0"
 
 dev_dependencies:
   flutter_test:

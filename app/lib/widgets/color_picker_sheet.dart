@@ -16,7 +16,7 @@ String colorToHex(Color color) {
 Future<Color?> showColorPickerSheet(
   BuildContext context, {
   required Color initial,
-  String title = 'Свой цвет',
+  String? title,
   Color? resetTo,
 }) {
   final scheme = Theme.of(context).colorScheme;
@@ -27,8 +27,11 @@ Future<Color?> showColorPickerSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
     ),
-    builder: (context) =>
-        _ColorPickerSheet(initial: initial, title: title, resetTo: resetTo),
+    builder: (context) => _ColorPickerSheet(
+      initial: initial,
+      title: title ?? tr('custom_color'),
+      resetTo: resetTo,
+    ),
   );
 }
 

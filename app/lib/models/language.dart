@@ -12,6 +12,17 @@ class StudyLanguage {
   final String emoji;
 
   const StudyLanguage(this.code, this.name, this.emoji);
+
+  Map<String, dynamic> toJson() =>
+      {'code': code, 'name': name, 'emoji': emoji};
+
+  factory StudyLanguage.fromJson(Map<String, dynamic> j) => StudyLanguage(
+        (j['code'] as String? ?? '').trim().toLowerCase(),
+        (j['name'] as String? ?? '').trim(),
+        (j['emoji'] as String? ?? '').trim().isEmpty
+            ? '🌐'
+            : (j['emoji'] as String).trim(),
+      );
 }
 
 /// Встроенный список популярных для изучения языков. Пользователь выбирает

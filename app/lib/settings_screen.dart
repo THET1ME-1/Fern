@@ -12,6 +12,7 @@ import 'settings/providers_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_import.dart';
 import 'services/deck_repository.dart';
+import 'services/language_registry.dart';
 import 'services/fsrs_optimizer.dart';
 import 'services/source_library.dart';
 import 'study/reader_settings.dart';
@@ -891,6 +892,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       await BackupService.restore(raw, merge: merge);
       await _theme.load();
       await _locale.load();
+      await LanguageRegistry.instance.load();
       await _loadInfo();
       if (mounted) {
         ScaffoldMessenger.of(
@@ -935,6 +937,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     // Стираем библиотеку (файлы), затем БД+настройки, затем — как свежий старт.
     await SourceLibrary.instance.wipeAll();
     await _repo.wipeAllData();
+    await LanguageRegistry.instance.load();
     await _repo.seedDemoIfNeeded();
     await _repo.applyFsrsSettings();
     await _theme.load();

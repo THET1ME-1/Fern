@@ -4,6 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../models/fsrs.dart';
 import '../models/pack.dart';
@@ -51,9 +52,17 @@ class DeckRepository extends ChangeNotifier {
   static const String _kPacks = 'packs';
   static const String _kCards = 'cards';
   static const String _kSelectedLanguage = 'selectedLanguage';
+  static const String _kCustomLanguages = 'customLanguages'; // JSON [{code,..}]
+  static const String _kPinnedLanguages = 'pinnedLanguages'; // JSON [code,..]
   static const String _kSeededDemo = 'seededDemo';
   static const String _kSeedVersion = 'seedVersion';
   static const String _kReviewLog = 'reviewLog';
+  static const String _kFrozenDays = 'frozenDays'; // дни под серией-щитом
+  static const String _kStreakFreezes = 'streakFreezes'; // остаток щитов
+  static const String _kFreezeGrant = 'freezeGrantLevel'; // сколько уже начислено
+  static const String _kGoalCelebrated = 'goalCelebratedDate';
+  static const int _maxFreezes = 5;
+  static const int _startFreezes = 2;
   static const String _kMatchBest = 'matchBest'; // deckId -> лучшее время, мс
   static const String _kReadingStats = 'readingStats'; // {s: секунды, w: слова}
 
@@ -102,6 +111,8 @@ class DeckRepository extends ChangeNotifier {
   final List<Pack> _packs = [];
   final List<WordCard> _cards = [];
   ReviewLog _log = ReviewLog.empty();
+  final Set<String> _frozenDays = {};
+  bool _justFroze = false; // щит только что израсходован — показать уведомление 1 раз
   Map<String, int> _matchBest = {};
   int _readSeconds = 0;
   int _readWords = 0;
@@ -128,6 +139,9 @@ class DeckRepository extends ChangeNotifier {
       ..clear()
       ..addAll(_db!.allCards());
     _log = _decodeLog(await _prefs.getString(_kReviewLog));
+    _frozenDays
+      ..clear()
+      ..addAll(_decodeStringList(await _prefs.getString(_kFrozenDays)));
     _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
     _decodeReading(await _prefs.getString(_kReadingStats));
     await _migratePosIfNeeded();
@@ -211,6 +225,18 @@ class DeckRepository extends ChangeNotifier {
     }
   }
 
+  List<String> _decodeStringList(String? raw) {
+    if (raw == null || raw.isEmpty) return const [];
+    try {
+      return [
+        for (final e in (jsonDecode(raw) as List))
+          if (e is String && e.isNotEmpty) e,
+      ];
+    } catch (_) {
+      return const [];
+    }
+  }
+
   ReviewLog _decodeLog(String? raw) {
     if (raw == null || raw.isEmpty) return ReviewLog.empty();
     try {
@@ -236,6 +262,7 @@ class DeckRepository extends ChangeNotifier {
     _packs.clear();
     _cards.clear();
     _log = ReviewLog.empty();
+    _frozenDays.clear();
     _matchBest = {};
     _readSeconds = 0;
     _readWords = 0;
@@ -580,11 +607,77 @@ class DeckRepository extends ChangeNotifier {
 
   // ----------------------------- Журнал занятий -----------------------------
 
-  /// Журнал по дням (для стрика, кольца цели и статистики).
-  ReviewLog get reviewLogSync => _log;
+  /// Журнал по дням (для стрика, кольца цели и статистики). Отдаём копию с
+  /// учётом замороженных щитом дней (внутренний [_log] — только реальные занятия).
+  ReviewLog get reviewLogSync => ReviewLog(_log.days, frozen: _frozenDays);
   Future<ReviewLog> reviewLog() async {
     await _ensureLoaded();
-    return _log;
+    return ReviewLog(_log.days, frozen: _frozenDays);
+  }
+
+  // ----------------------------- Серия-щит (заморозка) -----------------------------
+
+  /// Остаток «щитов» серии (по умолчанию — небольшой стартовый запас).
+  Future<int> streakFreezes() async {
+    await _ensureLoaded();
+    return await _prefs.getInt(_kStreakFreezes) ?? _startFreezes;
+  }
+
+  Future<void> _setStreakFreezes(int n) async =>
+      _prefs.setInt(_kStreakFreezes, n.clamp(0, _maxFreezes));
+
+  /// Начисляет +1 щит за каждые 7 дней занятий (до потолка). Идемпотентно —
+  /// уровень уже начисленного хранится отдельно.
+  Future<void> _maybeGrantFreeze() async {
+    final level = await _prefs.getInt(_kFreezeGrant) ?? 0;
+    final earned = _log.daysStudied ~/ 7;
+    if (earned > level) {
+      final cur = await _prefs.getInt(_kStreakFreezes) ?? _startFreezes;
+      await _setStreakFreezes(cur + (earned - level));
+      await _prefs.setInt(_kFreezeGrant, earned);
+    }
+  }
+
+  /// Если вчера пропущено, а серия была — тратит один щит, «замораживая» вчера,
+  /// чтобы серия не оборвалась. Возвращает true, если щит израсходован.
+  /// Вызывается на старте приложения.
+  Future<bool> protectStreakIfNeeded([DateTime? at]) async {
+    await _ensureLoaded();
+    final now = at ?? DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final yest = today.subtract(const Duration(days: 1));
+    final before = today.subtract(const Duration(days: 2));
+    final log = reviewLogSync;
+    if (log.activeOn(today) || log.activeOn(yest)) return false; // ничего не рвётся
+    if (!log.activeOn(before)) return false; // серии для спасения нет
+    final tokens = await streakFreezes();
+    if (tokens <= 0) return false;
+    _frozenDays.add(ReviewLog.keyFor(yest));
+    await _prefs.setString(_kFrozenDays, jsonEncode(_frozenDays.toList()));
+    await _setStreakFreezes(tokens - 1);
+    _justFroze = true;
+    notifyListeners();
+    return true;
+  }
+
+  /// Разово сообщает, что щит только что спас серию (для уведомления на UI).
+  bool consumeFreezeNotice() {
+    final v = _justFroze;
+    _justFroze = false;
+    return v;
+  }
+
+  /// true — если дневная цель достигнута сегодня и ещё не праздновалась (тогда
+  /// помечает, чтобы салют показать один раз в день).
+  Future<bool> consumeDailyGoalCelebration([DateTime? at]) async {
+    await _ensureLoaded();
+    final now = at ?? DateTime.now();
+    final goal = await dailyGoal();
+    if (goal <= 0 || _log.reviewsOn(now) < goal) return false;
+    final key = ReviewLog.keyFor(now);
+    if (await _prefs.getString(_kGoalCelebrated) == key) return false;
+    await _prefs.setString(_kGoalCelebrated, key);
+    return true;
   }
 
   /// Записывает итог одной сессии в журнал за сегодня. Одна запись на диск.
@@ -609,6 +702,7 @@ class DeckRepository extends ChangeNotifier {
     }
     _log = ReviewLog(days);
     await _prefs.setString(_kReviewLog, jsonEncode(_log.toJson()));
+    await _maybeGrantFreeze(); // начислить щит за пройденные рубежи дней
     notifyListeners();
   }
 
@@ -658,6 +752,16 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setString(_kSelectedLanguage, code);
     notifyListeners();
   }
+
+  // Свои изучаемые языки и закрепления (управляет LanguageRegistry).
+  Future<String?> customLanguagesRaw() async =>
+      _prefs.getString(_kCustomLanguages);
+  Future<void> setCustomLanguagesRaw(String json) async =>
+      _prefs.setString(_kCustomLanguages, json);
+  Future<String?> pinnedLanguagesRaw() async =>
+      _prefs.getString(_kPinnedLanguages);
+  Future<void> setPinnedLanguagesRaw(String json) async =>
+      _prefs.setString(_kPinnedLanguages, json);
 
   // ----------------------------- Настройки темы/языка -----------------------------
 
@@ -871,6 +975,7 @@ class DeckRepository extends ChangeNotifier {
     _packs.clear();
     _cards.clear();
     _log = ReviewLog.empty();
+    _frozenDays.clear();
     _matchBest = {};
     _readSeconds = 0;
     _readWords = 0;
@@ -908,6 +1013,11 @@ class DeckRepository extends ChangeNotifier {
       },
       'requestRetention': await _prefs.getDouble(_kRetention),
       'fsrsWeights': await fsrsWeights(),
+      'customLanguages': await _prefs.getString(_kCustomLanguages),
+      'pinnedLanguages': await _prefs.getString(_kPinnedLanguages),
+      'frozenDays': jsonEncode(_frozenDays.toList()),
+      'streakFreezes': await _prefs.getInt(_kStreakFreezes),
+      'freezeGrantLevel': await _prefs.getInt(_kFreezeGrant),
       'settings': {
         'seedColor': await _prefs.getInt(_kSeedColor),
         'themeMode': await _prefs.getInt(_kThemeMode),
@@ -1021,6 +1131,24 @@ class DeckRepository extends ChangeNotifier {
       if (t['active'] is String) {
         await _prefs.setString(_kTransActive, t['active'] as String);
       }
+    }
+    if (data['customLanguages'] is String) {
+      await _prefs.setString(_kCustomLanguages, data['customLanguages'] as String);
+    }
+    if (data['pinnedLanguages'] is String) {
+      await _prefs.setString(_kPinnedLanguages, data['pinnedLanguages'] as String);
+    }
+    if (data['frozenDays'] is String) {
+      await _prefs.setString(_kFrozenDays, data['frozenDays'] as String);
+      _frozenDays
+        ..clear()
+        ..addAll(_decodeStringList(data['frozenDays'] as String));
+    }
+    if (data['streakFreezes'] is num) {
+      await _prefs.setInt(_kStreakFreezes, (data['streakFreezes'] as num).toInt());
+    }
+    if (data['freezeGrantLevel'] is num) {
+      await _prefs.setInt(_kFreezeGrant, (data['freezeGrantLevel'] as num).toInt());
     }
     await _applySettings((data['settings'] as Map?)?.cast<String, dynamic>());
     // Персонализация FSRS (целевое удержание + личные веса).
@@ -1145,7 +1273,10 @@ class DeckRepository extends ChangeNotifier {
         final deck = Deck(
           id: deckId,
           languageCode: lang,
-          name: m['name'] as String? ?? '—',
+          name: localizedDeckName(
+            nameKey: m['nameKey'] as String?,
+            name: m['name'] as String?,
+          ),
           colorValue: (m['color'] as num?)?.toInt() ?? 0xFF2E7D5B,
           shapeIndex: (m['shape'] as num?)?.toInt() ?? 0,
           createdAt: order,
@@ -1155,7 +1286,7 @@ class DeckRepository extends ChangeNotifier {
         for (final c in (m['cards'] as List? ?? const [])) {
           final cm = (c as Map).cast<String, dynamic>();
           final front = (cm['front'] as String? ?? '').trim();
-          final back = (cm['back'] as String? ?? '').trim();
+          final back = localizedBack(cm['back']).trim();
           if (front.isEmpty || back.isEmpty) continue;
           cards.add(
             WordCard(

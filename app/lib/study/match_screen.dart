@@ -136,8 +136,8 @@ class _MatchScreenState extends State<MatchScreen> {
     setState(() => _finished = true);
   }
 
-  String get _timeStr =>
-      '${(_watch.elapsedMilliseconds / 1000).toStringAsFixed(1)} с';
+  String get _timeStr => trf('dur_sec',
+      {'s': (_watch.elapsedMilliseconds / 1000).toStringAsFixed(1)});
 
   @override
   Widget build(BuildContext context) {

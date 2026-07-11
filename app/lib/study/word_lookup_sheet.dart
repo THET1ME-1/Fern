@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
+import '../services/grammar.dart';
+import '../services/pos.dart';
 import '../services/translation/translation_manager.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/grammar_card.dart';
 import '../widgets/pressable.dart';
 
 /// Результат добавления слова в колоду.
@@ -125,6 +128,18 @@ class _WordLookupState extends State<_WordLookup> {
     }
   }
 
+  /// Грамматическая таблица для слова (спряжение/формы), если применимо.
+  List<Widget> _grammar() {
+    final posCode = PosDetect.detect(widget.word,
+        dictPos: _pos, languageCode: widget.sourceLang);
+    final tables = Grammar.forWord(widget.word, posCode, widget.sourceLang);
+    if (tables.isEmpty) return const [];
+    return [
+      const SizedBox(height: 14),
+      GrammarCard(tables: tables),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
@@ -243,6 +258,7 @@ class _WordLookupState extends State<_WordLookup> {
                     ],
                   ),
                 ],
+                ..._grammar(),
               ],
               const SizedBox(height: 16),
               Row(

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
@@ -58,13 +59,16 @@ class StarterDecks {
         for (final d in decks)
           StarterPack(
             languageCode: lang,
-            name: (d as Map)['name'] as String? ?? '—',
+            name: localizedDeckName(
+              nameKey: (d as Map)['nameKey'] as String?,
+              name: d['name'] as String?,
+            ),
             shapeIndex: (d['shape'] as num?)?.toInt() ?? 0,
             cards: [
               for (final c in (d['cards'] as List? ?? []))
                 (
                   front: (c as Map)['front'] as String? ?? '',
-                  back: c['back'] as String? ?? '',
+                  back: localizedBack(c['back']),
                   example: c['example'] as String? ?? '',
                 ),
             ],

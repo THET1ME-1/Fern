@@ -8,12 +8,17 @@ import '../theme/app_theme.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
 import 'subtitle.dart';
+import 'video_screen.dart';
 import 'video_study_screen.dart';
 
 /// Экран импорта видео: вставь ссылку на YouTube → тянем субтитры с таймкодами →
 /// открываем разбор. Пословный тайминг (авто-субтитры) даёт живой голос слова.
 class VideoImportScreen extends StatefulWidget {
-  const VideoImportScreen({super.key});
+  /// Ссылка, переданная извне (например, через «Поделиться») — подставляем и
+  /// сразу начинаем разбор.
+  final String? initialUrl;
+
+  const VideoImportScreen({super.key, this.initialUrl});
 
   @override
   State<VideoImportScreen> createState() => _VideoImportScreenState();
@@ -23,6 +28,18 @@ class _VideoImportScreenState extends State<VideoImportScreen> {
   final TextEditingController _url = TextEditingController();
   bool _loading = false;
   String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    final u = widget.initialUrl?.trim();
+    if (u != null && u.isNotEmpty) {
+      _url.text = u;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _parse();
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -55,14 +72,20 @@ class _VideoImportScreenState extends State<VideoImportScreen> {
     if (result.isOk) {
       // Сохраняем разбор в библиотеку — к видео можно вернуться позже.
       final sourceId = await SourceLibrary.instance.saveVideo(result.transcript!);
+      final src =
+          sourceId == null ? null : await SourceLibrary.instance.get(sourceId);
       if (!mounted) return;
+      // Открываем страницу видео (анализ + проверка языка); если сохранить не
+      // удалось — сразу в разбор.
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => VideoStudyScreen(
-            transcript: result.transcript!,
-            sourceId: sourceId,
-          ),
+          builder: (_) => src != null
+              ? VideoScreen(source: src)
+              : VideoStudyScreen(
+                  transcript: result.transcript!,
+                  sourceId: sourceId,
+                ),
         ),
       );
     } else {

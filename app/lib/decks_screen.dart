@@ -5,12 +5,12 @@ import 'deck_screen.dart';
 import 'l10n/strings.dart';
 import 'language_picker_sheet.dart';
 import 'models/deck.dart';
-import 'models/language.dart';
 import 'models/pack.dart';
 import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'pack_screen.dart';
 import 'services/deck_repository.dart';
+import 'services/language_registry.dart';
 import 'services/starter_decks.dart';
 import 'theme/app_theme.dart';
 import 'video/video_import_screen.dart';
@@ -53,6 +53,14 @@ class _DecksScreenState extends State<DecksScreen> {
     super.initState();
     _repo.addListener(_load);
     _load();
+    // Если щит только что спас серию (пропущенный день) — сообщим один раз.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && _repo.consumeFreezeNotice()) {
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(SnackBar(content: Text(tr('streak_saved'))));
+      }
+    });
   }
 
   @override
@@ -554,7 +562,7 @@ class _DecksScreenState extends State<DecksScreen> {
   }
 
   Widget _languageBanner(ColorScheme scheme) {
-    final lang = languageByCode(_lang);
+    final lang = LanguageRegistry.instance.byCode(_lang);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
       child: Material(

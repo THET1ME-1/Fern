@@ -29,7 +29,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Активность'), findsOneWidget);
-    expect(find.text('Серия'), findsOneWidget);
+    // «Серия» встречается и в статах, и в карточке «Твоя неделя».
+    expect(find.text('Серия'), findsWidgets);
     expect(find.text('меньше'), findsOneWidget); // легенда heatmap
   });
 }
