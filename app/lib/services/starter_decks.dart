@@ -14,11 +14,15 @@ class StarterPack {
   final int shapeIndex;
   final List<({String front, String back, String example})> cards;
 
+  /// Ключ локализации имени — колода с ним переводится при смене языка.
+  final String? nameKey;
+
   const StarterPack({
     required this.languageCode,
     required this.name,
     required this.shapeIndex,
     required this.cards,
+    this.nameKey,
   });
 
   int get wordCount => cards.length;
@@ -59,8 +63,9 @@ class StarterDecks {
         for (final d in decks)
           StarterPack(
             languageCode: lang,
+            nameKey: (d as Map)['nameKey'] as String?,
             name: localizedDeckName(
-              nameKey: (d as Map)['nameKey'] as String?,
+              nameKey: d['nameKey'] as String?,
               name: d['name'] as String?,
             ),
             shapeIndex: (d['shape'] as num?)?.toInt() ?? 0,
@@ -99,6 +104,7 @@ class StarterDecks {
       colorValue: _palette[colorIndex],
       shapeIndex: pack.shapeIndex,
       createdAt: stamp,
+      nameKey: pack.nameKey, // по ключу колода переведётся при смене языка
     );
     await repo.upsertDeck(deck);
     final cards = <WordCard>[

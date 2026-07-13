@@ -29,6 +29,11 @@ class Deck {
   /// на верхнем уровне главного экрана. Пак — это «папка» из нескольких колод.
   String? packId;
 
+  /// Ключ локализации имени — есть только у встроенных колод (стартовые наборы
+  /// и колоды по умолчанию). По нему имя и переводы карточек пересобираются при
+  /// смене языка интерфейса; у колод пользователя он null, их никто не трогает.
+  String? nameKey;
+
   Deck({
     required this.id,
     required this.languageCode,
@@ -38,7 +43,11 @@ class Deck {
     required this.createdAt,
     this.directionIndex = 0,
     this.packId,
+    this.nameKey,
   });
+
+  /// Встроенная колода (стартовый набор / набор по умолчанию).
+  bool get isBuiltIn => nameKey != null && nameKey!.isNotEmpty;
 
   Color get color => Color(colorValue);
 
@@ -52,6 +61,7 @@ class Deck {
         'createdAt': createdAt,
         // Пишем только когда колода в паке — не раздуваем JSON обычных колод.
         if (packId != null) 'pack': packId,
+        if (nameKey != null) 'nameKey': nameKey,
       };
 
   factory Deck.fromJson(Map<String, dynamic> j) => Deck(
@@ -63,5 +73,6 @@ class Deck {
         directionIndex: (j['dir'] as num?)?.toInt() ?? 0,
         createdAt: (j['createdAt'] as num?)?.toInt() ?? 0,
         packId: j['pack'] as String?,
+        nameKey: j['nameKey'] as String?,
       );
 }

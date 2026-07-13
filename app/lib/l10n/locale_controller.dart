@@ -85,5 +85,8 @@ class LocaleController extends ChangeNotifier {
     _code = code;
     notifyListeners();
     await _repo.setLanguageCode(code);
+    // Встроенные колоды переводим следом: иначе, сменив язык, человек видел бы
+    // испанские слова с русскими переводами (перевод выбирался при посеве).
+    await _repo.relocalizeBuiltIns();
   }
 }

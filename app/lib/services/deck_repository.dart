@@ -13,6 +13,7 @@ import '../models/review_log.dart';
 import '../models/word_card.dart';
 import 'local_db.dart';
 import 'pos.dart';
+import 'starter_decks.dart';
 import 'pos_dictionary.dart';
 
 /// Единый слой доступа к данным Fern.
@@ -98,6 +99,8 @@ class DeckRepository extends ChangeNotifier {
   static const String _kPosMigratedV3 = 'posMigratedV3';
   // Момент последнего авто-бэкапа (мс) — см. BackupService.autoBackupIfDue.
   static const String _kLastAutoBackup = 'lastAutoBackupMs';
+  // Разовая простановка ключей локализации встроенным колодам (см. миграцию).
+  static const String _kBuiltInKeysV1 = 'builtinKeysV1';
 
   // `SharedPreferencesAsync` — тонкая обёртка без собственного кэша (каждый
   // вызов идёт в нативный стор), поэтому создаём её по требованию. Это и лениво
@@ -145,6 +148,7 @@ class DeckRepository extends ChangeNotifier {
     _matchBest = _decodeMatchBest(await _prefs.getString(_kMatchBest));
     _decodeReading(await _prefs.getString(_kReadingStats));
     await _migratePosIfNeeded();
+    await _migrateBuiltInKeysIfNeeded();
     _loaded = true;
   }
 
@@ -210,6 +214,115 @@ class DeckRepository extends ChangeNotifier {
       if (changed.isNotEmpty) _db!.upsertCards(changed);
     }
     await _prefs.setBool(_kPosMigratedV3, true);
+  }
+
+  /// Разово помечает уже созданные встроенные колоды ключом локализации.
+  ///
+  /// Колоды, посеянные прошлыми версиями, лежат в базе без ключа, поэтому
+  /// переводить их было не по чему. Узнаём их по id: наборы по умолчанию —
+  /// `seed_*`, стартовые — `starter_*` (у всех стартовых один ключ имени).
+  Future<void> _migrateBuiltInKeysIfNeeded() async {
+    if (await _prefs.getBool(_kBuiltInKeysV1) ?? false) return;
+    final changed = <Deck>[];
+    for (final d in _decks) {
+      if (d.nameKey != null) continue;
+      if (d.id.startsWith('seed_')) {
+        d.nameKey = _seedNameKeyById[d.id];
+      } else if (d.id.startsWith('starter_')) {
+        d.nameKey = 'seed_deck_first_words';
+      }
+      if (d.nameKey != null) changed.add(d);
+    }
+    for (final d in changed) {
+      _db!.upsertDeck(d);
+    }
+    await _prefs.setBool(_kBuiltInKeysV1, true);
+  }
+
+  /// Ключи имён наборов по умолчанию (совпадают с assets/seed/en.json).
+  static const Map<String, String> _seedNameKeyById = {
+    'seed_en_first': 'seed_deck_first_words',
+    'seed_en_verbs': 'seed_deck_verbs',
+    'seed_en_food': 'seed_deck_food',
+    'seed_en_clothes': 'seed_deck_clothes',
+  };
+
+  // ------------------- Локализация встроенных колод -------------------
+
+  /// Переводит встроенные колоды (стартовые наборы и наборы по умолчанию) на
+  /// текущий язык интерфейса.
+  ///
+  /// Раньше перевод выбирался ОДИН раз — в момент посева — и намертво писался в
+  /// базу: сменив язык приложения, человек продолжал видеть «hola → привет» с
+  /// английским интерфейсом. Теперь имя колоды берётся из ключа, а перевод
+  /// карточки — из ассета, где лежат все семь языков.
+  ///
+  /// Правки пользователя неприкосновенны: карточка обновляется, только если её
+  /// текущий перевод совпадает с одним из наших (значит, её не меняли руками).
+  Future<void> relocalizeBuiltIns() async {
+    if (_decks.every((d) => !d.isBuiltIn)) return;
+
+    // Ассеты: язык → перёд карточки → карта переводов.
+    final assets = <String, Map<String, Map>>{};
+    Future<void> loadAsset(String path) async {
+      try {
+        final raw = await rootBundle.loadString(path);
+        final data = jsonDecode(raw) as Map<String, dynamic>;
+        final lang = data['lang'] as String? ?? 'en';
+        final byFront = assets.putIfAbsent(lang, () => {});
+        for (final d in (data['decks'] as List? ?? const [])) {
+          for (final c in ((d as Map)['cards'] as List? ?? const [])) {
+            final cm = (c as Map);
+            final front = (cm['front'] as String? ?? '').trim();
+            final back = cm['back'];
+            if (front.isNotEmpty && back is Map) byFront[front] = back;
+          }
+        }
+      } catch (_) {
+        // Ассета нет или он битый — просто не трогаем эти карточки.
+      }
+    }
+
+    await loadAsset('assets/seed/en.json');
+    for (final code in StarterDecks.availableLanguages) {
+      await loadAsset('assets/starter/$code.json');
+    }
+    if (assets.isEmpty) return;
+
+    final changedDecks = <Deck>[];
+    final changedCards = <WordCard>[];
+
+    for (final deck in _decks) {
+      if (!deck.isBuiltIn) continue;
+
+      final title = localizedDeckName(nameKey: deck.nameKey, name: deck.name);
+      if (title.isNotEmpty && title != deck.name) {
+        deck.name = title;
+        changedDecks.add(deck);
+      }
+
+      final byFront = assets[deck.languageCode];
+      if (byFront == null) continue;
+      for (final card in _cards.where((c) => c.deckId == deck.id)) {
+        final variants = byFront[card.front];
+        if (variants == null) continue;
+        final ours = variants.values.whereType<String>();
+        // Перевод не наш → человек правил карточку сам, не вмешиваемся.
+        if (!ours.contains(card.back)) continue;
+        final fresh = localizedBack(variants).trim();
+        if (fresh.isNotEmpty && fresh != card.back) {
+          card.back = fresh;
+          changedCards.add(card);
+        }
+      }
+    }
+
+    if (changedDecks.isEmpty && changedCards.isEmpty) return;
+    for (final d in changedDecks) {
+      _db!.upsertDeck(d);
+    }
+    if (changedCards.isNotEmpty) _db!.upsertCards(changedCards);
+    notifyListeners();
   }
 
   void _decodeReading(String? raw) {
@@ -1290,6 +1403,8 @@ class DeckRepository extends ChangeNotifier {
           colorValue: (m['color'] as num?)?.toInt() ?? 0xFF2E7D5B,
           shapeIndex: (m['shape'] as num?)?.toInt() ?? 0,
           createdAt: order,
+          // Помним ключ: по нему колоду переведём заново, если сменят язык.
+          nameKey: m['nameKey'] as String?,
         );
         final cards = <WordCard>[];
         var i = 0;

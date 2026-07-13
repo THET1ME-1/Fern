@@ -54,6 +54,9 @@ Future<void> startFern() async {
   await TranslationManager.instance.load();
   await ReaderSettings.instance.load();
   await DeckRepository.instance.seedDemoIfNeeded();
+  // Чинит колоды, посеянные на другом языке интерфейса (в т.ч. у тех, кто
+  // менял язык в прошлых версиях, где переводы фиксировались намертво).
+  await DeckRepository.instance.relocalizeBuiltIns();
   await DeckRepository.instance.protectStreakIfNeeded();
   await _rescheduleReminderIfEnabled();
   final onboarded = await DeckRepository.instance.onboarded();
