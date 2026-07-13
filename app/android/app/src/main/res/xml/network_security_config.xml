@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Обычный HTTP разрешён только для локальной сети: там живут свои серверы
+  перевода пользователя (Ollama / LM Studio / LibreTranslate на своём железе).
+  Весь остальной трафик — строго HTTPS.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Сам телефон (эмулятор/проброс порта). -->
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <!-- Приватные подсети RFC1918: домашний роутер и машина с Ollama. -->
+        <domain includeSubdomains="true">10.0.0.0/8</domain>
+        <domain includeSubdomains="true">172.16.0.0/12</domain>
+        <domain includeSubdomains="true">192.168.0.0/16</domain>
+        <!-- Локальные имена в домашней сети (router.local и т.п.). -->
+        <domain includeSubdomains="true">local</domain>
+    </domain-config>
+</network-security-config>

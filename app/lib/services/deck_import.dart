@@ -216,14 +216,6 @@ class DeckImport {
     await PosDictionary.instance.ensureLoaded(lang);
     final stamp = DateTime.now().microsecondsSinceEpoch;
     final id = 'deck_imp_$stamp';
-    await repo.upsertDeck(Deck(
-      id: id,
-      languageCode: lang,
-      name: name,
-      colorValue: 0xFF3F6FB0,
-      shapeIndex: 0,
-      createdAt: DateTime.now().millisecondsSinceEpoch,
-    ));
     final cards = <WordCard>[];
     final seen = <String>{};
     var i = 0;
@@ -244,7 +236,17 @@ class DeckImport {
       ));
       i++;
     }
+    // Колоду создаём, только когда есть что в неё класть: иначе после отсева
+    // всех карточек в списке осталась бы пустая колода-сирота.
     if (cards.isEmpty) return null;
+    await repo.upsertDeck(Deck(
+      id: id,
+      languageCode: lang,
+      name: name,
+      colorValue: 0xFF3F6FB0,
+      shapeIndex: 0,
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+    ));
     await repo.addCards(cards);
     return id;
   }

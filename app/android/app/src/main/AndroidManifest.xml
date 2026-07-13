@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Ежедневные напоминания (flutter_local_notifications). Используем
          НЕточные будильники, поэтому SCHEDULE_EXACT_ALARM не нужен. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -7,11 +8,18 @@
     <!-- Онлайн-перевод, свои серверы, субтитры и плеер YouTube. Явно в main,
          чтобы не зависеть от транзитивного merge из плагинов в release-сборке. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Импортируем только текст, книги и фото. Видео/аудио-доступ приезжает
+         транзитивно из image_picker/file_picker — выпиливаем, чтобы не просить лишнего. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" tools:node="remove" />
     <application
         android:label="Fern"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true">
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false">
         <activity
             android:name=".MainActivity"
             android:exported="true"

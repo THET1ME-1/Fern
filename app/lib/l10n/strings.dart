@@ -64,6 +64,7 @@ const Map<String, Map<String, String>> _strings = {
   'close': {'ru': 'Закрыть', 'en': 'Close'},
   'continue_btn': {'ru': 'Дальше', 'en': 'Continue'},
   'start': {'ru': 'Начать', 'en': 'Start'},
+  'something_wrong': {'ru': 'Что-то пошло не так', 'en': 'Something went wrong'},
 
   // ----------------------------- Навигация -----------------------------
   'nav_decks': {'ru': 'Колоды', 'en': 'Decks'},
@@ -259,6 +260,7 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Высокое качество, нужна сеть',
     'en': 'High quality, needs network'
   },
+  'endpoint_openai_compat': {'ru': 'OpenAI-совм.', 'en': 'OpenAI-compatible'},
   'server_kind': {'ru': 'Тип сервера', 'en': 'Server type'},
   'server_name': {'ru': 'Название', 'en': 'Name'},
   'server_url': {'ru': 'Адрес (URL)', 'en': 'Address (URL)'},
@@ -305,6 +307,15 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Не удалось загрузить (проверь сеть)',
     'en': 'Could not load (check network)'
   },
+  'video_timeout': {
+    'ru': 'YouTube не ответил вовремя. Попробуйте ещё раз',
+    'en': 'YouTube did not respond in time. Try again'
+  },
+  'video_unavailable': {
+    'ru': 'Видео недоступно для разбора',
+    'en': 'This video cannot be processed'
+  },
+  'retry': {'ru': 'Повторить', 'en': 'Retry'},
   'video_tip_voice': {
     'ru': 'Озвучка живым голосом из видео или роботом',
     'en': 'Audio in the real voice from the video, or a robot'
@@ -432,6 +443,7 @@ const Map<String, Map<String, String>> _strings = {
   'listen_prompt': {'ru': 'Прослушайте и выберите перевод',
       'en': 'Listen and choose the translation'},
   'tap_to_replay': {'ru': 'Нажмите, чтобы повторить', 'en': 'Tap to replay'},
+  'play_failed': {'ru': 'Не удалось воспроизвести', 'en': 'Playback failed'},
   // Напоминания
   'reminders': {'ru': 'Напоминания', 'en': 'Reminders'},
   'daily_reminder': {'ru': 'Ежедневное напоминание', 'en': 'Daily reminder'},
@@ -459,8 +471,17 @@ const Map<String, Map<String, String>> _strings = {
   'onb_pick_lang': {'ru': 'Что хочешь учить?', 'en': 'What do you want to learn?'},
   'onb_start': {'ru': 'Начать', 'en': 'Get started'},
   'check_updates': {'ru': 'Проверить обновления', 'en': 'Check for updates'},
+  'licenses': {'ru': 'Лицензии', 'en': 'Licenses'},
   'checking_updates': {'ru': 'Проверяем обновления…', 'en': 'Checking for updates…'},
   'up_to_date': {'ru': 'У вас последняя версия', 'en': "You're up to date"},
+  'update_check_failed': {
+    'ru': 'Не удалось проверить обновления',
+    'en': 'Could not check for updates'
+  },
+  'open_link_failed': {
+    'ru': 'Не удалось открыть ссылку',
+    'en': 'Could not open the link'
+  },
   'update_available': {'ru': 'Доступно обновление', 'en': 'Update available'},
   'update_new_version': {'ru': 'Новая: {v}', 'en': 'New: {v}'},
   'update_current_version': {'ru': 'у вас: {v}', 'en': 'yours: {v}'},
@@ -734,6 +755,7 @@ const Map<String, Map<String, String>> _strings = {
   'bookmark_removed': {'ru': 'Закладка удалена', 'en': 'Bookmark removed'},
   'bookmarks_empty': {'ru': 'Пока нет закладок', 'en': 'No bookmarks yet'},
   'chapters': {'ru': 'Главы', 'en': 'Chapters'},
+  'chapter_n': {'ru': 'Раздел {n}', 'en': 'Section {n}'},
   'chapter_new_words': {'ru': '{n} новых', 'en': '{n} new'},
   'book_finished': {'ru': 'Прочитано', 'en': 'Finished'},
   'read_aloud': {'ru': 'Читать вслух', 'en': 'Read aloud'},
@@ -755,6 +777,11 @@ const Map<String, Map<String, String>> _strings = {
   'highlight_unknown': {'ru': 'Незнакомые', 'en': 'Unknown'},
   'highlight_off': {'ru': 'Выкл', 'en': 'Off'},
   'reader_theme': {'ru': 'Тема страницы', 'en': 'Page theme'},
+  'reader_theme_day': {'ru': 'День', 'en': 'Day'},
+  'reader_theme_sepia': {'ru': 'Сепия', 'en': 'Sepia'},
+  'reader_theme_gray': {'ru': 'Серая', 'en': 'Gray'},
+  'reader_theme_night': {'ru': 'Ночь', 'en': 'Night'},
+  'reader_theme_black': {'ru': 'Чёрная', 'en': 'Black'},
   'reader_font_size': {'ru': 'Размер шрифта', 'en': 'Font size'},
   'reader_line_height': {'ru': 'Межстрочный интервал', 'en': 'Line spacing'},
   'reader_font': {'ru': 'Шрифт', 'en': 'Font'},
@@ -934,6 +961,14 @@ const Map<String, Map<String, String>> _strings = {
   'ocr_hub_sub': {'ru': 'Слова с фото — в колоду', 'en': 'Photo words into a deck'},
   'ocr_take_photo': {'ru': 'Снять фото', 'en': 'Take a photo'},
   'ocr_from_gallery': {'ru': 'Из галереи', 'en': 'From gallery'},
+  'camera_denied': {
+    'ru': 'Нет доступа к камере — разрешите его в настройках телефона',
+    'en': 'No camera access — allow it in system settings'
+  },
+  'gallery_denied': {
+    'ru': 'Не удалось открыть галерею',
+    'en': "Couldn't open the gallery"
+  },
   'ocr_recognizing': {'ru': 'Распознаём…', 'en': 'Recognizing…'},
   'ocr_no_text': {'ru': 'Текст не распознан', 'en': 'No text recognized'},
   'ocr_words_title': {'ru': 'Новые слова', 'en': 'New words'},

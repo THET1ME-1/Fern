@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ import '../services/translation/translation_manager.dart';
 import '../study/word_lookup_sheet.dart';
 import '../theme/app_theme.dart';
 import '../video/add_target.dart';
+import '../widgets/batch_progress_dialog.dart';
 import '../widgets/language_check_card.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
@@ -61,7 +63,14 @@ class _OcrScreenState extends State<OcrScreen> {
       });
       await _runOcr();
     } catch (_) {
-      if (mounted) setState(() => _busy = false);
+      // Чаще всего это отказ в доступе к камере/галерее — молчать нельзя,
+      // иначе тап по кнопке выглядит как «ничего не произошло».
+      if (!mounted) return;
+      setState(() => _busy = false);
+      final key = source == ImageSource.camera ? 'camera_denied' : 'gallery_denied';
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr(key))));
     }
   }
 
@@ -165,11 +174,14 @@ class _OcrScreenState extends State<OcrScreen> {
 
     final progress = ValueNotifier<int>(0);
     final cancelled = ValueNotifier<bool>(false);
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) => _BatchDialog(
+    var dialogOpen = true;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => BatchProgressDialog(
           total: words.length, progress: progress, onCancel: () => cancelled.value = true),
+      ).whenComplete(() => dialogOpen = false),
     );
     final tgt = LocaleController.instance.code;
     var added = 0;
@@ -192,7 +204,7 @@ class _OcrScreenState extends State<OcrScreen> {
     progress.dispose();
     cancelled.dispose();
     if (mounted) {
-      Navigator.of(context, rootNavigator: true).pop();
+      if (dialogOpen) Navigator.of(context, rootNavigator: true).pop();
       setState(() => _words = _extractWords(_text, _lang));
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
@@ -438,32 +450,3 @@ class _OcrScreenState extends State<OcrScreen> {
 }
 
 /// Диалог прогресса пакетного добавления.
-class _BatchDialog extends StatelessWidget {
-  final int total;
-  final ValueNotifier<int> progress;
-  final VoidCallback onCancel;
-  const _BatchDialog(
-      {required this.total, required this.progress, required this.onCancel});
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      content: ValueListenableBuilder<int>(
-        valueListenable: progress,
-        builder: (_, done, _) => Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: LinearProgressIndicator(
-                  value: total == 0 ? 0 : done / total, minHeight: 8),
-            ),
-            const SizedBox(height: 16),
-            Text(trf('batch_adding', {'i': done, 'n': total})),
-          ],
-        ),
-      ),
-      actions: [TextButton(onPressed: onCancel, child: Text(tr('cancel')))],
-    );
-  }
-}

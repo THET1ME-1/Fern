@@ -13,9 +13,11 @@ import 'l10n/strings.dart';
 import 'library_screen.dart';
 import 'onboarding_screen.dart';
 import 'progress_screen.dart';
+import 'recovery_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
+import 'services/licenses.dart';
 import 'services/pos_dictionary.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
@@ -34,6 +36,20 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  try {
+    await startFern();
+  } catch (e) {
+    // Битый файл БД или переполненный диск роняли запуск ДО runApp — приложение
+    // навсегда оставалось чёрным экраном, и данные было не достать даже из
+    // бэкапа. Показываем экран восстановления вместо пустоты.
+    runApp(RecoveryApp(error: '$e'));
+  }
+}
+
+/// Полная инициализация и запуск приложения. Вынесена, чтобы экран
+/// восстановления мог повторить её после починки хранилища.
+Future<void> startFern() async {
+  registerAssetLicenses();
   await DeckRepository.instance.init();
   await DeckRepository.instance.applyFsrsSettings();
   await ThemeController.instance.load();
@@ -156,7 +172,7 @@ class _MainScreenState extends State<MainScreen> {
     if (kIsWeb || !(Platform.isAndroid || Platform.isIOS)) return;
     final current = await appVersionName();
     if (current.isEmpty) return;
-    final info = await UpdateService.checkForUpdate(current);
+    final info = (await UpdateService.checkForUpdate(current)).info;
     if (!mounted || info == null) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) UpdateSheet.show(context, info, current);

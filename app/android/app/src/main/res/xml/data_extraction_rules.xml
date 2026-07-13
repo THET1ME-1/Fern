@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Fern не выгружает словарь и статистику в облако — обещание из README держим
+  и на уровне системы: ни Google Drive Auto Backup, ни device-to-device transfer
+  не забирают данные приложения. Перенос на новый телефон — через свой JSON-бэкап
+  в настройках (файл под контролем пользователя).
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+        <exclude domain="file" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="root" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+        <exclude domain="file" />
+    </device-transfer>
+</data-extraction-rules>

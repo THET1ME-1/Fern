@@ -9,8 +9,6 @@ enum HighlightMode { known, unknown, off }
 /// цвет текста и акцент для подсветки известных слов.
 class ReaderTheme {
   final String id;
-  final String labelRu;
-  final String labelEn;
   final Color background;
   final Color text;
   final Color faint; // приглушённый (номера, вторичное)
@@ -19,22 +17,21 @@ class ReaderTheme {
 
   const ReaderTheme({
     required this.id,
-    required this.labelRu,
-    required this.labelEn,
     required this.background,
     required this.text,
     required this.faint,
     required this.accent,
     required this.added,
   });
+
+  /// Ключ названия темы в словаре интерфейса (`tr`), напр. `reader_theme_day`.
+  String get labelKey => 'reader_theme_$id';
 }
 
 /// Пресеты тем чтения (день / сепия / серая / ночь / чёрная).
 const List<ReaderTheme> kReaderThemes = [
   ReaderTheme(
     id: 'day',
-    labelRu: 'День',
-    labelEn: 'Day',
     background: Color(0xFFFBFAF7),
     text: Color(0xFF1B1B1A),
     faint: Color(0xFF8A8A85),
@@ -43,8 +40,6 @@ const List<ReaderTheme> kReaderThemes = [
   ),
   ReaderTheme(
     id: 'sepia',
-    labelRu: 'Сепия',
-    labelEn: 'Sepia',
     background: Color(0xFFF3E9D2),
     text: Color(0xFF4E3D28),
     faint: Color(0xFF9C8A6B),
@@ -53,8 +48,6 @@ const List<ReaderTheme> kReaderThemes = [
   ),
   ReaderTheme(
     id: 'gray',
-    labelRu: 'Серая',
-    labelEn: 'Gray',
     background: Color(0xFFE7E7E4),
     text: Color(0xFF2A2A2A),
     faint: Color(0xFF7C7C79),
@@ -63,8 +56,6 @@ const List<ReaderTheme> kReaderThemes = [
   ),
   ReaderTheme(
     id: 'night',
-    labelRu: 'Ночь',
-    labelEn: 'Night',
     background: Color(0xFF23272B),
     text: Color(0xFFCBD0D6),
     faint: Color(0xFF7E858C),
@@ -73,8 +64,6 @@ const List<ReaderTheme> kReaderThemes = [
   ),
   ReaderTheme(
     id: 'black',
-    labelRu: 'Чёрная',
-    labelEn: 'Black',
     background: Color(0xFF000000),
     text: Color(0xFFB7BCC2),
     faint: Color(0xFF6A6F75),

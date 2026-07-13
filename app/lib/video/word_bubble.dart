@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../l10n/strings.dart';
+import '../services/pos.dart';
 import '../services/translation/translation_manager.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
@@ -102,6 +103,16 @@ class _WordBubbleState extends State<_WordBubble> {
   AddResult? _addResult;
 
   bool get _wordLive => widget.wordStart != null && widget.wordEnd != null;
+
+  /// Локализованное название части речи: сырую строку словаря («noun», «verb»)
+  /// приводим к каноническому коду и берём перевод. Не распознали — показываем
+  /// как пришло (лучше сырое, чем ничего).
+  String? get _posLabel {
+    final raw = _pos?.trim();
+    if (raw == null || raw.isEmpty) return null;
+    final code = PosDetect.fromDictionary(raw);
+    return code == null ? raw : tr('pos_deck_$code');
+  }
 
   @override
   void initState() {
@@ -232,11 +243,11 @@ class _WordBubbleState extends State<_WordBubble> {
                   ],
                 ],
               ),
-              if (_pos != null && _pos!.isNotEmpty)
+              if (_posLabel != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 2),
                   child: Text(
-                    _pos!,
+                    _posLabel!,
                     style: TextStyle(
                       fontFamily: AppTheme.bodyFont,
                       fontStyle: FontStyle.italic,

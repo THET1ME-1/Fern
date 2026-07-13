@@ -25,15 +25,25 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (_busy) return;
     setState(() => _busy = true);
     HapticFeedback.selectionClick();
-    final repo = DeckRepository.instance;
-    await repo.setSelectedLanguageCode(_lang);
-    // Для не-английского с готовым набором добавим стартовую колоду сразу.
-    if (_lang != 'en' && StarterDecks.availableLanguages.contains(_lang)) {
-      final packs = await StarterDecks.forLanguage(_lang);
-      if (packs.isNotEmpty) await StarterDecks.add(packs.first);
+    try {
+      final repo = DeckRepository.instance;
+      await repo.setSelectedLanguageCode(_lang);
+      // Для не-английского с готовым набором добавим стартовую колоду сразу.
+      if (_lang != 'en' && StarterDecks.availableLanguages.contains(_lang)) {
+        final packs = await StarterDecks.forLanguage(_lang);
+        if (packs.isNotEmpty) await StarterDecks.add(packs.first);
+      }
+      await repo.setOnboarded(true);
+      widget.onDone();
+    } catch (_) {
+      // Иначе кнопка «Начать» осталась бы заблокированной навсегда.
+      if (!mounted) return;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr('something_wrong'))));
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
-    await repo.setOnboarded(true);
-    widget.onDone();
   }
 
   @override

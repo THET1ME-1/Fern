@@ -59,10 +59,15 @@ One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 Or download the APK from the [releases page](https://github.com/THET1ME-1/fern_releases/releases/latest). The app also **updates itself** from within.
 
 Signing fingerprint (SHA-256) to verify the APK:
-`C7:72:9A:19:D0:EA:2E:D9:E5:69:51:68:3A:35:60:3A:6A:B8:39:59:D1:B3:22:86:F7:D6:98:5C:FB:34:EB:F7`
+`51:6E:FD:44:E8:AF:67:2B:A7:A9:B1:01:09:0D:B5:46:98:F5:BB:42:E1:09:C1:B0:0A:D4:AA:A5:2A:2C:E3:A1`
+
+> ⚠️ **Upgrading from 1.14.0 or older?** Release builds are now signed with a permanent key
+> (they used to be signed with a debug key). Android will refuse to install 1.15.0 over the old
+> version. **Open Settings → Backup and save your data first**, then uninstall the old app,
+> install 1.15.0 and restore. This is a one-time step — updates after that work as usual.
 
 ### Privacy
-No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it.
+No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it. Android's cloud backup is disabled, so nothing leaks to Google Drive either. Full policy: [docs/privacy-policy.md](docs/privacy-policy.md).
 
 ---
 
@@ -102,10 +107,15 @@ One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 Или скачай APK со [страницы релизов](https://github.com/THET1ME-1/fern_releases/releases/latest). Приложение также **обновляется само** изнутри.
 
 Отпечаток подписи (SHA-256) для проверки APK:
-`C7:72:9A:19:D0:EA:2E:D9:E5:69:51:68:3A:35:60:3A:6A:B8:39:59:D1:B3:22:86:F7:D6:98:5C:FB:34:EB:F7`
+`51:6E:FD:44:E8:AF:67:2B:A7:A9:B1:01:09:0D:B5:46:98:F5:BB:42:E1:09:C1:B0:0A:D4:AA:A5:2A:2C:E3:A1`
+
+> ⚠️ **Обновляешься с 1.14.0 или старее?** Релизы теперь подписаны постоянным ключом
+> (раньше — отладочным), и Android откажется ставить 1.15.0 поверх старой версии.
+> **Сначала зайди в Настройки → Резервная копия и сохрани данные**, потом удали старое
+> приложение, поставь 1.15.0 и восстанови копию. Это разово — дальше обновления идут как обычно.
 
 ### Приватность
-Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь.
+Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь. Системный бэкап Android отключён — данные не уезжают и в Google Drive. Полная политика: [docs/privacy-policy.md](docs/privacy-policy.md).
 
 ---
 

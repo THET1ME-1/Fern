@@ -148,6 +148,16 @@ class DeckRepository extends ChangeNotifier {
     _loaded = true;
   }
 
+  /// Отодвигает повреждённый файл БД и открывает пустую на его месте.
+  /// Единственный способ запустить приложение, когда `init()` упал на битой
+  /// базе: иначе экран остаётся чёрным и данные не достать даже из бэкапа.
+  Future<void> recoverFromCorruptedDatabase() async {
+    _loaded = false;
+    await LocalDb(path: debugDatabasePath).quarantineFile();
+    _db = null;
+    await init();
+  }
+
   /// Разово переносит колоды/паки/карты из prefs в SQLite. Защита двойная:
   /// импорт идёт ТОЛЬКО в пустую БД (никогда не затираем уже перенесённые
   /// данные) и только один раз (флаг). Старые prefs-ключи не удаляем — остаются

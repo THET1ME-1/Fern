@@ -13,6 +13,7 @@ import '../services/lemmatizer.dart';
 import '../services/pos.dart';
 import '../services/source_library.dart';
 import '../services/translation/translation_manager.dart';
+import '../services/translation/translation_provider.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../video/add_target.dart';
@@ -73,6 +74,13 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   // Билингва: перевод абзаца по индексу (лениво, кэшируется).
   final Map<int, String> _paraTr = {};
   final Set<int> _paraTrBusy = {};
+  // Абзацы, перевод которых не удался. Без этой отметки build бесконечно
+  // перезапускал запрос на каждом кадре (офлайн = шторм в сеть).
+  final Set<int> _paraTrFailed = {};
+  // Больше пары запросов разом переводчику не нужно: быстрый скролл иначе
+  // выпускает десятки параллельных обращений и ловит rate-limit.
+  static const int _maxParallelTr = 2;
+  int _trInFlight = 0;
 
   // Текущий верхний абзац. Держим и в поле (для сохранения/закладок), и в
   // [ValueNotifier] — чтобы полоса прогресса и футер обновлялись при прокрутке
@@ -394,6 +402,15 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   }
 
   Future<void> _startRead() async {
+    // Без голоса для языка книги движок молча «проглатывает» speak и цикл
+    // прокручивает всю книгу за секунду. Честно говорим, что озвучки нет.
+    if (!await TtsService.instance.isAvailable(_srcLang)) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('tts_unavailable'))),
+      );
+      return;
+    }
     final token = ++_playToken;
     if (mounted) setState(() => _playing = true);
     final start = _topIndex.clamp(0, _paragraphs.length - 1);
@@ -658,17 +675,31 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         );
         // Билингва: под оригиналом — перевод абзаца (лениво подгружается).
         if (_settings.bilingual && _srcLang != _tgtLang) {
-          if (!_paraTr.containsKey(i) && !_paraTrBusy.contains(i)) {
+          final failed = _paraTrFailed.contains(i);
+          if (!_paraTr.containsKey(i) && !_paraTrBusy.contains(i) && !failed) {
             WidgetsBinding.instance
                 .addPostFrameCallback((_) => _translatePara(i));
           }
-          content = Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              content,
-              Padding(
-                padding: EdgeInsets.only(left: bookmarked ? 12 : 0, bottom: 6),
-                child: Text(
+          // Неудачный перевод не молчит многоточием — говорит об этом и даёт
+          // повторить тапом (типично при отключённой сети).
+          final line = failed
+              ? GestureDetector(
+                  onTap: () {
+                    setState(() => _paraTrFailed.remove(i));
+                    _translatePara(i);
+                  },
+                  child: Text(
+                    '${tr('translate_failed')} · ${tr('retry')}',
+                    style: TextStyle(
+                      fontFamily: _settings.fontFamily,
+                      fontSize: 14 * _settings.fontScale,
+                      height: _settings.lineHeight,
+                      color: t.faint,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                )
+              : Text(
                   _paraTr[i] ?? '…',
                   style: TextStyle(
                     fontFamily: _settings.fontFamily,
@@ -677,7 +708,14 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                     fontStyle: FontStyle.italic,
                     color: t.faint,
                   ),
-                ),
+                );
+          content = Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              content,
+              Padding(
+                padding: EdgeInsets.only(left: bookmarked ? 12 : 0, bottom: 6),
+                child: line,
               ),
             ],
           );
@@ -707,15 +745,30 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     if (!_settings.bilingual || _srcLang == _tgtLang) return;
     if (i < 0 || i >= _paragraphs.length) return;
     if (_paraTr.containsKey(i) || _paraTrBusy.contains(i)) return;
+    if (_paraTrFailed.contains(i)) return;
     if (!TranslationManager.instance.canTranslate(_srcLang, _tgtLang)) return;
+    // Свободных слотов нет — этот абзац переведём, когда освободится (кадр
+    // придёт от завершения соседнего перевода).
+    if (_trInFlight >= _maxParallelTr) return;
     _paraTrBusy.add(i);
-    final res = await TranslationManager.instance
-        .translate(_paragraphs[i], _srcLang, _tgtLang, enrich: false);
+    _trInFlight++;
+    TransResult? res;
+    try {
+      res = await TranslationManager.instance
+          .translate(_paragraphs[i], _srcLang, _tgtLang, enrich: false);
+    } catch (_) {
+      res = null;
+    } finally {
+      _trInFlight--;
+    }
     if (!mounted) return;
     setState(() {
       _paraTrBusy.remove(i);
-      if (res != null && res.primary.trim().isNotEmpty) {
-        _paraTr[i] = res.primary.trim();
+      final text = res?.primary.trim() ?? '';
+      if (text.isNotEmpty) {
+        _paraTr[i] = text;
+      } else {
+        _paraTrFailed.add(i);
       }
     });
   }
@@ -1168,7 +1221,6 @@ class _ReaderSettingsSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = settings.theme;
-    final isRu = LocaleController.instance.code == 'ru';
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 14, 20, 20),
@@ -1203,7 +1255,7 @@ class _ReaderSettingsSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 for (var i = 0; i < kReaderThemes.length; i++)
-                  _themeSwatch(i, isRu, t),
+                  _themeSwatch(i, t),
               ],
             ),
             const SizedBox(height: 20),
@@ -1249,7 +1301,7 @@ class _ReaderSettingsSheet extends StatelessWidget {
         ),
       );
 
-  Widget _themeSwatch(int i, bool isRu, ReaderTheme current) {
+  Widget _themeSwatch(int i, ReaderTheme current) {
     final rt = kReaderThemes[i];
     final selected = i == settings.themeIndex;
     return GestureDetector(
@@ -1284,7 +1336,7 @@ class _ReaderSettingsSheet extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            isRu ? rt.labelRu : rt.labelEn,
+            tr(rt.labelKey),
             style: TextStyle(
               fontSize: 11,
               color: selected ? current.text : current.faint,

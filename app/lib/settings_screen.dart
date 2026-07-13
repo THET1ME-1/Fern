@@ -296,8 +296,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: _checkUpdates,
             scheme: scheme,
           ),
+          _actionTile(
+            icon: Icons.description_outlined,
+            title: tr('licenses'),
+            onTap: _openLicenses,
+            scheme: scheme,
+          ),
         ],
       ),
+    );
+  }
+
+  /// Лицензии на чужие материалы внутри приложения (шрифты OFL, словарь,
+  /// пакеты). Для OFL-шрифтов это не вежливость, а требование лицензии.
+  void _openLicenses() {
+    showLicensePage(
+      context: context,
+      applicationName: 'Fern',
+      applicationVersion: _version,
+      applicationLegalese: '© 2026 THET1ME-1',
     );
   }
 
@@ -824,6 +841,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  /// Путь выбранного файла. `.single` бросает StateError на пустом списке
+  /// (бывает при отмене на некоторых платформах) — берём безопасно.
+  String? _pickedPath(FilePickerResult? result) {
+    final files = result?.files ?? const <PlatformFile>[];
+    return files.isEmpty ? null : files.first.path;
+  }
+
   /// Импорт колоды из Anki (.apkg) или текстового списка (CSV/TSV/TXT).
   Future<void> _importDeck() async {
     String? path;
@@ -832,10 +856,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: FileType.custom,
         allowedExtensions: DeckImport.supportedExtensions,
       );
-      path = result?.files.single.path;
+      path = _pickedPath(result);
     } catch (_) {
       final result = await FilePicker.platform.pickFiles(type: FileType.any);
-      path = result?.files.single.path;
+      path = _pickedPath(result);
     }
     if (path == null || !mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
@@ -869,22 +893,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
       );
     }
     final current = await appVersionName();
-    final info =
-        current.isEmpty ? null : await UpdateService.checkForUpdate(current);
+    final check = current.isEmpty
+        ? const UpdateCheck.failed()
+        : await UpdateService.checkForUpdate(current);
     if (!mounted) return;
-    if (info == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(tr('up_to_date'))),
-      );
-    } else {
+    final info = check.info;
+    if (info != null) {
       await UpdateSheet.show(context, info, current);
+      return;
     }
+    // Не удалось проверить — так и говорим, а не «у вас последняя версия».
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(check.failed ? tr('update_check_failed') : tr('up_to_date')),
+      ),
+    );
   }
 
   Future<void> _restore() async {
     try {
       final result = await FilePicker.platform.pickFiles(type: FileType.any);
-      final path = result?.files.single.path;
+      final path = _pickedPath(result);
       if (path == null || !mounted) return;
       final merge = await _askRestoreMode();
       if (merge == null) return; // отменили выбор режима

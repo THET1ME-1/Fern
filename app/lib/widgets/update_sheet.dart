@@ -49,9 +49,19 @@ class _UpdateSheetState extends State<UpdateSheet> {
   _Stage _stage = _Stage.idle;
   double _progress = 0;
 
+  /// Открывает страницу релиза. Если браузера нет (или система отказала),
+  /// кнопка раньше просто ничего не делала — теперь честно сообщаем.
   Future<void> _openGithub() async {
     final uri = Uri.parse(widget.info.releaseUrl);
-    await launchUrl(uri, mode: LaunchMode.externalApplication);
+    try {
+      final ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (ok || !mounted) return;
+    } catch (_) {
+      if (!mounted) return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(tr('open_link_failed'))),
+    );
   }
 
   Future<void> _startUpdate() async {

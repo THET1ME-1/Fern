@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../l10n/locale_controller.dart';
@@ -42,8 +43,10 @@ class VideoStudyScreen extends StatefulWidget {
 class _VideoStudyScreenState extends State<VideoStudyScreen> {
   late final YoutubePlayerController _controller;
   StreamSubscription<YoutubeVideoState>? _sub;
-  final ScrollController _scroll = ScrollController();
-  late final List<GlobalKey> _lineKeys;
+  // Именно ScrollablePositionedList: обычный ListView строит только видимые
+  // строки, и после перемотки видео на 20 минут вперёд нужной строки в дереве
+  // нет — автоскролл караоке молча переставал работать.
+  final ItemScrollController _scroll = ItemScrollController();
 
   int _active = -1;
   int _added = 0;
@@ -64,7 +67,6 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
   void initState() {
     super.initState();
     _known.addAll(DeckRepository.instance.knownFrontsForLanguage(_srcLang));
-    _lineKeys = List.generate(widget.transcript.lines.length, (_) => GlobalKey());
     _controller = YoutubePlayerController.fromVideoId(
       videoId: widget.transcript.videoId,
       autoPlay: false,
@@ -79,41 +81,46 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
   }
 
   void _onTick(YoutubeVideoState state) {
-    final pos = state.position;
-    final lines = widget.transcript.lines;
-    // Ищем активную реплику рядом с текущей (обычно соседняя — дёшево).
-    int found = -1;
-    for (var i = 0; i < lines.length; i++) {
-      if (pos >= lines[i].start && pos <= lines[i].end) {
-        found = i;
-        break;
-      }
-    }
+    final found = _lineAt(state.position);
     if (found != -1 && found != _active) {
       setState(() => _active = found);
       _scrollToActive(found);
     }
   }
 
-  void _scrollToActive(int index) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final ctx = _lineKeys[index].currentContext;
-      if (ctx != null) {
-        Scrollable.ensureVisible(
-          ctx,
-          alignment: 0.35,
-          duration: const Duration(milliseconds: 320),
-          curve: AppTheme.emphasizedDecelerate,
-        );
+  /// Реплика, звучащая в момент [pos]. Двоичный поиск: реплики упорядочены по
+  /// времени, а тик приходит несколько раз в секунду — линейный скан часового
+  /// видео (2000+ реплик) грел процессор впустую.
+  int _lineAt(Duration pos) {
+    final lines = widget.transcript.lines;
+    var lo = 0, hi = lines.length - 1;
+    while (lo <= hi) {
+      final mid = (lo + hi) >> 1;
+      if (pos < lines[mid].start) {
+        hi = mid - 1;
+      } else if (pos > lines[mid].end) {
+        lo = mid + 1;
+      } else {
+        return mid;
       }
-    });
+    }
+    return -1;
+  }
+
+  void _scrollToActive(int index) {
+    if (!_scroll.isAttached) return;
+    _scroll.scrollTo(
+      index: index,
+      alignment: 0.35,
+      duration: const Duration(milliseconds: 320),
+      curve: AppTheme.emphasizedDecelerate,
+    );
   }
 
   @override
   void dispose() {
     _sub?.cancel();
     _controller.close();
-    _scroll.dispose();
     super.dispose();
   }
 
@@ -262,15 +269,14 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
 
   Widget _subtitles(ColorScheme scheme) {
     final lines = widget.transcript.lines;
-    return ListView.builder(
-      controller: _scroll,
+    return ScrollablePositionedList.builder(
+      itemScrollController: _scroll,
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
       itemCount: lines.length,
       itemBuilder: (context, i) {
         final line = lines[i];
         final active = i == _active;
         return Container(
-          key: _lineKeys[i],
           padding: const EdgeInsets.symmetric(vertical: 6),
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 220),

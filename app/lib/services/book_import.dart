@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
 
+import '../l10n/strings.dart';
 import '../models/book_chapter.dart';
 
 /// Извлечённый из файла текст книги + предполагаемое название + оглавление +
@@ -32,7 +33,7 @@ class _Assembler {
   void startChapter(String title) {
     final t = title.trim();
     chapters.add(BookChapter(
-      t.isEmpty ? 'Раздел ${chapters.length + 1}' : t,
+      t.isEmpty ? trf('chapter_n', {'n': chapters.length + 1}) : t,
       paragraphs.length,
     ));
   }
@@ -126,17 +127,45 @@ class BookImport {
     }
   }
 
-  /// Декодирует байты как UTF-8 (с заменой битых), иначе latin1.
+  /// Декодирует байты книги.
+  ///
+  /// Сначала строгий UTF-8. Не вышло — почти наверняка это старый русский
+  /// текст в Windows-1251 (таких .txt и .fb2 в сети большинство): раньше они
+  /// молча превращались в кашу из «?», потому что запасная ветка была
+  /// недостижима (`allowMalformed: true` не бросает никогда).
   static String _decode(List<int> bytes) {
     try {
       return utf8.decode(bytes, allowMalformed: false);
     } catch (_) {
-      try {
-        return utf8.decode(bytes, allowMalformed: true);
-      } catch (_) {
-        return latin1.decode(bytes);
+      return _decodeCp1251(bytes);
+    }
+  }
+
+  /// Верхняя половина таблицы Windows-1251 (байты 0x80–0xFF). Нижняя совпадает
+  /// с ASCII.
+  static const String _cp1251High =
+      'ЂЃ‚ѓ„…†‡€‰Љ‹ЊЌЋЏ'
+      'ђ‘’“”•–—\uFFFD™љ›њќћџ'
+      '\u00A0ЎўЈ¤Ґ¦§Ё©Є«¬\u00AD®Ї'
+      '°±Ііґµ¶·ё№є»јЅѕї'
+      'АБВГДЕЖЗИЙКЛМНОП'
+      'РСТУФХЦЧШЩЪЫЬЭЮЯ'
+      'абвгдежзийклмноп'
+      'рстуфхцчшщъыьэюя';
+
+  /// Только для тестов: доступ к декодеру байтов.
+  static String debugDecode(List<int> bytes) => _decode(bytes);
+
+  static String _decodeCp1251(List<int> bytes) {
+    final buf = StringBuffer();
+    for (final b in bytes) {
+      if (b < 0x80) {
+        buf.writeCharCode(b);
+      } else {
+        buf.write(_cp1251High[b - 0x80]);
       }
     }
+    return buf.toString();
   }
 
   // ------------------------------- EPUB / zip -------------------------------
@@ -169,9 +198,11 @@ class BookImport {
     final a = _Assembler();
     Iterable<ArchiveFile> ordered;
     if (spineHrefs.isNotEmpty) {
+      // Поиск по архиву линейный, поэтому берём файл ОДИН раз на href
+      // (раньше _matchByBase звался дважды на каждую главу).
       ordered = [
         for (final href in spineHrefs)
-          if (_matchByBase(byName, href) != null) _matchByBase(byName, href)!,
+          ?_matchByBase(byName, href),
       ];
     } else {
       // Без opf — по имени файла (обычно = порядок чтения).

@@ -59,6 +59,13 @@ class BackupService {
     }
   }
 
+  /// Восстанавливает из файла снимка (используется аварийным экраном, когда до
+  /// настроек не добраться).
+  static Future<void> restoreFile(String path, {bool merge = false}) async {
+    final raw = await File(path).readAsString();
+    await restore(raw, merge: merge);
+  }
+
   /// Путь к файлу авто-бэкапа, если он есть (для восстановления «из последнего
   /// авто-снимка»). null — файла нет или каталог недоступен.
   static Future<String?> autoBackupPath() async {

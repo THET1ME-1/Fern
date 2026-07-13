@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -13,6 +16,7 @@ import '../services/source_library.dart';
 import '../services/translation/translation_manager.dart';
 import '../study/word_lookup_sheet.dart';
 import '../theme/app_theme.dart';
+import '../widgets/batch_progress_dialog.dart';
 import '../widgets/goal_ring.dart';
 import '../widgets/language_check_card.dart';
 import '../widgets/pressable.dart';
@@ -48,6 +52,8 @@ class _VideoScreenState extends State<VideoScreen> {
   bool _loading = true;
   BookAnalysis? _analysis;
   bool _analyzing = false;
+  BookTokens? _tokens;
+  Timer? _recomputeTimer;
   Deck? _targetDeck;
 
   bool _selecting = false;
@@ -65,6 +71,7 @@ class _VideoScreenState extends State<VideoScreen> {
 
   @override
   void dispose() {
+    _recomputeTimer?.cancel();
     _library.removeListener(_onLibrary);
     _repo.removeListener(_onRepo);
     super.dispose();
@@ -74,7 +81,13 @@ class _VideoScreenState extends State<VideoScreen> {
     if (mounted) setState(() {});
   }
 
-  void _onRepo() => _recompute();
+  /// Словарь изменился. Коалесим: пакетное добавление слов слало уведомление на
+  /// каждое слово, и анализ субтитров пересчитывался столько же раз подряд.
+  void _onRepo() {
+    _recomputeTimer?.cancel();
+    _recomputeTimer =
+        Timer(const Duration(milliseconds: 350), () => _recompute());
+  }
 
   Future<void> _load() async {
     final t = await _library.loadVideo(_src.id);
@@ -93,8 +106,9 @@ class _VideoScreenState extends State<VideoScreen> {
     final text = _text;
     if (text == null) return;
     if (mounted) setState(() => _analyzing = true);
-    await Future<void>.delayed(Duration.zero);
-    final analysis = BookAnalysis.analyze(text, _srcLang);
+    // Разбор субтитров не зависит от словаря — считаем один раз в фоне.
+    _tokens ??= await compute(prepareBookTokens, (text, _srcLang));
+    final analysis = BookAnalysis.analyzeTokens(_tokens!, _srcLang);
     if (!mounted) return;
     setState(() {
       _analysis = analysis;
@@ -133,6 +147,7 @@ class _VideoScreenState extends State<VideoScreen> {
     final fresh = await _library.get(_src.id);
     if (fresh != null && mounted) setState(() => _src = fresh);
     _targetDeck = null; // язык колоды-цели изменился — пере-выберем
+    _tokens = null; // основы слов зависят от языка — разбор больше не годен
     _recompute();
   }
 
@@ -746,14 +761,17 @@ class _VideoScreenState extends State<VideoScreen> {
 
     final progress = ValueNotifier<int>(0);
     final cancelled = ValueNotifier<bool>(false);
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) => _BatchProgressDialog(
-        total: words.length,
-        progress: progress,
-        onCancel: () => cancelled.value = true,
-      ),
+    var dialogOpen = true;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => BatchProgressDialog(
+          total: words.length,
+          progress: progress,
+          onCancel: () => cancelled.value = true,
+        ),
+      ).whenComplete(() => dialogOpen = false),
     );
 
     final tgt = LocaleController.instance.code;
@@ -789,7 +807,7 @@ class _VideoScreenState extends State<VideoScreen> {
     progress.dispose();
     cancelled.dispose();
     if (mounted) {
-      Navigator.of(context, rootNavigator: true).pop();
+      if (dialogOpen) Navigator.of(context, rootNavigator: true).pop();
       setState(() {
         _selecting = false;
         _selected.clear();
@@ -833,43 +851,6 @@ class _VideoScreenState extends State<VideoScreen> {
 }
 
 /// Диалог прогресса пакетного добавления слов.
-class _BatchProgressDialog extends StatelessWidget {
-  final int total;
-  final ValueNotifier<int> progress;
-  final VoidCallback onCancel;
-  const _BatchProgressDialog({
-    required this.total,
-    required this.progress,
-    required this.onCancel,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      content: ValueListenableBuilder<int>(
-        valueListenable: progress,
-        builder: (_, done, _) => Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: LinearProgressIndicator(
-                value: total == 0 ? 0 : done / total,
-                minHeight: 8,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(trf('batch_adding', {'i': done, 'n': total})),
-          ],
-        ),
-      ),
-      actions: [
-        TextButton(onPressed: onCancel, child: Text(tr('cancel'))),
-      ],
-    );
-  }
-}
-
 /// Полоса-разбивка на цветные сегменты, «набегает» слева при появлении.
 class _SegmentBar extends StatelessWidget {
   final List<(int, Color)> segments;

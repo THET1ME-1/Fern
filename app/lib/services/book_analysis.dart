@@ -12,6 +12,31 @@ class WordFreq {
   const WordFreq(this.word, this.count);
 }
 
+/// Разобранный текст книги: уникальные слова, их основы и частоты. Зависит
+/// только от текста, поэтому считается один раз и переживает любые изменения
+/// словаря.
+class BookTokens {
+  final List<String> words;
+  final List<String> stems;
+  final List<int> counts;
+
+  const BookTokens({
+    required this.words,
+    required this.stems,
+    required this.counts,
+  });
+
+  static const BookTokens empty =
+      BookTokens(words: [], stems: [], counts: []);
+
+  bool get isEmpty => words.isEmpty;
+}
+
+/// Точка входа для `compute` — токенизация книги в фоновом изоляте (на романе
+/// это сотни миллисекунд, на UI-потоке они превращались в подвисание).
+BookTokens prepareBookTokens((String, String) args) =>
+    BookAnalysis.prepare(args.$1, args.$2);
+
 /// Умный анализ словаря книги.
 ///
 /// Идея: по тексту книги считаем уникальные слова и их частоты, а затем сверяем
@@ -114,10 +139,31 @@ class BookAnalysis {
     return Fsrs.instance.retrievability(elapsed, r.stability);
   }
 
-  /// Полный анализ текста для языка [languageCode] (использует кэш словаря).
-  static BookAnalysis analyze(String text, String languageCode) {
+  /// Разбор текста книги: частоты слов и их основы. От словаря НЕ зависит,
+  /// поэтому считается один раз на книгу (можно в фоновом изоляте) и потом
+  /// переиспользуется — добавление слова больше не гоняет токенизацию романа
+  /// заново.
+  static BookTokens prepare(String text, String languageCode) {
     final freq = tokenize(text);
-    if (freq.isEmpty) return empty;
+    final words = <String>[];
+    final stems = <String>[];
+    final counts = <int>[];
+    freq.forEach((word, count) {
+      words.add(word);
+      stems.add(Lemmatizer.stem(word, languageCode));
+      counts.add(count);
+    });
+    return BookTokens(words: words, stems: stems, counts: counts);
+  }
+
+  /// Полный анализ текста для языка [languageCode] (использует кэш словаря).
+  static BookAnalysis analyze(String text, String languageCode) =>
+      analyzeTokens(prepare(text, languageCode), languageCode);
+
+  /// Анализ по уже разобранному тексту — дешёвая часть: сверка с текущим
+  /// словарём и подсчёт покрытия.
+  static BookAnalysis analyzeTokens(BookTokens t, String languageCode) {
+    if (t.isEmpty) return empty;
 
     // Индексируем карточки по ОСНОВЕ слова (лемматизация) — чтобы «foxes»
     // засчитывалось к карточке «fox», «runs» к «run» и т.п.
@@ -142,13 +188,14 @@ class BookAnalysis {
     var masteredTokens = 0;
     final unknown = <WordFreq>[];
 
-    freq.forEach((word, count) {
+    for (var i = 0; i < t.words.length; i++) {
+      final count = t.counts[i];
       totalTokens += count;
-      final card = cards[Lemmatizer.stem(word, languageCode)];
+      final card = cards[t.stems[i]];
       if (card == null) {
         unknownTypes++;
-        unknown.add(WordFreq(word, count));
-        return;
+        unknown.add(WordFreq(t.words[i], count));
+        continue;
       }
       coveredTokens += count;
       final strong = card.review.state == FsrsState.review &&
@@ -159,7 +206,7 @@ class BookAnalysis {
       } else {
         learningTypes++;
       }
-    });
+    }
 
     unknown.sort((a, b) {
       final byCount = b.count.compareTo(a.count);
@@ -168,7 +215,7 @@ class BookAnalysis {
 
     return BookAnalysis(
       totalTokens: totalTokens,
-      uniqueTypes: freq.length,
+      uniqueTypes: t.words.length,
       unknownTypes: unknownTypes,
       learningTypes: learningTypes,
       knownTypes: knownTypes,

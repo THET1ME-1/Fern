@@ -58,37 +58,47 @@ class ShapedCover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hasPhoto = imagePath != null && File(imagePath!).existsSync();
+    final path = imagePath;
+    // Запасной вариант — буква/эмодзи в фигуре. Он же подменяет фото, если файл
+    // пропал: проверять существование файла в build() нельзя (синхронный
+    // сисколл на каждую перерисовку), поэтому ловим ошибку через errorBuilder.
+    final Widget letter = Container(
+      width: size,
+      height: size,
+      alignment: Alignment.center,
+      decoration: ShapeDecoration(color: color, shape: shape),
+      child: Text(
+        label.isNotEmpty ? label.characters.first.toUpperCase() : '?',
+        style: TextStyle(
+          color: Colors.white,
+          fontFamily: AppTheme.displayFont,
+          fontWeight: FontWeight.w800,
+          fontSize: size * 0.38,
+        ),
+      ),
+    );
 
-    final Widget content = hasPhoto
-        ? SizedBox(
+    Widget content = letter;
+    if (path != null && path.isNotEmpty) {
+      // Декодируем под реальный размер обложки, а не в полный размер снимка.
+      final px = (size * MediaQuery.devicePixelRatioOf(context)).round();
+      content = SizedBox(
+        width: size,
+        height: size,
+        child: ClipPath(
+          clipper: ShapeBorderClipper(shape: shape),
+          child: Image.file(
+            File(path),
             width: size,
             height: size,
-            child: ClipPath(
-              clipper: ShapeBorderClipper(shape: shape),
-              child: Image.file(
-                File(imagePath!),
-                width: size,
-                height: size,
-                fit: BoxFit.cover,
-              ),
-            ),
-          )
-        : Container(
-            width: size,
-            height: size,
-            alignment: Alignment.center,
-            decoration: ShapeDecoration(color: color, shape: shape),
-            child: Text(
-              label.isNotEmpty ? label.characters.first.toUpperCase() : '?',
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: AppTheme.displayFont,
-                fontWeight: FontWeight.w800,
-                fontSize: size * 0.38,
-              ),
-            ),
-          );
+            fit: BoxFit.cover,
+            cacheWidth: px,
+            cacheHeight: px,
+            errorBuilder: (_, _, _) => letter,
+          ),
+        ),
+      );
+    }
 
     return Opacity(opacity: muted ? 0.45 : 1.0, child: content);
   }

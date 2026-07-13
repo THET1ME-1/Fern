@@ -2,7 +2,7 @@ name: fern
 description: "Fern — красивые флеш-карточки для изучения языков (офлайн, Material You)."
 publish_to: 'none'
 
-version: 1.14.0+23
+version: 1.15.0+24
 
 environment:
   sdk: ^3.11.5
@@ -67,6 +67,8 @@ flutter:
     - assets/starter/
     # Офлайн-словарь частей речи (англ., Moby POS, public domain, gzip).
     - assets/pos/
+    # Тексты лицензий на встроенные материалы (шрифты OFL) — экран «Лицензии».
+    - assets/licenses/
 
   fonts:
     - family: Unbounded

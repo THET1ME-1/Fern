@@ -41,17 +41,20 @@ class TtsService {
   }
 
   /// Произносит [text] на языке [languageCode] (код изучаемого языка).
-  Future<void> speak(String text, String languageCode) async {
+  /// Возвращает false, если озвучить не удалось (движок/язык недоступен).
+  Future<bool> speak(String text, String languageCode) async {
     final t = text.trim();
-    if (t.isEmpty) return;
+    if (t.isEmpty) return false;
     await _ensureInit();
     final locale = _localeFor[languageCode] ?? languageCode;
     try {
       await _tts.stop();
       await _tts.setLanguage(locale);
       await _tts.speak(t);
+      return true;
     } catch (e) {
       debugPrint('TTS speak failed: $e');
+      return false;
     }
   }
 

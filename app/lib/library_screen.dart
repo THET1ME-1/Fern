@@ -202,16 +202,26 @@ class _LibraryScreenState extends State<LibraryScreen> {
       _openBookScreen(s);
       return;
     }
-    // Видео: убеждаемся, что транскрипт есть в кэше (иначе перезагружаем по
-    // ссылке), а затем открываем страницу видео — она грузит его сама.
-    VideoTranscript? t = await _library.loadVideo(s.id);
-    if (t == null && (s.url != null || s.videoId != null)) {
-      final res =
-          await VideoService.fetch(s.url ?? s.videoId!, preferLang: s.languageCode);
-      if (res.isOk) {
-        t = res.transcript;
-        await _library.saveVideo(t!);
+    // Видео без транскрипта в кэше перекачивается по ссылке — это секунды. Без
+    // флага занятости тап выглядел как «ничего не произошло», а повторные тапы
+    // запускали параллельные загрузки и несколько переходов подряд.
+    if (_importing) return;
+    setState(() => _importing = true);
+    VideoTranscript? t;
+    try {
+      t = await _library.loadVideo(s.id);
+      if (t == null && (s.url != null || s.videoId != null)) {
+        final res = await VideoService.fetch(
+          s.url ?? s.videoId!,
+          preferLang: s.languageCode,
+        );
+        if (res.isOk) {
+          t = res.transcript;
+          await _library.saveVideo(t!);
+        }
       }
+    } finally {
+      if (mounted) setState(() => _importing = false);
     }
     if (!mounted) return;
     if (t == null) {

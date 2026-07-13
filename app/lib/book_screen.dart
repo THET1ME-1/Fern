@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,6 +19,7 @@ import 'study/book_reader_screen.dart';
 import 'study/word_lookup_sheet.dart';
 import 'theme/app_theme.dart';
 import 'video/add_target.dart';
+import 'widgets/batch_progress_dialog.dart';
 import 'widgets/book_meta_editor.dart';
 import 'widgets/goal_ring.dart';
 import 'widgets/language_check_card.dart';
@@ -51,6 +54,9 @@ class _BookScreenState extends State<BookScreen> {
   bool _loading = true;
   BookAnalysis? _analysis;
   bool _analyzing = false;
+  // Разбор текста книги кэшируется: он не зависит от словаря, а стоит дорого.
+  BookTokens? _tokens;
+  Timer? _recomputeTimer;
   List<int> _chapterNew = const [];
   Deck? _targetDeck;
 
@@ -70,6 +76,7 @@ class _BookScreenState extends State<BookScreen> {
 
   @override
   void dispose() {
+    _recomputeTimer?.cancel();
     _library.removeListener(_onLibrary);
     _repo.removeListener(_onRepo);
     super.dispose();
@@ -79,7 +86,14 @@ class _BookScreenState extends State<BookScreen> {
     if (mounted) setState(() {}); // прогресс/метаданные меняются in-place
   }
 
-  void _onRepo() => _recompute(); // словарь изменился — пересчитать анализ
+  /// Словарь изменился — пересчитать анализ, но не на каждое изменение подряд:
+  /// пакетное добавление 20 слов слало 20 уведомлений и запускало 20 полных
+  /// пересчётов, из-за чего приложение вставало колом.
+  void _onRepo() {
+    _recomputeTimer?.cancel();
+    _recomputeTimer =
+        Timer(const Duration(milliseconds: 350), () => _recompute());
+  }
 
   Future<void> _load() async {
     final text = await _library.loadBookText(_src.id);
@@ -99,13 +113,15 @@ class _BookScreenState extends State<BookScreen> {
     _recompute();
   }
 
-  /// Пересчитывает анализ словаря (после кадра — чтобы не тормозить отрисовку).
+  /// Пересчитывает анализ словаря. Тяжёлая часть (токенизация книги) считается
+  /// один раз в фоновом изоляте и кэшируется — дальше остаётся дешёвая сверка
+  /// со словарём.
   Future<void> _recompute() async {
     final text = _text;
     if (text == null) return;
     if (mounted) setState(() => _analyzing = true);
-    await Future<void>.delayed(Duration.zero);
-    final analysis = BookAnalysis.analyze(text, _srcLang);
+    _tokens ??= await compute(prepareBookTokens, (text, _srcLang));
+    final analysis = BookAnalysis.analyzeTokens(_tokens!, _srcLang);
     final chapterNew = _src.chapters.isEmpty
         ? const <int>[]
         : BookAnalysis.chapterUnknownCounts(
@@ -148,7 +164,9 @@ class _BookScreenState extends State<BookScreen> {
     HapticFeedback.selectionClick();
     await showBookMetaEditor(context, _src);
     if (mounted) setState(() {});
-    _recompute(); // язык мог смениться — пересчитать анализ
+    // Язык мог смениться, а основы слов считаются под язык — разбор больше не годен.
+    _tokens = null;
+    _recompute();
   }
 
   /// Быстрая смена языка книги из карточки-предупреждения (без полного редактора).
@@ -158,6 +176,7 @@ class _BookScreenState extends State<BookScreen> {
     if (code == null || code == _src.languageCode) return;
     await _library.updateBook(_src.id, languageCode: code);
     _targetDeck = null; // язык колоды-цели изменился — пере-выберем
+    _tokens = null; // основы слов зависят от языка
     if (mounted) setState(() {});
     _recompute();
   }
@@ -912,14 +931,19 @@ class _BookScreenState extends State<BookScreen> {
 
     final progress = ValueNotifier<int>(0);
     final cancelled = ValueNotifier<bool>(false);
-    showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) => _BatchProgressDialog(
-        total: words.length,
-        progress: progress,
-        onCancel: () => cancelled.value = true,
-      ),
+    // Диалог мог уже закрыться (отмена) — тогда закрывать его повторно нельзя,
+    // иначе pop снесёт сам экран книги.
+    var dialogOpen = true;
+    unawaited(
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => BatchProgressDialog(
+          total: words.length,
+          progress: progress,
+          onCancel: () => cancelled.value = true,
+        ),
+      ).whenComplete(() => dialogOpen = false),
     );
 
     final tgt = LocaleController.instance.code;
@@ -953,7 +977,7 @@ class _BookScreenState extends State<BookScreen> {
     progress.dispose();
     cancelled.dispose();
     if (mounted) {
-      Navigator.of(context, rootNavigator: true).pop(); // закрыть диалог
+      if (dialogOpen) Navigator.of(context, rootNavigator: true).pop();
       setState(() {
         _selecting = false;
         _selected.clear();
@@ -1256,43 +1280,6 @@ class _BookScreenState extends State<BookScreen> {
 }
 
 /// Диалог прогресса пакетного добавления слов (перевод + добавление по одному).
-class _BatchProgressDialog extends StatelessWidget {
-  final int total;
-  final ValueNotifier<int> progress;
-  final VoidCallback onCancel;
-  const _BatchProgressDialog({
-    required this.total,
-    required this.progress,
-    required this.onCancel,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      content: ValueListenableBuilder<int>(
-        valueListenable: progress,
-        builder: (_, done, _) => Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: LinearProgressIndicator(
-                value: total == 0 ? 0 : done / total,
-                minHeight: 8,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(trf('batch_adding', {'i': done, 'n': total})),
-          ],
-        ),
-      ),
-      actions: [
-        TextButton(onPressed: onCancel, child: Text(tr('cancel'))),
-      ],
-    );
-  }
-}
-
 /// Полоса-разбивка на цветные сегменты по счётчикам, «набегает» слева при
 /// появлении (M3). Каждый сегмент — своей ширины пропорционально числу.
 class _SegmentBar extends StatelessWidget {

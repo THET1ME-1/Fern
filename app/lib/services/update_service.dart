@@ -19,6 +19,26 @@ class UpdateInfo {
   });
 }
 
+/// Итог проверки обновлений.
+///
+/// «Обновлений нет» и «проверить не удалось» — разные вещи: раньше оба случая
+/// возвращали null, и человек без интернета получал бодрое «установлена
+/// последняя версия», после чего не обновлялся никогда.
+class UpdateCheck {
+  final UpdateInfo? info;
+  final bool failed;
+
+  const UpdateCheck.upToDate()
+      : info = null,
+        failed = false;
+  const UpdateCheck.available(UpdateInfo this.info) : failed = false;
+  const UpdateCheck.failed()
+      : info = null,
+        failed = true;
+
+  bool get hasUpdate => info != null;
+}
+
 /// Проверка обновлений по последнему релизу на GitHub и загрузка APK для
 /// установки (sideload-обновление, без магазинов). ДНК ScoreMaster.
 class UpdateService {
@@ -32,9 +52,9 @@ class UpdateService {
   static Uri get _latestReleaseUri =>
       Uri.parse('https://api.github.com/repos/$_owner/$_repo/releases/latest');
 
-  /// Возвращает [UpdateInfo], если на GitHub есть релиз новее [currentVersion];
-  /// иначе null (в т.ч. при отсутствии сети или ошибке — молча).
-  static Future<UpdateInfo?> checkForUpdate(String currentVersion) async {
+  /// Есть ли релиз новее [currentVersion]. Отдельно сообщает о неудачной
+  /// проверке (нет сети, 403 от GitHub) — это не то же самое, что «всё свежее».
+  static Future<UpdateCheck> checkForUpdate(String currentVersion) async {
     try {
       final client = HttpClient()
         ..connectionTimeout = const Duration(seconds: 12);
@@ -46,7 +66,7 @@ class UpdateService {
       final response = await request.close();
       if (response.statusCode != 200) {
         client.close();
-        return null;
+        return const UpdateCheck.failed();
       }
       final body = await response.transform(utf8.decoder).join();
       client.close();
@@ -54,22 +74,26 @@ class UpdateService {
       final json = jsonDecode(body) as Map<String, dynamic>;
       final tag = (json['tag_name'] ?? '').toString();
       final latest = _normalize(tag);
-      if (latest.isEmpty) return null;
-      if (!_isNewer(latest, _normalize(currentVersion))) return null;
+      if (latest.isEmpty) return const UpdateCheck.failed();
+      if (!_isNewer(latest, _normalize(currentVersion))) {
+        return const UpdateCheck.upToDate();
+      }
 
       final assets = json['assets'];
       final apkUrl = assets is List ? _pickApkUrl(assets) : null;
 
-      return UpdateInfo(
-        version: latest,
-        notes: (json['body'] ?? '').toString().trim(),
-        apkUrl: (apkUrl != null && apkUrl.isNotEmpty) ? apkUrl : null,
-        releaseUrl: (json['html_url'] ??
-                'https://github.com/$_owner/$_repo/releases/latest')
-            .toString(),
+      return UpdateCheck.available(
+        UpdateInfo(
+          version: latest,
+          notes: (json['body'] ?? '').toString().trim(),
+          apkUrl: (apkUrl != null && apkUrl.isNotEmpty) ? apkUrl : null,
+          releaseUrl: (json['html_url'] ??
+                  'https://github.com/$_owner/$_repo/releases/latest')
+              .toString(),
+        ),
       );
     } catch (_) {
-      return null;
+      return const UpdateCheck.failed();
     }
   }
 

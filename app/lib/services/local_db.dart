@@ -65,6 +65,29 @@ class LocalDb {
     _db = db;
   }
 
+  /// Убирает файл БД вместе с WAL-спутниками. Нужен, когда файл повреждён и
+  /// `open()` бросает: без этого приложение не запустится вообще.
+  /// Битую базу не удаляем, а отодвигаем в `.corrupt` — вдруг данные ещё вытащим.
+  Future<void> quarantineFile() async {
+    _db?.dispose();
+    _db = null;
+    final path = _overridePath ?? await _defaultPath();
+    final stamp = DateTime.now().millisecondsSinceEpoch;
+    for (final suffix in const ['', '-wal', '-shm']) {
+      final f = File('$path$suffix');
+      if (!f.existsSync()) continue;
+      try {
+        f.renameSync('$path$suffix.corrupt-$stamp');
+      } catch (_) {
+        try {
+          f.deleteSync();
+        } catch (_) {
+          // Файл не отдаётся — дальше open() снова бросит, покажем экран отказа.
+        }
+      }
+    }
+  }
+
   Future<String> _defaultPath() async {
     try {
       final dir = await getApplicationDocumentsDirectory();

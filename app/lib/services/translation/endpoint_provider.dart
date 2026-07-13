@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import '../../l10n/strings.dart';
 import 'translation_provider.dart';
 
 /// Тип API стороннего сервера перевода.
@@ -16,9 +17,11 @@ extension EndpointKindInfo on EndpointKind {
         EndpointKind.deepl => 'deepl',
       };
 
+  /// Подпись типа для UI. Имена собственные (Ollama, LibreTranslate, DeepL) не
+  /// переводятся; локализуется только описательная «OpenAI-совместимый».
   String get label => switch (this) {
         EndpointKind.ollama => 'Ollama',
-        EndpointKind.openai => 'OpenAI-совм.',
+        EndpointKind.openai => tr('endpoint_openai_compat'),
         EndpointKind.libretranslate => 'LibreTranslate',
         EndpointKind.deepl => 'DeepL',
       };

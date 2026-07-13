@@ -1,17 +1,39 @@
-# fern
+# Fern — приложение (Flutter)
 
-A new Flutter project.
+Здесь живёт сам Flutter-проект. Описание приложения, скриншоты и установка —
+в [README репозитория](../README.md).
 
-## Getting Started
+## Разработка
 
-This project is a starting point for a Flutter application.
+```bash
+cd app
+flutter pub get
+flutter analyze     # должно быть 0 issues
+flutter test        # все тесты зелёные
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Релизная сборка
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```bash
+./tool/build_release.sh      # split-APK по ABI → app/dist/Fern-<версия>-<abi>.apk
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Скрипт сам гоняет `analyze` и тесты, подписывает релизным ключом и печатает
+SHA-256 готовых файлов.
+
+**Ключ подписи** лежит вне репозитория: `android/key.properties` +
+`android/fern-release.jks` (оба в `.gitignore`, копия — в `~/keys/`). Без них
+сборка возьмёт отладочный ключ, и такой APK не встанет поверх боевого.
+
+## Что где
+
+| Каталог | Что внутри |
+|---|---|
+| `lib/models` | Карточка, колода, пак, FSRS, журнал повторов |
+| `lib/services` | Хранилище (SQLite), бэкап, импорт книг и колод, анализ текста, перевод, TTS, OCR |
+| `lib/study` | Сессия повторов, упражнения, читалка книг |
+| `lib/video` | Разбор видео по субтитрам |
+| `lib/l10n` | Строки интерфейса (7 языков) |
+| `assets/seed`, `assets/starter` | Колоды по умолчанию |
+| `assets/pos` | Офлайн-словарь частей речи (Moby POS) |

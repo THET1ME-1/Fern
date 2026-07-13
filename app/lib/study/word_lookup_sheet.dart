@@ -81,6 +81,16 @@ class _WordLookupState extends State<_WordLookup> {
   String? _phonetic;
   LookupAddResult? _addResult;
 
+  /// Локализованное название части речи: сырую строку словаря («noun», «verb»)
+  /// приводим к каноническому коду и берём перевод. Не распознали — показываем
+  /// как пришло (лучше сырое, чем ничего).
+  String? get _posLabel {
+    final raw = _pos?.trim();
+    if (raw == null || raw.isEmpty) return null;
+    final code = PosDetect.fromDictionary(raw);
+    return code == null ? raw : tr('pos_deck_$code');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -191,11 +201,11 @@ class _WordLookupState extends State<_WordLookup> {
                   ],
                 ],
               ),
-              if (_pos != null && _pos!.isNotEmpty)
+              if (_posLabel != null)
                 Padding(
                   padding: const EdgeInsets.only(top: 2),
                   child: Text(
-                    _pos!,
+                    _posLabel!,
                     style: TextStyle(
                       fontFamily: AppTheme.bodyFont,
                       fontStyle: FontStyle.italic,

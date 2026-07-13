@@ -176,9 +176,24 @@ class _SessionScreenState extends State<SessionScreen>
             _nextPhase(ex.card.review.phase, correct, ex.card.review);
       }
       await _repo.rateCard(ex.card, rating, DateTime.now());
+      // Из сессии можно выйти прямо во время записи оценки — тогда двигать
+      // очередь уже некуда (иначе «setState() called after dispose()»).
+      if (!mounted) return;
       _maybeReinsert(ex, correct);
     }
     _advance();
+  }
+
+  /// Уникальных карт в сессии (переспросы — та же карта, счёт не раздувают).
+  int get _totalCards => _queue.map((e) => e.card.id).toSet().length;
+
+  /// Сколько карт закрыто: их больше нет впереди в очереди.
+  int get _doneCards {
+    final ahead = <String>{};
+    for (var i = _index; i < _queue.length; i++) {
+      ahead.add(_queue[i].card.id);
+    }
+    return _totalCards - ahead.length;
   }
 
   /// Неверную карту (осталась в learning/relearning — не закрепили)
@@ -307,7 +322,12 @@ class _SessionScreenState extends State<SessionScreen>
       if (_isSpeed) _startSpeedCountdown();
     }
     final ex = _queue[_index];
-    final progress = _queue.isEmpty ? 0.0 : _index / _queue.length;
+    // Считаем по КАРТАМ, а не по длине очереди: переспрос ошибки вставляет ту же
+    // карту ещё раз, и счётчик «3 / 10» на глазах превращался в «3 / 13» — будто
+    // работа не убывает, а прибывает.
+    final total = _totalCards;
+    final done = _doneCards;
+    final progress = total == 0 ? 0.0 : done / total;
 
     return PopScope(
       canPop: false,
@@ -320,7 +340,7 @@ class _SessionScreenState extends State<SessionScreen>
             icon: const Icon(Icons.close_rounded),
             onPressed: _confirmExit,
           ),
-          title: Text('${_index + 1} / ${_queue.length}'),
+          title: Text('${(done + 1).clamp(1, total)} / $total'),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(6),
             child: Padding(

@@ -92,6 +92,8 @@ class _VideoImportScreenState extends State<VideoImportScreen> {
       setState(() => _error = switch (result.error) {
             VideoError.badUrl => tr('video_bad_url'),
             VideoError.noCaptions => tr('video_no_captions'),
+            VideoError.timeout => tr('video_timeout'),
+            VideoError.unavailable => tr('video_unavailable'),
             _ => tr('video_network_error'),
           });
     }

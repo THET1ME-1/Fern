@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
@@ -107,7 +110,11 @@ class VideoTranscript {
 }
 
 /// Причина неудачи загрузки — для понятного сообщения пользователю.
-enum VideoError { badUrl, noCaptions, network }
+///
+/// [timeout] и [unavailable] отделены от [network] намеренно: раньше в «нет
+/// сети» схлопывалось всё подряд, включая очередную поломку парсера YouTube, и
+/// человек с рабочим интернетом винил свой телефон.
+enum VideoError { badUrl, noCaptions, network, timeout, unavailable }
 
 class VideoResult {
   final VideoTranscript? transcript;
@@ -124,19 +131,25 @@ class VideoService {
 
   static String? parseId(String url) => VideoId.parseVideoId(url);
 
+  /// Сколько ждём YouTube, прежде чем признать попытку неудачной. Без предела
+  /// спиннер на экране импорта крутился вечно и отменить его было нечем.
+  static const Duration _timeout = Duration(seconds: 25);
+
   static Future<VideoResult> fetch(String url, {String? preferLang}) async {
     final id = VideoId.parseVideoId(url.trim());
     if (id == null) return const VideoResult.fail(VideoError.badUrl);
 
     final yt = YoutubeExplode();
     try {
-      final video = await yt.videos.get(id);
-      final manifest = await yt.videos.closedCaptions.getManifest(id);
+      final video = await yt.videos.get(id).timeout(_timeout);
+      final manifest =
+          await yt.videos.closedCaptions.getManifest(id).timeout(_timeout);
       if (manifest.tracks.isEmpty) {
         return const VideoResult.fail(VideoError.noCaptions);
       }
       final track = _pickTrack(manifest.tracks, preferLang);
-      final cc = await yt.videos.closedCaptions.get(track);
+      final cc =
+          await yt.videos.closedCaptions.get(track).timeout(_timeout);
 
       final lines = <SubLine>[];
       for (final c in cc.captions) {
@@ -163,9 +176,18 @@ class VideoService {
           lines: lines,
         ),
       );
+    } on TimeoutException {
+      return const VideoResult.fail(VideoError.timeout);
+    } on SocketException {
+      return const VideoResult.fail(VideoError.network);
+    } on VideoUnavailableException {
+      return const VideoResult.fail(VideoError.unavailable);
+    } on VideoUnplayableException {
+      return const VideoResult.fail(VideoError.unavailable);
     } catch (e) {
       debugPrint('VideoService.fetch failed: $e');
-      return const VideoResult.fail(VideoError.network);
+      // Сюда попадает и «YouTube опять поменял разметку» — это не сеть.
+      return const VideoResult.fail(VideoError.unavailable);
     } finally {
       yt.close();
     }
