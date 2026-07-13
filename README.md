@@ -66,6 +66,8 @@ Signing fingerprint (SHA-256) to verify the APK:
 > version. **Open Settings → Backup and save your data first**, then uninstall the old app,
 > install 1.15.0 and restore. This is a one-time step — updates after that work as usual.
 
+**Website:** https://thet1me-1.github.io/fern_releases/ · **Privacy:** https://thet1me-1.github.io/fern_releases/privacy.html
+
 ### Privacy
 No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it. Android's cloud backup is disabled, so nothing leaks to Google Drive either. Full policy: [docs/privacy-policy.md](docs/privacy-policy.md).
 
@@ -113,6 +115,8 @@ One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 > (раньше — отладочным), и Android откажется ставить 1.15.0 поверх старой версии.
 > **Сначала зайди в Настройки → Резервная копия и сохрани данные**, потом удали старое
 > приложение, поставь 1.15.0 и восстанови копию. Это разово — дальше обновления идут как обычно.
+
+**Сайт:** https://thet1me-1.github.io/fern_releases/ · **Политика:** https://thet1me-1.github.io/fern_releases/privacy.html
 
 ### Приватность
 Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь. Системный бэкап Android отключён — данные не уезжают и в Google Drive. Полная политика: [docs/privacy-policy.md](docs/privacy-policy.md).
