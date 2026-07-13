@@ -18,14 +18,12 @@ import 'services/source_library.dart';
 import 'study/reader_settings.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
-import 'services/update_service.dart';
+import 'services/store_update.dart';
 import 'services/vocab_export.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
-import 'utils/app_version.dart';
 import 'widgets/color_picker_sheet.dart';
 import 'widgets/seed_swatch.dart';
-import 'widgets/update_sheet.dart';
 
 /// Готовые seed-цвета для быстрых цветовых схем (первый — фирменный зелёный Fern).
 const List<Color> _kSeedPalettes = [
@@ -892,21 +890,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         SnackBar(content: Text(tr('checking_updates'))),
       );
     }
-    final current = await appVersionName();
-    final check = current.isEmpty
-        ? const UpdateCheck.failed()
-        : await UpdateService.checkForUpdate(current);
-    if (!mounted) return;
-    final info = check.info;
-    if (info != null) {
-      await UpdateSheet.show(context, info, current);
-      return;
-    }
-    // Не удалось проверить — так и говорим, а не «у вас последняя версия».
+    final message = await StoreUpdate.checkManually(context);
+    if (!mounted || message == null) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(check.failed ? tr('update_check_failed') : tr('up_to_date')),
-      ),
+      SnackBar(content: Text(message)),
     );
   }
 

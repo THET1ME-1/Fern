@@ -51,6 +51,22 @@ android {
         }
     }
 
+    // Два канала распространения. Отличаются ровно одним: способом обновляться.
+    //  * github — свой апдейтер качает APK с GitHub (нужно REQUEST_INSTALL_PACKAGES);
+    //  * play   — обновляет сам магазин (Play запрещает самообновление, и
+    //             разрешение на установку пакетов из этой сборки вырезано,
+    //             см. src/play/AndroidManifest.xml).
+    flavorDimensions += "store"
+    productFlavors {
+        create("github") {
+            dimension = "store"
+            isDefault = true
+        }
+        create("play") {
+            dimension = "store"
+        }
+    }
+
     buildTypes {
         release {
             signingConfig = if (keystoreProperties.isEmpty) {

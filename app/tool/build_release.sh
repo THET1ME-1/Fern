@@ -29,8 +29,10 @@ if [[ $SKIP_CHECKS -eq 0 ]]; then
   flutter test
 fi
 
-echo "▶ Сборка Fern $VERSION (split-per-abi)…"
-flutter build apk --release --split-per-abi
+# flavor «github» = со встроенным апдейтером (в Play такая сборка запрещена,
+# для магазина есть tool/build_play.sh).
+echo "▶ Сборка Fern $VERSION (split-per-abi, канал github)…"
+flutter build apk --release --flavor github --split-per-abi
 
 OUT=build/app/outputs/flutter-apk
 DIST=dist
@@ -38,7 +40,7 @@ mkdir -p "$DIST"
 rm -f "$DIST"/Fern-*.apk
 
 for abi in arm64-v8a armeabi-v7a x86_64; do
-  src="$OUT/app-$abi-release.apk"
+  src="$OUT/app-$abi-github-release.apk"
   dst="$DIST/Fern-$VERSION-$abi.apk"
   cp "$src" "$dst"
   echo "  ✓ $dst"

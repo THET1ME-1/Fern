@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Сборка для Google Play. Обновления приносит сам магазин (In-App Update), а
+  ставить APK самостоятельно приложению нельзя — политика «Device and Network
+  Abuse» прямо это запрещает. Поэтому разрешение на установку пакетов из этой
+  сборки убирается.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.REQUEST_INSTALL_PACKAGES"
+        tools:node="remove" />
+
+</manifest>

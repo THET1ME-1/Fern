@@ -1,8 +1,6 @@
 import 'dart:async' show unawaited;
-import 'dart:io' show Platform;
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,16 +17,14 @@ import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
 import 'services/licenses.dart';
 import 'services/pos_dictionary.dart';
+import 'services/store_update.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
-import 'services/update_service.dart';
 import 'share/share_import.dart';
 import 'settings_screen.dart';
 import 'study/reader_settings.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
-import 'utils/app_version.dart';
-import 'widgets/update_sheet.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -165,19 +161,9 @@ class _MainScreenState extends State<MainScreen> {
     super.dispose();
   }
 
-  /// Тихая проверка обновления на GitHub при запуске. Если есть версия новее —
-  /// показываем нижнее меню с предложением обновиться.
-  Future<void> _checkForUpdate() async {
-    // Только на реальных мобильных (не в тестах/на десктопе).
-    if (kIsWeb || !(Platform.isAndroid || Platform.isIOS)) return;
-    final current = await appVersionName();
-    if (current.isEmpty) return;
-    final info = (await UpdateService.checkForUpdate(current)).info;
-    if (!mounted || info == null) return;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) UpdateSheet.show(context, info, current);
-    });
-  }
+  /// Тихая проверка обновления при запуске. Канал зависит от сборки: GitHub —
+  /// свой апдейтер, Google Play — обновление силами магазина.
+  Future<void> _checkForUpdate() => StoreUpdate.checkOnStart(context);
 
   Widget _screenFor(int index) {
     switch (index) {

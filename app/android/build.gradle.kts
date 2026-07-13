@@ -14,9 +14,10 @@ rootProject.layout.buildDirectory.value(newBuildDir)
 subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
-    // Некоторые плагины (напр. receive_sharing_intent) компилируют Java в 1.8, а
-    // Kotlin в 17 — новый Gradle требует единый JVM-таргет. Приводим Java всех
-    // Android-сабпроектов к 17 (как в app), иначе сборка падает на рассинхроне.
+    // Плагины расходятся по JVM-таргету: receive_sharing_intent компилирует Java
+    // в 1.8, in_app_update — Kotlin в 1.8, а Gradle требует, чтобы Java и Kotlin
+    // в одном модуле совпадали. Приводим и то, и другое к 17 (как в app), иначе
+    // сборка падает на рассинхроне.
     afterEvaluate {
         val android = project.extensions.findByName("android")
         if (android is com.android.build.gradle.BaseExtension) {
@@ -25,6 +26,12 @@ subprojects {
                 targetCompatibility = JavaVersion.VERSION_17
             }
         }
+        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>()
+            .configureEach {
+                compilerOptions.jvmTarget.set(
+                    org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17,
+                )
+            }
     }
 }
 subprojects {
