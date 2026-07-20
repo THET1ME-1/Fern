@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'signed_store.dart';
 
 import '../utils/build_config.dart';
 
@@ -45,7 +45,10 @@ class BillingService extends ChangeNotifier {
   String? get price => _product?.price;
 
   Future<void> load() async {
-    _owned = await SharedPreferencesAsync().getBool(_kOwned) ?? false;
+    // Флаг подписан: правка настроек снаружи — самый лёгкий путь к даровому
+    // Pro, и подделанное значение читается как «не куплено». Настоящая
+    // покупка вернётся сама при восстановлении из магазина.
+    _owned = await SignedStore.getBool(_kOwned);
     notifyListeners();
     if (!kPlayBuild) return;
     // Магазин отвечает по сети — дальше идём молча, интерфейс уже поднят.
@@ -110,14 +113,14 @@ class BillingService extends ChangeNotifier {
   Future<void> _grant() async {
     if (_owned) return;
     _owned = true;
-    await SharedPreferencesAsync().setBool(_kOwned, true);
+    await SignedStore.setBool(_kOwned, true);
     notifyListeners();
   }
 
   @visibleForTesting
   Future<void> debugSetOwned(bool value) async {
     _owned = value;
-    await SharedPreferencesAsync().setBool(_kOwned, value);
+    await SignedStore.setBool(_kOwned, value);
     notifyListeners();
   }
 

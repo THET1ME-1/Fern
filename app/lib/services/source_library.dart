@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/book_chapter.dart';
 import '../video/subtitle.dart';
+import 'pro.dart';
 
 /// Тип разобранного источника в библиотеке.
 enum SourceKind { video, book }
@@ -261,6 +262,9 @@ class SourceLibrary extends ChangeNotifier {
         ..removeWhere((s) => s.id == id)
         ..add(source);
       await _persist();
+      // Расходуется бесплатный разбор, а не «место в списке»: повторный разбор
+      // того же видео переиспользует запись и слота не стоит.
+      if (existing == null) await Pro.noteSourceUsed();
       notifyListeners();
       return id;
     } catch (_) {
@@ -323,6 +327,7 @@ class SourceLibrary extends ChangeNotifier {
         ),
       );
       await _persist();
+      await Pro.noteSourceUsed();
       notifyListeners();
       return id;
     } catch (_) {

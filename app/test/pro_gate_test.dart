@@ -37,6 +37,36 @@ void main() {
     expect(await Pro.allows(ProFeature.deckImport), isFalse);
   });
 
+  test('Бесплатный источник расходуется разово, удаление его не возвращает',
+      () async {
+    // Прежде гейт считал длину списка источников, и удалив прочитанную книгу,
+    // человек получал следующую даром — платить было незачем.
+    expect(await Pro.allows(ProFeature.library), isTrue);
+    await Pro.noteSourceUsed();
+    expect(await Pro.allows(ProFeature.library), isFalse);
+    expect(Pro.freeSourcesLeft, 0);
+  });
+
+  test('Покупка открывает библиотеку и после израсходованного слота', () async {
+    await Pro.noteSourceUsed();
+    await BillingService.instance.debugSetOwned(true);
+    expect(await Pro.allows(ProFeature.library), isTrue);
+  });
+
+  test('Уже добавленные источники засчитываются как израсходованные', () async {
+    // Обновление приложения не должно дарить лишнюю книгу тем, кто свою уже
+    // разобрал: счётчика у них ещё нет, поэтому берём его из библиотеки.
+    await Pro.migrateFromLibrary(2);
+    expect(await Pro.allows(ProFeature.library), isFalse);
+  });
+
+  test('Перенос не затирает уже накопленный счёт', () async {
+    await Pro.noteSourceUsed();
+    // Библиотека пуста (книгу удалили), но слот израсходован — и остаётся им.
+    await Pro.migrateFromLibrary(0);
+    expect(await Pro.allows(ProFeature.library), isFalse);
+  });
+
   test('Покупка в магазине открывает всё', () async {
     await BillingService.instance.debugSetOwned(true);
     expect(Pro.active, isTrue);

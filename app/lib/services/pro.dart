@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'billing_service.dart';
 import 'license_service.dart';
-import 'source_library.dart';
+import 'signed_store.dart';
 
 /// Что закрыто в бесплатной версии.
 ///
@@ -30,21 +31,57 @@ class Pro {
   /// потрогать на своей книге, а не на обещании в описании.
   static const int freeSources = 1;
 
+  static const String _usedKey = 'freeSourcesUsed';
+  static int _used = 0;
+
+  /// Сколько бесплатных разборов осталось.
+  static int get freeSourcesLeft =>
+      (freeSources - _used).clamp(0, freeSources);
+
   /// Куплено — ключом или покупкой в магазине.
   static bool get active =>
       LicenseService.instance.isValid || BillingService.instance.owned;
 
   /// Доступна ли возможность прямо сейчас.
   ///
-  /// Асинхронно, потому что список источников лежит на диске: гейт зовут и с
-  /// главного экрана, где библиотека ещё не открывалась.
+  /// Асинхронно, потому что счётчик и список источников лежат на диске: гейт
+  /// зовут и с главного экрана, где библиотека ещё не открывалась.
   static Future<bool> allows(ProFeature feature) async {
     if (active) return true;
     return switch (feature) {
-      ProFeature.library =>
-        (await SourceLibrary.instance.list()).length < freeSources,
+      ProFeature.library => await _loadUsed() < freeSources,
       ProFeature.deckImport => false,
     };
+  }
+
+  /// Записывает израсходованный бесплатный разбор.
+  ///
+  /// Считаются именно РАСХОДЫ, а не сегодняшняя длина библиотеки: прежде гейт
+  /// смотрел на список, и удалив прочитанную книгу, человек получал следующую
+  /// даром — платить было незачем.
+  static Future<void> noteSourceUsed() async {
+    final used = await _loadUsed() + 1;
+    _used = used;
+    await SignedStore.setInt(_usedKey, used);
+  }
+
+  /// Счётчик с диска.
+  ///
+  /// Подделанный или обнулённый снаружи счётчик читается как израсходованный:
+  /// обнулять его выгодно, а терять от подделки должен тот, кто подделывает.
+  static Future<int> _loadUsed() async {
+    _used = await SignedStore.getInt(_usedKey, onTampered: freeSources) ?? 0;
+    return _used;
+  }
+
+  /// Разовый перенос: у тех, кто разобрал книгу до появления счётчика, его нет,
+  /// и за расход принимается уже собранная библиотека. Обновление приложения не
+  /// должно дарить лишнюю книгу. Зовётся из `main` со списком источников —
+  /// иначе `Pro` и `SourceLibrary` замкнулись бы друг на друге.
+  static Future<void> migrateFromLibrary(int existingSources) async {
+    if (await SharedPreferencesAsync().getInt(_usedKey) != null) return;
+    _used = existingSources;
+    await SignedStore.setInt(_usedKey, existingSources);
   }
 
   /// Слушать вместе: покупка и ключ — два источника одного состояния.
