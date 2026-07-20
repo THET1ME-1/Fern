@@ -256,6 +256,15 @@ class LocalDb {
   void deleteDeck(String id) =>
       _handle.execute('DELETE FROM decks WHERE id=?', [id]);
 
+  /// Колода и её карточки — одной транзакцией. Раздельными автокоммитами
+  /// обрыв между шагами оставлял карточки с `deck_id`, которого больше нет:
+  /// на экранах их не видно (всё фильтруется по колоде), а в `cardCount` и
+  /// `countDue` они попадают и лежат вечно.
+  void deleteDeckWithCards(String deckId) => _tx((db) {
+        db.execute('DELETE FROM cards WHERE deck_id=?', [deckId]);
+        db.execute('DELETE FROM decks WHERE id=?', [deckId]);
+      });
+
   void replaceAllDecks(List<Deck> decks) => _tx((db) {
         db.execute('DELETE FROM decks');
         final stmt = db.prepare(
@@ -326,6 +335,42 @@ class LocalDb {
 
   void deleteCardsForDeck(String deckId) =>
       _handle.execute('DELETE FROM cards WHERE deck_id=?', [deckId]);
+
+  /// Полная замена данных из снимка — одной транзакцией.
+  ///
+  /// Тремя отдельными обрыв на последней оставлял колоды и паки из снимка
+  /// рядом с карточками предыдущего состояния: каждая восстановленная колода
+  /// пустая, а старые карточки висят сиротами.
+  void replaceAll({
+    required List<Deck> decks,
+    required List<Pack> packs,
+    required List<WordCard> cards,
+  }) =>
+      _tx((db) {
+        db.execute('DELETE FROM decks');
+        final deckStmt = db.prepare(
+            'INSERT INTO decks(id,data,updated_at) VALUES(?,?,?)');
+        final now = _now();
+        for (final d in decks) {
+          deckStmt.execute([d.id, jsonEncode(d.toJson()), now]);
+        }
+        deckStmt.dispose();
+
+        db.execute('DELETE FROM packs');
+        final packStmt = db.prepare(
+            'INSERT INTO packs(id,data,updated_at) VALUES(?,?,?)');
+        for (final p in packs) {
+          packStmt.execute([p.id, jsonEncode(p.toJson()), now]);
+        }
+        packStmt.dispose();
+
+        db.execute('DELETE FROM cards');
+        final cardStmt = db.prepare(_kUpsertCard);
+        for (final c in cards) {
+          cardStmt.execute(_cardRow(c, now));
+        }
+        cardStmt.dispose();
+      });
 
   void replaceAllCards(List<WordCard> cards) => _tx((db) {
         db.execute('DELETE FROM cards');

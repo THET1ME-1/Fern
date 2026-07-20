@@ -530,8 +530,10 @@ class DeckRepository extends ChangeNotifier {
       if (c.image.isNotEmpty) await CardImages.deleteFor(c.id);
     }
     _cards.removeWhere((c) => c.deckId == deckId);
-    _db!.deleteDeck(deckId);
-    _db!.deleteCardsForDeck(deckId);
+    // Одной транзакцией: раздельные автокоммиты оставляли при обрыве карточки
+    // с несуществующей колодой — в интерфейсе их не видно, а в счётчиках они
+    // есть.
+    _db!.deleteDeckWithCards(deckId);
     notifyListeners();
   }
 
@@ -712,6 +714,13 @@ class DeckRepository extends ChangeNotifier {
   Future<void> addCards(Iterable<WordCard> cards) async {
     await _ensureLoaded();
     final list = cards.toList();
+    // База делает upsert по id, кэш складывал вслепую — при совпадении
+    // идентификаторов (быстрый ввод в одну микросекунду, два стартовых набора
+    // в одну миллисекунду) в памяти оказывалось две карточки, а на диске одна.
+    // Счётчики колоды врали до перезапуска, а любая запись словаря целиком
+    // уносила дубль на диск.
+    final incoming = {for (final c in list) c.id};
+    _cards.removeWhere((c) => incoming.contains(c.id));
     _cards.addAll(list);
     _db!.upsertCards(list);
     notifyListeners();
@@ -1263,7 +1272,13 @@ class DeckRepository extends ChangeNotifier {
       'cards': [for (final c in _cards) c.toJson()],
       'reviewLog': _log.toJson(),
       'matchBest': _matchBest,
-      'reading': {'s': _readSeconds, 'w': _readWords},
+      // 'r' — подкрепления чтением. Без него счётчик, копившийся месяцами,
+      // обнулялся при восстановлении собственного снимка.
+      'reading': {
+        's': _readSeconds,
+        'w': _readWords,
+        'r': _reinforcedByReading,
+      },
       'translation': {
         'endpoints': await _prefs.getString(_kTransEndpoints),
         'active': await _prefs.getString(_kTransActive),
@@ -1360,9 +1375,13 @@ class DeckRepository extends ChangeNotifier {
     _cards
       ..clear()
       ..addAll(cards);
-    _db!.replaceAllDecks(_decks);
-    _db!.replaceAllPacks(_packs);
-    _db!.replaceAllCards(_cards);
+    _db!.replaceAll(decks: _decks, packs: _packs, cards: _cards);
+    if (!merge) {
+      // Журнал повторов — про карточки, которых больше нет. Оптимизатор
+      // считает такие события своими: группирует по card_id, принимает первое
+      // за первый показ и подгоняет веса по истории, которой не было.
+      _db!.clearReviewEvents();
+    }
 
     if (data['reviewLog'] is Map) {
       _log = ReviewLog.fromJson((data['reviewLog'] as Map).cast<String, dynamic>());
@@ -1379,10 +1398,11 @@ class DeckRepository extends ChangeNotifier {
       final r = (data['reading'] as Map).cast<String, dynamic>();
       _readSeconds = (r['s'] as num?)?.toInt() ?? _readSeconds;
       _readWords = (r['w'] as num?)?.toInt() ?? _readWords;
-      await _prefs.setString(
-        _kReadingStats,
-        jsonEncode({'s': _readSeconds, 'w': _readWords}),
-      );
+      _reinforcedByReading =
+          (r['r'] as num?)?.toInt() ?? _reinforcedByReading;
+      // Через общий метод, иначе очередная новая метрика снова потеряется на
+      // ровном месте: тут уже был затёрт счётчик подкреплений.
+      await _persistReading();
     }
     if (data['translation'] is Map) {
       final t = (data['translation'] as Map).cast<String, dynamic>();
