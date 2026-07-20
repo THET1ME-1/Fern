@@ -305,6 +305,14 @@ async def cmd_stats(message: Message) -> None:
     )
 
 
+@dp.message(Command("id"))
+async def cmd_id(message: Message) -> None:
+    """Свой номер в телеграме. Нужен при развёртывании: этот номер кладут в
+    `SNT_BOT_OWNER`, иначе уведомления о продажах слать некому."""
+    await message.answer(
+        f"Ваш telegram id: <code>{message.from_user.id}</code>")
+
+
 @dp.message(Command("find"))
 async def cmd_find(message: Message) -> None:
     """Владельцу: что числится за почтой. Ничего не меняет."""
