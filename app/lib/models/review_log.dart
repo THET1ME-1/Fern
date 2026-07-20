@@ -4,6 +4,8 @@
 // Храним агрегат по дню (сколько ответов и сколько верных), а не каждый повтор
 // по отдельности — этого достаточно для всех экранов и дёшево по памяти/диску.
 
+import '../utils/day.dart';
+
 /// Итог одного дня.
 class DayStat {
   final int reviews;
@@ -50,14 +52,14 @@ class ReviewLog {
   /// вчера. Это привычный «прощающий» стрик (как в Duolingo). Замороженные щитом
   /// дни считаются активными.
   int streak(DateTime now) {
-    var day = DateTime(now.year, now.month, now.day);
+    var day = startOfDay(now);
     if (!activeOn(day)) {
-      day = day.subtract(const Duration(days: 1));
+      day = addDays(day, -1);
     }
     var count = 0;
     while (activeOn(day)) {
       count++;
-      day = day.subtract(const Duration(days: 1));
+      day = addDays(day, -1);
     }
     return count;
   }
@@ -80,7 +82,9 @@ class ReviewLog {
     var prev = _parseKey(active.first);
     for (var i = 1; i < active.length; i++) {
       final d = _parseKey(active[i]);
-      cur = d.difference(prev).inDays == 1 ? cur + 1 : 1;
+      // Соседство считаем по календарю: в ночь перевода стрелок сутки короче
+      // 24 часов, и разница «в днях» между соседними датами даёт ноль.
+      cur = isNextDay(prev, d) ? cur + 1 : 1;
       if (cur > best) best = cur;
       prev = d;
     }

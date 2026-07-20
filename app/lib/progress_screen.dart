@@ -10,6 +10,7 @@ import 'models/review_log.dart';
 import 'models/word_card.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
+import 'utils/day.dart';
 import 'services/notification_service.dart';
 import 'services/pos.dart';
 import 'services/source_library.dart';
@@ -95,7 +96,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final streak = _log.streak(now);
     var r7 = 0, c7 = 0, activeDays7 = 0;
     for (var i = 0; i < 7; i++) {
-      final s = _log.statOn(now.subtract(Duration(days: i)));
+      final s = _log.statOn(addDays(now, -i));
       r7 += s.reviews;
       c7 += s.correct;
       if (s.reviews > 0) activeDays7++;
@@ -461,7 +462,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final today = DateTime(now.year, now.month, now.day);
     final vals = [
       for (var i = days - 1; i >= 0; i--)
-        _log.reviewsOn(today.subtract(Duration(days: i))),
+        _log.reviewsOn(addDays(today, -i)),
     ];
     if (vals.every((v) => v == 0)) return const [];
     final max = vals.fold(0, (m, v) => v > m ? v : m);
@@ -738,7 +739,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                         children: [
                           for (var d = 0; d < 7; d++)
                             _heatCell(
-                              startMonday.add(Duration(days: w * 7 + d)),
+                              addDays(startMonday, w * 7 + d),
                               today,
                               cell,
                               gap,

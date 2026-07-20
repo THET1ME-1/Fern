@@ -11,6 +11,7 @@ import '../models/pack.dart';
 import '../models/review_event.dart';
 import '../models/review_log.dart';
 import '../models/word_card.dart';
+import '../utils/day.dart';
 import 'auto_grade.dart';
 import 'card_images.dart';
 import 'link_propagation.dart';
@@ -833,9 +834,9 @@ class DeckRepository extends ChangeNotifier {
   Future<bool> protectStreakIfNeeded([DateTime? at]) async {
     await _ensureLoaded();
     final now = at ?? DateTime.now();
-    final today = DateTime(now.year, now.month, now.day);
-    final yest = today.subtract(const Duration(days: 1));
-    final before = today.subtract(const Duration(days: 2));
+    final today = startOfDay(now);
+    final yest = addDays(today, -1);
+    final before = addDays(today, -2);
     final log = reviewLogSync;
     if (log.activeOn(today) || log.activeOn(yest)) return false; // ничего не рвётся
     if (!log.activeOn(before)) return false; // серии для спасения нет
@@ -886,7 +887,7 @@ class DeckRepository extends ChangeNotifier {
     );
     // Держим журнал ограниченным (последние ~2 года), чтобы не рос вечно.
     if (days.length > 800) {
-      final cutoff = ReviewLog.keyFor(now.subtract(const Duration(days: 730)));
+      final cutoff = ReviewLog.keyFor(addDays(now, -730));
       days.removeWhere((k, _) => k.compareTo(cutoff) < 0);
     }
     _log = ReviewLog(days);
