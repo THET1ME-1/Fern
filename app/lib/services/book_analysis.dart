@@ -75,6 +75,11 @@ class BookAnalysis {
   /// Самые частые слова, которых ещё нет в словаре (что учить в первую очередь).
   final List<WordFreq> topUnknown;
 
+  /// Частоты ВСЕХ незнакомых слов, от частых к редким. Топа не хватает для
+  /// пути к свободному чтению: там считается, сколько слов закроют разрыв до
+  /// цели, и хвост из редких слов в этот счёт входит (см. [ReadingGoal]).
+  final List<int> unknownFreqs;
+
   const BookAnalysis({
     required this.totalTokens,
     required this.uniqueTypes,
@@ -84,6 +89,7 @@ class BookAnalysis {
     required this.coverage,
     required this.masteredCoverage,
     required this.topUnknown,
+    this.unknownFreqs = const [],
   });
 
   /// Сколько уникальных слов книги уже в словаре (учит + помнит).
@@ -222,6 +228,7 @@ class BookAnalysis {
       coverage: totalTokens == 0 ? 0 : coveredTokens / totalTokens,
       masteredCoverage: totalTokens == 0 ? 0 : masteredTokens / totalTokens,
       topUnknown: unknown.take(_topUnknownLimit).toList(),
+      unknownFreqs: [for (final w in unknown) w.count],
     );
   }
 

@@ -119,6 +119,32 @@ void main() {
     expect(find.byType(ProSheet), findsNothing); // лист закрылся сам
   });
 
+  testWidgets('Закрытый лист покупки объясняет, что осталось закрытым',
+      (tester) async {
+    // Прежде отказ был немым: лист закрывался, действие не выполнялось, и
+    // человек оставался гадать, сломалось приложение или так задумано.
+    await Pro.noteSourceUsed();
+    await tester.pumpWidget(MaterialApp(
+      home: Builder(
+        builder: (context) => Scaffold(
+          body: ElevatedButton(
+            onPressed: () => requirePro(context, ProFeature.library),
+            child: const Text('добавить книгу'),
+          ),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('добавить книгу'));
+    await tester.pumpAndSettle();
+
+    // Лист показан; человек его закрывает, ничего не купив.
+    expect(find.byType(ProSheet), findsOneWidget);
+    Navigator.of(tester.element(find.byType(ProSheet))).pop();
+    await tester.pumpAndSettle();
+
+    expect(find.text(tr('pro_denied')), findsOneWidget);
+  });
+
   testWidgets('Негодный ключ говорит об этом и не закрывает лист',
       (tester) async {
     await tester.pumpWidget(MaterialApp(

@@ -12,10 +12,15 @@ import 'models/deck.dart';
 import 'services/book_analysis.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
+import 'services/lemmatizer.dart';
 import 'services/pos.dart';
+import 'services/pro.dart';
+import 'services/reading_goal.dart';
 import 'services/source_library.dart';
 import 'services/translation/translation_manager.dart';
 import 'study/book_reader_screen.dart';
+import 'study/session_screen.dart';
+import 'study/study_models.dart';
 import 'study/word_lookup_sheet.dart';
 import 'theme/app_theme.dart';
 import 'video/add_target.dart';
@@ -24,6 +29,8 @@ import 'widgets/book_meta_editor.dart';
 import 'widgets/goal_ring.dart';
 import 'widgets/language_check_card.dart';
 import 'widgets/pressable.dart';
+import 'widgets/pro_sheet.dart';
+import 'widgets/reading_goal_card.dart';
 import 'widgets/reveal.dart';
 
 /// Страница книги: обложка и метаданные, прогресс чтения, умный анализ словаря
@@ -45,6 +52,9 @@ class _BookScreenState extends State<BookScreen> {
 
   final SourceLibrary _library = SourceLibrary.instance;
   final DeckRepository _repo = DeckRepository.instance;
+  // Дневной лимит новых слов: из него считается срок в пути к книге. Берётся
+  // настоящий, а не круглый для витрины — обещание должно сбываться.
+  int _newPerDay = 12;
 
   late final LibrarySource _src = widget.source;
   String? _text;
@@ -71,6 +81,7 @@ class _BookScreenState extends State<BookScreen> {
     super.initState();
     _library.addListener(_onLibrary);
     _repo.addListener(_onRepo);
+    _loadPace();
     _load();
   }
 
@@ -93,6 +104,51 @@ class _BookScreenState extends State<BookScreen> {
     _recomputeTimer?.cancel();
     _recomputeTimer =
         Timer(const Duration(milliseconds: 350), () => _recompute());
+  }
+
+  Future<void> _loadPace() async {
+    final pace = await _repo.newPerDay();
+    if (mounted) setState(() => _newPerDay = pace);
+  }
+
+  /// Сессия по словам этой книги: карточки, чьи основы встречаются в тексте.
+  ///
+  /// Колода синтетическая, как у пака: слова книги обычно разбросаны по разным
+  /// колодам, а учить их хочется вместе — ради книги всё и затевалось.
+  Future<void> _studyBookWords() async {
+    final tokens = _tokens;
+    if (tokens == null) return;
+    final stems = tokens.stems.toSet();
+    final cards = [
+      for (final card in await _repo.cardsForLanguage(_srcLang))
+        if (stems.contains(Lemmatizer.stem(card.front, _srcLang))) card,
+    ];
+    if (!mounted) return;
+    if (cards.isEmpty) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(content: Text(tr('empty_deck_sub'))));
+      return;
+    }
+    HapticFeedback.selectionClick();
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SessionScreen(
+          deck: Deck(
+            id: 'book_${_src.id}',
+            languageCode: _srcLang,
+            name: _src.title,
+            colorValue: 0xFF2E7D5B,
+            shapeIndex: 0,
+            createdAt: _src.createdAt,
+          ),
+          mode: StudyMode.learn,
+          cards: cards,
+        ),
+      ),
+    );
+    _recompute();
   }
 
   Future<void> _load() async {
@@ -325,6 +381,22 @@ class _BookScreenState extends State<BookScreen> {
               delay: const Duration(milliseconds: 100),
               child: _analysisSection(scheme),
             ),
+            if (_analysis != null && _analysis!.totalTokens > 0) ...[
+              const SizedBox(height: 16),
+              // Витрина Pro стоит здесь, сразу под разбором: человек только что
+              // увидел, сколько слов книги знает, — и тут же узнаёт, сколько
+              // осталось до чтения без словаря.
+              Reveal(
+                delay: const Duration(milliseconds: 115),
+                child: ReadingGoalCard(
+                  goal: ReadingGoal.estimate(_analysis!, newPerDay: _newPerDay),
+                  pro: Pro.active,
+                  newPerDay: _newPerDay,
+                  onOpenPro: () => ProSheet.show(context),
+                  onStudy: _studyBookWords,
+                ),
+              ),
+            ],
             if (_src.chapters.isNotEmpty) ...[
               const SizedBox(height: 16),
               Reveal(

@@ -262,5 +262,13 @@ Future<bool> requirePro(BuildContext context, ProFeature feature) async {
   if (await Pro.allows(feature)) return true;
   if (!context.mounted) return false;
   await ProSheet.show(context, feature: feature);
-  return Pro.allows(feature);
+  if (await Pro.allows(feature)) return true;
+  // Отказ не должен быть немым: лист закрылся, действие не выполнилось, и без
+  // строки внизу человек гадает, сломалось приложение или так задумано.
+  if (context.mounted) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(tr('pro_denied'))),
+    );
+  }
+  return false;
 }
