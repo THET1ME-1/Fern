@@ -24,6 +24,14 @@ class ReviewEvent {
   /// значение честнее нуля: ноль читался бы как «ответил мгновенно».
   final int? answerMs;
 
+  /// Вид упражнения (индекс `ExerciseKind`) — чем именно отвечали.
+  /// `null` у событий, записанных до появления колонки, и у оценок не из
+  /// сессии (правка карточки руками).
+  ///
+  /// Без него [answerMs] нельзя сравнивать между собой: набрать слово с
+  /// клавиатуры дольше, чем тапнуть по готовому варианту, при том же знании.
+  final int? kind;
+
   const ReviewEvent({
     required this.cardId,
     required this.ts,
@@ -31,6 +39,7 @@ class ReviewEvent {
     required this.elapsedDays,
     required this.stateBefore,
     this.answerMs,
+    this.kind,
   });
 
   /// Ответ засчитан как «вспомнил» (всё, кроме «Не помню»).

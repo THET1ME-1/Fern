@@ -78,7 +78,7 @@ class _SessionScreenState extends State<SessionScreen>
 
   // Автооценка: личный темп ответа и режим двух кнопок. Догружаются вместе с
   // очередью; до этого действуют безопасные значения по умолчанию.
-  AutoGrade _autoGrade = const AutoGrade(medianMs: AutoGrade.fallbackMedianMs);
+  AutoGrade _autoGrade = const AutoGrade.fallback();
   bool _twoButtons = false;
 
   /// Когда показан текущий вопрос — отсюда считается время ответа.
@@ -233,6 +233,9 @@ class _SessionScreenState extends State<SessionScreen>
         rating,
         DateTime.now(),
         answerMs: answerMs ?? _elapsedMs,
+        // Чем отвечали — без этого замер времени не с чем сравнивать: набор и
+        // тап живут в разных темпах.
+        kind: ex.kind.index,
       );
       // Из сессии можно выйти прямо во время записи оценки — тогда двигать
       // очередь уже некуда (иначе «setState() called after dispose()»).

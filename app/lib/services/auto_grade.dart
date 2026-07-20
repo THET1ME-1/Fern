@@ -39,24 +39,67 @@ TypedMatch typedQuality(String input, String expected) {
   return TypedMatch.wrong;
 }
 
+/// Чем человек отдаёт ответ. Времена этих двух способов несопоставимы:
+/// напечатать слово на телефоне — это секунды моторики поверх вспоминания.
+enum AnswerPace { tap, typing }
+
+/// Один замер из журнала: вид упражнения (индекс `ExerciseKind`) и время.
+typedef AnswerSample = ({int kind, int ms});
+
+/// К какому темпу относится упражнение — и относится ли вообще.
+///
+/// `null` значит «в личный темп не входит». Берём только те виды, которые
+/// автооценка СУДИТ: медиана обязана описывать ровно ту популяцию времён, к
+/// которой применяются пороги. «Выбери вариант» и «собери слово» оцениваются
+/// верно/неверно, и подмешивать их темп — значит мерить одно линейкой другого.
+AnswerPace? paceOf(ExerciseKind kind) => switch (kind) {
+      ExerciseKind.flip => AnswerPace.tap,
+      ExerciseKind.type || ExerciseKind.spell || ExerciseKind.cloze =>
+        AnswerPace.typing,
+      ExerciseKind.choose ||
+      ExerciseKind.trueFalse ||
+      ExerciseKind.listen ||
+      ExerciseKind.assemble ||
+      ExerciseKind.oddOne =>
+        null,
+    };
+
 /// Ставит оценку FSRS вместо самооценки «на глаз».
 ///
 /// Человек плохо судит себя сам: вспомнил с трудом за восемь секунд — и жмёт
 /// «хорошо», потому что ответ-то верный. Время ответа врёт куда реже: заминка
 /// перед ответом и есть слабость следа памяти.
 ///
-/// Пороги ЛИЧНЫЕ — доля от медианы собственных верных ответов ([medianMs]).
-/// Абсолютные секунды сравнивать бессмысленно: у одного человека обычный темп
-/// две секунды, у другого семь, и одна и та же пауза значит разное.
+/// Пороги ЛИЧНЫЕ — доля от медианы собственных верных ответов. Абсолютные
+/// секунды сравнивать бессмысленно: у одного человека обычный темп две
+/// секунды, у другого семь, и одна и та же пауза значит разное.
+///
+/// Медиан ДВЕ, по [AnswerPace]. С одной общей набор текста раз за разом
+/// получал «трудно»: тапов в сессии больше, они быстрее, медиану делали они —
+/// и напечатать слово быстрее неё было физически невозможно. Идеальные ответы
+/// роняли карточку в пиявки.
 class AutoGrade {
-  /// Медиана времени верного ответа этого человека.
-  final int medianMs;
+  /// Медиана времени верного ответа тапом (флип).
+  final int tapMedianMs;
 
-  const AutoGrade({required this.medianMs});
+  /// Медиана времени верного набранного ответа.
+  final int typingMedianMs;
 
-  /// Порог, пока личной истории не набралось. Четыре секунды — спокойное
-  /// вспоминание знакомого слова.
-  static const int fallbackMedianMs = 4000;
+  const AutoGrade({required this.tapMedianMs, required this.typingMedianMs});
+
+  /// Пороги до того, как накопилась личная история.
+  const AutoGrade.fallback()
+      : tapMedianMs = fallbackTapMs,
+        typingMedianMs = fallbackTypingMs;
+
+  /// Пороги, пока личной истории не набралось.
+  ///
+  /// Четыре секунды — спокойное вспоминание знакомого слова. На набор к нему
+  /// добавляется сам ввод: слово из семи букв на телефонной клавиатуре — это
+  /// ещё несколько секунд, и мерить его четырьмя значит с первого же дня
+  /// раздавать «трудно» за верные ответы.
+  static const int fallbackTapMs = 4000;
+  static const int fallbackTypingMs = 9000;
 
   /// Сколько верных ответов с замером нужно, чтобы медиана что-то значила.
   static const int _minSamples = 20;
@@ -69,28 +112,50 @@ class AutoGrade {
 
   /// Личный темп по истории повторов. Берём только верные ответы: время промаха
   /// — это ступор и разглядывание, к обычному темпу отношения не имеет.
-  factory AutoGrade.fromEvents(Iterable<ReviewEvent> events) => AutoGrade.fromSamples([
+  factory AutoGrade.fromEvents(Iterable<ReviewEvent> events) =>
+      AutoGrade.fromSamples([
         for (final e in events)
-          if (e.recalled && e.answerMs != null && e.answerMs! > 0) e.answerMs!,
+          if (e.recalled &&
+              e.answerMs != null &&
+              e.answerMs! > 0 &&
+              e.kind != null)
+            (kind: e.kind!, ms: e.answerMs!),
       ]);
 
-  /// Медиана по готовому набору времён (уже отфильтрованному).
+  /// Медианы по готовому набору замеров (уже отфильтрованному).
   ///
   /// Отдельно от [fromEvents], потому что темп надо считать по СВЕЖИМ ответам:
   /// человек за полгода разгоняется, и медиана по всей истории описывает того,
   /// кем он был, а не кто он сейчас. Сколько ответов брать — решает вызывающий.
-  factory AutoGrade.fromSamples(Iterable<int> answerTimes) {
-    final samples = answerTimes.toList()..sort();
-    if (samples.length < _minSamples) {
-      return const AutoGrade(medianMs: fallbackMedianMs);
+  factory AutoGrade.fromSamples(Iterable<AnswerSample> samples) {
+    final byPace = {AnswerPace.tap: <int>[], AnswerPace.typing: <int>[]};
+    for (final s in samples) {
+      if (s.kind < 0 || s.kind >= ExerciseKind.values.length) continue;
+      final pace = paceOf(ExerciseKind.values[s.kind]);
+      if (pace != null) byPace[pace]!.add(s.ms);
     }
-    return AutoGrade(medianMs: samples[samples.length ~/ 2]);
+    return AutoGrade(
+      tapMedianMs: _median(byPace[AnswerPace.tap]!, fallbackTapMs),
+      typingMedianMs: _median(byPace[AnswerPace.typing]!, fallbackTypingMs),
+    );
   }
 
-  /// Оценка для «вспомнил» (флип, выбор варианта) по времени ответа.
-  Rating recalled(int answerMs) {
-    if (answerMs <= medianMs * _fastRatio) return Rating.easy;
-    if (answerMs <= medianMs * _slowRatio) return Rating.good;
+  /// Медиана, если замеров хватает; иначе — фиксированный порог. Своя медиана
+  /// у каждого класса появляется независимо: печатают заметно реже, чем тапают.
+  static int _median(List<int> samples, int fallback) {
+    if (samples.length < _minSamples) return fallback;
+    samples.sort();
+    return samples[samples.length ~/ 2];
+  }
+
+  int medianFor(AnswerPace pace) =>
+      pace == AnswerPace.typing ? typingMedianMs : tapMedianMs;
+
+  /// Оценка для «вспомнил» по времени ответа.
+  Rating recalled(int answerMs, {AnswerPace pace = AnswerPace.tap}) {
+    final median = medianFor(pace);
+    if (answerMs <= median * _fastRatio) return Rating.easy;
+    if (answerMs <= median * _slowRatio) return Rating.good;
     return Rating.hard;
   }
 
@@ -99,6 +164,6 @@ class AutoGrade {
   Rating typed(TypedMatch match, int answerMs) => switch (match) {
         TypedMatch.wrong => Rating.again,
         TypedMatch.typo => Rating.hard,
-        TypedMatch.exact => recalled(answerMs),
+        TypedMatch.exact => recalled(answerMs, pace: AnswerPace.typing),
       };
 }

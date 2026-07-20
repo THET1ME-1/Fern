@@ -136,7 +136,8 @@ class LocalDb {
         grade        INTEGER NOT NULL,
         elapsed_days REAL NOT NULL,
         state_before INTEGER NOT NULL,
-        answer_ms    INTEGER
+        answer_ms    INTEGER,
+        kind         INTEGER
       );
     ''');
     db.execute(
@@ -146,7 +147,7 @@ class LocalDb {
   }
 
   /// Версия схемы. Растёт вместе с каждой миграцией ниже.
-  static const int _schemaVersion = 3;
+  static const int _schemaVersion = 4;
 
   /// Догоняет схему на базах, созданных прежними версиями приложения.
   /// `CREATE TABLE IF NOT EXISTS` новые КОЛОНКИ не добавляет — только ALTER.
@@ -155,6 +156,9 @@ class LocalDb {
     if (from == 0 || from >= _schemaVersion) return; // пустая или уже свежая
     if (from < 3) {
       db.execute('ALTER TABLE review_events ADD COLUMN answer_ms INTEGER');
+    }
+    if (from < 4) {
+      db.execute('ALTER TABLE review_events ADD COLUMN kind INTEGER');
     }
   }
 
@@ -319,9 +323,17 @@ class LocalDb {
 
   void logReview(ReviewEvent e) => _handle.execute(
         'INSERT INTO review_events'
-        '(card_id,ts,grade,elapsed_days,state_before,answer_ms) '
-        'VALUES(?,?,?,?,?,?)',
-        [e.cardId, e.ts, e.grade, e.elapsedDays, e.stateBefore, e.answerMs],
+        '(card_id,ts,grade,elapsed_days,state_before,answer_ms,kind) '
+        'VALUES(?,?,?,?,?,?,?)',
+        [
+          e.cardId,
+          e.ts,
+          e.grade,
+          e.elapsedDays,
+          e.stateBefore,
+          e.answerMs,
+          e.kind,
+        ],
       );
 
   int reviewEventCount() =>
@@ -331,7 +343,7 @@ class LocalDb {
   /// Все события повтора по возрастанию времени (для оптимизатора).
   List<ReviewEvent> allReviewEvents() {
     final rows = _handle.select(
-        'SELECT card_id,ts,grade,elapsed_days,state_before,answer_ms '
+        'SELECT card_id,ts,grade,elapsed_days,state_before,answer_ms,kind '
         'FROM review_events ORDER BY card_id, ts');
     return [
       for (final r in rows)
@@ -342,22 +354,31 @@ class LocalDb {
           elapsedDays: (r['elapsed_days'] as num).toDouble(),
           stateBefore: r['state_before'] as int,
           answerMs: r['answer_ms'] as int?,
+          kind: r['kind'] as int?,
         ),
     ];
   }
 
-  /// Времена последних верных ответов (мс), свежие первыми.
+  /// Времена последних верных ответов (мс) вместе с видом упражнения, свежие
+  /// первыми. Вид обязателен: без него замер не с чем сравнивать.
   ///
-  /// Отдельный запрос вместо загрузки всего журнала: медиана нужна на каждом
+  /// Отдельный запрос вместо загрузки всего журнала: медианы нужны на каждом
   /// старте сессии, а журнал за год — это десятки тысяч строк.
-  List<int> recentAnswerTimes({int limit = 300}) {
+  ///
+  /// Лимит с запасом, потому что выборок теперь две, а печатают заметно реже,
+  /// чем тапают: на трёхстах свежих ответах набранных могло не набраться на
+  /// собственную медиану.
+  List<({int kind, int ms})> recentAnswerTimes({int limit = 600}) {
     final rows = _handle.select(
-      'SELECT answer_ms FROM review_events '
+      'SELECT answer_ms, kind FROM review_events '
       'WHERE answer_ms IS NOT NULL AND answer_ms > 0 AND grade > 1 '
+      'AND kind IS NOT NULL '
       'ORDER BY ts DESC LIMIT ?',
       [limit],
     );
-    return [for (final r in rows) r['answer_ms'] as int];
+    return [
+      for (final r in rows) (kind: r['kind'] as int, ms: r['answer_ms'] as int)
+    ];
   }
 
   void clearReviewEvents() => _handle.execute('DELETE FROM review_events');

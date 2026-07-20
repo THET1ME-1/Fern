@@ -747,6 +747,7 @@ class DeckRepository extends ChangeNotifier {
     Rating rating,
     DateTime now, {
     int? answerMs,
+    int? kind,
   }) async {
     final prev = card.review;
     final wasNew = prev.isNew;
@@ -768,6 +769,7 @@ class DeckRepository extends ChangeNotifier {
       elapsedDays: elapsedDays.toDouble(),
       stateBefore: stateBefore,
       answerMs: answerMs,
+      kind: kind,
     ));
     // Новая карта впервые показана → расходуем дневной лимит новых.
     if (wasNew) await markNewIntroduced(1, now);

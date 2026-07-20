@@ -61,6 +61,37 @@ void main() {
     expect(events.single.answerMs, greaterThanOrEqualTo(0));
   });
 
+  testWidgets('вид упражнения доезжает до журнала вместе со временем',
+      (WidgetTester tester) async {
+    // Без вида замер бесполезен: время флипа и время набора нельзя складывать
+    // в одну выборку, иначе медиану делают тапы и печать вечно «трудная».
+    final card = await _setUp(tester);
+    await _open(tester, StudyMode.flashcards, card);
+
+    await tester.tap(find.text('Показать ответ'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Хорошо'));
+    await tester.pumpAndSettle();
+
+    final events = await repo.reviewEvents();
+    expect(events.single.kind, ExerciseKind.flip.index);
+  });
+
+  testWidgets('набранный ответ помечается своим видом',
+      (WidgetTester tester) async {
+    final card = await _setUp(tester);
+    await _open(tester, StudyMode.write, card);
+
+    await tester.enterText(find.byType(TextField), 'привет');
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Дальше'));
+    await tester.pumpAndSettle();
+
+    final events = await repo.reviewEvents();
+    expect(events.single.kind, ExerciseKind.type.index);
+  });
+
   testWidgets('флип подсказывает оценку по времени ответа',
       (WidgetTester tester) async {
     final card = await _setUp(tester);
