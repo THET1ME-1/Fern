@@ -11,6 +11,7 @@ import '../models/word_card.dart';
 import '../services/auto_grade.dart';
 import '../services/card_images.dart';
 import '../services/deck_repository.dart';
+import '../services/pro.dart';
 import '../services/reading_horizon.dart';
 import '../services/word_links.dart';
 import '../services/tts_service.dart';
@@ -112,10 +113,14 @@ class _SessionScreenState extends State<SessionScreen>
   /// Добирает лимиты подачи (новые/день, потолок повторов) и строит очередь.
   Future<void> _prepare() async {
     // Что человеку вот-вот встретится в книге — это влияет на порядок подачи.
-    _builder.setReadingHorizon(
-      await ReadingHorizon.upcoming(widget.deck.languageCode),
-      widget.deck.languageCode,
-    );
+    // Слова из книги идут первыми только в Pro: это надстройка поверх
+    // платного сценария, а не часть обычного расписания.
+    if (Pro.bookBoost) {
+      _builder.setReadingHorizon(
+        await ReadingHorizon.upcoming(widget.deck.languageCode),
+        widget.deck.languageCode,
+      );
+    }
     final newPerDay = await _repo.newPerDay();
     final introduced = await _repo.newIntroducedToday(_start);
     final maxReviews = await _repo.maxReviews();

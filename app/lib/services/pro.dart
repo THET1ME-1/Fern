@@ -84,6 +84,24 @@ class Pro {
     await SignedStore.setInt(_usedKey, existingSources);
   }
 
+  /// Работают ли надстройки поверх книги: чтение засчитывается как
+  /// повторение, а слова ближайших страниц идут в очередь первыми.
+  ///
+  /// Отдельным именем, а не голым [active] в трёх местах: это одно решение о
+  /// границе, и принимать его надо в одном месте.
+  static bool get bookBoost => active;
+
+  /// Сколько бесплатных разборов израсходовано. Нужен «удалению всех данных»:
+  /// оно стирает настройки целиком, а счётчик обязан пережить стирание.
+  static Future<int> usedSources() => _loadUsed();
+
+  /// Вернуть счётчик на место после стирания настроек.
+  static Future<void> restoreUsedSources(int used) async {
+    if (used <= 0) return;
+    _used = used;
+    await SignedStore.setInt(_usedKey, used);
+  }
+
   /// Слушать вместе: покупка и ключ — два источника одного состояния.
   static Listenable get changes =>
       Listenable.merge([LicenseService.instance, BillingService.instance]);

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/l10n/strings.dart';
 import 'package:fern/services/billing_service.dart';
+import 'package:fern/services/deck_repository.dart';
 import 'package:fern/services/license_service.dart';
 import 'package:fern/services/pro.dart';
 import 'package:fern/services/reading_goal.dart';
@@ -65,6 +66,15 @@ void main() {
     await Pro.noteSourceUsed();
     // Библиотека пуста (книгу удалили), но слот израсходован — и остаётся им.
     await Pro.migrateFromLibrary(0);
+    expect(await Pro.allows(ProFeature.library), isFalse);
+  });
+
+  test('Стирание всех данных не возвращает бесплатный разбор', () async {
+    // «Удалить все данные» — про свои колоды и книги, а не про покупку.
+    // Прежде оно чистило настройки целиком вместе со счётчиком, и бесплатный
+    // разбор доставался снова: платить было незачем.
+    await Pro.noteSourceUsed();
+    await DeckRepository.instance.wipeAllData();
     expect(await Pro.allows(ProFeature.library), isFalse);
   });
 

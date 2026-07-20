@@ -82,16 +82,19 @@ class ShareImport {
   /// Маршрутизирует полученный текст. Публичный — можно звать и из тестов.
   static Future<void> route(BuildContext context, String text) async {
     // Ссылка, прилетевшая из «Поделиться», обходит интерфейс библиотеки —
-    // поэтому проверка Pro нужна и здесь, иначе гейт дырявый.
-    if (!await requirePro(context, ProFeature.library)) return;
-    if (!context.mounted) return;
+    // поэтому проверка Pro нужна и здесь, иначе гейт дырявый. Но именно на
+    // разборе источника: добавить слово карточкой бесплатно, и закрывать это
+    // из-за израсходованной книги нельзя.
     if (_youtube.hasMatch(text)) {
+      if (!await requirePro(context, ProFeature.library)) return;
+      if (!context.mounted) return;
       Navigator.push(
         context,
         MaterialPageRoute(builder: (_) => VideoImportScreen(initialUrl: text)),
       );
       return;
     }
+    if (!context.mounted) return;
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -280,8 +283,11 @@ class _ShareSheet extends StatelessWidget {
                 title: tr('share_as_article'),
                 subtitle: tr('share_as_article_sub'),
                 highlight: true,
-                onTap: () {
+                onTap: () async {
                   Navigator.pop(context);
+                  // Статья — это новый источник, значит гейт здесь.
+                  if (!await requirePro(context, ProFeature.library)) return;
+                  if (!context.mounted) return;
                   ShareImport.importArticle(context, url);
                 },
               ),

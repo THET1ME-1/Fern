@@ -15,6 +15,7 @@ import 'auto_grade.dart';
 import 'card_images.dart';
 import 'link_propagation.dart';
 import 'local_db.dart';
+import 'pro.dart';
 import 'pos.dart';
 import 'starter_decks.dart';
 import 'pos_dictionary.dart';
@@ -1175,6 +1176,10 @@ class DeckRepository extends ChangeNotifier {
     await _ensureLoaded();
     _db!.wipeAll();
     await CardImages.wipeAll();
+    // Счётчик израсходованных бесплатных разборов переживает стирание:
+    // «удалить все данные» — про свои колоды и книги, а не про покупку.
+    // Иначе кнопка в настройках возвращала бы бесплатную книгу без конца.
+    final freeUsed = await Pro.usedSources();
     // Чистим оба prefs-стора (async + legacy) целиком, включая флаги миграций.
     await _prefs.clear();
     try {
@@ -1182,6 +1187,7 @@ class DeckRepository extends ChangeNotifier {
     } catch (_) {
       /* legacy-стор недоступен — не критично */
     }
+    await Pro.restoreUsedSources(freeUsed);
     _decks.clear();
     _packs.clear();
     _cards.clear();

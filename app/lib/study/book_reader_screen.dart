@@ -10,6 +10,7 @@ import '../models/book_chapter.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
 import '../services/exposure_service.dart';
+import '../services/pro.dart';
 import '../services/lemmatizer.dart';
 import '../services/pos.dart';
 import '../services/source_library.dart';
@@ -223,7 +224,9 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     // Прочитанные слова подкрепляют память — отправляем «в фон», экран уже
     // закрывается и ждать результат некому.
     if (_seenWords.isNotEmpty) {
-      unawaited(ExposureService.record(_seenWords, _srcLang));
+      // Встреченное в тексте подкрепляет память только в Pro: это надстройка
+      // поверх платного сценария (см. Pro.bookBoost).
+      if (Pro.bookBoost) unawaited(ExposureService.record(_seenWords, _srcLang));
     }
     _library.setBookPosition(widget.sourceId, _topIndex);
     _positions.itemPositions.removeListener(_onScroll);

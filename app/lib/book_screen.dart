@@ -137,6 +137,8 @@ class _BookScreenState extends State<BookScreen> {
 
   Future<void> _startWarmup() async {
     if (_warmupCards.isEmpty) return;
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     HapticFeedback.selectionClick();
     await Navigator.push(
       context,
@@ -175,6 +177,10 @@ class _BookScreenState extends State<BookScreen> {
   Future<void> _studyBookWords() async {
     final tokens = _tokens;
     if (tokens == null) return;
+    // Гейт в обработчике, а не только в виде кнопки: спрятанная кнопка — не
+    // защита, а вежливость.
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     final stems = tokens.stems.toSet();
     final cards = [
       for (final card in await _repo.cardsForLanguage(_srcLang))
