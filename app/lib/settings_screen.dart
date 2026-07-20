@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -46,6 +48,12 @@ const List<Color> _kSeedPalettes = [
 ];
 
 /// Экран настроек: внешний вид, обучение, язык интерфейса, данные, о программе.
+/// Куда ведут кнопки доната. Те же адреса, что в Kadr: автор один, а
+/// заводить вторую страницу сбора ради второго приложения незачем.
+final Uri kBoostyUrl = Uri.parse('https://boosty.to/sntcompany');
+final Uri kDonationAlertsUrl =
+    Uri.parse('https://www.donationalerts.com/r/thet1me');
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -317,6 +325,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 16),
           _sectionTitle(tr('pro_title'), scheme),
           ..._proTiles(scheme),
+          const SizedBox(height: 16),
+          _donationCard(scheme),
           const SizedBox(height: 16),
           _sectionTitle(tr('about'), scheme),
           _infoTile(
@@ -905,6 +915,93 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String? _pickedPath(FilePickerResult? result) {
     final files = result?.files ?? const <PlatformFile>[];
     return files.isEmpty ? null : files.first.path;
+  }
+
+  /// Блок доната: короткий текст и две крупные кнопки.
+  ///
+  /// Стоит НАД «О приложении» и ниже покупки Pro: сначала приложение
+  /// предлагает то, за что просит денег, и только потом — помочь просто так.
+  /// Перенесён из Kadr, ссылки те же (автор один).
+  Widget _donationCard(ColorScheme scheme) {
+    return Card(
+      margin: EdgeInsets.zero,
+      color: scheme.primaryContainer.withValues(alpha: 0.35),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.volunteer_activism_rounded,
+                    color: scheme.primary, size: 22),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    tr('support_authors'),
+                    style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 16,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text(
+              tr('support_intro'),
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.35,
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: () => _openDonation(kBoostyUrl),
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: const StadiumBorder(),
+              ),
+              icon: const Icon(Icons.favorite_rounded, size: 19),
+              label: const Text('Boosty',
+                  style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15)),
+            ),
+            const SizedBox(height: 10),
+            FilledButton.tonalIcon(
+              onPressed: () => _openDonation(kDonationAlertsUrl),
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 13),
+                shape: const StadiumBorder(),
+              ),
+              icon: const Icon(Icons.card_giftcard_rounded, size: 19),
+              label: const Text('DonationAlerts',
+                  style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _openDonation(Uri url) async {
+    HapticFeedback.selectionClick();
+    try {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } catch (_) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('open_link_failed'))),
+      );
+    }
   }
 
   /// Секция «Fern Pro»: статус покупки и то, чем её открыть.

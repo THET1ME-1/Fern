@@ -1272,6 +1272,8 @@ const Map<String, Map<String, String>> _strings = {
   'pro_license_num': {'ru': 'Лицензия №{id}', 'en': 'License #{id}'},
   'pro_remove_key': {'ru': 'Убрать ключ', 'en': 'Remove key'},
   'pro_locked_hint': {'ru': 'Открывается в Fern Pro', 'en': 'Included in Fern Pro'},
+  'support_authors': {'ru': 'Поддержать авторов', 'en': 'Support the authors'},
+  'support_intro': {'ru': 'Fern с открытым кодом, без рекламы и без слежки. Донат помогает развивать проект', 'en': 'Fern is open source, with no ads and no tracking. A donation helps the project grow'},
   'warmup_title': {'ru': 'Разминка перед чтением', 'en': 'Warm-up before reading'},
   'warmup_sub': {'ru': '{n} — встретятся на ближайших страницах', 'en': '{n} — you will meet them on the next pages'},
   'warmup_start': {'ru': 'Размяться', 'en': 'Warm up'},
