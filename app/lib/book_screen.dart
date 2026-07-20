@@ -392,7 +392,11 @@ class _BookScreenState extends State<BookScreen> {
                   goal: ReadingGoal.estimate(_analysis!, newPerDay: _newPerDay),
                   pro: Pro.active,
                   newPerDay: _newPerDay,
-                  onOpenPro: () => ProSheet.show(context),
+                  onOpenPro: () => ProSheet.show(
+                    context,
+                    goal: ReadingGoal.estimate(_analysis!,
+                        newPerDay: _newPerDay),
+                  ),
                   onStudy: _studyBookWords,
                 ),
               ),

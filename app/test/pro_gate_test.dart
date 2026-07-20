@@ -5,6 +5,7 @@ import 'package:fern/l10n/strings.dart';
 import 'package:fern/services/billing_service.dart';
 import 'package:fern/services/license_service.dart';
 import 'package:fern/services/pro.dart';
+import 'package:fern/services/reading_goal.dart';
 import 'package:fern/widgets/pro_sheet.dart';
 
 import 'test_helpers.dart';
@@ -143,6 +144,29 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(tr('pro_denied')), findsOneWidget);
+  });
+
+  testWidgets('Лист покупки начинает с цифр книги, когда они известны',
+      (tester) async {
+    // Перечень форматов файлов не продаёт. Продаёт своя книга: «до чтения без
+    // словаря 340 слов» человек только что увидел на её странице.
+    const goal = ReadingGoal(
+        wordsToLearn: 340, days: 28, coverage: 0.78, target: 0.95);
+    await tester.pumpWidget(MaterialApp(
+      home: Builder(
+        builder: (context) => Scaffold(
+          body: ElevatedButton(
+            onPressed: () => ProSheet.show(context, goal: goal),
+            child: const Text('открыть'),
+          ),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('открыть'));
+    await tester.pumpAndSettle();
+
+    expect(find.textContaining('340'), findsWidgets);
+    expect(find.textContaining('28'), findsWidgets);
   });
 
   testWidgets('Негодный ключ говорит об этом и не закрывает лист',

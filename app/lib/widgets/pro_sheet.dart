@@ -6,6 +6,8 @@ import '../l10n/strings.dart';
 import '../services/billing_service.dart';
 import '../services/license_service.dart';
 import '../services/pro.dart';
+import '../services/reading_goal.dart';
+import '../theme/app_theme.dart';
 import '../utils/build_config.dart';
 
 /// Предложение купить Fern Pro.
@@ -19,9 +21,15 @@ class ProSheet extends StatefulWidget {
   /// С какой возможности человек сюда пришёл — с неё и начинаем разговор.
   final ProFeature? feature;
 
-  const ProSheet({super.key, this.feature});
+  /// Путь к книге, которую человек только что разобрал. Если он известен,
+  /// разговор начинается с его собственных цифр: перечень форматов файлов не
+  /// продаёт, а «до чтения без словаря 340 слов» продаёт.
+  final ReadingGoal? goal;
 
-  static Future<void> show(BuildContext context, {ProFeature? feature}) {
+  const ProSheet({super.key, this.feature, this.goal});
+
+  static Future<void> show(BuildContext context,
+      {ProFeature? feature, ReadingGoal? goal}) {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -29,7 +37,7 @@ class ProSheet extends StatefulWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
-      builder: (_) => ProSheet(feature: feature),
+      builder: (_) => ProSheet(feature: feature, goal: goal),
     );
   }
 
@@ -47,6 +55,48 @@ class _ProSheetState extends State<ProSheet> {
   void dispose() {
     _keyController.dispose();
     super.dispose();
+  }
+
+  /// Цифры разобранной книги крупно: до них человек уже дошёл сам, и лист
+  /// продолжает его мысль, а не начинает свою.
+  Widget _goalLead(ColorScheme scheme, ReadingGoal goal) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: scheme.primaryContainer,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            trf('goal_know_share', {'n': (goal.coverage * 100).round()}),
+            style: TextStyle(color: scheme.onPrimaryContainer, fontSize: 13),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            trn('n_words', goal.wordsToLearn),
+            style: TextStyle(
+              fontFamily: AppTheme.displayFont,
+              fontWeight: FontWeight.w700,
+              fontSize: 26,
+              height: 1.1,
+              color: scheme.onPrimaryContainer,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            trf('goal_pace', {
+              'n': goal.wordsToLearn == 0 || goal.days == 0
+                  ? 0
+                  : (goal.wordsToLearn / goal.days).ceil(),
+              'days': trn('n_days', goal.days),
+            }),
+            style: TextStyle(color: scheme.onPrimaryContainer, fontSize: 13),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _buy() async {
@@ -120,7 +170,10 @@ class _ProSheetState extends State<ProSheet> {
           top: 22,
           bottom: MediaQuery.of(context).viewInsets.bottom + 24,
         ),
-        child: Column(
+        // Лист прокручивается: с цифрами книги содержимое перестаёт помещаться
+        // на невысоких экранах, а обрезанное предложение купить — не предложение.
+        child: SingleChildScrollView(
+          child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -137,6 +190,10 @@ class _ProSheetState extends State<ProSheet> {
               ],
             ),
             const SizedBox(height: 8),
+            if (widget.goal != null && !widget.goal!.reached) ...[
+              _goalLead(scheme, widget.goal!),
+              const SizedBox(height: 14),
+            ],
             Text(
               widget.feature == ProFeature.deckImport
                   ? tr('pro_lead_import')
@@ -168,6 +225,7 @@ class _ProSheetState extends State<ProSheet> {
             const SizedBox(height: 14),
             if (kPlayBuild) ..._storeButtons(price) else ..._keyButtons(),
           ],
+          ),
         ),
       ),
     );
