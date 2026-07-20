@@ -66,6 +66,13 @@ DB_PATH = Path(os.environ.get("SNT_BOT_DB", Path(__file__).parent / "purchases.d
 # Пусто = ходить в телеграм напрямую.
 API_BASE = os.environ.get("SNT_API_BASE", "").rstrip("/")
 
+# Очередь событий lava.top у воркера: снаружи до бота не достучаться, поэтому
+# вебхук принимает воркер, а бот приходит за накопленным сам. Пусто = не ходить
+# (тогда события ждут только на своём порту).
+PULL_URL = os.environ.get("SNT_PULL_URL", "").rstrip("/")
+PULL_KEY = os.environ.get("SNT_PULL_KEY", "")
+PULL_EVERY = int(os.environ.get("SNT_PULL_EVERY", "15"))
+
 # Товары магазина: идентификатор на lava.top → что выдавать.
 # Переопределяется переменной SNT_BOT_PRODUCTS (тот же JSON).
 PRODUCTS: dict[str, dict] = json.loads(os.environ.get("SNT_BOT_PRODUCTS", json.dumps({
@@ -139,29 +146,24 @@ def product_of(row: sqlite3.Row) -> dict:
 # ----------------------------- HTTP -----------------------------
 
 
-async def lava_webhook(request: web.Request) -> web.Response:
-    if WEBHOOK_KEY and request.headers.get("X-Api-Key") != WEBHOOK_KEY:
-        log.warning("вебхук с чужим ключом от %s", request.remote)
-        return web.Response(status=401, text="bad key")
+async def process_event(payload) -> str:
+    """Событие lava.top: записать заказ или отметить возврат.
 
-    try:
-        payload = await request.json()
-    except Exception:
-        log.exception("вебхук: тело не разобралось")
-        return web.Response(status=400, text="bad json")
-
+    Один путь на оба входа — вебхук напрямую и очередь воркера, — иначе оплата,
+    принятая с одной стороны, разошлась бы с оплатой, принятой с другой.
+    """
     raw = json.dumps(payload, ensure_ascii=False)
-    log.info("вебхук: %s", raw)
+    log.info("событие: %s", raw)
 
     order = parse_webhook(payload)
     if order is None:
         # Не оплата, отказ или событие без почты. Повторы делу не помогут,
-        # поэтому 200: пусть lava.top не долбится двадцать раз. Событие в логе.
-        return web.Response(text="ignored")
+        # поэтому это не ошибка: событие остаётся в логе.
+        return "ignored"
 
     product = resolve_product(order["product_id"])
     if not product:
-        return web.Response(text="unknown product")
+        return "unknown product"
 
     if order["kind"] == "refund":
         row = store.refund(order["order_id"], order["email"])
@@ -170,7 +172,7 @@ async def lava_webhook(request: web.Request) -> web.Response:
         if row is not None:
             await notify_owner(texts.refund_notice(
                 order["email"], product["name"], row["license_id"]))
-        return web.Response(text="ok")
+        return "ok"
 
     # Заказ без идентификатора: склеиваем свой из почты и дня, иначе повтор
     # вебхука создал бы вторую запись и второй ключ.
@@ -184,11 +186,82 @@ async def lava_webhook(request: web.Request) -> web.Response:
     if fresh:
         await notify_owner(texts.sale_notice(
             order["email"], product["name"], order["amount"], order_id))
-    return web.Response(text="ok")
+    return "ok"
+
+
+async def lava_webhook(request: web.Request) -> web.Response:
+    if WEBHOOK_KEY and request.headers.get("X-Api-Key") != WEBHOOK_KEY:
+        log.warning("вебхук с чужим ключом от %s", request.remote)
+        return web.Response(status=401, text="bad key")
+
+    try:
+        payload = await request.json()
+    except Exception:
+        log.exception("вебхук: тело не разобралось")
+        return web.Response(status=400, text="bad json")
+
+    # 200 даже на непонятное событие: lava.top повторяет вебхук до двадцати раз.
+    return web.Response(text=await process_event(payload))
 
 
 async def health(_: web.Request) -> web.Response:
     return web.Response(text="alive")
+
+
+# ----------------------------- Очередь воркера -----------------------------
+
+
+async def handle_pulled(events: list[dict]) -> list[str]:
+    """Разбирает пачку событий из очереди, возвращает ключи для подтверждения.
+
+    Мусор подтверждается наравне с оплатой: событие, которое не разобралось
+    сейчас, не разберётся и на двадцатый раз, а очередь оно забьёт навсегда.
+    """
+    done: list[str] = []
+    for event in events:
+        key = event.get("key")
+        try:
+            await process_event(json.loads(event["payload"]))
+        except Exception:
+            log.exception("событие %s не разобралось", key)
+        if key:
+            done.append(key)
+    return done
+
+
+async def pull_loop() -> None:
+    """Ходит за событиями к воркеру.
+
+    Достучаться до бота снаружи нельзя — порты хостинга заняты чужим сервисом,
+    а телеграм с него и вовсе недоступен. Поэтому вебхук lava.top принимает
+    воркер Cloudflare, а бот забирает накопленное сам, своим же исходящим
+    соединением.
+    """
+    import aiohttp
+
+    while True:
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    f"{PULL_URL}/pull", headers={"X-Pull-Key": PULL_KEY},
+                    timeout=aiohttp.ClientTimeout(total=30),
+                ) as response:
+                    events = (await response.json()).get("events", [])
+                if events:
+                    log.info("из очереди пришло событий: %s", len(events))
+                    done = await handle_pulled(events)
+                    if done:
+                        async with session.post(
+                            f"{PULL_URL}/ack", headers={"X-Pull-Key": PULL_KEY},
+                            json={"keys": done},
+                            timeout=aiohttp.ClientTimeout(total=30),
+                        ) as ack:
+                            await ack.read()
+        except Exception:
+            # Сеть моргнула или воркер ответил не тем: заказы никуда не делись,
+            # они лежат в очереди неделю и дождутся следующего захода.
+            log.exception("очередь: заход не удался")
+        await asyncio.sleep(PULL_EVERY)
 
 
 # ----------------------------- Бот -----------------------------
@@ -451,6 +524,12 @@ async def main() -> None:
     await runner.setup()
     await web.TCPSite(runner, "127.0.0.1", WEBHOOK_PORT).start()
     log.info("вебхук слушает 127.0.0.1:%s/lava", WEBHOOK_PORT)
+
+    if PULL_URL and PULL_KEY:
+        log.info("очередь заказов: %s каждые %s с", PULL_URL, PULL_EVERY)
+        asyncio.create_task(pull_loop())
+    else:
+        log.warning("SNT_PULL_URL/SNT_PULL_KEY пусты — очередь не опрашивается")
 
     try:
         await dp.start_polling(bot)

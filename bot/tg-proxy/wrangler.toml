@@ -7,5 +7,13 @@ account_id = "2aa046441595c8cd541c3b42f2aa5ab7"
 [observability]
 enabled = true
 
-# Секрет (в git его нет):
+# Очередь событий lava.top: бот приходит за ними сам, снаружи до него не
+# достучаться. Неделя хранения — запас на случай, если бот лежал.
+[[kv_namespaces]]
+binding = "ORDERS"
+id = "a62cc57251af427c92555ab3c06d78e4"
+
+# Секреты (в git их нет):
 #   echo -n "<токен бота>" | npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   echo -n "<ключ для lava.top>" | npx wrangler secret put WEBHOOK_KEY
+#   echo -n "<ключ для бота>" | npx wrangler secret put PULL_KEY

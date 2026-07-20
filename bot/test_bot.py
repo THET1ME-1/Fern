@@ -11,6 +11,7 @@ Aiogram и aiohttp подменены заглушками: на машине р
 пользуется `bot.py`.
 """
 import asyncio
+import json
 import logging
 import os
 import sys
@@ -214,6 +215,32 @@ check("после возврата ключ не выдаётся снова",
 to_owner.clear()
 check("повтор возврата принят", webhook(REFUNDED), "ok")
 check("повтор возврата владельца не будит", to_owner, [])
+
+# --- события из очереди воркера ---
+# Снаружи до бота не достучаться, поэтому вебхук lava.top принимает воркер, а
+# бот приходит за событиями сам. Путь обработки обязан быть тем же самым, иначе
+# оплата, принятая воркером, разойдётся с оплатой, принятой напрямую.
+PULLED = {
+    "eventType": "payment.success",
+    "contractId": "ORD-888",
+    "status": "completed",
+    "amount": 5.0,
+    "buyer": {"email": "queue@example.com"},
+    "product": {"id": "34586da0-fa77-4b5d-a080-e183e7ea8803"},
+}
+
+to_owner.clear()
+done = asyncio.run(B.handle_pulled([
+    {"key": "order:1:aaa", "payload": json.dumps(PULLED)},
+    {"key": "order:2:bbb", "payload": "не json"},
+    {"key": "order:3:ccc", "payload": json.dumps({"status": "hello"})},
+]))
+check("заказ из очереди в журнале", len(B.store.find("queue@example.com")), 1)
+has("владелец узнал о продаже из очереди", to_owner[-1], "queue@example.com")
+check("подтверждены все три события, включая мусор", sorted(done),
+      ["order:1:aaa", "order:2:bbb", "order:3:ccc"])
+has("ключ по очередному заказу выдаётся",
+    write("queue@example.com", 6006)[0], "FERNKEY")
 
 # --- свой номер в телеграме ---
 # Нужен при развёртывании: без него бот не знает, кому слать уведомления о
