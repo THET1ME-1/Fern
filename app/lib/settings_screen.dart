@@ -80,6 +80,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _twoButtons = false;
   TimeOfDay _reminderTime = const TimeOfDay(hour: 20, minute: 0);
 
+  /// Свёрнутые секции. Живут только пока экран открыт: свернул однажды —
+  /// не значит спрятал навсегда.
+  final Set<String> _collapsed = {};
+
   @override
   void initState() {
     super.initState();
@@ -174,178 +178,225 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(tr('settings_title'))),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
         children: [
-          _sectionTitle(tr('appearance'), scheme),
-          _themeModeTile(scheme),
-          _colorTile(scheme),
-          // Готовые цветовые схемы — кружки из 4 тонов темы (как в системном
-          // пикере Material You). В режиме «цвет из обоев» пресеты не нужны.
-          if (!_theme.useDynamicColor) _paletteRow(scheme),
-          _switchTile(
-            icon: Icons.palette_rounded,
-            title: tr('dynamic_color'),
-            subtitle: tr('dynamic_color_sub'),
-            value: _theme.useDynamicColor,
-            onChanged: (v) => _theme.setUseDynamicColor(v),
+          _section(
+            id: 'appearance',
+            title: tr('appearance'),
+            icon: Icons.palette_outlined,
             scheme: scheme,
-          ),
-          if (_theme.isDark)
-            _switchTile(
-              icon: Icons.contrast_rounded,
-              title: tr('amoled'),
-              subtitle: tr('amoled_sub'),
-              value: _theme.amoled,
-              onChanged: (v) => _theme.setAmoled(v),
-              scheme: scheme,
-            ),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('study'), scheme),
-          _goalTile(scheme),
-          _newPerDayTile(scheme),
-          _maxReviewsTile(scheme),
-          _retentionTile(scheme),
-          _optimizeTile(scheme),
-          _actionTile(
-            icon: Icons.insights_rounded,
-            title: tr('how_fern_decides'),
-            subtitle: tr('how_fern_decides_sub'),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => const ScheduleExplainScreen(),
+            children: [
+              _themeModeTile(scheme),
+              _colorTile(scheme),
+              // Готовые цветовые схемы — кружки из 4 тонов темы (как в системном
+              // пикере Material You). В режиме «цвет из обоев» пресеты не нужны.
+              if (!_theme.useDynamicColor) _paletteRow(scheme),
+              _switchTile(
+                icon: Icons.palette_rounded,
+                title: tr('dynamic_color'),
+                subtitle: tr('dynamic_color_sub'),
+                value: _theme.useDynamicColor,
+                onChanged: (v) => _theme.setUseDynamicColor(v),
+                scheme: scheme,
               ),
-            ),
-            scheme: scheme,
+              if (_theme.isDark)
+                _switchTile(
+                  icon: Icons.contrast_rounded,
+                  title: tr('amoled'),
+                  subtitle: tr('amoled_sub'),
+                  value: _theme.amoled,
+                  onChanged: (v) => _theme.setAmoled(v),
+                  scheme: scheme,
+                ),
+            ],
           ),
-          _switchTile(
-            icon: Icons.touch_app_outlined,
-            title: tr('two_buttons'),
-            subtitle: tr('two_buttons_sub'),
-            value: _twoButtons,
-            onChanged: (v) async {
-              await _repo.setTwoButtonRating(v);
-              if (mounted) setState(() => _twoButtons = v);
-            },
+          _section(
+            id: 'study',
+            title: tr('study'),
+            icon: Icons.school_outlined,
             scheme: scheme,
+            children: [
+              _goalTile(scheme),
+              _newPerDayTile(scheme),
+              _maxReviewsTile(scheme),
+              _retentionTile(scheme),
+              _optimizeTile(scheme),
+              _actionTile(
+                icon: Icons.insights_rounded,
+                title: tr('how_fern_decides'),
+                subtitle: tr('how_fern_decides_sub'),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => const ScheduleExplainScreen(),
+                  ),
+                ),
+                scheme: scheme,
+              ),
+              _switchTile(
+                icon: Icons.touch_app_outlined,
+                title: tr('two_buttons'),
+                subtitle: tr('two_buttons_sub'),
+                value: _twoButtons,
+                onChanged: (v) async {
+                  await _repo.setTwoButtonRating(v);
+                  if (mounted) setState(() => _twoButtons = v);
+                },
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.translate_rounded,
+                title: tr('providers_title'),
+                trailing: TranslationManager.instance.active.name,
+                onTap: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const ProvidersScreen()),
+                  );
+                  if (mounted) setState(() {});
+                },
+                scheme: scheme,
+              ),
+              _switchTile(
+                icon: Icons.category_outlined,
+                title: tr('pos_split_ask'),
+                subtitle: tr('pos_split_ask_sub'),
+                value: _posSplitAsk,
+                onChanged: (v) async {
+                  setState(() => _posSplitAsk = v);
+                  await _repo.setPosSplitAsk(v);
+                },
+                scheme: scheme,
+              ),
+            ],
           ),
-          _actionTile(
-            icon: Icons.translate_rounded,
-            title: tr('providers_title'),
-            trailing: TranslationManager.instance.active.name,
-            onTap: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const ProvidersScreen()),
-              );
-              if (mounted) setState(() {});
-            },
+          _section(
+            id: 'home',
+            title: tr('home_screen'),
+            icon: Icons.home_outlined,
             scheme: scheme,
+            children: [
+              _switchTile(
+                icon: Icons.subtitles_rounded,
+                title: tr('show_video_banner'),
+                subtitle: tr('show_video_banner_sub'),
+                value: _showVideoBanner,
+                onChanged: (v) async {
+                  setState(() => _showVideoBanner = v);
+                  await _repo.setShowVideoBanner(v);
+                },
+                scheme: scheme,
+              ),
+            ],
           ),
-          _switchTile(
-            icon: Icons.category_outlined,
-            title: tr('pos_split_ask'),
-            subtitle: tr('pos_split_ask_sub'),
-            value: _posSplitAsk,
-            onChanged: (v) async {
-              setState(() => _posSplitAsk = v);
-              await _repo.setPosSplitAsk(v);
-            },
+          _section(
+            id: 'reminders',
+            title: tr('reminders'),
+            icon: Icons.notifications_outlined,
             scheme: scheme,
+            children: [
+              _switchTile(
+                icon: Icons.notifications_active_rounded,
+                title: tr('daily_reminder'),
+                subtitle: tr('daily_reminder_sub'),
+                value: _reminderOn,
+                onChanged: _toggleReminder,
+                scheme: scheme,
+              ),
+              if (_reminderOn)
+                _actionTile(
+                  icon: Icons.schedule_rounded,
+                  title: tr('reminder_time'),
+                  trailing: _reminderTime.format(context),
+                  onTap: _pickReminderTime,
+                  scheme: scheme,
+                ),
+            ],
           ),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('home_screen'), scheme),
-          _switchTile(
-            icon: Icons.subtitles_rounded,
-            title: tr('show_video_banner'),
-            subtitle: tr('show_video_banner_sub'),
-            value: _showVideoBanner,
-            onChanged: (v) async {
-              setState(() => _showVideoBanner = v);
-              await _repo.setShowVideoBanner(v);
-            },
+          _section(
+            id: 'language',
+            title: tr('language'),
+            icon: Icons.translate_outlined,
             scheme: scheme,
+            children: [_languageTile(scheme)],
           ),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('reminders'), scheme),
-          _switchTile(
-            icon: Icons.notifications_active_rounded,
-            title: tr('daily_reminder'),
-            subtitle: tr('daily_reminder_sub'),
-            value: _reminderOn,
-            onChanged: _toggleReminder,
+          _section(
+            id: 'data',
+            title: tr('data'),
+            icon: Icons.folder_outlined,
             scheme: scheme,
+            children: [
+              _actionTile(
+                icon: Icons.backup_rounded,
+                title: tr('create_backup'),
+                onTap: _backup,
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.restore_rounded,
+                title: tr('restore_backup'),
+                onTap: _restore,
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.ios_share_rounded,
+                title: tr('export_vocab'),
+                onTap: _exportVocab,
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.file_download_rounded,
+                title: tr('import_deck'),
+                subtitle: tr('import_deck_sub'),
+                onTap: _importDeck,
+                scheme: scheme,
+              ),
+              // Последним в секции и цветом ошибки: единственный пункт на
+              // экране, который нельзя отменить.
+              _actionTile(
+                icon: Icons.delete_forever_rounded,
+                title: tr('wipe_data'),
+                subtitle: tr('wipe_data_sub'),
+                onTap: _wipeAllData,
+                scheme: scheme,
+                color: scheme.error,
+              ),
+            ],
           ),
-          if (_reminderOn)
-            _actionTile(
-              icon: Icons.schedule_rounded,
-              title: tr('reminder_time'),
-              trailing: _reminderTime.format(context),
-              onTap: _pickReminderTime,
-              scheme: scheme,
-            ),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('language'), scheme),
-          _languageTile(scheme),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('data'), scheme),
-          _actionTile(
-            icon: Icons.backup_rounded,
-            title: tr('create_backup'),
-            onTap: _backup,
+          _section(
+            id: 'pro',
+            title: tr('pro_title'),
+            icon: Icons.workspace_premium_outlined,
             scheme: scheme,
+            children: _proTiles(scheme),
           ),
-          _actionTile(
-            icon: Icons.restore_rounded,
-            title: tr('restore_backup'),
-            onTap: _restore,
-            scheme: scheme,
-          ),
-          _actionTile(
-            icon: Icons.ios_share_rounded,
-            title: tr('export_vocab'),
-            onTap: _exportVocab,
-            scheme: scheme,
-          ),
-          _actionTile(
-            icon: Icons.file_download_rounded,
-            title: tr('import_deck'),
-            subtitle: tr('import_deck_sub'),
-            onTap: _importDeck,
-            scheme: scheme,
-          ),
-          _actionTile(
-            icon: Icons.delete_forever_rounded,
-            title: tr('wipe_data'),
-            subtitle: tr('wipe_data_sub'),
-            onTap: _wipeAllData,
-            scheme: scheme,
-            color: scheme.error,
-          ),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('pro_title'), scheme),
-          ..._proTiles(scheme),
-          const SizedBox(height: 16),
           _donationCard(scheme),
-          const SizedBox(height: 16),
-          _sectionTitle(tr('about'), scheme),
-          _infoTile(
+          const SizedBox(height: 22),
+          _section(
+            id: 'about',
+            title: tr('about'),
             icon: Icons.info_outline_rounded,
-            title: tr('version'),
-            trailing: _version,
             scheme: scheme,
-          ),
-          _actionTile(
-            icon: Icons.system_update_rounded,
-            title: tr('check_updates'),
-            onTap: _checkUpdates,
-            scheme: scheme,
-          ),
-          _actionTile(
-            icon: Icons.description_outlined,
-            title: tr('licenses'),
-            onTap: _openLicenses,
-            scheme: scheme,
+            children: [
+              _infoTile(
+                icon: Icons.info_outline_rounded,
+                title: tr('version'),
+                trailing: _version,
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.system_update_rounded,
+                title: tr('check_updates'),
+                onTap: _checkUpdates,
+                scheme: scheme,
+              ),
+              _actionTile(
+                icon: Icons.description_outlined,
+                title: tr('licenses'),
+                onTap: _openLicenses,
+                scheme: scheme,
+              ),
+            ],
           ),
         ],
       ),
@@ -420,9 +471,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _colorTile(ColorScheme scheme) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: ListTile(
@@ -453,9 +504,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   /// Готовые цветовые схемы — кружки из 4 тонов темы. Тап меняет seed.
   Widget _paletteRow(ColorScheme scheme) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
+        padding: EdgeInsets.zero,
         child: Material(
-          color: scheme.surfaceContainerHigh,
+          color: Colors.transparent,
           borderRadius: BorderRadius.circular(18),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
@@ -534,9 +585,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required Future<void> Function(int) onChanged,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: Padding(
@@ -595,9 +646,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget _retentionTile(ColorScheme scheme) {
     final pct = (_retention * 100).round();
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: Padding(
@@ -650,9 +701,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget _optimizeTile(ColorScheme scheme) {
     final ready = _reviewEvents >= FsrsOptimizer.minTotal;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: Padding(
@@ -1220,18 +1271,102 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   // ------------------------------- Строительные блоки -------------------------------
 
-  Widget _sectionTitle(String text, ColorScheme scheme) => Padding(
-    padding: const EdgeInsets.fromLTRB(4, 12, 4, 8),
-    child: Text(
-      text,
-      style: TextStyle(
-        fontFamily: AppTheme.displayFont,
-        fontWeight: FontWeight.w700,
-        fontSize: 16,
-        color: scheme.primary,
+  /// Секция настроек: заголовок с иконкой над общим блоком пунктов.
+  ///
+  /// До этого каждый пункт был отдельной карточкой, и экран рассыпался на два
+  /// десятка плиток — глазу не за что зацепиться, а границы смысловых групп
+  /// читались только по заголовкам. Теперь группа выглядит группой: один
+  /// контейнер, пункты внутри разделены линиями.
+  ///
+  /// Секции сворачиваются: их восемь, и до «О приложении» приходилось
+  /// пролистывать весь экран. Состояние живёт только пока экран открыт —
+  /// запоминать его между заходами значит прятать от человека настройки,
+  /// которые он свернул однажды и забыл.
+  Widget _section({
+    required String id,
+    required String title,
+    required IconData icon,
+    required ColorScheme scheme,
+    required List<Widget> children,
+  }) {
+    if (children.isEmpty) return const SizedBox.shrink();
+    final collapsed = _collapsed.contains(id);
+
+    final rows = <Widget>[];
+    for (var i = 0; i < children.length; i++) {
+      if (i > 0) {
+        rows.add(Divider(
+          height: 1,
+          thickness: 1,
+          // Отступ слева — под иконку пункта: линия отделяет тексты, а не
+          // режет колонку иконок пополам.
+          indent: 56,
+          endIndent: 0,
+          color: scheme.outlineVariant.withValues(alpha: .5),
+        ));
+      }
+      rows.add(children[i]);
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 22),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          InkWell(
+            onTap: () => setState(() {
+              collapsed ? _collapsed.remove(id) : _collapsed.add(id);
+            }),
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(6, 4, 6, 10),
+              child: Row(
+                children: [
+                  Icon(icon, size: 20, color: scheme.primary),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontFamily: AppTheme.displayFont,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  AnimatedRotation(
+                    turns: collapsed ? 0 : 0.5,
+                    duration: const Duration(milliseconds: 180),
+                    child: Icon(
+                      Icons.keyboard_arrow_down_rounded,
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // AnimatedSize, а не AnimatedCrossFade: тот держит в дереве обе
+          // половины, и свёрнутые пункты остаются доступны — для поиска, для
+          // скринридера и для тестов они никуда не делись.
+          AnimatedSize(
+            duration: const Duration(milliseconds: 180),
+            curve: Curves.easeInOut,
+            alignment: Alignment.topCenter,
+            child: collapsed
+                ? const SizedBox(width: double.infinity)
+                : Material(
+                    color: scheme.surfaceContainer,
+                    borderRadius: BorderRadius.circular(20),
+                    clipBehavior: Clip.antiAlias,
+                    child: Column(children: rows),
+                  ),
+          ),
+        ],
       ),
-    ),
-  );
+    );
+  }
 
   Widget _switchTile({
     required IconData icon,
@@ -1242,9 +1377,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ColorScheme scheme,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: SwitchListTile(
@@ -1268,9 +1403,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     Color? color,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: ListTile(
@@ -1300,9 +1435,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ColorScheme scheme,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.zero,
       child: Material(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
         child: ListTile(

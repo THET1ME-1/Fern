@@ -24,14 +24,15 @@ flutter test test/x.dart # один файл
 на snap-тулчейне: `Failed to find ld.lld`):
 
 ```bash
-flutter test test/visual_check_test.dart --update-goldens --tags visual
+flutter test test/visual_check_test.dart --update-goldens --run-skipped
 # затем открыть app/test/shots/*.png
 ```
 
 Прогон грузит настоящие Unbounded и Onest, поэтому картинка честная. Иконки
 Material в тестовой среде рисуются квадратами — это артефакт, а не баг. В
 обычный `flutter test` он не входит (тег `visual` отключён в `dart_test.yaml`),
-снимки не в гите.
+снимки не в гите. Нужен именно `--run-skipped`: тег в `dart_test.yaml` помечен
+`skip`, и `--tags visual` его не перебивает — прогон молча пропускается.
 
 ## Карта кода
 

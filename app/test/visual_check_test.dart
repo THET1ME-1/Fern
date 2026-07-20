@@ -11,6 +11,7 @@ import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/models/deck.dart';
 import 'package:fern/models/word_card.dart';
 import 'package:fern/services/deck_repository.dart';
+import 'package:fern/settings_screen.dart';
 import 'package:fern/study/results_screen.dart';
 import 'package:fern/study/schedule_explain_screen.dart';
 import 'package:fern/study/session_screen.dart';
@@ -62,6 +63,17 @@ void main() {
   });
 
   setUpAll(_loadFonts);
+
+  testWidgets('настройки: секции вместо карточки на каждый пункт',
+      (tester) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(_app(const SettingsScreen()));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'settings');
+  });
 
   testWidgets('сессия: метка причины + подсветка ступени', (tester) async {
     tester.view.physicalSize = const Size(1080, 2280);
