@@ -756,7 +756,9 @@ class DeckRepository extends ChangeNotifier {
             .clamp(0.0, double.infinity);
     final stateBefore = prev.state.index;
 
-    card.review = Fsrs.instance.review(prev, rating, now);
+    // Ключ разброса — id карточки: иначе слова, введённые за один вечер,
+    // получают одну и ту же дату повтора.
+    card.review = Fsrs.instance.review(prev, rating, now, fuzzKey: card.id);
     await upsertCard(card);
     // Сырое событие — фундамент под персональный оптимизатор FSRS.
     _db!.logReview(ReviewEvent(

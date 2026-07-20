@@ -92,9 +92,9 @@ class Fsrs {
   /// Интервал review-карты. При [fuzz] — детерминированный разброс вокруг
   /// оптимального (Anki-подобно): карты, добавленные/пришедшие в один день, не
   /// слипаются на одну дату повтора навсегда, нагрузка разводится по дням.
-  Duration _reviewInterval(double s, {bool fuzz = false}) {
+  Duration _reviewInterval(double s, {bool fuzz = false, Object? key}) {
     final base = _intervalDays(s);
-    return Duration(days: fuzz ? _fuzzInterval(base, s) : base);
+    return Duration(days: fuzz ? _fuzzInterval(base, key ?? s) : base);
   }
 
   /// Разброс интервала. Короткие интервалы (<3 дней) не трогаем — там разброс
@@ -102,10 +102,13 @@ class Fsrs {
   /// ДЕТЕРМИНИРОВАН (из бит стабильности), а не случаен — воспроизводимо в
   /// тестах и стабильно при повторном планировании той же карты, но у разных
   /// карт сдвиги разные → нагрузка расходится.
-  int _fuzzInterval(int ivl, double seed) {
+  int _fuzzInterval(int ivl, Object seed) {
     if (ivl < 3) return ivl;
     final spread = math.max(1, (ivl * 0.08).round());
-    final bits = seed.toStringAsFixed(4).hashCode & 0x7fffffff;
+    // Ключом должна быть КАРТА, а не прочность: у слов, пройденных одинаково,
+    // прочность побитово равна, и разброс из неё давал всем один и тот же
+    // день — ровно то, ради чего разброс и задуман.
+    final bits = seed.hashCode & 0x7fffffff;
     final offset = (bits % (2 * spread + 1)) - spread; // [-spread, +spread]
     return (ivl + offset).clamp(1, maximumInterval);
   }
@@ -139,11 +142,19 @@ class Fsrs {
     return s * (1 + inc);
   }
 
+  /// Прочность после «не помню».
+  ///
+  /// В FSRS-5 у неё есть потолок `S / exp(w17·w18)`, и без него формула на
+  /// большой просрочке возвращает БОЛЬШЕ прежней прочности: слово, забытое
+  /// начисто после года молчания, получало интервал вдвое длиннее прежнего.
+  /// Бьёт сильнее всего по пиявкам — там, где это дороже всего.
   double _failStability(double d, double s, double r) {
-    return w[11] *
+    final longTerm = w[11] *
         math.pow(d, -w[12]) *
         (math.pow(s + 1, w[13]) - 1) *
         math.exp(w[14] * (1 - r));
+    final ceiling = s / math.exp(w[17] * w[18]);
+    return math.min(longTerm.toDouble(), ceiling);
   }
 
   /// Краткосрочная стабильность (внутри дня / на шагах learning).
@@ -157,8 +168,11 @@ class Fsrs {
   ///
   /// [fuzz] — разбрасывать ли review-интервал (в реальном планировании да; в
   /// [preview] нет, чтобы подписи на кнопках были стабильными).
+  /// [fuzzKey] — то, чем карта отличается от соседки (обычно её id): из него
+  /// считается разброс дат. Без ключа разброс берётся из прочности, а она у
+  /// одинаково пройденных слов совпадает побитово.
   ReviewState review(ReviewState prev, Rating g, DateTime now,
-      {bool fuzz = true}) {
+      {bool fuzz = true, Object? fuzzKey}) {
     final elapsedDays = prev.lastReview == null
         ? 0.0
         : math.max(0, now.difference(prev.lastReview!).inSeconds / 86400.0)
@@ -203,7 +217,7 @@ class Fsrs {
       // Карту спросили — повод «подтянута из-за соседа» исчерпан.
       ..nudgedByNeighbour = false;
 
-    _schedule(prev, next, g, s, now, fuzz);
+    _schedule(prev, next, g, s, now, fuzz, fuzzKey);
     return next;
   }
 
@@ -269,7 +283,7 @@ class Fsrs {
   }
 
   void _schedule(ReviewState prev, ReviewState next, Rating g, double s,
-      DateTime now, bool fuzz) {
+      DateTime now, bool fuzz, Object? fuzzKey) {
     if (g == Rating.again) {
       if (prev.state == FsrsState.review) next.lapses = prev.lapses + 1;
       next.state = prev.state == FsrsState.newCard
@@ -285,7 +299,7 @@ class Fsrs {
     if (g == Rating.easy) {
       next.state = FsrsState.review;
       next.step = 0;
-      next.due = now.add(_reviewInterval(s, fuzz: fuzz));
+      next.due = now.add(_reviewInterval(s, fuzz: fuzz, key: fuzzKey));
       return;
     }
 
@@ -308,7 +322,7 @@ class Fsrs {
         if (nextStep >= steps.length) {
           next.state = FsrsState.review;
           next.step = 0;
-          next.due = now.add(_reviewInterval(s, fuzz: fuzz));
+          next.due = now.add(_reviewInterval(s, fuzz: fuzz, key: fuzzKey));
         } else {
           next.state = relearn ? FsrsState.relearning : FsrsState.learning;
           next.step = nextStep;
@@ -319,7 +333,7 @@ class Fsrs {
       // Карта в review, успех (hard/good) → новый интервал.
       next.state = FsrsState.review;
       next.step = 0;
-      next.due = now.add(_reviewInterval(s, fuzz: fuzz));
+      next.due = now.add(_reviewInterval(s, fuzz: fuzz, key: fuzzKey));
     }
   }
 

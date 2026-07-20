@@ -145,7 +145,11 @@ class _BookScreenState extends State<BookScreen> {
       MaterialPageRoute(
         builder: (_) => SessionScreen(
           deck: _bookDeck,
-          mode: StudyMode.learn,
+          // Именно `revive`: разминка даёт слова ближайших страниц, а они, как
+          // правило, ещё не назрели — в том и смысл, повторить до встречи в
+          // тексте. Режим «Учить» отфильтровал бы их по сроку, и человек
+          // получал бы «ничего не назрело» на полной разминке.
+          mode: StudyMode.revive,
           cards: _warmupCards,
         ),
       ),

@@ -351,6 +351,10 @@ class _SessionScreenState extends State<SessionScreen>
   }
 
   Future<void> _confirmExit() async {
+    // Пока висит диалог, экран сессии живёт: отсчёт «Быстрого повтора»
+    // продолжал тикать, карточки получали «не помню» каждые восемь секунд и
+    // портили расписание человеку, который просто задумался над выходом.
+    _freezeSpeed();
     final leave = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -371,7 +375,11 @@ class _SessionScreenState extends State<SessionScreen>
     if (leave == true && mounted) {
       _logProgress(); // засчитываем то, что успели пройти
       Navigator.of(context).pop();
+      return;
     }
+    // Остались — отсчёт начинается заново, с полного времени: доигрывать
+    // остаток, пока человек читал диалог, нечестно.
+    if (mounted && _isSpeed) _startSpeedCountdown();
   }
 
   @override
