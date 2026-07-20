@@ -81,6 +81,10 @@ class _SessionScreenState extends State<SessionScreen>
   AutoGrade _autoGrade = const AutoGrade.fallback();
   bool _twoButtons = false;
 
+  /// Висит ли диалог выхода. Пока висит, вопросы не видны — значит и отсчёт
+  /// «Быстрого повтора» заводить не с чего.
+  bool _exitAsked = false;
+
   /// Когда показан текущий вопрос — отсюда считается время ответа.
   DateTime _shownAt = DateTime.now();
 
@@ -354,9 +358,16 @@ class _SessionScreenState extends State<SessionScreen>
   }
 
   Future<void> _confirmExit() async {
+    if (_exitAsked) return;
     // Пока висит диалог, экран сессии живёт: отсчёт «Быстрого повтора»
     // продолжал тикать, карточки получали «не помню» каждые восемь секунд и
     // портили расписание человеку, который просто задумался над выходом.
+    //
+    // Одной заморозки мало. Подсветка выбранного варианта отложена на 850 мс,
+    // и если выйти сразу после ответа, она добегает уже под диалогом, двигает
+    // очередь и заставляет `build` запустить отсчёт заново — дальше провалы
+    // сыплются до конца очереди по карточкам, которых никто не видел.
+    _exitAsked = true;
     _freezeSpeed();
     final leave = await showDialog<bool>(
       context: context,
@@ -380,6 +391,7 @@ class _SessionScreenState extends State<SessionScreen>
       Navigator.of(context).pop();
       return;
     }
+    _exitAsked = false;
     // Остались — отсчёт начинается заново, с полного времени: доигрывать
     // остаток, пока человек читал диалог, нечестно.
     if (mounted && _isSpeed) _startSpeedCountdown();
@@ -398,7 +410,8 @@ class _SessionScreenState extends State<SessionScreen>
       _data = _dataForIndex(_index);
       _dataFor = _index;
       _resolvedIndex = -1; // новый вопрос ещё не разрешён
-      if (_isSpeed) _startSpeedCountdown();
+      // Под открытым диалогом выхода отсчёт не заводим: вопрос не виден.
+      if (_isSpeed && !_exitAsked) _startSpeedCountdown();
     }
     final ex = _queue[_index];
     // Считаем по КАРТАМ, а не по длине очереди: переспрос ошибки вставляет ту же
