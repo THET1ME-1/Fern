@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -7,7 +8,11 @@ import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../models/fsrs.dart';
 import '../models/word_card.dart';
+import '../services/auto_grade.dart';
+import '../services/card_images.dart';
 import '../services/deck_repository.dart';
+import '../services/reading_horizon.dart';
+import '../services/word_links.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/speaker_button.dart';
@@ -70,7 +75,22 @@ class _SessionScreenState extends State<SessionScreen>
   int _score = 0;
   int _resolvedIndex = -1; // защита от двойного разрешения (тап + таймаут)
 
+  // Автооценка: личный темп ответа и режим двух кнопок. Догружаются вместе с
+  // очередью; до этого действуют безопасные значения по умолчанию.
+  AutoGrade _autoGrade = const AutoGrade(medianMs: AutoGrade.fallbackMedianMs);
+  bool _twoButtons = false;
+
+  /// Когда показан текущий вопрос — отсюда считается время ответа.
+  DateTime _shownAt = DateTime.now();
+
+  /// Сколько карт пришло по каждой причине — для сводки «что сделал алгоритм».
+  final Map<SelectionReason, int> _byReason = {};
+
   bool get _isSpeed => widget.mode == StudyMode.speed;
+
+  /// Сколько миллисекунд человек думал над текущим вопросом.
+  int get _elapsedMs =>
+      DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
 
   @override
   void initState() {
@@ -91,6 +111,11 @@ class _SessionScreenState extends State<SessionScreen>
 
   /// Добирает лимиты подачи (новые/день, потолок повторов) и строит очередь.
   Future<void> _prepare() async {
+    // Что человеку вот-вот встретится в книге — это влияет на порядок подачи.
+    _builder.setReadingHorizon(
+      await ReadingHorizon.upcoming(widget.deck.languageCode),
+      widget.deck.languageCode,
+    );
     final newPerDay = await _repo.newPerDay();
     final introduced = await _repo.newIntroducedToday(_start);
     final maxReviews = await _repo.maxReviews();
@@ -104,10 +129,24 @@ class _SessionScreenState extends State<SessionScreen>
       newAllowed: newAllowed,
       maxReviews: maxReviews,
       direction: studyDirectionFromIndex(widget.deck.directionIndex),
+      language: widget.deck.languageCode,
     );
+    final autoGrade = await _repo.autoGrade();
+    final twoButtons = await _repo.twoButtonRating();
     if (!mounted) return;
+    // Причины считаем по УНИКАЛЬНЫМ картам: переспрос той же карточки внутри
+    // сессии — не второе «слово из книги».
+    final seen = <String>{};
+    for (final ex in queue) {
+      if (seen.add(ex.card.id)) {
+        _byReason[ex.reason] = (_byReason[ex.reason] ?? 0) + 1;
+      }
+    }
     setState(() {
       _queue = queue;
+      _autoGrade = autoGrade;
+      _twoButtons = twoButtons;
+      _shownAt = DateTime.now();
       _ready = true;
     });
   }
@@ -142,6 +181,10 @@ class _SessionScreenState extends State<SessionScreen>
           return _ExData(tfShown: ex.answer, tfIsTrue: true);
         }
         return _ExData(tfShown: wrong, tfIsTrue: false);
+      case ExerciseKind.oddOne:
+        return _ExData(
+          odd: buildOddOne(ex.card, _pool, widget.deck.languageCode),
+        );
       case ExerciseKind.flip:
       case ExerciseKind.type:
       case ExerciseKind.cloze:
@@ -151,7 +194,12 @@ class _SessionScreenState extends State<SessionScreen>
     }
   }
 
-  Future<void> _onGraded(Exercise ex, bool correct, Rating rating) async {
+  Future<void> _onGraded(
+    Exercise ex,
+    bool correct,
+    Rating rating, {
+    int? answerMs,
+  }) async {
     // Один вопрос разрешается один раз (тап пользователя ИЛИ таймаут).
     if (_resolvedIndex == _index) return;
     _resolvedIndex = _index;
@@ -175,7 +223,12 @@ class _SessionScreenState extends State<SessionScreen>
         ex.card.review.phase =
             _nextPhase(ex.card.review.phase, correct, ex.card.review);
       }
-      await _repo.rateCard(ex.card, rating, DateTime.now());
+      await _repo.rateCard(
+        ex.card,
+        rating,
+        DateTime.now(),
+        answerMs: answerMs ?? _elapsedMs,
+      );
       // Из сессии можно выйти прямо во время записи оценки — тогда двигать
       // очередь уже некуда (иначе «setState() called after dispose()»).
       if (!mounted) return;
@@ -208,7 +261,10 @@ class _SessionScreenState extends State<SessionScreen>
     if (n >= _maxReinserts) return;
     _reinserts[ex.card.id] = n + 1;
     final pos = min(_index + 1 + _reinsertGap, _queue.length);
-    _queue.insert(pos, Exercise(ex.card, ex.kind, reversed: ex.reversed));
+    _queue.insert(
+      pos,
+      Exercise(ex.card, ex.kind, reversed: ex.reversed, reason: ex.reason),
+    );
   }
 
   LearnPhase _nextPhase(LearnPhase p, bool correct, ReviewState r) {
@@ -232,7 +288,10 @@ class _SessionScreenState extends State<SessionScreen>
     if (_index + 1 >= _queue.length) {
       _finish();
     } else {
-      setState(() => _index++);
+      setState(() {
+        _index++;
+        _shownAt = DateTime.now();
+      });
     }
   }
 
@@ -251,6 +310,10 @@ class _SessionScreenState extends State<SessionScreen>
       _correct,
       DateTime.now().difference(_start),
       score: _isSpeed ? _score : null,
+      plan: SessionPlan(
+        byReason: Map.of(_byReason),
+        separatedPairs: _builder.separatedPairs,
+      ),
     );
     // Захватываем нужное в локальные переменные: колбэк переживёт уничтожение
     // этого SessionScreen (кнопка «Ещё» на экране результатов).
@@ -366,7 +429,12 @@ class _SessionScreenState extends State<SessionScreen>
                       Expanded(child: _exerciseWidget(ex, scheme)),
                     ],
                   )
-                : _exerciseWidget(ex, scheme),
+                : Column(
+                    children: [
+                      _reasonChip(scheme, ex.reason),
+                      Expanded(child: _exerciseWidget(ex, scheme)),
+                    ],
+                  ),
           ),
         ),
       ),
@@ -444,7 +512,32 @@ class _SessionScreenState extends State<SessionScreen>
           ex: ex,
           languageCode: widget.deck.languageCode,
           previews: Fsrs.instance.preview(ex.card.review, DateTime.now()),
-          onRated: (r) => _onGraded(ex, r != Rating.again, r),
+          autoGrade: _autoGrade,
+          twoButtons: _twoButtons,
+          onRated: (r, ms) =>
+              _onGraded(ex, r != Rating.again, r, answerMs: ms),
+        );
+      case ExerciseKind.oddOne:
+        final odd = _data.odd;
+        // Связи могли исчезнуть, пока сессия шла (карточку правили) — тогда
+        // молча отдаём флип, а не пустой экран.
+        if (odd == null) {
+          return _FlipExercise(
+            key: key,
+            ex: ex,
+            languageCode: widget.deck.languageCode,
+            previews: Fsrs.instance.preview(ex.card.review, DateTime.now()),
+            autoGrade: _autoGrade,
+            twoButtons: _twoButtons,
+            onRated: (r, ms) =>
+                _onGraded(ex, r != Rating.again, r, answerMs: ms),
+          );
+        }
+        return _OddOneExercise(
+          key: key,
+          odd: odd,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
       case ExerciseKind.listen:
         return _ListenExercise(
@@ -468,8 +561,9 @@ class _SessionScreenState extends State<SessionScreen>
         return _TypeExercise(
           key: key,
           ex: ex,
-          onAnswered: (correct) =>
-              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+          autoGrade: _autoGrade,
+          onGraded: (r, ms) =>
+              _onGraded(ex, r != Rating.again, r, answerMs: ms),
         );
       case ExerciseKind.cloze:
         return _ClozeExercise(
@@ -484,8 +578,9 @@ class _SessionScreenState extends State<SessionScreen>
           key: key,
           ex: ex,
           languageCode: widget.deck.languageCode,
-          onAnswered: (correct) =>
-              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+          autoGrade: _autoGrade,
+          onGraded: (r, ms) =>
+              _onGraded(ex, r != Rating.again, r, answerMs: ms),
         );
       case ExerciseKind.assemble:
         return _AssembleExercise(
@@ -505,6 +600,69 @@ class _SessionScreenState extends State<SessionScreen>
               _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
     }
+  }
+
+  /// Метка «почему эта карточка здесь». Обычный повтор по сроку метки не носит:
+  /// объяснять надо неочевидное, иначе подпись превращается в шум.
+  Widget _reasonChip(ColorScheme scheme, SelectionReason reason) {
+    // Обычный повтор по сроку объяснять нечего — там метки просто нет.
+    if (reason == SelectionReason.due) return const SizedBox(height: 4);
+
+    final (IconData icon, String label, Color bg, Color fg) = switch (reason) {
+      SelectionReason.newWord => (
+          Icons.fiber_new_rounded,
+          tr('reason_new'),
+          scheme.surfaceContainerHighest,
+          scheme.onSurfaceVariant,
+        ),
+      SelectionReason.book => (
+          Icons.menu_book_rounded,
+          tr('reason_book'),
+          scheme.tertiaryContainer,
+          scheme.onTertiaryContainer,
+        ),
+      // Не errorContainer: роль ошибки в M3 занята настоящими сбоями, а красная
+      // плашка над карточкой читается как «что-то сломалось». Здесь же подсказка.
+      SelectionReason.neighbourLapse || SelectionReason.due => (
+          Icons.hub_rounded,
+          tr('reason_neighbour'),
+          scheme.secondaryContainer,
+          scheme.onSecondaryContainer,
+        ),
+    };
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Container(
+        decoration: BoxDecoration(
+          color: bg,
+          borderRadius: BorderRadius.circular(999),
+        ),
+        padding: const EdgeInsets.fromLTRB(10, 5, 14, 6),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 15, color: fg),
+            const SizedBox(width: 6),
+            // Немецкое «Nachbar abgerutscht» вдвое длиннее русского — на узком
+            // экране подпись должна ужиматься, а не рвать пилюлю.
+            Flexible(
+              child: Text(
+                label,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: fg,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _emptyState(ColorScheme scheme) {
@@ -557,10 +715,14 @@ class _ExData {
   final List<String> options;
   final String tfShown;
   final bool tfIsTrue;
+  /// Данные «третьего лишнего» (режим «Связи»).
+  final OddOne? odd;
+
   const _ExData({
     this.options = const [],
     this.tfShown = '',
     this.tfIsTrue = true,
+    this.odd,
   });
 }
 
@@ -570,13 +732,23 @@ class _FlipExercise extends StatefulWidget {
   final Exercise ex;
   final String languageCode;
   final Map<Rating, Duration> previews;
-  final void Function(Rating) onRated;
+
+  /// Личный темп ответа — по нему подсвечивается рекомендованная ступень.
+  final AutoGrade autoGrade;
+
+  /// Режим двух кнопок: «Не помню / Помню», ступень подбирается сама.
+  final bool twoButtons;
+
+  /// Оценка и время вспоминания (мс) — от показа вопроса до раскрытия ответа.
+  final void Function(Rating rating, int recallMs) onRated;
 
   const _FlipExercise({
     super.key,
     required this.ex,
     required this.languageCode,
     required this.previews,
+    required this.autoGrade,
+    required this.twoButtons,
     required this.onRated,
   });
 
@@ -588,11 +760,74 @@ class _FlipExerciseState extends State<_FlipExercise> {
   bool _revealed = false;
   bool _done = false;
 
+  /// Момент показа вопроса и время, за которое человек вспомнил.
+  ///
+  /// Считаем ДО раскрытия ответа: дальше идёт чтение перевода и выбор кнопки,
+  /// к вспоминанию это отношения не имеет.
+  final DateTime _shownAt = DateTime.now();
+  int? _recallMs;
+
+  /// Крючок открыт (по кнопке или после срыва).
+  bool _hinted = false;
+
+  /// Срыв уже нажат, но карту держим на экране — показываем крючок.
+  bool _pendingAgain = false;
+
+  String get _mnemonic => widget.ex.card.mnemonic.trim();
+
+  /// Крючок открывают, чтобы вспомнить САМОМУ — ответ при этом остаётся
+  /// закрытым, иначе подсказка превращается в подглядывание.
+  void _showHook() {
+    HapticFeedback.selectionClick();
+    setState(() => _hinted = true);
+  }
+
+  /// Раскрывает ответ, зафиксировав время вспоминания.
+  void _reveal() {
+    if (_revealed) return;
+    setState(() {
+      _recallMs =
+          DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
+      _revealed = true;
+    });
+  }
+
+  /// Ступень, которую подсказывает время ответа. Пока ответ закрыт — нет.
+  Rating? get _suggested {
+    final ms = _recallMs;
+    if (ms == null) return null;
+    return widget.autoGrade.recalled(ms);
+  }
+
   void _rate(Rating r) {
     if (_done) return;
+
+    // Срыв на карте с крючком: сперва показать крючок, оценку отдать следующим
+    // тапом. Момент ошибки — единственный, когда подсказка попадает точно.
+    if (r == Rating.again && !_hinted && _mnemonic.isNotEmpty) {
+      HapticFeedback.selectionClick();
+      setState(() {
+        _hinted = true;
+        _revealed = true;
+        _pendingAgain = true;
+      });
+      return;
+    }
+
     _done = true;
     HapticFeedback.selectionClick();
-    widget.onRated(r);
+    widget.onRated(_withHintPenalty(r), _recallMs ?? 0);
+  }
+
+  /// Вспомнил с подсказкой — это не то же, что вспомнил сам: оценка едет на
+  /// ступень вниз. Срыв и «трудно» не трогаем, ниже уже некуда.
+  Rating _withHintPenalty(Rating r) {
+    if (!_hinted) return r;
+    return switch (r) {
+      Rating.easy => Rating.good,
+      Rating.good => Rating.hard,
+      Rating.hard || Rating.again => r,
+    };
   }
 
   @override
@@ -607,7 +842,7 @@ class _FlipExerciseState extends State<_FlipExercise> {
             children: [
               Positioned.fill(
                 child: GestureDetector(
-                  onTap: () => setState(() => _revealed = true),
+                  onTap: _reveal,
                   child: _FlipCard(
                     showBack: _revealed,
                     front: _cardFace(scheme, ex.prompt, null, isFront: true),
@@ -616,6 +851,7 @@ class _FlipExerciseState extends State<_FlipExercise> {
                       ex.answer,
                       ex.card.example,
                       isFront: false,
+                      imagePath: CardImages.resolve(ex.card.image),
                     ),
                   ),
                 ),
@@ -633,18 +869,59 @@ class _FlipExerciseState extends State<_FlipExercise> {
                   clipEndMs: ex.card.clipEndMs,
                 ),
               ),
+              if (_mnemonic.isNotEmpty)
+                Positioned(
+                  left: 12,
+                  right: 12,
+                  bottom: 12,
+                  child: _hookSlot(scheme),
+                ),
             ],
           ),
         ),
         const SizedBox(height: 16),
-        if (!_revealed)
+        if (_pendingAgain)
           SizedBox(
             width: double.infinity,
             child: FilledButton.icon(
-              onPressed: () => setState(() => _revealed = true),
+              onPressed: () {
+                _done = true;
+                widget.onRated(Rating.again, _recallMs ?? 0);
+              },
+              icon: const Icon(Icons.arrow_forward_rounded),
+              label: Text(tr('hook_next')),
+            ),
+          )
+        else if (!_revealed)
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton.icon(
+              onPressed: _reveal,
               icon: const Icon(Icons.visibility_rounded),
               label: Text(tr('show_answer')),
             ),
+          )
+        else if (widget.twoButtons)
+          Row(
+            children: [
+              _rateBtn(
+                scheme,
+                Rating.again,
+                tr('rate_again'),
+                scheme.errorContainer,
+                scheme.onErrorContainer,
+              ),
+              const SizedBox(width: 8),
+              // «Помню» — ступень подберёт время ответа.
+              _rateBtn(
+                scheme,
+                _suggested ?? Rating.good,
+                tr('rate_knew'),
+                scheme.primaryContainer,
+                scheme.onPrimaryContainer,
+                showPreview: false,
+              ),
+            ],
           )
         else
           Row(
@@ -682,7 +959,80 @@ class _FlipExerciseState extends State<_FlipExercise> {
               ),
             ],
           ),
+        if (_revealed && !_pendingAgain && !widget.twoButtons)
+          _suggestionNote(scheme),
+        if (_hinted && !_pendingAgain) ...[
+          const SizedBox(height: 8),
+          Text(
+            tr('hook_used'),
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 11.5,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
       ],
+    );
+  }
+
+  /// Внизу карточки: кнопка «Крючок», пока подсказка закрыта, и сама подсказка
+  /// после открытия.
+  Widget _hookSlot(ColorScheme scheme) {
+    if (!_hinted) {
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: ActionChip(
+          avatar: const Icon(Icons.lightbulb_outline_rounded, size: 18),
+          label: Text(tr('hook_show')),
+          onPressed: _showHook,
+        ),
+      );
+    }
+    return Container(
+      decoration: BoxDecoration(
+        color: scheme.tertiaryContainer,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            Icons.lightbulb_rounded,
+            size: 20,
+            color: scheme.onTertiaryContainer,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr('hook_label'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 11,
+                    letterSpacing: 0.9,
+                    color: scheme.onTertiaryContainer.withValues(alpha: 0.75),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  _mnemonic,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 15,
+                    height: 1.35,
+                    color: scheme.onTertiaryContainer,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -691,6 +1041,7 @@ class _FlipExerciseState extends State<_FlipExercise> {
     String text,
     String? example, {
     required bool isFront,
+    String? imagePath,
   }) {
     return Container(
       width: double.infinity,
@@ -703,6 +1054,20 @@ class _FlipExerciseState extends State<_FlipExercise> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          if (imagePath != null) ...[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxHeight: 210),
+                child: Image.file(
+                  File(imagePath),
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, _, _) => const SizedBox.shrink(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 18),
+          ],
           Text(
             text,
             textAlign: TextAlign.center,
@@ -731,19 +1096,62 @@ class _FlipExerciseState extends State<_FlipExercise> {
     );
   }
 
+  /// Подпись под кнопками: откуда взялась подсветка. Без неё подсветка читается
+  /// как «правильный ответ», а это подсказка, а не приговор.
+  Widget _suggestionNote(ColorScheme scheme) {
+    final ms = _recallMs;
+    if (ms == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.timer_outlined,
+            size: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+          const SizedBox(width: 5),
+          Flexible(
+            child: Text(
+              trf('rate_hint_timing', {
+                'time': trf('dur_sec', {'s': (ms / 1000).round().clamp(1, 999)}),
+              }),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontSize: 11.5,
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _rateBtn(
     ColorScheme scheme,
     Rating r,
     String label,
     Color bg,
-    Color fg,
-  ) {
-    final dur = widget.previews[r];
+    Color fg, {
+    bool showPreview = true,
+  }) {
+    final dur = showPreview ? widget.previews[r] : null;
+    // Подсветка рекомендации: обводка, а не другой цвет — цвета ступеней уже
+    // заняты смыслом, менять их значило бы сбить привычку.
+    final picked = !widget.twoButtons && _suggested == r;
     return Expanded(
       child: Material(
         color: bg,
-        borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
+        // borderRadius и shape вместе Material не принимает — форма задаётся
+        // одним shape, обводка появляется только у рекомендованной ступени.
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+          side: picked ? BorderSide(color: fg, width: 2) : BorderSide.none,
+        ),
         child: InkWell(
           onTap: () => _rate(r),
           child: Padding(
@@ -1118,9 +1526,18 @@ class _ListenExerciseState extends State<_ListenExercise> {
 
 class _TypeExercise extends StatefulWidget {
   final Exercise ex;
-  final void Function(bool correct) onAnswered;
+  final AutoGrade autoGrade;
 
-  const _TypeExercise({super.key, required this.ex, required this.onAnswered});
+  /// Ввод оценивает себя сам: сверка с эталоном и время набора говорят больше,
+  /// чем самооценка после подглядывания в ответ.
+  final void Function(Rating rating, int answerMs) onGraded;
+
+  const _TypeExercise({
+    super.key,
+    required this.ex,
+    required this.autoGrade,
+    required this.onGraded,
+  });
 
   @override
   State<_TypeExercise> createState() => _TypeExerciseState();
@@ -1128,7 +1545,11 @@ class _TypeExercise extends StatefulWidget {
 
 class _TypeExerciseState extends State<_TypeExercise> {
   final TextEditingController _controller = TextEditingController();
-  bool? _correct;
+  final DateTime _shownAt = DateTime.now();
+  TypedMatch? _match;
+  int _answerMs = 0;
+
+  bool get _correct => _match != TypedMatch.wrong;
 
   @override
   void dispose() {
@@ -1136,23 +1557,39 @@ class _TypeExerciseState extends State<_TypeExercise> {
     super.dispose();
   }
 
-  void _check() {
-    if (_correct != null) return;
-    final ok = answerMatches(_controller.text, widget.ex.answer);
-    setState(() => _correct = ok);
+  void _resolve(TypedMatch match) {
+    if (_match != null) return;
+    setState(() {
+      _answerMs =
+          DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
+      _match = match;
+    });
     HapticFeedback.mediumImpact();
   }
 
-  void _skip() {
-    if (_correct != null) return;
-    setState(() => _correct = false);
-  }
+  void _check() => _resolve(typedQuality(_controller.text, widget.ex.answer));
+
+  /// Описка — своё состояние: ответ засчитан, но оценка будет «трудно».
+  /// Зелёная галочка рядом с «одна буква мимо» противоречила бы сама себе.
+  Color _verdictColor(ColorScheme scheme) => switch (_match) {
+        TypedMatch.exact => scheme.primary,
+        TypedMatch.typo => scheme.tertiary,
+        _ => scheme.error,
+      };
+
+  IconData get _verdictIcon => switch (_match) {
+        TypedMatch.exact => Icons.check_rounded,
+        TypedMatch.typo => Icons.spellcheck_rounded,
+        _ => Icons.close_rounded,
+      };
+
+  void _skip() => _resolve(TypedMatch.wrong);
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final ex = widget.ex;
-    final answered = _correct != null;
+    final answered = _match != null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1198,21 +1635,28 @@ class _TypeExerciseState extends State<_TypeExercise> {
             fontFamily: AppTheme.bodyFont,
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            color: answered
-                ? (_correct! ? scheme.primary : scheme.error)
-                : scheme.onSurface,
+            color: answered ? _verdictColor(scheme) : scheme.onSurface,
           ),
           decoration: InputDecoration(
             hintText: '…',
             suffixIcon: answered
-                ? Icon(
-                    _correct! ? Icons.check_rounded : Icons.close_rounded,
-                    color: _correct! ? scheme.primary : scheme.error,
-                  )
+                ? Icon(_verdictIcon, color: _verdictColor(scheme))
                 : null,
           ),
         ),
-        if (answered && !_correct!) ...[
+        if (_match == TypedMatch.typo) ...[
+          const SizedBox(height: 10),
+          Text(
+            trf('typed_typo_note', {'a': ex.answer}),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 13,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+        if (answered && !_correct) ...[
           const SizedBox(height: 12),
           Text(
             trf('answer_was', {'a': ex.answer}),
@@ -1249,7 +1693,9 @@ class _TypeExerciseState extends State<_TypeExercise> {
           SizedBox(
             width: double.infinity,
             child: FilledButton(
-              onPressed: () => widget.onAnswered(_correct!),
+              onPressed: () =>
+                  widget.onGraded(widget.autoGrade.typed(_match!, _answerMs),
+                      _answerMs),
               child: Text(tr('continue_btn')),
             ),
           ),
@@ -1612,13 +2058,15 @@ class _TrueFalseExerciseState extends State<_TrueFalseExercise> {
 class _SpellExercise extends StatefulWidget {
   final Exercise ex;
   final String languageCode;
-  final void Function(bool correct) onAnswered;
+  final AutoGrade autoGrade;
+  final void Function(Rating rating, int answerMs) onGraded;
 
   const _SpellExercise({
     super.key,
     required this.ex,
     required this.languageCode,
-    required this.onAnswered,
+    required this.autoGrade,
+    required this.onGraded,
   });
 
   @override
@@ -1627,7 +2075,11 @@ class _SpellExercise extends StatefulWidget {
 
 class _SpellExerciseState extends State<_SpellExercise> {
   final TextEditingController _controller = TextEditingController();
-  bool? _correct;
+  final DateTime _shownAt = DateTime.now();
+  TypedMatch? _match;
+  int _answerMs = 0;
+
+  bool get _correct => _match != TypedMatch.wrong;
 
   @override
   void initState() {
@@ -1643,23 +2095,40 @@ class _SpellExerciseState extends State<_SpellExercise> {
 
   void _play() => TtsService.instance.speak(widget.ex.card.front, widget.languageCode);
 
-  void _check() {
-    if (_correct != null) return;
-    final ok = answerMatches(_controller.text, widget.ex.card.front);
-    setState(() => _correct = ok);
+  void _resolve(TypedMatch match) {
+    if (_match != null) return;
+    setState(() {
+      _answerMs =
+          DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
+      _match = match;
+    });
     HapticFeedback.mediumImpact();
   }
 
-  void _skip() {
-    if (_correct != null) return;
-    setState(() => _correct = false);
-  }
+  void _check() =>
+      _resolve(typedQuality(_controller.text, widget.ex.card.front));
+
+  /// Описка — своё состояние: ответ засчитан, но оценка будет «трудно».
+  /// Зелёная галочка рядом с «одна буква мимо» противоречила бы сама себе.
+  Color _verdictColor(ColorScheme scheme) => switch (_match) {
+        TypedMatch.exact => scheme.primary,
+        TypedMatch.typo => scheme.tertiary,
+        _ => scheme.error,
+      };
+
+  IconData get _verdictIcon => switch (_match) {
+        TypedMatch.exact => Icons.check_rounded,
+        TypedMatch.typo => Icons.spellcheck_rounded,
+        _ => Icons.close_rounded,
+      };
+
+  void _skip() => _resolve(TypedMatch.wrong);
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final ex = widget.ex;
-    final answered = _correct != null;
+    final answered = _match != null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1717,19 +2186,28 @@ class _SpellExerciseState extends State<_SpellExercise> {
             fontFamily: AppTheme.bodyFont,
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            color: answered
-                ? (_correct! ? scheme.primary : scheme.error)
-                : scheme.onSurface,
+            color: answered ? _verdictColor(scheme) : scheme.onSurface,
           ),
           decoration: InputDecoration(
             hintText: '…',
             suffixIcon: answered
-                ? Icon(_correct! ? Icons.check_rounded : Icons.close_rounded,
-                    color: _correct! ? scheme.primary : scheme.error)
+                ? Icon(_verdictIcon, color: _verdictColor(scheme))
                 : null,
           ),
         ),
-        if (answered && !_correct!) ...[
+        if (_match == TypedMatch.typo) ...[
+          const SizedBox(height: 10),
+          Text(
+            trf('typed_typo_note', {'a': ex.card.front}),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 13,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+        if (answered && !_correct) ...[
           const SizedBox(height: 12),
           Text(
             trf('answer_was', {'a': ex.card.front}),
@@ -1766,7 +2244,8 @@ class _SpellExerciseState extends State<_SpellExercise> {
           SizedBox(
             width: double.infinity,
             child: FilledButton(
-              onPressed: () => widget.onAnswered(_correct!),
+              onPressed: () => widget.onGraded(
+                  widget.autoGrade.typed(_match!, _answerMs), _answerMs),
               child: Text(tr('continue_btn')),
             ),
           ),
@@ -1779,6 +2258,178 @@ class _SpellExerciseState extends State<_SpellExercise> {
 
 /// Из перемешанных слов собрать предложение-контекст (порядок слов). После
 /// ответа показываем эталон и озвучиваем его.
+// ============================ Упражнение: третий лишний ============================
+
+/// «Связи»: два слова рядом по смыслу, третье чужое. Проверяет не перевод, а
+/// смысловое соседство, поэтому расписание FSRS не двигает.
+class _OddOneExercise extends StatefulWidget {
+  final OddOne odd;
+  final void Function(bool correct) onAnswered;
+
+  const _OddOneExercise({
+    super.key,
+    required this.odd,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_OddOneExercise> createState() => _OddOneExerciseState();
+}
+
+class _OddOneExerciseState extends State<_OddOneExercise> {
+  int? _picked;
+
+  void _pick(int i) {
+    if (_picked != null) return;
+    setState(() => _picked = i);
+    final correct = i == widget.odd.oddIndex;
+    HapticFeedback.selectionClick();
+    Future.delayed(const Duration(milliseconds: 1100), () {
+      if (mounted) widget.onAnswered(correct);
+    });
+  }
+
+  /// Пара, ради которой всё затевалось: два оставшихся слова.
+  String get _pairExplanation {
+    final pair = [
+      for (var i = 0; i < widget.odd.options.length; i++)
+        if (i != widget.odd.oddIndex) widget.odd.options[i].front,
+    ];
+    return trf('odd_one_because', {
+      'a': pair.isNotEmpty ? pair.first : '',
+      'b': pair.length > 1 ? pair[1] : '',
+      'kind': tr(widget.odd.kind.titleKey).toLowerCase(),
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final answered = _picked != null;
+
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        Text(
+          tr('odd_one_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.displayFont,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          tr('odd_one_sub'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 24),
+        for (var i = 0; i < widget.odd.options.length; i++) ...[
+          _option(i, scheme),
+          const SizedBox(height: 11),
+        ],
+        const Spacer(),
+        if (answered)
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: scheme.secondaryContainer,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr('odd_one_link'),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 11,
+                    letterSpacing: 0.9,
+                    color: scheme.onSecondaryContainer.withValues(alpha: 0.75),
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  _pairExplanation,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 15,
+                    height: 1.35,
+                    color: scheme.onSecondaryContainer,
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _option(int i, ColorScheme scheme) {
+    final card = widget.odd.options[i];
+    final answered = _picked != null;
+    final isOdd = i == widget.odd.oddIndex;
+
+    var bg = scheme.surfaceContainerHigh;
+    var fg = scheme.onSurface;
+    if (answered && isOdd) {
+      bg = scheme.primaryContainer;
+      fg = scheme.onPrimaryContainer;
+    } else if (answered && _picked == i) {
+      bg = scheme.errorContainer;
+      fg = scheme.onErrorContainer;
+    }
+
+    return Material(
+      color: bg,
+      borderRadius: BorderRadius.circular(20),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: answered ? null : () => _pick(i),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 17),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  card.front,
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: fg,
+                  ),
+                ),
+              ),
+              Text(
+                card.back,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 12.5,
+                  color: fg.withValues(alpha: 0.75),
+                ),
+              ),
+              if (answered && isOdd) ...[
+                const SizedBox(width: 10),
+                Icon(Icons.check_rounded, size: 20, color: fg),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _AssembleExercise extends StatefulWidget {
   final Exercise ex;
   final String languageCode;

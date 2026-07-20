@@ -135,13 +135,27 @@ class LocalDb {
         ts           INTEGER NOT NULL,
         grade        INTEGER NOT NULL,
         elapsed_days REAL NOT NULL,
-        state_before INTEGER NOT NULL
+        state_before INTEGER NOT NULL,
+        answer_ms    INTEGER
       );
     ''');
     db.execute(
         'CREATE INDEX IF NOT EXISTS idx_revlog_card ON review_events(card_id, ts)');
-    // Версия схемы — под будущие миграции (ALTER TABLE и т.п.).
-    db.execute('PRAGMA user_version=2');
+    _migrate(db);
+    db.execute('PRAGMA user_version=$_schemaVersion');
+  }
+
+  /// Версия схемы. Растёт вместе с каждой миграцией ниже.
+  static const int _schemaVersion = 3;
+
+  /// Догоняет схему на базах, созданных прежними версиями приложения.
+  /// `CREATE TABLE IF NOT EXISTS` новые КОЛОНКИ не добавляет — только ALTER.
+  void _migrate(Database db) {
+    final from = db.select('PRAGMA user_version').first.values.first as int;
+    if (from == 0 || from >= _schemaVersion) return; // пустая или уже свежая
+    if (from < 3) {
+      db.execute('ALTER TABLE review_events ADD COLUMN answer_ms INTEGER');
+    }
   }
 
   /// Закрывает соединение (данные остаются на диске). Следующий [open] поднимет
@@ -304,9 +318,10 @@ class LocalDb {
   // ------------------------- Журнал повторов (revlog) -------------------------
 
   void logReview(ReviewEvent e) => _handle.execute(
-        'INSERT INTO review_events(card_id,ts,grade,elapsed_days,state_before) '
-        'VALUES(?,?,?,?,?)',
-        [e.cardId, e.ts, e.grade, e.elapsedDays, e.stateBefore],
+        'INSERT INTO review_events'
+        '(card_id,ts,grade,elapsed_days,state_before,answer_ms) '
+        'VALUES(?,?,?,?,?,?)',
+        [e.cardId, e.ts, e.grade, e.elapsedDays, e.stateBefore, e.answerMs],
       );
 
   int reviewEventCount() =>
@@ -316,8 +331,8 @@ class LocalDb {
   /// Все события повтора по возрастанию времени (для оптимизатора).
   List<ReviewEvent> allReviewEvents() {
     final rows = _handle.select(
-        'SELECT card_id,ts,grade,elapsed_days,state_before FROM review_events '
-        'ORDER BY card_id, ts');
+        'SELECT card_id,ts,grade,elapsed_days,state_before,answer_ms '
+        'FROM review_events ORDER BY card_id, ts');
     return [
       for (final r in rows)
         ReviewEvent(
@@ -326,8 +341,23 @@ class LocalDb {
           grade: r['grade'] as int,
           elapsedDays: (r['elapsed_days'] as num).toDouble(),
           stateBefore: r['state_before'] as int,
+          answerMs: r['answer_ms'] as int?,
         ),
     ];
+  }
+
+  /// Времена последних верных ответов (мс), свежие первыми.
+  ///
+  /// Отдельный запрос вместо загрузки всего журнала: медиана нужна на каждом
+  /// старте сессии, а журнал за год — это десятки тысяч строк.
+  List<int> recentAnswerTimes({int limit = 300}) {
+    final rows = _handle.select(
+      'SELECT answer_ms FROM review_events '
+      'WHERE answer_ms IS NOT NULL AND answer_ms > 0 AND grade > 1 '
+      'ORDER BY ts DESC LIMIT ?',
+      [limit],
+    );
+    return [for (final r in rows) r['answer_ms'] as int];
   }
 
   void clearReviewEvents() => _handle.execute('DELETE FROM review_events');

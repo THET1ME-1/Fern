@@ -11,12 +11,14 @@ import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'theme/app_theme.dart';
+import 'widgets/card_image_field.dart';
 import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/grammar_card.dart';
 import 'widgets/reveal.dart';
 import 'widgets/speaker_button.dart';
 import 'widgets/study_modes.dart';
+import 'widgets/word_links_section.dart';
 
 /// Порядок сортировки списка карточек в колоде.
 enum _CardSort { added, alpha, status, due }
@@ -875,6 +877,9 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
   late final TextEditingController _front;
   late final TextEditingController _back;
   late final TextEditingController _example;
+  late final TextEditingController _mnemonic;
+  late final String _cardId;
+  String _image = '';
   String _pos = '';
   bool _translating = false;
 
@@ -898,7 +903,11 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     _front = TextEditingController(text: e?.front ?? widget.initialFront ?? '');
     _back = TextEditingController(text: e?.back ?? '');
     _example = TextEditingController(text: e?.example ?? '');
+    _mnemonic = TextEditingController(text: e?.mnemonic ?? '');
     _pos = e?.pos ?? '';
+    // Id нужен до сохранения: картинка кладётся в файл с этим именем.
+    _cardId = e?.id ?? 'card_${DateTime.now().microsecondsSinceEpoch}';
+    _image = e?.image ?? '';
     // Слово подставлено из буфера — сразу пробуем перевести.
     if (e == null &&
         (widget.initialFront?.trim().isNotEmpty ?? false)) {
@@ -1052,6 +1061,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     _front.dispose();
     _back.dispose();
     _example.dispose();
+    _mnemonic.dispose();
     super.dispose();
   }
 
@@ -1113,13 +1123,15 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     HapticFeedback.selectionClick();
     final e = widget.existing;
     final card = WordCard(
-      id: e?.id ?? 'card_${DateTime.now().microsecondsSinceEpoch}',
+      id: _cardId,
       deckId: widget.deckId,
       front: front,
       back: back,
       example: _example.text.trim(),
       review: e?.review,
       pos: _pos,
+      mnemonic: _mnemonic.text.trim(),
+      image: _image,
       // Сохраняем поля источника при редактировании.
       sentence: e?.sentence ?? '',
       sourceUrl: e?.sourceUrl ?? '',
@@ -1209,6 +1221,34 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
               ),
               const SizedBox(height: 16),
               _posChooser(scheme),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _mnemonic,
+                textCapitalization: TextCapitalization.sentences,
+                maxLines: 2,
+                minLines: 1,
+                decoration: InputDecoration(
+                  labelText: tr('card_mnemonic'),
+                  helperText: tr('card_mnemonic_hint'),
+                  helperMaxLines: 2,
+                  prefixIcon: const Icon(Icons.lightbulb_outline_rounded),
+                ),
+              ),
+              const SizedBox(height: 14),
+              CardImageField(
+                cardId: _cardId,
+                initial: _image,
+                onChanged: (name) => _image = name,
+              ),
+              // Связи ведут на ДРУГИЕ карточки и пишутся сразу в обе — значит
+              // карта уже должна существовать в базе.
+              if (widget.existing != null) ...[
+                const SizedBox(height: 20),
+                WordLinksSection(
+                  card: widget.existing!,
+                  languageCode: widget.languageCode,
+                ),
+              ],
               ..._grammarSection(scheme),
               const SizedBox(height: 20),
               Row(

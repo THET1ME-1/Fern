@@ -44,6 +44,16 @@ class ReviewState {
   /// Фаза владения для режима «Учить».
   LearnPhase phase;
 
+  /// Когда слово в последний раз попадалось при чтении (не повтор, а встреча
+  /// в тексте). Нужен, чтобы одна книга не подкармливала карту бесконечно.
+  DateTime? lastSeen;
+
+  /// Срок этой карты приблизили из-за срыва соседа по смыслу (см.
+  /// `services/link_propagation.dart`). Держим след, чтобы сессия могла честно
+  /// сказать, почему слово всплыло раньше времени. Снимается при первом же
+  /// повторе: карту спросили — повод исчерпан.
+  bool nudgedByNeighbour;
+
   ReviewState({
     this.stability = 0,
     this.difficulty = 0,
@@ -54,6 +64,8 @@ class ReviewState {
     this.due,
     this.lastReview,
     this.phase = LearnPhase.unseen,
+    this.lastSeen,
+    this.nudgedByNeighbour = false,
   });
 
   /// Новая карта — ещё ни разу не оценённая.
@@ -69,6 +81,8 @@ class ReviewState {
         due: due,
         lastReview: lastReview,
         phase: phase,
+        lastSeen: lastSeen,
+        nudgedByNeighbour: nudgedByNeighbour,
       );
 
   Map<String, dynamic> toJson() => {
@@ -81,6 +95,8 @@ class ReviewState {
         'due': due?.millisecondsSinceEpoch,
         'last': lastReview?.millisecondsSinceEpoch,
         'phase': phase.index,
+        if (lastSeen != null) 'seen': lastSeen!.millisecondsSinceEpoch,
+        if (nudgedByNeighbour) 'nbr': true,
       };
 
   factory ReviewState.fromJson(Map<String, dynamic> j) => ReviewState(
@@ -93,6 +109,8 @@ class ReviewState {
         due: _dt(j['due']),
         lastReview: _dt(j['last']),
         phase: LearnPhase.values[(j['phase'] as num?)?.toInt() ?? 0],
+        lastSeen: _dt(j['seen']),
+        nudgedByNeighbour: j['nbr'] == true,
       );
 
   static DateTime? _dt(Object? v) =>
@@ -115,6 +133,20 @@ class WordCard {
   /// conj/num/particle/interj), либо '' — неизвестно. Для разбивки по типам.
   String pos;
 
+  /// Мнемоника-«крючок»: своя фраза-ассоциация, за которую цепляется память
+  /// («под подушкой спрятана пила» для pillow). Пишется руками, показывается
+  /// на обороте по кнопке и после срыва — там, где подсказка нужнее всего.
+  String mnemonic;
+
+  /// Имя файла картинки в каталоге [CardImages] (не полный путь: контейнер
+  /// приложения меняется между установками). Пусто — картинки нет.
+  String image;
+
+  /// Связи с другими карточками, проставленные руками: id карты → код типа
+  /// (`syn`/`ant`/`root`, см. `services/word_links.dart`). Вычисляемые связи
+  /// (совпал перевод, общая основа) здесь НЕ хранятся — они считаются на лету.
+  Map<String, String> links;
+
   /// Предложение-контекст из видео (для озвучки живым голосом целой реплики).
   String sentence;
 
@@ -132,12 +164,16 @@ class WordCard {
     required this.back,
     this.example = '',
     ReviewState? review,
+    this.mnemonic = '',
+    this.image = '',
+    Map<String, String>? links,
     this.sentence = '',
     this.sourceUrl = '',
     this.clipStartMs,
     this.clipEndMs,
     this.pos = '',
-  }) : review = review ?? ReviewState();
+  })  : review = review ?? ReviewState(),
+        links = links ?? <String, String>{};
 
   /// Карта «к повтору сейчас»: новая или наступил срок.
   bool isDue(DateTime now) => review.due == null || !review.due!.isAfter(now);
@@ -149,8 +185,11 @@ class WordCard {
         'back': back,
         'example': example,
         'review': review.toJson(),
-        // Пишем видео-поля только когда заданы — чтобы не раздувать JSON карт,
-        // созданных вручную (обратная совместимость гарантирована дефолтами).
+        // Необязательные поля пишем, только когда заданы — чтобы не раздувать
+        // JSON карт, созданных вручную (совместимость держат дефолты).
+        if (mnemonic.isNotEmpty) 'mn': mnemonic,
+        if (image.isNotEmpty) 'img': image,
+        if (links.isNotEmpty) 'lnk': links,
         if (sentence.isNotEmpty) 'sentence': sentence,
         if (sourceUrl.isNotEmpty) 'src': sourceUrl,
         if (clipStartMs != null) 'cs': clipStartMs,
@@ -168,6 +207,12 @@ class WordCard {
             ? ReviewState()
             : ReviewState.fromJson(
                 (j['review'] as Map).cast<String, dynamic>()),
+        mnemonic: j['mn'] as String? ?? '',
+        image: j['img'] as String? ?? '',
+        links: (j['lnk'] as Map?)?.map(
+              (k, v) => MapEntry(k as String, v as String),
+            ) ??
+            <String, String>{},
         sentence: j['sentence'] as String? ?? '',
         sourceUrl: j['src'] as String? ?? '',
         clipStartMs: (j['cs'] as num?)?.toInt(),

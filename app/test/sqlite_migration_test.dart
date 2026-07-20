@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqlite3/sqlite3.dart';
 
 import 'package:fern/models/deck.dart';
 import 'package:fern/models/word_card.dart';
@@ -74,5 +75,36 @@ void main() {
     expect((await repo.cardsForDeck('leg')).length, 1,
         reason: 'миграция одноразовая — дублей быть не должно');
     expect((await repo.loadDecks()).where((d) => d.id == 'leg').length, 1);
+  });
+
+  test('база схемы v2 получает колонку времени ответа', () async {
+    // Схема прошлой версии приложения: журнал повторов без `answer_ms`.
+    final path = DeckRepository.debugDatabasePath!;
+    final legacy = sqlite3.open(path);
+    legacy.execute('''
+      CREATE TABLE review_events (
+        id           INTEGER PRIMARY KEY AUTOINCREMENT,
+        card_id      TEXT NOT NULL,
+        ts           INTEGER NOT NULL,
+        grade        INTEGER NOT NULL,
+        elapsed_days REAL NOT NULL,
+        state_before INTEGER NOT NULL
+      );
+    ''');
+    legacy.execute(
+        'INSERT INTO review_events(card_id,ts,grade,elapsed_days,state_before) '
+        "VALUES('old',1,3,0.0,0)");
+    legacy.execute('PRAGMA user_version=2');
+    legacy.dispose();
+
+    await repo.init();
+    final card = WordCard(id: 'c1', deckId: 'd1', front: 'a', back: 'б');
+    await repo.upsertCard(card);
+    await repo.rateCard(card, Rating.good, DateTime(2026, 1, 1), answerMs: 900);
+
+    final events = await repo.reviewEvents();
+    expect(events.length, 2, reason: 'прежние события не теряются');
+    expect(events.firstWhere((e) => e.cardId == 'c1').answerMs, 900);
+    expect(events.firstWhere((e) => e.cardId == 'old').answerMs, isNull);
   });
 }

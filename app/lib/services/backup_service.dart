@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
 
+import 'card_images.dart';
 import 'deck_repository.dart';
 import 'source_library.dart';
 
@@ -25,6 +26,7 @@ class BackupService {
     final map = await DeckRepository.instance.exportMap();
     if (includeLibrary) {
       map['library'] = await SourceLibrary.instance.exportAll();
+      map['cardImages'] = await _exportCardImages();
     }
     return const JsonEncoder.withIndent('  ').convert(map);
   }
@@ -36,6 +38,40 @@ class BackupService {
     if (data['library'] is List) {
       await SourceLibrary.instance
           .importAll(data['library'] as List, merge: merge);
+    }
+    if (data['cardImages'] is List) {
+      await _importCardImages(data['cardImages'] as List);
+    }
+  }
+
+  /// Картинки карточек в base64. Идут вместе с библиотекой (тяжёлое), в
+  /// авто-бэкап не попадают: там ценен прогресс, а не байты фотографий.
+  static Future<List<Map<String, String>>> _exportCardImages() async {
+    final out = <Map<String, String>>[];
+    try {
+      final cards = await DeckRepository.instance.loadCards();
+      for (final c in cards) {
+        if (c.image.isEmpty) continue;
+        final b64 = await CardImages.readB64(c.image);
+        if (b64 != null) out.add({'name': c.image, 'b64': b64});
+      }
+    } catch (_) {
+      // Каталог недоступен — бэкап всё равно должен собраться.
+    }
+    return out;
+  }
+
+  static Future<void> _importCardImages(List raw) async {
+    for (final item in raw) {
+      if (item is! Map) continue;
+      final name = item['name'] as String?;
+      final b64 = item['b64'] as String?;
+      if (name == null || b64 == null) continue;
+      try {
+        await CardImages.writeBytes(name, base64Decode(b64));
+      } catch (_) {
+        // Битая картинка не должна валить восстановление карточек.
+      }
     }
   }
 

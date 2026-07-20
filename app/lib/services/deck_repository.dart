@@ -11,6 +11,9 @@ import '../models/pack.dart';
 import '../models/review_event.dart';
 import '../models/review_log.dart';
 import '../models/word_card.dart';
+import 'auto_grade.dart';
+import 'card_images.dart';
+import 'link_propagation.dart';
 import 'local_db.dart';
 import 'pos.dart';
 import 'starter_decks.dart';
@@ -119,6 +122,7 @@ class DeckRepository extends ChangeNotifier {
   Map<String, int> _matchBest = {};
   int _readSeconds = 0;
   int _readWords = 0;
+  int _reinforcedByReading = 0;
   bool _loaded = false;
 
   /// Один раз загружает данные в память (и мигрирует со старых сторов).
@@ -328,11 +332,13 @@ class DeckRepository extends ChangeNotifier {
   void _decodeReading(String? raw) {
     _readSeconds = 0;
     _readWords = 0;
+    _reinforcedByReading = 0;
     if (raw == null || raw.isEmpty) return;
     try {
       final m = (jsonDecode(raw) as Map).cast<String, dynamic>();
       _readSeconds = (m['s'] as num?)?.toInt() ?? 0;
       _readWords = (m['w'] as num?)?.toInt() ?? 0;
+      _reinforcedByReading = (m['r'] as num?)?.toInt() ?? 0;
     } catch (_) {
       /* битая запись — оставляем нули */
     }
@@ -513,6 +519,9 @@ class DeckRepository extends ChangeNotifier {
   Future<void> deleteDeck(String deckId) async {
     await _ensureLoaded();
     _decks.removeWhere((d) => d.id == deckId);
+    for (final c in _cards.where((c) => c.deckId == deckId)) {
+      if (c.image.isNotEmpty) await CardImages.deleteFor(c.id);
+    }
     _cards.removeWhere((c) => c.deckId == deckId);
     _db!.deleteDeck(deckId);
     _db!.deleteCardsForDeck(deckId);
@@ -684,6 +693,9 @@ class DeckRepository extends ChangeNotifier {
     await _ensureLoaded();
     _cards.removeWhere((c) => c.id == cardId);
     _db!.deleteCard(cardId);
+    // Картинка карточки — тоже её данные: уходит вместе с ней, иначе каталог
+    // копит файлы-сироты.
+    await CardImages.deleteFor(cardId);
     notifyListeners();
   }
 
@@ -705,7 +717,12 @@ class DeckRepository extends ChangeNotifier {
 
   /// Применяет оценку к карточке (FSRS), пишет событие в журнал повторов и
   /// сохраняет новое состояние.
-  Future<void> rateCard(WordCard card, Rating rating, DateTime now) async {
+  Future<void> rateCard(
+    WordCard card,
+    Rating rating,
+    DateTime now, {
+    int? answerMs,
+  }) async {
     final prev = card.review;
     final wasNew = prev.isNew;
     final elapsedDays = prev.lastReview == null
@@ -723,9 +740,29 @@ class DeckRepository extends ChangeNotifier {
       grade: rating.grade,
       elapsedDays: elapsedDays.toDouble(),
       stateBefore: stateBefore,
+      answerMs: answerMs,
     ));
     // Новая карта впервые показана → расходуем дневной лимит новых.
     if (wasNew) await markNewIntroduced(1, now);
+
+    // Настоящий срыв на зрелой карте — повод спросить пораньше её соседей по
+    // смыслу: слова одного гнезда осыпаются вместе.
+    if (rating == Rating.again && stateBefore == FsrsState.review.index) {
+      await _spreadLapse(card, now);
+    }
+  }
+
+  Future<void> _spreadLapse(WordCard card, DateTime now) async {
+    final deck = _decks.where((d) => d.id == card.deckId).firstOrNull;
+    if (deck == null) return;
+    final pool = await cardsForLanguage(deck.languageCode);
+    final touched = LinkPropagation.afterLapse(
+      card,
+      pool,
+      deck.languageCode,
+      now: now,
+    );
+    if (touched.isNotEmpty) await saveCards(touched);
   }
 
   // ----------------------------- Журнал занятий -----------------------------
@@ -853,17 +890,45 @@ class DeckRepository extends ChangeNotifier {
   /// Оценка прочитанных слов (по продвижению позиции чтения).
   int get readingWords => _readWords;
 
+  /// Сколько раз слова подкрепились встречей в тексте.
+  int get reinforcedByReading => _reinforcedByReading;
+
   /// Прибавляет время/слова чтения (в конце сессии чтения).
   Future<void> addReading({int seconds = 0, int words = 0}) async {
     if (seconds <= 0 && words <= 0) return;
     await _ensureLoaded();
     _readSeconds += seconds < 0 ? 0 : seconds;
     _readWords += words < 0 ? 0 : words;
-    await _prefs.setString(
-      _kReadingStats,
-      jsonEncode({'s': _readSeconds, 'w': _readWords}),
-    );
+    await _persistReading();
     notifyListeners();
+  }
+
+  /// Отмечает, что [n] карточек подкрепились чтением.
+  Future<void> addReinforcedByReading(int n) async {
+    if (n <= 0) return;
+    await _ensureLoaded();
+    _reinforcedByReading += n;
+    await _persistReading();
+    notifyListeners();
+  }
+
+  Future<void> _persistReading() => _prefs.setString(
+        _kReadingStats,
+        jsonEncode({
+          's': _readSeconds,
+          'w': _readWords,
+          'r': _reinforcedByReading,
+        }),
+      );
+
+  /// Все карты языка (по колодам этого языка).
+  Future<List<WordCard>> cardsForLanguage(String languageCode) async {
+    await _ensureLoaded();
+    final deckIds = _decks
+        .where((d) => d.languageCode == languageCode)
+        .map((d) => d.id)
+        .toSet();
+    return _cards.where((c) => deckIds.contains(c.deckId)).toList();
   }
 
   // ----------------------------- Выбранный язык -----------------------------
@@ -1078,6 +1143,25 @@ class DeckRepository extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Режим двух кнопок: вместо четырёх ступеней — «Не помню / Помню», а
+  /// ступень подбирает [AutoGrade] по времени ответа. По умолчанию выключен:
+  /// кто привык к четырём кнопкам, тот их и увидит.
+  static const String _kTwoButtonRating = 'twoButtonRating';
+  Future<bool> twoButtonRating() async =>
+      await _prefs.getBool(_kTwoButtonRating) ?? false;
+  Future<void> setTwoButtonRating(bool value) async {
+    await _prefs.setBool(_kTwoButtonRating, value);
+    notifyListeners();
+  }
+
+  /// Личный темп ответа — основа автооценки. Берём последние ответы, а не всю
+  /// историю: темп человека меняется, да и грузить весь журнал на каждой сессии
+  /// незачем.
+  Future<AutoGrade> autoGrade() async {
+    await _ensureLoaded();
+    return AutoGrade.fromSamples(_db!.recentAnswerTimes());
+  }
+
   // ----------------------------- Удаление всех данных -----------------------------
 
   /// Полностью стирает данные приложения (как свежая установка): БД
@@ -1087,6 +1171,7 @@ class DeckRepository extends ChangeNotifier {
   Future<void> wipeAllData() async {
     await _ensureLoaded();
     _db!.wipeAll();
+    await CardImages.wipeAll();
     // Чистим оба prefs-стора (async + legacy) целиком, включая флаги миграций.
     await _prefs.clear();
     try {
@@ -1102,6 +1187,7 @@ class DeckRepository extends ChangeNotifier {
     _matchBest = {};
     _readSeconds = 0;
     _readWords = 0;
+    _reinforcedByReading = 0;
     // Возвращаем планировщик к дефолтам (снятая персонализация).
     Fsrs.instance.requestRetention = 0.9;
     Fsrs.instance.setWeights(null);

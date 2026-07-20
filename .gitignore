@@ -41,3 +41,7 @@ Thumbs.db
 bot/__pycache__/
 bot/*.db
 bot/venv/
+
+# Снимки визуального прогона — служебные, пересобираются по требованию
+# (flutter test test/visual_check_test.dart --update-goldens --tags visual)
+app/test/shots/

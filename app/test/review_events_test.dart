@@ -29,6 +29,22 @@ void main() {
     expect(events.last.grade, Rating.again.grade);
   });
 
+  test('время ответа попадает в журнал повторов', () async {
+    await repo.init();
+    final card = WordCard(id: 'c1', deckId: 'd1', front: 'a', back: 'б');
+    await repo.upsertCard(card);
+
+    await repo.rateCard(card, Rating.good, DateTime(2026, 1, 1, 12),
+        answerMs: 2400);
+    // Время ответа известно не всегда (таймаут, переход из другого экрана) —
+    // тогда поле пустое, а не нулевое: ноль соврал бы «ответил мгновенно».
+    await repo.rateCard(card, Rating.good, DateTime(2026, 1, 1, 12, 20));
+
+    final events = await repo.reviewEvents();
+    expect(events.first.answerMs, 2400);
+    expect(events.last.answerMs, isNull);
+  });
+
   test('целевое удержание сохраняется и применяется к планировщику', () async {
     await repo.init();
     await repo.setRequestRetention(0.85);

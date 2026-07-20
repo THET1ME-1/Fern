@@ -15,6 +15,34 @@ String tr(String key) {
   return entry[code] ?? entry['en'] ?? entry['ru'] ?? key;
 }
 
+/// Число с существительным в правильной форме: «1 слово», «2 слова», «5 слов».
+///
+/// Формы лежат отдельными ключами `<base>_one` / `_few` / `_many`. Без этого
+/// в русском получается «Спросил 4 слов» — первое, обо что спотыкается глаз.
+/// В языках без падежей `_few` совпадает с `_many`, правило вырождается в
+/// единственное/множественное.
+String trn(String base, int n) {
+  final code = LocaleController.instance.code;
+  final form = switch (code) {
+    'ru' || 'uk' => _slavicForm(n),
+    _ => n == 1 ? 'one' : 'many',
+  };
+  return '$n ${tr('${base}_$form')}';
+}
+
+/// Правило славянских языков: 1/21/31 — одна форма, 2–4 — вторая, остальное —
+/// третья; 11–14 всегда третья (исключение из правила по последней цифре).
+String _slavicForm(int n) {
+  final abs = n.abs();
+  final tens = abs % 100;
+  if (tens >= 11 && tens <= 14) return 'many';
+  return switch (abs % 10) {
+    1 => 'one',
+    2 || 3 || 4 => 'few',
+    _ => 'many',
+  };
+}
+
 /// Перевод с подстановкой `{name}` → значение.
 String trf(String key, Map<String, Object> params) {
   var s = tr(key);
@@ -49,6 +77,11 @@ String localizedDeckName({String? nameKey, String? name}) {
   }
   return name ?? '—';
 }
+
+/// Базовый словарь (ru/en) для теста покрытия локализации: каждый ключ отсюда
+/// обязан быть во ВСЕХ картах [kTranslations], иначе язык молча откатится на
+/// английский. Ловить такое глазами по 680 ключам бесполезно.
+const Map<String, Map<String, String>> kBaseStrings = _strings;
 
 /// Словарь интерфейсных строк (ru/en). Доп. языки — в translations.dart.
 const Map<String, Map<String, String>> _strings = {
@@ -162,6 +195,37 @@ const Map<String, Map<String, String>> _strings = {
   'card_front': {'ru': 'Слово', 'en': 'Word'},
   'card_back': {'ru': 'Перевод', 'en': 'Translation'},
   'card_example': {'ru': 'Пример (необязательно)', 'en': 'Example (optional)'},
+  'card_mnemonic': {'ru': 'Крючок для памяти', 'en': 'Memory hook'},
+  'reinforced_by_reading': {
+    'ru': 'Чтение засчиталось как повторение: {n} слов. Встреченное в книге Fern спрашивает позже.',
+    'en': 'Reading counted as review: {n} words. What you met in a book, Fern asks later.'
+  },
+  'links_section': {'ru': 'СВЯЗИ', 'en': 'LINKS'},
+  'link_add': {'ru': 'Добавить', 'en': 'Add'},
+  'links_empty': {
+    'ru': 'Пока связей нет. Свяжите слово с синонимом, противоположностью или однокоренным — так оно запомнится в компании, а не в одиночку.',
+    'en': 'No links yet. Tie the word to a synonym, an opposite or a same-root word — it sticks better in company than alone.'
+  },
+  'links_auto_note': {
+    'ru': 'Связей найдено самим приложением: {n}',
+    'en': 'Links found automatically: {n}'
+  },
+  'link_synonyms': {'ru': 'Синонимы', 'en': 'Synonyms'},
+  'link_antonyms': {'ru': 'Антонимы', 'en': 'Opposites'},
+  'link_root': {'ru': 'От корня', 'en': 'Same root'},
+  'links_no_words': {'ru': 'Слова не нашлись', 'en': 'No words found'},
+  'card_image_add': {'ru': 'Добавить картинку', 'en': 'Add a picture'},
+  'card_image_remove': {'ru': 'Убрать картинку', 'en': 'Remove picture'},
+  'image_from_camera': {'ru': 'Снять на камеру', 'en': 'Take a photo'},
+  'image_from_gallery': {'ru': 'Выбрать из галереи', 'en': 'Pick from gallery'},
+  'image_failed': {
+    'ru': 'Не удалось добавить картинку',
+    'en': "Couldn't add the picture"
+  },
+  'card_mnemonic_hint': {
+    'ru': 'Своя ассоциация: созвучие, образ, нелепая картинка',
+    'en': 'Your own association: a sound-alike, an image, an absurd scene'
+  },
   'translate_action': {'ru': 'Перевести', 'en': 'Translate'},
   'translate_downloading': {
     'ru': 'Загрузка языковой модели…',
@@ -502,7 +566,107 @@ const Map<String, Map<String, String>> _strings = {
   'rate_hard': {'ru': 'Трудно', 'en': 'Hard'},
   'rate_good': {'ru': 'Хорошо', 'en': 'Good'},
   'rate_easy': {'ru': 'Легко', 'en': 'Easy'},
+  'rate_knew': {'ru': 'Помню', 'en': 'I knew it'},
+  'rate_hint_timing': {
+    'ru': 'подсвечено по времени ответа — {time}',
+    'en': 'highlighted by your answer time — {time}'
+  },
+  'typed_typo_note': {
+    'ru': 'Одна буква мимо. Правильно: {a}',
+    'en': 'One letter off. Correct: {a}'
+  },
+  // Формы существительных для чисел (см. trn): 1 слово / 2 слова / 5 слов.
+  'n_words_one': {'ru': 'слово', 'en': 'word'},
+  'n_words_few': {'ru': 'слова', 'en': 'words'},
+  'n_words_many': {'ru': 'слов', 'en': 'words'},
+  'n_pairs_one': {'ru': 'пару', 'en': 'pair'},
+  'n_pairs_few': {'ru': 'пары', 'en': 'pairs'},
+  'n_pairs_many': {'ru': 'пар', 'en': 'pairs'},
+  'reason_new': {'ru': 'Новое слово', 'en': 'New word'},
+  'plan_title': {'ru': 'Что сделал алгоритм', 'en': 'What the algorithm did'},
+  'how_fern_decides': {'ru': 'Как Fern решает', 'en': 'How Fern decides'},
+  'how_fern_decides_sub': {
+    'ru': 'Что алгоритм обещал и что вышло',
+    'en': 'What the algorithm promised and what came out'
+  },
+  'two_buttons': {'ru': 'Две кнопки вместо четырёх', 'en': 'Two buttons instead of four'},
+  'two_buttons_sub': {
+    'ru': '«Не помню» и «Помню» — ступень подберёт время ответа',
+    'en': '“Again” and “I knew it” — your answer time picks the grade'
+  },
+  'explain_no_data': {'ru': 'Мало данных', 'en': 'Not enough data yet'},
+  'explain_no_data_sub': {
+    'ru': 'Чтобы что-то измерить, нужна история: не меньше {n} повторов зрелых карточек. Учитесь дальше — цифры появятся сами.',
+    'en': 'Measuring needs history: at least {n} reviews of mature cards. Keep studying and the numbers will show up.'
+  },
+  'retention_measured': {'ru': 'УДЕРЖАНИЕ', 'en': 'RETENTION'},
+  'retention_vs_promise': {
+    'ru': 'повторов закончились тем, что слово вспомнилось. Алгоритм обещал {promised}%. Проверено на {n} повторах зрелых карточек.',
+    'en': 'of reviews ended in a recall. The algorithm promised {promised}%. Measured over {n} reviews of mature cards.'
+  },
+  'prediction_accuracy': {
+    'ru': 'Точность предсказаний',
+    'en': 'Prediction accuracy'
+  },
+  'log_loss_sub': {
+    'ru': 'Логарифмический лосс на вашей истории. Меньше — точнее.',
+    'en': 'Log loss on your own history. Lower is better.'
+  },
+  'weights_default': {'ru': 'Обычные веса', 'en': 'Default weights'},
+  'weights_personal': {'ru': 'Ваши веса', 'en': 'Your weights'},
+  'weights_gain': {
+    'ru': 'Ваши веса предсказывают точнее обычных на {g}%.',
+    'en': 'Your weights predict {g}% more accurately than the defaults.'
+  },
+  'weights_default_only': {
+    'ru': 'Работают обычные веса. Личные появятся после оптимизации — и только если окажутся точнее.',
+    'en': 'Running on default weights. Personal ones appear after optimisation, and only if they turn out more accurate.'
+  },
+  'explain_disclaimer': {
+    'ru': 'Цифры выше говорят об одном: насколько верно алгоритм угадывал, вспомните вы слово или нет. Это не значит, что вы запомните на столько же больше — объём памяти отсюда не следует.',
+    'en': 'These numbers say one thing: how well the algorithm guessed whether you would recall a word. That does not mean you will remember that much more — memory volume does not follow from it.'
+  },
+  'plan_from_book': {
+    'ru': 'Поднял {w} из книги, которую вы читаете',
+    'en': 'Pulled {w} from the book you are reading'
+  },
+  'plan_neighbours': {
+    'ru': 'Спросил {w} раньше срока — сорвались их соседи по смыслу',
+    'en': 'Asked {w} early — their meaning-neighbours slipped'
+  },
+  'plan_separated': {
+    'ru': 'Развёл {p} путаемых слов по разным концам сессии',
+    'en': 'Kept {p} of confusable words apart across the session'
+  },
+  'reason_book': {'ru': 'Встретится в книге', 'en': 'Coming up in your book'},
+  'reason_neighbour': {'ru': 'Сосед сорвался', 'en': 'A neighbour slipped'},
   'dont_know': {'ru': 'Не знаю', 'en': "Don't know"},
+  'hook_show': {'ru': 'Крючок', 'en': 'Hook'},
+  'mode_associations': {'ru': 'Связи', 'en': 'Links'},
+  'mode_associations_sub': {
+    'ru': 'Синонимы, противоположности, третий лишний',
+    'en': 'Synonyms, opposites, odd one out'
+  },
+  'odd_one_prompt': {'ru': 'Какое здесь лишнее?', 'en': 'Which one is the odd one?'},
+  'odd_one_sub': {
+    'ru': 'Два слова близки по смыслу',
+    'en': 'Two of them are close in meaning'
+  },
+  'odd_one_link': {'ru': 'СВЯЗЬ', 'en': 'LINK'},
+  'odd_one_because': {'ru': '{a} и {b} — {kind}', 'en': '{a} and {b} — {kind}'},
+  'hook_add': {'ru': 'Придумать крючок', 'en': 'Add a hook'},
+  'hook_lapses': {'ru': 'сорвалось {n} раз', 'en': 'slipped {n} times'},
+  'hook_advice': {
+    'ru': 'Чем нелепее и ярче картина, тем крепче держится. Созвучие, образ, короткая сценка — что угодно, лишь бы своё.',
+    'en': 'The odder and brighter the scene, the better it sticks. A sound-alike, an image, a tiny scene — anything, as long as it is yours.'
+  },
+  'hardest_words_sub': {
+    'ru': 'Нажмите на слово, чтобы повесить на него крючок',
+    'en': 'Tap a word to hang a hook on it'
+  },
+  'hook_label': {'ru': 'ВСПОМНИ', 'en': 'RECALL'},
+  'hook_next': {'ru': 'Дальше', 'en': 'Next'},
+  'hook_used': {'ru': 'ответ с подсказкой', 'en': 'answered with a hint'},
   'choose_translation': {'ru': 'Выберите перевод', 'en': 'Choose the translation'},
   'choose_word': {'ru': 'Выберите слово', 'en': 'Choose the word'},
   'type_answer': {'ru': 'Введите перевод', 'en': 'Type the translation'},
@@ -577,6 +741,14 @@ const Map<String, Map<String, String>> _strings = {
   'optimize_done': {
     'ru': 'Готово. Ваше удержание ≈ {r}%',
     'en': 'Done. Your retention ≈ {r}%'
+  },
+  'optimize_done_gain': {
+    'ru': 'Готово: удержание {r}%, предсказание точнее на {g}%',
+    'en': 'Done: {r}% retention, predictions {g}% sharper'
+  },
+  'optimize_no_gain': {
+    'ru': 'Свои веса предсказывают не лучше обычных — оставили как было',
+    'en': 'Your own weights predict no better than the defaults — kept as is'
   },
   'optimize_need_more': {
     'ru': 'Пока мало данных — позанимайтесь ещё',

@@ -18,7 +18,10 @@ import 'services/backup_service.dart';
 import 'services/deck_import.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
+import 'models/fsrs.dart';
 import 'services/fsrs_optimizer.dart';
+import 'study/schedule_explain_screen.dart';
+import 'services/schedule_lab.dart';
 import 'services/source_library.dart';
 import 'study/reader_settings.dart';
 import 'services/notification_service.dart';
@@ -66,6 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _reminderOn = false;
   bool _showVideoBanner = true;
   bool _posSplitAsk = true;
+  bool _twoButtons = false;
   TimeOfDay _reminderTime = const TimeOfDay(hour: 20, minute: 0);
 
   @override
@@ -83,6 +87,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final m = await _repo.reminderMinute();
     final showBanner = await _repo.showVideoBanner();
     final posSplitAsk = await _repo.posSplitAsk();
+    final twoButtons = await _repo.twoButtonRating();
     final retention = await _repo.requestRetention();
     final events = await _repo.reviewEventCount();
     final custom = (await _repo.fsrsWeights()) != null;
@@ -105,6 +110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _reminderOn = on;
         _showVideoBanner = showBanner;
         _posSplitAsk = posSplitAsk;
+        _twoButtons = twoButtons;
         _reminderTime = TimeOfDay(hour: h, minute: m);
       });
     }
@@ -192,6 +198,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _maxReviewsTile(scheme),
           _retentionTile(scheme),
           _optimizeTile(scheme),
+          _actionTile(
+            icon: Icons.insights_rounded,
+            title: tr('how_fern_decides'),
+            subtitle: tr('how_fern_decides_sub'),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const ScheduleExplainScreen(),
+              ),
+            ),
+            scheme: scheme,
+          ),
+          _switchTile(
+            icon: Icons.touch_app_outlined,
+            title: tr('two_buttons'),
+            subtitle: tr('two_buttons_sub'),
+            value: _twoButtons,
+            onChanged: (v) async {
+              await _repo.setTwoButtonRating(v);
+              if (mounted) setState(() => _twoButtons = v);
+            },
+            scheme: scheme,
+          ),
           _actionTile(
             icon: Icons.translate_rounded,
             title: tr('providers_title'),
@@ -664,18 +693,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _optimizeFsrs() async {
     setState(() => _optimizing = true);
-    final result = FsrsOptimizer.optimize(await _repo.reviewEvents());
-    if (result.enough) {
-      await _repo.setFsrsWeights(result.weights);
-    }
+    final events = await _repo.reviewEvents();
+    final result = FsrsOptimizer.optimize(events);
+
+    // Подогнанные веса применяем, только если на СОБСТВЕННОЙ истории они
+    // предсказывают точнее дефолтных. Иначе «персонализация» — это подкрутка
+    // вслепую, а расплачивается за неё расписание.
+    final retention = Fsrs.instance.requestRetention;
+    final before =
+        ScheduleLab.evaluate(events, weights: null, retention: retention);
+    final after = ScheduleLab.evaluate(
+      events,
+      weights: result.weights,
+      retention: retention,
+    );
+    final gain = ScheduleLab.improvementPercent(before, after);
+    final applied =
+        result.enough && ScheduleLab.worthApplying(before, after);
+
+    if (applied) await _repo.setFsrsWeights(result.weights);
     if (!mounted) return;
     setState(() {
       _optimizing = false;
-      _customWeights = result.enough || _customWeights;
+      _customWeights = applied || _customWeights;
     });
-    final msg = result.enough
-        ? trf('optimize_done', {'r': (result.measuredRetention * 100).round()})
-        : tr('optimize_need_more');
+
+    final String msg;
+    if (applied) {
+      msg = trf('optimize_done_gain', {
+        'r': '${(result.measuredRetention * 100).round()}',
+        'g': gain.toStringAsFixed(1),
+      });
+    } else if (result.enough) {
+      msg = tr('optimize_no_gain');
+    } else {
+      msg = tr('optimize_need_more');
+    }
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text(msg)));

@@ -2,6 +2,10 @@ import 'dart:math';
 
 import '../models/fsrs.dart';
 import '../models/word_card.dart';
+import '../services/auto_grade.dart';
+import '../services/interference.dart';
+import '../services/lemmatizer.dart';
+import '../services/word_links.dart';
 
 /// Режимы обучения, запускаемые с экрана колоды. См. `docs/learning-system.md` §2.
 enum StudyMode {
@@ -16,6 +20,7 @@ enum StudyMode {
   hard,
   speed,
   cloze,
+  associations,
   cram,
   revive,
 }
@@ -29,15 +34,47 @@ StudyDirection studyDirectionFromIndex(int i) =>
     : StudyDirection.forward;
 
 /// Тип одного упражнения (виджета) внутри сессии.
-enum ExerciseKind { flip, choose, type, trueFalse, listen, cloze, spell, assemble }
+enum ExerciseKind {
+  flip,
+  choose,
+  type,
+  trueFalse,
+  listen,
+  cloze,
+  spell,
+  assemble,
+  oddOne,
+}
 
 extension StudyModeInfo on StudyMode {
   /// Влияет ли режим на планировщик FSRS. Тест, игра «Подбор» и зубрёжка перед
-  /// экзаменом — оценочные/временные, расписание не меняют.
+  /// экзаменом — оценочные/временные, расписание не меняют. «Связи» проверяют
+  /// не перевод, а смысловое соседство: знание другое, двигать им интервалы
+  /// перевода нечестно.
   bool get affectsSchedule =>
       this != StudyMode.test &&
       this != StudyMode.match &&
-      this != StudyMode.cram;
+      this != StudyMode.cram &&
+      this != StudyMode.associations;
+}
+
+/// Почему карточка оказалась в этой сессии.
+///
+/// Планировщик Fern делает несколько неочевидных вещей — подтягивает слова из
+/// читаемой книги, спрашивает соседей сорвавшегося слова. Без объяснения это
+/// выглядит как случайность: «почему опять это слово?». Метка отвечает.
+enum SelectionReason {
+  /// Подошёл срок повтора — обычный случай, метку не показываем.
+  due,
+
+  /// Новое слово из колоды.
+  newWord,
+
+  /// Слово встретится на ближайших страницах открытой книги.
+  book,
+
+  /// Сосед по смыслу сорвался, и слово спрошено раньше срока.
+  neighbourLapse,
 }
 
 /// Одно упражнение: карта + тип + направление (термин→перевод / перевод→термин).
@@ -49,7 +86,16 @@ class Exercise {
   /// reversed=true: показываем перевод (back), ждём термин (front).
   final bool reversed;
 
-  Exercise(this.card, this.kind, {this.reversed = false});
+  /// Почему карта здесь. Больше одной причины сразу не показываем — метка
+  /// объясняет, а не отчитывается.
+  final SelectionReason reason;
+
+  Exercise(
+    this.card,
+    this.kind, {
+    this.reversed = false,
+    this.reason = SelectionReason.due,
+  });
 
   String get prompt => reversed ? card.back : card.front;
   String get answer => reversed ? card.front : card.back;
@@ -80,6 +126,7 @@ class SessionBuilder {
     int maxReviews = 100,
     int testCount = 12,
     StudyDirection direction = StudyDirection.forward,
+    String language = 'en',
   }) {
     final due = cards.where((c) => !c.review.isNew && c.isDue(now)).toList();
     final fresh = cards.where((c) => c.review.isNew).toList();
@@ -89,20 +136,20 @@ class SessionBuilder {
       case StudyMode.flashcards:
         return [
           for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+            _ex(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
         ];
 
       case StudyMode.write:
         return [
           for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.type, reversed: _reversedFor(direction)),
+            _ex(c, ExerciseKind.type, reversed: _reversedFor(direction)),
         ];
 
       case StudyMode.spell:
         // «Диктант»: слышим слово на изучаемом языке и вписываем его по буквам.
         return [
           for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.spell),
+            _ex(c, ExerciseKind.spell),
         ];
 
       case StudyMode.assemble:
@@ -114,7 +161,7 @@ class SessionBuilder {
         return [
           for (final c
               in _selectSession(dueA, freshA, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.assemble),
+            _ex(c, ExerciseKind.assemble),
         ];
 
       case StudyMode.speed:
@@ -123,7 +170,7 @@ class SessionBuilder {
             due, fresh, now, min(newAllowed, 5), min(maxReviews, 15));
         return [
           for (final c in sel.take(15))
-            Exercise(
+            _ex(
               c,
               hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
               reversed: _reversedFor(direction),
@@ -143,7 +190,7 @@ class SessionBuilder {
         final sel = hard.take(max(1, maxReviews)).toList();
         return [
           for (final c in sel)
-            Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+            _ex(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
         ];
 
       case StudyMode.learn:
@@ -164,7 +211,7 @@ class SessionBuilder {
         // Слушаем слово на изучаемом языке и выбираем перевод.
         return [
           for (final c in _selectSession(due, fresh, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.listen),
+            _ex(c, ExerciseKind.listen),
         ];
 
       case StudyMode.cloze:
@@ -176,7 +223,7 @@ class SessionBuilder {
         return [
           for (final c
               in _selectSession(due2, fresh2, now, newAllowed, maxReviews))
-            Exercise(c, ExerciseKind.cloze),
+            _ex(c, ExerciseKind.cloze),
         ];
 
       case StudyMode.cram:
@@ -186,6 +233,20 @@ class SessionBuilder {
         return [
           for (final c in all)
             Exercise(c, ExerciseKind.flip, reversed: _reversedFor(direction)),
+        ];
+
+      case StudyMode.associations:
+        // «Связи»: два слова рядом по смыслу, третье чужое. Годятся только
+        // карты, у которых связь вообще есть.
+        final eligible =
+            cards.where((c) => buildOddOne(c, cards, language) != null).toList();
+        final dueL =
+            eligible.where((c) => !c.review.isNew && c.isDue(now)).toList();
+        final freshL = eligible.where((c) => c.review.isNew).toList();
+        return [
+          for (final c
+              in _selectSession(dueL, freshL, now, newAllowed, maxReviews))
+            _ex(c, ExerciseKind.oddOne),
         ];
 
       case StudyMode.revive:
@@ -211,11 +272,75 @@ class SessionBuilder {
     int maxReviews,
   ) {
     final reviews = List<WordCard>.from(due)
-      ..sort((a, b) => _urgency(a, now).compareTo(_urgency(b, now)));
+      ..sort((a, b) => _score(a, now).compareTo(_score(b, now)));
     final cappedReviews =
         maxReviews > 0 ? reviews.take(maxReviews).toList() : reviews;
-    final news = newAllowed > 0 ? fresh.take(newAllowed).toList() : <WordCard>[];
-    return _interleave(cappedReviews, news);
+
+    // Новые слова: вперёд идут те, что встретятся на ближайших страницах —
+    // выучить вечером и наткнуться на них в книге стоит дороже, чем выучить
+    // случайное слово из середины колоды.
+    final freshSorted = _upcoming.isEmpty
+        ? fresh
+        : (List<WordCard>.from(fresh)
+          ..sort((a, b) {
+            final ua = _isUpcoming(a) ? 0 : 1;
+            final ub = _isUpcoming(b) ? 0 : 1;
+            return ua.compareTo(ub);
+          }));
+    // Путаемые слова в один заход не пускаем: пара вроде affect/effect,
+    // введённая вместе, портит обе карточки разом.
+    final busy = due
+        .where((c) =>
+            c.review.state == FsrsState.learning ||
+            c.review.state == FsrsState.relearning)
+        .toList();
+    final news = newAllowed > 0
+        ? Interference.pickNew(freshSorted, busy).take(newAllowed).toList()
+        : <WordCard>[];
+    final mixed = _interleave(cappedReviews, news);
+    // Считаем ловушки ДО разведения — после него их в очереди уже не видно.
+    _separatedPairs = Interference.countConflicts(mixed);
+    return Interference.spread(mixed);
+  }
+
+  int _separatedPairs = 0;
+
+  /// Сколько путаемых пар оказалось в собранной сессии и было разведено.
+  int get separatedPairs => _separatedPairs;
+
+  /// Упражнение с проставленной причиной отбора.
+  Exercise _ex(WordCard c, ExerciseKind kind, {bool reversed = false}) =>
+      Exercise(c, kind, reversed: reversed, reason: _reasonFor(c));
+
+  /// Почему карта попала в сессию. Порядок важен: сначала то, что человек не
+  /// может вывести сам (сосед, книга), и только потом обычные «новое»/«срок».
+  SelectionReason _reasonFor(WordCard c) {
+    if (c.review.nudgedByNeighbour) return SelectionReason.neighbourLapse;
+    if (_isUpcoming(c)) return SelectionReason.book;
+    if (c.review.isNew) return SelectionReason.newWord;
+    return SelectionReason.due;
+  }
+
+  /// Слова из ближайших страниц читаемой книги (основы) и их язык.
+  Set<String> _upcoming = const {};
+  String _upcomingLang = 'en';
+
+  /// Сообщает билдеру, что человеку вот-вот встретится в книге.
+  /// Пустое множество возвращает обычное поведение.
+  void setReadingHorizon(Set<String> stems, String languageCode) {
+    _upcoming = stems;
+    _upcomingLang = languageCode;
+  }
+
+  bool _isUpcoming(WordCard c) =>
+      _upcoming.isNotEmpty &&
+      _upcoming.contains(Lemmatizer.stem(c.front, _upcomingLang));
+
+  /// Очередь повторов: срочность плюс небольшая фора словам из ближайших
+  /// страниц. Фора именно небольшая — забывание важнее удобного совпадения.
+  double _score(WordCard c, DateTime now) {
+    final u = _urgency(c, now);
+    return _isUpcoming(c) ? u * 0.8 : u;
   }
 
   /// Извлекаемость карты (0..1) сейчас — чем меньше, тем срочнее повтор.
@@ -251,20 +376,17 @@ class SessionBuilder {
     switch (c.review.phase) {
       case LearnPhase.unseen:
       case LearnPhase.recognize:
-        return Exercise(
-          c,
-          hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
-        );
+        return _ex(c, hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip);
       case LearnPhase.produce:
-        return Exercise(
+        return _ex(
           c,
           hasChoicePool ? ExerciseKind.choose : ExerciseKind.flip,
           reversed: true,
         );
       case LearnPhase.recall:
-        return Exercise(c, ExerciseKind.type);
+        return _ex(c, ExerciseKind.type);
       case LearnPhase.mastered:
-        return Exercise(c, ExerciseKind.flip);
+        return _ex(c, ExerciseKind.flip);
     }
   }
 
@@ -372,6 +494,49 @@ Cloze? buildCloze(WordCard card) {
   return null;
 }
 
+/// Упражнение «третий лишний»: два слова связаны, третье — чужое.
+class OddOne {
+  /// Варианты в том порядке, в каком их показывают.
+  final List<WordCard> options;
+
+  /// Индекс лишнего слова в [options].
+  final int oddIndex;
+
+  /// Чем связаны два «своих» слова — это и объясняем после ответа.
+  final LinkKind kind;
+
+  const OddOne(this.options, this.oddIndex, this.kind);
+
+  WordCard get odd => options[oddIndex];
+}
+
+/// Строит «третьего лишнего» вокруг [card]: берём её связь (вычисленную или
+/// проставленную руками) и добавляем слово, ни с чем здесь не связанное.
+/// null — если у карточки нет связей или в колоде не нашлось чужого слова.
+OddOne? buildOddOne(WordCard card, List<WordCard> pool, String lang) {
+  final links = WordLinks.all(card, pool, lang);
+  if (links.isEmpty) return null;
+  final link = links.first;
+
+  // Чужое слово: не сама карта, не её пара и ни с одной из них не связано.
+  final related = {
+    card.id,
+    link.card.id,
+    ...links.map((l) => l.card.id),
+    ...WordLinks.all(link.card, pool, lang).map((l) => l.card.id),
+  };
+  final strangers = pool.where((c) => !related.contains(c.id)).toList();
+  if (strangers.isEmpty) return null;
+
+  // Разброс по слову-карте, а не случайный: одна и та же карточка в рамках
+  // сессии не должна выдавать разный набор при пересборке.
+  final seed = card.id.hashCode;
+  final stranger = strangers[seed.abs() % strangers.length];
+
+  final options = [card, link.card, stranger]..shuffle(Random(seed));
+  return OddOne(options, options.indexOf(stranger), link.kind);
+}
+
 /// Упражнение «собери фразу»: целевое предложение и его слова-осколки.
 class Assemble {
   /// Целевое предложение (на изучаемом языке) — эталон.
@@ -421,40 +586,9 @@ String normalizeAnswer(String s) {
 
 /// Толерантная проверка: точное совпадение после нормализации ИЛИ расстояние
 /// Левенштейна ≤1 (одна опечатка) для слов длиннее 3 символов.
-bool answerMatches(String input, String expected) {
-  final a = normalizeAnswer(input);
-  final b = normalizeAnswer(expected);
-  if (a.isEmpty) return false;
-  if (a == b) return true;
-  // Иногда в переводе несколько вариантов через запятую/точку с запятой.
-  for (final part in b.split(RegExp(r'[,;/]'))) {
-    final p = part.trim();
-    if (p.isNotEmpty && (a == p || (p.length > 3 && _levenshtein(a, p) <= 1))) {
-      return true;
-    }
-  }
-  return b.length > 3 && _levenshtein(a, b) <= 1;
-}
-
-int _levenshtein(String a, String b) {
-  if (a == b) return 0;
-  if (a.isEmpty) return b.length;
-  if (b.isEmpty) return a.length;
-  var prev = List<int>.generate(b.length + 1, (i) => i);
-  var cur = List<int>.filled(b.length + 1, 0);
-  for (var i = 0; i < a.length; i++) {
-    cur[0] = i + 1;
-    for (var j = 0; j < b.length; j++) {
-      final cost = a[i] == b[j] ? 0 : 1;
-      cur[j + 1] = [
-        cur[j] + 1,
-        prev[j + 1] + 1,
-        prev[j] + cost,
-      ].reduce((x, y) => x < y ? x : y);
-    }
-    final tmp = prev;
-    prev = cur;
-    cur = tmp;
-  }
-  return prev[b.length];
-}
+///
+/// Разбор на «точно / описка / промах» живёт в [typedQuality] — здесь только
+/// ответ «засчитано ли». Одна общая функция на оба вопроса: иначе автооценка
+/// могла бы посчитать ответ опиской там, где сессия засчитала его как промах.
+bool answerMatches(String input, String expected) =>
+    typedQuality(input, expected) != TypedMatch.wrong;

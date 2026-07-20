@@ -17,6 +17,7 @@ import 'services/study_insights.dart';
 import 'study/session_screen.dart';
 import 'study/study_models.dart';
 import 'theme/app_theme.dart';
+import 'widgets/hook_editor_sheet.dart';
 import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
 import 'widgets/weekly_recap.dart';
@@ -271,6 +272,39 @@ class _ProgressScreenState extends State<ProgressScreen> {
           ],
         ),
       ),
+      if (_repo.reinforcedByReading > 0) ...[
+        const SizedBox(height: 10),
+        Reveal(
+          delay: const Duration(milliseconds: 210),
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+            decoration: BoxDecoration(
+              color: scheme.secondaryContainer,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.menu_book_rounded,
+                    size: 20, color: scheme.onSecondaryContainer),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    trf('reinforced_by_reading',
+                        {'n': '${_repo.reinforcedByReading}'}),
+                    style: TextStyle(
+                      fontFamily: AppTheme.bodyFont,
+                      fontSize: 13.5,
+                      height: 1.35,
+                      color: scheme.onSecondaryContainer,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     ];
   }
 
@@ -1075,50 +1109,106 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final top = hard.take(5).toList();
     return [
       _sectionTitle(tr('hardest_words'), scheme),
+      const SizedBox(height: 6),
+      Align(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          tr('hardest_words_sub'),
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            height: 1.4,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+      ),
       const SizedBox(height: 12),
       for (final c in top)
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            decoration: BoxDecoration(
-              color: scheme.surfaceContainerHigh,
-              borderRadius: BorderRadius.circular(18),
-            ),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.local_fire_department_rounded,
-                  color: scheme.error,
-                  size: 20,
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    '${c.front} — ${c.back}',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontFamily: AppTheme.bodyFont,
-                      fontWeight: FontWeight.w600,
-                      color: scheme.onSurface,
+          child: Material(
+            color: c.mnemonic.isEmpty
+                ? scheme.surfaceContainerHigh
+                : scheme.secondaryContainer,
+            borderRadius: BorderRadius.circular(18),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: () => _editHook(c),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                child: Row(
+                  children: [
+                    Icon(
+                      c.mnemonic.isEmpty
+                          ? Icons.lightbulb_outline_rounded
+                          : Icons.lightbulb_rounded,
+                      color: c.mnemonic.isEmpty
+                          ? scheme.error
+                          : scheme.onSecondaryContainer,
+                      size: 20,
                     ),
-                  ),
-                ),
-                if (c.review.lapses > 0)
-                  Text(
-                    '×${c.review.lapses}',
-                    style: TextStyle(
-                      fontFamily: AppTheme.displayFont,
-                      fontWeight: FontWeight.w700,
-                      color: scheme.error,
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${c.front} — ${c.back}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontFamily: AppTheme.bodyFont,
+                              fontWeight: FontWeight.w600,
+                              color: c.mnemonic.isEmpty
+                                  ? scheme.onSurface
+                                  : scheme.onSecondaryContainer,
+                            ),
+                          ),
+                          Text(
+                            c.mnemonic.isEmpty
+                                ? tr('hook_add')
+                                : c.mnemonic,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontFamily: AppTheme.bodyFont,
+                              fontSize: 12,
+                              color: c.mnemonic.isEmpty
+                                  ? scheme.onSurfaceVariant
+                                  : scheme.onSecondaryContainer
+                                      .withValues(alpha: 0.85),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-              ],
+                    if (c.review.lapses > 0) ...[
+                      const SizedBox(width: 8),
+                      Text(
+                        '×${c.review.lapses}',
+                        style: TextStyle(
+                          fontFamily: AppTheme.displayFont,
+                          fontWeight: FontWeight.w700,
+                          color: c.mnemonic.isEmpty
+                              ? scheme.error
+                              : scheme.onSecondaryContainer,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
             ),
           ),
         ),
     ];
+  }
+
+  /// Слово не даётся — самое время повесить на него крючок.
+  Future<void> _editHook(WordCard card) async {
+    final saved = await showHookEditor(context, card);
+    if (saved && mounted) setState(() {});
   }
 
   Widget _sectionTitle(String text, ColorScheme scheme) => Align(

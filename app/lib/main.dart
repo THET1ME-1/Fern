@@ -14,6 +14,7 @@ import 'progress_screen.dart';
 import 'recovery_screen.dart';
 import 'services/backup_service.dart';
 import 'services/billing_service.dart';
+import 'services/card_images.dart';
 import 'services/license_service.dart';
 import 'services/pro.dart';
 import 'services/deck_repository.dart';
@@ -56,6 +57,9 @@ Future<void> startFern() async {
   await LanguageRegistry.instance.load();
   await TranslationManager.instance.load();
   await ReaderSettings.instance.load();
+  // Каталог картинок карточек — до первого кадра, чтобы экраны строили путь
+  // к файлу синхронно, без мигания пустого места.
+  await CardImages.init();
   // Pro: ключ проверяется на устройстве, покупка в магазине подтягивается
   // фоном — оба источника должны быть известны до первого кадра, иначе
   // библиотека мигнёт замком у того, кто уже заплатил.

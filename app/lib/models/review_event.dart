@@ -19,12 +19,18 @@ class ReviewEvent {
   /// показ (newCard) от последующих.
   final int stateBefore;
 
+  /// Сколько миллисекунд заняло ответить (от показа вопроса до оценки).
+  /// `null` — время неизвестно (таймаут игры, оценка не из сессии). Пустое
+  /// значение честнее нуля: ноль читался бы как «ответил мгновенно».
+  final int? answerMs;
+
   const ReviewEvent({
     required this.cardId,
     required this.ts,
     required this.grade,
     required this.elapsedDays,
     required this.stateBefore,
+    this.answerMs,
   });
 
   /// Ответ засчитан как «вспомнил» (всё, кроме «Не помню»).

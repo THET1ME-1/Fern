@@ -12,6 +12,19 @@ class Fsrs {
   Fsrs._();
   static final Fsrs instance = Fsrs._();
 
+  /// Отдельный экземпляр для прогона истории «а что было бы, если»
+  /// (см. `services/schedule_lab.dart`). Синглтон для этого не годится:
+  /// симуляция не должна трогать веса, по которым живёт настоящее расписание.
+  factory Fsrs.forSimulation({
+    List<double>? weights,
+    double retention = 0.9,
+  }) {
+    final f = Fsrs._();
+    f.setWeights(weights);
+    f.requestRetention = retention;
+    return f;
+  }
+
   /// Дефолтные веса FSRS-5.
   static const List<double> defaultWeights = [
     0.40255, 1.18385, 3.173, 15.69105, 7.1949, 0.5345, 1.4604, 0.0046,
@@ -167,9 +180,72 @@ class Fsrs {
       ..stability = s
       ..difficulty = d
       ..reps = prev.reps + 1
-      ..lastReview = now;
+      ..lastReview = now
+      // Карту спросили — повод «подтянута из-за соседа» исчерпан.
+      ..nudgedByNeighbour = false;
 
     _schedule(prev, next, g, s, now, fuzz);
+    return next;
+  }
+
+  /// Доля прироста стабильности за одну встречу слова в тексте.
+  /// Скромная намеренно: узнать слово в предложении легче, чем вспомнить его
+  /// по карточке, и выдавать одно за другое нельзя.
+  static const double passiveGain = 0.15;
+
+  /// Слово попалось при чтении — это тоже припоминание, просто слабое.
+  ///
+  /// Возвращает новое состояние либо null, если встреча ничего не меняет:
+  /// у новых и переучиваемых карт (пассивное узнавание не учит с нуля), у
+  /// свежих в памяти (прибавлять нечего) и чаще раза в сутки на карту.
+  /// Прибавка тем больше, чем ближе слово к забыванию: встреченное вовремя
+  /// слово спасается, хорошо помнимое просто подтверждается.
+  ReviewState? passiveExposure(ReviewState prev, DateTime now) {
+    if (prev.state != FsrsState.review) return null;
+    if (prev.stability <= 0 || prev.lastReview == null) return null;
+    if (prev.lastSeen != null &&
+        now.difference(prev.lastSeen!) < const Duration(hours: 20)) {
+      return null;
+    }
+
+    final elapsedDays =
+        math.max(0, now.difference(prev.lastReview!).inSeconds / 86400.0)
+            .toDouble();
+    final r = retrievability(elapsedDays, prev.stability);
+    // Память ещё свежая — встреча проходит мимо, как повтор в тот же день.
+    if (r >= 0.9) return null;
+
+    final s = (prev.stability * (1 + passiveGain * (1 - r)))
+        .clamp(0.01, maximumInterval.toDouble());
+    final next = prev.copy()
+      ..stability = s
+      ..lastSeen = now;
+    // Срок сдвигаем от ПРОШЛОГО повтора: встреча укрепляет память, но не
+    // заменяет собой повтор, поэтому точка отсчёта не меняется.
+    next.due = prev.lastReview!.add(_reviewInterval(s, fuzz: false));
+    return next;
+  }
+
+  /// На сколько слабеет память соседнего слова, когда рядом случился срыв.
+  static const double lapseSpread = 0.9;
+
+  /// Сосед по смыслу сорвался — значит, и это слово держится хуже, чем
+  /// считает планировщик.
+  ///
+  /// Работает в одну сторону: срыв соседа СБЛИЖАЕТ повтор, но успех соседа
+  /// ничего не отодвигает. Ошибиться в сторону «спросим пораньше» дёшево,
+  /// в сторону «подождём подольше» — потеря слова.
+  ReviewState? weakenByNeighbour(ReviewState prev, DateTime now) {
+    if (prev.state != FsrsState.review) return null;
+    if (prev.stability <= 0 || prev.lastReview == null) return null;
+
+    final s = (prev.stability * lapseSpread).clamp(0.01, maximumInterval.toDouble());
+    final next = prev.copy()
+      ..stability = s
+      ..nudgedByNeighbour = true;
+    final due = prev.lastReview!.add(_reviewInterval(s, fuzz: false));
+    // Срок только приближаем: если он и так раньше, оставляем как есть.
+    next.due = (prev.due != null && prev.due!.isBefore(due)) ? prev.due : due;
     return next;
   }
 

@@ -3,9 +3,33 @@ import 'package:flutter/services.dart';
 
 import '../l10n/strings.dart';
 import '../services/deck_repository.dart';
+import 'study_models.dart';
 import '../theme/app_theme.dart';
 import '../widgets/confetti_overlay.dart';
 import '../widgets/reveal.dart';
+
+/// Что планировщик решил сам, пока собирал эту сессию.
+///
+/// Пять правок подачи (книга, соседи, интерференция) работают молча, и человеку
+/// они видны только как «почему-то другие слова». Сводка их проговаривает.
+class SessionPlan {
+  /// Сколько карт пришло по каждой причине отбора.
+  final Map<SelectionReason, int> byReason;
+
+  /// Сколько путаемых пар развели по очереди.
+  final int separatedPairs;
+
+  const SessionPlan({this.byReason = const {}, this.separatedPairs = 0});
+
+  int of(SelectionReason r) => byReason[r] ?? 0;
+
+  /// Есть ли о чём рассказывать. Обычная сессия «по срокам» объяснений не
+  /// требует — сводка появляется, когда планировщик правда вмешался.
+  bool get hasNews =>
+      of(SelectionReason.book) > 0 ||
+      of(SelectionReason.neighbourLapse) > 0 ||
+      separatedPairs > 0;
+}
 
 /// Итог сессии обучения.
 class SessionResult {
@@ -13,7 +37,17 @@ class SessionResult {
   final int correct;
   final Duration elapsed;
   final int? score; // очки режима «Быстрый повtор» (иначе null)
-  const SessionResult(this.answered, this.correct, this.elapsed, {this.score});
+
+  /// Решения планировщика по этой сессии (для блока «Что сделал алгоритм»).
+  final SessionPlan plan;
+
+  const SessionResult(
+    this.answered,
+    this.correct,
+    this.elapsed, {
+    this.score,
+    this.plan = const SessionPlan(),
+  });
 
   int get accuracy => answered == 0 ? 0 : ((correct / answered) * 100).round();
 }
@@ -145,6 +179,13 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   ],
                 ),
               ),
+              if (result.plan.hasNews) ...[
+                const SizedBox(height: 20),
+                Reveal(
+                  delay: const Duration(milliseconds: 220),
+                  child: _planCard(scheme, result.plan),
+                ),
+              ],
               const Spacer(),
               if (widget.onStudyMore != null)
                 Padding(
@@ -177,6 +218,75 @@ class _ResultsScreenState extends State<ResultsScreen> {
               ),
           ],
         ),
+      ),
+    );
+  }
+
+  /// «Что сделал алгоритм» — человеческим языком, по одной строке на решение.
+  Widget _planCard(ColorScheme scheme, SessionPlan plan) {
+    final lines = <(IconData, String)>[
+      if (plan.of(SelectionReason.book) > 0)
+        (
+          Icons.menu_book_rounded,
+          trf('plan_from_book',
+              {'w': trn('n_words', plan.of(SelectionReason.book))})
+        ),
+      if (plan.of(SelectionReason.neighbourLapse) > 0)
+        (
+          Icons.hub_rounded,
+          trf('plan_neighbours',
+              {'w': trn('n_words', plan.of(SelectionReason.neighbourLapse))})
+        ),
+      if (plan.separatedPairs > 0)
+        (
+          Icons.call_split_rounded,
+          trf('plan_separated', {'p': trn('n_pairs', plan.separatedPairs)})
+        ),
+    ];
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 18),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            tr('plan_title'),
+            style: TextStyle(
+              fontFamily: AppTheme.displayFont,
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+              color: scheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 10),
+          for (final (icon, text) in lines)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(icon, size: 16, color: scheme.primary),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        fontFamily: AppTheme.bodyFont,
+                        fontSize: 13.5,
+                        height: 1.3,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
       ),
     );
   }

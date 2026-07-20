@@ -41,6 +41,12 @@ class StudyModesGrid extends StatelessWidget {
     (StudyMode.speed, Icons.bolt_rounded, 'mode_speed', 'mode_speed_sub'),
     (StudyMode.audio, Icons.headphones_rounded, 'mode_audio', 'mode_audio_sub'),
     (StudyMode.cloze, Icons.short_text_rounded, 'mode_cloze', 'mode_cloze_sub'),
+    (
+      StudyMode.associations,
+      Icons.hub_rounded,
+      'mode_associations',
+      'mode_associations_sub',
+    ),
     (StudyMode.cram, Icons.event_available_rounded, 'mode_cram',
         'mode_cram_sub'),
   ];

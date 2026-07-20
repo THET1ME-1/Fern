@@ -9,6 +9,7 @@ import '../l10n/strings.dart';
 import '../models/book_chapter.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
+import '../services/exposure_service.dart';
 import '../services/lemmatizer.dart';
 import '../services/pos.dart';
 import '../services/source_library.dart';
@@ -105,6 +106,14 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
   int _furthest = 0;
   int _sessionWords = 0;
 
+  /// Слово текста: буквы любых алфавитов, дефисы и апострофы внутри.
+  static final RegExp _wordToken =
+      RegExp(r"[\p{L}][\p{L}\-']*", unicode: true);
+
+  /// Слова абзацев, прочитанных за эту сессию: в конце они пойдут в память как
+  /// слабое подкрепление (см. [ExposureService]).
+  final Set<String> _seenWords = {};
+
   @override
   void initState() {
     super.initState();
@@ -168,6 +177,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     if (index > _furthest) {
       for (var i = _furthest + 1; i <= index && i < _paragraphs.length; i++) {
         _sessionWords += _wordsIn(_paragraphs[i]);
+        _collectSeen(_paragraphs[i]);
       }
       _furthest = index;
     }
@@ -210,6 +220,11 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
     // Итог сессии чтения в общую статистику.
     final seconds = DateTime.now().difference(_openedAt).inSeconds;
     _repo.addReading(seconds: seconds, words: _sessionWords);
+    // Прочитанные слова подкрепляют память — отправляем «в фон», экран уже
+    // закрывается и ждать результат некому.
+    if (_seenWords.isNotEmpty) {
+      unawaited(ExposureService.record(_seenWords, _srcLang));
+    }
     _library.setBookPosition(widget.sourceId, _topIndex);
     _positions.itemPositions.removeListener(_onScroll);
     _settings.removeListener(_onSettings);
@@ -227,6 +242,14 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
 
   /// Ключ сверки слова (лемматизация) — общий для подсветки и добавления.
   String _normalize(String w) => Lemmatizer.stem(w, _srcLang);
+
+  /// Собирает слова абзаца, который человек прочитал.
+  void _collectSeen(String paragraph) {
+    for (final m in _wordToken.allMatches(paragraph)) {
+      final w = m.group(0)!;
+      if (w.length > 1) _seenWords.add(w.toLowerCase());
+    }
+  }
 
   /// Предложение, содержащее слово (для контекста и озвучки).
   String _sentenceFor(String paragraph, String word) {

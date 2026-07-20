@@ -1,0 +1,10 @@
+# Визуальный прогон (test/visual_check_test.dart) рисует экраны в PNG и сверяет
+# их с эталонами. Отрисовка зависит от машины и версии Flutter, поэтому в
+# обычный `flutter test` он не входит.
+#
+# Посмотреть на экраны:
+#   flutter test test/visual_check_test.dart --update-goldens --tags visual
+# затем открыть test/shots/*.png
+tags:
+  visual:
+    skip: "визуальный прогон — только вручную, см. dart_test.yaml"
