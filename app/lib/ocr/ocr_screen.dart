@@ -9,6 +9,7 @@ import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
 import '../language_picker_sheet.dart';
 import '../models/deck.dart';
+import '../services/pro.dart';
 import '../services/deck_repository.dart';
 import '../services/ocr_service.dart';
 import '../services/pos.dart';
@@ -42,6 +43,7 @@ class _OcrScreenState extends State<OcrScreen> {
   bool _busy = false;
   bool _unsupported = false; // алфавит языка не читается движком
   Deck? _targetDeck;
+  bool _countedSource = false;
 
   @override
   void initState() {
@@ -139,8 +141,21 @@ class _OcrScreenState extends State<OcrScreen> {
     if (mounted) setState(() => _words = _extractWords(_text, _lang));
   }
 
+  /// Первое распознавание расходует бесплатный разбор.
+  ///
+  /// Снимок текста источника в библиотеке не создаёт, поэтому счётчик надо
+  /// трогать здесь: иначе камерой можно было собирать словарь бесконечно, а
+  /// платил бы только тот, кто открыл книгу файлом.
+  Future<void> _noteUsed() async {
+    if (_countedSource || Pro.active) return;
+    _countedSource = true;
+    await Pro.noteSourceUsed();
+  }
+
   Future<LookupAddResult> _add(
       String front, String back, String example, String? dictPos) async {
+    await _noteUsed();
+    if (!mounted) return LookupAddResult.cancelled;
     _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
         context, _lang, tr('ocr_source'));
     final deck = _targetDeck;
@@ -166,6 +181,8 @@ class _OcrScreenState extends State<OcrScreen> {
   Future<void> _addAll() async {
     final words = List<String>.from(_words);
     if (words.isEmpty) return;
+    await _noteUsed();
+    if (!mounted) return;
     HapticFeedback.selectionClick();
     _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
         context, _lang, tr('ocr_source'));

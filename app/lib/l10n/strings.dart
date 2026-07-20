@@ -1286,5 +1286,7 @@ const Map<String, Map<String, String>> _strings = {
   'goal_open_pro': {'ru': 'Открыть в Fern Pro', 'en': 'Unlock with Fern Pro'},
   'goal_study': {'ru': 'Учить слова книги', 'en': 'Learn words from this book'},
   'goal_target_hint': {'ru': 'До {n}% текста — порога, за которым словарь почти не нужен', 'en': 'To {n}% of the text — the point where a dictionary is barely needed'},
+  'pro_free_left': {'ru': 'Остался {n} бесплатный разбор', 'en': '{n} free source left'},
+  'pro_free_none': {'ru': 'Бесплатный разбор использован', 'en': 'Free source used'},
   'pro_denied': {'ru': 'Бесплатный разбор уже использован. Fern Pro открывает книги, видео и статьи без счёта', 'en': 'Your free source is already used. Fern Pro opens books, videos and articles without limits'},
 };

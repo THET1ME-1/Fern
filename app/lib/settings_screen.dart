@@ -1036,7 +1036,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _actionTile(
         icon: Icons.auto_awesome_rounded,
         title: tr('pro_title'),
-        subtitle: tr('pro_locked_hint'),
+        // Остаток видно заранее: прежде о лимите узнавали, только упёршись
+        // в него, и это читалось как поломка.
+        subtitle: Pro.freeSourcesLeft > 0
+            ? trf('pro_free_left', {'n': Pro.freeSourcesLeft})
+            : tr('pro_free_none'),
         onTap: () async {
           await ProSheet.show(context);
           if (mounted) setState(() {});

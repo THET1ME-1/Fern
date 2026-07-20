@@ -79,7 +79,13 @@ class Pro {
   /// должно дарить лишнюю книгу. Зовётся из `main` со списком источников —
   /// иначе `Pro` и `SourceLibrary` замкнулись бы друг на друге.
   static Future<void> migrateFromLibrary(int existingSources) async {
-    if (await SharedPreferencesAsync().getInt(_usedKey) != null) return;
+    if (await SharedPreferencesAsync().getInt(_usedKey) != null) {
+      // Счётчик уже есть — просто подтягиваем его в кэш: [freeSourcesLeft]
+      // синхронный, и настройки, открытые до первой проверки гейта, иначе
+      // показали бы неизрасходованный разбор.
+      await _loadUsed();
+      return;
+    }
     _used = existingSources;
     await SignedStore.setInt(_usedKey, existingSources);
   }
