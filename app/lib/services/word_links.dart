@@ -139,7 +139,30 @@ class WordLinks {
     if (shorter.length < 4) return false;
     if (!longer.startsWith(shorter)) return false;
     final tail = longer.length - shorter.length;
-    return tail >= 2 && tail <= 6;
+    if (tail < 2 || tail > 6) return false;
+    // Общий префикс — слабая улика: rest/restaurant, cost/costume,
+    // fort/fortune начинаются одинаково и родства не имеют. Связь `root`
+    // входит в spreadingKinds, поэтому цена ошибки не косметическая: срыв на
+    // «restaurant» тянул к досрочному повтору ни в чём не повинный «rest».
+    // Просим подтверждения от словообразования: хвост должен быть похож на
+    // суффикс, а не на начало другого слова.
+    return _looksLikeSuffix(longer.substring(shorter.length));
+  }
+
+  /// Продолжение слова похоже на суффикс, а не на случайное совпадение начала.
+  ///
+  /// Список закрытый: словообразовательных суффиксов в языке конечное число, а
+  /// «любые две-шесть букв» — это половина словаря.
+  static const List<String> _suffixes = [
+    'er', 'ers', 'or', 'ors', 'ist', 'ists', 'ing', 'ings', 'ed', 'es', 's',
+    'ness', 'ment', 'ments', 'tion', 'sion', 'ity', 'ties', 'ance', 'ence',
+    'able', 'ible', 'al', 'ial', 'ful', 'less', 'ly', 'y', 'ish', 'ive',
+    'ous', 'en', 'ify', 'ize', 'ise', 'hood', 'ship', 'dom', 'age',
+  ];
+
+  static bool _looksLikeSuffix(String tail) {
+    final t = tail.toLowerCase();
+    return _suffixes.contains(t);
   }
 
   static String _norm(String s) => s.trim().toLowerCase();
