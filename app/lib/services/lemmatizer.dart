@@ -39,7 +39,7 @@ class Lemmatizer {
     if (s.endsWith('ies') && s.length > 4) {
       s = '${s.substring(0, s.length - 3)}y'; // flies→fly, studies→study
     } else if (s.endsWith('es') &&
-        s.length > 4 &&
+        s.length >= 4 &&
         _endsBeforeEs(s)) {
       s = s.substring(0, s.length - 2); // boxes→box, wishes→wish, goes→go
     } else if (s.endsWith('s') && !s.endsWith('ss') && s.length > 3) {
@@ -68,11 +68,21 @@ class Lemmatizer {
   }
 
   // Снимает удвоенную согласную на конце (runn→run, stopp→stop).
+  //
+  // Два ограничения, без которых основа расходится со словарной формой:
+  // f, l, s, z в английских корнях удваиваются сами (fall, spell, miss, buzz),
+  // и снимать их нельзя — иначе «falling» даёт «fal», а «fall» остаётся
+  // «fall», и карточка перестаёт опознаваться в книге. Основы короче трёх
+  // букв не трогаем по той же причине: «adding» иначе даёт «ad» против «add».
+  static const String _keepDoubled = 'flsz';
+
   static String _undouble(String s) {
-    if (s.length >= 3) {
+    if (s.length >= 4) {
       final a = s[s.length - 1];
       final b = s[s.length - 2];
-      if (a == b && !_isVowel(a)) return s.substring(0, s.length - 1);
+      if (a == b && !_isVowel(a) && !_keepDoubled.contains(a)) {
+        return s.substring(0, s.length - 1);
+      }
     }
     return s;
   }
@@ -85,7 +95,7 @@ class Lemmatizer {
   static const List<String> _ruEndings = [
     'ами', 'ями', 'ого', 'его', 'ому', 'ему', 'ыми', 'ими', 'ах', 'ях',
     'ов', 'ев', 'ей', 'ой', 'ий', 'ый', 'ая', 'яя', 'ое', 'ее', 'ые', 'ие',
-    'ам', 'ям', 'ум', 'ю', 'я', 'а', 'е', 'о', 'у', 'ы', 'и', 'й', 'ь',
+    'ам', 'ям', 'ом', 'ем', 'ю', 'я', 'а', 'е', 'о', 'у', 'ы', 'и', 'й', 'ь',
   ];
 
   static String _ru(String w) {

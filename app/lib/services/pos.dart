@@ -89,8 +89,13 @@ class PosDetect {
   static String? fromDictionary(String? dictPos) {
     if (dictPos == null || dictPos.trim().isEmpty) return null;
     final s = dictPos.toLowerCase();
-    for (final entry in _labels.entries) {
-      if (entry.key.length >= 3 && s.contains(entry.key)) return entry.value;
+    // Длинные метки проверяются первыми: «pronoun» содержит «noun», а
+    // «particle» — «article», и порядок объявления карты превращал
+    // местоимение в существительное, а частицу в артикль.
+    final labels = _labels.entries.where((e) => e.key.length >= 3).toList()
+      ..sort((a, b) => b.key.length.compareTo(a.key.length));
+    for (final entry in labels) {
+      if (s.contains(entry.key)) return entry.value;
     }
     return null;
   }

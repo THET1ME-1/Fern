@@ -45,7 +45,7 @@ class ExposureService {
     }
 
     if (touched.isNotEmpty) {
-      await repo.saveCards(touched);
+      await repo.updateCards(touched);
       await repo.addReinforcedByReading(touched.length);
     }
     return touched.length;

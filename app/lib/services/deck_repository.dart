@@ -649,12 +649,33 @@ class DeckRepository extends ChangeNotifier {
     return List<WordCard>.from(_cards);
   }
 
+  /// ЗАМЕНЯЕТ ВЕСЬ словарь переданным списком.
+  ///
+  /// Годится только там, где на руках действительно все карточки: посев,
+  /// восстановление из бэкапа. Вызов с частичным списком стирает остальное
+  /// безвозвратно — для правки нескольких карточек есть [updateCards].
   Future<void> saveCards(List<WordCard> cards) async {
     await _ensureLoaded();
     _cards
       ..clear()
       ..addAll(cards);
     _db!.replaceAllCards(_cards);
+    notifyListeners();
+  }
+
+  /// Точечно обновляет перечисленные карточки, остальные не трогает.
+  Future<void> updateCards(List<WordCard> cards) async {
+    if (cards.isEmpty) return;
+    await _ensureLoaded();
+    for (final card in cards) {
+      final at = _cards.indexWhere((c) => c.id == card.id);
+      if (at >= 0) {
+        _cards[at] = card;
+      } else {
+        _cards.add(card);
+      }
+    }
+    _db!.upsertCards(cards);
     notifyListeners();
   }
 
@@ -766,7 +787,7 @@ class DeckRepository extends ChangeNotifier {
       deck.languageCode,
       now: now,
     );
-    if (touched.isNotEmpty) await saveCards(touched);
+    if (touched.isNotEmpty) await updateCards(touched);
   }
 
   // ----------------------------- Журнал занятий -----------------------------
