@@ -16,7 +16,9 @@ void main() {
     await ThemeController.instance.load();
     await LocaleController.instance.load();
     await LocaleController.instance.setCode('ru');
-    // Сид грузит ассет колод (rootBundle) — только в реальном async.
+    // Посев ждёт выбранного языка изучения, а ассет колод (rootBundle)
+    // читается только в реальном async.
+    await DeckRepository.instance.setOnboarded(true);
     await tester.runAsync(() => DeckRepository.instance.seedDemoIfNeeded());
 
     // Высокий экран, чтобы дневная сводка + сетка колод помещались и элементы

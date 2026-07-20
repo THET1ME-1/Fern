@@ -28,8 +28,13 @@ void main() {
 
     expect(find.text('Что хочешь учить?'), findsOneWidget);
 
-    // По умолчанию язык — английский (без ассет-набора), поэтому FakeAsync ок.
-    await tester.tap(find.text('Начать'));
+    // «Начать» кладёт готовый набор выбранного языка, а тот читается из
+    // ассетов — rootBundle в FakeAsync виснет, поэтому только runAsync.
+    await tester.runAsync(() async {
+      await tester.tap(find.text('Начать'));
+      await tester.pump();
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+    });
     for (var i = 0; i < 6; i++) {
       await tester.pump(const Duration(milliseconds: 50));
     }

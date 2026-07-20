@@ -28,12 +28,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     try {
       final repo = DeckRepository.instance;
       await repo.setSelectedLanguageCode(_lang);
-      // Для не-английского с готовым набором добавим стартовую колоду сразу.
-      if (_lang != 'en' && StarterDecks.availableLanguages.contains(_lang)) {
-        final packs = await StarterDecks.forLanguage(_lang);
-        if (packs.isNotEmpty) await StarterDecks.add(packs.first);
-      }
       await repo.setOnboarded(true);
+      // Готовый набор — целиком и ровно для выбранного языка.
+      await StarterDecks.seedFor(_lang);
       widget.onDone();
     } catch (_) {
       // Иначе кнопка «Начать» осталась бы заблокированной навсегда.

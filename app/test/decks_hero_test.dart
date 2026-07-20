@@ -18,6 +18,9 @@ void main() {
     // Сид грузит ассет (rootBundle), а он не работает в FakeAsync — гоняем
     // через runAsync (реальный event loop).
     await tester.runAsync(() async {
+      // Посев ждёт выбранного языка изучения — в тестах отмечаем
+      // онбординг пройденным.
+      await DeckRepository.instance.setOnboarded(true);
       await repo.seedDemoIfNeeded();
       await repo.logSession(reviews: 7, correct: 6); // занятие сегодня
     });

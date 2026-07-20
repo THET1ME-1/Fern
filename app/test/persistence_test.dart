@@ -41,8 +41,14 @@ void main() {
   });
 
   test('re-seed does not wipe user deck', () async {
+    // Посев ждёт выбранного языка изучения — в тестах отмечаем
+    // онбординг пройденным.
+    await DeckRepository.instance.setOnboarded(true);
     await repo.seedDemoIfNeeded();
     await repo.upsertDeck(deckOf('mine', name: 'Mine'));
+    // Посев ждёт выбранного языка изучения — в тестах отмечаем
+    // онбординг пройденным.
+    await DeckRepository.instance.setOnboarded(true);
     await repo.seedDemoIfNeeded();
     final after = await repo.loadDecks();
     expect(after.where((d) => d.id == 'mine').length, 1);

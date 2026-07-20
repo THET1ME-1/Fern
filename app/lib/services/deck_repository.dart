@@ -1496,8 +1496,13 @@ class DeckRepository extends ChangeNotifier {
     final storedVer = await _prefs.getInt(_kSeedVersion) ?? 0;
     final seededFlag = await _prefs.getBool(_kSeededDemo) ?? false;
 
-    // Первый запуск — сеем свежие колоды по умолчанию.
+    // Первый запуск — сеем набор по умолчанию, но ТОЛЬКО когда язык изучения
+    // уже выбран. Раньше английские колоды появлялись до онбординга: выбрал
+    // испанский — и четыре английские остались в базе, скрытые фильтром по
+    // языку. Невидимая работа, всплывающая при переключении языка.
     if (!seededFlag && _decks.isEmpty) {
+      final onboarded = await _prefs.getBool(_kOnboarded) ?? false;
+      if (!onboarded) return;
       await _seedDefaults();
       return;
     }

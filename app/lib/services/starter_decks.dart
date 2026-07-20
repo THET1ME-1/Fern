@@ -47,6 +47,22 @@ class StarterDecks {
   /// Английский НЕ здесь — он сеется как набор по умолчанию.
   static const Set<String> availableLanguages = {'es', 'de', 'fr', 'it'};
 
+  /// Кладёт готовый набор для выбранного языка изучения — целиком, все колоды.
+  ///
+  /// Английский лежит отдельным ассетом (он же набор по умолчанию), остальные
+  /// — в `assets/starter`. Для языка без набора не происходит ничего: пустой
+  /// экран колод честнее чужих слов.
+  static Future<void> seedFor(String code) async {
+    if (code == 'en') {
+      await DeckRepository.instance.seedDemoIfNeeded();
+      return;
+    }
+    if (!availableLanguages.contains(code)) return;
+    for (final pack in await forLanguage(code)) {
+      await add(pack);
+    }
+  }
+
   /// Возвращает готовые колоды для языка (пусто, если для него нет набора).
   static Future<List<StarterPack>> forLanguage(String code) async {
     String raw;
@@ -96,7 +112,12 @@ class StarterDecks {
     final stamp = (now ?? DateTime.now()).millisecondsSinceEpoch;
     final existing = await repo.loadDecks();
     final colorIndex = existing.length % _palette.length;
-    final deckId = 'starter_${pack.languageCode}_$stamp';
+    // В идентификатор входит сам набор, а не только метка времени: четыре
+    // колоды набора добавляются подряд и укладываются в одну миллисекунду —
+    // с одинаковым id они затирали друг друга, и от набора оставалась
+    // последняя колода.
+    final slug = (pack.nameKey ?? pack.name).replaceAll(RegExp(r'\W+'), '_');
+    final deckId = 'starter_${pack.languageCode}_${slug}_$stamp';
     final deck = Deck(
       id: deckId,
       languageCode: pack.languageCode,
@@ -110,7 +131,7 @@ class StarterDecks {
     final cards = <WordCard>[
       for (var i = 0; i < pack.cards.length; i++)
         WordCard(
-          id: 'card_${stamp}_$i',
+          id: '${deckId}_$i',
           deckId: deckId,
           front: pack.cards[i].front,
           back: pack.cards[i].back,

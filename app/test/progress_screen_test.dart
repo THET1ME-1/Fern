@@ -16,6 +16,9 @@ void main() {
     await repo.init();
     await LocaleController.instance.setCode('ru');
     await tester.runAsync(() async {
+      // Посев ждёт выбранного языка изучения — в тестах отмечаем
+      // онбординг пройденным.
+      await DeckRepository.instance.setOnboarded(true);
       await repo.seedDemoIfNeeded(); // грузит ассет — только в реальном async
       await repo.logSession(reviews: 9, correct: 7);
     });
