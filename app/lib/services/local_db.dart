@@ -143,7 +143,14 @@ class LocalDb {
     db.execute(
         'CREATE INDEX IF NOT EXISTS idx_revlog_card ON review_events(card_id, ts)');
     _migrate(db);
-    db.execute('PRAGMA user_version=$_schemaVersion');
+    // Версию только ПОДНИМАЕМ. База, побывавшая под более новой сборкой (человек
+    // откатил приложение), уже несёт колонки будущей схемы; понизив отметку, мы
+    // заставили бы следующий апгрейд мигрировать заново — по колонкам, которые
+    // на месте, то есть с падением на «duplicate column».
+    final current = db.select('PRAGMA user_version').first.values.first as int;
+    if (current < _schemaVersion) {
+      db.execute('PRAGMA user_version=$_schemaVersion');
+    }
   }
 
   /// Версия схемы. Растёт вместе с каждой миграцией ниже.
@@ -151,15 +158,26 @@ class LocalDb {
 
   /// Догоняет схему на базах, созданных прежними версиями приложения.
   /// `CREATE TABLE IF NOT EXISTS` новые КОЛОНКИ не добавляет — только ALTER.
+  ///
+  /// Шаг `ALTER` и отметка `user_version` — разные автокоммиты, и между ними
+  /// система может убить процесс (первый запуск после обновления — обычное для
+  /// этого место). Следующий запуск повторит миграцию, поэтому каждый шаг
+  /// смотрит на фактические колонки, а не на номер версии. Падение здесь стоит
+  /// дорого: `open()` бросает, приложение уходит на аварийный экран, а обе его
+  /// кнопки отправляют исправную базу в карантин.
   void _migrate(Database db) {
     final from = db.select('PRAGMA user_version').first.values.first as int;
     if (from == 0 || from >= _schemaVersion) return; // пустая или уже свежая
-    if (from < 3) {
-      db.execute('ALTER TABLE review_events ADD COLUMN answer_ms INTEGER');
-    }
-    if (from < 4) {
-      db.execute('ALTER TABLE review_events ADD COLUMN kind INTEGER');
-    }
+    _addColumnIfMissing(db, 'review_events', 'answer_ms', 'INTEGER');
+    _addColumnIfMissing(db, 'review_events', 'kind', 'INTEGER');
+  }
+
+  void _addColumnIfMissing(
+      Database db, String table, String column, String type) {
+    final has = db
+        .select('PRAGMA table_info($table)')
+        .any((r) => (r['name'] as String).toLowerCase() == column);
+    if (!has) db.execute('ALTER TABLE $table ADD COLUMN $column $type');
   }
 
   /// Закрывает соединение (данные остаются на диске). Следующий [open] поднимет
