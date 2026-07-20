@@ -216,9 +216,13 @@ class Fsrs {
       d = _nextDifficulty(prev.difficulty, g);
       if (g == Rating.again) {
         s = _failStability(prev.difficulty, prev.stability, r);
-      } else if (prev.state == FsrsState.learning ||
-          prev.state == FsrsState.relearning ||
-          elapsedDays < 1.0) {
+      } else if (elapsedDays < 1.0) {
+        // Короткая формула — про внутридневные шаги, и решает тут ПРОШЕДШЕЕ
+        // время, а не ярлык стадии. Прежнее условие («learning или relearning
+        // или меньше суток») проглатывало третью проверку: карта со сроком
+        // «+10 минут», брошенная на три месяца, при возвращении получала пять
+        // дней вместо пятидесяти трёх. А бросают их постоянно — сессия
+        // кончилась, приложение закрыли.
         s = _shortTermStability(prev.stability, g);
       } else {
         s = _successStability(prev.difficulty, prev.stability, r, g);
@@ -273,10 +277,21 @@ class Fsrs {
         .clamp(0.01, maximumInterval.toDouble());
     final next = prev.copy()
       ..stability = s
-      ..lastSeen = now;
+      ..lastSeen = now
+      // Срок пересчитан заново, значит и повод «подтянута из-за соседа»
+      // исчерпан: иначе сессия показывала метку «сосед сорвался» на карточке,
+      // которую уже никто не подтягивает.
+      ..nudgedByNeighbour = false;
     // Срок сдвигаем от ПРОШЛОГО повтора: встреча укрепляет память, но не
     // заменяет собой повтор, поэтому точка отсчёта не меняется.
-    next.due = prev.lastReview!.add(_reviewInterval(s, fuzz: false));
+    final shifted = prev.lastReview!.add(_reviewInterval(s, fuzz: false));
+    // Только вперёд. Пересчёт от нуля терял разброс, полученный при
+    // планировании (до +8%), а прибавка от встречи меньше него — и карта,
+    // которую собирались спросить через три недели, прыгала в сегодняшнюю
+    // очередь. Встреча слова не может сделать повтор СРОЧНЕЕ.
+    next.due = (prev.due != null && prev.due!.isAfter(shifted))
+        ? prev.due
+        : shifted;
     return next;
   }
 
@@ -307,9 +322,13 @@ class Fsrs {
       DateTime now, bool fuzz, Object? fuzzKey) {
     if (g == Rating.again) {
       if (prev.state == FsrsState.review) next.lapses = prev.lapses + 1;
-      next.state = prev.state == FsrsState.newCard
-          ? FsrsState.learning
-          : FsrsState.relearning;
+      // Переучивают только то, что было выучено. Карта, ни разу не дошедшая до
+      // review, после провала возвращается в learning на нулевой шаг: в
+      // relearning шаг всего один, и первое же «Хорошо» выпускало новое слово
+      // в review, минуя обе внутридневные ступени.
+      next.state = prev.state == FsrsState.review
+          ? FsrsState.relearning
+          : FsrsState.learning;
       final steps =
           next.state == FsrsState.relearning ? relearningSteps : learningSteps;
       next.step = 0;
