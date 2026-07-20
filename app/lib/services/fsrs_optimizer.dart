@@ -71,20 +71,29 @@ class FsrsOptimizer {
       4: [],
     };
     String? curCard;
-    var idxInCard = 0;
     var firstGrade = 0;
+    var captured = false;
     for (final e in events) {
       if (e.cardId != curCard) {
         curCard = e.cardId;
-        idxInCard = 0;
         firstGrade = 0;
+        captured = false;
       }
-      if (idxInCard == 0 && e.stateBefore == FsrsState.newCard.index) {
-        firstGrade = e.grade;
-      } else if (idxInCard == 1 && firstGrade != 0) {
-        byRating[firstGrade]!.add((e.elapsedDays, e.recalled));
+      if (firstGrade == 0) {
+        if (e.stateBefore == FsrsState.newCard.index) firstGrade = e.grade;
+        continue;
       }
-      idxInCard++;
+      if (captured) continue;
+      // Ждём ПЕРВЫЙ МЕЖСУТОЧНЫЙ показ. Вторым событием в Fern всегда идёт
+      // внутридневной шаг: новая карта плюс «Хорошо» — это срок через десять
+      // минут. Прочность в днях подгонялась против 0.007 дня, оптимум упирался
+      // в границу сетки, и гейт качества отбивал результат — кнопка
+      // «Оптимизировать» не срабатывала никогда. Вдобавок внутридневной шаг
+      // почти всегда «вспомнил», поэтому подгонка не отличала выученное слово
+      // от забытого.
+      if (e.elapsedDays < 1.0) continue;
+      byRating[firstGrade]!.add((e.elapsedDays, e.recalled));
+      captured = true;
     }
 
     final w = List<double>.of(Fsrs.defaultWeights);
