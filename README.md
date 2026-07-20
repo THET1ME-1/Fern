@@ -6,8 +6,8 @@
 
 <br>
 
-[![Release](https://img.shields.io/github/v/release/THET1ME-1/fern_releases?style=for-the-badge&label=release&color=2E9E6B)](https://github.com/THET1ME-1/fern_releases/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/THET1ME-1/fern_releases/total?style=for-the-badge&color=31473C)](https://github.com/THET1ME-1/fern_releases/releases)
+[![Release](https://img.shields.io/github/v/release/THET1ME-1/Fern?style=for-the-badge&label=release&color=2E9E6B)](https://github.com/THET1ME-1/Fern/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/THET1ME-1/Fern/total?style=for-the-badge&color=31473C)](https://github.com/THET1ME-1/Fern/releases)
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
@@ -19,7 +19,7 @@
 
 🇬🇧 🇷🇺 🇩🇪 🇫🇷 🇪🇸 🇮🇹 🇵🇹 · 7 languages
 
-[**⬇ Download**](https://github.com/THET1ME-1/fern_releases/releases/latest) · [English](#english) · [Русский](#-fern-русский)
+[**⬇ Download**](https://github.com/THET1ME-1/Fern/releases/latest) · [English](#english) · [Русский](#-fern-русский)
 
 </div>
 
@@ -51,12 +51,12 @@ Distributed **via GitHub Releases** (not on Google Play).
 
 **Recommended — [Obtainium](https://github.com/ImranR98/Obtainium)** (auto-updates):
 1. Install Obtainium.
-2. **Add App** → paste `https://github.com/THET1ME-1/fern_releases` → Add.
+2. **Add App** → paste `https://github.com/THET1ME-1/Fern` → Add.
 3. Pick the APK for your CPU (`arm64-v8a` — almost all modern phones).
 
-One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
+One-tap: `obtainium://add/https://github.com/THET1ME-1/Fern`
 
-Or download the APK from the [releases page](https://github.com/THET1ME-1/fern_releases/releases/latest). The app also **updates itself** from within.
+Or download the APK from the [releases page](https://github.com/THET1ME-1/Fern/releases/latest). The app also **updates itself** from within.
 
 Signing fingerprint (SHA-256) to verify the APK:
 `51:6E:FD:44:E8:AF:67:2B:A7:A9:B1:01:09:0D:B5:46:98:F5:BB:42:E1:09:C1:B0:0A:D4:AA:A5:2A:2C:E3:A1`
@@ -66,7 +66,7 @@ Signing fingerprint (SHA-256) to verify the APK:
 > version. **Open Settings → Backup and save your data first**, then uninstall the old app,
 > install 1.15.0 and restore. This is a one-time step — updates after that work as usual.
 
-**Website:** https://thet1me-1.github.io/fern_releases/ · **Privacy:** https://thet1me-1.github.io/fern_releases/privacy.html
+**Website:** https://thet1me-1.github.io/Fern/ · **Privacy:** https://thet1me-1.github.io/Fern/privacy.html
 
 ### Privacy
 No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it. Android's cloud backup is disabled, so nothing leaks to Google Drive either. Full policy: [docs/privacy-policy.md](docs/privacy-policy.md).
@@ -101,12 +101,12 @@ No account, no analytics, no cloud. Your decks, words and stats stay on your dev
 
 **Рекомендуется — [Obtainium](https://github.com/ImranR98/Obtainium)** (авто-обновления):
 1. Установи Obtainium.
-2. **Add App** → вставь `https://github.com/THET1ME-1/fern_releases` → Add.
+2. **Add App** → вставь `https://github.com/THET1ME-1/Fern` → Add.
 3. Выбери APK под свой процессор (`arm64-v8a` — почти все телефоны).
 
-One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
+One-tap: `obtainium://add/https://github.com/THET1ME-1/Fern`
 
-Или скачай APK со [страницы релизов](https://github.com/THET1ME-1/fern_releases/releases/latest). Приложение также **обновляется само** изнутри.
+Или скачай APK со [страницы релизов](https://github.com/THET1ME-1/Fern/releases/latest). Приложение также **обновляется само** изнутри.
 
 Отпечаток подписи (SHA-256) для проверки APK:
 `51:6E:FD:44:E8:AF:67:2B:A7:A9:B1:01:09:0D:B5:46:98:F5:BB:42:E1:09:C1:B0:0A:D4:AA:A5:2A:2C:E3:A1`
@@ -116,7 +116,7 @@ One-tap: `obtainium://add/https://github.com/THET1ME-1/fern_releases`
 > **Сначала зайди в Настройки → Резервная копия и сохрани данные**, потом удали старое
 > приложение, поставь 1.15.0 и восстанови копию. Это разово — дальше обновления идут как обычно.
 
-**Сайт:** https://thet1me-1.github.io/fern_releases/ · **Политика:** https://thet1me-1.github.io/fern_releases/privacy.html
+**Сайт:** https://thet1me-1.github.io/Fern/ · **Политика:** https://thet1me-1.github.io/Fern/privacy.html
 
 ### Приватность
 Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь. Системный бэкап Android отключён — данные не уезжают и в Google Drive. Полная политика: [docs/privacy-policy.md](docs/privacy-policy.md).

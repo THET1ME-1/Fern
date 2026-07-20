@@ -47,7 +47,7 @@ class UpdateService {
   // ОТДЕЛЬНЫЙ ПУБЛИЧНЫЙ репозиторий-канал релизов: в приватном репо ссылки на
   // APK-ассеты требуют авторизации, поэтому авто-скачивание не работало.
   static const String _owner = 'THET1ME-1';
-  static const String _repo = 'fern_releases';
+  static const String _repo = 'Fern';
 
   static Uri get _latestReleaseUri =>
       Uri.parse('https://api.github.com/repos/$_owner/$_repo/releases/latest');

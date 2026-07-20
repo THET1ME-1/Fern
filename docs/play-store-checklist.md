@@ -137,8 +137,8 @@ No ads, no tracking, no subscription for the basics.
 
 ## 5. Обязательные пункты консоли
 
-⬜ **Политика конфиденциальности:** https://thet1me-1.github.io/fern_releases/privacy.html
-⬜ **Сайт приложения:** https://thet1me-1.github.io/fern_releases/
+⬜ **Политика конфиденциальности:** https://thet1me-1.github.io/Fern/privacy.html
+⬜ **Сайт приложения:** https://thet1me-1.github.io/Fern/
 ⬜ **Возрастной рейтинг** — заполнить анкету (насилия, азартных игр, пользовательского контента нет → выйдет 3+/Everyone)
 ⬜ **Реклама:** нет
 ⬜ **Целевая аудитория:** 13+ (не «для детей», иначе включатся жёсткие требования Families Policy)

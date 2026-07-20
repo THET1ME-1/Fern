@@ -1,16 +1,15 @@
-name: Release → fern_releases
+name: Release
 
 # ── Как выпустить релиз ────────────────────────────────────────────────────
 #   1. Поднять version: в app/pubspec.yaml (напр. 1.15.1+25) и описать версию
 #      в CHANGELOG.md разделом «## [1.15.1] — дата». Закоммитить, запушить.
 #   2. git tag v1.15.1 && git push origin v1.15.1
-#   Сборка соберёт 3 APK и опубликует релиз в ПУБЛИЧНОМ репо THET1ME-1/fern_releases
+#   Сборка соберёт 3 APK и опубликует релиз в этом же репозитории
 #   (исходники Fern приватные) — оттуда их берёт апдейтер приложения.
 #
-#   Вручную (без тега): вкладка Actions → Release → fern_releases → Run workflow.
+#   Вручную (без тега): вкладка Actions → Release → Run workflow.
 #   Тег и version: в pubspec ДОЛЖНЫ совпадать — иначе сборка падает намеренно.
 #
-#   ТРЕБУЕТ СЕКРЕТ `RELEASES_REPO_TOKEN` — токен с правом записи в fern_releases
 #   (публикация идёт в ДРУГОЙ репозиторий, встроенного GITHUB_TOKEN не хватает).
 on:
   push:
@@ -147,11 +146,9 @@ jobs:
           } > dist/notes.md
           echo "---- заметки ----"; cat dist/notes.md
 
-      - name: Publish to fern_releases
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          repository: THET1ME-1/fern_releases
-          token: ${{ secrets.RELEASES_REPO_TOKEN }}
           tag_name: ${{ steps.ver.outputs.tag }}
           name: Fern ${{ steps.ver.outputs.name }}
           body_path: app/dist/notes.md

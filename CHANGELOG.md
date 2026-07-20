@@ -98,4 +98,4 @@
 
 ## Ранее
 Полный список — в описаниях релизов:
-https://github.com/THET1ME-1/fern_releases/releases
+https://github.com/THET1ME-1/Fern/releases
