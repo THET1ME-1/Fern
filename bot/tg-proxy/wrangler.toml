@@ -1,0 +1,11 @@
+name = "snt-tg-proxy"
+main = "src/index.js"
+compatibility_date = "2026-07-20"
+account_id = "2aa046441595c8cd541c3b42f2aa5ab7"
+
+# Логи в панели Cloudflare: без них молчащий бот снова придётся ловить вслепую.
+[observability]
+enabled = true
+
+# Секрет (в git его нет):
+#   echo -n "<токен бота>" | npx wrangler secret put TELEGRAM_BOT_TOKEN

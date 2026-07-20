@@ -34,6 +34,8 @@ from pathlib import Path
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
+from aiogram.client.session.aiohttp import AiohttpSession
+from aiogram.client.telegram import TelegramAPIServer
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, CommandStart
 from aiogram.types import (
@@ -57,6 +59,12 @@ OWNER = int(os.environ.get("SNT_BOT_OWNER", "0"))
 WEBHOOK_KEY = os.environ.get("SNT_WEBHOOK_KEY", "")
 WEBHOOK_PORT = int(os.environ.get("SNT_WEBHOOK_PORT", "8091"))
 DB_PATH = Path(os.environ.get("SNT_BOT_DB", Path(__file__).parent / "purchases.db"))
+
+# Адрес api.telegram.org или прокси перед ним. На российском хостинге телеграм
+# закрыт (ICMP проходит, TLS не устанавливается вовсе), и бот там молча крутит
+# ретраи — поэтому запросы идут через воркер Cloudflare (`bot/tg-proxy`).
+# Пусто = ходить в телеграм напрямую.
+API_BASE = os.environ.get("SNT_API_BASE", "").rstrip("/")
 
 # Товары магазина: идентификатор на lava.top → что выдавать.
 # Переопределяется переменной SNT_BOT_PRODUCTS (тот же JSON).
@@ -428,7 +436,12 @@ async def main() -> None:
         log.warning("SNT_WEBHOOK_KEY пуст — вебхук примет кого угодно")
 
     # Бот поднимается первым: вебхук с первой же секунды умеет писать владельцу.
-    bot = Bot(TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    session = None
+    if API_BASE:
+        log.info("телеграм через %s", API_BASE)
+        session = AiohttpSession(api=TelegramAPIServer.from_base(API_BASE))
+    bot = Bot(TOKEN, session=session,
+              default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     await setup_commands(bot)
 
     app = web.Application()

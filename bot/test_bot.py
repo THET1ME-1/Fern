@@ -73,6 +73,9 @@ def _module(name: str, **attrs) -> None:
 
 _module("aiogram", Bot=_Stub, Dispatcher=_Dispatcher, F=_Any())
 _module("aiogram.client.default", DefaultBotProperties=_Stub)
+_module("aiogram.client.session.aiohttp", AiohttpSession=_Stub)
+_module("aiogram.client.telegram", TelegramAPIServer=types.SimpleNamespace(
+    from_base=lambda base: base))
 _module("aiogram.enums", ParseMode=_Stub())
 _module("aiogram.filters", Command=_Stub, CommandStart=_Stub)
 _module("aiogram.types", BotCommand=_Stub, BotCommandScopeChat=_Stub,
