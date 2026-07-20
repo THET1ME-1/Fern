@@ -239,29 +239,31 @@ async def pull_loop() -> None:
     """
     import aiohttp
 
-    while True:
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(
-                    f"{PULL_URL}/pull", headers={"X-Pull-Key": PULL_KEY},
-                    timeout=aiohttp.ClientTimeout(total=30),
-                ) as response:
+    # Сессия одна на всё время работы. Новое TCP-соединение с этого хостинга
+    # изредка упирается в потерянный SYN и встаёт на двенадцать секунд, а
+    # keep-alive держит уже установленное и заодно греет путь для ответов
+    # покупателям.
+    headers = {"X-Pull-Key": PULL_KEY}
+    timeout = aiohttp.ClientTimeout(total=30)
+    async with aiohttp.ClientSession(headers=headers, timeout=timeout) as session:
+        while True:
+            try:
+                async with session.get(f"{PULL_URL}/pull") as response:
                     events = (await response.json()).get("events", [])
                 if events:
                     log.info("из очереди пришло событий: %s", len(events))
                     done = await handle_pulled(events)
                     if done:
                         async with session.post(
-                            f"{PULL_URL}/ack", headers={"X-Pull-Key": PULL_KEY},
-                            json={"keys": done},
-                            timeout=aiohttp.ClientTimeout(total=30),
+                            f"{PULL_URL}/ack", json={"keys": done},
                         ) as ack:
                             await ack.read()
-        except Exception:
-            # Сеть моргнула или воркер ответил не тем: заказы никуда не делись,
-            # они лежат в очереди неделю и дождутся следующего захода.
-            log.exception("очередь: заход не удался")
-        await asyncio.sleep(PULL_EVERY)
+            except Exception:
+                # Сеть моргнула или воркер ответил не тем: заказы никуда не
+                # делись, они лежат в очереди неделю и дождутся следующего
+                # захода.
+                log.exception("очередь: заход не удался")
+            await asyncio.sleep(PULL_EVERY)
 
 
 # ----------------------------- Бот -----------------------------
@@ -322,34 +324,39 @@ async def cmd_buy(message: Message) -> None:
     await message.answer(texts.PRODUCT_CARD, reply_markup=back(buy=True))
 
 
+# Часики на кнопке крутятся, пока бот не ответит на callback, поэтому
+# `query.answer()` идёт ПЕРВЫМ во всех обработчиках: связь с телеграмом у бота
+# непрямая, и заставлять кнопку «думать» всё время перерисовки незачем.
+
+
 @dp.callback_query(F.data == "menu")
 async def cb_menu(query: CallbackQuery) -> None:
-    await show(query, texts.WELCOME, menu())
     await query.answer()
+    await show(query, texts.WELCOME, menu())
 
 
 @dp.callback_query(F.data == "about")
 async def cb_about(query: CallbackQuery) -> None:
-    await show(query, texts.PRODUCT_CARD, back(buy=True))
     await query.answer()
+    await show(query, texts.PRODUCT_CARD, back(buy=True))
 
 
 @dp.callback_query(F.data == "help")
 async def cb_help(query: CallbackQuery) -> None:
-    await show(query, texts.HELP, back())
     await query.answer()
+    await show(query, texts.HELP, back())
 
 
 @dp.callback_query(F.data == "claim")
 async def cb_claim(query: CallbackQuery) -> None:
-    await show(query, texts.ASK_EMAIL, back())
     await query.answer()
+    await show(query, texts.ASK_EMAIL, back())
 
 
 @dp.callback_query(F.data == "mykeys")
 async def cb_mykeys(query: CallbackQuery) -> None:
-    await send_keys(query.message, query.from_user.id)
     await query.answer()
+    await send_keys(query.message, query.from_user.id)
 
 
 @dp.message(Command("help"))
