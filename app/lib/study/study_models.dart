@@ -298,9 +298,12 @@ class SessionBuilder {
         ? Interference.pickNew(freshSorted, busy).take(newAllowed).toList()
         : <WordCard>[];
     final mixed = _interleave(cappedReviews, news);
-    // Считаем ловушки ДО разведения — после него их в очереди уже не видно.
-    _separatedPairs = Interference.countConflicts(mixed);
-    return Interference.spread(mixed);
+    final spread = Interference.spread(mixed);
+    // Считаем ровно те пары, которые стояли рядом и разъехались. Раньше сюда
+    // шло число всех конфликтных пар набора: гнездо однокоренных давало
+    // «Развёл 191 путаемых слов» при двадцати двух карточках.
+    _separatedPairs = Interference.countSeparated(mixed, spread);
+    return spread;
   }
 
   int _separatedPairs = 0;

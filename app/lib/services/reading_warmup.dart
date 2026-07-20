@@ -31,7 +31,13 @@ class ReadingWarmup {
 
     final ahead = [
       for (final card in cards)
-        if (horizon.contains(Lemmatizer.stem(card.front, languageCode))) card,
+        // Новых тут быть не должно. Разминка ОСВЕЖАЕТ то, что вот-вот
+        // встретится в тексте; знакомство со словом — работа режима «Учить»,
+        // с его лесенкой и внутридневными шагами. Вдобавок каждый такой показ
+        // уходил в дневной лимит новых, и вечерняя сессия оставалась без них.
+        if (card.review.state != FsrsState.newCard &&
+            horizon.contains(Lemmatizer.stem(card.front, languageCode)))
+          card,
     ];
 
     // Впереди то, что вот-вот забудется: разминка должна спасать слабое, а не

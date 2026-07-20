@@ -37,6 +37,12 @@ class Interference {
     // между двумя верными ответами и запоминает, что «тут я всегда ошибаюсь».
     if (ba.isNotEmpty && ba == bb) return true;
 
+    // Омографы: пишется одинаково, значит путается сильнее всего. Порог длины
+    // тут ни при чём — он нужен, чтобы короткие РАЗНЫЕ слова не считались
+    // похожими по расстоянию. Из-за него `bow` (лук) и `bow` (поклон) не
+    // разводились вовсе, а таких пар в английском много: saw, tear, wind, bat.
+    if (fa.isNotEmpty && fa == fb) return true;
+
     // Похожая форма слова.
     if (fa.length >= minLength && fb.length >= minLength) {
       if ((fa.length - fb.length).abs() <= maxEditDistance &&
@@ -94,6 +100,35 @@ class Interference {
     for (var i = 0; i < cards.length; i++) {
       for (var j = i + 1; j < cards.length; j++) {
         if (conflict(cards[i], cards[j])) n++;
+      }
+    }
+    return n;
+  }
+
+  /// Сколько путаемых пар [spread] реально РАЗВЁЛ: были рядом в [before],
+  /// оказались далеко в [after].
+  ///
+  /// Экран результатов показывал вместо этого число всех конфликтных пар
+  /// набора — «Развёл 191 путаемых слов» при двадцати двух карточках в сессии.
+  /// Гнездо однокоренных даёт сотни пар квадратично, а развести алгоритм
+  /// успевает единицы: остальным просто некуда деваться.
+  static int countSeparated(
+    List<WordCard> before,
+    List<WordCard> after, {
+    int gap = minGap,
+  }) {
+    final posAfter = <String, int>{
+      for (var i = 0; i < after.length; i++) after[i].id: i,
+    };
+    var n = 0;
+    for (var i = 0; i < before.length; i++) {
+      for (var j = i + 1; j < before.length; j++) {
+        if (j - i > gap) break; // стояли далеко — разводить было нечего
+        final a = before[i], b = before[j];
+        if (!conflict(a, b)) continue;
+        final pa = posAfter[a.id], pb = posAfter[b.id];
+        if (pa == null || pb == null) continue;
+        if ((pa - pb).abs() > gap) n++;
       }
     }
     return n;
