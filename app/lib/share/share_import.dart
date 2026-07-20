@@ -17,6 +17,8 @@ import '../study/word_lookup_sheet.dart';
 import '../theme/app_theme.dart';
 import '../video/add_target.dart';
 import '../video/video_import_screen.dart';
+import '../services/pro.dart';
+import '../widgets/pro_sheet.dart';
 
 /// Приём контента из других приложений через «Поделиться»: YouTube-ссылка →
 /// разбор видео; короткий текст → слово в колоду; длинный → книга в Библиотеку.
@@ -78,7 +80,11 @@ class ShareImport {
   );
 
   /// Маршрутизирует полученный текст. Публичный — можно звать и из тестов.
-  static void route(BuildContext context, String text) {
+  static Future<void> route(BuildContext context, String text) async {
+    // Ссылка, прилетевшая из «Поделиться», обходит интерфейс библиотеки —
+    // поэтому проверка Pro нужна и здесь, иначе гейт дырявый.
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!context.mounted) return;
     if (_youtube.hasMatch(text)) {
       Navigator.push(
         context,

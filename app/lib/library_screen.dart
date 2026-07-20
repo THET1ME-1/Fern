@@ -6,6 +6,8 @@ import 'package:flutter/services.dart';
 
 import 'book_screen.dart';
 import 'l10n/strings.dart';
+import 'services/pro.dart';
+import 'widgets/pro_sheet.dart';
 import 'services/book_import.dart';
 import 'services/deck_repository.dart';
 import 'services/language_detect.dart';
@@ -131,7 +133,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   // ------------------------------- Действия -------------------------------
 
-  void _openVideoImport() {
+  Future<void> _openVideoImport() async {
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     HapticFeedback.selectionClick();
     Navigator.push(
       context,
@@ -141,6 +145,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   Future<void> _importBook() async {
     if (_importing) return;
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     HapticFeedback.selectionClick();
     FilePickerResult? result;
     try {
@@ -553,6 +559,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
   }
 
   Future<void> _addArticle() async {
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     final url = await _askUrl();
     if (url == null || url.trim().isEmpty || !mounted) return;
     await ShareImport.importArticle(context, url.trim());
@@ -595,7 +603,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
-  void _openOcr() {
+  Future<void> _openOcr() async {
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     HapticFeedback.selectionClick();
     Navigator.push(
       context,

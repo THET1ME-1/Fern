@@ -1,0 +1,19 @@
+# Бот продажи Fern Pro. Класть в /etc/systemd/system/, править пути и Environment.
+#   systemctl enable --now fern-bot
+[Unit]
+Description=Fern Pro bot
+After=network-online.target
+
+[Service]
+Type=simple
+User=fern
+WorkingDirectory=/opt/fern-bot
+Environment=FERN_BOT_TOKEN=ЗАМЕНИТЬ
+Environment=FERN_BOT_OWNER=ЗАМЕНИТЬ
+Environment=FERN_LICENSE_KEY_PATH=/opt/fern-bot/license_ed25519.key
+ExecStart=/opt/fern-bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

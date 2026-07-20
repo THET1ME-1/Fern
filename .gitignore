@@ -36,3 +36,8 @@ secrets.dart
 # ОС
 .DS_Store
 Thumbs.db
+
+# Бот: кэш Python и журнал покупок
+bot/__pycache__/
+bot/*.db
+bot/venv/

@@ -44,6 +44,8 @@ dependencies:
   # 1.9.0 требует compileSdk 37 и ломает gradle (kotlin()) — держим 1.8.x.
   receive_sharing_intent: ">=1.8.0 <1.9.0"
   in_app_update: ^4.2.5
+  cryptography: ^2.7.0
+  in_app_purchase: ^3.2.0
 
 dev_dependencies:
   flutter_test:

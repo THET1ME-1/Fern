@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import 'deck_screen.dart';
 import 'l10n/strings.dart';
+import 'services/pro.dart';
+import 'widgets/pro_sheet.dart';
 import 'language_picker_sheet.dart';
 import 'models/deck.dart';
 import 'models/pack.dart';
@@ -348,7 +350,9 @@ class _DecksScreenState extends State<DecksScreen> {
     _exitSelection();
   }
 
-  void _openVideo() {
+  Future<void> _openVideo() async {
+    if (!await requirePro(context, ProFeature.library)) return;
+    if (!mounted) return;
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => const VideoImportScreen()),

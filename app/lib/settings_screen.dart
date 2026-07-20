@@ -8,6 +8,11 @@ import 'package:share_plus/share_plus.dart';
 
 import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
+import 'services/billing_service.dart';
+import 'services/license_service.dart';
+import 'utils/build_config.dart';
+import 'services/pro.dart';
+import 'widgets/pro_sheet.dart';
 import 'settings/providers_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_import.dart';
@@ -280,6 +285,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             scheme: scheme,
             color: scheme.error,
           ),
+          const SizedBox(height: 16),
+          _sectionTitle(tr('pro_title'), scheme),
+          ..._proTiles(scheme),
           const SizedBox(height: 16),
           _sectionTitle(tr('about'), scheme),
           _infoTile(
@@ -846,8 +854,59 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return files.isEmpty ? null : files.first.path;
   }
 
+  /// Секция «Fern Pro»: статус покупки и то, чем её открыть.
+  ///
+  /// Куплено — показываем номер лицензии: по нему поддержка находит покупку,
+  /// а человек видит, что приложение помнит его оплату.
+  List<Widget> _proTiles(ColorScheme scheme) {
+    final license = LicenseService.instance.info;
+    if (Pro.active) {
+      return [
+        _infoTile(
+          icon: Icons.verified_rounded,
+          title: tr('pro_active'),
+          trailing: license == null
+              ? ''
+              : trf('pro_license_num', {'id': '${license.id}'}),
+          scheme: scheme,
+        ),
+        if (license != null)
+          _actionTile(
+            icon: Icons.link_off_rounded,
+            title: tr('pro_remove_key'),
+            onTap: () async {
+              await LicenseService.instance.clear();
+              if (mounted) setState(() {});
+            },
+            scheme: scheme,
+          ),
+      ];
+    }
+    return [
+      _actionTile(
+        icon: Icons.auto_awesome_rounded,
+        title: tr('pro_title'),
+        subtitle: tr('pro_locked_hint'),
+        onTap: () async {
+          await ProSheet.show(context);
+          if (mounted) setState(() {});
+        },
+        scheme: scheme,
+      ),
+      if (kPlayBuild)
+        _actionTile(
+          icon: Icons.restore_rounded,
+          title: tr('pro_restore'),
+          onTap: () => BillingService.instance.restore(),
+          scheme: scheme,
+        ),
+    ];
+  }
+
   /// Импорт колоды из Anki (.apkg) или текстового списка (CSV/TSV/TXT).
   Future<void> _importDeck() async {
+    if (!await requirePro(context, ProFeature.deckImport)) return;
+    if (!mounted) return;
     String? path;
     try {
       final result = await FilePicker.platform.pickFiles(
