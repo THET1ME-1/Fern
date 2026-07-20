@@ -574,6 +574,9 @@ class SourceLibrary extends ChangeNotifier {
       have.add(src.id);
     }
     await _persist();
+    // Восстановленные источники считаются израсходованными разборами: бэкап —
+    // обычный JSON, и дописать в него library можно сколько угодно.
+    await Pro.noteRestoredSources(_sources.length);
     notifyListeners();
   }
 }

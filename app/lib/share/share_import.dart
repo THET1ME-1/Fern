@@ -313,8 +313,13 @@ class _ShareSheet extends StatelessWidget {
               title: tr('share_as_book'),
               subtitle: tr('share_as_book_sub'),
               highlight: !hasUrl && !looksLikeWord,
-              onTap: () {
+              onTap: () async {
                 Navigator.pop(context);
+                // Книга — источник, значит гейт. У соседних пунктов он был, у
+                // этого его забыли: любой текст из браузера улетал в Fern
+                // книгой без счёта.
+                if (!await requirePro(context, ProFeature.library)) return;
+                if (!context.mounted) return;
                 ShareImport.addAsBook(context, text);
               },
             ),

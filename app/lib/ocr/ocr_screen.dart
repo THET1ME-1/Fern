@@ -10,6 +10,7 @@ import '../l10n/strings.dart';
 import '../language_picker_sheet.dart';
 import '../models/deck.dart';
 import '../services/pro.dart';
+import '../widgets/pro_sheet.dart';
 import '../services/deck_repository.dart';
 import '../services/ocr_service.dart';
 import '../services/pos.dart';
@@ -43,7 +44,10 @@ class _OcrScreenState extends State<OcrScreen> {
   bool _busy = false;
   bool _unsupported = false; // алфавит языка не читается движком
   Deck? _targetDeck;
-  bool _countedSource = false;
+  // Какие кадры уже оплачены разбором: возврат к прежнему снимку не должен
+  // стоить второго слота.
+  final Set<int> _countedPhotos = {};
+  int _photoId = 0;
 
   @override
   void initState() {
@@ -62,6 +66,7 @@ class _OcrScreenState extends State<OcrScreen> {
         _image = File(x.path);
         _text = '';
         _words = const [];
+        _photoId++; // новый кадр — новый разбор
       });
       await _runOcr();
     } catch (_) {
@@ -141,20 +146,26 @@ class _OcrScreenState extends State<OcrScreen> {
     if (mounted) setState(() => _words = _extractWords(_text, _lang));
   }
 
-  /// Первое распознавание расходует бесплатный разбор.
+  /// Каждый снимок расходует разбор: он и есть источник.
   ///
-  /// Снимок текста источника в библиотеке не создаёт, поэтому счётчик надо
-  /// трогать здесь: иначе камерой можно было собирать словарь бесконечно, а
-  /// платил бы только тот, кто открыл книгу файлом.
-  Future<void> _noteUsed() async {
-    if (_countedSource || Pro.active) return;
-    _countedSource = true;
+  /// Счёт ведётся по кадру, а не по открытому экрану — иначе, потратив
+  /// единственный слот, можно было, не закрывая экран, переснять постранично
+  /// целую бумажную книгу.
+  Future<bool> _noteUsed() async {
+    if (Pro.active) return true;
+    if (_countedPhotos.contains(_photoId)) return true;
+    if (!await Pro.allows(ProFeature.library)) {
+      if (!mounted) return false;
+      return requirePro(context, ProFeature.library);
+    }
+    _countedPhotos.add(_photoId);
     await Pro.noteSourceUsed();
+    return true;
   }
 
   Future<LookupAddResult> _add(
       String front, String back, String example, String? dictPos) async {
-    await _noteUsed();
+    if (!await _noteUsed()) return LookupAddResult.cancelled;
     if (!mounted) return LookupAddResult.cancelled;
     _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
         context, _lang, tr('ocr_source'));
@@ -181,8 +192,7 @@ class _OcrScreenState extends State<OcrScreen> {
   Future<void> _addAll() async {
     final words = List<String>.from(_words);
     if (words.isEmpty) return;
-    await _noteUsed();
-    if (!mounted) return;
+    if (!await _noteUsed() || !mounted) return;
     HapticFeedback.selectionClick();
     _targetDeck ??= await VideoDeckTarget.resolveInSourcePack(
         context, _lang, tr('ocr_source'));

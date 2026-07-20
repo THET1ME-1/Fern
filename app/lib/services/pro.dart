@@ -90,6 +90,20 @@ class Pro {
     await SignedStore.setInt(_usedKey, existingSources);
   }
 
+  /// Восстановление из бэкапа: [count] источников считаются израсходованными.
+  ///
+  /// Бэкап — обычный JSON, и в массив библиотеки дописывается сколько угодно
+  /// книг. Без этого счёта подставной файл открывал бы платный сценарий
+  /// целиком, а «восстановил на новом телефоне» перестало бы отличаться от
+  /// «принёс библиотеку друга».
+  static Future<void> noteRestoredSources(int count) async {
+    if (count <= 0) return;
+    final used = await _loadUsed();
+    if (count <= used) return;
+    _used = count;
+    await SignedStore.setInt(_usedKey, count);
+  }
+
   /// Работают ли надстройки поверх книги: чтение засчитывается как
   /// повторение, а слова ближайших страниц идут в очередь первыми.
   ///

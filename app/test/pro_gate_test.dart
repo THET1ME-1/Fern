@@ -87,6 +87,22 @@ void main() {
     expect(await Pro.allows(ProFeature.library), isFalse);
   });
 
+  test('Восстановленные из бэкапа источники считаются израсходованными',
+      () async {
+    // Бэкап — обычный JSON, и в массив библиотеки можно дописать сколько
+    // угодно книг. Значит восстановление обязано тратить разборы, иначе
+    // платить незачем: подставной файл открывает библиотеку целиком.
+    await Pro.noteRestoredSources(3);
+    expect(await Pro.allows(ProFeature.library), isFalse);
+  });
+
+  test('Восстановление не «доплачивает» разборы тому, кто их не тратил',
+      () async {
+    // Пустой бэкап ничего не меняет: у человека остаётся его первый разбор.
+    await Pro.noteRestoredSources(0);
+    expect(await Pro.allows(ProFeature.library), isTrue);
+  });
+
   test('Покупка в магазине открывает всё', () async {
     await BillingService.instance.debugSetOwned(true);
     expect(Pro.active, isTrue);
