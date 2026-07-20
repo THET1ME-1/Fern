@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import '../utils/day.dart';
 import 'word_card.dart';
 
 /// FSRS — Free Spaced Repetition Scheduler (актуальный стандарт, точнее SM-2).
@@ -177,6 +178,26 @@ class Fsrs {
         ? 0.0
         : math.max(0, now.difference(prev.lastReview!).inSeconds / 86400.0)
             .toDouble();
+
+    // Второй успех по той же карте за день расписание не двигает.
+    //
+    // Короткая ветка ниже умножает прочность на константу, не глядя на время,
+    // и потолка у этого нет. А «Трудные», «Под угрозой» и разминка показывают
+    // карточки без учёта срока, так что прогнать одну и ту же карту можно
+    // сколько угодно раз: шесть тапов «Хорошо» уносили её с 84 дней на 463, а
+    // «Легко» — на десять лет вперёд. Памяти эти минуты ничего не добавляют,
+    // отвечает человек уже по следу от предыдущего показа.
+    //
+    // Срыв — другое дело: забыл значит забыл, и такой ответ проходит дальше.
+    // Ошибиться в сторону «спросим раньше» дёшево, в обратную — потеря слова.
+    if (prev.state == FsrsState.review &&
+        g != Rating.again &&
+        prev.lastReview != null &&
+        startOfDay(prev.lastReview!) == startOfDay(now)) {
+      return prev.copy()
+        ..reps = prev.reps + 1
+        ..nudgedByNeighbour = false;
+    }
 
     double s;
     double d;
