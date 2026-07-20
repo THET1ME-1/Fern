@@ -83,6 +83,9 @@ class DeckRepository extends ChangeNotifier {
   static const String _kReminderHour = 'reminderHour';
   static const String _kReminderMinute = 'reminderMinute';
   static const String _kOnboarded = 'onboarded';
+  // Ключ Fern Pro. Пишет и читает его LicenseService; репозиторий знает имя
+  // только чтобы класть ключ в бэкап и доставать обратно.
+  static const String _kLicenseKey = 'licenseKey';
 
   // Перевод: список пользовательских серверов (JSON) и id активного провайдера.
   static const String _kTransEndpoints = 'translationEndpoints';
@@ -1241,6 +1244,10 @@ class DeckRepository extends ChangeNotifier {
         'reminderEnabled': await _prefs.getBool(_kReminderOn),
         'reminderHour': await _prefs.getInt(_kReminderHour),
         'reminderMinute': await _prefs.getInt(_kReminderMinute),
+        // Ключ Pro: без него человек после смены телефона восстанавливает
+        // словарь и прогресс, а покупка пропадает. Новой дыры это не делает —
+        // ключ и так копируемая строка, не привязанная к устройству.
+        'licenseKey': await _prefs.getString(_kLicenseKey),
       },
     };
   }
@@ -1388,6 +1395,7 @@ class DeckRepository extends ChangeNotifier {
       if (s[key] is String) await _prefs.setString(prefKey, s[key] as String);
     }
 
+    await setStr('licenseKey', _kLicenseKey);
     await setInt('seedColor', _kSeedColor);
     await setInt('themeMode', _kThemeMode);
     await setBool('isDarkTheme', _kIsDarkTheme);

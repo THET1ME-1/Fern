@@ -45,3 +45,11 @@ bot/venv/
 # Снимки визуального прогона — служебные, пересобираются по требованию
 # (flutter test test/visual_check_test.dart --update-goldens --tags visual)
 app/test/shots/
+
+# Бот: база покупок содержит почты покупателей — в публичный репозиторий ей нельзя
+bot/purchases.db
+bot/*.db
+bot/venv/
+bot/__pycache__/
+__pycache__/
+*.pyc
