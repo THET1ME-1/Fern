@@ -51,6 +51,19 @@ void main() {
     });
   });
 
+  group('апостроф в самой карточке', () {
+    test('карточка с прямым апострофом опознаётся в книге с типографским', () {
+      // В карточках готовых наборов апостроф прямой (aujourd'hui), в
+      // вычитанных EPUB — типографский (aujourd’hui). Сверка идёт по основе,
+      // и без общего написания слово в книге не находится.
+      expect(Lemmatizer.stem('aujourd’hui', 'fr'),
+          Lemmatizer.stem("aujourd'hui", 'fr'));
+      expect(Lemmatizer.stem('don’t', 'en'), Lemmatizer.stem("don't", 'en'));
+      expect(Lemmatizer.stem('dell’acqua', 'it'),
+          Lemmatizer.stem("dell'acqua", 'it'));
+    });
+  });
+
   group('однокоренные слова', () {
     test('случайное совпадение начала не делает слова родственными', () {
       // Общий префикс от четырёх букв и хвост в 2-6 букв — слишком слабое

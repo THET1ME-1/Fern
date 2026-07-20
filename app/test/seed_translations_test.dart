@@ -20,7 +20,16 @@ const _assets = [
   'assets/starter/de.json',
   'assets/starter/fr.json',
   'assets/starter/it.json',
+  'assets/starter/ru.json',
 ];
+
+/// Раскладка набора: столько карточек в колоде с таким ключом имени.
+const _layout = {
+  'seed_deck_first_words': 180,
+  'seed_deck_verbs': 140,
+  'seed_deck_food': 100,
+  'seed_deck_clothes': 80,
+};
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -49,6 +58,50 @@ void main() {
       }
       expect(gaps, isEmpty,
           reason: 'без перевода остались: ${gaps.take(10).join(', ')}');
+    });
+  }
+
+  for (final path in _assets) {
+    test('$path: 500 слов в четырёх колодах, без повторов', () async {
+      final raw = await rootBundle.loadString(path);
+      final data = jsonDecode(raw) as Map<String, dynamic>;
+      final decks = (data['decks'] as List).cast<Map<String, dynamic>>();
+
+      final sizes = {
+        for (final d in decks)
+          d['nameKey'] as String: (d['cards'] as List).length,
+      };
+      expect(sizes, _layout, reason: 'раскладка набора должна совпадать');
+
+      final cards = [
+        for (final d in decks) ...(d['cards'] as List).cast<Map<String, dynamic>>(),
+      ];
+      expect(cards.length, 500, reason: 'набор на 500 слов — это обещание');
+
+      // Одно слово дважды допустимо только с РАЗНЫМИ значениями: «orange» —
+      // оранжевый и апельсин. Одинаковый перевод в двух колодах значит, что
+      // человек учит одно и то же дважды, а интерференция ещё и считает такую
+      // пару путаемой.
+      final byFront = <String, Set<String>>{};
+      for (final card in cards) {
+        final front = card['front'] as String;
+        final ru = ((card['back'] as Map)['ru'] as String?)?.trim() ?? '';
+        byFront.putIfAbsent(front, () => <String>{}).add(ru);
+      }
+      final repeats = [
+        for (final e in byFront.entries)
+          if (e.value.length == 1 &&
+              cards.where((c) => c['front'] == e.key).length > 1)
+            e.key,
+      ];
+      expect(repeats, isEmpty,
+          reason: 'повторы с тем же значением: ${repeats.join(', ')}');
+
+      final noExample = [
+        for (final c in cards)
+          if (((c['example'] as String?) ?? '').trim().isEmpty) c['front'],
+      ];
+      expect(noExample, isEmpty);
     });
   }
 

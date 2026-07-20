@@ -12,7 +12,10 @@ class Lemmatizer {
 
   /// Основа слова [word] для языка [lang] (код вроде 'en', 'ru').
   static String stem(String word, String lang) {
-    final w = word.toLowerCase();
+    // Апостроф приводим к одному виду. В карточках он прямой (aujourd'hui,
+    // don't), в вычитанных EPUB — типографский (’, U+2019), и без этой замены
+    // слово из книги никогда не совпадёт с карточкой: сверка идёт по основе.
+    final w = word.toLowerCase().replaceAll('\u2019', "'");
     switch (lang) {
       case 'en':
         return _en(w);
