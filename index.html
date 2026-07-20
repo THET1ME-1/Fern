@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fern — учи слова из книг и видео · Material 3</title>
+<meta name="description" content="Fern — флеш-карточки для языков в стиле Material 3 Expressive. Умное повторение FSRS, слова из книг, видео и фото. Офлайн, без аккаунта, без рекламы.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=block">
+<link rel="icon" type="image/png" href="assets/icon.png">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        bg: 'var(--bg)', surface: 'var(--surface-1)', surface2: 'var(--surface-2)', surface3: 'var(--surface-3)',
+        ink: 'var(--on-surface)', inkdim: 'var(--on-surface-var)', outline: 'var(--outline)',
+        primary: 'var(--primary)', onprimary: 'var(--on-primary)',
+        pcont: 'var(--primary-container)', onpcont: 'var(--on-primary-container)',
+        secondary: 'var(--secondary)', tertiary: 'var(--tertiary)', gold: 'var(--gold)',
+      },
+      fontFamily: {
+        display: ['Unbounded', 'system-ui', 'sans-serif'],
+        sans: ['Onest', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: { '4xl': '2rem', '5xl': '2.75rem', '6xl': '3.5rem' },
+    }
+  }
+}
+</script>
+
+<style>
+  :root{
+    --ease-emph: cubic-bezier(.2, 0, 0, 1);
+    --ease-spring: cubic-bezier(.34, 1.4, .5, 1);
+    --colorT: background-color .55s var(--ease-emph), color .55s var(--ease-emph), border-color .55s var(--ease-emph), fill .55s var(--ease-emph), box-shadow .55s var(--ease-emph);
+  }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--on-surface); transition:var(--colorT); overflow-x:hidden; }
+  ::selection{ background:var(--primary); color:var(--on-primary); }
+
+  .material-symbols-rounded{ font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; line-height:1; }
+  .icn-outline{ font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+  /* recolor transition on themed elements */
+  .themed, .themed *{ transition:var(--colorT); }
+
+  /* M3 buttons: pill + shape-morph on press + state layer */
+  .btn{ position:relative; overflow:hidden; border-radius:999px; transition:transform .28s var(--ease-spring), border-radius .28s var(--ease-spring), background-color .4s var(--ease-emph), box-shadow .4s var(--ease-emph); isolation:isolate; }
+  .btn::after{ content:''; position:absolute; inset:0; background:currentColor; opacity:0; transition:opacity .3s var(--ease-emph); z-index:-1; }
+  .btn:hover::after{ opacity:.09; }
+  .btn:active{ transform:scale(.94); border-radius:1.1rem; }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(30px); transition:opacity .8s var(--ease-emph), transform .8s var(--ease-emph); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* hero glow */
+  .glow{ background:radial-gradient(60% 55% at 50% 0%, var(--glow) 0%, transparent 70%); }
+
+  /* device frame */
+  .device{ border-radius:2.6rem; padding:.55rem; background:linear-gradient(160deg, var(--surface-3), var(--surface-1)); box-shadow: 0 40px 90px -30px rgba(0,0,0,.65), 0 0 0 1px color-mix(in oklab, var(--outline) 40%, transparent); }
+  .device-screen{ border-radius:2.1rem; overflow:hidden; background:var(--bg); }
+  .device img{ display:block; width:100%; }
+
+  /* swatch */
+  .swatch{ flex:0 0 auto; box-sizing:border-box; width:44px; height:44px; min-width:44px; border-radius:50%; cursor:pointer; transition:transform .3s var(--ease-spring), box-shadow .3s; position:relative; border:2px solid transparent; padding:0; }
+  .swatch:hover{ transform:scale(1.12); }
+  .swatch.sel{ box-shadow:0 0 0 3px var(--bg), 0 0 0 5px var(--primary); }
+  .swatch.sel::after{ content:'check'; font-family:'Material Symbols Rounded'; position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:22px; text-shadow:0 1px 3px rgba(0,0,0,.5); }
+
+  @keyframes floaty{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-14px) } }
+  .floaty{ animation:floaty 6s ease-in-out infinite; }
+  @keyframes floaty2{ 0%,100%{ transform:translateY(-8px) } 50%{ transform:translateY(8px) } }
+  .floaty2{ animation:floaty2 7s ease-in-out infinite; }
+
+  .marquee{ display:flex; gap:2.5rem; animation:scrollx 26s linear infinite; }
+  @keyframes scrollx{ from{ transform:translateX(0) } to{ transform:translateX(-50%) } }
+
+  /* language menu */
+  .lang-menu{ opacity:0; visibility:hidden; transform:translateY(8px) scale(.97); transform-origin:top right; transition:.24s var(--ease-emph); }
+  .lang-menu.open{ opacity:1; visibility:visible; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; } .reveal{ transition:none; opacity:1; transform:none; } }
+</style>
+</head>
+
+<body class="font-sans antialiased selection:text-onprimary">
+
+<!-- ===================== NAV ===================== -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <nav class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="mt-3 flex items-center gap-3 rounded-full border border-outline/30 bg-surface/70 px-3 py-2 backdrop-blur-xl themed" style="border-color:color-mix(in oklab,var(--outline) 35%,transparent)">
+      <a href="#top" class="flex items-center gap-2.5 pl-1 pr-2 shrink-0">
+        <img src="assets/icon.png" alt="Fern" class="h-9 w-9 rounded-xl">
+        <span class="font-display text-xl font-bold tracking-tight text-ink">Fern</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 ml-2 text-sm font-medium text-inkdim">
+        <a href="#features" class="btn px-4 py-2 hover:text-ink" data-i18n="nav_features">Возможности</a>
+        <a href="#design" class="btn px-4 py-2 hover:text-ink" data-i18n="nav_design">Оформление</a>
+        <a href="#gallery" class="btn px-4 py-2 hover:text-ink" data-i18n="nav_screens">Экраны</a>
+        <a href="#download" class="btn px-4 py-2 hover:text-ink" data-i18n="nav_download">Установка</a>
+      </div>
+      <div class="ml-auto flex items-center gap-1.5">
+        <!-- language -->
+        <div class="relative">
+          <button id="langBtn" class="btn flex items-center gap-1 px-3 py-2 text-sm font-semibold text-ink">
+            <span class="material-symbols-rounded icn-outline text-[20px]">language</span>
+            <span id="langLabel" class="hidden sm:inline">RU</span>
+            <span class="material-symbols-rounded icn-outline text-[18px]">expand_more</span>
+          </button>
+          <div id="langMenu" class="lang-menu absolute right-0 mt-2 w-44 rounded-3xl border border-outline/30 bg-surface2 p-2 shadow-2xl themed" style="border-color:color-mix(in oklab,var(--outline) 35%,transparent)"></div>
+        </div>
+        <!-- theme mode -->
+        <button id="modeBtn" title="Тема" class="btn grid h-10 w-10 place-items-center text-ink">
+          <span id="modeIcon" class="material-symbols-rounded text-[21px]">dark_mode</span>
+        </button>
+        <!-- install -->
+        <a href="#download" class="btn hidden sm:flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-onprimary">
+          <span class="material-symbols-rounded text-[18px]">download</span>
+          <span data-i18n="nav_cta">Установить</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<a id="top"></a>
+
+<!-- ===================== HERO ===================== -->
+<section class="relative overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-28">
+  <div class="glow pointer-events-none absolute inset-0 -top-20 h-[600px]"></div>
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <!-- copy -->
+    <div>
+      <div class="reveal inline-flex items-center gap-2 rounded-full border border-outline/40 bg-surface px-4 py-1.5 text-xs font-semibold text-inkdim" style="border-color:color-mix(in oklab,var(--outline) 40%,transparent)">
+        <span class="material-symbols-rounded text-[16px] text-primary">auto_awesome</span>
+        <span data-i18n="hero_badge">Material 3 Expressive · Open source</span>
+      </div>
+      <h1 class="reveal mt-6 font-display text-6xl sm:text-7xl xl:text-8xl font-black leading-[.9] tracking-tight text-ink">
+        Fern
+      </h1>
+      <p class="reveal mt-4 font-display text-2xl sm:text-3xl font-semibold text-ink" data-i18n="hero_tagline">Твой трекер фильмов и сериалов</p>
+      <p class="reveal mt-4 max-w-md text-lg text-inkdim leading-relaxed" data-i18n="hero_desc">Отмечай просмотренное, открывай новое и делись с друзьями — в выразительном дизайне Material 3. Локально, без рекламы, с открытым кодом.</p>
+      <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+        <a href="#download" class="btn flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-base font-bold text-onprimary shadow-lg">
+          <span class="material-symbols-rounded text-[20px]">download</span>
+          <span data-i18n="hero_cta_get">Установить</span>
+        </a>
+        <a href="#features" class="btn flex items-center gap-2 rounded-full bg-surface2 px-7 py-4 text-base font-bold text-ink border border-outline/40" style="border-color:color-mix(in oklab,var(--outline) 40%,transparent)">
+          <span class="material-symbols-rounded text-[20px]">auto_stories</span>
+          <span data-i18n="hero_cta_src">Как это работает</span>
+        </a>
+      </div>
+      <p class="reveal mt-5 text-sm font-medium text-inkdim" data-i18n="hero_free">Бесплатно · Без рекламы · GPL-3.0 · v0.15.4</p>
+    </div>
+
+    <!-- live recolorable mockup -->
+    <div class="reveal relative flex justify-center lg:justify-end">
+      <div class="absolute -inset-8 glow pointer-events-none opacity-70"></div>
+      <div class="floaty relative w-[300px] sm:w-[330px] device themed">
+        <div class="device-screen">
+          <!-- ==== Deck mock ==== -->
+          <div class="px-4 pt-3 pb-2 text-[11px] flex justify-between text-inkdim font-semibold">
+            <span>21:21</span>
+            <span class="flex gap-1 items-center"><span class="material-symbols-rounded icn-outline text-[13px]">bluetooth</span><span class="material-symbols-rounded icn-outline text-[13px]">wifi</span><span class="material-symbols-rounded text-[13px]">battery_full</span></span>
+          </div>
+          <div class="px-4 flex items-center justify-between">
+            <span class="material-symbols-rounded icn-outline text-[22px] text-inkdim">arrow_back</span>
+            <span class="font-display font-bold text-lg text-ink" data-i18n="mock_deck">Первые слова</span>
+            <span class="material-symbols-rounded icn-outline text-[20px] text-inkdim">more_vert</span>
+          </div>
+          <!-- daily ring -->
+          <div class="mx-4 mt-3 flex items-center gap-3 rounded-3xl bg-surface2 p-3">
+            <div class="relative grid h-12 w-12 place-items-center">
+              <svg viewBox="0 0 36 36" class="absolute inset-0 h-12 w-12 -rotate-90">
+                <circle cx="18" cy="18" r="15" fill="none" stroke="var(--surface-3)" stroke-width="4"></circle>
+                <circle cx="18" cy="18" r="15" fill="none" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" stroke-dasharray="94" stroke-dashoffset="56"></circle>
+              </svg>
+              <span class="text-xs font-black text-ink">8</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-xs font-bold text-ink" data-i18n="mock_today">Сегодня</p>
+              <p class="text-[11px] text-inkdim"><span class="text-primary font-bold">5</span> <span data-i18n="mock_streak">дней подряд</span></p>
+            </div>
+            <span class="material-symbols-rounded text-[20px] text-primary">local_fire_department</span>
+          </div>
+          <!-- word rows -->
+          <div class="mx-4 mt-3 space-y-2 pb-4">
+            <div class="flex items-center gap-3 rounded-3xl bg-surface2 p-2.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-pcont text-[10px] font-black text-onpcont">NEW</div>
+              <div class="min-w-0 flex-1">
+                <p class="truncate text-sm font-bold text-ink">hola</p>
+                <p class="text-[11px] text-inkdim">привет</p>
+              </div>
+              <span class="material-symbols-rounded text-[18px] text-inkdim">volume_up</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-3xl bg-surface2 p-2.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-pcont text-[10px] font-black text-onpcont">NEW</div>
+              <div class="min-w-0 flex-1">
+                <p class="truncate text-sm font-bold text-ink">gracias</p>
+                <p class="text-[11px] text-inkdim">спасибо</p>
+              </div>
+              <span class="material-symbols-rounded text-[18px] text-inkdim">volume_up</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-3xl bg-surface2 p-2.5">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary text-[10px] font-black text-onprimary">7д</div>
+              <div class="min-w-0 flex-1">
+                <p class="truncate text-sm font-bold text-ink">agua</p>
+                <p class="text-[11px] text-inkdim">вода</p>
+              </div>
+              <span class="material-symbols-rounded text-[18px] text-inkdim">volume_up</span>
+            </div>
+          </div>
+          <!-- bottom nav -->
+          <div class="flex items-center justify-around border-t border-outline/20 bg-surface px-2 py-2 text-inkdim" style="border-color:color-mix(in oklab,var(--outline) 20%,transparent)">
+            <span class="flex items-center gap-1 rounded-full bg-pcont px-4 py-1.5 text-onpcont"><span class="material-symbols-rounded text-[20px]">style</span></span>
+            <span class="material-symbols-rounded icn-outline text-[22px]">auto_stories</span>
+            <span class="material-symbols-rounded icn-outline text-[22px]">insights</span>
+            <span class="material-symbols-rounded icn-outline text-[22px]">settings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- where words come from -->
+  <div class="relative mx-auto max-w-7xl px-6 mt-16 sm:mt-20">
+    <p class="text-center text-xs font-semibold uppercase tracking-widest text-inkdim mb-5" data-i18n="sources">Слова приходят откуда угодно</p>
+    <div class="flex flex-wrap justify-center gap-3 text-sm font-bold text-inkdim">
+      <span class="rounded-full border border-outline/30 px-5 py-2" style="border-color:color-mix(in oklab,var(--outline) 30%,transparent)">YouTube</span>
+      <span class="rounded-full border border-outline/30 px-5 py-2" style="border-color:color-mix(in oklab,var(--outline) 30%,transparent)">EPUB · FB2</span>
+      <span class="rounded-full border border-outline/30 px-5 py-2" style="border-color:color-mix(in oklab,var(--outline) 30%,transparent)">Anki</span>
+      <span class="rounded-full border border-outline/30 px-5 py-2" style="border-color:color-mix(in oklab,var(--outline) 30%,transparent)" data-i18n="src_photo">Фото</span>
+      <span class="rounded-full border border-outline/30 px-5 py-2" style="border-color:color-mix(in oklab,var(--outline) 30%,transparent)" data-i18n="src_web">Статьи</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section id="features" class="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-28">
+  <div class="reveal max-w-2xl">
+    <p class="text-sm font-bold uppercase tracking-widest text-primary" data-i18n="features_kicker">Возможности</p>
+    <h2 class="mt-3 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-ink" data-i18n="features_title">Всё для киномана — в одном приложении</h2>
+    <p class="mt-4 text-lg text-inkdim" data-i18n="features_sub">Дневник, открытия, статистика и социальный слой. Быстро, приватно и красиво.</p>
+  </div>
+
+  <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="featGrid">
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">psychology</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f1_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f1_d">—</p>
+    </div>
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">menu_book</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f2_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f2_d">—</p>
+    </div>
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">smart_display</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f3_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f3_d">—</p>
+    </div>
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">extension</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f4_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f4_d">—</p>
+    </div>
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">photo_camera</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f5_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f5_d">—</p>
+    </div>
+    <div class="reveal group rounded-5xl bg-surface p-7 border border-outline/15 hover:-translate-y-1 transition-transform duration-500" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+      <div class="grid h-12 w-12 place-items-center rounded-2xl bg-pcont text-onpcont"><span class="material-symbols-rounded text-[26px]">lock</span></div>
+      <h3 class="mt-5 font-display text-xl font-bold text-ink" data-i18n="f6_t">—</h3>
+      <p class="mt-2 text-inkdim leading-relaxed" data-i18n="f6_d">—</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DESIGN / MATERIAL YOU ===================== -->
+<section id="design" class="relative overflow-hidden py-20 sm:py-28">
+  <div class="glow pointer-events-none absolute inset-0 opacity-60"></div>
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="reveal text-sm font-bold uppercase tracking-widest text-primary" data-i18n="design_kicker">Оформление</p>
+      <h2 class="reveal mt-3 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-ink" data-i18n="design_title">Material You. Твой цвет — везде.</h2>
+      <p class="reveal mt-4 text-lg text-inkdim leading-relaxed" data-i18n="design_desc">Выбери цвет темы — и вся палитра пересоберётся, точь-в-точь как в приложении. Восемь готовых тем, пипетка для своего оттенка, светлая и тёмная, AMOLED. Попробуй прямо здесь 👇</p>
+
+      <!-- picker -->
+      <div class="reveal mt-8 rounded-5xl bg-surface p-6 border border-outline/20 themed" style="border-color:color-mix(in oklab,var(--outline) 20%,transparent)">
+        <div class="flex items-center justify-between">
+          <p class="text-sm font-bold uppercase tracking-wider text-primary" data-i18n="design_pick">Цвет темы</p>
+          <!-- mode segmented -->
+          <div class="flex rounded-full bg-surface2 p-1 text-inkdim">
+            <button data-mode="light" class="modeSeg grid h-9 w-10 place-items-center rounded-full transition"><span class="material-symbols-rounded text-[19px]">light_mode</span></button>
+            <button data-mode="dark" class="modeSeg grid h-9 w-10 place-items-center rounded-full transition"><span class="material-symbols-rounded text-[19px]">dark_mode</span></button>
+          </div>
+        </div>
+        <div id="swatches" class="mt-5 flex flex-wrap gap-3"></div>
+        <label class="mt-4 flex items-center gap-3 rounded-full bg-surface2 px-4 py-2.5 cursor-pointer w-max">
+          <span class="material-symbols-rounded text-[20px] text-primary">colorize</span>
+          <span class="text-sm font-semibold text-ink" data-i18n="design_custom">Свой цвет</span>
+          <input type="color" id="customColor" value="#2E7D5B" class="h-7 w-7 cursor-pointer rounded-full border-0 bg-transparent p-0">
+        </label>
+      </div>
+    </div>
+
+    <!-- two live mockups -->
+    <div class="reveal relative flex justify-center gap-4 sm:gap-6">
+      <div class="floaty2 w-[210px] sm:w-[240px] device themed mt-10">
+        <div class="device-screen">
+          <div class="p-4 space-y-3">
+            <p class="text-sm font-bold uppercase tracking-wider text-primary" data-i18n="mock_appearance">Оформление</p>
+            <div class="flex rounded-full bg-surface2 p-1 text-inkdim">
+              <span class="grid flex-1 place-items-center rounded-full py-1.5"><span class="material-symbols-rounded text-[18px]">light_mode</span></span>
+              <span class="grid flex-1 place-items-center rounded-full bg-pcont py-1.5 text-onpcont"><span class="material-symbols-rounded text-[18px]">dark_mode</span></span>
+              <span class="grid flex-1 place-items-center rounded-full py-1.5 text-xs font-bold">A</span>
+              <span class="grid flex-1 place-items-center rounded-full py-1.5"><span class="material-symbols-rounded text-[18px]">schedule</span></span>
+            </div>
+            <div class="grid grid-cols-4 gap-2.5 pt-1 items-center">
+              <div class="aspect-square w-full rounded-full overflow-hidden grid grid-cols-2 grid-rows-2 themed"><span style="background:var(--primary-container)"></span><span style="background:var(--primary)"></span><span style="background:var(--secondary)"></span><span style="background:var(--tertiary)"></span></div>
+              <div class="aspect-square w-full rounded-full overflow-hidden grid grid-cols-2 grid-rows-2 themed"><span style="background:var(--primary)"></span><span style="background:var(--tertiary)"></span><span style="background:var(--primary-container)"></span><span style="background:var(--secondary)"></span></div>
+              <div class="aspect-square w-full rounded-full overflow-hidden grid grid-cols-2 grid-rows-2 themed"><span style="background:var(--secondary)"></span><span style="background:var(--primary-container)"></span><span style="background:var(--tertiary)"></span><span style="background:var(--primary)"></span></div>
+              <div class="aspect-square w-full rounded-full bg-surface2 grid place-items-center"><span class="material-symbols-rounded text-[16px] text-inkdim">colorize</span></div>
+            </div>
+            <div class="rounded-3xl bg-surface2 p-3 flex items-center gap-3">
+              <span class="material-symbols-rounded text-[20px] text-primary">auto_awesome</span>
+              <div class="flex-1"><p class="text-xs font-bold text-ink" data-i18n="mock_matyou">Material You</p></div>
+              <div class="h-5 w-9 rounded-full bg-primary relative"><span class="absolute right-0.5 top-0.5 h-4 w-4 rounded-full bg-onprimary"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="floaty w-[210px] sm:w-[240px] device themed">
+        <div class="device-screen">
+          <div class="p-3 space-y-2.5">
+            <div class="rounded-2xl bg-primary p-3">
+              <p class="text-center font-display text-2xl font-black text-onprimary">496</p>
+              <p class="text-center text-[10px] font-semibold text-onprimary/80" data-i18n="mock_due">К повтору</p>
+            </div>
+            <div class="flex gap-2">
+              <div class="flex-1 rounded-2xl bg-surface2 p-2.5 text-center">
+                <p class="font-display text-base font-black text-ink">500</p>
+                <p class="text-[10px] text-inkdim" data-i18n="mock_cards">Карточек</p>
+              </div>
+              <div class="flex-1 rounded-2xl bg-pcont p-2.5 text-center">
+                <p class="font-display text-base font-black text-onpcont">5</p>
+                <p class="text-[10px] text-onpcont/80" data-i18n="mock_streak_s">Серия</p>
+              </div>
+            </div>
+            <div class="rounded-2xl bg-surface2 p-3">
+              <p class="text-xs font-bold text-ink" data-i18n="mock_week">Твоя неделя</p>
+              <div class="mt-2 flex items-end gap-1 h-10">
+                <span class="flex-1 rounded-t bg-primary/40" style="height:35%"></span>
+                <span class="flex-1 rounded-t bg-primary/60" style="height:65%"></span>
+                <span class="flex-1 rounded-t bg-primary" style="height:100%"></span>
+                <span class="flex-1 rounded-t bg-primary/50" style="height:50%"></span>
+                <span class="flex-1 rounded-t bg-primary/70" style="height:80%"></span>
+                <span class="flex-1 rounded-t bg-surface3" style="height:20%"></span>
+                <span class="flex-1 rounded-t bg-surface3" style="height:30%"></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-around rounded-full bg-surface2 py-2 text-inkdim">
+              <span class="material-symbols-rounded text-[19px]">style</span>
+              <span class="material-symbols-rounded text-[19px]">auto_stories</span>
+              <span class="material-symbols-rounded text-[19px] text-primary">insights</span>
+              <span class="material-symbols-rounded text-[19px]">settings</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCREENSHOTS ===================== -->
+<section id="gallery" class="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-28">
+  <div class="reveal max-w-2xl mb-12">
+    <p class="text-sm font-bold uppercase tracking-widest text-primary" data-i18n="gallery_kicker">Интерфейс</p>
+    <h2 class="mt-3 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-ink" data-i18n="gallery_title">—</h2>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <figure class="reveal" style="transition-delay:.0s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot1.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap1">—</figcaption>
+    </figure>
+    <figure class="reveal" style="transition-delay:.1s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot6.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap2">—</figcaption>
+    </figure>
+    <figure class="reveal" style="transition-delay:.2s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot5.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap3">—</figcaption>
+    </figure>
+    <figure class="reveal" style="transition-delay:.3s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot2.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap4">—</figcaption>
+    </figure>
+    <figure class="reveal" style="transition-delay:.4s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot3.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap5">—</figcaption>
+    </figure>
+    <figure class="reveal" style="transition-delay:.5s">
+      <div class="device themed"><div class="device-screen"><img src="assets/shot4.png" alt="Fern" loading="lazy"></div></div>
+      <figcaption class="mt-4 text-center text-sm font-semibold text-inkdim" data-i18n="cap6">—</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== MINING ===================== -->
+<section class="mx-auto max-w-7xl px-5 sm:px-6 py-20 sm:py-28">
+  <div class="rounded-6xl bg-surface p-8 sm:p-14 border border-outline/15 themed" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="reveal text-sm font-bold uppercase tracking-widest text-primary" data-i18n="social_kicker">Живой язык</p>
+        <h2 class="reveal mt-3 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-ink" data-i18n="social_title">—</h2>
+        <p class="reveal mt-4 text-lg text-inkdim leading-relaxed" data-i18n="social_desc">—</p>
+        <ul class="reveal mt-8 space-y-4">
+          <li class="flex gap-4"><span class="material-symbols-rounded text-primary">menu_book</span><div><p class="font-bold text-ink" data-i18n="s1_t">—</p><p class="text-inkdim" data-i18n="s1_d">—</p></div></li>
+          <li class="flex gap-4"><span class="material-symbols-rounded text-primary">smart_display</span><div><p class="font-bold text-ink" data-i18n="s2_t">—</p><p class="text-inkdim" data-i18n="s2_d">—</p></div></li>
+          <li class="flex gap-4"><span class="material-symbols-rounded text-primary">insights</span><div><p class="font-bold text-ink" data-i18n="s3_t">—</p><p class="text-inkdim" data-i18n="s3_d">—</p></div></li>
+        </ul>
+      </div>
+      <div class="reveal flex justify-center">
+        <div class="floaty2 w-[280px] device themed"><div class="device-screen"><img src="assets/shot2.png" alt="Fern" loading="lazy"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LANGUAGES ===================== -->
+<section class="mx-auto max-w-7xl px-5 sm:px-6 py-16 text-center">
+  <p class="reveal text-sm font-bold uppercase tracking-widest text-primary" data-i18n="langs_kicker">Языки</p>
+  <h2 class="reveal mt-3 font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-ink" data-i18n="langs_title">Говорит на 7 языках</h2>
+  <p class="reveal mt-3 text-inkdim" data-i18n="langs_desc">Приложение и этот сайт переведены полностью. Переключи язык в шапке 👆</p>
+  <div class="reveal mt-8 flex flex-wrap justify-center gap-3" id="langChips"></div>
+</section>
+
+<!-- ===================== DOWNLOAD ===================== -->
+<section id="download" class="mx-auto max-w-5xl px-5 sm:px-6 py-20 sm:py-28">
+  <div class="relative overflow-hidden rounded-6xl bg-surface p-8 sm:p-16 text-center border border-outline/20 themed" style="border-color:color-mix(in oklab,var(--outline) 25%,transparent)">
+    <div class="glow pointer-events-none absolute inset-0 opacity-80"></div>
+    <div class="relative">
+      <img src="assets/icon.png" alt="Fern" class="mx-auto h-20 w-20 rounded-3xl shadow-xl">
+      <p class="mt-6 text-sm font-bold uppercase tracking-widest text-primary" data-i18n="dl_kicker">Установка</p>
+      <h2 class="mt-3 font-display text-4xl sm:text-5xl font-extrabold tracking-tight text-ink" data-i18n="dl_title">—</h2>
+      <p class="mt-4 max-w-xl mx-auto text-lg text-inkdim" data-i18n="dl_desc">—</p>
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+        <a href="https://github.com/THET1ME-1/Fern/releases/latest" target="_blank" rel="noopener" class="btn flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold text-onprimary shadow-lg">
+          <span class="material-symbols-rounded text-[20px]">android</span>
+          <span data-i18n="dl_apk">Скачать APK</span>
+        </a>
+        <a href="https://github.com/THET1ME-1/Fern" target="_blank" rel="noopener" class="btn flex items-center justify-center gap-2 rounded-full bg-surface2 px-8 py-4 text-base font-bold text-ink border border-outline/40" style="border-color:color-mix(in oklab,var(--outline) 40%,transparent)">
+          <span class="material-symbols-rounded text-[20px]">sync</span>
+          <span data-i18n="dl_obt">Через Obtainium</span>
+        </a>
+      </div>
+      <p class="mt-6 text-sm text-inkdim" data-i18n="dl_note">Android 7+ · v1.15.0 · Бесплатно · Google Play — скоро</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="border-t border-outline/15 themed" style="border-color:color-mix(in oklab,var(--outline) 15%,transparent)">
+  <div class="mx-auto max-w-7xl px-5 sm:px-6 py-12">
+    <img src="assets/banner.png" alt="Fern" class="w-full max-w-xl rounded-3xl">
+    <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <p class="text-inkdim text-sm" data-i18n="foot_made">Сделано на Flutter · Дизайн Material 3 Expressive</p>
+        <p class="mt-1 text-inkdim text-sm">© <span id="year"></span> S&amp;T Company</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="privacy.html" class="btn flex items-center gap-2 rounded-full bg-surface2 px-5 py-3 text-sm font-bold text-ink">
+          <span class="material-symbols-rounded text-[18px]">shield</span>
+          <span data-i18n="foot_privacy">Конфиденциальность</span>
+        </a>
+        <a href="https://github.com/THET1ME-1/Fern" target="_blank" rel="noopener" class="btn flex items-center gap-2 rounded-full bg-surface2 px-5 py-3 text-sm font-bold text-ink">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          Releases
+        </a>
+      </div>
+    </div>
+    <p class="mt-8 text-xs text-inkdim/70" data-i18n="foot_disc">Fern не связан с Google, YouTube или Anki. Приложение работает офлайн; сетевые сервисы подключаются только по вашему выбору.</p>
+  </div>
+</footer>
+
+<script>
+/* ============ M3 COLOR ENGINE (seed → OKLCH tokens) ============ */
+function hexToRgb(h){h=h.replace('#','');return [0,2,4].map(i=>parseInt(h.substr(i,2),16)/255);}
+function lin(c){return c<=0.04045?c/12.92:Math.pow((c+0.055)/1.055,2.4);}
+function seedHC(hex){
+  const [r,g,b]=hexToRgb(hex); const R=lin(r),G=lin(g),B=lin(b);
+  const l=Math.cbrt(0.4122214708*R+0.5363325363*G+0.0514459929*B);
+  const m=Math.cbrt(0.2119034982*R+0.6806995451*G+0.1073969566*B);
+  const s=Math.cbrt(0.0883024619*R+0.2817188376*G+0.6299787005*B);
+  const a=1.9779984951*l-2.4285922050*m+0.4505937099*s;
+  const bb=0.0259040371*l+0.7827717662*m-0.8086757660*s;
+  let H=Math.atan2(bb,a)*180/Math.PI; if(H<0)H+=360;
+  return {H, C:Math.sqrt(a*a+bb*bb)};
+}
+let CUR_SEED = localStorage.getItem('fern_seed') || '#2E7D5B';
+let CUR_MODE = localStorage.getItem('fern_mode') || 'dark';
+
+function buildTokens(hex, mode){
+  const {H,C}=seedHC(hex);
+  const c=Math.min(C,0.16);
+  const o=(L,ch,h=H)=>`oklch(${L} ${ch} ${h})`;
+  const t = mode==='dark' ? {
+    '--bg':o(.155,.012),'--surface-1':o(.202,.016),'--surface-2':o(.246,.02),'--surface-3':o(.29,.024),
+    '--on-surface':o(.945,.008),'--on-surface-var':o(.76,.016),'--outline':o(.52,.016),
+    '--primary':o(.83,Math.min(c,.13)),'--on-primary':o(.26,.07),
+    '--primary-container':o(.4,Math.min(c,.1)),'--on-primary-container':o(.92,.06),
+    '--secondary':o(.8,.05),'--tertiary':o(.84,.1,H+55),
+    '--gold':'oklch(.83 .13 84)','--glow':o(.83,Math.min(c,.13))+''
+  } : {
+    '--bg':o(.986,.005),'--surface-1':o(.955,.009),'--surface-2':o(.925,.014),'--surface-3':o(.895,.02),
+    '--on-surface':o(.2,.02),'--on-surface-var':o(.42,.02),'--outline':o(.62,.018),
+    '--primary':o(.54,Math.min(c,.16)),'--on-primary':o(.99,.008),
+    '--primary-container':o(.9,Math.min(c,.08)),'--on-primary-container':o(.28,.11),
+    '--secondary':o(.47,.06),'--tertiary':o(.5,.1,H+55),
+    '--gold':'oklch(.72 .13 78)','--glow':o(.54,Math.min(c,.16))+''
+  };
+  return t;
+}
+function applyTheme(){
+  const t=buildTokens(CUR_SEED,CUR_MODE);
+  for(const k in t) document.documentElement.style.setProperty(k,t[k]);
+  // glow alpha
+  const {H,C}=seedHC(CUR_SEED);
+  document.documentElement.style.setProperty('--glow',`oklch(${CUR_MODE==='dark'?.83:.6} ${Math.min(C,.13)} ${H} / .16)`);
+  document.documentElement.classList.toggle('dark',CUR_MODE==='dark');
+  document.getElementById('modeIcon').textContent = CUR_MODE==='dark'?'light_mode':'dark_mode';
+  document.querySelectorAll('.modeSeg').forEach(b=>{
+    const on=b.dataset.mode===CUR_MODE;
+    b.classList.toggle('bg-primary',on); b.classList.toggle('text-onprimary',on);
+  });
+  document.querySelectorAll('.swatch').forEach(s=>s.classList.toggle('sel', s.dataset.hex.toLowerCase()===CUR_SEED.toLowerCase()));
+  localStorage.setItem('fern_seed',CUR_SEED); localStorage.setItem('fern_mode',CUR_MODE);
+}
+function setSeed(h){ CUR_SEED=h; document.getElementById('customColor').value=h; applyTheme(); }
+function setMode(m){ CUR_MODE=m; applyTheme(); }
+
+/* presets (like the app's 8 palettes) — each swatch = 4 theme tones in quadrants */
+const PRESETS=['#2E7D5B','#00897B','#1E88E5','#7C4DFF','#E53935','#FF7043','#FFB300','#EC407A'];
+const sw=document.getElementById('swatches');
+function swatchColors(hex){
+  const {H,C}=seedHC(hex); const c=Math.min(C,0.14);
+  const o=(L,ch,h=H)=>`oklch(${L} ${ch} ${h})`;
+  return [ o(.88,c*.4), o(.60,c), o(.92,c*.28,H+55), o(.55,c*.7,H+25) ];
+}
+PRESETS.forEach(h=>{
+  const b=document.createElement('button');
+  b.className='swatch'; b.dataset.hex=h; b.setAttribute('aria-label','theme '+h);
+  b.style.cssText='flex:0 0 auto;width:44px;height:44px;min-width:44px;border-radius:50%;overflow:hidden;padding:0;border:0';
+  const grid=document.createElement('span');
+  grid.style.cssText='display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;width:100%;height:100%';
+  swatchColors(h).forEach(col=>{ const cell=document.createElement('span'); cell.style.background=col; grid.appendChild(cell); });
+  b.appendChild(grid);
+  b.onclick=()=>setSeed(h);
+  sw.appendChild(b);
+});
+document.getElementById('customColor').addEventListener('input',e=>setSeed(e.target.value));
+document.querySelectorAll('.modeSeg').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+document.getElementById('modeBtn').onclick=()=>setMode(CUR_MODE==='dark'?'light':'dark');
+
+/* ============ i18n ============ */
+const I18N={
+ ru:{nav_features:'Возможности',nav_design:'Оформление',nav_screens:'Экраны',nav_download:'Установка',nav_cta:'Установить',hero_badge:'Material 3 Expressive · Офлайн',hero_tagline:'Учи слова из того, что читаешь и смотришь',hero_desc:'Умные флеш-карточки, которые показывают слово ровно тогда, когда ты вот-вот его забудешь. Книги, видео и фото превращаются в личный словарь. Офлайн, без аккаунта, без рекламы.',hero_cta_get:'Установить',hero_cta_src:'Как это работает',hero_free:'Бесплатно · Без рекламы · Без аккаунта · v1.15.0',mock_deck:'Первые слова',mock_today:'Сегодня',mock_streak:'дней подряд',mock_due:'К повтору',mock_cards:'Карточек',mock_streak_s:'Серия',mock_week:'Твоя неделя',sources:'Слова приходят откуда угодно',src_photo:'Фото',src_web:'Статьи',features_kicker:'Возможности',features_title:'Словарь, который сам знает, что тебе повторить',features_sub:'Умное повторение, живой язык из книг и видео, честный офлайн. Быстро, приватно и красиво.',f1_t:'Умное повторение',f1_d:'Алгоритм FSRS — тот же, что в Anki, но включён сразу. Слово возвращается ровно перед тем, как ты его забудешь.',f2_t:'Слова из книг',f2_d:'Читай EPUB, FB2 или TXT прямо в приложении. Тап по незнакомому слову — перевод и карточка. Видно, какую долю книги ты уже понимаешь.',f3_t:'Слова из видео',f3_d:'Вставь ссылку на YouTube — субтитры разберутся по словам. Услышь слово голосом из самого видео, а не роботом.',f4_t:'Девять режимов',f4_d:'Карточки, тест, ввод перевода, диктант на слух, сборка фразы, пропуск в предложении, игра на скорость и подбор пар.',f5_t:'Слова с фото',f5_d:'Сфотографируй страницу или вывеску — текст распознается, а незнакомые слова уедут в колоду. Плюс импорт из Anki и CSV.',f6_t:'Честный офлайн',f6_d:'Повторение, перевод и озвучка работают без интернета. Нет аккаунта, нет облака, нет слежки: словарь остаётся на телефоне.',design_kicker:'Оформление',design_title:'Material You. Твой цвет — везде.',design_desc:'Выбери цвет темы — и вся палитра пересоберётся, точь-в-точь как в приложении. Восемь готовых тем, пипетка для своего оттенка, светлая и тёмная, AMOLED. Попробуй прямо здесь 👇',design_pick:'Цвет темы',design_custom:'Свой цвет',mock_appearance:'Оформление',mock_matyou:'Material You',gallery_kicker:'Интерфейс',gallery_title:'Красиво на каждом экране',cap1:'Колоды',cap2:'Слова',cap3:'Режимы',cap4:'Библиотека',cap5:'Прогресс',cap6:'Настройки',social_kicker:'Живой язык',social_title:'Не зубри списки — забирай слова из жизни',social_desc:'Самые нужные слова — те, что встретились тебе самому. Fern превращает книгу, видео или фотографию в колоду и показывает, что учить первым.',s1_t:'Читай и учи',s1_d:'Тап по слову в книге — перевод, озвучка, карточка. Перевод абзаца рядом с оригиналом, если нужно.',s2_t:'Смотри и учи',s2_d:'Субтитры YouTube по словам, живой голос из видео и добавление в колоду одним касанием.',s3_t:'Учи то, что важно',s3_d:'Приложение считает частоту слов и показывает, какие принесут больше всего понимания.',langs_kicker:'Языки',langs_title:'Говорит на 7 языках',langs_desc:'Приложение и этот сайт переведены полностью. Переключи язык в шапке 👆',dl_kicker:'Установка',dl_title:'Поставь Fern',dl_desc:'Скачай APK или подключи Obtainium — обновления будут приходить сами. Google Play — скоро.',dl_apk:'Скачать APK',dl_obt:'Через Obtainium',dl_note:'Android 7+ · v1.15.0 · Бесплатно · Google Play — скоро',foot_made:'Сделано на Flutter · Дизайн Material 3 Expressive',foot_privacy:'Конфиденциальность',foot_disc:'Fern не связан с Google, YouTube или Anki. Приложение работает офлайн; сетевые сервисы подключаются только по вашему выбору.'},
+ en:{nav_features:'Features',nav_design:'Design',nav_screens:'Screens',nav_download:'Get it',nav_cta:'Install',hero_badge:'Material 3 Expressive · Offline',hero_tagline:'Learn words from what you read and watch',hero_desc:'Smart flashcards that show a word right before you forget it. Books, videos and photos turn into your own vocabulary. Offline, no account, no ads.',hero_cta_get:'Install',hero_cta_src:'How it works',hero_free:'Free · No ads · No account · v1.15.0',mock_deck:'First words',mock_today:'Today',mock_streak:'day streak',mock_due:'Due',mock_cards:'Cards',mock_streak_s:'Streak',mock_week:'Your week',sources:'Words come from anywhere',src_photo:'Photos',src_web:'Articles',features_kicker:'Features',features_title:'A vocabulary that knows what to review',features_sub:'Smart repetition, living language from books and videos, honest offline. Fast, private and beautiful.',f1_t:'Smart repetition',f1_d:'The FSRS algorithm — the same one Anki uses, but on by default. A word comes back right before you\'d forget it.',f2_t:'Words from books',f2_d:'Read EPUB, FB2 or TXT inside the app. Tap an unknown word for a translation and a card. See how much of a book you already understand.',f3_t:'Words from videos',f3_d:'Paste a YouTube link and the subtitles break down into words. Hear a word in the real voice from the video, not a robot.',f4_t:'Nine study modes',f4_d:'Flashcards, test, typing, dictation, phrase building, cloze, a speed game and pair matching.',f5_t:'Words from photos',f5_d:'Snap a page or a sign — the text is recognised and unknown words go into a deck. Anki and CSV import included.',f6_t:'Honest offline',f6_d:'Review, translation and speech work without internet. No account, no cloud, no tracking: your vocabulary stays on the phone.',design_kicker:'Design',design_title:'Material You. Your colour, everywhere.',design_desc:'Pick a theme colour and the whole palette rebuilds — exactly like in the app. Eight ready themes, a picker for your own shade, light and dark, AMOLED. Try it right here 👇',design_pick:'Theme colour',design_custom:'Custom colour',mock_appearance:'Appearance',mock_matyou:'Material You',gallery_kicker:'Interface',gallery_title:'Beautiful on every screen',cap1:'Decks',cap2:'Words',cap3:'Modes',cap4:'Library',cap5:'Progress',cap6:'Settings',social_kicker:'Living language',social_title:'Don\'t cram lists — take words from life',social_desc:'The words worth learning are the ones you actually met. Fern turns a book, a video or a photo into a deck and shows what to learn first.',s1_t:'Read and learn',s1_d:'Tap a word in a book for a translation, audio and a card. Paragraph translation next to the original when you need it.',s2_t:'Watch and learn',s2_d:'YouTube subtitles word by word, the real voice from the video, and one tap to add a card.',s3_t:'Learn what matters',s3_d:'The app counts word frequency and shows which words will unlock the most understanding.',langs_kicker:'Languages',langs_title:'Speaks 7 languages',langs_desc:'The app and this page are fully translated. Switch the language up top 👆',dl_kicker:'Get it',dl_title:'Install Fern',dl_desc:'Download the APK or add it to Obtainium — updates will arrive on their own. Google Play is coming soon.',dl_apk:'Download APK',dl_obt:'Via Obtainium',dl_note:'Android 7+ · v1.15.0 · Free · Google Play coming soon',foot_made:'Built with Flutter · Material 3 Expressive design',foot_privacy:'Privacy',foot_disc:'Fern is not affiliated with Google, YouTube or Anki. The app works offline; online services are used only if you enable them.'},
+ de:{nav_features:'Funktionen',nav_design:'Design',nav_screens:'Screens',nav_download:'Download',nav_cta:'Installieren',hero_badge:'Material 3 Expressive · Offline',hero_tagline:'Lerne Wörter aus dem, was du liest und schaust',hero_desc:'Intelligente Karteikarten, die ein Wort genau dann zeigen, wenn du es fast vergessen hättest. Bücher, Videos und Fotos werden zu deinem eigenen Wortschatz. Offline, ohne Konto, ohne Werbung.',hero_cta_get:'Installieren',hero_cta_src:'So funktioniert\'s',hero_free:'Kostenlos · Werbefrei · Ohne Konto · v1.15.0',mock_deck:'Erste Wörter',mock_today:'Heute',mock_streak:'Tage in Folge',mock_due:'Fällig',mock_cards:'Karten',mock_streak_s:'Serie',mock_week:'Deine Woche',sources:'Wörter kommen von überall',src_photo:'Fotos',src_web:'Artikel',features_kicker:'Funktionen',features_title:'Ein Wortschatz, der weiß, was dran ist',features_sub:'Kluges Wiederholen, lebendige Sprache aus Büchern und Videos, echtes Offline. Schnell, privat und schön.',f1_t:'Kluges Wiederholen',f1_d:'Der FSRS-Algorithmus — derselbe wie in Anki, nur sofort aktiv. Ein Wort kommt genau dann zurück, bevor du es vergisst.',f2_t:'Wörter aus Büchern',f2_d:'Lies EPUB, FB2 oder TXT direkt in der App. Tippe ein unbekanntes Wort an: Übersetzung und Karte. Du siehst, wie viel vom Buch du schon verstehst.',f3_t:'Wörter aus Videos',f3_d:'Füge einen YouTube-Link ein, und die Untertitel zerfallen in einzelne Wörter. Hör das Wort in der echten Stimme aus dem Video, nicht von einem Roboter.',f4_t:'Neun Lernmodi',f4_d:'Karteikarten, Test, Tippen, Diktat, Satzbau, Lückentext, Speed-Spiel und Paare finden.',f5_t:'Wörter von Fotos',f5_d:'Fotografiere eine Seite oder ein Schild — der Text wird erkannt, unbekannte Wörter landen im Stapel. Import aus Anki und CSV inklusive.',f6_t:'Echtes Offline',f6_d:'Wiederholen, Übersetzen und Aussprache laufen ohne Internet. Kein Konto, keine Cloud, kein Tracking: Dein Wortschatz bleibt auf dem Handy.',design_kicker:'Design',design_title:'Material You. Deine Farbe, überall.',design_desc:'Wähle eine Themenfarbe, und die ganze Palette baut sich neu auf — genau wie in der App. Acht fertige Themes, eine Pipette für deinen eigenen Ton, hell und dunkel, AMOLED. Probier es gleich hier aus 👇',design_pick:'Themenfarbe',design_custom:'Eigene Farbe',mock_appearance:'Darstellung',mock_matyou:'Material You',gallery_kicker:'Oberfläche',gallery_title:'Auf jedem Screen schön',cap1:'Stapel',cap2:'Wörter',cap3:'Modi',cap4:'Bibliothek',cap5:'Fortschritt',cap6:'Einstellungen',social_kicker:'Lebendige Sprache',social_title:'Keine Listen pauken — nimm die Wörter aus dem Leben',social_desc:'Die Wörter, die sich lohnen, sind die, die dir wirklich begegnet sind. Fern macht aus einem Buch, einem Video oder einem Foto einen Stapel und zeigt, was zuerst dran ist.',s1_t:'Lesen und lernen',s1_d:'Tippe im Buch ein Wort an: Übersetzung, Aussprache, Karte. Und wenn du willst, den ganzen Absatz neben dem Original.',s2_t:'Schauen und lernen',s2_d:'YouTube-Untertitel Wort für Wort, die echte Stimme aus dem Video, und ein Tipp genügt für eine neue Karte.',s3_t:'Lern, was zählt',s3_d:'Die App zählt die Worthäufigkeit und zeigt dir, welche Wörter dir am meisten Verständnis bringen.',langs_kicker:'Sprachen',langs_title:'Spricht 7 Sprachen',langs_desc:'Die App und diese Seite sind vollständig übersetzt. Sprache oben umschalten 👆',dl_kicker:'Download',dl_title:'Fern installieren',dl_desc:'Lade die APK oder füge Fern zu Obtainium hinzu — Updates kommen dann von allein. Google Play folgt bald.',dl_apk:'APK laden',dl_obt:'Über Obtainium',dl_note:'Android 7+ · v1.15.0 · Kostenlos · Google Play folgt bald',foot_made:'Gebaut mit Flutter · Design: Material 3 Expressive',foot_privacy:'Datenschutz',foot_disc:'Fern steht in keiner Verbindung zu Google, YouTube oder Anki. Die App arbeitet offline; Onlinedienste werden nur genutzt, wenn du sie aktivierst.'},
+ fr:{nav_features:'Fonctions',nav_design:'Design',nav_screens:'Écrans',nav_download:'Obtenir',nav_cta:'Installer',hero_badge:'Material 3 Expressive · Hors ligne',hero_tagline:'Apprends les mots de ce que tu lis et regardes',hero_desc:'Des cartes intelligentes qui affichent un mot juste avant que tu l\'oublies. Livres, vidéos et photos deviennent ton vocabulaire. Hors ligne, sans compte, sans pub.',hero_cta_get:'Installer',hero_cta_src:'Comment ça marche',hero_free:'Gratuit · Sans pub · Sans compte · v1.15.0',mock_deck:'Premiers mots',mock_today:'Aujourd\'hui',mock_streak:'jours d\'affilée',mock_due:'À revoir',mock_cards:'Cartes',mock_streak_s:'Série',mock_week:'Ta semaine',sources:'Les mots viennent de partout',src_photo:'Photos',src_web:'Articles',features_kicker:'Fonctions',features_title:'Un vocabulaire qui sait quoi te faire réviser',features_sub:'Révision intelligente, langue vivante tirée des livres et des vidéos, vrai hors ligne. Rapide, privé et beau.',f1_t:'Révision intelligente',f1_d:'L\'algorithme FSRS — celui d\'Anki, mais actif dès le départ. Le mot revient juste avant que tu l\'oublies.',f2_t:'Des mots des livres',f2_d:'Lis des EPUB, FB2 ou TXT dans l\'app. Touche un mot inconnu : traduction et carte. Tu vois quelle part du livre tu comprends déjà.',f3_t:'Des mots des vidéos',f3_d:'Colle un lien YouTube et les sous-titres se découpent en mots. Écoute le mot avec la vraie voix de la vidéo, pas celle d\'un robot.',f4_t:'Neuf modes',f4_d:'Cartes, quiz, saisie, dictée, phrase à reconstituer, texte à trous, jeu de vitesse et paires à associer.',f5_t:'Des mots en photo',f5_d:'Prends une page ou une enseigne en photo : le texte est reconnu et les mots inconnus partent dans un paquet. Import Anki et CSV inclus.',f6_t:'Vraiment hors ligne',f6_d:'Révision, traduction et prononciation marchent sans internet. Pas de compte, pas de cloud, pas de pistage : ton vocabulaire reste sur le téléphone.',design_kicker:'Design',design_title:'Material You. Ta couleur, partout.',design_desc:'Choisis une couleur de thème et toute la palette se reconstruit — exactement comme dans l\'app. Huit thèmes prêts, une pipette pour ta propre teinte, clair et sombre, AMOLED. Essaie ici même 👇',design_pick:'Couleur du thème',design_custom:'Couleur perso',mock_appearance:'Apparence',mock_matyou:'Material You',gallery_kicker:'Interface',gallery_title:'Beau sur chaque écran',cap1:'Paquets',cap2:'Mots',cap3:'Modes',cap4:'Bibliothèque',cap5:'Progrès',cap6:'Réglages',social_kicker:'Langue vivante',social_title:'Ne bachote pas des listes — prends les mots dans la vie',social_desc:'Les mots qui comptent sont ceux que tu as croisés toi-même. Fern transforme un livre, une vidéo ou une photo en paquet et te montre par quoi commencer.',s1_t:'Lis et apprends',s1_d:'Touche un mot dans le livre : traduction, prononciation, carte. Et la traduction du paragraphe à côté de l\'original si besoin.',s2_t:'Regarde et apprends',s2_d:'Les sous-titres YouTube mot à mot, la vraie voix de la vidéo, et une carte en un seul geste.',s3_t:'Apprends l\'essentiel',s3_d:'L\'app compte la fréquence des mots et montre ceux qui t\'apporteront le plus de compréhension.',langs_kicker:'Langues',langs_title:'Parle 7 langues',langs_desc:'L\'app et cette page sont entièrement traduites. Change de langue en haut 👆',dl_kicker:'Installation',dl_title:'Installe Fern',dl_desc:'Télécharge l\'APK ou ajoute Fern à Obtainium — les mises à jour arriveront toutes seules. Google Play bientôt.',dl_apk:'Télécharger l\'APK',dl_obt:'Via Obtainium',dl_note:'Android 7+ · v1.15.0 · Gratuit · Google Play bientôt',foot_made:'Fait avec Flutter · Design Material 3 Expressive',foot_privacy:'Confidentialité',foot_disc:'Fern n\'est affilié ni à Google, ni à YouTube, ni à Anki. L\'app fonctionne hors ligne ; les services en ligne ne sont utilisés que si tu les actives.'},
+ es:{nav_features:'Funciones',nav_design:'Diseño',nav_screens:'Pantallas',nav_download:'Descargar',nav_cta:'Instalar',hero_badge:'Material 3 Expressive · Sin conexión',hero_tagline:'Aprende palabras de lo que lees y ves',hero_desc:'Tarjetas inteligentes que muestran la palabra justo antes de que se te olvide. Los libros, los vídeos y las fotos se convierten en tu vocabulario. Sin conexión, sin cuenta, sin anuncios.',hero_cta_get:'Instalar',hero_cta_src:'Cómo funciona',hero_free:'Gratis · Sin anuncios · Sin cuenta · v1.15.0',mock_deck:'Primeras palabras',mock_today:'Hoy',mock_streak:'días seguidos',mock_due:'Pendientes',mock_cards:'Tarjetas',mock_streak_s:'Racha',mock_week:'Tu semana',sources:'Las palabras vienen de todas partes',src_photo:'Fotos',src_web:'Artículos',features_kicker:'Funciones',features_title:'Un vocabulario que sabe qué toca repasar',features_sub:'Repaso inteligente, lengua viva de libros y vídeos, sin conexión de verdad. Rápido, privado y bonito.',f1_t:'Repaso inteligente',f1_d:'El algoritmo FSRS — el mismo de Anki, pero activo desde el principio. La palabra vuelve justo antes de que la olvides.',f2_t:'Palabras de libros',f2_d:'Lee EPUB, FB2 o TXT dentro de la app. Toca una palabra desconocida: traducción y tarjeta. Ves qué parte del libro entiendes ya.',f3_t:'Palabras de vídeos',f3_d:'Pega un enlace de YouTube y los subtítulos se desglosan palabra por palabra. Escucha la palabra con la voz real del vídeo, no con un robot.',f4_t:'Nueve modos',f4_d:'Tarjetas, test, escribir la traducción, dictado, construir la frase, hueco en la oración, juego de velocidad y emparejar.',f5_t:'Palabras de fotos',f5_d:'Fotografía una página o un cartel: el texto se reconoce y las palabras nuevas van al mazo. Además, importa desde Anki y CSV.',f6_t:'Sin conexión de verdad',f6_d:'El repaso, la traducción y la pronunciación funcionan sin internet. Sin cuenta, sin nube, sin rastreo: tu vocabulario se queda en el móvil.',design_kicker:'Diseño',design_title:'Material You. Tu color, en todas partes.',design_desc:'Elige un color de tema y toda la paleta se rehace, igual que en la app. Ocho temas listos, cuentagotas para tu propio tono, claro y oscuro, AMOLED. Pruébalo aquí mismo 👇',design_pick:'Color del tema',design_custom:'Color propio',mock_appearance:'Apariencia',mock_matyou:'Material You',gallery_kicker:'Interfaz',gallery_title:'Bonito en cada pantalla',cap1:'Mazos',cap2:'Palabras',cap3:'Modos',cap4:'Biblioteca',cap5:'Progreso',cap6:'Ajustes',social_kicker:'Lengua viva',social_title:'No memorices listas: toma las palabras de la vida',social_desc:'Las palabras que valen son las que te has encontrado tú. Fern convierte un libro, un vídeo o una foto en un mazo y te muestra por dónde empezar.',s1_t:'Lee y aprende',s1_d:'Toca una palabra del libro: traducción, audio y tarjeta. Y la traducción del párrafo junto al original cuando la necesites.',s2_t:'Mira y aprende',s2_d:'Subtítulos de YouTube palabra por palabra, la voz real del vídeo y una tarjeta con un solo toque.',s3_t:'Aprende lo que importa',s3_d:'La app cuenta la frecuencia de las palabras y muestra cuáles te darán más comprensión.',langs_kicker:'Idiomas',langs_title:'Habla 7 idiomas',langs_desc:'La app y esta página están traducidas por completo. Cambia el idioma arriba 👆',dl_kicker:'Instalación',dl_title:'Instala Fern',dl_desc:'Descarga el APK o añádelo a Obtainium: las actualizaciones llegarán solas. Google Play, muy pronto.',dl_apk:'Descargar APK',dl_obt:'Con Obtainium',dl_note:'Android 7+ · v1.15.0 · Gratis · Google Play muy pronto',foot_made:'Hecho con Flutter · Diseño Material 3 Expressive',foot_privacy:'Privacidad',foot_disc:'Fern no está afiliado a Google, YouTube ni Anki. La app funciona sin conexión; los servicios en línea solo se usan si tú los activas.'},
+ it:{nav_features:'Funzioni',nav_design:'Design',nav_screens:'Schermate',nav_download:'Scarica',nav_cta:'Installa',hero_badge:'Material 3 Expressive · Offline',hero_tagline:'Impara le parole da ciò che leggi e guardi',hero_desc:'Flashcard intelligenti che mostrano la parola un attimo prima che tu la dimentichi. Libri, video e foto diventano il tuo vocabolario. Offline, senza account, senza pubblicità.',hero_cta_get:'Installa',hero_cta_src:'Come funziona',hero_free:'Gratis · Senza pubblicità · Senza account · v1.15.0',mock_deck:'Prime parole',mock_today:'Oggi',mock_streak:'giorni di fila',mock_due:'Da ripassare',mock_cards:'Carte',mock_streak_s:'Serie',mock_week:'La tua settimana',sources:'Le parole arrivano da ovunque',src_photo:'Foto',src_web:'Articoli',features_kicker:'Funzioni',features_title:'Un vocabolario che sa cosa farti ripassare',features_sub:'Ripasso intelligente, lingua viva da libri e video, offline sul serio. Veloce, privato e bello.',f1_t:'Ripasso intelligente',f1_d:'L\'algoritmo FSRS — lo stesso di Anki, ma attivo da subito. La parola torna proprio prima che tu la dimentichi.',f2_t:'Parole dai libri',f2_d:'Leggi EPUB, FB2 o TXT dentro l\'app. Tocca una parola sconosciuta: traduzione e carta. Vedi quanta parte del libro capisci già.',f3_t:'Parole dai video',f3_d:'Incolla un link di YouTube e i sottotitoli si scompongono parola per parola. Ascolta la parola con la voce vera del video, non con un robot.',f4_t:'Nove modalità',f4_d:'Flashcard, test, scrittura, dettato, frase da comporre, spazio da riempire, gioco a tempo e abbinamento di coppie.',f5_t:'Parole dalle foto',f5_d:'Fotografa una pagina o un cartello: il testo viene riconosciuto e le parole nuove finiscono nel mazzo. Con import da Anki e CSV.',f6_t:'Offline sul serio',f6_d:'Ripasso, traduzione e pronuncia funzionano senza internet. Niente account, niente cloud, niente tracciamento: il vocabolario resta sul telefono.',design_kicker:'Design',design_title:'Material You. Il tuo colore, ovunque.',design_desc:'Scegli un colore e l\'intera palette si ricostruisce, esattamente come nell\'app. Otto temi pronti, un contagocce per la tua tonalità, chiaro e scuro, AMOLED. Provalo qui 👇',design_pick:'Colore del tema',design_custom:'Colore tuo',mock_appearance:'Aspetto',mock_matyou:'Material You',gallery_kicker:'Interfaccia',gallery_title:'Bello su ogni schermata',cap1:'Mazzi',cap2:'Parole',cap3:'Modalità',cap4:'Libreria',cap5:'Progressi',cap6:'Impostazioni',social_kicker:'Lingua viva',social_title:'Non imparare liste a memoria: prendi le parole dalla vita',social_desc:'Le parole che contano sono quelle in cui ti sei imbattuto davvero. Fern trasforma un libro, un video o una foto in un mazzo e ti mostra da dove partire.',s1_t:'Leggi e impara',s1_d:'Tocca una parola nel libro: traduzione, pronuncia, carta. E la traduzione del paragrafo accanto all\'originale, se serve.',s2_t:'Guarda e impara',s2_d:'Sottotitoli YouTube parola per parola, la voce vera del video e una carta con un solo tocco.',s3_t:'Impara ciò che conta',s3_d:'L\'app conta la frequenza delle parole e mostra quali ti daranno più comprensione.',langs_kicker:'Lingue',langs_title:'Parla 7 lingue',langs_desc:'L\'app e questa pagina sono tradotte per intero. Cambia lingua qui sopra 👆',dl_kicker:'Installazione',dl_title:'Installa Fern',dl_desc:'Scarica l\'APK oppure aggiungilo a Obtainium: gli aggiornamenti arriveranno da soli. Google Play arriva presto.',dl_apk:'Scarica l\'APK',dl_obt:'Con Obtainium',dl_note:'Android 7+ · v1.15.0 · Gratis · Google Play presto',foot_made:'Fatto con Flutter · Design Material 3 Expressive',foot_privacy:'Privacy',foot_disc:'Fern non è affiliato a Google, YouTube o Anki. L\'app funziona offline; i servizi online vengono usati solo se li attivi tu.'},
+ pt:{nav_features:'Recursos',nav_design:'Visual',nav_screens:'Telas',nav_download:'Baixar',nav_cta:'Instalar',hero_badge:'Material 3 Expressive · Offline',hero_tagline:'Aprenda palavras do que você lê e assiste',hero_desc:'Flashcards inteligentes que mostram a palavra pouco antes de você esquecê-la. Livros, vídeos e fotos viram o seu vocabulário. Offline, sem conta, sem anúncios.',hero_cta_get:'Instalar',hero_cta_src:'Como funciona',hero_free:'Grátis · Sem anúncios · Sem conta · v1.15.0',mock_deck:'Primeiras palavras',mock_today:'Hoje',mock_streak:'dias seguidos',mock_due:'Para revisar',mock_cards:'Cartões',mock_streak_s:'Sequência',mock_week:'Sua semana',sources:'As palavras vêm de qualquer lugar',src_photo:'Fotos',src_web:'Artigos',features_kicker:'Recursos',features_title:'Um vocabulário que sabe o que revisar',features_sub:'Revisão inteligente, língua viva de livros e vídeos, offline de verdade. Rápido, privado e bonito.',f1_t:'Revisão inteligente',f1_d:'O algoritmo FSRS — o mesmo do Anki, só que ligado desde o início. A palavra volta pouco antes de você esquecê-la.',f2_t:'Palavras de livros',f2_d:'Leia EPUB, FB2 ou TXT dentro do app. Toque numa palavra desconhecida: tradução e cartão. Veja quanto do livro você já entende.',f3_t:'Palavras de vídeos',f3_d:'Cole um link do YouTube e as legendas se abrem palavra por palavra. Ouça a palavra na voz real do vídeo, não na de um robô.',f4_t:'Nove modos',f4_d:'Cartões, teste, digitação, ditado, montar a frase, lacuna na frase, jogo de velocidade e pares.',f5_t:'Palavras de fotos',f5_d:'Fotografe uma página ou uma placa: o texto é reconhecido e as palavras novas vão para o baralho. Importação do Anki e de CSV inclusa.',f6_t:'Offline de verdade',f6_d:'Revisão, tradução e pronúncia funcionam sem internet. Sem conta, sem nuvem, sem rastreio: seu vocabulário fica no celular.',design_kicker:'Visual',design_title:'Material You. Sua cor, em tudo.',design_desc:'Escolha uma cor de tema e toda a paleta se refaz, igualzinho ao app. Oito temas prontos, conta-gotas para o seu tom, claro e escuro, AMOLED. Teste aqui mesmo 👇',design_pick:'Cor do tema',design_custom:'Cor própria',mock_appearance:'Aparência',mock_matyou:'Material You',gallery_kicker:'Interface',gallery_title:'Bonito em cada tela',cap1:'Baralhos',cap2:'Palavras',cap3:'Modos',cap4:'Biblioteca',cap5:'Progresso',cap6:'Ajustes',social_kicker:'Língua viva',social_title:'Não decore listas — tire as palavras da vida',social_desc:'As palavras que valem são as que você mesmo encontrou. O Fern transforma um livro, um vídeo ou uma foto em baralho e mostra por onde começar.',s1_t:'Leia e aprenda',s1_d:'Toque numa palavra do livro: tradução, áudio e cartão. E a tradução do parágrafo ao lado do original, quando precisar.',s2_t:'Assista e aprenda',s2_d:'Legendas do YouTube palavra por palavra, a voz real do vídeo e um toque para criar o cartão.',s3_t:'Aprenda o que importa',s3_d:'O app conta a frequência das palavras e mostra quais vão destravar mais compreensão.',langs_kicker:'Idiomas',langs_title:'Fala 7 idiomas',langs_desc:'O app e esta página estão totalmente traduzidos. Troque o idioma no topo 👆',dl_kicker:'Instalação',dl_title:'Instale o Fern',dl_desc:'Baixe o APK ou adicione ao Obtainium — as atualizações chegam sozinhas. Google Play em breve.',dl_apk:'Baixar APK',dl_obt:'Via Obtainium',dl_note:'Android 7+ · v1.15.0 · Grátis · Google Play em breve',foot_made:'Feito com Flutter · Design Material 3 Expressive',foot_privacy:'Privacidade',foot_disc:'O Fern não tem vínculo com Google, YouTube ou Anki. O app funciona offline; serviços online só são usados se você ativá-los.'}
+};
+const LANGS=[['ru','Русский'],['en','English'],['de','Deutsch'],['fr','Français'],['es','Español'],['it','Italiano'],['pt','Português']];
+let CUR_LANG=localStorage.getItem('fern_lang')|| (navigator.language||'ru').slice(0,2);
+if(!I18N[CUR_LANG]) CUR_LANG='ru';
+
+function setLang(code){
+  CUR_LANG=code; const dict=I18N[code]||I18N.ru;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ const k=el.getAttribute('data-i18n'); if(dict[k]!==undefined) el.textContent=dict[k]; });
+  document.documentElement.lang=code;
+  document.getElementById('langLabel').textContent=code.toUpperCase();
+  localStorage.setItem('fern_lang',code);
+  document.querySelectorAll('#langMenu button').forEach(b=>b.classList.toggle('text-primary', b.dataset.code===code));
+}
+// build language menu + chips
+const lm=document.getElementById('langMenu'), lc=document.getElementById('langChips');
+LANGS.forEach(([c,n])=>{
+  const b=document.createElement('button'); b.dataset.code=c;
+  b.className='btn w-full text-left px-4 py-2.5 rounded-2xl text-sm font-semibold text-ink hover:bg-surface3';
+  b.innerHTML=`<span class="inline-block w-8 text-inkdim">${c.toUpperCase()}</span> ${n}`;
+  b.onclick=()=>{ setLang(c); lm.classList.remove('open'); };
+  lm.appendChild(b);
+  const chip=document.createElement('button'); chip.dataset.code=c;
+  chip.className='btn rounded-full bg-surface px-5 py-2.5 text-sm font-bold text-ink border border-outline/25';
+  chip.style.borderColor='color-mix(in oklab,var(--outline) 25%,transparent)';
+  chip.textContent=n; chip.onclick=()=>setLang(c);
+  lc.appendChild(chip);
+});
+document.getElementById('langBtn').onclick=e=>{ e.stopPropagation(); lm.classList.toggle('open'); };
+document.addEventListener('click',()=>lm.classList.remove('open'));
+
+/* ============ reveal on scroll ============ */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ============ init ============ */
+document.getElementById('year').textContent = new Date().getFullYear();
+applyTheme();
+setLang(CUR_LANG);
+</script>
+</body>
+</html>
