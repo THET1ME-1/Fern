@@ -27,6 +27,7 @@ import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
 import 'share/share_import.dart';
 import 'settings_screen.dart';
+import 'startup.dart';
 import 'study/reader_settings.dart';
 import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
@@ -39,11 +40,13 @@ Future<void> main() async {
   ]);
   try {
     await startFern();
-  } catch (e) {
+  } on StartupError catch (e) {
     // Битый файл БД или переполненный диск роняли запуск ДО runApp — приложение
     // навсегда оставалось чёрным экраном, и данные было не достать даже из
     // бэкапа. Показываем экран восстановления вместо пустоты.
-    runApp(RecoveryApp(error: '$e'));
+    runApp(RecoveryApp(failure: e));
+  } catch (e) {
+    runApp(RecoveryApp(failure: StartupError(StartupStep.storage, e)));
   }
 }
 
@@ -51,36 +54,69 @@ Future<void> main() async {
 /// восстановления мог повторить её после починки хранилища.
 Future<void> startFern() async {
   registerAssetLicenses();
-  await DeckRepository.instance.init();
-  await DeckRepository.instance.applyFsrsSettings();
-  await ThemeController.instance.load();
-  await LocaleController.instance.load();
-  await LanguageRegistry.instance.load();
-  await TranslationManager.instance.load();
-  await ReaderSettings.instance.load();
+  // Словарь — единственный шаг, без которого запускаться незачем. Всё
+  // остальное приложение переживает: тема откатится к дефолтной, язык — к
+  // системному, напоминания просто не встанут. Раньше любой из этих шагов
+  // ронял запуск целиком и человеку предлагали стереть словарь.
+  try {
+    await DeckRepository.instance.init();
+    await DeckRepository.instance.applyFsrsSettings();
+  } catch (e) {
+    throw StartupError(StartupStep.storage, e);
+  }
+
+  await _optional(StartupStep.theme, ThemeController.instance.load);
+  await _optional(StartupStep.locale, LocaleController.instance.load);
+  await _optional(StartupStep.languages, LanguageRegistry.instance.load);
+  await _optional(StartupStep.translation, TranslationManager.instance.load);
+  await _optional(StartupStep.reader, ReaderSettings.instance.load);
   // Каталог картинок карточек — до первого кадра, чтобы экраны строили путь
   // к файлу синхронно, без мигания пустого места.
-  await CardImages.init();
+  await _optional(StartupStep.cardImages, CardImages.init);
   // Pro: ключ проверяется на устройстве, покупка в магазине подтягивается
   // фоном — оба источника должны быть известны до первого кадра, иначе
   // библиотека мигнёт замком у того, кто уже заплатил.
-  await LicenseService.instance.load();
-  await BillingService.instance.load();
-  // Разовый перенос: у тех, кто разобрал свою книгу до появления счётчика
-  // бесплатных разборов, он пуст — обновление не должно дарить лишнюю книгу.
-  await Pro.migrateFromLibrary((await SourceLibrary.instance.list()).length);
-  await DeckRepository.instance.seedDemoIfNeeded();
-  // Чинит колоды, посеянные на другом языке интерфейса (в т.ч. у тех, кто
-  // менял язык в прошлых версиях, где переводы фиксировались намертво).
-  await DeckRepository.instance.relocalizeBuiltIns();
-  await DeckRepository.instance.protectStreakIfNeeded();
-  await _rescheduleReminderIfEnabled();
-  final onboarded = await DeckRepository.instance.onboarded();
-  runApp(FernApp(onboarded: onboarded));
+  await _optional(StartupStep.license, LicenseService.instance.load);
+  await _optional(StartupStep.billing, BillingService.instance.load);
+  await _optional(StartupStep.seed, () async {
+    // Разовый перенос: у тех, кто разобрал свою книгу до появления счётчика
+    // бесплатных разборов, он пуст — обновление не должно дарить лишнюю книгу.
+    await Pro.migrateFromLibrary((await SourceLibrary.instance.list()).length);
+    await DeckRepository.instance.seedDemoIfNeeded();
+    // Чинит колоды, посеянные на другом языке интерфейса (в т.ч. у тех, кто
+    // менял язык в прошлых версиях, где переводы фиксировались намертво).
+    await DeckRepository.instance.relocalizeBuiltIns();
+    await DeckRepository.instance.protectStreakIfNeeded();
+  });
+  await _optional(StartupStep.reminders, _rescheduleReminderIfEnabled);
+
+  var onboarded = true;
+  try {
+    onboarded = await DeckRepository.instance.onboarded();
+  } catch (e) {
+    debugPrint('Не прочитали флаг онбординга: $e');
+  }
+  runApp(FernApp(onboarded: onboarded, issues: _startupIssues));
   // Тихий авто-бэкап раз в сутки — после первого кадра, не задерживая запуск.
   unawaited(BackupService.autoBackupIfDue());
   // Фоновая загрузка словаря частей речи (чтобы теги новых слов были точными).
   unawaited(PosDictionary.instance.ensureLoaded('en'));
+}
+
+/// Шаги запуска, которые не поднялись. Приложение работает и без них, но
+/// человек должен знать, что именно недосчиталось: «пропали настройки» без
+/// объяснения выглядит как потеря данных.
+final List<StartupError> _startupIssues = [];
+
+/// Выполняет необязательный шаг запуска. Отказ записывается и не мешает
+/// остальным: одна не поднявшаяся мелочь не стоит чёрного экрана.
+Future<void> _optional(StartupStep step, Future<void> Function() run) async {
+  try {
+    await run();
+  } catch (e) {
+    _startupIssues.add(StartupError(step, e));
+    debugPrint('Шаг запуска «${step.name}» не поднялся: $e');
+  }
 }
 
 /// Перепланирует ежедневное напоминание на старте (на случай обновления
@@ -99,7 +135,11 @@ Future<void> _rescheduleReminderIfEnabled() async {
 
 class FernApp extends StatelessWidget {
   final bool onboarded;
-  const FernApp({super.key, this.onboarded = true});
+
+  /// Шаги запуска, которые не поднялись (обычно пусто).
+  final List<StartupError> issues;
+
+  const FernApp({super.key, this.onboarded = true, this.issues = const []});
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +167,7 @@ class FernApp extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
-            home: _RootGate(onboarded: onboarded),
+            home: _RootGate(onboarded: onboarded, issues: issues),
           );
         },
       ),
@@ -138,7 +178,8 @@ class FernApp extends StatelessWidget {
 /// Показывает онбординг на первом запуске, иначе — главный экран.
 class _RootGate extends StatefulWidget {
   final bool onboarded;
-  const _RootGate({required this.onboarded});
+  final List<StartupError> issues;
+  const _RootGate({required this.onboarded, this.issues = const []});
 
   @override
   State<_RootGate> createState() => _RootGateState();
@@ -146,6 +187,46 @@ class _RootGate extends StatefulWidget {
 
 class _RootGateState extends State<_RootGate> {
   late bool _onboarded = widget.onboarded;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.issues.isEmpty) return;
+    // Молча стартовать с половиной настроек нечестно: человек решит, что
+    // настройки слетели сами. Называем, что именно не поднялось.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final ru = LocaleController.instance.code == 'ru';
+      final parts =
+          widget.issues.map((e) => e.step.title(ru: ru)).toSet().join(', ');
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(trf('startup_failed_parts', {'list': parts})),
+        duration: const Duration(seconds: 8),
+        action: SnackBarAction(
+          label: tr('details'),
+          onPressed: () => showDialog<void>(
+            context: context,
+            builder: (ctx) => AlertDialog(
+              title: Text(tr('startup_failed_title')),
+              content: SingleChildScrollView(
+                child: SelectableText(
+                  widget.issues
+                      .map((e) => '${e.step.title(ru: ru)}\n${e.cause}')
+                      .join('\n\n'),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx),
+                  child: Text(tr('close')),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

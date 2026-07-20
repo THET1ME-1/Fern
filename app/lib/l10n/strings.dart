@@ -380,6 +380,15 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'This video cannot be processed'
   },
   'retry': {'ru': 'Повторить', 'en': 'Retry'},
+  'details': {'ru': 'Подробнее', 'en': 'Details'},
+  'startup_failed_parts': {
+    'ru': 'При запуске не загрузилось: {list}',
+    'en': 'Failed to load at startup: {list}',
+  },
+  'startup_failed_title': {
+    'ru': 'Что не загрузилось',
+    'en': 'What failed to load',
+  },
   'video_tip_voice': {
     'ru': 'Озвучка живым голосом из видео или роботом',
     'en': 'Audio in the real voice from the video, or a robot'
