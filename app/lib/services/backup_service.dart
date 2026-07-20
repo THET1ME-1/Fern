@@ -15,6 +15,7 @@ class BackupService {
   const BackupService._();
 
   static const String _autoFileName = 'fern_backup_auto.json';
+  static const String _tmpSuffix = '/fern_backup_auto.json.tmp';
 
   /// Полный снимок как JSON-строка.
   ///
@@ -88,10 +89,42 @@ class BackupService {
       if (last != 0 && now - last < interval.inMilliseconds) return;
       final dir = await getApplicationDocumentsDirectory();
       final json = await exportJson(includeLibrary: false);
-      await File('${dir.path}/$_autoFileName').writeAsString(json);
+
+      final target = File('${dir.path}/$_autoFileName');
+      // Пустой снимок поверх непустого — это конец страховки. Так и случалось:
+      // аварийный экран уводил базу в карантин, запуск доходил до сюда, сутки
+      // с прошлого снимка давно прошли — и файл, из которого предлагалось
+      // восстановиться, затирался снимком пустой базы.
+      if (await _wouldLoseData(target, json)) return;
+
+      // Запись через временный файл: обрыв на середине оставит прежний снимок
+      // целым, а не полстроки JSON.
+      final tmp = File('${dir.path}$_tmpSuffix');
+      await tmp.writeAsString(json, flush: true);
+      await tmp.rename(target.path);
       await repo.setLastAutoBackupMs(now);
     } catch (_) {
       /* авто-бэкап не должен ронять запуск — молча пропускаем */
+    }
+  }
+
+  /// Новый снимок пуст, а прежний — нет.
+  static Future<bool> _wouldLoseData(File target, String fresh) async {
+    if (_cardCount(fresh) > 0) return false;
+    if (!await target.exists()) return false;
+    try {
+      return _cardCount(await target.readAsString()) > 0;
+    } catch (_) {
+      return false; // прежний снимок не читается — терять нечего
+    }
+  }
+
+  static int _cardCount(String json) {
+    try {
+      final cards = (jsonDecode(json) as Map)['cards'];
+      return cards is List ? cards.length : 0;
+    } catch (_) {
+      return 0;
     }
   }
 

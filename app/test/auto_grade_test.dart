@@ -92,13 +92,21 @@ void main() {
           reason: 'две случайных печати — не темп');
     });
 
-    test('виды с клавиатурой считаются вместе', () {
+    test('виды, которые судит автооценка, считаются вместе', () {
       final g = AutoGrade.fromSamples([
         ..._samples(10, 6000, ExerciseKind.type),
-        ..._samples(10, 6000, ExerciseKind.spell),
-        ..._samples(10, 6000, ExerciseKind.cloze),
+        ..._samples(15, 6000, ExerciseKind.spell),
       ]);
       expect(g.typingMedianMs, 6000);
+    });
+
+    test('клоуз в темп набора не входит', () {
+      // Клоуз набирают с клавиатуры, но оценку он ставит сам («верно/неверно»),
+      // а время меряет до тапа «Продолжить» — вместе с чтением ответа.
+      final g = AutoGrade.fromSamples(_samples(40, 30000, ExerciseKind.cloze));
+      expect(g.typingMedianMs, AutoGrade.fallbackTypingMs,
+          reason: 'иначе полминуты на чтение объяснения станут нормой набора, '
+              'и пятнадцать секунд на слово получат «легко»');
     });
 
     test('виды без автооценки в темп не входят', () {

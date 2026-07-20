@@ -54,8 +54,12 @@ typedef AnswerSample = ({int kind, int ms});
 /// верно/неверно, и подмешивать их темп — значит мерить одно линейкой другого.
 AnswerPace? paceOf(ExerciseKind kind) => switch (kind) {
       ExerciseKind.flip => AnswerPace.tap,
-      ExerciseKind.type || ExerciseKind.spell || ExerciseKind.cloze =>
-        AnswerPace.typing,
+      ExerciseKind.type || ExerciseKind.spell => AnswerPace.typing,
+      // Клоуз тоже набирают с клавиатуры, но судит его не автооценка: он
+      // отдаёт готовые «верно/неверно», а замер идёт до тапа «Продолжить» —
+      // вместе с чтением правильного ответа. Такие секунды в темп набора
+      // пускать нельзя, они растянут медиану втрое.
+      ExerciseKind.cloze ||
       ExerciseKind.choose ||
       ExerciseKind.trueFalse ||
       ExerciseKind.listen ||
