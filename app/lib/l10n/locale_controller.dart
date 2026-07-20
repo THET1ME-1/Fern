@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 
 import '../services/deck_repository.dart';
@@ -36,11 +38,15 @@ class LocaleController extends ChangeNotifier {
 
   static Set<String> get _codes => {for (final l in languages) l.code};
 
-  String _code = 'ru';
+  /// null — язык ещё не выбирали. Жёсткий русский по умолчанию встречал
+  /// кириллицей человека, который её не читает: значение видно, пока настройки
+  /// не загрузились, а этот шаг с некоторых пор необязательный и может не
+  /// подняться вовсе.
+  String? _code;
   bool _loaded = false;
 
-  String get code => _code;
-  Locale get locale => Locale(_code);
+  String get code => _code ??= _detectSystem();
+  Locale get locale => Locale(code);
   bool get isLoaded => _loaded;
 
   /// Сопоставление страны → вероятный язык (если язык телефона не поддержан).
@@ -54,10 +60,21 @@ class LocaleController extends ChangeNotifier {
     'PT': 'pt', 'BR': 'pt', 'AO': 'pt', 'MZ': 'pt',
   };
 
+  /// Системный источник локали. Через биндинг, когда он поднят (тогда работает
+  /// и подмена локали в тестах), иначе — напрямую: язык спрашивают и из
+  /// плоских тестов, где биндинга нет, и падать там незачем.
+  ui.PlatformDispatcher get _dispatcher {
+    try {
+      return WidgetsBinding.instance.platformDispatcher;
+    } catch (_) {
+      return ui.PlatformDispatcher.instance;
+    }
+  }
+
   /// Определяет язык по системе: сперва по языку телефона, затем по стране,
   /// иначе — английский.
   String _detectSystem() {
-    final disp = WidgetsBinding.instance.platformDispatcher;
+    final disp = _dispatcher;
     for (final l in disp.locales) {
       final lc = l.languageCode.toLowerCase();
       if (_codes.contains(lc)) return lc;
@@ -70,18 +87,21 @@ class LocaleController extends ChangeNotifier {
 
   /// Подгружает сохранённый язык. Вызывается один раз до `runApp`.
   Future<void> load() async {
-    final stored = await _repo.languageCode();
-    if (stored != null && _codes.contains(stored)) {
-      _code = stored;
-    } else {
-      _code = _detectSystem();
+    String? stored;
+    try {
+      stored = await _repo.languageCode();
+    } catch (_) {
+      // Настройки недоступны — решает система, а не язык автора приложения.
     }
+    _code = (stored != null && _codes.contains(stored))
+        ? stored
+        : _detectSystem();
     _loaded = true;
     notifyListeners();
   }
 
   Future<void> setCode(String code) async {
-    if (code == _code || !_codes.contains(code)) return;
+    if (code == this.code || !_codes.contains(code)) return;
     _code = code;
     notifyListeners();
     await _repo.setLanguageCode(code);
