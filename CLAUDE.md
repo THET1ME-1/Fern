@@ -1,0 +1,150 @@
+# Fern — память проекта
+
+Flutter-приложение: флеш-карточки для изучения языков на Material 3, офлайн-first,
+«красивый Anki». Приватный репозиторий `THET1ME-1/Fern`, релизы — в отдельном
+**публичном** `THET1ME-1/fern_releases`.
+
+**Проект Flutter лежит в подпапке `app/`, а не в корне.** Все команды ниже — из `app/`.
+
+## Команды
+
+```bash
+cd app
+flutter analyze          # должно быть 0
+flutter test             # весь набор
+flutter test test/x.dart # один файл
+./tool/build_release.sh  # релиз для GitHub: analyze + тесты + сплит-APK в dist/
+./tool/build_play.sh     # AAB для Google Play (другой flavor)
+```
+
+`build_release.sh` останавливается сам, если нет релизного ключа, и печатает
+подпись готового APK. Строка `CN=Android Debug` в выводе означает, что ключ не
+подхватился — такой файл выкладывать нельзя.
+
+**Посмотреть на экраны без устройства** (сборка под Linux на этой машине падает
+на snap-тулчейне: `Failed to find ld.lld`):
+
+```bash
+flutter test test/visual_check_test.dart --update-goldens --tags visual
+# затем открыть app/test/shots/*.png
+```
+
+Прогон грузит настоящие Unbounded и Onest, поэтому картинка честная. Иконки
+Material в тестовой среде рисуются квадратами — это артефакт, а не баг. В
+обычный `flutter test` он не входит (тег `visual` отключён в `dart_test.yaml`),
+снимки не в гите.
+
+## Карта кода
+
+| Где | Что |
+|---|---|
+| `lib/models/` | `fsrs.dart` — свой FSRS-5 (не пакет); `word_card.dart` — карточка, `ReviewState`, `Rating`, `FsrsState`, `LearnPhase` |
+| `lib/services/deck_repository.dart` | единая точка доступа к данным, `ChangeNotifier`; экраны слушают его |
+| `lib/services/local_db.dart` | SQLite: колоды/паки/карты/журнал повторов |
+| `lib/study/` | сессия (`session_screen.dart`), билдер очереди (`study_models.dart`), читалка, результаты |
+| `lib/l10n/` | `strings.dart` — ru + en, `translations.dart` — остальные пять языков |
+| `lib/services/` прочее | подача и подсказки: `auto_grade`, `interference`, `link_propagation`, `reading_horizon`, `exposure_service`, `schedule_lab`, `word_links` |
+
+## Решения, которые нельзя откатывать по незнанию
+
+**FSRS свой, а не пакет `fsrs`.** Взято ради контроля над API: планировщик
+дорабатывается почти каждый заход (fuzz, `passiveExposure`, `weakenByNeighbour`,
+`forSimulation`). Замена на пакет сломает всё это разом.
+
+**Хранение — «документ + проекция».** Полный `toJson` сущности лежит в колонке
+`data`, а `deck_id`/`due`/`state`/`updated_at` продублированы отдельными
+колонками под индексы. Новое поле модели миграции БД не требует — оно едет
+внутри блоба. Миграция нужна только когда появляется новая КОЛОНКА
+(`LocalDb._migrate`, `PRAGMA user_version`).
+
+**Мелкие значения остаются в `SharedPreferencesAsync`** (настройки, журнал по
+дням, рекорды, статистика чтения). Именно `Async`-вариант: старый `apply()`
+писал в фон, и смахнутое из недавних приложение теряло только что введённое
+слово.
+
+**Релизы APK — только в `fern_releases`.** В приватном репозитории
+`browser_download_url` требует авторизации, и самообновление получает non-200.
+
+**Подпись с 1.15.0 — `android/fern-release.jks`** (копия в `~/keys/`). До этого
+был debug-keystore, поэтому обновление поверх 1.14.0 и ниже невозможно.
+Потерять ключ значит потерять канал обновлений.
+
+**Часть речи ставится словарём Moby** (`assets/pos/en.pos.gz`, только английский),
+эвристика по суффиксам оставлена запасным вариантом. Прежние суффиксные правила
+`-ary/-ive/-ical/-ish` путали существительные с прилагательными.
+
+**Метрика качества расписания — точность предсказаний, а не «сколько было бы
+повторов».** Контрфактуальный бэктест невозможен в принципе: при другом
+расписании ответы человека пришлось бы выдумать. Меряется лог-лосс и калибровка
+(`services/schedule_lab.dart`), и персональные веса применяются, только если они
+предсказывают точнее дефолтных.
+
+## Грабли этого репозитория
+
+**Тесты**
+
+- SQLite на хосте требует `open.overrideForAll(libsqlite3.so.0)` — уже сделано в
+  `test/test_helpers.dart:resetStorage()`, вызывать его в `setUp`.
+- Файл БД в тестах — на процесс (pid): `flutter test` гоняет ФАЙЛЫ параллельно.
+- `rootBundle.loadString` ВИСНЕТ внутри `testWidgets` (FakeAsync). Всё, что
+  читает ассеты, — через `await tester.runAsync(...)`.
+- Плоский `test()` без `TestWidgetsFlutterBinding.ensureInitialized()` не увидит
+  rootBundle.
+- Виджет-тесты со списками: задавать высокий `tester.view.physicalSize`, иначе
+  ленивый `ListView` не построит то, что ищет `find`.
+- Повторный `pumpWidget` в одном `testWidgets` переиспользует прежний Navigator —
+  сессия «залипает» на экране результатов. Лечится своим `key: ValueKey(...)` у
+  `MaterialApp`.
+- В тестах планировщика легко случайно сделать карты равносрочными
+  (`elapsed = k * stability` даёт одинаковое R) — задавать `stability` и
+  `elapsedDays` независимо.
+
+**Код**
+
+- `ReviewState` и `FsrsState` живут в `models/word_card.dart`, не в `fsrs.dart`.
+- `switch` по `StudyMode`/`ExerciseKind`/`SelectionReason` исчерпывающие — новая
+  ветка ломает сборку в нескольких местах сразу, компилятор их перечислит.
+- `Material` не принимает `borderRadius` и `shape` вместе.
+- `Row` с `CrossAxisAlignment.stretch` внутри `Column` требует ограниченной
+  высоты — обернуть в `IntrinsicHeight`.
+- Одна книга и в полке, и в списке — теги `Hero` должны РАЗЛИЧАТЬСЯ, иначе краш
+  «two heroes share the same tag».
+- `\b` в регулярках не работает с кириллицей.
+- Роль `error`/`errorContainer` — только для настоящих сбоев. Красная плашка над
+  карточкой читается как поломка, даже если текст на ней нейтральный.
+- Виджеты общего назначения брать из M3-ДНК (`~/Projects/GitHub/m3-dna`), а не
+  писать заново: `EmptyState`, `Reveal`, `PressableScale`, `CountUpNumber`.
+  Крупные цифры «набегают» (`TweenAnimationBuilder` 0→N, см. `book_screen`).
+
+**Сборка**
+
+- ML Kit тянет CJK/деванагари-распознаватели, которых нет в бандле → R8 падает
+  «Missing class». Спасает `android/app/proguard-rules.pro` с `-dontwarn`.
+- `receive_sharing_intent` держать в диапазоне `>=1.8.0 <1.9.0`: 1.9.0 требует
+  compileSdk 37 и ломает gradle.
+- ML Kit OCR кириллицу не умеет в принципе. Для русского нужен другой движок.
+
+## Локализация
+
+Языков семь. `ru` и `en` пишутся прямо в `strings.dart`, остальные пять
+(de/fr/es/it/pt) — в `translations.dart` плоскими картами, порядок и секции
+повторяют `strings.dart`. Новый ключ обязан появиться во всех семи; проверка —
+скриптом сверки ключей и плейсхолдеров `{n}`/`{name}`.
+
+Имена изучаемых языков (`StudyLanguage.name`) намеренно РОДНЫЕ
+(English / 中文 / Español) — это не пропущенный перевод.
+
+**Числительные — через `trn(base, n)`**, а не подстановкой `{n}` в строку с
+существительным: русский требует трёх форм («1 слово / 2 слова / 5 слов»), и
+`trf` даёт «Спросил 4 слов». Формы лежат ключами `<base>_one/_few/_many`. В
+языках без падежей `_few` совпадает с `_many`. Покрытие стережёт
+`test/l10n_coverage_test.dart`.
+
+Старые строки с числами (`hook_lapses`, `words_n`) на `trn` ещё не переведены —
+там та же ошибка согласования.
+
+## Порядок работы
+
+Ветка — от `main`. Пользователь пушит сам; коммиты от
+`THET1ME-1 <badzoff@gmail.com>`. Перед выкладкой релиза версия бампается в
+`pubspec.yaml`, заметки — в `CHANGELOG.md`.
