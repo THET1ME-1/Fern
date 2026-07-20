@@ -78,6 +78,15 @@ void main() {
     expect(await Pro.allows(ProFeature.library), isFalse);
   });
 
+  test('Восстановление бэкапа не возвращает бесплатный разбор', () async {
+    // Бэкап делают до первой книги, восстанавливают после — если счётчик
+    // ездит в бэкапе, разбор возвращается сколько угодно раз.
+    final backup = await DeckRepository.instance.exportMap();
+    await Pro.noteSourceUsed();
+    await DeckRepository.instance.importMap(backup, merge: false);
+    expect(await Pro.allows(ProFeature.library), isFalse);
+  });
+
   test('Покупка в магазине открывает всё', () async {
     await BillingService.instance.debugSetOwned(true);
     expect(Pro.active, isTrue);
