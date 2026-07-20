@@ -1257,7 +1257,7 @@ const Map<String, Map<String, String>> _strings = {
   'pro_buy': {'ru': 'Купить', 'en': 'Buy'},
   'pro_buy_price': {'ru': 'Купить за {price}', 'en': 'Buy for {price}'},
   'pro_restore': {'ru': 'Восстановить покупку', 'en': 'Restore purchase'},
-  'pro_open_bot': {'ru': 'Купить в Telegram', 'en': 'Buy via Telegram'},
+  'pro_open_bot': {'ru': 'Получить ключ в Telegram', 'en': 'Get the key via Telegram'},
   'pro_have_key': {'ru': 'У меня есть ключ', 'en': 'I have a key'},
   'pro_key_label': {'ru': 'Ключ лицензии', 'en': 'License key'},
   'pro_key_apply': {'ru': 'Активировать', 'en': 'Activate'},

@@ -72,9 +72,12 @@ void main() {
     await tester.tap(find.text('открыть'));
     await tester.pumpAndSettle();
 
-    // Сборка не магазинная, значит касса — бот, а не Play.
+    // Сборка не магазинная: платят на стороне, ключ выдаёт бот. Кнопка
+    // «Купить» есть в обеих ветках, поэтому Play узнаётся по восстановлению
+    // покупки — его умеет только магазин.
     expect(find.text(tr('pro_open_bot')), findsOneWidget);
-    expect(find.text(tr('pro_buy')), findsNothing);
+    expect(find.text(tr('pro_buy')), findsOneWidget);
+    expect(find.text(tr('pro_restore')), findsNothing);
 
     await tester.tap(find.text(tr('pro_have_key')));
     await tester.pumpAndSettle();

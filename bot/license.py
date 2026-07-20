@@ -32,7 +32,11 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import (
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
 PREFIX = "FERN"
 FORMAT_VERSION = 1
-SKU_PRO = 1
+# Товары магазина: один выпускающий ключ обслуживает несколько приложений.
+# Номер едет внутри ключа, приложение проверяет свой и чужой не примет.
+SKU_PRO = 1        # Fern Pro
+SKU_KADR = 2       # задел: Kadr
+SKU_WICKLY = 3     # задел: Wickly
 EPOCH = date(2026, 1, 1)
 KEY_PATH = Path(os.environ.get("FERN_LICENSE_KEY_PATH",
                                Path.home() / ".config/fern/license_ed25519.key"))
@@ -77,21 +81,25 @@ def load_private_key() -> Ed25519PrivateKey:
     return Ed25519PrivateKey.from_private_bytes(base64.b64decode(raw))
 
 
-def build_payload(license_id: int, issued: date | None = None) -> bytes:
+def build_payload(license_id: int, issued: date | None = None,
+                  sku: int = SKU_PRO) -> bytes:
     issued = issued or datetime.now(timezone.utc).date()
     days = (issued - EPOCH).days
     if not 0 <= days <= 0xFFFF:
         raise ValueError("дата выдачи вне диапазона формата")
     if not 0 <= license_id <= 0xFFFFFFFF:
         raise ValueError("номер лицензии вне диапазона формата")
-    return struct.pack(">BBIH", FORMAT_VERSION, SKU_PRO, license_id, days)
+    if not 0 <= sku <= 0xFF:
+        raise ValueError("номер товара вне диапазона формата")
+    return struct.pack(">BBIH", FORMAT_VERSION, sku, license_id, days)
 
 
 def issue(license_id: int, issued: date | None = None,
-          key: Ed25519PrivateKey | None = None) -> str:
-    """Ключ для покупателя. `license_id` — сквозной номер из журнала бота."""
+          key: Ed25519PrivateKey | None = None, sku: int = SKU_PRO) -> str:
+    """Ключ для покупателя. `license_id` — сквозной номер из журнала бота,
+    `sku` — какой товар куплен (см. константы SKU_*)."""
     key = key or load_private_key()
-    payload = build_payload(license_id, issued)
+    payload = build_payload(license_id, issued, sku=sku)
     return PREFIX + b32encode(payload + key.sign(payload))
 
 
@@ -108,7 +116,7 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
         return None
     payload, signature = blob[:8], blob[8:]
     version, sku, license_id, days = struct.unpack(">BBIH", payload)
-    if version != FORMAT_VERSION or sku != SKU_PRO:
+    if version != FORMAT_VERSION:
         return None
     if public_key is None:
         public_key = load_private_key().public_key().public_bytes(
@@ -117,7 +125,8 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
         Ed25519PublicKey.from_public_bytes(public_key).verify(signature, payload)
     except InvalidSignature:
         return None
-    return {"id": license_id, "issued": EPOCH.fromordinal(EPOCH.toordinal() + days)}
+    return {"id": license_id, "sku": sku,
+            "issued": EPOCH.fromordinal(EPOCH.toordinal() + days)}
 
 
 def main() -> None:

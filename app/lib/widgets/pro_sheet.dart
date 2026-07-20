@@ -89,8 +89,14 @@ class _ProSheetState extends State<ProSheet> {
     await _applyKey();
   }
 
-  Future<void> _openBot() async {
-    final uri = Uri.parse('https://t.me/FernProBot');
+  /// Страница товара в магазине и бот выдачи ключей. Развилка та же, что у
+  /// [kPlayBuild]: из магазинной сборки уводить на постороннюю оплату нельзя.
+  static const String _storeUrl =
+      'https://app.lava.top/products/34586da0-fa77-4b5d-a080-e183e7ea8803';
+  static const String _botUrl = 'https://t.me/SnTAppsBot';
+
+  Future<void> _openLink(String url) async {
+    final uri = Uri.parse(url);
     try {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } catch (_) {
@@ -221,8 +227,19 @@ class _ProSheetState extends State<ProSheet> {
           ),
         ] else ...[
           FilledButton.icon(
-            onPressed: _busy ? null : _openBot,
+            onPressed: _busy ? null : () => _openLink(_storeUrl),
             style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(52),
+              shape: const StadiumBorder(),
+            ),
+            icon: const Icon(Icons.shopping_bag_outlined),
+            label: Text(tr('pro_buy')),
+          ),
+          const SizedBox(height: 8),
+          // Уже заплатил — ключ выдаёт бот по почте, указанной при оплате.
+          OutlinedButton.icon(
+            onPressed: _busy ? null : () => _openLink(_botUrl),
+            style: OutlinedButton.styleFrom(
               minimumSize: const Size.fromHeight(52),
               shape: const StadiumBorder(),
             ),

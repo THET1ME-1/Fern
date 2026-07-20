@@ -1,0 +1,20 @@
+# Бот выдачи ключей магазина SnT. Класть в /etc/systemd/system/,
+# править пути и Environment, затем: systemctl enable --now snt-bot
+[Unit]
+Description=SnT keys bot
+After=network-online.target
+
+[Service]
+Type=simple
+User=snt
+WorkingDirectory=/opt/snt-bot
+# Секреты лучше держать в отдельном файле с правами 600, а не тут:
+EnvironmentFile=/etc/snt-bot.env
+Environment=FERN_LICENSE_KEY_PATH=/opt/snt-bot/license_ed25519.key
+Environment=SNT_BOT_DB=/opt/snt-bot/purchases.db
+ExecStart=/opt/snt-bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
