@@ -9,6 +9,7 @@ import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'language_picker_sheet.dart';
 import 'models/deck.dart';
+import 'models/word_card.dart';
 import 'services/book_analysis.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
@@ -16,6 +17,8 @@ import 'services/lemmatizer.dart';
 import 'services/pos.dart';
 import 'services/pro.dart';
 import 'services/reading_goal.dart';
+import 'services/reading_horizon.dart';
+import 'services/reading_warmup.dart';
 import 'services/source_library.dart';
 import 'services/translation/translation_manager.dart';
 import 'study/book_reader_screen.dart';
@@ -55,6 +58,7 @@ class _BookScreenState extends State<BookScreen> {
   // Дневной лимит новых слов: из него считается срок в пути к книге. Берётся
   // настоящий, а не круглый для витрины — обещание должно сбываться.
   int _newPerDay = 12;
+  List<WordCard> _warmupCards = const [];
 
   late final LibrarySource _src = widget.source;
   String? _text;
@@ -82,6 +86,7 @@ class _BookScreenState extends State<BookScreen> {
     _library.addListener(_onLibrary);
     _repo.addListener(_onRepo);
     _loadPace();
+    _loadWarmup();
     _load();
   }
 
@@ -105,6 +110,58 @@ class _BookScreenState extends State<BookScreen> {
     _recomputeTimer =
         Timer(const Duration(milliseconds: 350), () => _recompute());
   }
+
+  /// Слова ближайших страниц, которые стоит повторить перед чтением.
+  Future<void> _loadWarmup() async {
+    if (!Pro.active) return;
+    final horizon = await ReadingHorizon.upcoming(_srcLang);
+    final cards = ReadingWarmup.pick(
+      await _repo.cardsForLanguage(_srcLang),
+      horizon,
+      _srcLang,
+    );
+    if (mounted) setState(() => _warmupCards = cards);
+  }
+
+  Widget _warmupButton(ColorScheme scheme) {
+    return OutlinedButton.icon(
+      onPressed: _startWarmup,
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
+        shape: const StadiumBorder(),
+      ),
+      icon: const Icon(Icons.bolt_rounded, size: 20),
+      label: Text('${tr('warmup_title')} · ${_warmupCards.length}'),
+    );
+  }
+
+  Future<void> _startWarmup() async {
+    if (_warmupCards.isEmpty) return;
+    HapticFeedback.selectionClick();
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SessionScreen(
+          deck: _bookDeck,
+          mode: StudyMode.learn,
+          cards: _warmupCards,
+        ),
+      ),
+    );
+    _recompute();
+    _loadWarmup();
+  }
+
+  /// Синтетическая колода книги: её слова лежат по разным колодам, а учить их
+  /// хочется вместе — ради книги всё и затевалось.
+  Deck get _bookDeck => Deck(
+        id: 'book_${_src.id}',
+        languageCode: _srcLang,
+        name: _src.title,
+        colorValue: 0xFF2E7D5B,
+        shapeIndex: 0,
+        createdAt: _src.createdAt,
+      );
 
   Future<void> _loadPace() async {
     final pace = await _repo.newPerDay();
@@ -135,14 +192,7 @@ class _BookScreenState extends State<BookScreen> {
       context,
       MaterialPageRoute(
         builder: (_) => SessionScreen(
-          deck: Deck(
-            id: 'book_${_src.id}',
-            languageCode: _srcLang,
-            name: _src.title,
-            colorValue: 0xFF2E7D5B,
-            shapeIndex: 0,
-            createdAt: _src.createdAt,
-          ),
+          deck: _bookDeck,
           mode: StudyMode.learn,
           cards: cards,
         ),
@@ -363,6 +413,15 @@ class _BookScreenState extends State<BookScreen> {
             _unavailable(scheme)
           else ...[
             Reveal(child: _readButton(scheme)),
+            if (_warmupCards.isNotEmpty) ...[
+              const SizedBox(height: 10),
+              // Разминка стоит прямо под кнопкой чтения: она нужна ровно за
+              // минуту до того, как человек откроет книгу.
+              Reveal(
+                delay: const Duration(milliseconds: 40),
+                child: _warmupButton(scheme),
+              ),
+            ],
             const SizedBox(height: 20),
             Reveal(
               delay: const Duration(milliseconds: 60),
