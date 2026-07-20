@@ -13,7 +13,9 @@ import '../models/review_log.dart';
 import '../models/word_card.dart';
 import '../utils/day.dart';
 import 'auto_grade.dart';
+import 'billing_service.dart';
 import 'card_images.dart';
+import 'license_service.dart';
 import 'link_propagation.dart';
 import 'local_db.dart';
 import 'pro.dart';
@@ -1206,6 +1208,13 @@ class DeckRepository extends ChangeNotifier {
     // «удалить все данные» — про свои колоды и книги, а не про покупку.
     // Иначе кнопка в настройках возвращала бы бесплатную книгу без конца.
     final freeUsed = await Pro.usedSources();
+    // Покупка переживает стирание по той же причине, только цена ошибки выше.
+    // `_prefs.clear()` уносил и ключ Pro, и флаг покупки из магазина: человек
+    // оставался без оплаченного, а вернуть ключ можно было только из переписки
+    // с ботом. Экран при этом ещё показывал «Pro активен» — статус живёт в
+    // памяти сервисов и расходится с диском до перезапуска.
+    final licenseKey = LicenseService.instance.key;
+    final purchased = BillingService.instance.owned;
     // Чистим оба prefs-стора (async + legacy) целиком, включая флаги миграций.
     await _prefs.clear();
     try {
@@ -1214,6 +1223,10 @@ class DeckRepository extends ChangeNotifier {
       /* legacy-стор недоступен — не критично */
     }
     await Pro.restoreUsedSources(freeUsed);
+    if (licenseKey != null && licenseKey.isNotEmpty) {
+      await LicenseService.instance.apply(licenseKey);
+    }
+    if (purchased) await BillingService.instance.persistOwned();
     _decks.clear();
     _packs.clear();
     _cards.clear();

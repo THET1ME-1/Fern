@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 
 import 'card_images.dart';
 import 'deck_repository.dart';
+import 'license_service.dart';
 import 'source_library.dart';
 
 /// Единое место, знающее формат полного бэкапа Fern: колоды/паки/карты + журнал
@@ -36,6 +37,11 @@ class BackupService {
   static Future<void> restore(String raw, {bool merge = false}) async {
     final data = jsonDecode(raw) as Map<String, dynamic>;
     await DeckRepository.instance.importMap(data, merge: merge);
+    // Ключ Pro импорт кладёт прямо в prefs, а `LicenseService` держит статус в
+    // памяти и сверяется с диском только при запуске. Без этой строки человек
+    // на новом телефоне восстанавливал свой снимок и видел библиотеку под
+    // замком и бесплатный тариф в настройках — «покупка не восстановилась».
+    await LicenseService.instance.load();
     if (data['library'] is List) {
       await SourceLibrary.instance
           .importAll(data['library'] as List, merge: merge);

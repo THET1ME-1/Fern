@@ -111,10 +111,19 @@ class BillingService extends ChangeNotifier {
   }
 
   Future<void> _grant() async {
-    if (_owned) return;
+    final known = _owned;
     _owned = true;
+    // Записываем даже когда флаг уже поднят в памяти: диск мог разойтись с
+    // памятью (например, после «удалить все данные»), и ранний возврат
+    // оставлял покупку незаписанной — «Восстановить покупку» не помогало.
     await SignedStore.setBool(_kOwned, true);
-    notifyListeners();
+    if (!known) notifyListeners();
+  }
+
+  /// Заново кладёт флаг покупки на диск, если он есть в памяти. Нужно после
+  /// операций, которые чистят prefs целиком.
+  Future<void> persistOwned() async {
+    if (_owned) await SignedStore.setBool(_kOwned, true);
   }
 
   @visibleForTesting
