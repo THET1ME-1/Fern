@@ -68,6 +68,20 @@ Signing fingerprint (SHA-256) to verify the APK:
 
 **Website:** https://thet1me-1.github.io/Fern/ · **Privacy:** https://thet1me-1.github.io/Fern/privacy.html
 
+### Install (iOS)
+Every release also carries `Fern-X.Y.Z-unsigned.ipa`. There is no App Store build and no
+Apple certificate behind that file — you sign it yourself when installing:
+
+- **[Sideloadly](https://sideloadly.io/) or [AltStore](https://altstore.io/)** with a free
+  Apple ID: the app runs for **7 days**, then re-sign it. Three sideloaded apps at a time.
+- **Paid developer account** ($99/year): a year between re-signings.
+- **[TrollStore](https://github.com/opa334/TrollStore)**: permanent signature, but only on
+  devices whose iOS version it supports.
+
+Requires **iOS 15.5+**. In-app purchases don't work in a sideloaded build — Fern Pro is
+unlocked with a key instead. The app won't update itself either: it opens the release page,
+and you install the new file the same way you installed the old one.
+
 ### Privacy
 No account, no analytics, no cloud. Your decks, words and stats stay on your device (with optional local JSON backup). Online translation is only used if you enable it. Android's cloud backup is disabled, so nothing leaks to Google Drive either. Full policy: [docs/privacy-policy.md](docs/privacy-policy.md).
 
@@ -117,6 +131,20 @@ One-tap: `obtainium://add/https://github.com/THET1ME-1/Fern`
 > приложение, поставь 1.15.0 и восстанови копию. Это разово — дальше обновления идут как обычно.
 
 **Сайт:** https://thet1me-1.github.io/Fern/ · **Политика:** https://thet1me-1.github.io/Fern/privacy.html
+
+### Установка (iOS)
+В каждом релизе лежит `Fern-X.Y.Z-unsigned.ipa`. Сборки в App Store нет, сертификата Apple
+за этим файлом тоже — подпись ставишь ты сам при установке:
+
+- **[Sideloadly](https://sideloadly.io/) или [AltStore](https://altstore.io/)** с бесплатным
+  Apple ID: приложение живёт **7 дней**, дальше переподписать. Три таких приложения разом.
+- **Платный аккаунт разработчика** ($99 в год): год без переподписи.
+- **[TrollStore](https://github.com/opa334/TrollStore)**: подпись навсегда, но только на
+  устройствах с подходящей версией iOS.
+
+Нужен **iOS 15.5+**. Встроенные покупки в такой сборке не работают — Fern Pro открывается
+ключом. Обновляться само приложение тоже не будет: оно откроет страницу релиза, а новый файл
+ты поставишь тем же способом, что и предыдущий.
 
 ### Приватность
 Без аккаунта, аналитики и облака. Колоды, слова и статистика остаются на устройстве (с опциональным локальным JSON-бэкапом). Онлайн-перевод — только если ты сам его включишь. Системный бэкап Android отключён — данные не уезжают и в Google Drive. Полная политика: [docs/privacy-policy.md](docs/privacy-policy.md).
