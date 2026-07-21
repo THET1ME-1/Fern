@@ -488,14 +488,6 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
           ),
         ),
         actions: [
-          IconButton(
-            tooltip: tr('read_aloud'),
-            onPressed: _ready ? _toggleRead : null,
-            icon: Icon(
-              _playing ? Icons.stop_circle_rounded : Icons.headphones_rounded,
-              color: _playing ? t.accent : t.text,
-            ),
-          ),
           if (_addedCount > 0)
             Center(
               child: Container(
@@ -524,37 +516,12 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                 ),
               ),
             ),
-          ValueListenableBuilder<int>(
-            valueListenable: _topIndexN,
-            builder: (_, top, _) {
-              final isBookmarked = _bookmarks.contains(top);
-              return IconButton(
-                tooltip: tr('bookmark'),
-                onPressed: _ready ? _toggleBookmark : null,
-                icon: Icon(
-                  isBookmarked
-                      ? Icons.bookmark_rounded
-                      : Icons.bookmark_border_rounded,
-                  color: isBookmarked ? t.accent : t.text,
-                ),
-              );
-            },
-          ),
+          // Пять иконок в ряд отнимали половину шапки и мешали заголовку
+          // книги. Всё, кроме счётчика добавленных слов, живёт в меню.
           IconButton(
-            tooltip: tr('bookmarks'),
-            onPressed: _ready ? _openBookmarks : null,
-            icon: Icon(Icons.bookmarks_outlined, color: t.text),
-          ),
-          if (_chapters.isNotEmpty)
-            IconButton(
-              tooltip: tr('chapters'),
-              onPressed: _ready ? _openChapters : null,
-              icon: Icon(Icons.toc_rounded, color: t.text),
-            ),
-          IconButton(
-            tooltip: tr('reader_settings'),
-            onPressed: _ready ? _openReaderSettings : null,
-            icon: Icon(Icons.text_fields_rounded, color: t.text),
+            tooltip: tr('menu'),
+            onPressed: _ready ? _openReaderMenu : null,
+            icon: Icon(Icons.more_vert_rounded, color: t.text),
           ),
         ],
         bottom: PreferredSize(
@@ -797,6 +764,123 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         _paraTrFailed.add(i);
       }
     });
+  }
+
+  // ------------------------------- Меню читалки -------------------------------
+
+  /// Всё, что раньше стояло иконками в шапке. Пункты живые: чтение вслух
+  /// показывает «Остановить», а закладка — снята она или поставлена.
+  void _openReaderMenu() {
+    final t = _settings.theme;
+    final bookmarked = _bookmarks.contains(_topIndexN.value);
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: t.background,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 14, 12, 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _grabber(t),
+              const SizedBox(height: 10),
+              _menuItem(
+                t,
+                icon: _playing
+                    ? Icons.stop_circle_rounded
+                    : Icons.headphones_rounded,
+                label: _playing ? tr('stop') : tr('read_aloud'),
+                highlighted: _playing,
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _toggleRead();
+                },
+              ),
+              _menuItem(
+                t,
+                icon: bookmarked
+                    ? Icons.bookmark_rounded
+                    : Icons.bookmark_border_rounded,
+                label: bookmarked ? tr('bookmark_remove') : tr('bookmark_add'),
+                highlighted: bookmarked,
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _toggleBookmark();
+                },
+              ),
+              _menuItem(
+                t,
+                icon: Icons.bookmarks_outlined,
+                label: tr('bookmarks'),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _openBookmarks();
+                },
+              ),
+              if (_chapters.isNotEmpty)
+                _menuItem(
+                  t,
+                  icon: Icons.toc_rounded,
+                  label: tr('chapters'),
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    _openChapters();
+                  },
+                ),
+              _menuItem(
+                t,
+                icon: Icons.text_fields_rounded,
+                label: tr('reader_settings'),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  _openReaderSettings();
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _menuItem(
+    ReaderTheme t, {
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+    bool highlighted = false,
+  }) {
+    final color = highlighted ? t.accent : t.text;
+    return Material(
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(18),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+          child: Row(
+            children: [
+              Icon(icon, size: 22, color: color),
+              const SizedBox(width: 16),
+              Text(
+                label,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 15.5,
+                  fontWeight: FontWeight.w600,
+                  color: color,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   // ------------------------------- Закладки: лист -------------------------------

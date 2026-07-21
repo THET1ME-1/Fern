@@ -685,7 +685,8 @@ class _VideoScreenState extends State<VideoScreen> {
                   showCheckmark: true,
                   backgroundColor: _unknownColor.withValues(alpha: 0.10),
                   selectedColor: _unknownColor.withValues(alpha: 0.28),
-                  side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
+                  shape: const StadiumBorder(),
+                  side: BorderSide.none,
                   onSelected: (sel) => setState(() {
                     if (sel) {
                       _selected.add(w.word);
@@ -705,7 +706,8 @@ class _VideoScreenState extends State<VideoScreen> {
                   avatar:
                       Icon(Icons.add_rounded, size: 18, color: scheme.primary),
                   backgroundColor: _unknownColor.withValues(alpha: 0.10),
-                  side: BorderSide(color: _unknownColor.withValues(alpha: 0.3)),
+                  shape: const StadiumBorder(),
+                  side: BorderSide.none,
                   onPressed: () => _learnWord(w.word),
                 ),
           ],

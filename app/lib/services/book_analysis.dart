@@ -4,6 +4,7 @@ import '../models/fsrs.dart';
 import '../models/word_card.dart';
 import 'deck_repository.dart';
 import 'lemmatizer.dart';
+import 'word_priority.dart';
 
 /// Слово книги с частотой встречаемости.
 class WordFreq {
@@ -20,14 +21,24 @@ class BookTokens {
   final List<String> stems;
   final List<int> counts;
 
+  /// Сколько раз слово встретилось с заглавной буквы. По этому счётчику видно
+  /// имя собственное: «Хардин» в романе частотнее многих глаголов, но учить
+  /// его карточкой незачем.
+  final List<int> capitals;
+
   const BookTokens({
     required this.words,
     required this.stems,
     required this.counts,
+    this.capitals = const [],
   });
 
+  /// Сколько раз слово [i] написано с заглавной (0, если счётчика нет — так
+  /// читаются тексты, разобранные прежними версиями).
+  int capitalAt(int i) => i < capitals.length ? capitals[i] : 0;
+
   static const BookTokens empty =
-      BookTokens(words: [], stems: [], counts: []);
+      BookTokens(words: [], stems: [], counts: [], capitals: []);
 
   bool get isEmpty => words.isEmpty;
 }
@@ -125,15 +136,20 @@ class BookAnalysis {
 
   /// Считает частоты уникальных слов текста (нижний регистр). Пропускает токены
   /// без букв (числа/пунктуацию).
-  static Map<String, int> tokenize(String text) {
+  static Map<String, int> tokenize(String text) => tokenizeWithCase(text).$1;
+
+  /// То же, что [tokenize], плюс счётчик написаний с заглавной буквы.
+  static (Map<String, int>, Map<String, int>) tokenizeWithCase(String text) {
     final freq = <String, int>{};
+    final capitals = <String, int>{};
     for (final m in _ws.allMatches(text)) {
       final clean = m.group(0)!.replaceAll(_edge, '');
       if (clean.isEmpty || !_letter.hasMatch(clean)) continue;
       final key = clean.toLowerCase();
       freq[key] = (freq[key] ?? 0) + 1;
+      if (clean != key) capitals[key] = (capitals[key] ?? 0) + 1;
     }
-    return freq;
+    return (freq, capitals);
   }
 
   /// Текущая вероятность вспомнить карту (0..1) по FSRS.
@@ -150,16 +166,23 @@ class BookAnalysis {
   /// переиспользуется — добавление слова больше не гоняет токенизацию романа
   /// заново.
   static BookTokens prepare(String text, String languageCode) {
-    final freq = tokenize(text);
+    final (freq, capitals) = tokenizeWithCase(text);
     final words = <String>[];
     final stems = <String>[];
     final counts = <int>[];
+    final caps = <int>[];
     freq.forEach((word, count) {
       words.add(word);
       stems.add(Lemmatizer.stem(word, languageCode));
       counts.add(count);
+      caps.add(capitals[word] ?? 0);
     });
-    return BookTokens(words: words, stems: stems, counts: counts);
+    return BookTokens(
+      words: words,
+      stems: stems,
+      counts: counts,
+      capitals: caps,
+    );
   }
 
   /// Полный анализ текста для языка [languageCode] (использует кэш словаря).
@@ -193,6 +216,7 @@ class BookAnalysis {
     var coveredTokens = 0;
     var masteredTokens = 0;
     final unknown = <WordFreq>[];
+    final candidates = <WordCandidate>[];
 
     for (var i = 0; i < t.words.length; i++) {
       final count = t.counts[i];
@@ -201,6 +225,11 @@ class BookAnalysis {
       if (card == null) {
         unknownTypes++;
         unknown.add(WordFreq(t.words[i], count));
+        candidates.add(WordCandidate(
+          word: t.words[i],
+          count: count,
+          capitalized: t.capitalAt(i),
+        ));
         continue;
       }
       coveredTokens += count;
@@ -214,6 +243,13 @@ class BookAnalysis {
       }
     }
 
+    // Порядок задаёт WordPriority: голая частота выносила наверх «the» и «of»,
+    // а их знает любой, кто открыл книгу на этом языке.
+    final worthy = WordPriority.pick(
+      candidates,
+      languageCode,
+      limit: _topUnknownLimit,
+    );
     unknown.sort((a, b) {
       final byCount = b.count.compareTo(a.count);
       return byCount != 0 ? byCount : a.word.compareTo(b.word);
@@ -227,7 +263,7 @@ class BookAnalysis {
       knownTypes: knownTypes,
       coverage: totalTokens == 0 ? 0 : coveredTokens / totalTokens,
       masteredCoverage: totalTokens == 0 ? 0 : masteredTokens / totalTokens,
-      topUnknown: unknown.take(_topUnknownLimit).toList(),
+      topUnknown: [for (final c in worthy) WordFreq(c.word, c.count)],
       unknownFreqs: [for (final w in unknown) w.count],
     );
   }

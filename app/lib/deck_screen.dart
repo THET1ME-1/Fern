@@ -637,6 +637,8 @@ class _DeckScreenState extends State<DeckScreen> {
       label: Text('$label · $count'),
       selected: selected,
       visualDensity: VisualDensity.compact,
+      shape: const StadiumBorder(),
+      side: BorderSide.none,
       onSelected: (_) => setState(() => _posFilter = selected ? '' : code),
     );
   }
@@ -1014,6 +1016,8 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                             selected: _back.text.trim() == opt,
                             onSelected: (_) => _pickOption(opt),
                             visualDensity: VisualDensity.compact,
+                            shape: const StadiumBorder(),
+                            side: BorderSide.none,
                           ),
                       ],
                     ),
@@ -1090,6 +1094,8 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
               label: Text(tr('pos_none')),
               selected: _pos.isEmpty,
               visualDensity: VisualDensity.compact,
+              shape: const StadiumBorder(),
+              side: BorderSide.none,
               onSelected: (_) => setState(() => _pos = ''),
             ),
             for (final code in PosDetect.order)
@@ -1097,6 +1103,8 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                 label: Text(tr('pos_deck_$code')),
                 selected: _pos == code,
                 visualDensity: VisualDensity.compact,
+                shape: const StadiumBorder(),
+                side: BorderSide.none,
                 onSelected: (_) => setState(() => _pos = code),
               ),
           ],

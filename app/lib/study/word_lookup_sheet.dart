@@ -260,6 +260,8 @@ class _WordLookupState extends State<_WordLookup> {
                           label: Text(o),
                           selected: _back == o,
                           visualDensity: VisualDensity.compact,
+                          shape: const StadiumBorder(),
+                          side: BorderSide.none,
                           onSelected: (_) {
                             HapticFeedback.selectionClick();
                             setState(() => _back = o);

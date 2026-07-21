@@ -560,7 +560,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'analysis_unknown_sub': 'Noch nicht im Wörterbuch',
     'book_vocab_line': 'Eindeutige Wörter: {unique}. In deinem Wörterbuch: {indict} ({share} %).',
     'book_study_first': 'Diese zuerst lernen',
-    'book_study_first_sub': 'Häufigste neue Wörter — zum Hinzufügen antippen',
+    'book_study_first_sub': 'Häufige und schwierige Wörter — zum Hinzufügen tippen',
     'select': 'Auswählen',
     'select_all': 'Alle auswählen',
     'n_selected': '{n} ausgewählt',
@@ -756,6 +756,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'goal_open_pro': 'Mit Fern Pro freischalten',
     'goal_study': 'Wörter des Buches lernen',
     'goal_target_hint': 'Bis {n}% des Textes — ab da braucht es kaum ein Wörterbuch',
+    'menu': 'Menü',
+    'stop': 'Stopp',
+    'bookmark_add': 'Lesezeichen setzen',
+    'bookmark_remove': 'Lesezeichen entfernen',
   },
 
   // ============================== Français (fr) ==============================
@@ -1313,7 +1317,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'analysis_unknown_sub': 'Pas encore dans le dictionnaire',
     'book_vocab_line': 'Mots uniques : {unique}. Dans votre dictionnaire : {indict} ({share} %).',
     'book_study_first': 'À apprendre en premier',
-    'book_study_first_sub': 'Mots nouveaux les plus fréquents — touchez pour ajouter',
+    'book_study_first_sub': 'Mots fréquents et difficiles — touchez pour ajouter',
     'select': 'Sélectionner',
     'select_all': 'Tout sélectionner',
     'n_selected': '{n} sélectionné(s)',
@@ -1509,6 +1513,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'goal_open_pro': 'Débloquer avec Fern Pro',
     'goal_study': 'Apprendre les mots du livre',
     'goal_target_hint': 'Jusqu’à {n}% du texte — le seuil où le dictionnaire devient inutile',
+    'menu': 'Menu',
+    'stop': 'Arrêter',
+    'bookmark_add': 'Ajouter un signet',
+    'bookmark_remove': 'Retirer le signet',
   },
 
   // ============================== Español (es) ==============================
@@ -2066,7 +2074,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'analysis_unknown_sub': 'Aún no están en el diccionario',
     'book_vocab_line': 'Palabras únicas: {unique}. En tu diccionario: {indict} ({share}%).',
     'book_study_first': 'Aprende estas primero',
-    'book_study_first_sub': 'Las palabras nuevas más frecuentes: toca para añadir',
+    'book_study_first_sub': 'Palabras frecuentes y difíciles — toca para añadir',
     'select': 'Seleccionar',
     'select_all': 'Seleccionar todo',
     'n_selected': '{n} seleccionadas',
@@ -2262,6 +2270,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'goal_open_pro': 'Desbloquear con Fern Pro',
     'goal_study': 'Aprender las palabras del libro',
     'goal_target_hint': 'Hasta el {n}% del texto: el punto donde el diccionario casi no hace falta',
+    'menu': 'Menú',
+    'stop': 'Detener',
+    'bookmark_add': 'Añadir marcador',
+    'bookmark_remove': 'Quitar marcador',
   },
 
   // ============================== Italiano (it) ==============================
@@ -2819,7 +2831,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'analysis_unknown_sub': 'Non nel vocabolario',
     'book_vocab_line': 'Parole uniche: {unique}. Nel tuo vocabolario: {indict} ({share}%).',
     'book_study_first': 'Impara prima queste',
-    'book_study_first_sub': 'Le parole nuove più frequenti — tocca per aggiungere',
+    'book_study_first_sub': 'Parole frequenti e difficili — tocca per aggiungere',
     'select': 'Seleziona',
     'select_all': 'Seleziona tutto',
     'n_selected': '{n} selezionate',
@@ -3015,6 +3027,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'goal_open_pro': 'Sblocca con Fern Pro',
     'goal_study': 'Impara le parole del libro',
     'goal_target_hint': 'Fino al {n}% del testo: la soglia oltre cui il dizionario serve a malapena',
+    'menu': 'Menu',
+    'stop': 'Ferma',
+    'bookmark_add': 'Aggiungi segnalibro',
+    'bookmark_remove': 'Rimuovi segnalibro',
   },
 
   // ============================== Português (pt) ==============================
@@ -3572,7 +3588,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'analysis_unknown_sub': 'Ainda não está no vocabulário',
     'book_vocab_line': 'Palavras únicas: {unique}. No seu vocabulário: {indict} ({share}%).',
     'book_study_first': 'Aprenda estas primeiro',
-    'book_study_first_sub': 'Palavras novas mais frequentes — toque para adicionar',
+    'book_study_first_sub': 'Palavras frequentes e difíceis — toque para adicionar',
     'select': 'Selecionar',
     'select_all': 'Selecionar tudo',
     'n_selected': '{n} selecionados',
@@ -3768,5 +3784,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'goal_open_pro': 'Desbloquear com o Fern Pro',
     'goal_study': 'Aprender as palavras do livro',
     'goal_target_hint': 'Até {n}% do texto — o ponto em que o dicionário quase não faz falta',
+    'menu': 'Menu',
+    'stop': 'Parar',
+    'bookmark_add': 'Adicionar marcador',
+    'bookmark_remove': 'Remover marcador',
   },
 };

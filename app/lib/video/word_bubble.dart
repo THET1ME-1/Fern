@@ -299,6 +299,8 @@ class _WordBubbleState extends State<_WordBubble> {
                           label: Text(o),
                           selected: _back == o,
                           visualDensity: VisualDensity.compact,
+                          shape: const StadiumBorder(),
+                          side: BorderSide.none,
                           onSelected: (_) {
                             HapticFeedback.selectionClick();
                             setState(() => _back = o);

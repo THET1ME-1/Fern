@@ -64,9 +64,11 @@ void main() {
       // Уверенно помнит: the×3 / 8 = 0.375.
       expect(a.masteredCoverage, closeTo(0.375, 1e-9));
 
-      // Незнакомые слова присутствуют в списке «учить первыми».
+      // В списке «учить первыми» — только содержательные слова: союз «and»
+      // считается незнакомым для статистики, но учить его карточкой незачем.
       final unknownWords = a.topUnknown.map((w) => w.word).toSet();
-      expect(unknownWords, containsAll(<String>['and', 'dog', 'runs']));
+      expect(unknownWords, containsAll(<String>['dog', 'runs']));
+      expect(unknownWords, isNot(contains('and')));
     });
 
     test('пустой текст даёт пустой анализ', () {

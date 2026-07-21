@@ -1019,8 +1019,8 @@ const Map<String, Map<String, String>> _strings = {
   },
   'book_study_first': {'ru': 'Учить в первую очередь', 'en': 'Learn these first'},
   'book_study_first_sub': {
-    'ru': 'Самые частые незнакомые слова — тап, чтобы добавить',
-    'en': 'Most frequent new words — tap to add'
+    'ru': 'Частые и трудные слова текста — тап, чтобы добавить',
+    'en': 'Frequent and demanding words — tap to add'
   },
   'select': {'ru': 'Выбрать', 'en': 'Select'},
   'select_all': {'ru': 'Выбрать все', 'en': 'Select all'},
@@ -1099,6 +1099,11 @@ const Map<String, Map<String, String>> _strings = {
   'seed_deck_clothes': {'ru': 'Одежда', 'en': 'Clothes'},
 
   // ----------------------------- Прочие строки интерфейса -------------------------
+  // Меню читалки: всё, что раньше стояло иконками в шапке.
+  'menu': {'ru': 'Меню', 'en': 'Menu'},
+  'stop': {'ru': 'Остановить', 'en': 'Stop'},
+  'bookmark_add': {'ru': 'Поставить закладку', 'en': 'Add bookmark'},
+  'bookmark_remove': {'ru': 'Снять закладку', 'en': 'Remove bookmark'},
   'custom_color': {'ru': 'Свой цвет', 'en': 'Custom color'},
   'quick_add_example': {
     'ru': 'hello — привет\nwater — вода',
