@@ -3,6 +3,39 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.17.1] — 2026-07-21
+
+Подписи не режутся посреди слова.
+
+### Исправлено
+- **«1 колод» под книгой.** Счётчик подставлял число в строку с
+  существительным, а русскому нужны три формы. Теперь «1 колода», «2 колоды»,
+  «5 колод» — и так на всех семи языках интерфейса.
+- **«Сфотограф ировать текст» в библиотеке.** Слово рвалось посередине, а
+  подпись под ним уезжала за нижний край карточки. Пункт называется «Текст с
+  фото», строки ограничены.
+- **«Трудные сло…» и «Быстрый пов…» в режимах.** Название сжимается под
+  ширину плитки вместо многоточия.
+- **«Первые с…» в шапке колоды.** Имя колоды тоже сжимается: три кнопки
+  справа оставляли ему мало места.
+
+---
+
+## Fern 1.17.1 — in English
+
+Labels no longer break mid-word.
+
+### Fixed
+- **"1 колод" under a book.** The deck counter plugged a number into a noun,
+  and Russian needs three forms of it. Now the count agrees on all seven
+  interface languages.
+- **The library's "Scan text" card.** In Russian the word wrapped mid-word and
+  pushed the subtitle past the card's bottom edge; both lines are capped now.
+- **Mode names and deck titles** shrink to fit instead of ending in an
+  ellipsis.
+
+---
+
 ## [1.17.0] — 2026-07-21
 
 Разбор книг и видео предлагает слова, которые правда стоит учить.
