@@ -3,6 +3,49 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.17.3] — 2026-07-21
+
+Ключи стали именными.
+
+### Изменено
+- **В ключе Fern Pro теперь лежит почта покупателя**, и приложение показывает
+  её в настройках рядом с номером лицензии. Копированию это не мешает, но
+  выложить такой ключ в общий доступ значит выложить вместе с ним свой адрес.
+  Ключи, выпущенные раньше, работают как работали.
+- **Свежий ключ вводится в течение трёх дней после выдачи.** Считать активации
+  без сервера невозможно, поэтому ограничен срок жизни самого ключа: копия,
+  ушедшая в сеть, протухает раньше, чем её кто-то увидит. Покупателя это не
+  касается — бот выдаёт новый ключ по первому запросу, бесплатно и сразу.
+  Принятый ключ работает дальше без ограничений, «удалить все данные» покупку
+  не отбирает.
+- **Отозванные лицензии приезжают без обновления приложения.** Раньше список
+  ехал только с новой версией, и утёкший ключ работал месяцами. Теперь
+  приложение раз в трое суток заглядывает в файл в репозитории — тот же адрес,
+  откуда качается сборка. Нет сети — работает список с прошлого раза.
+
+---
+
+## Fern 1.17.3 — in English
+
+Keys now carry a name.
+
+### Changed
+- **A Fern Pro key now holds the buyer's email**, and the app shows it in
+  settings next to the licence number. It doesn't stop anyone from copying the
+  key, but posting it publicly means posting your address along with it. Keys
+  issued earlier keep working.
+- **A fresh key can be entered within three days of issue.** Counting
+  activations without a server is impossible, so the key itself has a shelf
+  life: a copy that leaks goes stale before anyone sees it. Buyers don't
+  notice — the bot issues a new key on request, free and instantly. An accepted
+  key keeps working, and "delete all data" doesn't take the purchase away.
+- **Revoked licences arrive without an app update.** The list used to ship only
+  with a new version, so a leaked key worked for months. The app now checks a
+  file in the repository every three days — the same address the build comes
+  from. No connection means the previous list stays in force.
+
+---
+
 ## [1.17.2] — 2026-07-21
 
 Сборка под iOS.

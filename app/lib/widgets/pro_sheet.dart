@@ -117,13 +117,15 @@ class _ProSheetState extends State<ProSheet> {
     if (raw.isEmpty) return;
     HapticFeedback.selectionClick();
     setState(() => _busy = true);
-    final info = await LicenseService.instance.apply(raw);
+    final result = await LicenseService.instance.apply(raw);
     if (!mounted) return;
     setState(() {
       _busy = false;
-      _error = info == null ? tr('pro_key_bad') : null;
+      _error = result.info != null
+          ? null
+          : (result.expired ? tr('pro_key_expired') : tr('pro_key_bad'));
     });
-    if (info != null) {
+    if (result.info != null) {
       Navigator.of(context).maybePop();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(tr('pro_key_ok'))),

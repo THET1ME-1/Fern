@@ -16,6 +16,7 @@ import 'services/backup_service.dart';
 import 'services/billing_service.dart';
 import 'services/card_images.dart';
 import 'services/license_service.dart';
+import 'services/revocation_feed.dart';
 import 'services/pro.dart';
 import 'services/source_library.dart';
 import 'services/deck_repository.dart';
@@ -76,7 +77,12 @@ Future<void> startFern() async {
   // Pro: ключ проверяется на устройстве, покупка в магазине подтягивается
   // фоном — оба источника должны быть известны до первого кадра, иначе
   // библиотека мигнёт замком у того, кто уже заплатил.
-  await _optional(StartupStep.license, LicenseService.instance.load);
+  // Отозванные номера с прошлой загрузки — до проверки ключа, иначе отозванный
+  // ключ прожил бы ещё один запуск.
+  await _optional(StartupStep.license, () async {
+    await RevocationFeed.applyStored();
+    await LicenseService.instance.load();
+  });
   await _optional(StartupStep.billing, BillingService.instance.load);
   await _optional(StartupStep.seed, () async {
     // Разовый перенос: у тех, кто разобрал свою книгу до появления счётчика
@@ -101,6 +107,9 @@ Future<void> startFern() async {
   unawaited(BackupService.autoBackupIfDue());
   // Фоновая загрузка словаря частей речи (чтобы теги новых слов были точными).
   unawaited(PosDictionary.instance.ensureLoaded('en'));
+  // Раз в трое суток забираем список отозванных лицензий. Ответа не ждём:
+  // нет сети — остаётся тот список, что уже лежит на устройстве.
+  unawaited(RevocationFeed.refresh());
 }
 
 /// Шаги запуска, которые не поднялись. Приложение работает и без них, но

@@ -31,7 +31,8 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import (
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
 PREFIX = "FERN"
-FORMAT_VERSION = 1
+FORMAT_VERSION = 1        # ключ без почты: выпускался до 1.17.3
+FORMAT_VERSION_EMAIL = 2  # именной: внутри почта покупателя
 # Товары магазина: один выпускающий ключ обслуживает несколько приложений.
 # Номер едет внутри ключа, приложение проверяет свой и чужой не примет.
 SKU_PRO = 1        # Fern Pro
@@ -82,7 +83,14 @@ def load_private_key() -> Ed25519PrivateKey:
 
 
 def build_payload(license_id: int, issued: date | None = None,
-                  sku: int = SKU_PRO) -> bytes:
+                  sku: int = SKU_PRO, email: str | None = None) -> bytes:
+    """Тело ключа. С почтой — формат 2, без неё — прежний формат 1.
+
+    Почта лежит открытым текстом и видна в настройках приложения. Скопировать
+    ключ это не мешает, но выложить его на форум вместе со своим адресом
+    желающих куда меньше — а если такой найдётся, сразу видно, чей номер
+    отзывать.
+    """
     issued = issued or datetime.now(timezone.utc).date()
     days = (issued - EPOCH).days
     if not 0 <= days <= 0xFFFF:
@@ -91,15 +99,24 @@ def build_payload(license_id: int, issued: date | None = None,
         raise ValueError("номер лицензии вне диапазона формата")
     if not 0 <= sku <= 0xFF:
         raise ValueError("номер товара вне диапазона формата")
-    return struct.pack(">BBIH", FORMAT_VERSION, sku, license_id, days)
+    if email is None:
+        return struct.pack(">BBIH", FORMAT_VERSION, sku, license_id, days)
+
+    raw = email.strip().lower().encode("utf-8")
+    if not raw or len(raw) > 255:
+        raise ValueError("почта пустая или длиннее 255 байт")
+    return (struct.pack(">BBIHB", FORMAT_VERSION_EMAIL, sku, license_id,
+                        days, len(raw)) + raw)
 
 
 def issue(license_id: int, issued: date | None = None,
-          key: Ed25519PrivateKey | None = None, sku: int = SKU_PRO) -> str:
+          key: Ed25519PrivateKey | None = None, sku: int = SKU_PRO,
+          email: str | None = None) -> str:
     """Ключ для покупателя. `license_id` — сквозной номер из журнала бота,
-    `sku` — какой товар куплен (см. константы SKU_*)."""
+    `sku` — какой товар куплен (см. константы SKU_*), `email` — адрес, на
+    который оформлена покупка: он едет внутри ключа и виден в приложении."""
     key = key or load_private_key()
-    payload = build_payload(license_id, issued, sku=sku)
+    payload = build_payload(license_id, issued, sku=sku, email=email)
     return PREFIX + b32encode(payload + key.sign(payload))
 
 
@@ -112,11 +129,27 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
         blob = b32decode(text[len(PREFIX):])
     except ValueError:
         return None
-    if len(blob) != 72:
+    if len(blob) < 72:
         return None
-    payload, signature = blob[:8], blob[8:]
-    version, sku, license_id, days = struct.unpack(">BBIH", payload)
-    if version != FORMAT_VERSION:
+    email = None
+    version = blob[0]
+    if version == FORMAT_VERSION:
+        if len(blob) != 72:
+            return None
+        payload, signature = blob[:8], blob[8:]
+        _, sku, license_id, days = struct.unpack(">BBIH", payload)
+    elif version == FORMAT_VERSION_EMAIL:
+        length = blob[8]
+        head = 9 + length
+        if len(blob) != head + 64:
+            return None
+        payload, signature = blob[:head], blob[head:]
+        _, sku, license_id, days, _ = struct.unpack(">BBIHB", payload[:9])
+        try:
+            email = payload[9:].decode("utf-8")
+        except UnicodeDecodeError:
+            return None
+    else:
         return None
     if public_key is None:
         public_key = load_private_key().public_key().public_bytes(
@@ -125,7 +158,7 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
         Ed25519PublicKey.from_public_bytes(public_key).verify(signature, payload)
     except InvalidSignature:
         return None
-    return {"id": license_id, "sku": sku,
+    return {"id": license_id, "sku": sku, "email": email,
             "issued": EPOCH.fromordinal(EPOCH.toordinal() + days)}
 
 

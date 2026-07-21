@@ -1233,7 +1233,9 @@ class DeckRepository extends ChangeNotifier {
     }
     await Pro.restoreUsedSources(freeUsed);
     if (licenseKey != null && licenseKey.isNotEmpty) {
-      await LicenseService.instance.apply(licenseKey);
+      // Ключ из копии уже был принят когда-то — окно активации к нему не
+      // применяем, иначе восстановление отбирало бы Pro.
+      await LicenseService.instance.apply(licenseKey, enforceWindow: false);
     }
     if (purchased) await BillingService.instance.persistOwned();
     _decks.clear();

@@ -306,11 +306,30 @@ async def show(query: CallbackQuery, text: str,
         await query.message.answer(text, reply_markup=keyboard)
 
 
+def _first_claim(row: sqlite3.Row) -> bool:
+    """Ключ забрали только что, а не перевыпустили.
+
+    Перевыпуск — обычное дело: окно активации в приложении три дня, и за
+    свежим ключом покупатель приходит сам. Сообщать владельцу о каждом таком
+    заходе незачем, а вот о первой выдаче — стоит.
+    """
+    claimed = row["claimed_at"]
+    if not claimed:
+        return False
+    when = datetime.fromisoformat(claimed)
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - when).total_seconds() < 60
+
+
 def key_message(row: sqlite3.Row) -> str:
+    # Ключ именной: почта заказа едет внутри и видна покупателю в настройках
+    # приложения. Копированию это не мешает, но выложить ключ в общий доступ
+    # значит выложить вместе с ним свой адрес.
     return texts.key_message(
         product_of(row).get("name", "Ключ"),
         row["license_id"],
-        issue(row["license_id"], sku=row["sku"]),
+        issue(row["license_id"], sku=row["sku"], email=row["email"]),
     )
 
 
@@ -460,6 +479,13 @@ async def by_email(message: Message) -> None:
         return
 
     for row in rows:
+        # Первая выдача — владельцу видно, кому ушёл ключ. Почта у покупки
+        # одна, и если её кто-то узнал, лучше заметить это сразу, а не по
+        # жалобе «оплатил, а ключ уже забрали».
+        if row["claimed_by"] == user_id and _first_claim(row):
+            await notify_owner(texts.claim_notice(
+                row["email"], row["license_id"], user_id,
+                message.from_user.username))
         await message.answer(key_message(row))
 
 

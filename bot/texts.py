@@ -87,8 +87,20 @@ def key_message(product: str, license_id: int, key: str) -> str:
         f"<b>{escape(product)}</b> · ключ №{license_id}\n\n"
         f"<code>{escape(key)}</code>\n\n"
         "Нажмите на ключ, чтобы скопировать. Вставьте его в приложении: "
-        "Настройки → Pro → «У меня есть ключ»."
+        "Настройки → Pro → «У меня есть ключ».\n\n"
+        "Ключ именной: внутри него ваша почта, и приложение показывает её "
+        "в настройках. Ставьте его на все свои устройства — но выложенный "
+        "в общий доступ ключ отзывается вместе с покупкой."
     )
+
+
+def claim_notice(email: str, license_id: int, user_id: int,
+                 username: str | None) -> str:
+    """Владельцу: ключ ушёл. Видно, кому именно, — на случай, если почту
+    покупателя узнал кто-то другой."""
+    who = f"@{escape(username)}" if username else f"id {user_id}"
+    return (f"🔑 Ключ №{license_id} забрал {who}\n"
+            f"Почта заказа: {escape(email)}")
 
 
 def order_line(row) -> str:

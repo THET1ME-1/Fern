@@ -34,7 +34,18 @@ class LicenseService extends ChangeNotifier {
   static const String _kKey = 'licenseKey';
   static const String _prefix = 'FERN';
   static const int _formatVersion = 1;
+  /// Именной ключ: внутри почта покупателя (с 1.17.3).
+  static const int _formatVersionEmail = 2;
   static const int _skuPro = 1;
+
+  /// Сколько ключ годен к вводу. Считать активации офлайн невозможно, поэтому
+  /// ограничен не круг устройств, а срок жизни самого ключа: копия, ушедшая в
+  /// сеть, протухает раньше, чем её кто-то увидит. Покупателя это не касается —
+  /// бот выдаёт свежий ключ по первому запросу, хоть через год после оплаты.
+  ///
+  /// Окно действует только на именные ключи (формат 2): условия покупки тем,
+  /// кто купил раньше, задним числом не меняем.
+  static const int activationWindowDays = 3;
 
   /// Начало отсчёта дат выдачи — 1 января 2026. Дата нужна только для
   /// поддержки: по ней видно, когда ключ родился.
@@ -47,6 +58,12 @@ class LicenseService extends ChangeNotifier {
   /// на своей паре, а не на боевой.
   @visibleForTesting
   static String? debugPublicKeyBase64;
+
+  /// Подменное «сейчас» для тестов окна активации.
+  @visibleForTesting
+  static DateTime? debugNow;
+
+  static DateTime get _now => debugNow ?? DateTime.now().toUtc();
 
   /// Ключ, лежащий на устройстве (для экрана настроек).
   String? get key => _key;
@@ -71,14 +88,31 @@ class LicenseService extends ChangeNotifier {
   }
 
   /// Проверяет ключ и, если он годный, сохраняет его на устройстве.
-  Future<LicenseInfo?> apply(String raw) async {
+  ///
+  /// Отдельно сообщает о просроченном ключе: человеку надо сказать, что делать
+  /// («возьмите новый у бота»), а не отправлять его перепроверять буквы.
+  ///
+  /// [enforceWindow] снимают там, где ключ уже был принят раньше: при
+  /// восстановлении резервной копии. Иначе человек, поднявший бэкап полугодовой
+  /// давности, терял бы Pro на ровном месте.
+  Future<ApplyResult> apply(String raw, {bool enforceWindow = true}) async {
     final info = await verify(raw);
-    if (info == null) return null;
+    if (info == null) return const ApplyResult();
+    if (enforceWindow && _outsideWindow(info)) {
+      return const ApplyResult(expired: true);
+    }
     _key = _normalize(raw);
     _info = info;
     await SharedPreferencesAsync().setString(_kKey, _key!);
     notifyListeners();
-    return info;
+    return ApplyResult(info: info);
+  }
+
+  /// Ключ просрочен для ВВОДА. Уже принятый работает дальше без оглядки на
+  /// дату: иначе Pro отвалился бы у покупателя на третий день.
+  static bool _outsideWindow(LicenseInfo info) {
+    if (info.email == null) return false; // формат 1 — без ограничения
+    return _now.difference(info.issued).inDays > activationWindowDays;
   }
 
   Future<void> clear() async {
@@ -101,11 +135,31 @@ class LicenseService extends ChangeNotifier {
     } on FormatException {
       return null;
     }
-    if (bytes.length != 72) return null;
+    if (bytes.length < 72) return null;
 
-    final payload = bytes.sublist(0, 8);
-    final signature = bytes.sublist(8);
-    if (payload[0] != _formatVersion) return null;
+    // Формат 1 — восемь байт тела. Формат 2 добавляет длину и почту, поэтому
+    // тело переменной длины; подпись всегда последние 64 байта.
+    final Uint8List payload;
+    final Uint8List signature;
+    String? email;
+    switch (bytes[0]) {
+      case _formatVersion:
+        if (bytes.length != 72) return null;
+        payload = bytes.sublist(0, 8);
+        signature = bytes.sublist(8);
+      case _formatVersionEmail:
+        final head = 9 + bytes[8];
+        if (bytes.length != head + 64) return null;
+        payload = bytes.sublist(0, head);
+        signature = bytes.sublist(head);
+        try {
+          email = utf8.decode(payload.sublist(9));
+        } on FormatException {
+          return null; // почта не в UTF-8 — ключ собран не нами
+        }
+      default:
+        return null;
+    }
     if (payload[1] != _skuPro) return null;
 
     final id = ByteData.sublistView(payload).getUint32(2);
@@ -120,13 +174,29 @@ class LicenseService extends ChangeNotifier {
     if (!ok) return null;
 
     final days = ByteData.sublistView(payload).getUint16(6);
-    return LicenseInfo(id: id, issued: epoch.add(Duration(days: days)));
+    return LicenseInfo(
+      id: id,
+      issued: epoch.add(Duration(days: days)),
+      email: email,
+    );
   }
 
   /// Ключ читают из мессенджера, поэтому приводим к делу: пробелы, переносы и
   /// дефисы-разделители в счёт не идут, регистр не важен.
   static String _normalize(String raw) =>
       raw.replaceAll(RegExp(r'[\s-]'), '').toUpperCase();
+}
+
+/// Чем закончился ввод ключа.
+@immutable
+class ApplyResult {
+  /// Разобранная лицензия — `null`, если ключ не принят.
+  final LicenseInfo? info;
+
+  /// Ключ настоящий, но просрочен: пора взять свежий у бота.
+  final bool expired;
+
+  const ApplyResult({this.info, this.expired = false});
 }
 
 /// Что лежит внутри ключа.
@@ -138,7 +208,24 @@ class LicenseInfo {
   /// Когда ключ выдан.
   final DateTime issued;
 
-  const LicenseInfo({required this.id, required this.issued});
+  /// Почта покупателя — только у ключей формата 2. У выпущенных раньше `null`.
+  final String? email;
+
+  const LicenseInfo({required this.id, required this.issued, this.email});
+
+  /// Адрес для показа: `vasya@mail.ru` → `va***@mail.ru`.
+  ///
+  /// Полностью показывать чужую почту незачем — узнать свою достаточно по
+  /// первым буквам и домену, а на скриншоте настроек адрес не утечёт целиком.
+  static String? maskEmail(String? email) {
+    final value = email?.trim();
+    if (value == null || value.isEmpty) return null;
+    final at = value.lastIndexOf('@');
+    if (at <= 0) return '***';
+    final name = value.substring(0, at);
+    final domain = value.substring(at);
+    return name.length <= 2 ? '***$domain' : '${name.substring(0, 2)}***$domain';
+  }
 }
 
 /// Base32 по RFC 4648 без выравнивания.

@@ -1079,6 +1079,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _infoTile(
           icon: Icons.verified_rounded,
           title: tr('pro_active'),
+          // У именного ключа показываем, на кого он выдан: увидев свою почту
+          // рядом с номером, человек понимает, что ключ его личный.
+          subtitle: LicenseInfo.maskEmail(license?.email),
           trailing: license == null
               ? ''
               : trf('pro_license_num', {'id': '${license.id}'}),
@@ -1446,6 +1449,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required String title,
     required String trailing,
     required ColorScheme scheme,
+    String? subtitle,
   }) {
     return Padding(
       padding: EdgeInsets.zero,
@@ -1456,6 +1460,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: ListTile(
           leading: Icon(icon, color: scheme.onSurfaceVariant),
           title: Text(title),
+          subtitle: subtitle == null ? null : Text(subtitle),
           trailing: Text(
             trailing,
             style: TextStyle(

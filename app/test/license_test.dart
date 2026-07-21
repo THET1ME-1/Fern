@@ -71,7 +71,7 @@ void main() {
 
   test('Принятый ключ переживает перезапуск, сброс его убирает', () async {
     final service = LicenseService.instance;
-    expect(await service.apply(key7), isNotNull);
+    expect((await service.apply(key7)).info, isNotNull);
     expect(service.isValid, isTrue);
 
     await service.load(); // как холодный старт
@@ -97,7 +97,7 @@ void main() {
 
   test('Негодный ключ не сохраняется', () async {
     final service = LicenseService.instance;
-    expect(await service.apply('FERNZZZZ'), isNull);
+    expect((await service.apply('FERNZZZZ')).info, isNull);
     expect(service.isValid, isFalse);
     expect(service.key, isNull);
   });

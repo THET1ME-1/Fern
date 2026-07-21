@@ -38,7 +38,7 @@ void main() {
 
   test('«удалить все данные» не отбирает купленный ключ', () async {
     await DeckRepository.instance.init();
-    expect(await LicenseService.instance.apply(key7), isNotNull);
+    expect((await LicenseService.instance.apply(key7)).info, isNotNull);
     expect(Pro.active, isTrue);
 
     // Человек чистит СВОИ колоды и книги. Про покупку речи не было.
