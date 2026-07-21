@@ -591,6 +591,9 @@ const Map<String, Map<String, String>> _strings = {
   'n_days_one': {'ru': 'день', 'en': 'day'},
   'n_days_few': {'ru': 'дня', 'en': 'days'},
   'n_days_many': {'ru': 'дней', 'en': 'days'},
+  'n_decks_one': {'ru': 'колода', 'en': 'deck'},
+  'n_decks_few': {'ru': 'колоды', 'en': 'decks'},
+  'n_decks_many': {'ru': 'колод', 'en': 'decks'},
   'n_pairs_one': {'ru': 'пару', 'en': 'pair'},
   'n_pairs_few': {'ru': 'пары', 'en': 'pairs'},
   'n_pairs_many': {'ru': 'пар', 'en': 'pairs'},
@@ -1153,8 +1156,9 @@ const Map<String, Map<String, String>> _strings = {
   'clipboard_empty': {'ru': 'Буфер обмена пуст', 'en': 'Clipboard is empty'},
   // OCR (текст с фото)
   'ocr_title': {'ru': 'Текст с фото', 'en': 'Text from photo'},
-  'ocr_hub_title': {'ru': 'Сфотографировать текст', 'en': 'Scan text'},
-  'ocr_hub_sub': {'ru': 'Слова с фото — в колоду', 'en': 'Photo words into a deck'},
+  // Коротко: «Сфотографировать» шире карточки, и слово рвалось посередине.
+  'ocr_hub_title': {'ru': 'Текст с фото', 'en': 'Scan text'},
+  'ocr_hub_sub': {'ru': 'Снимок страницы в колоду', 'en': 'Photo words into a deck'},
   'ocr_take_photo': {'ru': 'Снять фото', 'en': 'Take a photo'},
   'ocr_from_gallery': {'ru': 'Из галереи', 'en': 'From gallery'},
   'camera_denied': {

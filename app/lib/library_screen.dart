@@ -651,8 +651,13 @@ class _LibraryScreenState extends State<LibraryScreen> {
                       : Icon(icon, color: fg),
                 ),
                 const Spacer(),
+                // Высота карточки фиксирована, поэтому строки ограничены: без
+                // этого длинный заголовок съезжал на третью строку и выдавливал
+                // подпись за нижний край.
                 Text(
                   title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: AppTheme.displayFont,
                     fontWeight: FontWeight.w800,
@@ -664,6 +669,8 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 const SizedBox(height: 3),
                 Text(
                   subtitle,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: AppTheme.bodyFont,
                     fontSize: 12,

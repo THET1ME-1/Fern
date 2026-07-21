@@ -193,7 +193,7 @@ class PackCoverCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    trf('decks_n', {'n': deckCount}),
+                    trn('n_decks', deckCount),
                     style: TextStyle(
                       fontFamily: AppTheme.bodyFont,
                       fontSize: 12,

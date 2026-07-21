@@ -299,7 +299,12 @@ class _DeckScreenState extends State<DeckScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(deck.name),
+        // Имя колоды сжимается под свободную ширину: три кнопки справа
+        // оставляют мало места, и «Первые слова» превращалось в «Первые с…».
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(deck.name, maxLines: 1),
+        ),
         actions: [
           IconButton(
             tooltip: tr('paste_clipboard'),

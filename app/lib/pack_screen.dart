@@ -442,7 +442,7 @@ class _PackScreenState extends State<PackScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  trf('decks_n', {'n': _decks.length}),
+                  trn('n_decks', _decks.length),
                   style: TextStyle(
                     fontFamily: AppTheme.displayFont,
                     fontWeight: FontWeight.w800,

@@ -164,15 +164,21 @@ class StudyModesGrid extends StatelessWidget {
             children: [
               Icon(m.$2, size: 26, color: scheme.primary),
               const SizedBox(height: 6),
-              Text(
-                tr(m.$3),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontFamily: AppTheme.displayFont,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15,
-                  color: scheme.onSurface,
+              // Название сжимается, а не обрезается многоточием: «Трудные
+              // слова» и «Быстрый повтор» в русском шире плитки, и от них
+              // оставалось «Трудные сло…».
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  tr(m.$3),
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontFamily: AppTheme.displayFont,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                    color: scheme.onSurface,
+                  ),
                 ),
               ),
               Text(
