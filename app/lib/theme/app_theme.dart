@@ -77,6 +77,36 @@ class AppTheme {
           borderRadius: BorderRadius.circular(28),
         ),
       ),
+      // Чипы — тоже пилюли и тоже без обводки. Рамка вокруг каждого спорила с
+      // плашками списка и дробила ряд на клетки; заливки достаточно, чтобы
+      // отличить выбранный от остальных.
+      chipTheme: ChipThemeData(
+        shape: const StadiumBorder(),
+        side: BorderSide.none,
+        backgroundColor: colorScheme.surfaceContainerHigh,
+        selectedColor: colorScheme.primaryContainer,
+        labelStyle: TextStyle(
+          fontFamily: bodyFont,
+          fontWeight: FontWeight.w600,
+          color: colorScheme.onSurface,
+        ),
+        secondaryLabelStyle: TextStyle(
+          fontFamily: bodyFont,
+          fontWeight: FontWeight.w600,
+          color: colorScheme.onPrimaryContainer,
+        ),
+      ),
+      // Кнопка-действие поверх списка: пилюля, лежащая на поверхности, а не
+      // висящая над ней.
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        shape: const StadiumBorder(),
+        elevation: 0,
+        focusElevation: 0,
+        hoverElevation: 0,
+        highlightElevation: 0,
+        backgroundColor: colorScheme.primaryContainer,
+        foregroundColor: colorScheme.onPrimaryContainer,
+      ),
       // «Таблеточные» крупные кнопки — фирменная черта expressive-стиля.
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(

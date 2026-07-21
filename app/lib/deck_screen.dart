@@ -342,10 +342,17 @@ class _DeckScreenState extends State<DeckScreen> {
           ),
         ],
       ),
+      // Пилюля без тени: список карточек и так набран плашками, и приподнятая
+      // кнопка над ними читается как ещё один слой, которого в макете нет.
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _addOrEditCard(),
         icon: const Icon(Icons.add_rounded),
         label: Text(tr('add_card')),
+        shape: const StadiumBorder(),
+        elevation: 0,
+        focusElevation: 0,
+        hoverElevation: 0,
+        highlightElevation: 0,
       ),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
