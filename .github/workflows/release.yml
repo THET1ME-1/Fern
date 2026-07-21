@@ -173,3 +173,57 @@ jobs:
             app/dist/Fern-${{ steps.ver.outputs.name }}-arm64-v8a.apk
             app/dist/Fern-${{ steps.ver.outputs.name }}-armeabi-v7a.apk
             app/dist/Fern-${{ steps.ver.outputs.name }}-x86_64.apk
+
+  # ── iOS ────────────────────────────────────────────────────────────────────
+  # Собирается НЕПОДПИСАННЫЙ .ipa: сертификата Apple у проекта нет, а без него
+  # приложение всё равно ставится — Sideloadly, AltStore и TrollStore
+  # подписывают файл ключом самого человека. Отдельным job'ом и после релиза:
+  # macOS-раннер медленный, и его падение не должно задерживать APK.
+  ios:
+    runs-on: macos-latest
+    needs: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.9
+          channel: stable
+          cache: true
+
+      - name: Read version
+        id: ver
+        run: |
+          LINE=$(grep '^version:' pubspec.yaml | awk '{print $2}')
+          NAME=${LINE%%+*}
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            TAG="${{ github.ref_name }}"
+          else
+            TAG="v$NAME"
+          fi
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG"   >> "$GITHUB_OUTPUT"
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Build unsigned app
+        run: flutter build ios --release --no-codesign
+
+      - name: Pack IPA
+        run: |
+          # .ipa — это zip с каталогом Payload внутри, больше ничего не нужно.
+          mkdir -p dist/Payload
+          cp -R build/ios/iphoneos/Runner.app dist/Payload/
+          cd dist
+          zip -qry "Fern-${{ steps.ver.outputs.name }}-unsigned.ipa" Payload
+          rm -rf Payload
+          ls -la
+
+      - name: Attach to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.ver.outputs.tag }}
+          files: app/dist/Fern-${{ steps.ver.outputs.name }}-unsigned.ipa

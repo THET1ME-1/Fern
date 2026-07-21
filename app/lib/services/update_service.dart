@@ -54,6 +54,11 @@ class UpdateService {
   static Uri get _latestReleaseUri =>
       Uri.parse('https://api.github.com/repos/$_owner/$_repo/releases/latest');
 
+  /// Страница последнего релиза для тех платформ, где приложение не может
+  /// поставить обновление само (iOS).
+  static const String releasesPage =
+      'https://github.com/$_owner/$_repo/releases/latest';
+
   /// Есть ли релиз новее [currentVersion]. Отдельно сообщает о неудачной
   /// проверке (нет сети, 403 от GitHub) — это не то же самое, что «всё свежее».
   static Future<UpdateCheck> checkForUpdate(String currentVersion) async {

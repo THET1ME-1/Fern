@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb, debugPrint;
 import 'package:flutter/material.dart';
 import 'package:in_app_update/in_app_update.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n/strings.dart';
 import '../utils/app_version.dart';
@@ -27,6 +28,10 @@ class StoreUpdate {
   /// Тихая проверка при запуске: предлагает обновиться, если версия новее.
   static Future<void> checkOnStart(BuildContext context) async {
     if (!_mobile) return;
+    // На iOS ставить сборку мимо App Store приложение не может: IPA
+    // подписывает тот, кто её сюда принёс (Sideloadly, AltStore), и обновляет
+    // тем же способом. Предлагать «скачать и установить» там нечестно.
+    if (Platform.isIOS) return;
 
     if (kPlayBuild) {
       try {
@@ -76,6 +81,15 @@ class StoreUpdate {
     if (!context.mounted) return null;
     final info = check.info;
     if (info != null) {
+      // На iOS показываем страницу релиза: файл оттуда человек ставит тем же
+      // способом, каким установил приложение.
+      if (Platform.isIOS) {
+        await launchUrl(
+          Uri.parse(UpdateService.releasesPage),
+          mode: LaunchMode.externalApplication,
+        );
+        return null;
+      }
       await UpdateSheet.show(context, info, current);
       return null;
     }

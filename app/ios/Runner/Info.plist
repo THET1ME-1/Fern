@@ -66,5 +66,34 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<!-- Зачем приложению доступ. Без этих строк iOS убивает процесс в момент
+	     первого обращения, а App Store отклоняет сборку. -->
+	<key>NSCameraUsageDescription</key>
+	<string>Снимите страницу книги — Fern распознает слова и соберёт из них колоду.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Выберите снимок текста, чтобы Fern разобрал его на слова.</string>
+	<!-- Языки интерфейса. Без списка iOS показывает приложение только на
+	     английском, какой бы язык ни стоял в системе. -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ru</string>
+		<string>de</string>
+		<string>fr</string>
+		<string>es</string>
+		<string>it</string>
+		<string>pt</string>
+	</array>
+	<!-- Своей криптографии в приложении нет: шифрование только то, что даёт
+	     система. Без этого ключа App Store Connect спрашивает про экспортное
+	     соответствие при каждой загрузке. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<!-- Колоды и книги видны в «Файлах»: можно закинуть EPUB прямо в папку
+	     приложения и забрать резервную копию без компьютера. -->
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 </dict>
 </plist>
