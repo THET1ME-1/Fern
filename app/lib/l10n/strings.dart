@@ -1292,6 +1292,10 @@ const Map<String, Map<String, String>> _strings = {
   'pro_key_paste': {'ru': 'Вставить из буфера', 'en': 'Paste from clipboard'},
   'pro_key_ok': {'ru': 'Fern Pro открыт', 'en': 'Fern Pro unlocked'},
   'pro_key_bad': {'ru': 'Ключ не подошёл: проверьте, что скопировали его целиком', 'en': 'That key did not work: check that you copied all of it'},
+  'restore_key_stale': {
+    'ru': 'Копия восстановлена, но ключ Pro в ней устарел. Возьмите свежий у бота — он выдаёт его бесплатно и сразу — и вставьте сюда.',
+    'en': 'The backup is restored, but its Pro key is stale. Get a fresh one from the bot — free and instant — and paste it here.',
+  },
   'pro_key_expired': {
     'ru': 'Ключ просрочен. Возьмите свежий у бота — он выдаёт его бесплатно и сразу',
     'en': 'This key has expired. Get a fresh one from the bot — it is free and instant',

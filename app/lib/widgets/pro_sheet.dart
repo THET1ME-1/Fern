@@ -26,10 +26,15 @@ class ProSheet extends StatefulWidget {
   /// продаёт, а «до чтения без словаря 340 слов» продаёт.
   final ReadingGoal? goal;
 
-  const ProSheet({super.key, this.feature, this.goal});
+  /// Заметка над предложением: с ней лист открывают из места, где уже что-то
+  /// случилось. Восстановление копии с устаревшим ключом — как раз такой
+  /// случай: человеку надо объяснить, почему Pro закрыт и что делать.
+  final String? notice;
+
+  const ProSheet({super.key, this.feature, this.goal, this.notice});
 
   static Future<void> show(BuildContext context,
-      {ProFeature? feature, ReadingGoal? goal}) {
+      {ProFeature? feature, ReadingGoal? goal, String? notice}) {
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -37,7 +42,7 @@ class ProSheet extends StatefulWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
-      builder: (_) => ProSheet(feature: feature, goal: goal),
+      builder: (_) => ProSheet(feature: feature, goal: goal, notice: notice),
     );
   }
 
@@ -47,7 +52,7 @@ class ProSheet extends StatefulWidget {
 
 class _ProSheetState extends State<ProSheet> {
   bool _busy = false;
-  bool _keyMode = false;
+  late bool _keyMode = widget.notice != null; // пришли обновлять ключ
   String? _error;
   final _keyController = TextEditingController();
 
@@ -220,6 +225,27 @@ class _ProSheetState extends State<ProSheet> {
                   ],
                 ),
               ),
+            if (widget.notice != null) ...[
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.all(14),
+                decoration: BoxDecoration(
+                  color: scheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(Icons.info_rounded, size: 20, color: scheme.primary),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(widget.notice!,
+                          style: const TextStyle(height: 1.35)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
             if (_error != null) ...[
               const SizedBox(height: 6),
               Text(_error!, style: TextStyle(color: scheme.error)),

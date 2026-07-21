@@ -1462,7 +1462,13 @@ class DeckRepository extends ChangeNotifier {
       if (s[key] is String) await _prefs.setString(prefKey, s[key] as String);
     }
 
-    await setStr('licenseKey', _kLicenseKey);
+    // Ключ из копии проходит ту же проверку, что при вводе руками: окно
+    // активации тоже. Иначе покупку раздавали бы файлом снимка — «восстановить»
+    // вместо ввода ключа. Свой ключ покупатель обновит у бота за секунду.
+    final restoredKey = s['licenseKey'];
+    if (restoredKey is String && restoredKey.isNotEmpty) {
+      await LicenseService.instance.apply(restoredKey);
+    }
     await setInt('seedColor', _kSeedColor);
     await setInt('themeMode', _kThemeMode);
     await setBool('isDarkTheme', _kIsDarkTheme);

@@ -1185,16 +1185,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
       final merge = await _askRestoreMode();
       if (merge == null) return; // отменили выбор режима
       final raw = await File(path).readAsString();
-      await BackupService.restore(raw, merge: merge);
+      final outcome = await BackupService.restore(raw, merge: merge);
       await _theme.load();
       await _locale.load();
       await LanguageRegistry.instance.load();
       await _loadInfo();
-      if (mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(tr('restore_done'))));
+      if (!mounted) return;
+      // Ключ из копии устарел — молча оставлять человека без Pro нельзя:
+      // открываем ввод ключа и говорим, где взять свежий.
+      if (outcome.licenseExpired) {
+        await ProSheet.show(context,
+            feature: ProFeature.library, notice: tr('restore_key_stale'));
+        if (mounted) setState(() {});
+        return;
       }
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(tr('restore_done'))));
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(

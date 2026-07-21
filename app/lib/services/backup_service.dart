@@ -12,6 +12,14 @@ import 'source_library.dart';
 /// + настройки ([DeckRepository]) поверх которых кладётся библиотека книг/видео
 /// ([SourceLibrary]). Восстановление умеет две стратегии — «заменить всё» и
 /// безопасное «объединить» (добавить только новое, не теряя текущий прогресс).
+/// Чем закончилось восстановление копии.
+class RestoreResult {
+  /// Ключ Pro в снимке был, но принять его нельзя: пора взять свежий у бота.
+  final bool licenseExpired;
+
+  const RestoreResult({this.licenseExpired = false});
+}
+
 class BackupService {
   const BackupService._();
 
@@ -34,8 +42,12 @@ class BackupService {
   }
 
   /// Восстанавливает данные из снимка. [merge] см. [DeckRepository.importMap].
-  static Future<void> restore(String raw, {bool merge = false}) async {
+  static Future<RestoreResult> restore(String raw, {bool merge = false}) async {
     final data = jsonDecode(raw) as Map<String, dynamic>;
+    // Ключ живёт внутри «settings», а не на верхнем уровне снимка.
+    final settings = data['settings'];
+    final savedKey = settings is Map ? settings['licenseKey'] : null;
+    final hadKey = savedKey is String && savedKey.isNotEmpty;
     await DeckRepository.instance.importMap(data, merge: merge);
     // Ключ Pro импорт кладёт прямо в prefs, а `LicenseService` держит статус в
     // памяти и сверяется с диском только при запуске. Без этой строки человек
@@ -49,6 +61,11 @@ class BackupService {
     if (data['cardImages'] is List) {
       await _importCardImages(data['cardImages'] as List);
     }
+    // Ключ в снимке был, а Pro не открылся — значит он просрочен. Молча
+    // оставлять человека без покупки нельзя: надо сказать, что делать.
+    return RestoreResult(
+      licenseExpired: hadKey && !LicenseService.instance.isValid,
+    );
   }
 
   /// Картинки карточек в base64. Идут вместе с библиотекой (тяжёлое), в

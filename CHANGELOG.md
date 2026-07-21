@@ -3,6 +3,80 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.18.0] — 2026-07-21
+
+Сборка под iOS и защита ключей от раздачи.
+
+### Добавлено
+- **Неподписанный `.ipa` в каждом релизе.** Сборки в App Store нет и
+  сертификата Apple тоже — файл подписывает тот, кто ставит: Sideloadly,
+  AltStore или TrollStore. Нужен iOS 15.5 и новее.
+- **Ключ Fern Pro стал именным**: внутри лежит почта покупателя, приложение
+  показывает её в настройках рядом с номером лицензии. Ключи, выпущенные
+  раньше, работают как работали.
+
+### Изменено
+- **Свежий ключ вводится в течение трёх дней после выдачи.** Считать активации
+  без сервера невозможно, поэтому ограничен срок жизни самого ключа: копия,
+  ушедшая в сеть, протухает раньше, чем её кто-то увидит. Покупателя это не
+  касается — бот выдаёт новый ключ по первому запросу, бесплатно и сразу.
+  Принятый ключ работает дальше без ограничений.
+- **Резервная копия больше не переносит Pro сама по себе.** Ключ из копии
+  проходит ту же проверку, что при вводе руками; если он устарел, приложение
+  прямо говорит об этом и открывает поле для нового. «Удалить все данные»
+  покупку по-прежнему не отбирает.
+- **Отозванные лицензии приезжают без обновления приложения.** Раньше список
+  ехал только с новой версией, и утёкший ключ работал месяцами. Теперь
+  приложение раз в трое суток заглядывает в файл в репозитории — тот же адрес,
+  откуда качается сборка. Нет сети — работает список с прошлого раза.
+
+### Исправлено
+- **Озвучка на iPhone молчала при включённом беззвучном режиме.** Приложение
+  не задавало свою аудиосессию, и слово попадало в категорию, которую глушит
+  боковой переключатель.
+- **Тумблер «цвет из обоев» на iOS ничего не делал** — палитра из обоев
+  существует только в Android 12+.
+- **Проверка обновления на iOS** открывает страницу релиза вместо попытки
+  поставить APK.
+- **Подписи не режутся посреди слова:** «1 колода» вместо «1 колод»,
+  «Текст с фото» вместо разорванного «Сфотограф ировать текст», названия
+  режимов и имя колоды сжимаются вместо многоточия.
+
+---
+
+## Fern 1.18.0 — in English
+
+An iOS build, and keys that resist being passed around.
+
+### Added
+- **An unsigned `.ipa` in every release.** There is no App Store build and no
+  Apple certificate behind it — Sideloadly, AltStore or TrollStore sign the file
+  with your own key. Requires iOS 15.5+.
+- **Fern Pro keys now carry the buyer's email**, shown in settings next to the
+  licence number. Keys issued earlier keep working.
+
+### Changed
+- **A fresh key can be entered within three days of issue.** Counting
+  activations without a server is impossible, so the key itself has a shelf
+  life. Buyers don't notice — the bot issues a new key on request, free and
+  instantly. An accepted key keeps working.
+- **A backup no longer carries Pro on its own.** The key inside it goes through
+  the same check as one typed by hand; if it is stale, the app says so and opens
+  the field for a new one. "Delete all data" still keeps the purchase.
+- **Revoked licences arrive without an app update** — the app checks a file in
+  the repository every three days. No connection means the previous list stays
+  in force.
+
+### Fixed
+- **Speech was silent on iPhone with the ring switch off** — the app never
+  claimed an audio session.
+- **The "colour from wallpaper" toggle did nothing on iOS.**
+- **The update check on iOS** opens the release page instead of offering an APK.
+- **Labels no longer break mid-word** in Russian: deck counts agree, mode names
+  and deck titles shrink to fit.
+
+---
+
 ## [1.17.3] — 2026-07-21
 
 Ключи стали именными.
