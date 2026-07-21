@@ -3,6 +3,49 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.17.2] — 2026-07-21
+
+Сборка под iOS.
+
+### Добавлено
+- **Неподписанный `.ipa` в каждом релизе.** Сборки в App Store нет и
+  сертификата Apple тоже — файл подписывает тот, кто ставит: Sideloadly,
+  AltStore или TrollStore. Нужен iOS 15.5 и новее.
+
+### Исправлено
+- **Озвучка на iPhone молчала при включённом беззвучном режиме.** Приложение
+  не задавало свою аудиосессию, и слово попадало в категорию, которую глушит
+  боковой переключатель. Теперь звучит всегда, а чужая музыка на время слова
+  приглушается, а не обрывается.
+- **Тумблер «цвет из обоев» на iOS ничего не делал** — палитра из обоев
+  существует только в Android 12+. Убран там, где не работает.
+- **Проверка обновления на iOS** больше не предлагает поставить APK: она
+  открывает страницу релиза, а файл оттуда ставится тем же способом, каким
+  установлено приложение.
+
+---
+
+## Fern 1.17.2 — in English
+
+An iOS build.
+
+### Added
+- **An unsigned `.ipa` in every release.** There is no App Store build and no
+  Apple certificate behind it — Sideloadly, AltStore or TrollStore sign the
+  file with your own key. Requires iOS 15.5+.
+
+### Fixed
+- **Speech was silent on iPhone with the ring switch off.** The app never
+  claimed an audio session, so words landed in a category the silent switch
+  mutes. Playback now works regardless, and other audio is ducked instead of
+  cut off.
+- **The "colour from wallpaper" toggle did nothing on iOS** — that palette is
+  Android 12+ only. Hidden where it has no effect.
+- **The update check on iOS** no longer offers to install an APK; it opens the
+  release page instead.
+
+---
+
 ## [1.17.1] — 2026-07-21
 
 Подписи не режутся посреди слова.

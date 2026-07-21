@@ -1,3 +1,5 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -31,6 +33,20 @@ class TtsService {
     if (_init) return;
     _init = true;
     try {
+      if (!kIsWeb && Platform.isIOS) {
+        // Без своей аудиосессии iOS молчит при включённом беззвучном режиме —
+        // по умолчанию озвучка попадает в категорию, которую глушит боковой
+        // переключатель. Playback звучит всегда, а duckOthers приглушает чужую
+        // музыку на время слова вместо того, чтобы её обрывать.
+        await _tts.setSharedInstance(true);
+        await _tts.setIosAudioCategory(
+          IosTextToSpeechAudioCategory.playback,
+          [
+            IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+            IosTextToSpeechAudioCategoryOptions.duckOthers,
+          ],
+        );
+      }
       await _tts.setSpeechRate(0.45); // чуть медленнее — разборчивее для учёбы
       await _tts.setVolume(1.0);
       await _tts.setPitch(1.0);

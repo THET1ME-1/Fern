@@ -66,6 +66,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final ThemeController _theme = ThemeController.instance;
   final LocaleController _locale = LocaleController.instance;
 
+  /// Палитра из обоев — часть Material You, то есть Android 12+.
+  bool get _dynamicColorAvailable => Platform.isAndroid;
+
   String _version = '';
   int _goal = 20;
   int _newPerDay = 12;
@@ -191,14 +194,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
               // Готовые цветовые схемы — кружки из 4 тонов темы (как в системном
               // пикере Material You). В режиме «цвет из обоев» пресеты не нужны.
               if (!_theme.useDynamicColor) _paletteRow(scheme),
-              _switchTile(
-                icon: Icons.palette_rounded,
-                title: tr('dynamic_color'),
-                subtitle: tr('dynamic_color_sub'),
-                value: _theme.useDynamicColor,
-                onChanged: (v) => _theme.setUseDynamicColor(v),
-                scheme: scheme,
-              ),
+              // Цвет из обоев берётся из системной палитры Material You, а её
+              // нет нигде, кроме Android 12+. На iOS тумблер стоял бы мёртвым.
+              if (_dynamicColorAvailable)
+                _switchTile(
+                  icon: Icons.palette_rounded,
+                  title: tr('dynamic_color'),
+                  subtitle: tr('dynamic_color_sub'),
+                  value: _theme.useDynamicColor,
+                  onChanged: (v) => _theme.setUseDynamicColor(v),
+                  scheme: scheme,
+                ),
               if (_theme.isDark)
                 _switchTile(
                   icon: Icons.contrast_rounded,
