@@ -3,6 +3,61 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.17.0] — 2026-07-21
+
+Разбор книг и видео предлагает слова, которые правда стоит учить.
+
+### Улучшено
+- **Список «Учить в первую очередь» больше не начинается с `the` и `of`.**
+  Раньше он строился по одной частоте, и первыми шли артикли с предлогами —
+  их знает любой, кто открыл книгу на этом языке. Теперь служебные слова и
+  имена собственные отсеиваются, а остальное упорядочено по пользе: частота
+  важна, но редкое длинное слово полезнее частого короткого. Отдельная доля
+  мест отдана самым длинным словам текста, чтобы список предлагал и настоящий
+  вызов. На первых страницах «Основания» это `councilmen`, `encyclopedia`,
+  `interregnum`, `periphery` вместо `the`, `of`, `to`, `a`.
+- **Меню читалки собрано под три точки.** Пять иконок в ряд отнимали половину
+  шапки и обрезали название книги. Чтение вслух, закладки, оглавление и
+  настройки открываются листом снизу — там, где рука уже держит телефон.
+- Меню колоды и вопрос о выходе из сессии тоже приходят снизу. У выхода кнопки
+  во всю ширину и в столбик: раньше «Выйти» и «Отмена» стояли вплотную, а
+  промах стоил незасчитанной сессии.
+- Чипы и кнопка «Добавить карточку» стали пилюлями без обводки и тени.
+
+### Исправлено
+- «Не знаю» в упражнениях с вводом перестало ломаться на две строки.
+- Число в настройках помещается целиком: «100» показывалось как «10» и «0»
+  под ним.
+
+---
+
+## Fern 1.17.0 — in English
+
+Book and video analysis now suggests words actually worth learning.
+
+### Improved
+- **The "Learn these first" list no longer opens with `the` and `of`.** It used
+  to be ranked by raw frequency, so articles and prepositions came first —
+  words known to anyone who has opened a book in that language. Function words
+  and proper names are now filtered out, and the rest is ordered by usefulness:
+  frequency matters, but a rare long word beats a frequent short one. A share
+  of the list is reserved for the longest words in the text, so it offers a
+  real challenge too. On the opening pages of *Foundation* that means
+  `councilmen`, `encyclopedia`, `interregnum`, `periphery` instead of `the`,
+  `of`, `to`, `a`.
+- **The reader toolbar is now one menu.** Five icons in a row ate half the bar
+  and cut off the book title. Read aloud, bookmarks, contents and reading
+  settings open in a sheet from the bottom, where your hand already is.
+- The deck menu and the "leave the session" prompt come from the bottom as
+  well. The prompt now stacks full-width buttons: "Leave" and "Cancel" used to
+  sit side by side, and a mistap cost you the session.
+- Chips and the "Add card" button became pills without borders or shadow.
+
+### Fixed
+- "Don't know" in typing exercises no longer wraps onto two lines.
+- Numbers in settings fit on one line: 100 used to render as "10" with "0"
+  below it.
+
 ## [1.16.0] — 2026-07-21
 
 Fern Pro и готовые наборы на всех языках списка.
