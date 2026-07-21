@@ -1,0 +1,6533 @@
+{
+ "lang": "ca",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "hola",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Hola, com estàs?"
+    },
+    {
+     "front": "adéu",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Adéu, fins demà."
+    },
+    {
+     "front": "sí",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Sí, és clar que vindré."
+    },
+    {
+     "front": "no",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "No, gràcies."
+    },
+    {
+     "front": "si us plau",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Un cafè, si us plau."
+    },
+    {
+     "front": "gràcies",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Gràcies per l'ajuda."
+    },
+    {
+     "front": "perdona",
+     "back": {
+      "ru": "извини",
+      "en": "sorry",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Perdona, he arribat tard."
+    },
+    {
+     "front": "bon dia",
+     "back": {
+      "ru": "доброе утро",
+      "en": "good morning",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Bon dia, has dormit bé?"
+    },
+    {
+     "front": "bona nit",
+     "back": {
+      "ru": "спокойной ночи",
+      "en": "good night",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Bona nit, fins demà."
+    },
+    {
+     "front": "tot va bé",
+     "back": {
+      "ru": "всё хорошо",
+      "en": "all right",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "No et preocupis, tot va bé."
+    },
+    {
+     "front": "home",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "Aquell home és el nostre veí."
+    },
+    {
+     "front": "dona",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "La dona de l'abric blau és metgessa."
+    },
+    {
+     "front": "criatura",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "La criatura juga al jardí."
+    },
+    {
+     "front": "noi",
+     "back": {
+      "ru": "мальчик",
+      "en": "boy",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "El noi corre cap a l'escola."
+    },
+    {
+     "front": "noia",
+     "back": {
+      "ru": "девочка",
+      "en": "girl",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "La noia dibuixa una flor."
+    },
+    {
+     "front": "amic",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "El meu amic viu a Girona."
+    },
+    {
+     "front": "família",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Tota la família va venir a sopar."
+    },
+    {
+     "front": "mare",
+     "back": {
+      "ru": "мама",
+      "en": "mother",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "La meva mare canta molt bé."
+    },
+    {
+     "front": "pare",
+     "back": {
+      "ru": "папа",
+      "en": "father",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "El meu pare treballa de nit."
+    },
+    {
+     "front": "fill",
+     "back": {
+      "ru": "сын",
+      "en": "son",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "El seu fill té cinc anys."
+    },
+    {
+     "front": "filla",
+     "back": {
+      "ru": "дочь",
+      "en": "daughter",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "La filla gran estudia medicina."
+    },
+    {
+     "front": "germà",
+     "back": {
+      "ru": "брат",
+      "en": "brother",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "El meu germà juga a futbol."
+    },
+    {
+     "front": "germana",
+     "back": {
+      "ru": "сестра",
+      "en": "sister",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "La meva germana viu a Tarragona."
+    },
+    {
+     "front": "àvia",
+     "back": {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "L'àvia fa el millor pastís."
+    },
+    {
+     "front": "avi",
+     "back": {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "L'avi explica històries antigues."
+    },
+    {
+     "front": "persona",
+     "back": {
+      "ru": "человек",
+      "en": "person",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Aquesta persona no la conec."
+    },
+    {
+     "front": "gent",
+     "back": {
+      "ru": "люди",
+      "en": "people",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "La gent de la plaça es va dispersar."
+    },
+    {
+     "front": "nom",
+     "back": {
+      "ru": "имя",
+      "en": "name",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Com et dius?"
+    },
+    {
+     "front": "senyor",
+     "back": {
+      "ru": "господин",
+      "en": "sir",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Bon dia, senyor Puig."
+    },
+    {
+     "front": "senyora",
+     "back": {
+      "ru": "госпожа",
+      "en": "madam",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "La senyora necessita ajuda?"
+    },
+    {
+     "front": "jo",
+     "back": {
+      "ru": "я",
+      "en": "I",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Jo visc aquí a prop."
+    },
+    {
+     "front": "tu",
+     "back": {
+      "ru": "ты",
+      "en": "you",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "Tu parles català?"
+    },
+    {
+     "front": "vostè",
+     "back": {
+      "ru": "вы",
+      "en": "you",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Vol seure?"
+    },
+    {
+     "front": "ell",
+     "back": {
+      "ru": "он",
+      "en": "he",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "Ell arriba a les vuit."
+    },
+    {
+     "front": "ella",
+     "back": {
+      "ru": "она",
+      "en": "she",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "Ella treballa en un hospital."
+    },
+    {
+     "front": "nosaltres",
+     "back": {
+      "ru": "мы",
+      "en": "we",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Nosaltres anem amb tren."
+    },
+    {
+     "front": "ells",
+     "back": {
+      "ru": "они",
+      "en": "they",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Ells viuen al mateix edifici."
+    },
+    {
+     "front": "meu",
+     "back": {
+      "ru": "мой",
+      "en": "my",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Aquest és el meu lloc."
+    },
+    {
+     "front": "teu",
+     "back": {
+      "ru": "твой",
+      "en": "your",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "El teu abric s'ha quedat a la cadira."
+    },
+    {
+     "front": "nostre",
+     "back": {
+      "ru": "наш",
+      "en": "our",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "El nostre cotxe és petit."
+    },
+    {
+     "front": "aquest",
+     "back": {
+      "ru": "этот",
+      "en": "this",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Aquest llibre és molt interessant."
+    },
+    {
+     "front": "aquell",
+     "back": {
+      "ru": "тот",
+      "en": "that",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "Aquell edifici és molt antic."
+    },
+    {
+     "front": "qui",
+     "back": {
+      "ru": "кто",
+      "en": "who",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Qui hi ha a la porta?"
+    },
+    {
+     "front": "què",
+     "back": {
+      "ru": "что",
+      "en": "what",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Què dius?"
+    },
+    {
+     "front": "on",
+     "back": {
+      "ru": "где",
+      "en": "where",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "On és l'estació?"
+    },
+    {
+     "front": "quan",
+     "back": {
+      "ru": "когда",
+      "en": "when",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Quan comença la pel·lícula?"
+    },
+    {
+     "front": "com",
+     "back": {
+      "ru": "как",
+      "en": "how",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Com es diu això?"
+    },
+    {
+     "front": "per què",
+     "back": {
+      "ru": "почему",
+      "en": "why",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Per què tantes presses?"
+    },
+    {
+     "front": "quin",
+     "back": {
+      "ru": "который",
+      "en": "which",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Quin prefereixes?"
+    },
+    {
+     "front": "zero",
+     "back": {
+      "ru": "ноль",
+      "en": "zero",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "La temperatura és de zero graus."
+    },
+    {
+     "front": "un",
+     "back": {
+      "ru": "один",
+      "en": "one",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Només queda un lloc."
+    },
+    {
+     "front": "dos",
+     "back": {
+      "ru": "два",
+      "en": "two",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "Tinc dos germans."
+    },
+    {
+     "front": "tres",
+     "back": {
+      "ru": "три",
+      "en": "three",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Torno d'aquí a tres dies."
+    },
+    {
+     "front": "quatre",
+     "back": {
+      "ru": "четыре",
+      "en": "four",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "La taula té quatre cadires."
+    },
+    {
+     "front": "cinc",
+     "back": {
+      "ru": "пять",
+      "en": "five",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "La pel·lícula dura cinc hores."
+    },
+    {
+     "front": "sis",
+     "back": {
+      "ru": "шесть",
+      "en": "six",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Em llevo a les sis."
+    },
+    {
+     "front": "set",
+     "back": {
+      "ru": "семь",
+      "en": "seven",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "La setmana té set dies."
+    },
+    {
+     "front": "vuit",
+     "back": {
+      "ru": "восемь",
+      "en": "eight",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "El tren surt a les vuit."
+    },
+    {
+     "front": "nou",
+     "back": {
+      "ru": "девять",
+      "en": "nine",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "Ella té nou anys."
+    },
+    {
+     "front": "deu",
+     "back": {
+      "ru": "десять",
+      "en": "ten",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "Falten deu minuts."
+    },
+    {
+     "front": "onze",
+     "back": {
+      "ru": "одиннадцать",
+      "en": "eleven",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "La classe acaba a les onze."
+    },
+    {
+     "front": "dotze",
+     "back": {
+      "ru": "двенадцать",
+      "en": "twelve",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "L'any té dotze mesos."
+    },
+    {
+     "front": "vint",
+     "back": {
+      "ru": "двадцать",
+      "en": "twenty",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "El bitllet costa vint euros."
+    },
+    {
+     "front": "trenta",
+     "back": {
+      "ru": "тридцать",
+      "en": "thirty",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Aquest mes té trenta dies."
+    },
+    {
+     "front": "cent",
+     "back": {
+      "ru": "сто",
+      "en": "hundred",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Falten cent metres."
+    },
+    {
+     "front": "mil",
+     "back": {
+      "ru": "тысяча",
+      "en": "thousand",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "Al poble hi viuen mil persones."
+    },
+    {
+     "front": "primer",
+     "back": {
+      "ru": "первый",
+      "en": "first",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Avui és el primer dia d'escola."
+    },
+    {
+     "front": "últim",
+     "back": {
+      "ru": "последний",
+      "en": "last",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "He agafat l'últim autobús."
+    },
+    {
+     "front": "número",
+     "back": {
+      "ru": "номер",
+      "en": "number",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Quin número té la vostra casa?"
+    },
+    {
+     "front": "meitat",
+     "back": {
+      "ru": "половина",
+      "en": "half",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "M'he menjat la meitat del pastís."
+    },
+    {
+     "front": "dia",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Ha estat un dia llarg."
+    },
+    {
+     "front": "nit",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "La nit és freda."
+    },
+    {
+     "front": "matí",
+     "back": {
+      "ru": "утро",
+      "en": "morning",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Al matí bec te."
+    },
+    {
+     "front": "tarda",
+     "back": {
+      "ru": "вечер",
+      "en": "afternoon",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "A la tarda vaig al mercat."
+    },
+    {
+     "front": "avui",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Avui no treballo."
+    },
+    {
+     "front": "demà",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Demà anem a la platja."
+    },
+    {
+     "front": "ahir",
+     "back": {
+      "ru": "вчера",
+      "en": "yesterday",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Ahir va ploure tot el dia."
+    },
+    {
+     "front": "setmana",
+     "back": {
+      "ru": "неделя",
+      "en": "week",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Torno la setmana vinent."
+    },
+    {
+     "front": "mes",
+     "back": {
+      "ru": "месяц",
+      "en": "month",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Aquest mes va bé."
+    },
+    {
+     "front": "any",
+     "back": {
+      "ru": "год",
+      "en": "year",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "L'any passat va ser dur."
+    },
+    {
+     "front": "hora",
+     "back": {
+      "ru": "час",
+      "en": "hour",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "El viatge dura una hora."
+    },
+    {
+     "front": "minut",
+     "back": {
+      "ru": "минута",
+      "en": "minute",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Espera un minut, si us plau."
+    },
+    {
+     "front": "temps",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "Ara no tinc temps."
+    },
+    {
+     "front": "ara",
+     "back": {
+      "ru": "сейчас",
+      "en": "now",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "Ara estic ocupat."
+    },
+    {
+     "front": "sempre",
+     "back": {
+      "ru": "всегда",
+      "en": "always",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "Ella sempre arriba d'hora."
+    },
+    {
+     "front": "mai",
+     "back": {
+      "ru": "никогда",
+      "en": "never",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Mai he estat a Roma."
+    },
+    {
+     "front": "d'hora",
+     "back": {
+      "ru": "рано",
+      "en": "early",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "M'he llevat molt d'hora."
+    },
+    {
+     "front": "dilluns",
+     "back": {
+      "ru": "понедельник",
+      "en": "Monday",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "Dilluns tinc visita al metge."
+    },
+    {
+     "front": "dissabte",
+     "back": {
+      "ru": "суббота",
+      "en": "Saturday",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Els dissabtes dormo fins tard."
+    },
+    {
+     "front": "diumenge",
+     "back": {
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Els diumenges dinem en família."
+    },
+    {
+     "front": "casa",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Darrere la casa hi ha un jardí."
+    },
+    {
+     "front": "ciutat",
+     "back": {
+      "ru": "город",
+      "en": "city",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Barcelona és una ciutat gran."
+    },
+    {
+     "front": "poble",
+     "back": {
+      "ru": "деревня",
+      "en": "village",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "El poble és al peu de la muntanya."
+    },
+    {
+     "front": "carrer",
+     "back": {
+      "ru": "улица",
+      "en": "street",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "El carrer és ple de gent."
+    },
+    {
+     "front": "escola",
+     "back": {
+      "ru": "школа",
+      "en": "school",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "L'escola obre a les vuit."
+    },
+    {
+     "front": "feina",
+     "back": {
+      "ru": "работа",
+      "en": "work",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "La feina s'acaba a les sis."
+    },
+    {
+     "front": "botiga",
+     "back": {
+      "ru": "магазин",
+      "en": "shop",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "La botiga tanca els diumenges."
+    },
+    {
+     "front": "mercat",
+     "back": {
+      "ru": "рынок",
+      "en": "market",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Compro fruita al mercat."
+    },
+    {
+     "front": "hospital",
+     "back": {
+      "ru": "больница",
+      "en": "hospital",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "L'hospital és a prop d'aquí."
+    },
+    {
+     "front": "farmàcia",
+     "back": {
+      "ru": "аптека",
+      "en": "pharmacy",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "La farmàcia obre també de nit."
+    },
+    {
+     "front": "banc",
+     "back": {
+      "ru": "банк",
+      "en": "bank",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Al matí vaig al banc."
+    },
+    {
+     "front": "hotel",
+     "back": {
+      "ru": "гостиница",
+      "en": "hotel",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "L'hotel és al costat del mar."
+    },
+    {
+     "front": "església",
+     "back": {
+      "ru": "церковь",
+      "en": "church",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Aquesta església és molt antiga."
+    },
+    {
+     "front": "jardí",
+     "back": {
+      "ru": "сад",
+      "en": "garden",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "El jardí és ple de flors."
+    },
+    {
+     "front": "platja",
+     "back": {
+      "ru": "пляж",
+      "en": "beach",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "La platja és a deu minuts."
+    },
+    {
+     "front": "mar",
+     "back": {
+      "ru": "море",
+      "en": "sea",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "El mar està tranquil avui."
+    },
+    {
+     "front": "riu",
+     "back": {
+      "ru": "река",
+      "en": "river",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "El riu travessa la ciutat."
+    },
+    {
+     "front": "muntanya",
+     "back": {
+      "ru": "гора",
+      "en": "mountain",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Al cim de la muntanya hi ha neu."
+    },
+    {
+     "front": "camp",
+     "back": {
+      "ru": "поле",
+      "en": "field",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Al camp hi creix blat."
+    },
+    {
+     "front": "bosc",
+     "back": {
+      "ru": "лес",
+      "en": "forest",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "El bosc comença després del pont."
+    },
+    {
+     "front": "país",
+     "back": {
+      "ru": "страна",
+      "en": "country",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Portugal és un país petit."
+    },
+    {
+     "front": "món",
+     "back": {
+      "ru": "мир",
+      "en": "world",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "Ha viatjat mig món."
+    },
+    {
+     "front": "camí",
+     "back": {
+      "ru": "дорога",
+      "en": "road",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "El camí és estret."
+    },
+    {
+     "front": "pont",
+     "back": {
+      "ru": "мост",
+      "en": "bridge",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "El pont està tancat per obres."
+    },
+    {
+     "front": "estació",
+     "back": {
+      "ru": "вокзал",
+      "en": "station",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Ens trobem a l'estació."
+    },
+    {
+     "front": "aeroport",
+     "back": {
+      "ru": "аэропорт",
+      "en": "airport",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "L'aeroport és lluny del centre."
+    },
+    {
+     "front": "habitació",
+     "back": {
+      "ru": "комната",
+      "en": "room",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "L'habitació té una finestra gran."
+    },
+    {
+     "front": "cuina",
+     "back": {
+      "ru": "кухня",
+      "en": "kitchen",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "La cuina fa olor de cafè."
+    },
+    {
+     "front": "porta",
+     "back": {
+      "ru": "дверь",
+      "en": "door",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Tanca la porta, fa fred."
+    },
+    {
+     "front": "finestra",
+     "back": {
+      "ru": "окно",
+      "en": "window",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Obre la finestra, fa xafogor."
+    },
+    {
+     "front": "taula",
+     "back": {
+      "ru": "стол",
+      "en": "table",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Posa els plats a la taula."
+    },
+    {
+     "front": "cadira",
+     "back": {
+      "ru": "стул",
+      "en": "chair",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Falta una cadira a la taula."
+    },
+    {
+     "front": "llit",
+     "back": {
+      "ru": "кровать",
+      "en": "bed",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Aquest llit és massa dur."
+    },
+    {
+     "front": "cotxe",
+     "back": {
+      "ru": "машина",
+      "en": "car",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "El cotxe no arrenca al matí."
+    },
+    {
+     "front": "autobús",
+     "back": {
+      "ru": "автобус",
+      "en": "bus",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "L'autobús passa cada mitja hora."
+    },
+    {
+     "front": "tren",
+     "back": {
+      "ru": "поезд",
+      "en": "train",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "El tren ha arribat amb retard."
+    },
+    {
+     "front": "avió",
+     "back": {
+      "ru": "самолёт",
+      "en": "plane",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "L'avió enlaira a les set."
+    },
+    {
+     "front": "bicicleta",
+     "back": {
+      "ru": "велосипед",
+      "en": "bicycle",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "Vaig a la feina amb bicicleta."
+    },
+    {
+     "front": "sol",
+     "back": {
+      "ru": "солнце",
+      "en": "sun",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "El sol surt a dos quarts de set."
+    },
+    {
+     "front": "lluna",
+     "back": {
+      "ru": "луна",
+      "en": "moon",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "La lluna és plena aquesta nit."
+    },
+    {
+     "front": "estrella",
+     "back": {
+      "ru": "звезда",
+      "en": "star",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Al cel es veu una estrella brillant."
+    },
+    {
+     "front": "cel",
+     "back": {
+      "ru": "небо",
+      "en": "sky",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "El cel està clar."
+    },
+    {
+     "front": "pluja",
+     "back": {
+      "ru": "дождь",
+      "en": "rain",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "La pluja no para des d'ahir."
+    },
+    {
+     "front": "vent",
+     "back": {
+      "ru": "ветер",
+      "en": "wind",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "El vent ha tombat les cadires."
+    },
+    {
+     "front": "neu",
+     "back": {
+      "ru": "снег",
+      "en": "snow",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Aquí la neu és rara."
+    },
+    {
+     "front": "foc",
+     "back": {
+      "ru": "огонь",
+      "en": "fire",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Hem encès el foc a la llar."
+    },
+    {
+     "front": "terra",
+     "back": {
+      "ru": "земля",
+      "en": "earth",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "La terra encara està molla."
+    },
+    {
+     "front": "arbre",
+     "back": {
+      "ru": "дерево",
+      "en": "tree",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "L'arbre fa ombra al pati."
+    },
+    {
+     "front": "flor",
+     "back": {
+      "ru": "цветок",
+      "en": "flower",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "He portat una flor del carrer."
+    },
+    {
+     "front": "animal",
+     "back": {
+      "ru": "животное",
+      "en": "animal",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "Quin animal és aquell?"
+    },
+    {
+     "front": "gos",
+     "back": {
+      "ru": "собака",
+      "en": "dog",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "El gos dorm a la porta."
+    },
+    {
+     "front": "gat",
+     "back": {
+      "ru": "кошка",
+      "en": "cat",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "El gat ha pujat al terrat."
+    },
+    {
+     "front": "ocell",
+     "back": {
+      "ru": "птица",
+      "en": "bird",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Al matí ha cantat un ocell."
+    },
+    {
+     "front": "cavall",
+     "back": {
+      "ru": "лошадь",
+      "en": "horse",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "El cavall corre pel camp."
+    },
+    {
+     "front": "llibre",
+     "back": {
+      "ru": "книга",
+      "en": "book",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Aquest llibre té tres-centes pàgines."
+    },
+    {
+     "front": "paper",
+     "back": {
+      "ru": "бумага",
+      "en": "paper",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Dona'm un full de paper."
+    },
+    {
+     "front": "bolígraf",
+     "back": {
+      "ru": "ручка",
+      "en": "pen",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "El bolígraf s'ha quedat sense tinta."
+    },
+    {
+     "front": "telèfon",
+     "back": {
+      "ru": "телефон",
+      "en": "phone",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "El telèfon ha sonat dues vegades."
+    },
+    {
+     "front": "ordinador",
+     "back": {
+      "ru": "компьютер",
+      "en": "computer",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "L'ordinador va lent."
+    },
+    {
+     "front": "diners",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "No porto diners a sobre."
+    },
+    {
+     "front": "clau",
+     "back": {
+      "ru": "ключ",
+      "en": "key",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "He perdut la clau de casa."
+    },
+    {
+     "front": "rellotge de polsera",
+     "back": {
+      "ru": "часы",
+      "en": "watch",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "El meu rellotge de polsera va avançat."
+    },
+    {
+     "front": "llum",
+     "back": {
+      "ru": "свет",
+      "en": "light",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "Encén el llum, si us plau."
+    },
+    {
+     "front": "música",
+     "back": {
+      "ru": "музыка",
+      "en": "music",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "La música ve del cafè del costat."
+    },
+    {
+     "front": "pel·lícula",
+     "back": {
+      "ru": "фильм",
+      "en": "film",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "La pel·lícula comença a les nou."
+    },
+    {
+     "front": "foto",
+     "back": {
+      "ru": "фотография",
+      "en": "photo",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "He fet una foto de la plaça."
+    },
+    {
+     "front": "carta",
+     "back": {
+      "ru": "письмо",
+      "en": "letter",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "He rebut una carta de la meva àvia."
+    },
+    {
+     "front": "diari",
+     "back": {
+      "ru": "газета",
+      "en": "newspaper",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Llegeixo el diari a l'esmorzar."
+    },
+    {
+     "front": "color",
+     "back": {
+      "ru": "цвет",
+      "en": "colour",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "De quin color és el teu cotxe?"
+    },
+    {
+     "front": "paraula",
+     "back": {
+      "ru": "слово",
+      "en": "word",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "No he entès l'última paraula."
+    },
+    {
+     "front": "llengua",
+     "back": {
+      "ru": "язык",
+      "en": "language",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "El català és la meva llengua materna."
+    },
+    {
+     "front": "cap",
+     "back": {
+      "ru": "голова",
+      "en": "head",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Em fa mal el cap des d'ahir."
+    },
+    {
+     "front": "mà",
+     "back": {
+      "ru": "рука",
+      "en": "hand",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Dona'm la mà."
+    },
+    {
+     "front": "peu",
+     "back": {
+      "ru": "нога",
+      "en": "foot",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Tinc el peu inflat."
+    },
+    {
+     "front": "ull",
+     "back": {
+      "ru": "глаз",
+      "en": "eye",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "M'ha entrat pols a l'ull."
+    },
+    {
+     "front": "boca",
+     "back": {
+      "ru": "рот",
+      "en": "mouth",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Obre la boca, ha dit el metge."
+    },
+    {
+     "front": "cor",
+     "back": {
+      "ru": "сердце",
+      "en": "heart",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "El cor batega de pressa."
+    },
+    {
+     "front": "cabell",
+     "back": {
+      "ru": "волосы",
+      "en": "hair",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Ahir em vaig tallar el cabell."
+    },
+    {
+     "front": "cos",
+     "back": {
+      "ru": "тело",
+      "en": "body",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "El cos demana descans."
+    },
+    {
+     "front": "bo",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Ha estat un bon dia de feina."
+    },
+    {
+     "front": "dolent",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "El temps és dolent."
+    },
+    {
+     "front": "gran",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Necessitem una taula gran."
+    },
+    {
+     "front": "petit",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "L'habitació és petita però lluminosa."
+    },
+    {
+     "front": "nou (recent)",
+     "back": {
+      "ru": "новый",
+      "en": "new",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "He comprat un telèfon nou."
+    },
+    {
+     "front": "vell",
+     "back": {
+      "ru": "старый",
+      "en": "old",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Aquest edifici és vell."
+    },
+    {
+     "front": "jove",
+     "back": {
+      "ru": "молодой",
+      "en": "young",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "És un mestre jove."
+    },
+    {
+     "front": "alt",
+     "back": {
+      "ru": "высокий",
+      "en": "tall",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "L'edifici és molt alt."
+    },
+    {
+     "front": "baix",
+     "back": {
+      "ru": "низкий",
+      "en": "short",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "El sostre és baix."
+    },
+    {
+     "front": "llarg",
+     "back": {
+      "ru": "длинный",
+      "en": "long",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "El camí és llarg."
+    },
+    {
+     "front": "curt",
+     "back": {
+      "ru": "короткий",
+      "en": "short",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "La pel·lícula ha estat curta."
+    },
+    {
+     "front": "calent",
+     "back": {
+      "ru": "горячий",
+      "en": "hot",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "El te és calent."
+    },
+    {
+     "front": "fred",
+     "back": {
+      "ru": "холодный",
+      "en": "cold",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "A l'habitació fa fred."
+    },
+    {
+     "front": "bonic",
+     "back": {
+      "ru": "красивый",
+      "en": "beautiful",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Quina vista més bonica!"
+    },
+    {
+     "front": "lleig",
+     "back": {
+      "ru": "некрасивый",
+      "en": "ugly",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "L'edifici nou és lleig."
+    },
+    {
+     "front": "fàcil",
+     "back": {
+      "ru": "лёгкий",
+      "en": "easy",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "L'exercici ha estat fàcil."
+    },
+    {
+     "front": "difícil",
+     "back": {
+      "ru": "трудный",
+      "en": "difficult",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "La pregunta és difícil."
+    },
+    {
+     "front": "fort",
+     "back": {
+      "ru": "сильный",
+      "en": "strong",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "El cafè és fort."
+    },
+    {
+     "front": "feble",
+     "back": {
+      "ru": "слабый",
+      "en": "weak",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "El senyal és feble."
+    },
+    {
+     "front": "ràpid",
+     "back": {
+      "ru": "быстрый",
+      "en": "fast",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "El tren és ràpid."
+    },
+    {
+     "front": "lent",
+     "back": {
+      "ru": "медленный",
+      "en": "slow",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "El servei aquí és lent."
+    },
+    {
+     "front": "car",
+     "back": {
+      "ru": "дорогой",
+      "en": "expensive",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "L'hotel és car."
+    },
+    {
+     "front": "barat",
+     "back": {
+      "ru": "дешёвый",
+      "en": "cheap",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "He trobat un bitllet barat."
+    },
+    {
+     "front": "net",
+     "back": {
+      "ru": "чистый",
+      "en": "clean",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "El terra està net."
+    },
+    {
+     "front": "brut",
+     "back": {
+      "ru": "грязный",
+      "en": "dirty",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "El cotxe està brut de pols."
+    },
+    {
+     "front": "ple",
+     "back": {
+      "ru": "полный",
+      "en": "full",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "L'autobús ha arribat ple."
+    },
+    {
+     "front": "buit",
+     "back": {
+      "ru": "пустой",
+      "en": "empty",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "El got és buit."
+    },
+    {
+     "front": "feliç",
+     "back": {
+      "ru": "счастливый",
+      "en": "happy",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "Estava feliç amb la notícia."
+    },
+    {
+     "front": "trist",
+     "back": {
+      "ru": "грустный",
+      "en": "sad",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "Ha tornat trist de la feina."
+    },
+    {
+     "front": "cansat",
+     "back": {
+      "ru": "усталый",
+      "en": "tired",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Estic cansat del dia."
+    },
+    {
+     "front": "malalt",
+     "back": {
+      "ru": "больной",
+      "en": "sick",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "El meu fill està malalt."
+    },
+    {
+     "front": "correcte",
+     "back": {
+      "ru": "правильный",
+      "en": "right",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "La resposta és correcta."
+    },
+    {
+     "front": "equivocat",
+     "back": {
+      "ru": "неправильный",
+      "en": "wrong",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "El número és equivocat."
+    },
+    {
+     "front": "blanc",
+     "back": {
+      "ru": "белый",
+      "en": "white",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "La paret és blanca."
+    },
+    {
+     "front": "negre",
+     "back": {
+      "ru": "чёрный",
+      "en": "black",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Tinc un gat negre."
+    },
+    {
+     "front": "vermell",
+     "back": {
+      "ru": "красный",
+      "en": "red",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "El semàfor està vermell."
+    },
+    {
+     "front": "blau",
+     "back": {
+      "ru": "синий",
+      "en": "blue",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "El mar és molt blau."
+    },
+    {
+     "front": "verd",
+     "back": {
+      "ru": "зелёный",
+      "en": "green",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "A la primavera les fulles es tornen verdes."
+    },
+    {
+     "front": "groc",
+     "back": {
+      "ru": "жёлтый",
+      "en": "yellow",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "La casa és groga."
+    },
+    {
+     "front": "aquí",
+     "back": {
+      "ru": "здесь",
+      "en": "here",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Espera aquí un moment."
+    },
+    {
+     "front": "allà",
+     "back": {
+      "ru": "там",
+      "en": "there",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "El cotxe és allà."
+    },
+    {
+     "front": "molt",
+     "back": {
+      "ru": "много",
+      "en": "much",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Bec molt te."
+    },
+    {
+     "front": "poc",
+     "back": {
+      "ru": "мало",
+      "en": "little",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "He dormit poc aquesta nit."
+    },
+    {
+     "front": "més",
+     "back": {
+      "ru": "больше",
+      "en": "more",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Vull més temps."
+    },
+    {
+     "front": "menys",
+     "back": {
+      "ru": "меньше",
+      "en": "less",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Avui hi ha menys gent."
+    },
+    {
+     "front": "també",
+     "back": {
+      "ru": "тоже",
+      "en": "also",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "Jo també hi vaig."
+    },
+    {
+     "front": "bé",
+     "back": {
+      "ru": "хорошо",
+      "en": "well",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "Ella parla bé el francès."
+    },
+    {
+     "front": "malament",
+     "back": {
+      "ru": "плохо",
+      "en": "badly",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "He dormit malament aquesta nit."
+    },
+    {
+     "front": "amb",
+     "back": {
+      "ru": "с",
+      "en": "with",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Vaig amb la meva germana."
+    },
+    {
+     "front": "sense",
+     "back": {
+      "ru": "без",
+      "en": "without",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Bec el cafè sense sucre."
+    },
+    {
+     "front": "per a",
+     "back": {
+      "ru": "для",
+      "en": "for",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Aquest paquet és per a tu."
+    },
+    {
+     "front": "però",
+     "back": {
+      "ru": "но",
+      "en": "but",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Volia anar-hi, però no puc."
+    },
+    {
+     "front": "o",
+     "back": {
+      "ru": "или",
+      "en": "or",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Te o cafè?"
+    },
+    {
+     "front": "perquè",
+     "back": {
+      "ru": "потому что",
+      "en": "because",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "Em vaig quedar a casa perquè plovia."
+    },
+    {
+     "front": "si",
+     "back": {
+      "ru": "если",
+      "en": "if",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Si plou, ens quedem a casa."
+    },
+    {
+     "front": "potser",
+     "back": {
+      "ru": "может быть",
+      "en": "maybe",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "Potser vindrà demà."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "ser",
+     "back": {
+      "ru": "быть",
+      "en": "to be",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "Ella és mestra de música."
+    },
+    {
+     "front": "estar",
+     "back": {
+      "ru": "находиться",
+      "en": "to be (state)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "El llibre està damunt la taula."
+    },
+    {
+     "front": "tenir",
+     "back": {
+      "ru": "иметь",
+      "en": "to have",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "Tinc dos germans petits."
+    },
+    {
+     "front": "fer",
+     "back": {
+      "ru": "делать",
+      "en": "to do",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Què fas els diumenges?"
+    },
+    {
+     "front": "anar",
+     "back": {
+      "ru": "идти",
+      "en": "to go",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "Ara vaig al mercat."
+    },
+    {
+     "front": "venir",
+     "back": {
+      "ru": "приходить",
+      "en": "to come",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "Véns a sopar amb nosaltres?"
+    },
+    {
+     "front": "dir",
+     "back": {
+      "ru": "говорить",
+      "en": "to say",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Digues-me la veritat."
+    },
+    {
+     "front": "veure",
+     "back": {
+      "ru": "видеть",
+      "en": "to see",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "He vist el teu germà al carrer."
+    },
+    {
+     "front": "donar",
+     "back": {
+      "ru": "давать",
+      "en": "to give",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Dona'm la clau, si us plau."
+    },
+    {
+     "front": "saber",
+     "back": {
+      "ru": "знать",
+      "en": "to know",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "No sé on viu."
+    },
+    {
+     "front": "poder",
+     "back": {
+      "ru": "мочь",
+      "en": "can",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "Em pots ajudar?"
+    },
+    {
+     "front": "voler",
+     "back": {
+      "ru": "хотеть",
+      "en": "to want",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Vull un got d'aigua."
+    },
+    {
+     "front": "haver de",
+     "back": {
+      "ru": "быть должным",
+      "en": "must",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Avui he de marxar més aviat."
+    },
+    {
+     "front": "quedar-se",
+     "back": {
+      "ru": "оставаться",
+      "en": "to stay",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Aquesta nit em quedo a casa."
+    },
+    {
+     "front": "passar",
+     "back": {
+      "ru": "проходить",
+      "en": "to pass",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "L'autobús passa a les nou."
+    },
+    {
+     "front": "arribar",
+     "back": {
+      "ru": "прибывать",
+      "en": "to arrive",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "El tren ha arribat amb retard."
+    },
+    {
+     "front": "sortir",
+     "back": {
+      "ru": "выходить",
+      "en": "to leave",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "Surto de la feina a les sis."
+    },
+    {
+     "front": "entrar",
+     "back": {
+      "ru": "входить",
+      "en": "to enter",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Entra, la porta és oberta."
+    },
+    {
+     "front": "tornar",
+     "back": {
+      "ru": "возвращаться",
+      "en": "to return",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Torno d'aquí a mitja hora."
+    },
+    {
+     "front": "començar",
+     "back": {
+      "ru": "начинать",
+      "en": "to begin",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "La classe comença a les vuit."
+    },
+    {
+     "front": "acabar",
+     "back": {
+      "ru": "заканчивать",
+      "en": "to finish",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Vaig acabar el llibre ahir."
+    },
+    {
+     "front": "continuar",
+     "back": {
+      "ru": "продолжать",
+      "en": "to continue",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "La pluja continua."
+    },
+    {
+     "front": "aturar-se",
+     "back": {
+      "ru": "останавливаться",
+      "en": "to stop",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "El cotxe s'ha aturat davant la porta."
+    },
+    {
+     "front": "esperar",
+     "back": {
+      "ru": "ждать",
+      "en": "to wait",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "T'espero a l'estació."
+    },
+    {
+     "front": "trobar",
+     "back": {
+      "ru": "находить",
+      "en": "to find",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "He trobat les claus a la taula."
+    },
+    {
+     "front": "buscar",
+     "back": {
+      "ru": "искать",
+      "en": "to look for",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Busco un llibre de gramàtica."
+    },
+    {
+     "front": "perdre",
+     "back": {
+      "ru": "терять",
+      "en": "to lose",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "He perdut el tren de les set."
+    },
+    {
+     "front": "guanyar",
+     "back": {
+      "ru": "выигрывать",
+      "en": "to win",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "El nostre equip ha guanyat."
+    },
+    {
+     "front": "comprar",
+     "back": {
+      "ru": "покупать",
+      "en": "to buy",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "He comprat pa per al sopar."
+    },
+    {
+     "front": "vendre",
+     "back": {
+      "ru": "продавать",
+      "en": "to sell",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "A la cantonada venen fruita."
+    },
+    {
+     "front": "pagar",
+     "back": {
+      "ru": "платить",
+      "en": "to pay",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "El cafè el pago jo."
+    },
+    {
+     "front": "costar",
+     "back": {
+      "ru": "стоить",
+      "en": "to cost",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Quant costa el bitllet?"
+    },
+    {
+     "front": "treballar",
+     "back": {
+      "ru": "работать",
+      "en": "to work",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Treballo en un hospital."
+    },
+    {
+     "front": "estudiar",
+     "back": {
+      "ru": "учиться",
+      "en": "to study",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Estudio català des de fa un any."
+    },
+    {
+     "front": "aprendre",
+     "back": {
+      "ru": "изучать",
+      "en": "to learn",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "Vaig aprendre a nedar de petit."
+    },
+    {
+     "front": "ensenyar",
+     "back": {
+      "ru": "учить",
+      "en": "to teach",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "Ella ensenya en una escola de poble."
+    },
+    {
+     "front": "llegir",
+     "back": {
+      "ru": "читать",
+      "en": "to read",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Al matí llegeixo el diari."
+    },
+    {
+     "front": "escriure",
+     "back": {
+      "ru": "писать",
+      "en": "to write",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Li vaig escriure una carta llarga."
+    },
+    {
+     "front": "parlar",
+     "back": {
+      "ru": "разговаривать",
+      "en": "to speak",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Ahir vam parlar per telèfon."
+    },
+    {
+     "front": "sentir",
+     "back": {
+      "ru": "слышать",
+      "en": "to hear",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "He sentit un soroll a la cuina."
+    },
+    {
+     "front": "escoltar",
+     "back": {
+      "ru": "слушать",
+      "en": "to listen",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Escolta bé el que dic."
+    },
+    {
+     "front": "mirar",
+     "back": {
+      "ru": "смотреть",
+      "en": "to look",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Mira a l'esquerra."
+    },
+    {
+     "front": "notar",
+     "back": {
+      "ru": "чувствовать",
+      "en": "to feel",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Noto fred a les mans."
+    },
+    {
+     "front": "pensar",
+     "back": {
+      "ru": "думать",
+      "en": "to think",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Hi penso des d'ahir."
+    },
+    {
+     "front": "recordar",
+     "back": {
+      "ru": "помнить",
+      "en": "to remember",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "Recordo bé aquell dia."
+    },
+    {
+     "front": "oblidar",
+     "back": {
+      "ru": "забывать",
+      "en": "to forget",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "He oblidat el teu nom."
+    },
+    {
+     "front": "entendre",
+     "back": {
+      "ru": "понимать",
+      "en": "to understand",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "No he entès la pregunta."
+    },
+    {
+     "front": "explicar",
+     "back": {
+      "ru": "объяснять",
+      "en": "to explain",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Explica-ho una altra vegada."
+    },
+    {
+     "front": "preguntar",
+     "back": {
+      "ru": "спрашивать",
+      "en": "to ask",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "Ho he preguntat al veí."
+    },
+    {
+     "front": "respondre",
+     "back": {
+      "ru": "отвечать",
+      "en": "to answer",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "Encara no ha respost."
+    },
+    {
+     "front": "cridar",
+     "back": {
+      "ru": "звать",
+      "en": "to call",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Crida el metge, de pressa."
+    },
+    {
+     "front": "trucar",
+     "back": {
+      "ru": "звонить",
+      "en": "to phone",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Et truco al vespre."
+    },
+    {
+     "front": "obrir",
+     "back": {
+      "ru": "открывать",
+      "en": "to open",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Obre la finestra, si us plau."
+    },
+    {
+     "front": "tancar",
+     "back": {
+      "ru": "закрывать",
+      "en": "to close",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Tanca la porta en sortir."
+    },
+    {
+     "front": "posar",
+     "back": {
+      "ru": "класть",
+      "en": "to put",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Posa el pa a la taula."
+    },
+    {
+     "front": "treure's",
+     "back": {
+      "ru": "убирать",
+      "en": "to take off",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Treu-te les sabates a l'entrada."
+    },
+    {
+     "front": "endur-se",
+     "back": {
+      "ru": "нести",
+      "en": "to take",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "M'enduc el paraigua."
+    },
+    {
+     "front": "portar",
+     "back": {
+      "ru": "приносить",
+      "en": "to bring",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "He portat pastís per a tothom."
+    },
+    {
+     "front": "enviar",
+     "back": {
+      "ru": "посылать",
+      "en": "to send",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Vaig enviar la carta dilluns."
+    },
+    {
+     "front": "rebre",
+     "back": {
+      "ru": "получать",
+      "en": "to receive",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "He rebut el teu missatge."
+    },
+    {
+     "front": "guardar",
+     "back": {
+      "ru": "хранить",
+      "en": "to keep",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Guardo les fotos en una capsa."
+    },
+    {
+     "front": "deixar",
+     "back": {
+      "ru": "оставлять",
+      "en": "to leave behind",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "He deixat l'abric al cotxe."
+    },
+    {
+     "front": "aguantar",
+     "back": {
+      "ru": "держать",
+      "en": "to hold",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Aguanta bé el got."
+    },
+    {
+     "front": "empènyer",
+     "back": {
+      "ru": "толкать",
+      "en": "to push",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Empeny la porta, no estiris."
+    },
+    {
+     "front": "estirar",
+     "back": {
+      "ru": "тянуть",
+      "en": "to pull",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Estira la corda amb força."
+    },
+    {
+     "front": "atrapar",
+     "back": {
+      "ru": "ловить",
+      "en": "to catch",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "He atrapat la pilota a l'aire."
+    },
+    {
+     "front": "mostrar",
+     "back": {
+      "ru": "показывать",
+      "en": "to show",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Mostra'm la foto."
+    },
+    {
+     "front": "amagar",
+     "back": {
+      "ru": "прятать",
+      "en": "to hide",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "Va amagar el regal a l'armari."
+    },
+    {
+     "front": "canviar",
+     "back": {
+      "ru": "менять",
+      "en": "to change",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "He canviat d'opinió."
+    },
+    {
+     "front": "crear",
+     "back": {
+      "ru": "создавать",
+      "en": "to create",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Han creat un lloc de treball nou."
+    },
+    {
+     "front": "construir",
+     "back": {
+      "ru": "строить",
+      "en": "to build",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Construeixen un edifici al costat."
+    },
+    {
+     "front": "trencar",
+     "back": {
+      "ru": "ломать",
+      "en": "to break",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Aquest matí he trencat un got."
+    },
+    {
+     "front": "tallar",
+     "back": {
+      "ru": "резать",
+      "en": "to cut",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Talla el pa a llesques."
+    },
+    {
+     "front": "netejar",
+     "back": {
+      "ru": "убирать",
+      "en": "to clean",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "He netejat tota la cuina."
+    },
+    {
+     "front": "rentar",
+     "back": {
+      "ru": "мыть",
+      "en": "to wash",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Renta't les mans abans de menjar."
+    },
+    {
+     "front": "assecar",
+     "back": {
+      "ru": "сушить",
+      "en": "to dry",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Asseca't bé els cabells."
+    },
+    {
+     "front": "cuinar",
+     "back": {
+      "ru": "готовить",
+      "en": "to cook",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Cuino cada dia."
+    },
+    {
+     "front": "menjar",
+     "back": {
+      "ru": "есть",
+      "en": "to eat",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Mengem a les vuit."
+    },
+    {
+     "front": "beure",
+     "back": {
+      "ru": "пить",
+      "en": "to drink",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Bec aigua tot el dia."
+    },
+    {
+     "front": "tastar",
+     "back": {
+      "ru": "пробовать",
+      "en": "to taste",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Tasta la sopa, és bona."
+    },
+    {
+     "front": "servir",
+     "back": {
+      "ru": "подавать",
+      "en": "to serve",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Serveixen el dinar a les dotze."
+    },
+    {
+     "front": "dormir",
+     "back": {
+      "ru": "спать",
+      "en": "to sleep",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "He dormit vuit hores seguides."
+    },
+    {
+     "front": "despertar-se",
+     "back": {
+      "ru": "просыпаться",
+      "en": "to wake up",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Sempre em desperto a les sis."
+    },
+    {
+     "front": "llevar-se",
+     "back": {
+      "ru": "вставать",
+      "en": "to get up",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Lleva't, és tard."
+    },
+    {
+     "front": "seure",
+     "back": {
+      "ru": "садиться",
+      "en": "to sit",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Seu aquí al meu costat."
+    },
+    {
+     "front": "ajeure's",
+     "back": {
+      "ru": "ложиться",
+      "en": "to lie down",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "Entre setmana m'ajec d'hora."
+    },
+    {
+     "front": "caminar",
+     "back": {
+      "ru": "ходить",
+      "en": "to walk",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Camino mitja hora al dia."
+    },
+    {
+     "front": "córrer",
+     "back": {
+      "ru": "бегать",
+      "en": "to run",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Al matí corro al parc."
+    },
+    {
+     "front": "saltar",
+     "back": {
+      "ru": "прыгать",
+      "en": "to jump",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "El gat ha saltat a la taula."
+    },
+    {
+     "front": "nedar",
+     "back": {
+      "ru": "плавать",
+      "en": "to swim",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "Vaig aprendre a nedar al riu."
+    },
+    {
+     "front": "volar",
+     "back": {
+      "ru": "летать",
+      "en": "to fly",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Els ocells volen cap al sud."
+    },
+    {
+     "front": "viatjar",
+     "back": {
+      "ru": "путешествовать",
+      "en": "to travel",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Vam viatjar amb tren."
+    },
+    {
+     "front": "conduir",
+     "back": {
+      "ru": "водить",
+      "en": "to drive",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "Condueix amb cura."
+    },
+    {
+     "front": "pujar",
+     "back": {
+      "ru": "подниматься",
+      "en": "to go up",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Hem pujat al tercer pis."
+    },
+    {
+     "front": "baixar",
+     "back": {
+      "ru": "спускаться",
+      "en": "to go down",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Baixa les escales a poc a poc."
+    },
+    {
+     "front": "caure",
+     "back": {
+      "ru": "падать",
+      "en": "to fall",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "La tassa ha caigut de la taula."
+    },
+    {
+     "front": "viure (residir)",
+     "back": {
+      "ru": "жить",
+      "en": "to live (reside)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Visc a prop de l'estació."
+    },
+    {
+     "front": "viure",
+     "back": {
+      "ru": "жить",
+      "en": "to live",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "Va viure noranta anys."
+    },
+    {
+     "front": "morir",
+     "back": {
+      "ru": "умирать",
+      "en": "to die",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "L'arbre va morir a l'hivern."
+    },
+    {
+     "front": "néixer",
+     "back": {
+      "ru": "рождаться",
+      "en": "to be born",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Vaig néixer al març."
+    },
+    {
+     "front": "créixer",
+     "back": {
+      "ru": "расти",
+      "en": "to grow",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Els nens creixen de pressa."
+    },
+    {
+     "front": "casar-se",
+     "back": {
+      "ru": "жениться",
+      "en": "to marry",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Es van casar a la primavera."
+    },
+    {
+     "front": "ajudar",
+     "back": {
+      "ru": "помогать",
+      "en": "to help",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Ajuda'm amb aquestes bosses."
+    },
+    {
+     "front": "agradar",
+     "back": {
+      "ru": "нравиться",
+      "en": "to like",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "M'agrada molt aquest cafè."
+    },
+    {
+     "front": "estimar",
+     "back": {
+      "ru": "любить",
+      "en": "to love",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "Estima la família per damunt de tot."
+    },
+    {
+     "front": "odiar",
+     "back": {
+      "ru": "ненавидеть",
+      "en": "to hate",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Odio llevar-me d'hora."
+    },
+    {
+     "front": "riure",
+     "back": {
+      "ru": "смеяться",
+      "en": "to laugh",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Vam riure tota la nit."
+    },
+    {
+     "front": "plorar",
+     "back": {
+      "ru": "плакать",
+      "en": "to cry",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "La criatura va plorar de son."
+    },
+    {
+     "front": "cantar",
+     "back": {
+      "ru": "петь",
+      "en": "to sing",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Canten al cor de l'església."
+    },
+    {
+     "front": "ballar",
+     "back": {
+      "ru": "танцевать",
+      "en": "to dance",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Vam ballar fins tard."
+    },
+    {
+     "front": "jugar",
+     "back": {
+      "ru": "играть",
+      "en": "to play (children)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Els nens juguen al jardí."
+    },
+    {
+     "front": "disputar un partit",
+     "back": {
+      "ru": "играть",
+      "en": "to play (a game)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "Dissabte disputem un partit."
+    },
+    {
+     "front": "tocar",
+     "back": {
+      "ru": "трогать",
+      "en": "to touch",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "No toquis la pintura fresca."
+    },
+    {
+     "front": "descansar",
+     "back": {
+      "ru": "отдыхать",
+      "en": "to rest",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Descansa una estona."
+    },
+    {
+     "front": "provar",
+     "back": {
+      "ru": "пытаться",
+      "en": "to try",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "He provat de trucar-te tres vegades."
+    },
+    {
+     "front": "aconseguir",
+     "back": {
+      "ru": "удаваться",
+      "en": "to manage",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "He aconseguit entrades per avui."
+    },
+    {
+     "front": "necessitar",
+     "back": {
+      "ru": "нуждаться",
+      "en": "to need",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "Ara necessito ajuda."
+    },
+    {
+     "front": "utilitzar",
+     "back": {
+      "ru": "использовать",
+      "en": "to use",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Utilitzo el telèfon per a tot."
+    },
+    {
+     "front": "triar",
+     "back": {
+      "ru": "выбирать",
+      "en": "to choose",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Tria tu el restaurant."
+    },
+    {
+     "front": "decidir",
+     "back": {
+      "ru": "решать",
+      "en": "to decide",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Hem decidit quedar-nos un dia més."
+    },
+    {
+     "front": "acceptar",
+     "back": {
+      "ru": "принимать",
+      "en": "to accept",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "Va acceptar la invitació."
+    },
+    {
+     "front": "rebutjar",
+     "back": {
+      "ru": "отказывать",
+      "en": "to refuse",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "Va rebutjar l'ajuda dels veïns."
+    },
+    {
+     "front": "prometre",
+     "back": {
+      "ru": "обещать",
+      "en": "to promise",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "Va prometre tornar d'hora."
+    },
+    {
+     "front": "agrair",
+     "back": {
+      "ru": "благодарить",
+      "en": "to thank",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "T'agraeixo la paciència."
+    },
+    {
+     "front": "demanar",
+     "back": {
+      "ru": "просить",
+      "en": "to ask for",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "He demanat un got d'aigua."
+    },
+    {
+     "front": "passar (succeir)",
+     "back": {
+      "ru": "случаться",
+      "en": "to happen",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Què va passar ahir?"
+    },
+    {
+     "front": "semblar",
+     "back": {
+      "ru": "казаться",
+      "en": "to seem",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Sembles cansat."
+    },
+    {
+     "front": "encendre",
+     "back": {
+      "ru": "включать",
+      "en": "to turn on",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Encén el llum de la cuina."
+    },
+    {
+     "front": "apagar",
+     "back": {
+      "ru": "выключать",
+      "en": "to turn off",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Apaga l'ordinador abans de marxar."
+    },
+    {
+     "front": "ploure",
+     "back": {
+      "ru": "идти (о дожде)",
+      "en": "to rain",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Va ploure tota la nit."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "aigua",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Porta'm un got d'aigua."
+    },
+    {
+     "front": "pa",
+     "back": {
+      "ru": "хлеб",
+      "en": "bread",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "El pa encara és calent."
+    },
+    {
+     "front": "llet",
+     "back": {
+      "ru": "молоко",
+      "en": "milk",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "A l'esmorzar bec llet."
+    },
+    {
+     "front": "cafè",
+     "back": {
+      "ru": "кофе",
+      "en": "coffee",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Un cafè, si us plau."
+    },
+    {
+     "front": "te",
+     "back": {
+      "ru": "чай",
+      "en": "tea",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "A la tarda faig te."
+    },
+    {
+     "front": "suc",
+     "back": {
+      "ru": "сок",
+      "en": "juice",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Suc de taronja acabat de fer."
+    },
+    {
+     "front": "vi",
+     "back": {
+      "ru": "вино",
+      "en": "wine",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Una copa de vi negre."
+    },
+    {
+     "front": "cervesa",
+     "back": {
+      "ru": "пиво",
+      "en": "beer",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "La cervesa és ben fresca."
+    },
+    {
+     "front": "gel",
+     "back": {
+      "ru": "лёд",
+      "en": "ice",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "Vols gel a la beguda?"
+    },
+    {
+     "front": "sucre",
+     "back": {
+      "ru": "сахар",
+      "en": "sugar",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Bec el cafè sense sucre."
+    },
+    {
+     "front": "sal",
+     "back": {
+      "ru": "соль",
+      "en": "salt",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "A la sopa hi falta sal."
+    },
+    {
+     "front": "pebre",
+     "back": {
+      "ru": "перец",
+      "en": "pepper",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Posa-hi una mica de pebre."
+    },
+    {
+     "front": "oli d'oliva",
+     "back": {
+      "ru": "оливковое масло",
+      "en": "olive oil",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Amaneix l'amanida amb oli d'oliva."
+    },
+    {
+     "front": "mantega",
+     "back": {
+      "ru": "масло",
+      "en": "butter",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Unta mantega al pa."
+    },
+    {
+     "front": "formatge",
+     "back": {
+      "ru": "сыр",
+      "en": "cheese",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Aquest formatge és de muntanya."
+    },
+    {
+     "front": "ou",
+     "back": {
+      "ru": "яйцо",
+      "en": "egg",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "M'he menjat un ou dur."
+    },
+    {
+     "front": "carn",
+     "back": {
+      "ru": "мясо",
+      "en": "meat",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Al vespre no menjo carn."
+    },
+    {
+     "front": "pollastre",
+     "back": {
+      "ru": "курица",
+      "en": "chicken",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Pollastre al forn amb patates."
+    },
+    {
+     "front": "peix",
+     "back": {
+      "ru": "рыба",
+      "en": "fish",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "El peix és fresc avui."
+    },
+    {
+     "front": "bacallà",
+     "back": {
+      "ru": "треска",
+      "en": "cod",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "El bacallà es conserva salat."
+    },
+    {
+     "front": "sardina",
+     "back": {
+      "ru": "сардина",
+      "en": "sardine",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Sardines a la brasa."
+    },
+    {
+     "front": "tonyina",
+     "back": {
+      "ru": "тунец",
+      "en": "tuna",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Un entrepà de tonyina."
+    },
+    {
+     "front": "gamba",
+     "back": {
+      "ru": "креветка",
+      "en": "shrimp",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Gambes a l'all."
+    },
+    {
+     "front": "marisc",
+     "back": {
+      "ru": "морепродукты",
+      "en": "seafood",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "Vam menjar marisc vora el mar."
+    },
+    {
+     "front": "pernil",
+     "back": {
+      "ru": "ветчина",
+      "en": "ham",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Pernil amb meló."
+    },
+    {
+     "front": "salsitxa",
+     "back": {
+      "ru": "сосиска",
+      "en": "sausage",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "He comprat salsitxes per als nens."
+    },
+    {
+     "front": "arròs",
+     "back": {
+      "ru": "рис",
+      "en": "rice",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Els diumenges fem arròs."
+    },
+    {
+     "front": "patata",
+     "back": {
+      "ru": "картофель",
+      "en": "potato",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Patates bullides amb oli d'oliva."
+    },
+    {
+     "front": "pasta",
+     "back": {
+      "ru": "макароны",
+      "en": "pasta",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Quan tinc pressa faig pasta."
+    },
+    {
+     "front": "farina",
+     "back": {
+      "ru": "мука",
+      "en": "flour",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "No hi ha farina per al pastís."
+    },
+    {
+     "front": "sopa",
+     "back": {
+      "ru": "суп",
+      "en": "soup",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "La sopa es refreda."
+    },
+    {
+     "front": "amanida",
+     "back": {
+      "ru": "салат",
+      "en": "salad",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Una amanida de tomàquet."
+    },
+    {
+     "front": "verdura",
+     "back": {
+      "ru": "овощи",
+      "en": "vegetables",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Menjo verdura cada dia."
+    },
+    {
+     "front": "fruita",
+     "back": {
+      "ru": "фрукты",
+      "en": "fruit",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "Hi ha fruita a la cuina."
+    },
+    {
+     "front": "poma",
+     "back": {
+      "ru": "яблоко",
+      "en": "apple",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "M'enduc una poma a la feina."
+    },
+    {
+     "front": "pera",
+     "back": {
+      "ru": "груша",
+      "en": "pear",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Aquesta pera és madura."
+    },
+    {
+     "front": "taronja",
+     "back": {
+      "ru": "апельсин",
+      "en": "orange",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "He pelat una taronja."
+    },
+    {
+     "front": "llimona",
+     "back": {
+      "ru": "лимон",
+      "en": "lemon",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Te amb llimona."
+    },
+    {
+     "front": "plàtan",
+     "back": {
+      "ru": "банан",
+      "en": "banana",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "M'he menjat un plàtan abans d'entrenar."
+    },
+    {
+     "front": "raïm",
+     "back": {
+      "ru": "виноград",
+      "en": "grape",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "El raïm és dolç."
+    },
+    {
+     "front": "maduixa",
+     "back": {
+      "ru": "клубника",
+      "en": "strawberry",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Maduixes amb nata."
+    },
+    {
+     "front": "cirera",
+     "back": {
+      "ru": "вишня",
+      "en": "cherry",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Les cireres de temporada són barates."
+    },
+    {
+     "front": "préssec",
+     "back": {
+      "ru": "персик",
+      "en": "peach",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Un préssec ben madur."
+    },
+    {
+     "front": "meló",
+     "back": {
+      "ru": "дыня",
+      "en": "melon",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Meló amb pernil."
+    },
+    {
+     "front": "síndria",
+     "back": {
+      "ru": "арбуз",
+      "en": "watermelon",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "A l'estiu, síndria freda."
+    },
+    {
+     "front": "pinya",
+     "back": {
+      "ru": "ананас",
+      "en": "pineapple",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Suc de pinya."
+    },
+    {
+     "front": "figa",
+     "back": {
+      "ru": "инжир",
+      "en": "fig",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "A l'hivern, figues seques."
+    },
+    {
+     "front": "tomàquet",
+     "back": {
+      "ru": "помидор",
+      "en": "tomato",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Amanida de tomàquet amb herbes."
+    },
+    {
+     "front": "ceba",
+     "back": {
+      "ru": "лук",
+      "en": "onion",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Primer sofregeix la ceba."
+    },
+    {
+     "front": "all",
+     "back": {
+      "ru": "чеснок",
+      "en": "garlic",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "Dos grans d'all n'hi ha prou."
+    },
+    {
+     "front": "pastanaga",
+     "back": {
+      "ru": "морковь",
+      "en": "carrot",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Sopa de pastanaga."
+    },
+    {
+     "front": "enciam",
+     "back": {
+      "ru": "салат-латук",
+      "en": "lettuce",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Renta bé l'enciam."
+    },
+    {
+     "front": "cogombre",
+     "back": {
+      "ru": "огурец",
+      "en": "cucumber",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Cogombre a rodanxes."
+    },
+    {
+     "front": "mongetes",
+     "back": {
+      "ru": "фасоль",
+      "en": "beans",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Mongetes amb arròs."
+    },
+    {
+     "front": "pèsol",
+     "back": {
+      "ru": "горох",
+      "en": "pea",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Pèsols amb ou escumat."
+    },
+    {
+     "front": "col",
+     "back": {
+      "ru": "капуста",
+      "en": "cabbage",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "La sopa de col és plat d'hivern."
+    },
+    {
+     "front": "carbassa",
+     "back": {
+      "ru": "тыква",
+      "en": "pumpkin",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "A la tardor fem sopa de carbassa."
+    },
+    {
+     "front": "bolet",
+     "back": {
+      "ru": "гриб",
+      "en": "mushroom",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Bolets saltejats."
+    },
+    {
+     "front": "oliva",
+     "back": {
+      "ru": "оливка",
+      "en": "olive",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Olives abans de menjar."
+    },
+    {
+     "front": "pastís",
+     "back": {
+      "ru": "торт",
+      "en": "cake",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "He fet un pastís de taronja."
+    },
+    {
+     "front": "galeta",
+     "back": {
+      "ru": "печенье",
+      "en": "biscuit",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Galetes amb el te."
+    },
+    {
+     "front": "melmelada",
+     "back": {
+      "ru": "варенье",
+      "en": "jam",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "He untat melmelada de maduixa al pa."
+    },
+    {
+     "front": "xocolata",
+     "back": {
+      "ru": "шоколад",
+      "en": "chocolate",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Una rajola de xocolata negra."
+    },
+    {
+     "front": "gelat",
+     "back": {
+      "ru": "мороженое",
+      "en": "ice cream",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Gelat de vainilla."
+    },
+    {
+     "front": "mel",
+     "back": {
+      "ru": "мёд",
+      "en": "honey",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Te amb mel per a la gola."
+    },
+    {
+     "front": "dolç",
+     "back": {
+      "ru": "сладость",
+      "en": "sweet",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Al vespre no menjo dolços."
+    },
+    {
+     "front": "postres",
+     "back": {
+      "ru": "десерт",
+      "en": "dessert",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "De postres, fruita."
+    },
+    {
+     "front": "iogurt",
+     "back": {
+      "ru": "йогурт",
+      "en": "yoghurt",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Iogurt natural sense sucre."
+    },
+    {
+     "front": "nata",
+     "back": {
+      "ru": "сливки",
+      "en": "cream",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Maduixes amb nata."
+    },
+    {
+     "front": "torrada",
+     "back": {
+      "ru": "тост",
+      "en": "toast",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Torrada amb mantega."
+    },
+    {
+     "front": "entrepà",
+     "back": {
+      "ru": "бутерброд",
+      "en": "sandwich",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Un entrepà de formatge i pernil."
+    },
+    {
+     "front": "esmorzar",
+     "back": {
+      "ru": "завтрак",
+      "en": "breakfast",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Esmorzo a les set."
+    },
+    {
+     "front": "dinar",
+     "back": {
+      "ru": "обед",
+      "en": "lunch",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "El dinar és a la una."
+    },
+    {
+     "front": "sopar",
+     "back": {
+      "ru": "ужин",
+      "en": "dinner",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Sopem cap a les vuit."
+    },
+    {
+     "front": "berenar",
+     "back": {
+      "ru": "полдник",
+      "en": "snack",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Els nens s'enduen el berenar."
+    },
+    {
+     "front": "àpat",
+     "back": {
+      "ru": "приём пищи",
+      "en": "meal",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Faig tres àpats al dia."
+    },
+    {
+     "front": "menjar (aliment)",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "El menjar és a taula."
+    },
+    {
+     "front": "beguda",
+     "back": {
+      "ru": "напиток",
+      "en": "drink",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Quina beguda vols?"
+    },
+    {
+     "front": "plat",
+     "back": {
+      "ru": "тарелка",
+      "en": "plate",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Posa els plats al taulell."
+    },
+    {
+     "front": "got",
+     "back": {
+      "ru": "стакан",
+      "en": "glass",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Omple el got fins a la meitat."
+    },
+    {
+     "front": "tassa",
+     "back": {
+      "ru": "чашка",
+      "en": "cup",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Una tassa de cafè."
+    },
+    {
+     "front": "ampolla",
+     "back": {
+      "ru": "бутылка",
+      "en": "bottle",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Una ampolla d'aigua."
+    },
+    {
+     "front": "cullera",
+     "back": {
+      "ru": "ложка",
+      "en": "spoon",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Falta una cullera de sopa."
+    },
+    {
+     "front": "forquilla",
+     "back": {
+      "ru": "вилка",
+      "en": "fork",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "La forquilla ha caigut a terra."
+    },
+    {
+     "front": "ganivet",
+     "back": {
+      "ru": "нож",
+      "en": "knife",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Aquest ganivet no talla gens."
+    },
+    {
+     "front": "tovalló",
+     "back": {
+      "ru": "салфетка",
+      "en": "napkin",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Dona'm un tovalló."
+    },
+    {
+     "front": "olla",
+     "back": {
+      "ru": "кастрюля",
+      "en": "pot",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "L'olla és al foc."
+    },
+    {
+     "front": "paella",
+     "back": {
+      "ru": "сковорода",
+      "en": "frying pan",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Escalfa la paella."
+    },
+    {
+     "front": "restaurant",
+     "back": {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "He reservat taula al restaurant."
+    },
+    {
+     "front": "carta (menú)",
+     "back": {
+      "ru": "меню",
+      "en": "menu",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Demana la carta al cambrer."
+    },
+    {
+     "front": "compte",
+     "back": {
+      "ru": "счёт",
+      "en": "bill",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "El compte, si us plau."
+    },
+    {
+     "front": "cambrer",
+     "back": {
+      "ru": "официант",
+      "en": "waiter",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "El cambrer ha portat el pa."
+    },
+    {
+     "front": "gana",
+     "back": {
+      "ru": "голод",
+      "en": "hunger",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Tinc molta gana."
+    },
+    {
+     "front": "sed",
+     "back": {
+      "ru": "жажда",
+      "en": "thirst",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Amb aquesta calor ve la sed."
+    },
+    {
+     "front": "gust",
+     "back": {
+      "ru": "вкус",
+      "en": "taste",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Aquesta sopa té poc gust."
+    },
+    {
+     "front": "recepta",
+     "back": {
+      "ru": "рецепт",
+      "en": "recipe",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Aquesta és la recepta de la meva àvia."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "roba",
+     "back": {
+      "ru": "одежда",
+      "en": "clothes",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Porto poca roba a la maleta."
+    },
+    {
+     "front": "camisa",
+     "back": {
+      "ru": "рубашка",
+      "en": "shirt",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "La camisa encara no està planxada."
+    },
+    {
+     "front": "jersei",
+     "back": {
+      "ru": "свитер",
+      "en": "jumper",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Posa't el jersei, fa fred."
+    },
+    {
+     "front": "samarreta",
+     "back": {
+      "ru": "футболка",
+      "en": "T-shirt",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "Una samarreta blanca llisa."
+    },
+    {
+     "front": "abric",
+     "back": {
+      "ru": "пальто",
+      "en": "coat",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "M'he oblidat l'abric al cotxe."
+    },
+    {
+     "front": "jaqueta",
+     "back": {
+      "ru": "куртка",
+      "en": "jacket",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Una jaqueta per a la pluja."
+    },
+    {
+     "front": "armilla",
+     "back": {
+      "ru": "жилет",
+      "en": "waistcoat",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Una armilla sobre la camisa."
+    },
+    {
+     "front": "pantalons",
+     "back": {
+      "ru": "брюки",
+      "en": "trousers",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Aquests pantalons em van amples."
+    },
+    {
+     "front": "pantalons curts",
+     "back": {
+      "ru": "шорты",
+      "en": "shorts",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Pantalons curts per a l'estiu."
+    },
+    {
+     "front": "faldilla",
+     "back": {
+      "ru": "юбка",
+      "en": "skirt",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Una faldilla fins al genoll."
+    },
+    {
+     "front": "vestit",
+     "back": {
+      "ru": "платье",
+      "en": "dress",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "El vestit és de lli."
+    },
+    {
+     "front": "vestit d'home",
+     "back": {
+      "ru": "костюм",
+      "en": "suit",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Va al casament amb vestit."
+    },
+    {
+     "front": "corbata",
+     "back": {
+      "ru": "галстук",
+      "en": "tie",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "No sé fer el nus de la corbata."
+    },
+    {
+     "front": "cinturó",
+     "back": {
+      "ru": "ремень",
+      "en": "belt",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Estreny més el cinturó."
+    },
+    {
+     "front": "mitjons",
+     "back": {
+      "ru": "носки",
+      "en": "socks",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Aquests mitjons estan foradats."
+    },
+    {
+     "front": "mitges",
+     "back": {
+      "ru": "колготки",
+      "en": "tights",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Unes mitges negres."
+    },
+    {
+     "front": "sabates",
+     "back": {
+      "ru": "туфли",
+      "en": "shoes",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Sabates negres de pell."
+    },
+    {
+     "front": "bambes",
+     "back": {
+      "ru": "кроссовки",
+      "en": "trainers",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Porto bambes tot el dia."
+    },
+    {
+     "front": "botes",
+     "back": {
+      "ru": "сапоги",
+      "en": "boots",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Botes per a l'hivern."
+    },
+    {
+     "front": "sandàlies",
+     "back": {
+      "ru": "сандалии",
+      "en": "sandals",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Sandàlies per a la platja."
+    },
+    {
+     "front": "sabatilles",
+     "back": {
+      "ru": "тапочки",
+      "en": "slippers",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Les sabatilles són a la porta de l'habitació."
+    },
+    {
+     "front": "barret",
+     "back": {
+      "ru": "шляпа",
+      "en": "hat",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Un barret de palla."
+    },
+    {
+     "front": "gorra",
+     "back": {
+      "ru": "кепка",
+      "en": "cap",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Una gorra per al sol."
+    },
+    {
+     "front": "gorro",
+     "back": {
+      "ru": "шапка",
+      "en": "woolly hat",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Gorro i bufanda per a la neu."
+    },
+    {
+     "front": "guants",
+     "back": {
+      "ru": "перчатки",
+      "en": "gloves",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Guants de pell folrats."
+    },
+    {
+     "front": "bufanda",
+     "back": {
+      "ru": "шарф",
+      "en": "scarf",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Enrotlla la bufanda dues vegades."
+    },
+    {
+     "front": "mocador",
+     "back": {
+      "ru": "платок",
+      "en": "handkerchief",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Un mocador de cotó."
+    },
+    {
+     "front": "ulleres",
+     "back": {
+      "ru": "очки",
+      "en": "glasses",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Ahir vaig trencar les ulleres."
+    },
+    {
+     "front": "bossa",
+     "back": {
+      "ru": "сумка",
+      "en": "bag",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "La bossa pesa massa."
+    },
+    {
+     "front": "cartera",
+     "back": {
+      "ru": "кошелёк",
+      "en": "wallet",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "M'he deixat la cartera a casa."
+    },
+    {
+     "front": "motxilla",
+     "back": {
+      "ru": "рюкзак",
+      "en": "backpack",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "La motxilla de l'escola pesa."
+    },
+    {
+     "front": "paraigua",
+     "back": {
+      "ru": "зонт",
+      "en": "umbrella",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Emporta't el paraigua."
+    },
+    {
+     "front": "pijama",
+     "back": {
+      "ru": "пижама",
+      "en": "pyjamas",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Un pijama de franel·la."
+    },
+    {
+     "front": "barnús",
+     "back": {
+      "ru": "халат",
+      "en": "dressing gown",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "El barnús penja darrere la porta."
+    },
+    {
+     "front": "tovallola",
+     "back": {
+      "ru": "полотенце",
+      "en": "towel",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Una tovallola neta per al bany."
+    },
+    {
+     "front": "butxaca",
+     "back": {
+      "ru": "карман",
+      "en": "pocket",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Tinc la clau a la butxaca."
+    },
+    {
+     "front": "botó",
+     "back": {
+      "ru": "пуговица",
+      "en": "button",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "S'ha caigut un botó de la camisa."
+    },
+    {
+     "front": "cremallera",
+     "back": {
+      "ru": "молния",
+      "en": "zip",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "S'ha trencat la cremallera de la bossa."
+    },
+    {
+     "front": "màniga",
+     "back": {
+      "ru": "рукав",
+      "en": "sleeve",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Arromanga't les mànigues."
+    },
+    {
+     "front": "coll",
+     "back": {
+      "ru": "воротник",
+      "en": "collar",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "El coll està tacat."
+    },
+    {
+     "front": "talla",
+     "back": {
+      "ru": "размер",
+      "en": "size",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "Tenen aquesta camisa en una altra talla?"
+    },
+    {
+     "front": "teixit",
+     "back": {
+      "ru": "ткань",
+      "en": "fabric",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Un teixit lleuger per a l'estiu."
+    },
+    {
+     "front": "cotó",
+     "back": {
+      "ru": "хлопок",
+      "en": "cotton",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Una camisa de cotó."
+    },
+    {
+     "front": "llana",
+     "back": {
+      "ru": "шерсть",
+      "en": "wool",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Mitjons gruixuts de llana."
+    },
+    {
+     "front": "seda",
+     "back": {
+      "ru": "шёлк",
+      "en": "silk",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "Un mocador de seda."
+    },
+    {
+     "front": "pell",
+     "back": {
+      "ru": "кожа",
+      "en": "leather",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Botes de pell marró."
+    },
+    {
+     "front": "penjador",
+     "back": {
+      "ru": "вешалка",
+      "en": "hanger",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Penja l'abric al penjador."
+    },
+    {
+     "front": "armari",
+     "back": {
+      "ru": "шкаф",
+      "en": "wardrobe",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "L'armari és ple."
+    },
+    {
+     "front": "anell",
+     "back": {
+      "ru": "кольцо",
+      "en": "ring",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Un anell de plata."
+    }
+   ]
+  }
+ ]
+}

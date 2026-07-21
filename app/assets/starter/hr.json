@@ -1,0 +1,6533 @@
+{
+ "lang": "hr",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "bok",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Bok, kako si?"
+    },
+    {
+     "front": "doviđenja",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Doviđenja, do sutra."
+    },
+    {
+     "front": "da",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Da, naravno da dolazim."
+    },
+    {
+     "front": "ne",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "Ne, hvala."
+    },
+    {
+     "front": "molim",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Jednu kavu, molim."
+    },
+    {
+     "front": "hvala",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Hvala na pomoći."
+    },
+    {
+     "front": "oprosti",
+     "back": {
+      "ru": "извини",
+      "en": "sorry",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Oprosti, zakasnio sam."
+    },
+    {
+     "front": "dobro jutro",
+     "back": {
+      "ru": "доброе утро",
+      "en": "good morning",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Dobro jutro, jesi li dobro spavao?"
+    },
+    {
+     "front": "laku noć",
+     "back": {
+      "ru": "спокойной ночи",
+      "en": "good night",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Laku noć, do sutra."
+    },
+    {
+     "front": "sve je u redu",
+     "back": {
+      "ru": "всё хорошо",
+      "en": "all right",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "Ne brini, sve je u redu."
+    },
+    {
+     "front": "muškarac",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "Onaj muškarac je naš susjed."
+    },
+    {
+     "front": "žena",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "Žena u plavom kaputu je liječnica."
+    },
+    {
+     "front": "dijete",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "Dijete se igra u vrtu."
+    },
+    {
+     "front": "dječak",
+     "back": {
+      "ru": "мальчик",
+      "en": "boy",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "Dječak trči u školu."
+    },
+    {
+     "front": "djevojčica",
+     "back": {
+      "ru": "девочка",
+      "en": "girl",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "Djevojčica crta cvijet."
+    },
+    {
+     "front": "prijatelj",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Moj prijatelj živi u Splitu."
+    },
+    {
+     "front": "obitelj",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Cijela obitelj došla je na večeru."
+    },
+    {
+     "front": "majka",
+     "back": {
+      "ru": "мама",
+      "en": "mother",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "Moja majka pjeva vrlo lijepo."
+    },
+    {
+     "front": "otac",
+     "back": {
+      "ru": "папа",
+      "en": "father",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "Moj otac radi noću."
+    },
+    {
+     "front": "sin",
+     "back": {
+      "ru": "сын",
+      "en": "son",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "Njihov sin ima pet godina."
+    },
+    {
+     "front": "kći",
+     "back": {
+      "ru": "дочь",
+      "en": "daughter",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "Starija kći studira medicinu."
+    },
+    {
+     "front": "brat",
+     "back": {
+      "ru": "брат",
+      "en": "brother",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "Moj brat igra nogomet."
+    },
+    {
+     "front": "sestra",
+     "back": {
+      "ru": "сестра",
+      "en": "sister",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "Moja sestra živi u Rijeci."
+    },
+    {
+     "front": "baka",
+     "back": {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "Baka radi najbolji kolač."
+    },
+    {
+     "front": "djed",
+     "back": {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "Djed priča stare priče."
+    },
+    {
+     "front": "čovjek",
+     "back": {
+      "ru": "человек",
+      "en": "person",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Ovog čovjeka ne poznajem."
+    },
+    {
+     "front": "ljudi",
+     "back": {
+      "ru": "люди",
+      "en": "people",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "Ljudi na trgu su se razišli."
+    },
+    {
+     "front": "ime",
+     "back": {
+      "ru": "имя",
+      "en": "name",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Kako se zoveš?"
+    },
+    {
+     "front": "gospodin",
+     "back": {
+      "ru": "господин",
+      "en": "sir",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Dobro jutro, gospodine Horvat."
+    },
+    {
+     "front": "gospođa",
+     "back": {
+      "ru": "госпожа",
+      "en": "madam",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "Treba li gospođi pomoć?"
+    },
+    {
+     "front": "ja",
+     "back": {
+      "ru": "я",
+      "en": "I",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Ja živim ovdje blizu."
+    },
+    {
+     "front": "ti",
+     "back": {
+      "ru": "ты",
+      "en": "you",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "Govoriš li hrvatski?"
+    },
+    {
+     "front": "vi",
+     "back": {
+      "ru": "вы",
+      "en": "you",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Želite li sjesti?"
+    },
+    {
+     "front": "on",
+     "back": {
+      "ru": "он",
+      "en": "he",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "On stiže u osam."
+    },
+    {
+     "front": "ona",
+     "back": {
+      "ru": "она",
+      "en": "she",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "Ona radi u bolnici."
+    },
+    {
+     "front": "mi",
+     "back": {
+      "ru": "мы",
+      "en": "we",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Mi putujemo vlakom."
+    },
+    {
+     "front": "oni",
+     "back": {
+      "ru": "они",
+      "en": "they",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Oni žive u istoj zgradi."
+    },
+    {
+     "front": "moj",
+     "back": {
+      "ru": "мой",
+      "en": "my",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Ovo je moje mjesto."
+    },
+    {
+     "front": "tvoj",
+     "back": {
+      "ru": "твой",
+      "en": "your",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "Tvoj kaput je ostao na stolici."
+    },
+    {
+     "front": "naš",
+     "back": {
+      "ru": "наш",
+      "en": "our",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "Naš auto je malen."
+    },
+    {
+     "front": "ovaj",
+     "back": {
+      "ru": "этот",
+      "en": "this",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Ova knjiga je vrlo zanimljiva."
+    },
+    {
+     "front": "onaj",
+     "back": {
+      "ru": "тот",
+      "en": "that",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "Ona zgrada je vrlo stara."
+    },
+    {
+     "front": "tko",
+     "back": {
+      "ru": "кто",
+      "en": "who",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Tko je na vratima?"
+    },
+    {
+     "front": "što",
+     "back": {
+      "ru": "что",
+      "en": "what",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Što kažeš?"
+    },
+    {
+     "front": "gdje",
+     "back": {
+      "ru": "где",
+      "en": "where",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "Gdje je kolodvor?"
+    },
+    {
+     "front": "kada",
+     "back": {
+      "ru": "когда",
+      "en": "when",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Kada počinje film?"
+    },
+    {
+     "front": "kako",
+     "back": {
+      "ru": "как",
+      "en": "how",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Kako se ovo kaže?"
+    },
+    {
+     "front": "zašto",
+     "back": {
+      "ru": "почему",
+      "en": "why",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Zašto tolika žurba?"
+    },
+    {
+     "front": "koji",
+     "back": {
+      "ru": "который",
+      "en": "which",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Koji više voliš?"
+    },
+    {
+     "front": "nula",
+     "back": {
+      "ru": "ноль",
+      "en": "zero",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "Temperatura je nula stupnjeva."
+    },
+    {
+     "front": "jedan",
+     "back": {
+      "ru": "один",
+      "en": "one",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Ostalo je samo jedno mjesto."
+    },
+    {
+     "front": "dva",
+     "back": {
+      "ru": "два",
+      "en": "two",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "Imam dva brata."
+    },
+    {
+     "front": "tri",
+     "back": {
+      "ru": "три",
+      "en": "three",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Vraćam se za tri dana."
+    },
+    {
+     "front": "četiri",
+     "back": {
+      "ru": "четыре",
+      "en": "four",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "Stol ima četiri stolice."
+    },
+    {
+     "front": "pet",
+     "back": {
+      "ru": "пять",
+      "en": "five",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "Film traje pet sati."
+    },
+    {
+     "front": "šest",
+     "back": {
+      "ru": "шесть",
+      "en": "six",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Ustajem u šest."
+    },
+    {
+     "front": "sedam",
+     "back": {
+      "ru": "семь",
+      "en": "seven",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "Tjedan ima sedam dana."
+    },
+    {
+     "front": "osam",
+     "back": {
+      "ru": "восемь",
+      "en": "eight",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "Vlak polazi u osam."
+    },
+    {
+     "front": "devet",
+     "back": {
+      "ru": "девять",
+      "en": "nine",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "Ona ima devet godina."
+    },
+    {
+     "front": "deset",
+     "back": {
+      "ru": "десять",
+      "en": "ten",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "Ostalo je deset minuta."
+    },
+    {
+     "front": "jedanaest",
+     "back": {
+      "ru": "одиннадцать",
+      "en": "eleven",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "Sat završava u jedanaest."
+    },
+    {
+     "front": "dvanaest",
+     "back": {
+      "ru": "двенадцать",
+      "en": "twelve",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "Godina ima dvanaest mjeseci."
+    },
+    {
+     "front": "dvadeset",
+     "back": {
+      "ru": "двадцать",
+      "en": "twenty",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "Karta košta dvadeset eura."
+    },
+    {
+     "front": "trideset",
+     "back": {
+      "ru": "тридцать",
+      "en": "thirty",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Ovaj mjesec ima trideset dana."
+    },
+    {
+     "front": "sto",
+     "back": {
+      "ru": "сто",
+      "en": "hundred",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Ostalo je sto metara."
+    },
+    {
+     "front": "tisuću",
+     "back": {
+      "ru": "тысяча",
+      "en": "thousand",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "U selu živi tisuću ljudi."
+    },
+    {
+     "front": "prvi",
+     "back": {
+      "ru": "первый",
+      "en": "first",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Danas je prvi dan škole."
+    },
+    {
+     "front": "posljednji",
+     "back": {
+      "ru": "последний",
+      "en": "last",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "Stigao sam na posljednji autobus."
+    },
+    {
+     "front": "broj",
+     "back": {
+      "ru": "номер",
+      "en": "number",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Koji je broj vaše kuće?"
+    },
+    {
+     "front": "polovica",
+     "back": {
+      "ru": "половина",
+      "en": "half",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "Pojeo sam polovicu kolača."
+    },
+    {
+     "front": "dan",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Bio je to dug dan."
+    },
+    {
+     "front": "noć",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Noć je hladna."
+    },
+    {
+     "front": "jutro",
+     "back": {
+      "ru": "утро",
+      "en": "morning",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Ujutro pijem čaj."
+    },
+    {
+     "front": "poslijepodne",
+     "back": {
+      "ru": "вечер",
+      "en": "afternoon",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "Poslijepodne idem na tržnicu."
+    },
+    {
+     "front": "danas",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Danas ne radim."
+    },
+    {
+     "front": "sutra",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Sutra idemo na plažu."
+    },
+    {
+     "front": "jučer",
+     "back": {
+      "ru": "вчера",
+      "en": "yesterday",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Jučer je padala kiša cijeli dan."
+    },
+    {
+     "front": "tjedan",
+     "back": {
+      "ru": "неделя",
+      "en": "week",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Vraćam se sljedeći tjedan."
+    },
+    {
+     "front": "mjesec",
+     "back": {
+      "ru": "месяц",
+      "en": "month",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Ovaj mjesec ide dobro."
+    },
+    {
+     "front": "godina",
+     "back": {
+      "ru": "год",
+      "en": "year",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "Prošla godina bila je teška."
+    },
+    {
+     "front": "sat",
+     "back": {
+      "ru": "час",
+      "en": "hour",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "Putovanje traje jedan sat."
+    },
+    {
+     "front": "minuta",
+     "back": {
+      "ru": "минута",
+      "en": "minute",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Pričekaj minutu, molim te."
+    },
+    {
+     "front": "vrijeme",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "Sada nemam vremena."
+    },
+    {
+     "front": "sada",
+     "back": {
+      "ru": "сейчас",
+      "en": "now",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "Sada sam zauzet."
+    },
+    {
+     "front": "uvijek",
+     "back": {
+      "ru": "всегда",
+      "en": "always",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "Ona uvijek dolazi rano."
+    },
+    {
+     "front": "nikada",
+     "back": {
+      "ru": "никогда",
+      "en": "never",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Nikada nisam bio u Rimu."
+    },
+    {
+     "front": "rano",
+     "back": {
+      "ru": "рано",
+      "en": "early",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "Ustao sam vrlo rano."
+    },
+    {
+     "front": "ponedjeljak",
+     "back": {
+      "ru": "понедельник",
+      "en": "Monday",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "U ponedjeljak imam pregled."
+    },
+    {
+     "front": "subota",
+     "back": {
+      "ru": "суббота",
+      "en": "Saturday",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Subotom spavam do kasno."
+    },
+    {
+     "front": "nedjelja",
+     "back": {
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Nedjeljom ručamo s obitelji."
+    },
+    {
+     "front": "kuća",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Iza kuće je vrt."
+    },
+    {
+     "front": "grad",
+     "back": {
+      "ru": "город",
+      "en": "city",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Zagreb je velik grad."
+    },
+    {
+     "front": "selo",
+     "back": {
+      "ru": "деревня",
+      "en": "village",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "Selo je u podnožju planine."
+    },
+    {
+     "front": "ulica",
+     "back": {
+      "ru": "улица",
+      "en": "street",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "Ulica je puna ljudi."
+    },
+    {
+     "front": "škola",
+     "back": {
+      "ru": "школа",
+      "en": "school",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "Škola se otvara u osam."
+    },
+    {
+     "front": "posao",
+     "back": {
+      "ru": "работа",
+      "en": "work",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "Posao završava u šest."
+    },
+    {
+     "front": "trgovina",
+     "back": {
+      "ru": "магазин",
+      "en": "shop",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "Trgovina je nedjeljom zatvorena."
+    },
+    {
+     "front": "tržnica",
+     "back": {
+      "ru": "рынок",
+      "en": "market",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Voće kupujem na tržnici."
+    },
+    {
+     "front": "bolnica",
+     "back": {
+      "ru": "больница",
+      "en": "hospital",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "Bolnica je blizu odavde."
+    },
+    {
+     "front": "ljekarna",
+     "back": {
+      "ru": "аптека",
+      "en": "pharmacy",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "Ljekarna radi i noću."
+    },
+    {
+     "front": "banka",
+     "back": {
+      "ru": "банк",
+      "en": "bank",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Ujutro idem u banku."
+    },
+    {
+     "front": "hotel",
+     "back": {
+      "ru": "гостиница",
+      "en": "hotel",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "Hotel je odmah uz more."
+    },
+    {
+     "front": "crkva",
+     "back": {
+      "ru": "церковь",
+      "en": "church",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Ova crkva je vrlo stara."
+    },
+    {
+     "front": "vrt",
+     "back": {
+      "ru": "сад",
+      "en": "garden",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "Vrt je pun cvijeća."
+    },
+    {
+     "front": "plaža",
+     "back": {
+      "ru": "пляж",
+      "en": "beach",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "Do plaže ima deset minuta."
+    },
+    {
+     "front": "more",
+     "back": {
+      "ru": "море",
+      "en": "sea",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "More je danas mirno."
+    },
+    {
+     "front": "rijeka",
+     "back": {
+      "ru": "река",
+      "en": "river",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "Rijeka presijeca grad."
+    },
+    {
+     "front": "planina",
+     "back": {
+      "ru": "гора",
+      "en": "mountain",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Na vrhu planine ima snijega."
+    },
+    {
+     "front": "njiva",
+     "back": {
+      "ru": "поле",
+      "en": "field",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Na njivi raste žito."
+    },
+    {
+     "front": "šuma",
+     "back": {
+      "ru": "лес",
+      "en": "forest",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "Šuma počinje nakon mosta."
+    },
+    {
+     "front": "država",
+     "back": {
+      "ru": "страна",
+      "en": "country",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Portugal je mala država."
+    },
+    {
+     "front": "svijet",
+     "back": {
+      "ru": "мир",
+      "en": "world",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "Obišao je pola svijeta."
+    },
+    {
+     "front": "cesta",
+     "back": {
+      "ru": "дорога",
+      "en": "road",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "Cesta je uska."
+    },
+    {
+     "front": "most",
+     "back": {
+      "ru": "мост",
+      "en": "bridge",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "Most je zatvoren zbog radova."
+    },
+    {
+     "front": "kolodvor",
+     "back": {
+      "ru": "вокзал",
+      "en": "station",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Naći ćemo se na kolodvoru."
+    },
+    {
+     "front": "zračna luka",
+     "back": {
+      "ru": "аэропорт",
+      "en": "airport",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "Zračna luka je daleko od centra."
+    },
+    {
+     "front": "soba",
+     "back": {
+      "ru": "комната",
+      "en": "room",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "Soba ima velik prozor."
+    },
+    {
+     "front": "kuhinja",
+     "back": {
+      "ru": "кухня",
+      "en": "kitchen",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "U kuhinji miriše na kavu."
+    },
+    {
+     "front": "vrata",
+     "back": {
+      "ru": "дверь",
+      "en": "door",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Zatvori vrata, hladno je."
+    },
+    {
+     "front": "prozor",
+     "back": {
+      "ru": "окно",
+      "en": "window",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Otvori prozor, zagušljivo je."
+    },
+    {
+     "front": "stol",
+     "back": {
+      "ru": "стол",
+      "en": "table",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Stavi tanjure na stol."
+    },
+    {
+     "front": "stolica",
+     "back": {
+      "ru": "стул",
+      "en": "chair",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Za stolom nedostaje jedna stolica."
+    },
+    {
+     "front": "krevet",
+     "back": {
+      "ru": "кровать",
+      "en": "bed",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Ovaj krevet je pretvrd."
+    },
+    {
+     "front": "auto",
+     "back": {
+      "ru": "машина",
+      "en": "car",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "Auto ujutro neće upaliti."
+    },
+    {
+     "front": "autobus",
+     "back": {
+      "ru": "автобус",
+      "en": "bus",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "Autobus prolazi svakih pola sata."
+    },
+    {
+     "front": "vlak",
+     "back": {
+      "ru": "поезд",
+      "en": "train",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "Vlak je stigao sa zakašnjenjem."
+    },
+    {
+     "front": "zrakoplov",
+     "back": {
+      "ru": "самолёт",
+      "en": "plane",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "Zrakoplov polijeće u sedam."
+    },
+    {
+     "front": "bicikl",
+     "back": {
+      "ru": "велосипед",
+      "en": "bicycle",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "Na posao idem biciklom."
+    },
+    {
+     "front": "sunce",
+     "back": {
+      "ru": "солнце",
+      "en": "sun",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "Sunce izlazi u pola sedam."
+    },
+    {
+     "front": "mjesec na nebu",
+     "back": {
+      "ru": "луна",
+      "en": "moon",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "Mjesec je večeras pun."
+    },
+    {
+     "front": "zvijezda",
+     "back": {
+      "ru": "звезда",
+      "en": "star",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Na nebu se vidi sjajna zvijezda."
+    },
+    {
+     "front": "nebo",
+     "back": {
+      "ru": "небо",
+      "en": "sky",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "Nebo je vedro."
+    },
+    {
+     "front": "kiša",
+     "back": {
+      "ru": "дождь",
+      "en": "rain",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "Kiša ne prestaje od jučer."
+    },
+    {
+     "front": "vjetar",
+     "back": {
+      "ru": "ветер",
+      "en": "wind",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "Vjetar je oborio stolice."
+    },
+    {
+     "front": "snijeg",
+     "back": {
+      "ru": "снег",
+      "en": "snow",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Snijeg je ovdje rijetkost."
+    },
+    {
+     "front": "vatra",
+     "back": {
+      "ru": "огонь",
+      "en": "fire",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Zapalili smo vatru u kaminu."
+    },
+    {
+     "front": "zemlja",
+     "back": {
+      "ru": "земля",
+      "en": "earth",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "Zemlja je još vlažna."
+    },
+    {
+     "front": "stablo",
+     "back": {
+      "ru": "дерево",
+      "en": "tree",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "Stablo pravi hlad u dvorištu."
+    },
+    {
+     "front": "cvijet",
+     "back": {
+      "ru": "цветок",
+      "en": "flower",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "Donio sam cvijet s ulice."
+    },
+    {
+     "front": "životinja",
+     "back": {
+      "ru": "животное",
+      "en": "animal",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "Koja je ono životinja?"
+    },
+    {
+     "front": "pas",
+     "back": {
+      "ru": "собака",
+      "en": "dog",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "Pas spava pred vratima."
+    },
+    {
+     "front": "mačka",
+     "back": {
+      "ru": "кошка",
+      "en": "cat",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "Mačka se popela na krov."
+    },
+    {
+     "front": "ptica",
+     "back": {
+      "ru": "птица",
+      "en": "bird",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Ujutro je zapjevala ptica."
+    },
+    {
+     "front": "konj",
+     "back": {
+      "ru": "лошадь",
+      "en": "horse",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "Konj trči poljem."
+    },
+    {
+     "front": "knjiga",
+     "back": {
+      "ru": "книга",
+      "en": "book",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Ova knjiga ima tristo stranica."
+    },
+    {
+     "front": "papir",
+     "back": {
+      "ru": "бумага",
+      "en": "paper",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Daj mi list papira."
+    },
+    {
+     "front": "kemijska olovka",
+     "back": {
+      "ru": "ручка",
+      "en": "pen",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "Kemijskoj olovci je nestalo tinte."
+    },
+    {
+     "front": "telefon",
+     "back": {
+      "ru": "телефон",
+      "en": "phone",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "Telefon je zazvonio dva puta."
+    },
+    {
+     "front": "računalo",
+     "back": {
+      "ru": "компьютер",
+      "en": "computer",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "Računalo radi sporo."
+    },
+    {
+     "front": "novac",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "Nemam novca kod sebe."
+    },
+    {
+     "front": "ključ",
+     "back": {
+      "ru": "ключ",
+      "en": "key",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "Izgubio sam ključ od kuće."
+    },
+    {
+     "front": "ručni sat",
+     "back": {
+      "ru": "часы",
+      "en": "watch",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "Moj ručni sat žuri."
+    },
+    {
+     "front": "svjetlo",
+     "back": {
+      "ru": "свет",
+      "en": "light",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "Upali svjetlo, molim te."
+    },
+    {
+     "front": "glazba",
+     "back": {
+      "ru": "музыка",
+      "en": "music",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "Glazba dopire iz kafića pokraj."
+    },
+    {
+     "front": "film",
+     "back": {
+      "ru": "фильм",
+      "en": "film",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "Film počinje u devet."
+    },
+    {
+     "front": "fotografija",
+     "back": {
+      "ru": "фотография",
+      "en": "photo",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "Snimio sam fotografiju trga."
+    },
+    {
+     "front": "pismo",
+     "back": {
+      "ru": "письмо",
+      "en": "letter",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "Dobio sam pismo od bake."
+    },
+    {
+     "front": "novine",
+     "back": {
+      "ru": "газета",
+      "en": "newspaper",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Čitam novine uz doručak."
+    },
+    {
+     "front": "boja",
+     "back": {
+      "ru": "цвет",
+      "en": "colour",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "Koje je boje tvoj auto?"
+    },
+    {
+     "front": "riječ",
+     "back": {
+      "ru": "слово",
+      "en": "word",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "Nisam razumio posljednju riječ."
+    },
+    {
+     "front": "jezik",
+     "back": {
+      "ru": "язык",
+      "en": "language",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "Hrvatski je moj materinski jezik."
+    },
+    {
+     "front": "glava",
+     "back": {
+      "ru": "голова",
+      "en": "head",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Boli me glava od jučer."
+    },
+    {
+     "front": "ruka",
+     "back": {
+      "ru": "рука",
+      "en": "hand",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Daj mi ruku."
+    },
+    {
+     "front": "stopalo",
+     "back": {
+      "ru": "нога",
+      "en": "foot",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Stopalo mi je oteklo."
+    },
+    {
+     "front": "oko",
+     "back": {
+      "ru": "глаз",
+      "en": "eye",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "Ušla mi je prašina u oko."
+    },
+    {
+     "front": "usta",
+     "back": {
+      "ru": "рот",
+      "en": "mouth",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Otvorite usta, rekao je liječnik."
+    },
+    {
+     "front": "srce",
+     "back": {
+      "ru": "сердце",
+      "en": "heart",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "Srce brzo kuca."
+    },
+    {
+     "front": "kosa",
+     "back": {
+      "ru": "волосы",
+      "en": "hair",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Jučer sam ošišao kosu."
+    },
+    {
+     "front": "tijelo",
+     "back": {
+      "ru": "тело",
+      "en": "body",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "Tijelo traži odmor."
+    },
+    {
+     "front": "dobar",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Bio je to dobar radni dan."
+    },
+    {
+     "front": "loš",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "Vrijeme je loše."
+    },
+    {
+     "front": "velik",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Treba nam velik stol."
+    },
+    {
+     "front": "malen",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Soba je malena, ali svijetla."
+    },
+    {
+     "front": "nov",
+     "back": {
+      "ru": "новый",
+      "en": "new",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "Kupio sam novi telefon."
+    },
+    {
+     "front": "star",
+     "back": {
+      "ru": "старый",
+      "en": "old",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Ova zgrada je stara."
+    },
+    {
+     "front": "mlad",
+     "back": {
+      "ru": "молодой",
+      "en": "young",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "On je mlad učitelj."
+    },
+    {
+     "front": "visok",
+     "back": {
+      "ru": "высокий",
+      "en": "tall",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "Zgrada je vrlo visoka."
+    },
+    {
+     "front": "nizak",
+     "back": {
+      "ru": "низкий",
+      "en": "short",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "Strop je nizak."
+    },
+    {
+     "front": "dug",
+     "back": {
+      "ru": "длинный",
+      "en": "long",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "Cesta je duga."
+    },
+    {
+     "front": "kratak",
+     "back": {
+      "ru": "короткий",
+      "en": "short",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "Film je bio kratak."
+    },
+    {
+     "front": "vruć",
+     "back": {
+      "ru": "горячий",
+      "en": "hot",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "Čaj je vruć."
+    },
+    {
+     "front": "hladan",
+     "back": {
+      "ru": "холодный",
+      "en": "cold",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "U sobi je hladno."
+    },
+    {
+     "front": "lijep",
+     "back": {
+      "ru": "красивый",
+      "en": "beautiful",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Kakav lijep pogled!"
+    },
+    {
+     "front": "ružan",
+     "back": {
+      "ru": "некрасивый",
+      "en": "ugly",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "Nova zgrada je ružna."
+    },
+    {
+     "front": "lagan",
+     "back": {
+      "ru": "лёгкий",
+      "en": "easy",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "Vježba je bila lagana."
+    },
+    {
+     "front": "težak",
+     "back": {
+      "ru": "трудный",
+      "en": "difficult",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "Pitanje je teško."
+    },
+    {
+     "front": "jak",
+     "back": {
+      "ru": "сильный",
+      "en": "strong",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "Kava je jaka."
+    },
+    {
+     "front": "slab",
+     "back": {
+      "ru": "слабый",
+      "en": "weak",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "Signal je slab."
+    },
+    {
+     "front": "brz",
+     "back": {
+      "ru": "быстрый",
+      "en": "fast",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "Vlak je brz."
+    },
+    {
+     "front": "spor",
+     "back": {
+      "ru": "медленный",
+      "en": "slow",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "Usluga je ovdje spora."
+    },
+    {
+     "front": "skup",
+     "back": {
+      "ru": "дорогой",
+      "en": "expensive",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "Hotel je skup."
+    },
+    {
+     "front": "jeftin",
+     "back": {
+      "ru": "дешёвый",
+      "en": "cheap",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "Našao sam jeftinu kartu."
+    },
+    {
+     "front": "čist",
+     "back": {
+      "ru": "чистый",
+      "en": "clean",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "Pod je čist."
+    },
+    {
+     "front": "prljav",
+     "back": {
+      "ru": "грязный",
+      "en": "dirty",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "Auto je prljav od prašine."
+    },
+    {
+     "front": "pun",
+     "back": {
+      "ru": "полный",
+      "en": "full",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "Autobus je došao pun."
+    },
+    {
+     "front": "prazan",
+     "back": {
+      "ru": "пустой",
+      "en": "empty",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "Čaša je prazna."
+    },
+    {
+     "front": "sretan",
+     "back": {
+      "ru": "счастливый",
+      "en": "happy",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "Bila je sretna zbog vijesti."
+    },
+    {
+     "front": "tužan",
+     "back": {
+      "ru": "грустный",
+      "en": "sad",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "Vratio se tužan s posla."
+    },
+    {
+     "front": "umoran",
+     "back": {
+      "ru": "усталый",
+      "en": "tired",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Umoran sam nakon ovog dana."
+    },
+    {
+     "front": "bolestan",
+     "back": {
+      "ru": "больной",
+      "en": "sick",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "Moj sin je bolestan."
+    },
+    {
+     "front": "točan",
+     "back": {
+      "ru": "правильный",
+      "en": "right",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "Odgovor je točan."
+    },
+    {
+     "front": "pogrešan",
+     "back": {
+      "ru": "неправильный",
+      "en": "wrong",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "Broj je pogrešan."
+    },
+    {
+     "front": "bijel",
+     "back": {
+      "ru": "белый",
+      "en": "white",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "Zid je bijel."
+    },
+    {
+     "front": "crn",
+     "back": {
+      "ru": "чёрный",
+      "en": "black",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Imam crnu mačku."
+    },
+    {
+     "front": "crven",
+     "back": {
+      "ru": "красный",
+      "en": "red",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "Semafor je crven."
+    },
+    {
+     "front": "plav",
+     "back": {
+      "ru": "синий",
+      "en": "blue",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "More je vrlo plavo."
+    },
+    {
+     "front": "zelen",
+     "back": {
+      "ru": "зелёный",
+      "en": "green",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "U proljeće lišće postaje zeleno."
+    },
+    {
+     "front": "žut",
+     "back": {
+      "ru": "жёлтый",
+      "en": "yellow",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "Kuća je žuta."
+    },
+    {
+     "front": "ovdje",
+     "back": {
+      "ru": "здесь",
+      "en": "here",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Pričekaj ovdje trenutak."
+    },
+    {
+     "front": "ondje",
+     "back": {
+      "ru": "там",
+      "en": "there",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "Auto je ondje."
+    },
+    {
+     "front": "mnogo",
+     "back": {
+      "ru": "много",
+      "en": "much",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Pijem mnogo čaja."
+    },
+    {
+     "front": "malo",
+     "back": {
+      "ru": "мало",
+      "en": "little",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "Noćas sam malo spavao."
+    },
+    {
+     "front": "više",
+     "back": {
+      "ru": "больше",
+      "en": "more",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Želim više vremena."
+    },
+    {
+     "front": "manje",
+     "back": {
+      "ru": "меньше",
+      "en": "less",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Danas ima manje ljudi."
+    },
+    {
+     "front": "također",
+     "back": {
+      "ru": "тоже",
+      "en": "also",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "I ja također idem."
+    },
+    {
+     "front": "dobro",
+     "back": {
+      "ru": "хорошо",
+      "en": "well",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "Ona dobro govori francuski."
+    },
+    {
+     "front": "loše",
+     "back": {
+      "ru": "плохо",
+      "en": "badly",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "Noćas sam loše spavao."
+    },
+    {
+     "front": "s",
+     "back": {
+      "ru": "с",
+      "en": "with",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Idem sa sestrom."
+    },
+    {
+     "front": "bez",
+     "back": {
+      "ru": "без",
+      "en": "without",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Pijem kavu bez šećera."
+    },
+    {
+     "front": "za",
+     "back": {
+      "ru": "для",
+      "en": "for",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Ovaj paket je za tebe."
+    },
+    {
+     "front": "ali",
+     "back": {
+      "ru": "но",
+      "en": "but",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Htio sam ići, ali ne mogu."
+    },
+    {
+     "front": "ili",
+     "back": {
+      "ru": "или",
+      "en": "or",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Čaj ili kava?"
+    },
+    {
+     "front": "zato što",
+     "back": {
+      "ru": "потому что",
+      "en": "because",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "Ostao sam kod kuće zato što je padala kiša."
+    },
+    {
+     "front": "ako",
+     "back": {
+      "ru": "если",
+      "en": "if",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Ako padne kiša, ostajemo kod kuće."
+    },
+    {
+     "front": "možda",
+     "back": {
+      "ru": "может быть",
+      "en": "maybe",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "Možda dođe sutra."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "biti",
+     "back": {
+      "ru": "быть",
+      "en": "to be",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "Ona je nastavnica glazbe."
+    },
+    {
+     "front": "nalaziti se",
+     "back": {
+      "ru": "находиться",
+      "en": "to be (state)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "Knjiga se nalazi na stolu."
+    },
+    {
+     "front": "imati",
+     "back": {
+      "ru": "иметь",
+      "en": "to have",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "Imam dva mlađa brata."
+    },
+    {
+     "front": "raditi",
+     "back": {
+      "ru": "делать",
+      "en": "to do",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Što radiš nedjeljom?"
+    },
+    {
+     "front": "ići",
+     "back": {
+      "ru": "идти",
+      "en": "to go",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "Sada idem na tržnicu."
+    },
+    {
+     "front": "doći",
+     "back": {
+      "ru": "приходить",
+      "en": "to come",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "Dolaziš li k nama na večeru?"
+    },
+    {
+     "front": "reći",
+     "back": {
+      "ru": "говорить",
+      "en": "to say",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Reci mi istinu."
+    },
+    {
+     "front": "vidjeti",
+     "back": {
+      "ru": "видеть",
+      "en": "to see",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "Vidio sam tvog brata na ulici."
+    },
+    {
+     "front": "dati",
+     "back": {
+      "ru": "давать",
+      "en": "to give",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Daj mi ključ, molim te."
+    },
+    {
+     "front": "znati",
+     "back": {
+      "ru": "знать",
+      "en": "to know",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "Ne znam gdje živi."
+    },
+    {
+     "front": "moći",
+     "back": {
+      "ru": "мочь",
+      "en": "can",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "Možeš li mi pomoći?"
+    },
+    {
+     "front": "htjeti",
+     "back": {
+      "ru": "хотеть",
+      "en": "to want",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Htio bih čašu vode."
+    },
+    {
+     "front": "morati",
+     "back": {
+      "ru": "быть должным",
+      "en": "must",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Danas moram izaći ranije."
+    },
+    {
+     "front": "ostati",
+     "back": {
+      "ru": "оставаться",
+      "en": "to stay",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Večeras ostajem kod kuće."
+    },
+    {
+     "front": "prolaziti",
+     "back": {
+      "ru": "проходить",
+      "en": "to pass",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "Autobus prolazi u devet."
+    },
+    {
+     "front": "stići",
+     "back": {
+      "ru": "прибывать",
+      "en": "to arrive",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "Vlak je stigao sa zakašnjenjem."
+    },
+    {
+     "front": "izaći",
+     "back": {
+      "ru": "выходить",
+      "en": "to leave",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "Izlazim s posla u šest."
+    },
+    {
+     "front": "ući",
+     "back": {
+      "ru": "входить",
+      "en": "to enter",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Uđi, vrata su otvorena."
+    },
+    {
+     "front": "vratiti se",
+     "back": {
+      "ru": "возвращаться",
+      "en": "to return",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Vraćam se za pola sata."
+    },
+    {
+     "front": "početi",
+     "back": {
+      "ru": "начинать",
+      "en": "to begin",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "Sat počinje u osam."
+    },
+    {
+     "front": "završiti",
+     "back": {
+      "ru": "заканчивать",
+      "en": "to finish",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Završio sam knjigu jučer."
+    },
+    {
+     "front": "nastaviti",
+     "back": {
+      "ru": "продолжать",
+      "en": "to continue",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "Kiša se nastavlja."
+    },
+    {
+     "front": "zaustaviti se",
+     "back": {
+      "ru": "останавливаться",
+      "en": "to stop",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "Auto se zaustavio pred vratima."
+    },
+    {
+     "front": "čekati",
+     "back": {
+      "ru": "ждать",
+      "en": "to wait",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "Čekam te na kolodvoru."
+    },
+    {
+     "front": "pronaći",
+     "back": {
+      "ru": "находить",
+      "en": "to find",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "Pronašao sam ključeve na stolu."
+    },
+    {
+     "front": "tražiti",
+     "back": {
+      "ru": "искать",
+      "en": "to look for",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Tražim knjigu iz gramatike."
+    },
+    {
+     "front": "izgubiti",
+     "back": {
+      "ru": "терять",
+      "en": "to lose",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "Propustio sam vlak u sedam."
+    },
+    {
+     "front": "pobijediti",
+     "back": {
+      "ru": "выигрывать",
+      "en": "to win",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "Naša momčad je pobijedila."
+    },
+    {
+     "front": "kupiti",
+     "back": {
+      "ru": "покупать",
+      "en": "to buy",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "Kupio sam kruh za večeru."
+    },
+    {
+     "front": "prodavati",
+     "back": {
+      "ru": "продавать",
+      "en": "to sell",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "Na uglu prodaju voće."
+    },
+    {
+     "front": "platiti",
+     "back": {
+      "ru": "платить",
+      "en": "to pay",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "Kavu plaćam ja."
+    },
+    {
+     "front": "koštati",
+     "back": {
+      "ru": "стоить",
+      "en": "to cost",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Koliko košta karta?"
+    },
+    {
+     "front": "raditi (posao)",
+     "back": {
+      "ru": "работать",
+      "en": "to work",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Radim u bolnici."
+    },
+    {
+     "front": "učiti",
+     "back": {
+      "ru": "учиться",
+      "en": "to study",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Učim hrvatski već godinu dana."
+    },
+    {
+     "front": "naučiti",
+     "back": {
+      "ru": "изучать",
+      "en": "to learn",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "Naučio sam plivati kao dijete."
+    },
+    {
+     "front": "predavati",
+     "back": {
+      "ru": "учить",
+      "en": "to teach",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "Ona predaje u seoskoj školi."
+    },
+    {
+     "front": "čitati",
+     "back": {
+      "ru": "читать",
+      "en": "to read",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Ujutro čitam novine."
+    },
+    {
+     "front": "pisati",
+     "back": {
+      "ru": "писать",
+      "en": "to write",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Napisao sam joj dugo pismo."
+    },
+    {
+     "front": "razgovarati",
+     "back": {
+      "ru": "разговаривать",
+      "en": "to speak",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Jučer smo razgovarali telefonom."
+    },
+    {
+     "front": "čuti",
+     "back": {
+      "ru": "слышать",
+      "en": "to hear",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "Čuo sam buku u kuhinji."
+    },
+    {
+     "front": "slušati",
+     "back": {
+      "ru": "слушать",
+      "en": "to listen",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Slušaj dobro što govorim."
+    },
+    {
+     "front": "gledati",
+     "back": {
+      "ru": "смотреть",
+      "en": "to look",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Pogledaj lijevo."
+    },
+    {
+     "front": "osjećati",
+     "back": {
+      "ru": "чувствовать",
+      "en": "to feel",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Osjećam hladnoću u rukama."
+    },
+    {
+     "front": "misliti",
+     "back": {
+      "ru": "думать",
+      "en": "to think",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Mislim o tome od jučer."
+    },
+    {
+     "front": "sjećati se",
+     "back": {
+      "ru": "помнить",
+      "en": "to remember",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "Dobro se sjećam tog dana."
+    },
+    {
+     "front": "zaboraviti",
+     "back": {
+      "ru": "забывать",
+      "en": "to forget",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "Zaboravio sam tvoje ime."
+    },
+    {
+     "front": "razumjeti",
+     "back": {
+      "ru": "понимать",
+      "en": "to understand",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "Nisam razumio pitanje."
+    },
+    {
+     "front": "objasniti",
+     "back": {
+      "ru": "объяснять",
+      "en": "to explain",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Objasni to još jednom."
+    },
+    {
+     "front": "pitati",
+     "back": {
+      "ru": "спрашивать",
+      "en": "to ask",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "Pitao sam susjeda."
+    },
+    {
+     "front": "odgovoriti",
+     "back": {
+      "ru": "отвечать",
+      "en": "to answer",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "Ona još nije odgovorila."
+    },
+    {
+     "front": "zvati",
+     "back": {
+      "ru": "звать",
+      "en": "to call",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Pozovi brzo liječnika."
+    },
+    {
+     "front": "telefonirati",
+     "back": {
+      "ru": "звонить",
+      "en": "to phone",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Telefonirat ću ti navečer."
+    },
+    {
+     "front": "otvoriti",
+     "back": {
+      "ru": "открывать",
+      "en": "to open",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Otvori prozor, molim te."
+    },
+    {
+     "front": "zatvoriti",
+     "back": {
+      "ru": "закрывать",
+      "en": "to close",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Zatvori vrata kad izlaziš."
+    },
+    {
+     "front": "staviti",
+     "back": {
+      "ru": "класть",
+      "en": "to put",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Stavi kruh na stol."
+    },
+    {
+     "front": "izuti",
+     "back": {
+      "ru": "убирать",
+      "en": "to take off",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Izuj cipele na ulazu."
+    },
+    {
+     "front": "ponijeti",
+     "back": {
+      "ru": "нести",
+      "en": "to take",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "Nosim kišobran sa sobom."
+    },
+    {
+     "front": "donijeti",
+     "back": {
+      "ru": "приносить",
+      "en": "to bring",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "Donio sam kolač za sve."
+    },
+    {
+     "front": "poslati",
+     "back": {
+      "ru": "посылать",
+      "en": "to send",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Poslao sam pismo u ponedjeljak."
+    },
+    {
+     "front": "primiti",
+     "back": {
+      "ru": "получать",
+      "en": "to receive",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "Primio sam tvoju poruku."
+    },
+    {
+     "front": "čuvati",
+     "back": {
+      "ru": "хранить",
+      "en": "to keep",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Čuvam fotografije u kutiji."
+    },
+    {
+     "front": "ostaviti",
+     "back": {
+      "ru": "оставлять",
+      "en": "to leave behind",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "Ostavio sam kaput u autu."
+    },
+    {
+     "front": "držati",
+     "back": {
+      "ru": "держать",
+      "en": "to hold",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Drži čašu čvrsto."
+    },
+    {
+     "front": "gurati",
+     "back": {
+      "ru": "толкать",
+      "en": "to push",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Gurni vrata, nemoj vući."
+    },
+    {
+     "front": "vući",
+     "back": {
+      "ru": "тянуть",
+      "en": "to pull",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Povuci uže jako."
+    },
+    {
+     "front": "uhvatiti",
+     "back": {
+      "ru": "ловить",
+      "en": "to catch",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "Uhvatio sam loptu u zraku."
+    },
+    {
+     "front": "pokazati",
+     "back": {
+      "ru": "показывать",
+      "en": "to show",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Pokaži mi fotografiju."
+    },
+    {
+     "front": "sakriti",
+     "back": {
+      "ru": "прятать",
+      "en": "to hide",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "Sakrio je poklon u ormar."
+    },
+    {
+     "front": "promijeniti",
+     "back": {
+      "ru": "менять",
+      "en": "to change",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "Promijenio sam mišljenje."
+    },
+    {
+     "front": "stvoriti",
+     "back": {
+      "ru": "создавать",
+      "en": "to create",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Stvorili su novo radno mjesto."
+    },
+    {
+     "front": "graditi",
+     "back": {
+      "ru": "строить",
+      "en": "to build",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Pokraj nas grade zgradu."
+    },
+    {
+     "front": "razbiti",
+     "back": {
+      "ru": "ломать",
+      "en": "to break",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Jutros sam razbio čašu."
+    },
+    {
+     "front": "rezati",
+     "back": {
+      "ru": "резать",
+      "en": "to cut",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Nareži kruh na kriške."
+    },
+    {
+     "front": "čistiti",
+     "back": {
+      "ru": "убирать",
+      "en": "to clean",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "Očistio sam cijelu kuhinju."
+    },
+    {
+     "front": "prati",
+     "back": {
+      "ru": "мыть",
+      "en": "to wash",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Operi ruke prije jela."
+    },
+    {
+     "front": "sušiti",
+     "back": {
+      "ru": "сушить",
+      "en": "to dry",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Dobro osuši kosu."
+    },
+    {
+     "front": "kuhati",
+     "back": {
+      "ru": "готовить",
+      "en": "to cook",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Kuham svaki dan."
+    },
+    {
+     "front": "jesti",
+     "back": {
+      "ru": "есть",
+      "en": "to eat",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Jedemo u osam."
+    },
+    {
+     "front": "piti",
+     "back": {
+      "ru": "пить",
+      "en": "to drink",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Pijem vodu tijekom cijelog dana."
+    },
+    {
+     "front": "kušati",
+     "back": {
+      "ru": "пробовать",
+      "en": "to taste",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Kušaj juhu, dobra je."
+    },
+    {
+     "front": "posluživati",
+     "back": {
+      "ru": "подавать",
+      "en": "to serve",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Ručak poslužuju u dvanaest."
+    },
+    {
+     "front": "spavati",
+     "back": {
+      "ru": "спать",
+      "en": "to sleep",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "Spavao sam osam sati bez prekida."
+    },
+    {
+     "front": "probuditi se",
+     "back": {
+      "ru": "просыпаться",
+      "en": "to wake up",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Uvijek se budim u šest."
+    },
+    {
+     "front": "ustati",
+     "back": {
+      "ru": "вставать",
+      "en": "to get up",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Ustani, kasno je."
+    },
+    {
+     "front": "sjesti",
+     "back": {
+      "ru": "садиться",
+      "en": "to sit",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Sjedni ovdje pokraj mene."
+    },
+    {
+     "front": "leći",
+     "back": {
+      "ru": "ложиться",
+      "en": "to lie down",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "Radnim danom liježem rano."
+    },
+    {
+     "front": "hodati",
+     "back": {
+      "ru": "ходить",
+      "en": "to walk",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Hodam po pola sata dnevno."
+    },
+    {
+     "front": "trčati",
+     "back": {
+      "ru": "бегать",
+      "en": "to run",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Ujutro trčim u parku."
+    },
+    {
+     "front": "skakati",
+     "back": {
+      "ru": "прыгать",
+      "en": "to jump",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "Mačka je skočila na stol."
+    },
+    {
+     "front": "plivati",
+     "back": {
+      "ru": "плавать",
+      "en": "to swim",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "Naučio sam plivati u rijeci."
+    },
+    {
+     "front": "letjeti",
+     "back": {
+      "ru": "летать",
+      "en": "to fly",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Ptice lete na jug."
+    },
+    {
+     "front": "putovati",
+     "back": {
+      "ru": "путешествовать",
+      "en": "to travel",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Putovali smo vlakom."
+    },
+    {
+     "front": "voziti",
+     "back": {
+      "ru": "водить",
+      "en": "to drive",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "On vozi oprezno."
+    },
+    {
+     "front": "penjati se",
+     "back": {
+      "ru": "подниматься",
+      "en": "to go up",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Popeli smo se na treći kat."
+    },
+    {
+     "front": "silaziti",
+     "back": {
+      "ru": "спускаться",
+      "en": "to go down",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Silazi polako niz stube."
+    },
+    {
+     "front": "padati",
+     "back": {
+      "ru": "падать",
+      "en": "to fall",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "Šalica je pala sa stola."
+    },
+    {
+     "front": "stanovati",
+     "back": {
+      "ru": "жить",
+      "en": "to live (reside)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Stanujem blizu kolodvora."
+    },
+    {
+     "front": "živjeti",
+     "back": {
+      "ru": "жить",
+      "en": "to live",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "Živio je devedeset godina."
+    },
+    {
+     "front": "umrijeti",
+     "back": {
+      "ru": "умирать",
+      "en": "to die",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "Stablo je uginulo zimi."
+    },
+    {
+     "front": "roditi se",
+     "back": {
+      "ru": "рождаться",
+      "en": "to be born",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Rođen sam u ožujku."
+    },
+    {
+     "front": "rasti",
+     "back": {
+      "ru": "расти",
+      "en": "to grow",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Djeca brzo rastu."
+    },
+    {
+     "front": "vjenčati se",
+     "back": {
+      "ru": "жениться",
+      "en": "to marry",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Vjenčali su se u proljeće."
+    },
+    {
+     "front": "pomagati",
+     "back": {
+      "ru": "помогать",
+      "en": "to help",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Pomozi mi s ovim torbama."
+    },
+    {
+     "front": "sviđati se",
+     "back": {
+      "ru": "нравиться",
+      "en": "to like",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "Vrlo mi se sviđa ova kava."
+    },
+    {
+     "front": "voljeti",
+     "back": {
+      "ru": "любить",
+      "en": "to love",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "Voli svoju obitelj iznad svega."
+    },
+    {
+     "front": "mrziti",
+     "back": {
+      "ru": "ненавидеть",
+      "en": "to hate",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Mrzim rano ustajati."
+    },
+    {
+     "front": "smijati se",
+     "back": {
+      "ru": "смеяться",
+      "en": "to laugh",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Smijali smo se cijelu večer."
+    },
+    {
+     "front": "plakati",
+     "back": {
+      "ru": "плакать",
+      "en": "to cry",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "Dijete je plakalo od umora."
+    },
+    {
+     "front": "pjevati",
+     "back": {
+      "ru": "петь",
+      "en": "to sing",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Pjevaju u crkvenom zboru."
+    },
+    {
+     "front": "plesati",
+     "back": {
+      "ru": "танцевать",
+      "en": "to dance",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Plesali smo do kasno."
+    },
+    {
+     "front": "igrati se",
+     "back": {
+      "ru": "играть",
+      "en": "to play (children)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Djeca se igraju u vrtu."
+    },
+    {
+     "front": "igrati",
+     "back": {
+      "ru": "играть",
+      "en": "to play (a game)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "U subotu igramo utakmicu."
+    },
+    {
+     "front": "dodirivati",
+     "back": {
+      "ru": "трогать",
+      "en": "to touch",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "Ne diraj svježu boju."
+    },
+    {
+     "front": "odmarati se",
+     "back": {
+      "ru": "отдыхать",
+      "en": "to rest",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Odmori se malo."
+    },
+    {
+     "front": "pokušati",
+     "back": {
+      "ru": "пытаться",
+      "en": "to try",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "Pokušao sam te nazvati tri puta."
+    },
+    {
+     "front": "uspjeti",
+     "back": {
+      "ru": "удаваться",
+      "en": "to manage",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "Uspio sam naći karte za danas."
+    },
+    {
+     "front": "trebati",
+     "back": {
+      "ru": "нуждаться",
+      "en": "to need",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "Sada mi treba pomoć."
+    },
+    {
+     "front": "koristiti",
+     "back": {
+      "ru": "использовать",
+      "en": "to use",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Telefon koristim za sve."
+    },
+    {
+     "front": "birati",
+     "back": {
+      "ru": "выбирать",
+      "en": "to choose",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Izaberi ti restoran."
+    },
+    {
+     "front": "odlučiti",
+     "back": {
+      "ru": "решать",
+      "en": "to decide",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Odlučili smo ostati još jedan dan."
+    },
+    {
+     "front": "prihvatiti",
+     "back": {
+      "ru": "принимать",
+      "en": "to accept",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "Prihvatio je poziv."
+    },
+    {
+     "front": "odbiti",
+     "back": {
+      "ru": "отказывать",
+      "en": "to refuse",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "Odbio je pomoć susjeda."
+    },
+    {
+     "front": "obećati",
+     "back": {
+      "ru": "обещать",
+      "en": "to promise",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "Obećao je da će se vratiti rano."
+    },
+    {
+     "front": "zahvaliti",
+     "back": {
+      "ru": "благодарить",
+      "en": "to thank",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "Zahvaljujem ti na strpljenju."
+    },
+    {
+     "front": "zamoliti",
+     "back": {
+      "ru": "просить",
+      "en": "to ask for",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "Zamolio sam za čašu vode."
+    },
+    {
+     "front": "dogoditi se",
+     "back": {
+      "ru": "случаться",
+      "en": "to happen",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Što se jučer dogodilo?"
+    },
+    {
+     "front": "činiti se",
+     "back": {
+      "ru": "казаться",
+      "en": "to seem",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Činiš mi se umoran."
+    },
+    {
+     "front": "upaliti",
+     "back": {
+      "ru": "включать",
+      "en": "to turn on",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Upali svjetlo u kuhinji."
+    },
+    {
+     "front": "ugasiti",
+     "back": {
+      "ru": "выключать",
+      "en": "to turn off",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Ugasi računalo prije nego izađeš."
+    },
+    {
+     "front": "padati kiša",
+     "back": {
+      "ru": "идти (о дожде)",
+      "en": "to rain",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Padala je kiša cijelu noć."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "voda",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Donesi mi čašu vode."
+    },
+    {
+     "front": "kruh",
+     "back": {
+      "ru": "хлеб",
+      "en": "bread",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "Kruh je još topao."
+    },
+    {
+     "front": "mlijeko",
+     "back": {
+      "ru": "молоко",
+      "en": "milk",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "Za doručak pijem mlijeko."
+    },
+    {
+     "front": "kava",
+     "back": {
+      "ru": "кофе",
+      "en": "coffee",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Jednu kavu, molim."
+    },
+    {
+     "front": "čaj",
+     "back": {
+      "ru": "чай",
+      "en": "tea",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "Poslijepodne pripremam čaj."
+    },
+    {
+     "front": "sok",
+     "back": {
+      "ru": "сок",
+      "en": "juice",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Svježe cijeđeni sok od naranče."
+    },
+    {
+     "front": "vino",
+     "back": {
+      "ru": "вино",
+      "en": "wine",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Čaša crnog vina."
+    },
+    {
+     "front": "pivo",
+     "back": {
+      "ru": "пиво",
+      "en": "beer",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "Pivo je lijepo hladno."
+    },
+    {
+     "front": "led",
+     "back": {
+      "ru": "лёд",
+      "en": "ice",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "Želiš li led u piću?"
+    },
+    {
+     "front": "šećer",
+     "back": {
+      "ru": "сахар",
+      "en": "sugar",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Pijem kavu bez šećera."
+    },
+    {
+     "front": "sol",
+     "back": {
+      "ru": "соль",
+      "en": "salt",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "U juhi nedostaje sol."
+    },
+    {
+     "front": "papar",
+     "back": {
+      "ru": "перец",
+      "en": "pepper",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Dodaj malo papra."
+    },
+    {
+     "front": "maslinovo ulje",
+     "back": {
+      "ru": "оливковое масло",
+      "en": "olive oil",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Prelij salatu maslinovim uljem."
+    },
+    {
+     "front": "maslac",
+     "back": {
+      "ru": "масло",
+      "en": "butter",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Namaži maslac na kruh."
+    },
+    {
+     "front": "sir",
+     "back": {
+      "ru": "сыр",
+      "en": "cheese",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Ovaj sir je s planine."
+    },
+    {
+     "front": "jaje",
+     "back": {
+      "ru": "яйцо",
+      "en": "egg",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "Pojeo sam kuhano jaje."
+    },
+    {
+     "front": "meso",
+     "back": {
+      "ru": "мясо",
+      "en": "meat",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Navečer ne jedem meso."
+    },
+    {
+     "front": "piletina",
+     "back": {
+      "ru": "курица",
+      "en": "chicken",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Pečena piletina s krumpirom."
+    },
+    {
+     "front": "riba",
+     "back": {
+      "ru": "рыба",
+      "en": "fish",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "Riba je danas svježa."
+    },
+    {
+     "front": "bakalar",
+     "back": {
+      "ru": "треска",
+      "en": "cod",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "Bakalar se čuva usoljen."
+    },
+    {
+     "front": "srdela",
+     "back": {
+      "ru": "сардина",
+      "en": "sardine",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Srdele s roštilja."
+    },
+    {
+     "front": "tuna",
+     "back": {
+      "ru": "тунец",
+      "en": "tuna",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Sendvič s tunom."
+    },
+    {
+     "front": "škamp",
+     "back": {
+      "ru": "креветка",
+      "en": "shrimp",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Škampi s češnjakom."
+    },
+    {
+     "front": "plodovi mora",
+     "back": {
+      "ru": "морепродукты",
+      "en": "seafood",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "Jeli smo plodove mora uz more."
+    },
+    {
+     "front": "šunka",
+     "back": {
+      "ru": "ветчина",
+      "en": "ham",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Šunka s dinjom."
+    },
+    {
+     "front": "kobasica",
+     "back": {
+      "ru": "сосиска",
+      "en": "sausage",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "Kupio sam kobasice za djecu."
+    },
+    {
+     "front": "riža",
+     "back": {
+      "ru": "рис",
+      "en": "rice",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Nedjeljom kuhamo rižu."
+    },
+    {
+     "front": "krumpir",
+     "back": {
+      "ru": "картофель",
+      "en": "potato",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Kuhani krumpir s maslinovim uljem."
+    },
+    {
+     "front": "tjestenina",
+     "back": {
+      "ru": "макароны",
+      "en": "pasta",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Kad žurim, radim tjesteninu."
+    },
+    {
+     "front": "brašno",
+     "back": {
+      "ru": "мука",
+      "en": "flour",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "Nema brašna za kolač."
+    },
+    {
+     "front": "juha",
+     "back": {
+      "ru": "суп",
+      "en": "soup",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "Juha se hladi."
+    },
+    {
+     "front": "salata",
+     "back": {
+      "ru": "салат",
+      "en": "salad",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Salata od rajčice."
+    },
+    {
+     "front": "povrće",
+     "back": {
+      "ru": "овощи",
+      "en": "vegetables",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Jedem povrće svaki dan."
+    },
+    {
+     "front": "voće",
+     "back": {
+      "ru": "фрукты",
+      "en": "fruit",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "U kuhinji ima voća."
+    },
+    {
+     "front": "jabuka",
+     "back": {
+      "ru": "яблоко",
+      "en": "apple",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "Nosim jabuku na posao."
+    },
+    {
+     "front": "kruška",
+     "back": {
+      "ru": "груша",
+      "en": "pear",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Ova kruška je zrela."
+    },
+    {
+     "front": "naranča",
+     "back": {
+      "ru": "апельсин",
+      "en": "orange",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "Ogulio sam naranču."
+    },
+    {
+     "front": "limun",
+     "back": {
+      "ru": "лимон",
+      "en": "lemon",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Čaj s limunom."
+    },
+    {
+     "front": "banana",
+     "back": {
+      "ru": "банан",
+      "en": "banana",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "Pojeo sam bananu prije treninga."
+    },
+    {
+     "front": "grožđe",
+     "back": {
+      "ru": "виноград",
+      "en": "grape",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "Grožđe je slatko."
+    },
+    {
+     "front": "jagoda",
+     "back": {
+      "ru": "клубника",
+      "en": "strawberry",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Jagode sa šlagom."
+    },
+    {
+     "front": "trešnja",
+     "back": {
+      "ru": "вишня",
+      "en": "cherry",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Trešnje su u sezoni jeftine."
+    },
+    {
+     "front": "breskva",
+     "back": {
+      "ru": "персик",
+      "en": "peach",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Lijepo zrela breskva."
+    },
+    {
+     "front": "dinja",
+     "back": {
+      "ru": "дыня",
+      "en": "melon",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Dinja sa šunkom."
+    },
+    {
+     "front": "lubenica",
+     "back": {
+      "ru": "арбуз",
+      "en": "watermelon",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "Ljeti hladna lubenica."
+    },
+    {
+     "front": "ananas",
+     "back": {
+      "ru": "ананас",
+      "en": "pineapple",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Sok od ananasa."
+    },
+    {
+     "front": "smokva",
+     "back": {
+      "ru": "инжир",
+      "en": "fig",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "Zimi suhe smokve."
+    },
+    {
+     "front": "rajčica",
+     "back": {
+      "ru": "помидор",
+      "en": "tomato",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Salata od rajčice sa začinima."
+    },
+    {
+     "front": "luk",
+     "back": {
+      "ru": "лук",
+      "en": "onion",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Prvo popržite luk."
+    },
+    {
+     "front": "češnjak",
+     "back": {
+      "ru": "чеснок",
+      "en": "garlic",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "Dovoljna su dva režnja češnjaka."
+    },
+    {
+     "front": "mrkva",
+     "back": {
+      "ru": "морковь",
+      "en": "carrot",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Juha od mrkve."
+    },
+    {
+     "front": "zelena salata",
+     "back": {
+      "ru": "салат-латук",
+      "en": "lettuce",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Dobro operi zelenu salatu."
+    },
+    {
+     "front": "krastavac",
+     "back": {
+      "ru": "огурец",
+      "en": "cucumber",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Krastavac na kriške."
+    },
+    {
+     "front": "grah",
+     "back": {
+      "ru": "фасоль",
+      "en": "beans",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Grah s rižom."
+    },
+    {
+     "front": "grašak",
+     "back": {
+      "ru": "горох",
+      "en": "pea",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Grašak s jajem."
+    },
+    {
+     "front": "kupus",
+     "back": {
+      "ru": "капуста",
+      "en": "cabbage",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "Juha od kupusa je zimsko jelo."
+    },
+    {
+     "front": "bundeva",
+     "back": {
+      "ru": "тыква",
+      "en": "pumpkin",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "U jesen kuhamo juhu od bundeve."
+    },
+    {
+     "front": "gljiva",
+     "back": {
+      "ru": "гриб",
+      "en": "mushroom",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Pirjane gljive."
+    },
+    {
+     "front": "maslina",
+     "back": {
+      "ru": "оливка",
+      "en": "olive",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Masline prije jela."
+    },
+    {
+     "front": "torta",
+     "back": {
+      "ru": "торт",
+      "en": "cake",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "Napravio sam tortu od naranče."
+    },
+    {
+     "front": "keks",
+     "back": {
+      "ru": "печенье",
+      "en": "biscuit",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Keks uz čaj."
+    },
+    {
+     "front": "džem",
+     "back": {
+      "ru": "варенье",
+      "en": "jam",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "Namazao sam kruh džemom od jagoda."
+    },
+    {
+     "front": "čokolada",
+     "back": {
+      "ru": "шоколад",
+      "en": "chocolate",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Pločica tamne čokolade."
+    },
+    {
+     "front": "sladoled",
+     "back": {
+      "ru": "мороженое",
+      "en": "ice cream",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Sladoled od vanilije."
+    },
+    {
+     "front": "med",
+     "back": {
+      "ru": "мёд",
+      "en": "honey",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Čaj s medom za grlo."
+    },
+    {
+     "front": "slatkiši",
+     "back": {
+      "ru": "сладость",
+      "en": "sweet",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Navečer ne jedem slatkiše."
+    },
+    {
+     "front": "desert",
+     "back": {
+      "ru": "десерт",
+      "en": "dessert",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "Za desert voće."
+    },
+    {
+     "front": "jogurt",
+     "back": {
+      "ru": "йогурт",
+      "en": "yoghurt",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Prirodni jogurt bez šećera."
+    },
+    {
+     "front": "vrhnje",
+     "back": {
+      "ru": "сливки",
+      "en": "cream",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Jagode sa slatkim vrhnjem."
+    },
+    {
+     "front": "tost",
+     "back": {
+      "ru": "тост",
+      "en": "toast",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Tost s maslacem."
+    },
+    {
+     "front": "sendvič",
+     "back": {
+      "ru": "бутерброд",
+      "en": "sandwich",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Sendvič sa sirom i šunkom."
+    },
+    {
+     "front": "doručak",
+     "back": {
+      "ru": "завтрак",
+      "en": "breakfast",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Doručkujem u sedam."
+    },
+    {
+     "front": "ručak",
+     "back": {
+      "ru": "обед",
+      "en": "lunch",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "Ručak je u jedan."
+    },
+    {
+     "front": "večera",
+     "back": {
+      "ru": "ужин",
+      "en": "dinner",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Večeramo oko osam."
+    },
+    {
+     "front": "užina",
+     "back": {
+      "ru": "полдник",
+      "en": "snack",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Djeca nose užinu."
+    },
+    {
+     "front": "obrok",
+     "back": {
+      "ru": "приём пищи",
+      "en": "meal",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Jedem tri obroka dnevno."
+    },
+    {
+     "front": "hrana",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "Hrana je na stolu."
+    },
+    {
+     "front": "piće",
+     "back": {
+      "ru": "напиток",
+      "en": "drink",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Koje piće želiš?"
+    },
+    {
+     "front": "tanjur",
+     "back": {
+      "ru": "тарелка",
+      "en": "plate",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Stavi tanjure na radnu ploču."
+    },
+    {
+     "front": "čaša",
+     "back": {
+      "ru": "стакан",
+      "en": "glass",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Napuni čašu do pola."
+    },
+    {
+     "front": "šalica",
+     "back": {
+      "ru": "чашка",
+      "en": "cup",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Šalica kave."
+    },
+    {
+     "front": "boca",
+     "back": {
+      "ru": "бутылка",
+      "en": "bottle",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Boca vode."
+    },
+    {
+     "front": "žlica",
+     "back": {
+      "ru": "ложка",
+      "en": "spoon",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Nedostaje žlica za juhu."
+    },
+    {
+     "front": "vilica",
+     "back": {
+      "ru": "вилка",
+      "en": "fork",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "Vilica je pala na pod."
+    },
+    {
+     "front": "nož",
+     "back": {
+      "ru": "нож",
+      "en": "knife",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Ovaj nož uopće ne reže."
+    },
+    {
+     "front": "salveta",
+     "back": {
+      "ru": "салфетка",
+      "en": "napkin",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Daj mi salvetu."
+    },
+    {
+     "front": "lonac",
+     "back": {
+      "ru": "кастрюля",
+      "en": "pot",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "Lonac je na štednjaku."
+    },
+    {
+     "front": "tava",
+     "back": {
+      "ru": "сковорода",
+      "en": "frying pan",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Zagrij tavu."
+    },
+    {
+     "front": "restoran",
+     "back": {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "Rezervirao sam stol u restoranu."
+    },
+    {
+     "front": "jelovnik",
+     "back": {
+      "ru": "меню",
+      "en": "menu",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Zatraži jelovnik od konobara."
+    },
+    {
+     "front": "račun",
+     "back": {
+      "ru": "счёт",
+      "en": "bill",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "Račun, molim."
+    },
+    {
+     "front": "konobar",
+     "back": {
+      "ru": "официант",
+      "en": "waiter",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "Konobar je donio kruh."
+    },
+    {
+     "front": "glad",
+     "back": {
+      "ru": "голод",
+      "en": "hunger",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Vrlo sam gladan."
+    },
+    {
+     "front": "žeđ",
+     "back": {
+      "ru": "жажда",
+      "en": "thirst",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Po ovoj vrućini javlja se žeđ."
+    },
+    {
+     "front": "okus",
+     "back": {
+      "ru": "вкус",
+      "en": "taste",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Ova juha ima malo okusa."
+    },
+    {
+     "front": "recept",
+     "back": {
+      "ru": "рецепт",
+      "en": "recipe",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Ovo je recept moje bake."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "odjeća",
+     "back": {
+      "ru": "одежда",
+      "en": "clothes",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Nosim malo odjeće u koferu."
+    },
+    {
+     "front": "košulja",
+     "back": {
+      "ru": "рубашка",
+      "en": "shirt",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "Košulja još nije izglačana."
+    },
+    {
+     "front": "džemper",
+     "back": {
+      "ru": "свитер",
+      "en": "jumper",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Obuci džemper, hladno je."
+    },
+    {
+     "front": "majica",
+     "back": {
+      "ru": "футболка",
+      "en": "T-shirt",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "Jednobojna bijela majica."
+    },
+    {
+     "front": "kaput",
+     "back": {
+      "ru": "пальто",
+      "en": "coat",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "Zaboravio sam kaput u autu."
+    },
+    {
+     "front": "jakna",
+     "back": {
+      "ru": "куртка",
+      "en": "jacket",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Jakna za kišu."
+    },
+    {
+     "front": "prsluk",
+     "back": {
+      "ru": "жилет",
+      "en": "waistcoat",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Prsluk preko košulje."
+    },
+    {
+     "front": "hlače",
+     "back": {
+      "ru": "брюки",
+      "en": "trousers",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Ove hlače su mi široke."
+    },
+    {
+     "front": "kratke hlače",
+     "back": {
+      "ru": "шорты",
+      "en": "shorts",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Kratke hlače za ljeto."
+    },
+    {
+     "front": "suknja",
+     "back": {
+      "ru": "юбка",
+      "en": "skirt",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Suknja do koljena."
+    },
+    {
+     "front": "haljina",
+     "back": {
+      "ru": "платье",
+      "en": "dress",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "Haljina je od lana."
+    },
+    {
+     "front": "odijelo",
+     "back": {
+      "ru": "костюм",
+      "en": "suit",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Na vjenčanje ide u odijelu."
+    },
+    {
+     "front": "kravata",
+     "back": {
+      "ru": "галстук",
+      "en": "tie",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "Ne znam vezati kravatu."
+    },
+    {
+     "front": "remen",
+     "back": {
+      "ru": "ремень",
+      "en": "belt",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Stegni remen malo više."
+    },
+    {
+     "front": "čarape",
+     "back": {
+      "ru": "носки",
+      "en": "socks",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Ove čarape su poderane."
+    },
+    {
+     "front": "hulahopke",
+     "back": {
+      "ru": "колготки",
+      "en": "tights",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Crne hulahopke."
+    },
+    {
+     "front": "cipele",
+     "back": {
+      "ru": "туфли",
+      "en": "shoes",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Crne kožne cipele."
+    },
+    {
+     "front": "tenisice",
+     "back": {
+      "ru": "кроссовки",
+      "en": "trainers",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Nosim tenisice cijeli dan."
+    },
+    {
+     "front": "čizme",
+     "back": {
+      "ru": "сапоги",
+      "en": "boots",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Čizme za zimu."
+    },
+    {
+     "front": "sandale",
+     "back": {
+      "ru": "сандалии",
+      "en": "sandals",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Sandale za plažu."
+    },
+    {
+     "front": "papuče",
+     "back": {
+      "ru": "тапочки",
+      "en": "slippers",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Papuče su kraj vrata spavaće sobe."
+    },
+    {
+     "front": "šešir",
+     "back": {
+      "ru": "шляпа",
+      "en": "hat",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Slamnati šešir."
+    },
+    {
+     "front": "kapa sa šiltom",
+     "back": {
+      "ru": "кепка",
+      "en": "cap",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Kapa sa šiltom protiv sunca."
+    },
+    {
+     "front": "kapa",
+     "back": {
+      "ru": "шапка",
+      "en": "woolly hat",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Kapa i šal za snijeg."
+    },
+    {
+     "front": "rukavice",
+     "back": {
+      "ru": "перчатки",
+      "en": "gloves",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Kožne rukavice s podstavom."
+    },
+    {
+     "front": "šal",
+     "back": {
+      "ru": "шарф",
+      "en": "scarf",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Omotaj šal dva puta."
+    },
+    {
+     "front": "rupčić",
+     "back": {
+      "ru": "платок",
+      "en": "handkerchief",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Pamučni rupčić."
+    },
+    {
+     "front": "naočale",
+     "back": {
+      "ru": "очки",
+      "en": "glasses",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Jučer sam razbio naočale."
+    },
+    {
+     "front": "torba",
+     "back": {
+      "ru": "сумка",
+      "en": "bag",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "Torba je pretjerano teška."
+    },
+    {
+     "front": "novčanik",
+     "back": {
+      "ru": "кошелёк",
+      "en": "wallet",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "Zaboravio sam novčanik kod kuće."
+    },
+    {
+     "front": "ruksak",
+     "back": {
+      "ru": "рюкзак",
+      "en": "backpack",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "Školski ruksak je težak."
+    },
+    {
+     "front": "kišobran",
+     "back": {
+      "ru": "зонт",
+      "en": "umbrella",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Ponesi kišobran."
+    },
+    {
+     "front": "pidžama",
+     "back": {
+      "ru": "пижама",
+      "en": "pyjamas",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Flanelska pidžama."
+    },
+    {
+     "front": "kućni ogrtač",
+     "back": {
+      "ru": "халат",
+      "en": "dressing gown",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "Kućni ogrtač visi iza vrata."
+    },
+    {
+     "front": "ručnik",
+     "back": {
+      "ru": "полотенце",
+      "en": "towel",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Čist ručnik za kupaonicu."
+    },
+    {
+     "front": "džep",
+     "back": {
+      "ru": "карман",
+      "en": "pocket",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Ključ mi je u džepu."
+    },
+    {
+     "front": "gumb",
+     "back": {
+      "ru": "пуговица",
+      "en": "button",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "Otpao je gumb s košulje."
+    },
+    {
+     "front": "patentni zatvarač",
+     "back": {
+      "ru": "молния",
+      "en": "zip",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "Pokvario se patentni zatvarač na torbi."
+    },
+    {
+     "front": "rukav",
+     "back": {
+      "ru": "рукав",
+      "en": "sleeve",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Zasuči rukave."
+    },
+    {
+     "front": "ovratnik",
+     "back": {
+      "ru": "воротник",
+      "en": "collar",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "Ovratnik je zamrljan."
+    },
+    {
+     "front": "veličina",
+     "back": {
+      "ru": "размер",
+      "en": "size",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "Imate li ovu košulju u drugoj veličini?"
+    },
+    {
+     "front": "tkanina",
+     "back": {
+      "ru": "ткань",
+      "en": "fabric",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Lagana tkanina za ljeto."
+    },
+    {
+     "front": "pamuk",
+     "back": {
+      "ru": "хлопок",
+      "en": "cotton",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Pamučna košulja."
+    },
+    {
+     "front": "vuna",
+     "back": {
+      "ru": "шерсть",
+      "en": "wool",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Debele vunene čarape."
+    },
+    {
+     "front": "svila",
+     "back": {
+      "ru": "шёлк",
+      "en": "silk",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "Svilena marama."
+    },
+    {
+     "front": "koža",
+     "back": {
+      "ru": "кожа",
+      "en": "leather",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Smeđe kožne čizme."
+    },
+    {
+     "front": "vješalica",
+     "back": {
+      "ru": "вешалка",
+      "en": "hanger",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Objesi kaput na vješalicu."
+    },
+    {
+     "front": "ormar",
+     "back": {
+      "ru": "шкаф",
+      "en": "wardrobe",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "Ormar je pun."
+    },
+    {
+     "front": "prsten",
+     "back": {
+      "ru": "кольцо",
+      "en": "ring",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Srebrni prsten."
+    }
+   ]
+  }
+ ]
+}

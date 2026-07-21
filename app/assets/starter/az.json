@@ -1,0 +1,6533 @@
+{
+ "lang": "az",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "salam",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Salam, necəsən?"
+    },
+    {
+     "front": "sağ ol",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Sağ ol, sabaha qədər."
+    },
+    {
+     "front": "bəli",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Bəli, əlbəttə gələcəyəm."
+    },
+    {
+     "front": "xeyr",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "Xeyr, təşəkkür edirəm."
+    },
+    {
+     "front": "zəhmət olmasa",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Bir qəhvə, zəhmət olmasa."
+    },
+    {
+     "front": "təşəkkür edirəm",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Kömək üçün təşəkkür edirəm."
+    },
+    {
+     "front": "bağışlayın",
+     "back": {
+      "ru": "извини",
+      "en": "sorry",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Bağışlayın, gecikdim."
+    },
+    {
+     "front": "sabahınız xeyir",
+     "back": {
+      "ru": "доброе утро",
+      "en": "good morning",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Sabahınız xeyir, yaxşı yatdın?"
+    },
+    {
+     "front": "gecəniz xeyrə qalsın",
+     "back": {
+      "ru": "спокойной ночи",
+      "en": "good night",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Gecəniz xeyrə qalsın, sabaha qədər."
+    },
+    {
+     "front": "hər şey qaydasındadır",
+     "back": {
+      "ru": "всё хорошо",
+      "en": "all right",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "Narahat olma, hər şey qaydasındadır."
+    },
+    {
+     "front": "kişi",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "O kişi bizim qonşumuzdur."
+    },
+    {
+     "front": "qadın",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "Mavi paltolu qadın həkimdir."
+    },
+    {
+     "front": "uşaq",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "Uşaq bağçada oynayır."
+    },
+    {
+     "front": "oğlan",
+     "back": {
+      "ru": "мальчик",
+      "en": "boy",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "Oğlan məktəbə qaçır."
+    },
+    {
+     "front": "qız",
+     "back": {
+      "ru": "девочка",
+      "en": "girl",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "Qız gül çəkir."
+    },
+    {
+     "front": "dost",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Dostum Gəncədə yaşayır."
+    },
+    {
+     "front": "ailə",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Bütün ailə şam yeməyinə gəldi."
+    },
+    {
+     "front": "ana",
+     "back": {
+      "ru": "мама",
+      "en": "mother",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "Anam çox gözəl oxuyur."
+    },
+    {
+     "front": "ata",
+     "back": {
+      "ru": "папа",
+      "en": "father",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "Atam gecə işləyir."
+    },
+    {
+     "front": "oğul",
+     "back": {
+      "ru": "сын",
+      "en": "son",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "Onların oğlu beş yaşındadır."
+    },
+    {
+     "front": "qız övladı",
+     "back": {
+      "ru": "дочь",
+      "en": "daughter",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "Böyük qız övladı tibb oxuyur."
+    },
+    {
+     "front": "qardaş",
+     "back": {
+      "ru": "брат",
+      "en": "brother",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "Qardaşım futbol oynayır."
+    },
+    {
+     "front": "bacı",
+     "back": {
+      "ru": "сестра",
+      "en": "sister",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "Bacım Sumqayıtda yaşayır."
+    },
+    {
+     "front": "nənə",
+     "back": {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "Nənə ən dadlı tortu bişirir."
+    },
+    {
+     "front": "baba",
+     "back": {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "Baba köhnə əhvalatlar danışır."
+    },
+    {
+     "front": "insan",
+     "back": {
+      "ru": "человек",
+      "en": "person",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Bu insanı tanımıram."
+    },
+    {
+     "front": "insanlar",
+     "back": {
+      "ru": "люди",
+      "en": "people",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "Meydandakı insanlar dağılışdı."
+    },
+    {
+     "front": "ad",
+     "back": {
+      "ru": "имя",
+      "en": "name",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Adın nədir?"
+    },
+    {
+     "front": "cənab",
+     "back": {
+      "ru": "господин",
+      "en": "sir",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Sabahınız xeyir, cənab Əliyev."
+    },
+    {
+     "front": "xanım",
+     "back": {
+      "ru": "госпожа",
+      "en": "madam",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "Xanımın köməyə ehtiyacı var?"
+    },
+    {
+     "front": "mən",
+     "back": {
+      "ru": "я",
+      "en": "I",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Mən buralarda yaşayıram."
+    },
+    {
+     "front": "sən",
+     "back": {
+      "ru": "ты",
+      "en": "you",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "Sən azərbaycanca danışırsan?"
+    },
+    {
+     "front": "siz",
+     "back": {
+      "ru": "вы",
+      "en": "you",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Oturmaq istəyirsiniz?"
+    },
+    {
+     "front": "o",
+     "back": {
+      "ru": "он",
+      "en": "he",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "O saat səkkizdə gəlir."
+    },
+    {
+     "front": "o (qadın)",
+     "back": {
+      "ru": "она",
+      "en": "she",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "O xəstəxanada işləyir."
+    },
+    {
+     "front": "biz",
+     "back": {
+      "ru": "мы",
+      "en": "we",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Biz qatarla gedirik."
+    },
+    {
+     "front": "onlar",
+     "back": {
+      "ru": "они",
+      "en": "they",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Onlar eyni binada yaşayırlar."
+    },
+    {
+     "front": "mənim",
+     "back": {
+      "ru": "мой",
+      "en": "my",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Bura mənim yerimdir."
+    },
+    {
+     "front": "sənin",
+     "back": {
+      "ru": "твой",
+      "en": "your",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "Sənin paltarın stulda qaldı."
+    },
+    {
+     "front": "bizim",
+     "back": {
+      "ru": "наш",
+      "en": "our",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "Bizim maşınımız kiçikdir."
+    },
+    {
+     "front": "bu",
+     "back": {
+      "ru": "этот",
+      "en": "this",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Bu kitab çox maraqlıdır."
+    },
+    {
+     "front": "o (uzaq)",
+     "back": {
+      "ru": "тот",
+      "en": "that",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "O bina çox köhnədir."
+    },
+    {
+     "front": "kim",
+     "back": {
+      "ru": "кто",
+      "en": "who",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Qapıda kimdir?"
+    },
+    {
+     "front": "nə",
+     "back": {
+      "ru": "что",
+      "en": "what",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Nə deyirsən?"
+    },
+    {
+     "front": "harada",
+     "back": {
+      "ru": "где",
+      "en": "where",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "Vağzal haradadır?"
+    },
+    {
+     "front": "nə vaxt",
+     "back": {
+      "ru": "когда",
+      "en": "when",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Film nə vaxt başlayır?"
+    },
+    {
+     "front": "necə",
+     "back": {
+      "ru": "как",
+      "en": "how",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Bu necə deyilir?"
+    },
+    {
+     "front": "niyə",
+     "back": {
+      "ru": "почему",
+      "en": "why",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Niyə bu qədər tələsirsən?"
+    },
+    {
+     "front": "hansı",
+     "back": {
+      "ru": "который",
+      "en": "which",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Hansını üstün tutursan?"
+    },
+    {
+     "front": "sıfır",
+     "back": {
+      "ru": "ноль",
+      "en": "zero",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "Temperatur sıfır dərəcədir."
+    },
+    {
+     "front": "bir",
+     "back": {
+      "ru": "один",
+      "en": "one",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Yalnız bir yer qalıb."
+    },
+    {
+     "front": "iki",
+     "back": {
+      "ru": "два",
+      "en": "two",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "İki qardaşım var."
+    },
+    {
+     "front": "üç",
+     "back": {
+      "ru": "три",
+      "en": "three",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Üç gündən sonra qayıdıram."
+    },
+    {
+     "front": "dörd",
+     "back": {
+      "ru": "четыре",
+      "en": "four",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "Masanın dörd stulu var."
+    },
+    {
+     "front": "beş",
+     "back": {
+      "ru": "пять",
+      "en": "five",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "Film beş saat çəkir."
+    },
+    {
+     "front": "altı",
+     "back": {
+      "ru": "шесть",
+      "en": "six",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Səhər altıda dururam."
+    },
+    {
+     "front": "yeddi",
+     "back": {
+      "ru": "семь",
+      "en": "seven",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "Həftədə yeddi gün var."
+    },
+    {
+     "front": "səkkiz",
+     "back": {
+      "ru": "восемь",
+      "en": "eight",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "Qatar səkkizdə yola düşür."
+    },
+    {
+     "front": "doqquz",
+     "back": {
+      "ru": "девять",
+      "en": "nine",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "O doqquz yaşındadır."
+    },
+    {
+     "front": "on",
+     "back": {
+      "ru": "десять",
+      "en": "ten",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "On dəqiqə qalıb."
+    },
+    {
+     "front": "on bir",
+     "back": {
+      "ru": "одиннадцать",
+      "en": "eleven",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "Dərs on birdə bitir."
+    },
+    {
+     "front": "on iki",
+     "back": {
+      "ru": "двенадцать",
+      "en": "twelve",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "İldə on iki ay var."
+    },
+    {
+     "front": "iyirmi",
+     "back": {
+      "ru": "двадцать",
+      "en": "twenty",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "Bilet iyirmi manatdır."
+    },
+    {
+     "front": "otuz",
+     "back": {
+      "ru": "тридцать",
+      "en": "thirty",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Bu ayda otuz gün var."
+    },
+    {
+     "front": "yüz",
+     "back": {
+      "ru": "сто",
+      "en": "hundred",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Yüz metr qalıb."
+    },
+    {
+     "front": "min",
+     "back": {
+      "ru": "тысяча",
+      "en": "thousand",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "Kənddə min nəfər yaşayır."
+    },
+    {
+     "front": "birinci",
+     "back": {
+      "ru": "первый",
+      "en": "first",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Bu gün məktəbin birinci günüdür."
+    },
+    {
+     "front": "sonuncu",
+     "back": {
+      "ru": "последний",
+      "en": "last",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "Sonuncu avtobusa çatdım."
+    },
+    {
+     "front": "nömrə",
+     "back": {
+      "ru": "номер",
+      "en": "number",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Evinizin nömrəsi neçədir?"
+    },
+    {
+     "front": "yarı",
+     "back": {
+      "ru": "половина",
+      "en": "half",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "Tortun yarısını yedim."
+    },
+    {
+     "front": "gün",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Uzun bir gün idi."
+    },
+    {
+     "front": "gecə",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Gecə soyuqdur."
+    },
+    {
+     "front": "səhər",
+     "back": {
+      "ru": "утро",
+      "en": "morning",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Səhərlər çay içirəm."
+    },
+    {
+     "front": "günorta",
+     "back": {
+      "ru": "вечер",
+      "en": "afternoon",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "Günortadan sonra bazara gedirəm."
+    },
+    {
+     "front": "bu gün",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Bu gün işləmirəm."
+    },
+    {
+     "front": "sabah",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Sabah çimərliyə gedirik."
+    },
+    {
+     "front": "dünən",
+     "back": {
+      "ru": "вчера",
+      "en": "yesterday",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Dünən bütün gün yağış yağdı."
+    },
+    {
+     "front": "həftə",
+     "back": {
+      "ru": "неделя",
+      "en": "week",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Gələn həftə qayıdıram."
+    },
+    {
+     "front": "ay",
+     "back": {
+      "ru": "месяц",
+      "en": "month",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Bu ay yaxşı keçir."
+    },
+    {
+     "front": "il",
+     "back": {
+      "ru": "год",
+      "en": "year",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "Keçən il çətin idi."
+    },
+    {
+     "front": "saat",
+     "back": {
+      "ru": "час",
+      "en": "hour",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "Yol bir saat çəkir."
+    },
+    {
+     "front": "dəqiqə",
+     "back": {
+      "ru": "минута",
+      "en": "minute",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Bir dəqiqə gözlə, zəhmət olmasa."
+    },
+    {
+     "front": "vaxt",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "İndi vaxtım yoxdur."
+    },
+    {
+     "front": "indi",
+     "back": {
+      "ru": "сейчас",
+      "en": "now",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "İndi məşğulam."
+    },
+    {
+     "front": "həmişə",
+     "back": {
+      "ru": "всегда",
+      "en": "always",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "O həmişə tez gəlir."
+    },
+    {
+     "front": "heç vaxt",
+     "back": {
+      "ru": "никогда",
+      "en": "never",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Heç vaxt Romada olmamışam."
+    },
+    {
+     "front": "tez",
+     "back": {
+      "ru": "рано",
+      "en": "early",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "Çox tez qalxdım."
+    },
+    {
+     "front": "bazar ertəsi",
+     "back": {
+      "ru": "понедельник",
+      "en": "Monday",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "Bazar ertəsi həkimə yazılmışam."
+    },
+    {
+     "front": "şənbə",
+     "back": {
+      "ru": "суббота",
+      "en": "Saturday",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Şənbə günləri gec yatıram."
+    },
+    {
+     "front": "bazar günü",
+     "back": {
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Bazar günü ailəliklə nahar edirik."
+    },
+    {
+     "front": "ev",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Evin arxasında bağ var."
+    },
+    {
+     "front": "şəhər",
+     "back": {
+      "ru": "город",
+      "en": "city",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Bakı böyük şəhərdir."
+    },
+    {
+     "front": "kənd",
+     "back": {
+      "ru": "деревня",
+      "en": "village",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "Kənd dağın ətəyindədir."
+    },
+    {
+     "front": "küçə",
+     "back": {
+      "ru": "улица",
+      "en": "street",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "Küçə adamla doludur."
+    },
+    {
+     "front": "məktəb",
+     "back": {
+      "ru": "школа",
+      "en": "school",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "Məktəb saat səkkizdə açılır."
+    },
+    {
+     "front": "iş",
+     "back": {
+      "ru": "работа",
+      "en": "work",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "İş saat altıda bitir."
+    },
+    {
+     "front": "mağaza",
+     "back": {
+      "ru": "магазин",
+      "en": "shop",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "Mağaza bazar günü bağlıdır."
+    },
+    {
+     "front": "bazar",
+     "back": {
+      "ru": "рынок",
+      "en": "market",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Meyvəni bazardan alıram."
+    },
+    {
+     "front": "xəstəxana",
+     "back": {
+      "ru": "больница",
+      "en": "hospital",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "Xəstəxana buraya yaxındır."
+    },
+    {
+     "front": "aptek",
+     "back": {
+      "ru": "аптека",
+      "en": "pharmacy",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "Aptek gecə də açıqdır."
+    },
+    {
+     "front": "bank",
+     "back": {
+      "ru": "банк",
+      "en": "bank",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Səhər banka gedirəm."
+    },
+    {
+     "front": "mehmanxana",
+     "back": {
+      "ru": "гостиница",
+      "en": "hotel",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "Mehmanxana lap dənizin yanındadır."
+    },
+    {
+     "front": "kilsə",
+     "back": {
+      "ru": "церковь",
+      "en": "church",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Bu kilsə çox qədimdir."
+    },
+    {
+     "front": "bağ",
+     "back": {
+      "ru": "сад",
+      "en": "garden",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "Bağ güllərlə doludur."
+    },
+    {
+     "front": "çimərlik",
+     "back": {
+      "ru": "пляж",
+      "en": "beach",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "Çimərliyə on dəqiqədir."
+    },
+    {
+     "front": "dəniz",
+     "back": {
+      "ru": "море",
+      "en": "sea",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "Dəniz bu gün sakitdir."
+    },
+    {
+     "front": "çay (su)",
+     "back": {
+      "ru": "река",
+      "en": "river",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "Çay şəhərin içindən keçir."
+    },
+    {
+     "front": "dağ",
+     "back": {
+      "ru": "гора",
+      "en": "mountain",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Dağın zirvəsində qar var."
+    },
+    {
+     "front": "tarla",
+     "back": {
+      "ru": "поле",
+      "en": "field",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Tarlada buğda bitir."
+    },
+    {
+     "front": "meşə",
+     "back": {
+      "ru": "лес",
+      "en": "forest",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "Meşə körpüdən sonra başlayır."
+    },
+    {
+     "front": "ölkə",
+     "back": {
+      "ru": "страна",
+      "en": "country",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Portuqaliya kiçik ölkədir."
+    },
+    {
+     "front": "dünya",
+     "back": {
+      "ru": "мир",
+      "en": "world",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "O yarım dünyanı gəzib."
+    },
+    {
+     "front": "yol",
+     "back": {
+      "ru": "дорога",
+      "en": "road",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "Yol dardır."
+    },
+    {
+     "front": "körpü",
+     "back": {
+      "ru": "мост",
+      "en": "bridge",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "Körpü təmirə görə bağlıdır."
+    },
+    {
+     "front": "vağzal",
+     "back": {
+      "ru": "вокзал",
+      "en": "station",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Vağzalda görüşərik."
+    },
+    {
+     "front": "hava limanı",
+     "back": {
+      "ru": "аэропорт",
+      "en": "airport",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "Hava limanı mərkəzdən uzaqdır."
+    },
+    {
+     "front": "otaq",
+     "back": {
+      "ru": "комната",
+      "en": "room",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "Otağın böyük pəncərəsi var."
+    },
+    {
+     "front": "mətbəx",
+     "back": {
+      "ru": "кухня",
+      "en": "kitchen",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "Mətbəxdən qəhvə iyi gəlir."
+    },
+    {
+     "front": "qapı",
+     "back": {
+      "ru": "дверь",
+      "en": "door",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Qapını bağla, soyuqdur."
+    },
+    {
+     "front": "pəncərə",
+     "back": {
+      "ru": "окно",
+      "en": "window",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Pəncərəni aç, hava bürkülüdür."
+    },
+    {
+     "front": "masa",
+     "back": {
+      "ru": "стол",
+      "en": "table",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Boşqabları masanın üstünə qoy."
+    },
+    {
+     "front": "stul",
+     "back": {
+      "ru": "стул",
+      "en": "chair",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Masada bir stul çatmır."
+    },
+    {
+     "front": "çarpayı",
+     "back": {
+      "ru": "кровать",
+      "en": "bed",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Bu çarpayı çox bərkdir."
+    },
+    {
+     "front": "maşın",
+     "back": {
+      "ru": "машина",
+      "en": "car",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "Maşın səhərlər işə düşmür."
+    },
+    {
+     "front": "avtobus",
+     "back": {
+      "ru": "автобус",
+      "en": "bus",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "Avtobus hər yarım saatdan bir gəlir."
+    },
+    {
+     "front": "qatar",
+     "back": {
+      "ru": "поезд",
+      "en": "train",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "Qatar gecikməyə gəldi."
+    },
+    {
+     "front": "təyyarə",
+     "back": {
+      "ru": "самолёт",
+      "en": "plane",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "Təyyarə saat yeddidə uçur."
+    },
+    {
+     "front": "velosiped",
+     "back": {
+      "ru": "велосипед",
+      "en": "bicycle",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "İşə velosipedlə gedirəm."
+    },
+    {
+     "front": "günəş",
+     "back": {
+      "ru": "солнце",
+      "en": "sun",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "Günəş altının yarısında doğur."
+    },
+    {
+     "front": "ay (göydə)",
+     "back": {
+      "ru": "луна",
+      "en": "moon",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "Ay bu gecə bədirlənib."
+    },
+    {
+     "front": "ulduz",
+     "back": {
+      "ru": "звезда",
+      "en": "star",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Göydə parlaq bir ulduz görünür."
+    },
+    {
+     "front": "göy",
+     "back": {
+      "ru": "небо",
+      "en": "sky",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "Göy açıqdır."
+    },
+    {
+     "front": "yağış",
+     "back": {
+      "ru": "дождь",
+      "en": "rain",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "Yağış dünəndən dayanmır."
+    },
+    {
+     "front": "külək",
+     "back": {
+      "ru": "ветер",
+      "en": "wind",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "Külək stulları aşırdı."
+    },
+    {
+     "front": "qar",
+     "back": {
+      "ru": "снег",
+      "en": "snow",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Burada qar nadir olur."
+    },
+    {
+     "front": "od",
+     "back": {
+      "ru": "огонь",
+      "en": "fire",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Buxarıda od qaladıq."
+    },
+    {
+     "front": "torpaq",
+     "back": {
+      "ru": "земля",
+      "en": "earth",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "Torpaq hələ də yaşdır."
+    },
+    {
+     "front": "ağac",
+     "back": {
+      "ru": "дерево",
+      "en": "tree",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "Ağac həyətə kölgə salır."
+    },
+    {
+     "front": "gül",
+     "back": {
+      "ru": "цветок",
+      "en": "flower",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "Küçədən bir gül gətirdim."
+    },
+    {
+     "front": "heyvan",
+     "back": {
+      "ru": "животное",
+      "en": "animal",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "O nə heyvandır?"
+    },
+    {
+     "front": "it",
+     "back": {
+      "ru": "собака",
+      "en": "dog",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "İt qapının ağzında yatır."
+    },
+    {
+     "front": "pişik",
+     "back": {
+      "ru": "кошка",
+      "en": "cat",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "Pişik dama qalxdı."
+    },
+    {
+     "front": "quş",
+     "back": {
+      "ru": "птица",
+      "en": "bird",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Səhər bir quş oxudu."
+    },
+    {
+     "front": "at",
+     "back": {
+      "ru": "лошадь",
+      "en": "horse",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "At tarlada qaçır."
+    },
+    {
+     "front": "kitab",
+     "back": {
+      "ru": "книга",
+      "en": "book",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Bu kitabın üç yüz səhifəsi var."
+    },
+    {
+     "front": "kağız",
+     "back": {
+      "ru": "бумага",
+      "en": "paper",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Mənə bir vərəq kağız ver."
+    },
+    {
+     "front": "qələm",
+     "back": {
+      "ru": "ручка",
+      "en": "pen",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "Qələmin mürəkkəbi qurtardı."
+    },
+    {
+     "front": "telefon",
+     "back": {
+      "ru": "телефон",
+      "en": "phone",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "Telefon iki dəfə zəng çaldı."
+    },
+    {
+     "front": "kompüter",
+     "back": {
+      "ru": "компьютер",
+      "en": "computer",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "Kompüter yavaş işləyir."
+    },
+    {
+     "front": "pul",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "Yanımda pul yoxdur."
+    },
+    {
+     "front": "açar",
+     "back": {
+      "ru": "ключ",
+      "en": "key",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "Ev açarını itirdim."
+    },
+    {
+     "front": "qol saatı",
+     "back": {
+      "ru": "часы",
+      "en": "watch",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "Qol saatım qabağa gedir."
+    },
+    {
+     "front": "işıq",
+     "back": {
+      "ru": "свет",
+      "en": "light",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "İşığı yandır, zəhmət olmasa."
+    },
+    {
+     "front": "musiqi",
+     "back": {
+      "ru": "музыка",
+      "en": "music",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "Musiqi yan kafedən gəlir."
+    },
+    {
+     "front": "film",
+     "back": {
+      "ru": "фильм",
+      "en": "film",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "Film saat doqquzda başlayır."
+    },
+    {
+     "front": "foto",
+     "back": {
+      "ru": "фотография",
+      "en": "photo",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "Meydanın fotosunu çəkdim."
+    },
+    {
+     "front": "məktub",
+     "back": {
+      "ru": "письмо",
+      "en": "letter",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "Nənəmdən məktub aldım."
+    },
+    {
+     "front": "qəzet",
+     "back": {
+      "ru": "газета",
+      "en": "newspaper",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Səhər yeməyində qəzet oxuyuram."
+    },
+    {
+     "front": "rəng",
+     "back": {
+      "ru": "цвет",
+      "en": "colour",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "Maşının rəngi nədir?"
+    },
+    {
+     "front": "söz",
+     "back": {
+      "ru": "слово",
+      "en": "word",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "Son sözü başa düşmədim."
+    },
+    {
+     "front": "dil",
+     "back": {
+      "ru": "язык",
+      "en": "language",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "Azərbaycan dili mənim ana dilimdir."
+    },
+    {
+     "front": "baş",
+     "back": {
+      "ru": "голова",
+      "en": "head",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Dünəndən başım ağrıyır."
+    },
+    {
+     "front": "əl",
+     "back": {
+      "ru": "рука",
+      "en": "hand",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Mənə əlini ver."
+    },
+    {
+     "front": "ayaq",
+     "back": {
+      "ru": "нога",
+      "en": "foot",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Ayağım şişib."
+    },
+    {
+     "front": "göz",
+     "back": {
+      "ru": "глаз",
+      "en": "eye",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "Gözümə toz düşdü."
+    },
+    {
+     "front": "ağız",
+     "back": {
+      "ru": "рот",
+      "en": "mouth",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Ağzını aç, dedi həkim."
+    },
+    {
+     "front": "ürək",
+     "back": {
+      "ru": "сердце",
+      "en": "heart",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "Ürək sürətlə döyünür."
+    },
+    {
+     "front": "saç",
+     "back": {
+      "ru": "волосы",
+      "en": "hair",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Dünən saçımı kəsdirdim."
+    },
+    {
+     "front": "bədən",
+     "back": {
+      "ru": "тело",
+      "en": "body",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "Bədən istirahət istəyir."
+    },
+    {
+     "front": "yaxşı",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Yaxşı bir iş günü idi."
+    },
+    {
+     "front": "pis",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "Hava pisdir."
+    },
+    {
+     "front": "böyük",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Bizə böyük masa lazımdır."
+    },
+    {
+     "front": "kiçik",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Otaq kiçikdir, amma işıqlıdır."
+    },
+    {
+     "front": "yeni",
+     "back": {
+      "ru": "новый",
+      "en": "new",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "Yeni telefon aldım."
+    },
+    {
+     "front": "köhnə",
+     "back": {
+      "ru": "старый",
+      "en": "old",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Bu bina köhnədir."
+    },
+    {
+     "front": "gənc",
+     "back": {
+      "ru": "молодой",
+      "en": "young",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "O gənc müəllimdir."
+    },
+    {
+     "front": "hündür",
+     "back": {
+      "ru": "высокий",
+      "en": "tall",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "Bina çox hündürdür."
+    },
+    {
+     "front": "alçaq",
+     "back": {
+      "ru": "низкий",
+      "en": "short",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "Tavan alçaqdır."
+    },
+    {
+     "front": "uzun",
+     "back": {
+      "ru": "длинный",
+      "en": "long",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "Yol uzundur."
+    },
+    {
+     "front": "qısa",
+     "back": {
+      "ru": "короткий",
+      "en": "short",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "Film qısa idi."
+    },
+    {
+     "front": "isti",
+     "back": {
+      "ru": "горячий",
+      "en": "hot",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "Çay istidir."
+    },
+    {
+     "front": "soyuq",
+     "back": {
+      "ru": "холодный",
+      "en": "cold",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "Otaq soyuqdur."
+    },
+    {
+     "front": "gözəl",
+     "back": {
+      "ru": "красивый",
+      "en": "beautiful",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Necə gözəl mənzərədir!"
+    },
+    {
+     "front": "çirkin",
+     "back": {
+      "ru": "некрасивый",
+      "en": "ugly",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "Yeni bina çirkindir."
+    },
+    {
+     "front": "asan",
+     "back": {
+      "ru": "лёгкий",
+      "en": "easy",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "Tapşırıq asan idi."
+    },
+    {
+     "front": "çətin",
+     "back": {
+      "ru": "трудный",
+      "en": "difficult",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "Sual çətindir."
+    },
+    {
+     "front": "güclü",
+     "back": {
+      "ru": "сильный",
+      "en": "strong",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "Qəhvə tünddür."
+    },
+    {
+     "front": "zəif",
+     "back": {
+      "ru": "слабый",
+      "en": "weak",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "Siqnal zəifdir."
+    },
+    {
+     "front": "sürətli",
+     "back": {
+      "ru": "быстрый",
+      "en": "fast",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "Qatar sürətlidir."
+    },
+    {
+     "front": "yavaş",
+     "back": {
+      "ru": "медленный",
+      "en": "slow",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "Burada xidmət yavaşdır."
+    },
+    {
+     "front": "bahalı",
+     "back": {
+      "ru": "дорогой",
+      "en": "expensive",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "Mehmanxana bahalıdır."
+    },
+    {
+     "front": "ucuz",
+     "back": {
+      "ru": "дешёвый",
+      "en": "cheap",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "Ucuz bilet tapdım."
+    },
+    {
+     "front": "təmiz",
+     "back": {
+      "ru": "чистый",
+      "en": "clean",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "Döşəmə təmizdir."
+    },
+    {
+     "front": "çirkli",
+     "back": {
+      "ru": "грязный",
+      "en": "dirty",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "Maşın tozdan çirklidir."
+    },
+    {
+     "front": "dolu",
+     "back": {
+      "ru": "полный",
+      "en": "full",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "Avtobus dolu gəldi."
+    },
+    {
+     "front": "boş",
+     "back": {
+      "ru": "пустой",
+      "en": "empty",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "Stəkan boşdur."
+    },
+    {
+     "front": "xoşbəxt",
+     "back": {
+      "ru": "счастливый",
+      "en": "happy",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "O xəbərdən xoşbəxt oldu."
+    },
+    {
+     "front": "kədərli",
+     "back": {
+      "ru": "грустный",
+      "en": "sad",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "İşdən kədərli qayıtdı."
+    },
+    {
+     "front": "yorğun",
+     "back": {
+      "ru": "усталый",
+      "en": "tired",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Bu gündən sonra yorğunam."
+    },
+    {
+     "front": "xəstə",
+     "back": {
+      "ru": "больной",
+      "en": "sick",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "Oğlum xəstədir."
+    },
+    {
+     "front": "düzgün",
+     "back": {
+      "ru": "правильный",
+      "en": "right",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "Cavab düzgündür."
+    },
+    {
+     "front": "səhv",
+     "back": {
+      "ru": "неправильный",
+      "en": "wrong",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "Nömrə səhvdir."
+    },
+    {
+     "front": "ağ",
+     "back": {
+      "ru": "белый",
+      "en": "white",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "Divar ağdır."
+    },
+    {
+     "front": "qara",
+     "back": {
+      "ru": "чёрный",
+      "en": "black",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Qara pişiyim var."
+    },
+    {
+     "front": "qırmızı",
+     "back": {
+      "ru": "красный",
+      "en": "red",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "İşıqfor qırmızıdır."
+    },
+    {
+     "front": "mavi",
+     "back": {
+      "ru": "синий",
+      "en": "blue",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "Dəniz çox mavidir."
+    },
+    {
+     "front": "yaşıl",
+     "back": {
+      "ru": "зелёный",
+      "en": "green",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "Yazda yarpaqlar yaşıllaşır."
+    },
+    {
+     "front": "sarı",
+     "back": {
+      "ru": "жёлтый",
+      "en": "yellow",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "Ev sarıdır."
+    },
+    {
+     "front": "burada",
+     "back": {
+      "ru": "здесь",
+      "en": "here",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Burada bir dəqiqə gözlə."
+    },
+    {
+     "front": "orada",
+     "back": {
+      "ru": "там",
+      "en": "there",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "Maşın oradadır."
+    },
+    {
+     "front": "çox",
+     "back": {
+      "ru": "много",
+      "en": "much",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Çox çay içirəm."
+    },
+    {
+     "front": "az",
+     "back": {
+      "ru": "мало",
+      "en": "little",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "Bu gecə az yatdım."
+    },
+    {
+     "front": "daha çox",
+     "back": {
+      "ru": "больше",
+      "en": "more",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Daha çox vaxt istəyirəm."
+    },
+    {
+     "front": "daha az",
+     "back": {
+      "ru": "меньше",
+      "en": "less",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Bu gün daha az adam var."
+    },
+    {
+     "front": "də",
+     "back": {
+      "ru": "тоже",
+      "en": "also",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "Mən də gedirəm."
+    },
+    {
+     "front": "yaxşı (zərf)",
+     "back": {
+      "ru": "хорошо",
+      "en": "well",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "O fransızca yaxşı danışır."
+    },
+    {
+     "front": "pis (zərf)",
+     "back": {
+      "ru": "плохо",
+      "en": "badly",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "Bu gecə pis yatdım."
+    },
+    {
+     "front": "ilə",
+     "back": {
+      "ru": "с",
+      "en": "with",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Bacımla gedirəm."
+    },
+    {
+     "front": "olmadan",
+     "back": {
+      "ru": "без",
+      "en": "without",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Qəhvəni şəkərsiz içirəm."
+    },
+    {
+     "front": "üçün",
+     "back": {
+      "ru": "для",
+      "en": "for",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Bu bağlama sənin üçündür."
+    },
+    {
+     "front": "amma",
+     "back": {
+      "ru": "но",
+      "en": "but",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Getmək istəyirdim, amma alınmır."
+    },
+    {
+     "front": "yoxsa",
+     "back": {
+      "ru": "или",
+      "en": "or",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Çay, yoxsa qəhvə?"
+    },
+    {
+     "front": "çünki",
+     "back": {
+      "ru": "потому что",
+      "en": "because",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "Evdə qaldım, çünki yağış yağırdı."
+    },
+    {
+     "front": "əgər",
+     "back": {
+      "ru": "если",
+      "en": "if",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Əgər yağış yağsa, evdə qalarıq."
+    },
+    {
+     "front": "bəlkə",
+     "back": {
+      "ru": "может быть",
+      "en": "maybe",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "Bəlkə sabah gələr."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "olmaq",
+     "back": {
+      "ru": "быть",
+      "en": "to be",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "O musiqi müəllimidir."
+    },
+    {
+     "front": "yerləşmək",
+     "back": {
+      "ru": "находиться",
+      "en": "to be (state)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "Kitab masanın üstündə yerləşir."
+    },
+    {
+     "front": "malik olmaq",
+     "back": {
+      "ru": "иметь",
+      "en": "to have",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "İki kiçik qardaşım var."
+    },
+    {
+     "front": "etmək",
+     "back": {
+      "ru": "делать",
+      "en": "to do",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Bazar günü nə edirsən?"
+    },
+    {
+     "front": "getmək",
+     "back": {
+      "ru": "идти",
+      "en": "to go",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "İndi bazara gedirəm."
+    },
+    {
+     "front": "gəlmək",
+     "back": {
+      "ru": "приходить",
+      "en": "to come",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "Şam yeməyinə gəlirsən?"
+    },
+    {
+     "front": "demək",
+     "back": {
+      "ru": "говорить",
+      "en": "to say",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Mənə həqiqəti de."
+    },
+    {
+     "front": "görmək",
+     "back": {
+      "ru": "видеть",
+      "en": "to see",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "Qardaşını küçədə gördüm."
+    },
+    {
+     "front": "vermək",
+     "back": {
+      "ru": "давать",
+      "en": "to give",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Açarı mənə ver, zəhmət olmasa."
+    },
+    {
+     "front": "bilmək",
+     "back": {
+      "ru": "знать",
+      "en": "to know",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "Onun harada yaşadığını bilmirəm."
+    },
+    {
+     "front": "bacarmaq",
+     "back": {
+      "ru": "мочь",
+      "en": "can",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "Mənə kömək edə bilərsən?"
+    },
+    {
+     "front": "istəmək",
+     "back": {
+      "ru": "хотеть",
+      "en": "to want",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Bir stəkan su istəyirəm."
+    },
+    {
+     "front": "məcbur olmaq",
+     "back": {
+      "ru": "быть должным",
+      "en": "must",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Bu gün tez çıxmalıyam."
+    },
+    {
+     "front": "qalmaq",
+     "back": {
+      "ru": "оставаться",
+      "en": "to stay",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Bu axşam evdə qalıram."
+    },
+    {
+     "front": "keçmək",
+     "back": {
+      "ru": "проходить",
+      "en": "to pass",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "Avtobus doqquzda keçir."
+    },
+    {
+     "front": "çatmaq",
+     "back": {
+      "ru": "прибывать",
+      "en": "to arrive",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "Qatar gecikməyə çatdı."
+    },
+    {
+     "front": "çıxmaq",
+     "back": {
+      "ru": "выходить",
+      "en": "to leave",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "İşdən altıda çıxıram."
+    },
+    {
+     "front": "girmək",
+     "back": {
+      "ru": "входить",
+      "en": "to enter",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Gir, qapı açıqdır."
+    },
+    {
+     "front": "qayıtmaq",
+     "back": {
+      "ru": "возвращаться",
+      "en": "to return",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Yarım saatdan sonra qayıdıram."
+    },
+    {
+     "front": "başlamaq",
+     "back": {
+      "ru": "начинать",
+      "en": "to begin",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "Dərs saat səkkizdə başlayır."
+    },
+    {
+     "front": "bitirmək",
+     "back": {
+      "ru": "заканчивать",
+      "en": "to finish",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Kitabı dünən bitirdim."
+    },
+    {
+     "front": "davam etmək",
+     "back": {
+      "ru": "продолжать",
+      "en": "to continue",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "Yağış davam edir."
+    },
+    {
+     "front": "dayanmaq",
+     "back": {
+      "ru": "останавливаться",
+      "en": "to stop",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "Maşın qapının qabağında dayandı."
+    },
+    {
+     "front": "gözləmək",
+     "back": {
+      "ru": "ждать",
+      "en": "to wait",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "Səni vağzalda gözləyirəm."
+    },
+    {
+     "front": "tapmaq",
+     "back": {
+      "ru": "находить",
+      "en": "to find",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "Açarları masanın üstündə tapdım."
+    },
+    {
+     "front": "axtarmaq",
+     "back": {
+      "ru": "искать",
+      "en": "to look for",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Qrammatika kitabı axtarıram."
+    },
+    {
+     "front": "itirmək",
+     "back": {
+      "ru": "терять",
+      "en": "to lose",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "Yeddinin qatarına gecikdim."
+    },
+    {
+     "front": "qalib gəlmək",
+     "back": {
+      "ru": "выигрывать",
+      "en": "to win",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "Bizim komanda qalib gəldi."
+    },
+    {
+     "front": "almaq",
+     "back": {
+      "ru": "покупать",
+      "en": "to buy",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "Şam üçün çörək aldım."
+    },
+    {
+     "front": "satmaq",
+     "back": {
+      "ru": "продавать",
+      "en": "to sell",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "Küncdə meyvə satırlar."
+    },
+    {
+     "front": "ödəmək",
+     "back": {
+      "ru": "платить",
+      "en": "to pay",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "Qəhvənin pulunu mən ödəyirəm."
+    },
+    {
+     "front": "dəyər olmaq",
+     "back": {
+      "ru": "стоить",
+      "en": "to cost",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Bilet neçəyədir?"
+    },
+    {
+     "front": "işləmək",
+     "back": {
+      "ru": "работать",
+      "en": "to work",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Xəstəxanada işləyirəm."
+    },
+    {
+     "front": "oxumaq (təhsil)",
+     "back": {
+      "ru": "учиться",
+      "en": "to study",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Bir ildir azərbaycanca oxuyuram."
+    },
+    {
+     "front": "öyrənmək",
+     "back": {
+      "ru": "изучать",
+      "en": "to learn",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "Üzməyi uşaqlıqda öyrəndim."
+    },
+    {
+     "front": "öyrətmək",
+     "back": {
+      "ru": "учить",
+      "en": "to teach",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "O kənd məktəbində dərs deyir."
+    },
+    {
+     "front": "oxumaq",
+     "back": {
+      "ru": "читать",
+      "en": "to read",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Səhər qəzet oxuyuram."
+    },
+    {
+     "front": "yazmaq",
+     "back": {
+      "ru": "писать",
+      "en": "to write",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Ona uzun bir məktub yazdım."
+    },
+    {
+     "front": "danışmaq",
+     "back": {
+      "ru": "разговаривать",
+      "en": "to speak",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Dünən telefonla danışdıq."
+    },
+    {
+     "front": "eşitmək",
+     "back": {
+      "ru": "слышать",
+      "en": "to hear",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "Mətbəxdən səs eşitdim."
+    },
+    {
+     "front": "qulaq asmaq",
+     "back": {
+      "ru": "слушать",
+      "en": "to listen",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Dediklərimə yaxşı qulaq as."
+    },
+    {
+     "front": "baxmaq",
+     "back": {
+      "ru": "смотреть",
+      "en": "to look",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Sola bax."
+    },
+    {
+     "front": "hiss etmək",
+     "back": {
+      "ru": "чувствовать",
+      "en": "to feel",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Əllərimdə soyuq hiss edirəm."
+    },
+    {
+     "front": "düşünmək",
+     "back": {
+      "ru": "думать",
+      "en": "to think",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Dünəndən bunu düşünürəm."
+    },
+    {
+     "front": "xatırlamaq",
+     "back": {
+      "ru": "помнить",
+      "en": "to remember",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "O günü yaxşı xatırlayıram."
+    },
+    {
+     "front": "unutmaq",
+     "back": {
+      "ru": "забывать",
+      "en": "to forget",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "Adını unutdum."
+    },
+    {
+     "front": "başa düşmək",
+     "back": {
+      "ru": "понимать",
+      "en": "to understand",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "Sualı başa düşmədim."
+    },
+    {
+     "front": "izah etmək",
+     "back": {
+      "ru": "объяснять",
+      "en": "to explain",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Bunu bir də izah et."
+    },
+    {
+     "front": "soruşmaq",
+     "back": {
+      "ru": "спрашивать",
+      "en": "to ask",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "Qonşudan soruşdum."
+    },
+    {
+     "front": "cavab vermək",
+     "back": {
+      "ru": "отвечать",
+      "en": "to answer",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "O hələ cavab verməyib."
+    },
+    {
+     "front": "çağırmaq",
+     "back": {
+      "ru": "звать",
+      "en": "to call",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Tez həkimi çağır."
+    },
+    {
+     "front": "zəng etmək",
+     "back": {
+      "ru": "звонить",
+      "en": "to phone",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Axşam sənə zəng edərəm."
+    },
+    {
+     "front": "açmaq",
+     "back": {
+      "ru": "открывать",
+      "en": "to open",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Pəncərəni aç, zəhmət olmasa."
+    },
+    {
+     "front": "bağlamaq",
+     "back": {
+      "ru": "закрывать",
+      "en": "to close",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Çıxanda qapını bağla."
+    },
+    {
+     "front": "qoymaq",
+     "back": {
+      "ru": "класть",
+      "en": "to put",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Çörəyi masanın üstünə qoy."
+    },
+    {
+     "front": "çıxarmaq",
+     "back": {
+      "ru": "убирать",
+      "en": "to take off",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Girişdə ayaqqabılarını çıxar."
+    },
+    {
+     "front": "özü ilə aparmaq",
+     "back": {
+      "ru": "нести",
+      "en": "to take",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "Çətiri özümlə aparıram."
+    },
+    {
+     "front": "gətirmək",
+     "back": {
+      "ru": "приносить",
+      "en": "to bring",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "Hamı üçün tort gətirdim."
+    },
+    {
+     "front": "göndərmək",
+     "back": {
+      "ru": "посылать",
+      "en": "to send",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Məktubu bazar ertəsi göndərdim."
+    },
+    {
+     "front": "qəbul etmək (almaq)",
+     "back": {
+      "ru": "получать",
+      "en": "to receive",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "Mesajını aldım."
+    },
+    {
+     "front": "saxlamaq",
+     "back": {
+      "ru": "хранить",
+      "en": "to keep",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Şəkilləri qutuda saxlayıram."
+    },
+    {
+     "front": "qoyub getmək",
+     "back": {
+      "ru": "оставлять",
+      "en": "to leave behind",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "Paltarı maşında qoyub getdim."
+    },
+    {
+     "front": "tutmaq",
+     "back": {
+      "ru": "держать",
+      "en": "to hold",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Stəkanı bərk tut."
+    },
+    {
+     "front": "itələmək",
+     "back": {
+      "ru": "толкать",
+      "en": "to push",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Qapını itələ, dartma."
+    },
+    {
+     "front": "dartmaq",
+     "back": {
+      "ru": "тянуть",
+      "en": "to pull",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Kəndiri bərk dart."
+    },
+    {
+     "front": "tutmaq (havada)",
+     "back": {
+      "ru": "ловить",
+      "en": "to catch",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "Topu havada tutdum."
+    },
+    {
+     "front": "göstərmək",
+     "back": {
+      "ru": "показывать",
+      "en": "to show",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Mənə şəkli göstər."
+    },
+    {
+     "front": "gizlətmək",
+     "back": {
+      "ru": "прятать",
+      "en": "to hide",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "Hədiyyəni şkafda gizlətdi."
+    },
+    {
+     "front": "dəyişmək",
+     "back": {
+      "ru": "менять",
+      "en": "to change",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "Fikrimi dəyişdim."
+    },
+    {
+     "front": "yaratmaq",
+     "back": {
+      "ru": "создавать",
+      "en": "to create",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Onlar yeni iş yeri yaratdılar."
+    },
+    {
+     "front": "tikmək",
+     "back": {
+      "ru": "строить",
+      "en": "to build",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Yanımızda bina tikirlər."
+    },
+    {
+     "front": "sındırmaq",
+     "back": {
+      "ru": "ломать",
+      "en": "to break",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Səhər bir stəkan sındırdım."
+    },
+    {
+     "front": "kəsmək",
+     "back": {
+      "ru": "резать",
+      "en": "to cut",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Çörəyi dilim-dilim kəs."
+    },
+    {
+     "front": "təmizləmək",
+     "back": {
+      "ru": "убирать",
+      "en": "to clean",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "Bütün mətbəxi təmizlədim."
+    },
+    {
+     "front": "yumaq",
+     "back": {
+      "ru": "мыть",
+      "en": "to wash",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Yeməkdən əvvəl əllərini yu."
+    },
+    {
+     "front": "qurutmaq",
+     "back": {
+      "ru": "сушить",
+      "en": "to dry",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Saçını yaxşı qurut."
+    },
+    {
+     "front": "bişirmək",
+     "back": {
+      "ru": "готовить",
+      "en": "to cook",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Hər gün yemək bişirirəm."
+    },
+    {
+     "front": "yemək",
+     "back": {
+      "ru": "есть",
+      "en": "to eat",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Saat səkkizdə yeyirik."
+    },
+    {
+     "front": "içmək",
+     "back": {
+      "ru": "пить",
+      "en": "to drink",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Gün ərzində su içirəm."
+    },
+    {
+     "front": "dadmaq",
+     "back": {
+      "ru": "пробовать",
+      "en": "to taste",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Şorbanı dad, dadlıdır."
+    },
+    {
+     "front": "süfrəyə vermək",
+     "back": {
+      "ru": "подавать",
+      "en": "to serve",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Naharı saat on ikidə verirlər."
+    },
+    {
+     "front": "yatmaq",
+     "back": {
+      "ru": "спать",
+      "en": "to sleep",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "Səkkiz saat dalbadal yatdım."
+    },
+    {
+     "front": "oyanmaq",
+     "back": {
+      "ru": "просыпаться",
+      "en": "to wake up",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Həmişə saat altıda oyanıram."
+    },
+    {
+     "front": "qalxmaq",
+     "back": {
+      "ru": "вставать",
+      "en": "to get up",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Qalx, gecdir."
+    },
+    {
+     "front": "oturmaq",
+     "back": {
+      "ru": "садиться",
+      "en": "to sit",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Bura, yanıma otur."
+    },
+    {
+     "front": "uzanmaq",
+     "back": {
+      "ru": "ложиться",
+      "en": "to lie down",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "İş günləri tez uzanıram."
+    },
+    {
+     "front": "piyada getmək",
+     "back": {
+      "ru": "ходить",
+      "en": "to walk",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Gündə yarım saat piyada gedirəm."
+    },
+    {
+     "front": "qaçmaq",
+     "back": {
+      "ru": "бегать",
+      "en": "to run",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Səhər parkda qaçıram."
+    },
+    {
+     "front": "tullanmaq",
+     "back": {
+      "ru": "прыгать",
+      "en": "to jump",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "Pişik masaya tullandı."
+    },
+    {
+     "front": "üzmək",
+     "back": {
+      "ru": "плавать",
+      "en": "to swim",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "Üzməyi çayda öyrəndim."
+    },
+    {
+     "front": "uçmaq",
+     "back": {
+      "ru": "летать",
+      "en": "to fly",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Quşlar cənuba uçur."
+    },
+    {
+     "front": "səyahət etmək",
+     "back": {
+      "ru": "путешествовать",
+      "en": "to travel",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Qatarla səyahət etdik."
+    },
+    {
+     "front": "sürmək",
+     "back": {
+      "ru": "водить",
+      "en": "to drive",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "O ehtiyatla maşın sürür."
+    },
+    {
+     "front": "qalxmaq (yuxarı)",
+     "back": {
+      "ru": "подниматься",
+      "en": "to go up",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Üçüncü mərtəbəyə qalxdıq."
+    },
+    {
+     "front": "enmək",
+     "back": {
+      "ru": "спускаться",
+      "en": "to go down",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Pillələrlə yavaş en."
+    },
+    {
+     "front": "düşmək",
+     "back": {
+      "ru": "падать",
+      "en": "to fall",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "Fincan masadan düşdü."
+    },
+    {
+     "front": "yaşamaq (məskən)",
+     "back": {
+      "ru": "жить",
+      "en": "to live (reside)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Vağzalın yaxınlığında yaşayıram."
+    },
+    {
+     "front": "yaşamaq",
+     "back": {
+      "ru": "жить",
+      "en": "to live",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "O doxsan il yaşadı."
+    },
+    {
+     "front": "ölmək",
+     "back": {
+      "ru": "умирать",
+      "en": "to die",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "Ağac qışda quruyub öldü."
+    },
+    {
+     "front": "doğulmaq",
+     "back": {
+      "ru": "рождаться",
+      "en": "to be born",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Mart ayında doğulmuşam."
+    },
+    {
+     "front": "böyümək",
+     "back": {
+      "ru": "расти",
+      "en": "to grow",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Uşaqlar tez böyüyür."
+    },
+    {
+     "front": "evlənmək",
+     "back": {
+      "ru": "жениться",
+      "en": "to marry",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Onlar yazda evləndilər."
+    },
+    {
+     "front": "kömək etmək",
+     "back": {
+      "ru": "помогать",
+      "en": "to help",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Bu çantalarla mənə kömək et."
+    },
+    {
+     "front": "xoşuna gəlmək",
+     "back": {
+      "ru": "нравиться",
+      "en": "to like",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "Bu qəhvə çox xoşuma gəlir."
+    },
+    {
+     "front": "sevmək",
+     "back": {
+      "ru": "любить",
+      "en": "to love",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "O ailəsini hər şeydən çox sevir."
+    },
+    {
+     "front": "nifrət etmək",
+     "back": {
+      "ru": "ненавидеть",
+      "en": "to hate",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Tez qalxmağa nifrət edirəm."
+    },
+    {
+     "front": "gülmək",
+     "back": {
+      "ru": "смеяться",
+      "en": "to laugh",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Bütün axşam güldük."
+    },
+    {
+     "front": "ağlamaq",
+     "back": {
+      "ru": "плакать",
+      "en": "to cry",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "Uşaq yuxusuzluqdan ağladı."
+    },
+    {
+     "front": "oxumaq (mahnı)",
+     "back": {
+      "ru": "петь",
+      "en": "to sing",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Onlar kilsə xorunda oxuyurlar."
+    },
+    {
+     "front": "rəqs etmək",
+     "back": {
+      "ru": "танцевать",
+      "en": "to dance",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Gecə yarısına qədər rəqs etdik."
+    },
+    {
+     "front": "oynamaq",
+     "back": {
+      "ru": "играть",
+      "en": "to play (children)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Uşaqlar bağçada oynayır."
+    },
+    {
+     "front": "matç keçirmək",
+     "back": {
+      "ru": "играть",
+      "en": "to play (a game)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "Şənbə günü matç keçiririk."
+    },
+    {
+     "front": "toxunmaq",
+     "back": {
+      "ru": "трогать",
+      "en": "to touch",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "Təzə boyaya toxunma."
+    },
+    {
+     "front": "dincəlmək",
+     "back": {
+      "ru": "отдыхать",
+      "en": "to rest",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Bir az dincəl."
+    },
+    {
+     "front": "cəhd etmək",
+     "back": {
+      "ru": "пытаться",
+      "en": "to try",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "Üç dəfə sənə zəng etməyə cəhd etdim."
+    },
+    {
+     "front": "bacarmaq (nail olmaq)",
+     "back": {
+      "ru": "удаваться",
+      "en": "to manage",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "Bugünkü biletləri tapa bildim."
+    },
+    {
+     "front": "ehtiyacı olmaq",
+     "back": {
+      "ru": "нуждаться",
+      "en": "to need",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "İndi köməyə ehtiyacım var."
+    },
+    {
+     "front": "istifadə etmək",
+     "back": {
+      "ru": "использовать",
+      "en": "to use",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Telefondan hər şey üçün istifadə edirəm."
+    },
+    {
+     "front": "seçmək",
+     "back": {
+      "ru": "выбирать",
+      "en": "to choose",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Restoranı sən seç."
+    },
+    {
+     "front": "qərar vermək",
+     "back": {
+      "ru": "решать",
+      "en": "to decide",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Bir gün də qalmağa qərar verdik."
+    },
+    {
+     "front": "qəbul etmək",
+     "back": {
+      "ru": "принимать",
+      "en": "to accept",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "O dəvəti qəbul etdi."
+    },
+    {
+     "front": "imtina etmək",
+     "back": {
+      "ru": "отказывать",
+      "en": "to refuse",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "O qonşuların köməyindən imtina etdi."
+    },
+    {
+     "front": "söz vermək",
+     "back": {
+      "ru": "обещать",
+      "en": "to promise",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "O tez qayıtmağa söz verdi."
+    },
+    {
+     "front": "təşəkkür etmək",
+     "back": {
+      "ru": "благодарить",
+      "en": "to thank",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "Səbrinə görə təşəkkür edirəm."
+    },
+    {
+     "front": "xahiş etmək",
+     "back": {
+      "ru": "просить",
+      "en": "to ask for",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "Bir stəkan su xahiş etdim."
+    },
+    {
+     "front": "baş vermək",
+     "back": {
+      "ru": "случаться",
+      "en": "to happen",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Dünən nə baş verdi?"
+    },
+    {
+     "front": "görünmək",
+     "back": {
+      "ru": "казаться",
+      "en": "to seem",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Yorğun görünürsən."
+    },
+    {
+     "front": "yandırmaq",
+     "back": {
+      "ru": "включать",
+      "en": "to turn on",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Mətbəxdə işığı yandır."
+    },
+    {
+     "front": "söndürmək",
+     "back": {
+      "ru": "выключать",
+      "en": "to turn off",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Çıxmazdan əvvəl kompüteri söndür."
+    },
+    {
+     "front": "yağış yağmaq",
+     "back": {
+      "ru": "идти (о дожде)",
+      "en": "to rain",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Bütün gecə yağış yağdı."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "su",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Mənə bir stəkan su gətir."
+    },
+    {
+     "front": "çörək",
+     "back": {
+      "ru": "хлеб",
+      "en": "bread",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "Çörək hələ istidir."
+    },
+    {
+     "front": "süd",
+     "back": {
+      "ru": "молоко",
+      "en": "milk",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "Səhər yeməyində süd içirəm."
+    },
+    {
+     "front": "qəhvə",
+     "back": {
+      "ru": "кофе",
+      "en": "coffee",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Bir qəhvə, zəhmət olmasa."
+    },
+    {
+     "front": "çay",
+     "back": {
+      "ru": "чай",
+      "en": "tea",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "Günortadan sonra çay dəmləyirəm."
+    },
+    {
+     "front": "şirə",
+     "back": {
+      "ru": "сок",
+      "en": "juice",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Təzə sıxılmış portağal şirəsi."
+    },
+    {
+     "front": "şərab",
+     "back": {
+      "ru": "вино",
+      "en": "wine",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Bir qədəh qırmızı şərab."
+    },
+    {
+     "front": "pivə",
+     "back": {
+      "ru": "пиво",
+      "en": "beer",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "Pivə yaxşı soyudulub."
+    },
+    {
+     "front": "buz",
+     "back": {
+      "ru": "лёд",
+      "en": "ice",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "İçkiyə buz istəyirsən?"
+    },
+    {
+     "front": "şəkər",
+     "back": {
+      "ru": "сахар",
+      "en": "sugar",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Qəhvəni şəkərsiz içirəm."
+    },
+    {
+     "front": "duz",
+     "back": {
+      "ru": "соль",
+      "en": "salt",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "Şorbada duz çatmır."
+    },
+    {
+     "front": "istiot",
+     "back": {
+      "ru": "перец",
+      "en": "pepper",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Bir az istiot əlavə et."
+    },
+    {
+     "front": "zeytun yağı",
+     "back": {
+      "ru": "оливковое масло",
+      "en": "olive oil",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Salata zeytun yağı tök."
+    },
+    {
+     "front": "kərə yağı",
+     "back": {
+      "ru": "масло",
+      "en": "butter",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Çörəyə kərə yağı sürt."
+    },
+    {
+     "front": "pendir",
+     "back": {
+      "ru": "сыр",
+      "en": "cheese",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Bu pendir dağlardandır."
+    },
+    {
+     "front": "yumurta",
+     "back": {
+      "ru": "яйцо",
+      "en": "egg",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "Bir bişmiş yumurta yedim."
+    },
+    {
+     "front": "ət",
+     "back": {
+      "ru": "мясо",
+      "en": "meat",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Axşamlar ət yemirəm."
+    },
+    {
+     "front": "toyuq",
+     "back": {
+      "ru": "курица",
+      "en": "chicken",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Sobada toyuq və kartof."
+    },
+    {
+     "front": "balıq",
+     "back": {
+      "ru": "рыба",
+      "en": "fish",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "Balıq bu gün təzədir."
+    },
+    {
+     "front": "treska",
+     "back": {
+      "ru": "треска",
+      "en": "cod",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "Treska duzlanmış saxlanılır."
+    },
+    {
+     "front": "sardina",
+     "back": {
+      "ru": "сардина",
+      "en": "sardine",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Kömürdə bişmiş sardina."
+    },
+    {
+     "front": "tunes",
+     "back": {
+      "ru": "тунец",
+      "en": "tuna",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Tunes balıqlı sendviç."
+    },
+    {
+     "front": "krevet",
+     "back": {
+      "ru": "креветка",
+      "en": "shrimp",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Sarımsaqlı krevet."
+    },
+    {
+     "front": "dəniz məhsulları",
+     "back": {
+      "ru": "морепродукты",
+      "en": "seafood",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "Dəniz kənarında dəniz məhsulları yedik."
+    },
+    {
+     "front": "vetçina",
+     "back": {
+      "ru": "ветчина",
+      "en": "ham",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Vetçina və yemiş."
+    },
+    {
+     "front": "kolbasa",
+     "back": {
+      "ru": "сосиска",
+      "en": "sausage",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "Uşaqlar üçün kolbasa aldım."
+    },
+    {
+     "front": "düyü",
+     "back": {
+      "ru": "рис",
+      "en": "rice",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Bazar günü düyü bişiririk."
+    },
+    {
+     "front": "kartof",
+     "back": {
+      "ru": "картофель",
+      "en": "potato",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Zeytun yağı ilə bişmiş kartof."
+    },
+    {
+     "front": "makaron",
+     "back": {
+      "ru": "макароны",
+      "en": "pasta",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Tələsəndə makaron bişirirəm."
+    },
+    {
+     "front": "un",
+     "back": {
+      "ru": "мука",
+      "en": "flour",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "Tort üçün un yoxdur."
+    },
+    {
+     "front": "şorba",
+     "back": {
+      "ru": "суп",
+      "en": "soup",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "Şorba soyuyur."
+    },
+    {
+     "front": "salat",
+     "back": {
+      "ru": "салат",
+      "en": "salad",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Pomidor salatı."
+    },
+    {
+     "front": "tərəvəz",
+     "back": {
+      "ru": "овощи",
+      "en": "vegetables",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Hər gün tərəvəz yeyirəm."
+    },
+    {
+     "front": "meyvə",
+     "back": {
+      "ru": "фрукты",
+      "en": "fruit",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "Mətbəxdə meyvə var."
+    },
+    {
+     "front": "alma",
+     "back": {
+      "ru": "яблоко",
+      "en": "apple",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "İşə bir alma aparıram."
+    },
+    {
+     "front": "armud",
+     "back": {
+      "ru": "груша",
+      "en": "pear",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Bu armud yetişib."
+    },
+    {
+     "front": "portağal",
+     "back": {
+      "ru": "апельсин",
+      "en": "orange",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "Bir portağal soydum."
+    },
+    {
+     "front": "limon",
+     "back": {
+      "ru": "лимон",
+      "en": "lemon",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Limonlu çay."
+    },
+    {
+     "front": "banan",
+     "back": {
+      "ru": "банан",
+      "en": "banana",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "Məşqdən əvvəl banan yedim."
+    },
+    {
+     "front": "üzüm",
+     "back": {
+      "ru": "виноград",
+      "en": "grape",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "Üzüm şirindir."
+    },
+    {
+     "front": "çiyələk",
+     "back": {
+      "ru": "клубника",
+      "en": "strawberry",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Qaymaqlı çiyələk."
+    },
+    {
+     "front": "gilas",
+     "back": {
+      "ru": "вишня",
+      "en": "cherry",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Gilas mövsümündə ucuzdur."
+    },
+    {
+     "front": "şaftalı",
+     "back": {
+      "ru": "персик",
+      "en": "peach",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Yaxşı yetişmiş şaftalı."
+    },
+    {
+     "front": "yemiş",
+     "back": {
+      "ru": "дыня",
+      "en": "melon",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Yemiş və vetçina."
+    },
+    {
+     "front": "qarpız",
+     "back": {
+      "ru": "арбуз",
+      "en": "watermelon",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "Yayda soyuq qarpız."
+    },
+    {
+     "front": "ananas",
+     "back": {
+      "ru": "ананас",
+      "en": "pineapple",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Ananas şirəsi."
+    },
+    {
+     "front": "əncir",
+     "back": {
+      "ru": "инжир",
+      "en": "fig",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "Qışda qurudulmuş əncir."
+    },
+    {
+     "front": "pomidor",
+     "back": {
+      "ru": "помидор",
+      "en": "tomato",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Göyərtili pomidor salatı."
+    },
+    {
+     "front": "soğan",
+     "back": {
+      "ru": "лук",
+      "en": "onion",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Əvvəlcə soğanı qızart."
+    },
+    {
+     "front": "sarımsaq",
+     "back": {
+      "ru": "чеснок",
+      "en": "garlic",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "İki diş sarımsaq bəsdir."
+    },
+    {
+     "front": "yerkökü",
+     "back": {
+      "ru": "морковь",
+      "en": "carrot",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Yerkökü şorbası."
+    },
+    {
+     "front": "kahı",
+     "back": {
+      "ru": "салат-латук",
+      "en": "lettuce",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Kahını yaxşı yu."
+    },
+    {
+     "front": "xiyar",
+     "back": {
+      "ru": "огурец",
+      "en": "cucumber",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Dilimlənmiş xiyar."
+    },
+    {
+     "front": "lobya",
+     "back": {
+      "ru": "фасоль",
+      "en": "beans",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Lobya və düyü."
+    },
+    {
+     "front": "noxud",
+     "back": {
+      "ru": "горох",
+      "en": "pea",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Yumurta ilə noxud."
+    },
+    {
+     "front": "kələm",
+     "back": {
+      "ru": "капуста",
+      "en": "cabbage",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "Kələm şorbası qış yeməyidir."
+    },
+    {
+     "front": "balqabaq",
+     "back": {
+      "ru": "тыква",
+      "en": "pumpkin",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "Payızda balqabaq şorbası bişiririk."
+    },
+    {
+     "front": "göbələk",
+     "back": {
+      "ru": "гриб",
+      "en": "mushroom",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Qovrulmuş göbələk."
+    },
+    {
+     "front": "zeytun",
+     "back": {
+      "ru": "оливка",
+      "en": "olive",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Yeməkdən əvvəl zeytun."
+    },
+    {
+     "front": "tort",
+     "back": {
+      "ru": "торт",
+      "en": "cake",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "Portağallı tort bişirdim."
+    },
+    {
+     "front": "peçenye",
+     "back": {
+      "ru": "печенье",
+      "en": "biscuit",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Çayla peçenye."
+    },
+    {
+     "front": "mürəbbə",
+     "back": {
+      "ru": "варенье",
+      "en": "jam",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "Çörəyə çiyələk mürəbbəsi sürtdüm."
+    },
+    {
+     "front": "şokolad",
+     "back": {
+      "ru": "шоколад",
+      "en": "chocolate",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Bir plitka qara şokolad."
+    },
+    {
+     "front": "dondurma",
+     "back": {
+      "ru": "мороженое",
+      "en": "ice cream",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Vanilli dondurma."
+    },
+    {
+     "front": "bal",
+     "back": {
+      "ru": "мёд",
+      "en": "honey",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Boğaz üçün ballı çay."
+    },
+    {
+     "front": "şirniyyat",
+     "back": {
+      "ru": "сладость",
+      "en": "sweet",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Axşamlar şirniyyat yemirəm."
+    },
+    {
+     "front": "desert",
+     "back": {
+      "ru": "десерт",
+      "en": "dessert",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "Desertə meyvə."
+    },
+    {
+     "front": "qatıq",
+     "back": {
+      "ru": "йогурт",
+      "en": "yoghurt",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Şəkərsiz təbii qatıq."
+    },
+    {
+     "front": "qaymaq",
+     "back": {
+      "ru": "сливки",
+      "en": "cream",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Qaymaqlı çiyələk."
+    },
+    {
+     "front": "qızardılmış çörək",
+     "back": {
+      "ru": "тост",
+      "en": "toast",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Kərə yağlı qızardılmış çörək."
+    },
+    {
+     "front": "sendviç",
+     "back": {
+      "ru": "бутерброд",
+      "en": "sandwich",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Pendirli və vetçinalı sendviç."
+    },
+    {
+     "front": "səhər yeməyi",
+     "back": {
+      "ru": "завтрак",
+      "en": "breakfast",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Səhər yeməyini yeddidə yeyirəm."
+    },
+    {
+     "front": "nahar",
+     "back": {
+      "ru": "обед",
+      "en": "lunch",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "Nahar saat birdədir."
+    },
+    {
+     "front": "şam yeməyi",
+     "back": {
+      "ru": "ужин",
+      "en": "dinner",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Şam yeməyini səkkiz radələrində yeyirik."
+    },
+    {
+     "front": "qəlyanaltı",
+     "back": {
+      "ru": "полдник",
+      "en": "snack",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Uşaqlar özləri ilə qəlyanaltı aparır."
+    },
+    {
+     "front": "yemək (öyün)",
+     "back": {
+      "ru": "приём пищи",
+      "en": "meal",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Gündə üç dəfə yemək yeyirəm."
+    },
+    {
+     "front": "qida",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "Qida masanın üstündədir."
+    },
+    {
+     "front": "içki",
+     "back": {
+      "ru": "напиток",
+      "en": "drink",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Hansı içkini istəyirsən?"
+    },
+    {
+     "front": "boşqab",
+     "back": {
+      "ru": "тарелка",
+      "en": "plate",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Boşqabları piştaxtaya qoy."
+    },
+    {
+     "front": "stəkan",
+     "back": {
+      "ru": "стакан",
+      "en": "glass",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Stəkanı yarıya qədər doldur."
+    },
+    {
+     "front": "fincan",
+     "back": {
+      "ru": "чашка",
+      "en": "cup",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Bir fincan qəhvə."
+    },
+    {
+     "front": "şüşə",
+     "back": {
+      "ru": "бутылка",
+      "en": "bottle",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Bir şüşə su."
+    },
+    {
+     "front": "qaşıq",
+     "back": {
+      "ru": "ложка",
+      "en": "spoon",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Bir xörək qaşığı çatmır."
+    },
+    {
+     "front": "çəngəl",
+     "back": {
+      "ru": "вилка",
+      "en": "fork",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "Çəngəl yerə düşdü."
+    },
+    {
+     "front": "bıçaq",
+     "back": {
+      "ru": "нож",
+      "en": "knife",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Bu bıçaq heç kəsmir."
+    },
+    {
+     "front": "salfet",
+     "back": {
+      "ru": "салфетка",
+      "en": "napkin",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Mənə salfet ver."
+    },
+    {
+     "front": "qazan",
+     "back": {
+      "ru": "кастрюля",
+      "en": "pot",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "Qazan ocağın üstündədir."
+    },
+    {
+     "front": "tava",
+     "back": {
+      "ru": "сковорода",
+      "en": "frying pan",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Tavanı qızdır."
+    },
+    {
+     "front": "restoran",
+     "back": {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "Restoranda masa sifariş etdim."
+    },
+    {
+     "front": "menyu",
+     "back": {
+      "ru": "меню",
+      "en": "menu",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Ofisiantdan menyunu istə."
+    },
+    {
+     "front": "hesab",
+     "back": {
+      "ru": "счёт",
+      "en": "bill",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "Hesab, zəhmət olmasa."
+    },
+    {
+     "front": "ofisiant",
+     "back": {
+      "ru": "официант",
+      "en": "waiter",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "Ofisiant çörək gətirdi."
+    },
+    {
+     "front": "aclıq",
+     "back": {
+      "ru": "голод",
+      "en": "hunger",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Çox acmışam."
+    },
+    {
+     "front": "susuzluq",
+     "back": {
+      "ru": "жажда",
+      "en": "thirst",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Bu istidə susuzluq gəlir."
+    },
+    {
+     "front": "dad",
+     "back": {
+      "ru": "вкус",
+      "en": "taste",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Bu şorbanın dadı azdır."
+    },
+    {
+     "front": "resept",
+     "back": {
+      "ru": "рецепт",
+      "en": "recipe",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Bu mənim nənəmin reseptidir."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "paltar",
+     "back": {
+      "ru": "одежда",
+      "en": "clothes",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Çamadana az paltar götürürəm."
+    },
+    {
+     "front": "köynək",
+     "back": {
+      "ru": "рубашка",
+      "en": "shirt",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "Köynək hələ ütülənməyib."
+    },
+    {
+     "front": "sviter",
+     "back": {
+      "ru": "свитер",
+      "en": "jumper",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Sviteri geyin, soyuqdur."
+    },
+    {
+     "front": "futbolka",
+     "back": {
+      "ru": "футболка",
+      "en": "T-shirt",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "Sadə ağ futbolka."
+    },
+    {
+     "front": "palto",
+     "back": {
+      "ru": "пальто",
+      "en": "coat",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "Paltonu maşında unutdum."
+    },
+    {
+     "front": "gödəkçə",
+     "back": {
+      "ru": "куртка",
+      "en": "jacket",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Yağış üçün gödəkçə."
+    },
+    {
+     "front": "jilet",
+     "back": {
+      "ru": "жилет",
+      "en": "waistcoat",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Köynəyin üstündən jilet."
+    },
+    {
+     "front": "şalvar",
+     "back": {
+      "ru": "брюки",
+      "en": "trousers",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Bu şalvar mənə boldur."
+    },
+    {
+     "front": "şort",
+     "back": {
+      "ru": "шорты",
+      "en": "shorts",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Yay üçün şort."
+    },
+    {
+     "front": "yubka",
+     "back": {
+      "ru": "юбка",
+      "en": "skirt",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Dizə qədər yubka."
+    },
+    {
+     "front": "don",
+     "back": {
+      "ru": "платье",
+      "en": "dress",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "Don kətandandır."
+    },
+    {
+     "front": "kostyum",
+     "back": {
+      "ru": "костюм",
+      "en": "suit",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Toya kostyumla gedir."
+    },
+    {
+     "front": "qalstuk",
+     "back": {
+      "ru": "галстук",
+      "en": "tie",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "Qalstuk bağlamağı bacarmıram."
+    },
+    {
+     "front": "kəmər",
+     "back": {
+      "ru": "ремень",
+      "en": "belt",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Kəməri bir az bərk sıx."
+    },
+    {
+     "front": "corab",
+     "back": {
+      "ru": "носки",
+      "en": "socks",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Bu corablar deşikdir."
+    },
+    {
+     "front": "kolqot",
+     "back": {
+      "ru": "колготки",
+      "en": "tights",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Qara kolqot."
+    },
+    {
+     "front": "ayaqqabı",
+     "back": {
+      "ru": "туфли",
+      "en": "shoes",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Qara dəri ayaqqabı."
+    },
+    {
+     "front": "idman ayaqqabısı",
+     "back": {
+      "ru": "кроссовки",
+      "en": "trainers",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Bütün günü idman ayaqqabısı geyirəm."
+    },
+    {
+     "front": "çəkmə",
+     "back": {
+      "ru": "сапоги",
+      "en": "boots",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Qış üçün çəkmə."
+    },
+    {
+     "front": "səndəl",
+     "back": {
+      "ru": "сандалии",
+      "en": "sandals",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Çimərlik üçün səndəl."
+    },
+    {
+     "front": "başmaq",
+     "back": {
+      "ru": "тапочки",
+      "en": "slippers",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Başmaqlar yataq otağının qapısındadır."
+    },
+    {
+     "front": "şlyapa",
+     "back": {
+      "ru": "шляпа",
+      "en": "hat",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Həsir şlyapa."
+    },
+    {
+     "front": "kepka",
+     "back": {
+      "ru": "кепка",
+      "en": "cap",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Günəşdən qorunmaq üçün kepka."
+    },
+    {
+     "front": "yun papaq",
+     "back": {
+      "ru": "шапка",
+      "en": "woolly hat",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Qar üçün yun papaq və şərf."
+    },
+    {
+     "front": "əlcək",
+     "back": {
+      "ru": "перчатки",
+      "en": "gloves",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Astarlı dəri əlcək."
+    },
+    {
+     "front": "şərf",
+     "back": {
+      "ru": "шарф",
+      "en": "scarf",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Şərfi iki dəfə dola."
+    },
+    {
+     "front": "dəsmal (cib)",
+     "back": {
+      "ru": "платок",
+      "en": "handkerchief",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Pambıq cib dəsmalı."
+    },
+    {
+     "front": "eynək",
+     "back": {
+      "ru": "очки",
+      "en": "glasses",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Dünən eynəyimi sındırdım."
+    },
+    {
+     "front": "çanta",
+     "back": {
+      "ru": "сумка",
+      "en": "bag",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "Çanta çox ağırdır."
+    },
+    {
+     "front": "pul kisəsi",
+     "back": {
+      "ru": "кошелёк",
+      "en": "wallet",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "Pul kisəsini evdə unutdum."
+    },
+    {
+     "front": "bel çantası",
+     "back": {
+      "ru": "рюкзак",
+      "en": "backpack",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "Məktəb bel çantası ağırdır."
+    },
+    {
+     "front": "çətir",
+     "back": {
+      "ru": "зонт",
+      "en": "umbrella",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Çətiri özünlə götür."
+    },
+    {
+     "front": "pijama",
+     "back": {
+      "ru": "пижама",
+      "en": "pyjamas",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Flanel pijama."
+    },
+    {
+     "front": "xalat",
+     "back": {
+      "ru": "халат",
+      "en": "dressing gown",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "Xalat qapının arxasından asılıb."
+    },
+    {
+     "front": "dəsmal",
+     "back": {
+      "ru": "полотенце",
+      "en": "towel",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Hamam üçün təmiz dəsmal."
+    },
+    {
+     "front": "cib",
+     "back": {
+      "ru": "карман",
+      "en": "pocket",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Açar cibimdədir."
+    },
+    {
+     "front": "düymə",
+     "back": {
+      "ru": "пуговица",
+      "en": "button",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "Köynəkdən bir düymə düşdü."
+    },
+    {
+     "front": "zəncirbənd",
+     "back": {
+      "ru": "молния",
+      "en": "zip",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "Çantanın zəncirbəndi xarab oldu."
+    },
+    {
+     "front": "qol (paltarda)",
+     "back": {
+      "ru": "рукав",
+      "en": "sleeve",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Qollarını çırmala."
+    },
+    {
+     "front": "yaxa",
+     "back": {
+      "ru": "воротник",
+      "en": "collar",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "Yaxa ləkələnib."
+    },
+    {
+     "front": "ölçü",
+     "back": {
+      "ru": "размер",
+      "en": "size",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "Bu köynəyin başqa ölçüsü var?"
+    },
+    {
+     "front": "parça",
+     "back": {
+      "ru": "ткань",
+      "en": "fabric",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Yay üçün yüngül parça."
+    },
+    {
+     "front": "pambıq",
+     "back": {
+      "ru": "хлопок",
+      "en": "cotton",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Pambıq köynək."
+    },
+    {
+     "front": "yun",
+     "back": {
+      "ru": "шерсть",
+      "en": "wool",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Qalın yun corablar."
+    },
+    {
+     "front": "ipək",
+     "back": {
+      "ru": "шёлк",
+      "en": "silk",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "İpək şərf."
+    },
+    {
+     "front": "dəri",
+     "back": {
+      "ru": "кожа",
+      "en": "leather",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Qəhvəyi dəri çəkmələr."
+    },
+    {
+     "front": "asqı",
+     "back": {
+      "ru": "вешалка",
+      "en": "hanger",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Paltonu asqıdan as."
+    },
+    {
+     "front": "şkaf",
+     "back": {
+      "ru": "шкаф",
+      "en": "wardrobe",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "Şkaf doludur."
+    },
+    {
+     "front": "üzük",
+     "back": {
+      "ru": "кольцо",
+      "en": "ring",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Gümüş üzük."
+    }
+   ]
+  }
+ ]
+}

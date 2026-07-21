@@ -1,0 +1,6533 @@
+{
+ "lang": "pt",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "olá",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "saudação"
+     },
+     "example": "Olá, tudo bem?"
+    },
+    {
+     "front": "adeus",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "despedida"
+     },
+     "example": "Adeus, até amanhã."
+    },
+    {
+     "front": "sim",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "afirmação"
+     },
+     "example": "Sim, claro que vou."
+    },
+    {
+     "front": "não",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "negação"
+     },
+     "example": "Não, obrigado."
+    },
+    {
+     "front": "por favor",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "pedido cortês"
+     },
+     "example": "Um café, por favor."
+    },
+    {
+     "front": "obrigado",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "agradecimento"
+     },
+     "example": "Muito obrigado pela ajuda."
+    },
+    {
+     "front": "desculpa",
+     "back": {
+      "ru": "извини",
+      "en": "sorry",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "pedido de perdão"
+     },
+     "example": "Desculpa, foi sem querer."
+    },
+    {
+     "front": "bom dia",
+     "back": {
+      "ru": "доброе утро",
+      "en": "good morning",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "saudação da manhã"
+     },
+     "example": "Bom dia, dormiste bem?"
+    },
+    {
+     "front": "boa noite",
+     "back": {
+      "ru": "спокойной ночи",
+      "en": "good night",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "saudação da noite"
+     },
+     "example": "Boa noite, até amanhã."
+    },
+    {
+     "front": "tudo bem",
+     "back": {
+      "ru": "всё хорошо",
+      "en": "all right",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "está tudo em ordem"
+     },
+     "example": "Tudo bem contigo?"
+    },
+    {
+     "front": "homem",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "pessoa do sexo masculino"
+     },
+     "example": "Aquele homem é meu vizinho."
+    },
+    {
+     "front": "mulher",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "pessoa do sexo feminino"
+     },
+     "example": "A mulher de casaco azul é médica."
+    },
+    {
+     "front": "criança",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "pessoa de pouca idade"
+     },
+     "example": "A criança brinca no jardim."
+    },
+    {
+     "front": "menino",
+     "back": {
+      "ru": "мальчик",
+      "en": "boy",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança do sexo masculino"
+     },
+     "example": "O menino corre para a escola."
+    },
+    {
+     "front": "menina",
+     "back": {
+      "ru": "девочка",
+      "en": "girl",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "criança do sexo feminino"
+     },
+     "example": "A menina desenha uma flor."
+    },
+    {
+     "front": "amigo",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "pessoa próxima"
+     },
+     "example": "O meu amigo mora em Lisboa."
+    },
+    {
+     "front": "família",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "conjunto de parentes"
+     },
+     "example": "A família toda veio ao jantar."
+    },
+    {
+     "front": "mãe",
+     "back": {
+      "ru": "мама",
+      "en": "mother",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "progenitora"
+     },
+     "example": "A minha mãe canta muito bem."
+    },
+    {
+     "front": "pai",
+     "back": {
+      "ru": "папа",
+      "en": "father",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "progenitor"
+     },
+     "example": "O meu pai trabalha à noite."
+    },
+    {
+     "front": "filho",
+     "back": {
+      "ru": "сын",
+      "en": "son",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "descendente do sexo masculino"
+     },
+     "example": "O filho deles tem cinco anos."
+    },
+    {
+     "front": "filha",
+     "back": {
+      "ru": "дочь",
+      "en": "daughter",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "descendente do sexo feminino"
+     },
+     "example": "A filha mais velha estuda medicina."
+    },
+    {
+     "front": "irmão",
+     "back": {
+      "ru": "брат",
+      "en": "brother",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "filho dos mesmos pais"
+     },
+     "example": "O meu irmão joga futebol."
+    },
+    {
+     "front": "irmã",
+     "back": {
+      "ru": "сестра",
+      "en": "sister",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "filha dos mesmos pais"
+     },
+     "example": "A minha irmã vive no Porto."
+    },
+    {
+     "front": "avó",
+     "back": {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "mãe do pai ou da mãe"
+     },
+     "example": "A avó faz o melhor bolo."
+    },
+    {
+     "front": "avô",
+     "back": {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "pai do pai ou da mãe"
+     },
+     "example": "O avô conta histórias antigas."
+    },
+    {
+     "front": "pessoa",
+     "back": {
+      "ru": "человек",
+      "en": "person",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "ser humano"
+     },
+     "example": "Cabem dez pessoas na sala."
+    },
+    {
+     "front": "gente",
+     "back": {
+      "ru": "люди",
+      "en": "people",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "conjunto de pessoas"
+     },
+     "example": "Havia muita gente na praça."
+    },
+    {
+     "front": "nome",
+     "back": {
+      "ru": "имя",
+      "en": "name",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "palavra que identifica alguém"
+     },
+     "example": "Qual é o teu nome?"
+    },
+    {
+     "front": "senhor",
+     "back": {
+      "ru": "господин",
+      "en": "sir",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "tratamento respeitoso"
+     },
+     "example": "Bom dia, senhor Silva."
+    },
+    {
+     "front": "senhora",
+     "back": {
+      "ru": "госпожа",
+      "en": "madam",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "tratamento respeitoso feminino"
+     },
+     "example": "A senhora precisa de ajuda?"
+    },
+    {
+     "front": "eu",
+     "back": {
+      "ru": "я",
+      "en": "I",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "primeira pessoa"
+     },
+     "example": "Eu moro aqui perto."
+    },
+    {
+     "front": "tu",
+     "back": {
+      "ru": "ты",
+      "en": "you",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "segunda pessoa"
+     },
+     "example": "Tu falas português?"
+    },
+    {
+     "front": "você",
+     "back": {
+      "ru": "вы",
+      "en": "you",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "tratamento de segunda pessoa"
+     },
+     "example": "Você quer sentar-se?"
+    },
+    {
+     "front": "ele",
+     "back": {
+      "ru": "он",
+      "en": "he",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "terceira pessoa masculina"
+     },
+     "example": "Ele chega às oito."
+    },
+    {
+     "front": "ela",
+     "back": {
+      "ru": "она",
+      "en": "she",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "terceira pessoa feminina"
+     },
+     "example": "Ela trabalha num hospital."
+    },
+    {
+     "front": "nós",
+     "back": {
+      "ru": "мы",
+      "en": "we",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "primeira pessoa do plural"
+     },
+     "example": "Nós vamos de comboio."
+    },
+    {
+     "front": "eles",
+     "back": {
+      "ru": "они",
+      "en": "they",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "terceira pessoa do plural"
+     },
+     "example": "Eles moram no mesmo prédio."
+    },
+    {
+     "front": "meu",
+     "back": {
+      "ru": "мой",
+      "en": "my",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "que me pertence"
+     },
+     "example": "Este é o meu lugar."
+    },
+    {
+     "front": "teu",
+     "back": {
+      "ru": "твой",
+      "en": "your",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "que te pertence"
+     },
+     "example": "O teu casaco ficou na cadeira."
+    },
+    {
+     "front": "nosso",
+     "back": {
+      "ru": "наш",
+      "en": "our",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "que nos pertence"
+     },
+     "example": "O nosso carro é pequeno."
+    },
+    {
+     "front": "este",
+     "back": {
+      "ru": "этот",
+      "en": "this",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "o que está perto"
+     },
+     "example": "Este livro é interessante."
+    },
+    {
+     "front": "aquele",
+     "back": {
+      "ru": "тот",
+      "en": "that",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "o que está longe"
+     },
+     "example": "Aquele prédio é muito antigo."
+    },
+    {
+     "front": "quem",
+     "back": {
+      "ru": "кто",
+      "en": "who",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "que pessoa"
+     },
+     "example": "Quem está à porta?"
+    },
+    {
+     "front": "que",
+     "back": {
+      "ru": "что",
+      "en": "what",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que coisa"
+     },
+     "example": "Que dizes tu?"
+    },
+    {
+     "front": "onde",
+     "back": {
+      "ru": "где",
+      "en": "where",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "em que lugar"
+     },
+     "example": "Onde fica a estação?"
+    },
+    {
+     "front": "quando",
+     "back": {
+      "ru": "когда",
+      "en": "when",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "em que momento"
+     },
+     "example": "Quando começa o filme?"
+    },
+    {
+     "front": "como",
+     "back": {
+      "ru": "как",
+      "en": "how",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "de que maneira"
+     },
+     "example": "Como se diz isto?"
+    },
+    {
+     "front": "porquê",
+     "back": {
+      "ru": "почему",
+      "en": "why",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "por que razão"
+     },
+     "example": "Porquê tanta pressa?"
+    },
+    {
+     "front": "qual",
+     "back": {
+      "ru": "который",
+      "en": "which",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual deles"
+     },
+     "example": "Qual preferes?"
+    },
+    {
+     "front": "zero",
+     "back": {
+      "ru": "ноль",
+      "en": "zero",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "nenhuma unidade"
+     },
+     "example": "A temperatura está a zero graus."
+    },
+    {
+     "front": "um",
+     "back": {
+      "ru": "один",
+      "en": "one",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "primeiro número"
+     },
+     "example": "Só falta um lugar."
+    },
+    {
+     "front": "dois",
+     "back": {
+      "ru": "два",
+      "en": "two",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "número depois de um"
+     },
+     "example": "Tenho dois irmãos."
+    },
+    {
+     "front": "três",
+     "back": {
+      "ru": "три",
+      "en": "three",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "número depois de dois"
+     },
+     "example": "Chego dentro de três dias."
+    },
+    {
+     "front": "quatro",
+     "back": {
+      "ru": "четыре",
+      "en": "four",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "número depois de três"
+     },
+     "example": "A mesa tem quatro cadeiras."
+    },
+    {
+     "front": "cinco",
+     "back": {
+      "ru": "пять",
+      "en": "five",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "número depois de quatro"
+     },
+     "example": "O filme dura cinco horas."
+    },
+    {
+     "front": "seis",
+     "back": {
+      "ru": "шесть",
+      "en": "six",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "número depois de cinco"
+     },
+     "example": "Levanto-me às seis."
+    },
+    {
+     "front": "sete",
+     "back": {
+      "ru": "семь",
+      "en": "seven",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "número depois de seis"
+     },
+     "example": "A semana tem sete dias."
+    },
+    {
+     "front": "oito",
+     "back": {
+      "ru": "восемь",
+      "en": "eight",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "número depois de sete"
+     },
+     "example": "O comboio parte às oito."
+    },
+    {
+     "front": "nove",
+     "back": {
+      "ru": "девять",
+      "en": "nine",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "número depois de oito"
+     },
+     "example": "Ela tem nove anos."
+    },
+    {
+     "front": "dez",
+     "back": {
+      "ru": "десять",
+      "en": "ten",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "número depois de nove"
+     },
+     "example": "Faltam dez minutos."
+    },
+    {
+     "front": "onze",
+     "back": {
+      "ru": "одиннадцать",
+      "en": "eleven",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "número depois de dez"
+     },
+     "example": "A aula acaba às onze."
+    },
+    {
+     "front": "doze",
+     "back": {
+      "ru": "двенадцать",
+      "en": "twelve",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "número depois de onze"
+     },
+     "example": "O ano tem doze meses."
+    },
+    {
+     "front": "vinte",
+     "back": {
+      "ru": "двадцать",
+      "en": "twenty",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "duas dezenas"
+     },
+     "example": "O bilhete custa vinte euros."
+    },
+    {
+     "front": "trinta",
+     "back": {
+      "ru": "тридцать",
+      "en": "thirty",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "três dezenas"
+     },
+     "example": "O mês tem trinta dias."
+    },
+    {
+     "front": "cem",
+     "back": {
+      "ru": "сто",
+      "en": "hundred",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "dez dezenas"
+     },
+     "example": "Faltam cem metros."
+    },
+    {
+     "front": "mil",
+     "back": {
+      "ru": "тысяча",
+      "en": "thousand",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "dez centenas"
+     },
+     "example": "A cidade tem mil habitantes."
+    },
+    {
+     "front": "primeiro",
+     "back": {
+      "ru": "первый",
+      "en": "first",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "que vem antes de todos"
+     },
+     "example": "Este é o primeiro dia de aulas."
+    },
+    {
+     "front": "último",
+     "back": {
+      "ru": "последний",
+      "en": "last",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "que vem depois de todos"
+     },
+     "example": "Apanhei o último autocarro."
+    },
+    {
+     "front": "número",
+     "back": {
+      "ru": "номер",
+      "en": "number",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "símbolo de quantidade"
+     },
+     "example": "Qual é o número da tua casa?"
+    },
+    {
+     "front": "metade",
+     "back": {
+      "ru": "половина",
+      "en": "half",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "uma de duas partes iguais"
+     },
+     "example": "Comi metade do bolo."
+    },
+    {
+     "front": "dia",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "período de vinte e quatro horas"
+     },
+     "example": "Foi um dia longo."
+    },
+    {
+     "front": "noite",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "período sem luz do sol"
+     },
+     "example": "A noite está fria."
+    },
+    {
+     "front": "manhã",
+     "back": {
+      "ru": "утро",
+      "en": "morning",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "primeira parte do dia"
+     },
+     "example": "De manhã bebo chá."
+    },
+    {
+     "front": "tarde",
+     "back": {
+      "ru": "вечер",
+      "en": "afternoon",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "parte do dia depois do meio-dia"
+     },
+     "example": "À tarde vou ao mercado."
+    },
+    {
+     "front": "hoje",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "no dia de agora"
+     },
+     "example": "Hoje não trabalho."
+    },
+    {
+     "front": "amanhã",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "no dia seguinte"
+     },
+     "example": "Amanhã vamos à praia."
+    },
+    {
+     "front": "ontem",
+     "back": {
+      "ru": "вчера",
+      "en": "yesterday",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "no dia anterior"
+     },
+     "example": "Ontem choveu o dia todo."
+    },
+    {
+     "front": "semana",
+     "back": {
+      "ru": "неделя",
+      "en": "week",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "sete dias seguidos"
+     },
+     "example": "Volto na próxima semana."
+    },
+    {
+     "front": "mês",
+     "back": {
+      "ru": "месяц",
+      "en": "month",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "parte do ano"
+     },
+     "example": "Este mês está a correr bem."
+    },
+    {
+     "front": "ano",
+     "back": {
+      "ru": "год",
+      "en": "year",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "doze meses"
+     },
+     "example": "O ano passado foi difícil."
+    },
+    {
+     "front": "hora",
+     "back": {
+      "ru": "час",
+      "en": "hour",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "sessenta minutos"
+     },
+     "example": "A viagem demora uma hora."
+    },
+    {
+     "front": "minuto",
+     "back": {
+      "ru": "минута",
+      "en": "minute",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "sessenta segundos"
+     },
+     "example": "Espera um minuto, por favor."
+    },
+    {
+     "front": "tempo",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "duração das coisas"
+     },
+     "example": "Não tenho tempo agora."
+    },
+    {
+     "front": "agora",
+     "back": {
+      "ru": "сейчас",
+      "en": "now",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "neste momento"
+     },
+     "example": "Agora estou ocupado."
+    },
+    {
+     "front": "sempre",
+     "back": {
+      "ru": "всегда",
+      "en": "always",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "em todos os momentos"
+     },
+     "example": "Ela chega sempre cedo."
+    },
+    {
+     "front": "nunca",
+     "back": {
+      "ru": "никогда",
+      "en": "never",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "em nenhum momento"
+     },
+     "example": "Nunca estive em Roma."
+    },
+    {
+     "front": "cedo",
+     "back": {
+      "ru": "рано",
+      "en": "early",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "antes da hora habitual"
+     },
+     "example": "Acordei muito cedo."
+    },
+    {
+     "front": "segunda-feira",
+     "back": {
+      "ru": "понедельник",
+      "en": "Monday",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "primeiro dia útil"
+     },
+     "example": "Na segunda-feira tenho consulta."
+    },
+    {
+     "front": "sábado",
+     "back": {
+      "ru": "суббота",
+      "en": "Saturday",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sexto dia da semana"
+     },
+     "example": "Ao sábado durmo até tarde."
+    },
+    {
+     "front": "domingo",
+     "back": {
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "dia de descanso"
+     },
+     "example": "Ao domingo almoçamos em família."
+    },
+    {
+     "front": "casa",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "lugar onde se mora"
+     },
+     "example": "A casa tem um jardim atrás."
+    },
+    {
+     "front": "cidade",
+     "back": {
+      "ru": "город",
+      "en": "city",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "povoação grande"
+     },
+     "example": "Lisboa é uma cidade luminosa."
+    },
+    {
+     "front": "aldeia",
+     "back": {
+      "ru": "деревня",
+      "en": "village",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "povoação pequena"
+     },
+     "example": "A aldeia fica na montanha."
+    },
+    {
+     "front": "rua",
+     "back": {
+      "ru": "улица",
+      "en": "street",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "via da cidade"
+     },
+     "example": "A rua está cheia de gente."
+    },
+    {
+     "front": "escola",
+     "back": {
+      "ru": "школа",
+      "en": "school",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "lugar onde se estuda"
+     },
+     "example": "A escola abre às oito."
+    },
+    {
+     "front": "trabalho",
+     "back": {
+      "ru": "работа",
+      "en": "work",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "atividade profissional"
+     },
+     "example": "O trabalho acaba às seis."
+    },
+    {
+     "front": "loja",
+     "back": {
+      "ru": "магазин",
+      "en": "shop",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "lugar onde se compra"
+     },
+     "example": "A loja fecha ao domingo."
+    },
+    {
+     "front": "mercado",
+     "back": {
+      "ru": "рынок",
+      "en": "market",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "lugar de venda de produtos"
+     },
+     "example": "Compro fruta no mercado."
+    },
+    {
+     "front": "hospital",
+     "back": {
+      "ru": "больница",
+      "en": "hospital",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "lugar de tratamento de doentes"
+     },
+     "example": "O hospital fica perto daqui."
+    },
+    {
+     "front": "farmácia",
+     "back": {
+      "ru": "аптека",
+      "en": "pharmacy",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "loja de medicamentos"
+     },
+     "example": "A farmácia está aberta à noite."
+    },
+    {
+     "front": "banco",
+     "back": {
+      "ru": "банк",
+      "en": "bank",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "casa de dinheiro"
+     },
+     "example": "Vou ao banco de manhã."
+    },
+    {
+     "front": "hotel",
+     "back": {
+      "ru": "гостиница",
+      "en": "hotel",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "casa de hóspedes"
+     },
+     "example": "O hotel fica ao pé do mar."
+    },
+    {
+     "front": "igreja",
+     "back": {
+      "ru": "церковь",
+      "en": "church",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "templo cristão"
+     },
+     "example": "A igreja é do século dezassete."
+    },
+    {
+     "front": "jardim",
+     "back": {
+      "ru": "сад",
+      "en": "garden",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "terreno com plantas"
+     },
+     "example": "O jardim está cheio de flores."
+    },
+    {
+     "front": "praia",
+     "back": {
+      "ru": "пляж",
+      "en": "beach",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "margem de areia do mar"
+     },
+     "example": "A praia fica a dez minutos."
+    },
+    {
+     "front": "mar",
+     "back": {
+      "ru": "море",
+      "en": "sea",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "grande massa de água salgada"
+     },
+     "example": "O mar está calmo hoje."
+    },
+    {
+     "front": "rio",
+     "back": {
+      "ru": "река",
+      "en": "river",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "curso de água doce"
+     },
+     "example": "O rio atravessa a cidade."
+    },
+    {
+     "front": "montanha",
+     "back": {
+      "ru": "гора",
+      "en": "mountain",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "elevação grande de terreno"
+     },
+     "example": "A montanha tem neve no topo."
+    },
+    {
+     "front": "campo",
+     "back": {
+      "ru": "поле",
+      "en": "field",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "terreno fora da cidade"
+     },
+     "example": "No campo o ar é mais limpo."
+    },
+    {
+     "front": "floresta",
+     "back": {
+      "ru": "лес",
+      "en": "forest",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "terreno com muitas árvores"
+     },
+     "example": "A floresta começa depois da ponte."
+    },
+    {
+     "front": "país",
+     "back": {
+      "ru": "страна",
+      "en": "country",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "território de uma nação"
+     },
+     "example": "Portugal é um país pequeno."
+    },
+    {
+     "front": "mundo",
+     "back": {
+      "ru": "мир",
+      "en": "world",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "toda a Terra"
+     },
+     "example": "Ele viajou por meio mundo."
+    },
+    {
+     "front": "caminho",
+     "back": {
+      "ru": "дорога",
+      "en": "road",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "via por onde se anda"
+     },
+     "example": "O caminho é estreito."
+    },
+    {
+     "front": "ponte",
+     "back": {
+      "ru": "мост",
+      "en": "bridge",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "passagem sobre a água"
+     },
+     "example": "A ponte está fechada às obras."
+    },
+    {
+     "front": "estação",
+     "back": {
+      "ru": "вокзал",
+      "en": "station",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "lugar de partida dos comboios"
+     },
+     "example": "Encontramo-nos na estação."
+    },
+    {
+     "front": "aeroporto",
+     "back": {
+      "ru": "аэропорт",
+      "en": "airport",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "lugar de partida dos aviões"
+     },
+     "example": "O aeroporto fica longe do centro."
+    },
+    {
+     "front": "quarto",
+     "back": {
+      "ru": "комната",
+      "en": "room",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "divisão da casa"
+     },
+     "example": "O quarto tem uma janela grande."
+    },
+    {
+     "front": "cozinha",
+     "back": {
+      "ru": "кухня",
+      "en": "kitchen",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "divisão onde se cozinha"
+     },
+     "example": "A cozinha cheira a café."
+    },
+    {
+     "front": "porta",
+     "back": {
+      "ru": "дверь",
+      "en": "door",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "entrada de uma divisão"
+     },
+     "example": "Fecha a porta, faz frio."
+    },
+    {
+     "front": "janela",
+     "back": {
+      "ru": "окно",
+      "en": "window",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "abertura na parede"
+     },
+     "example": "Abre a janela, está abafado."
+    },
+    {
+     "front": "mesa",
+     "back": {
+      "ru": "стол",
+      "en": "table",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "móvel com tampo"
+     },
+     "example": "Põe os pratos na mesa."
+    },
+    {
+     "front": "cadeira",
+     "back": {
+      "ru": "стул",
+      "en": "chair",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "móvel para sentar"
+     },
+     "example": "Falta uma cadeira à mesa."
+    },
+    {
+     "front": "cama",
+     "back": {
+      "ru": "кровать",
+      "en": "bed",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "móvel para dormir"
+     },
+     "example": "A cama é demasiado dura."
+    },
+    {
+     "front": "carro",
+     "back": {
+      "ru": "машина",
+      "en": "car",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "veículo de quatro rodas"
+     },
+     "example": "O carro não pega de manhã."
+    },
+    {
+     "front": "autocarro",
+     "back": {
+      "ru": "автобус",
+      "en": "bus",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "transporte público de estrada"
+     },
+     "example": "O autocarro passa de meia em meia hora."
+    },
+    {
+     "front": "comboio",
+     "back": {
+      "ru": "поезд",
+      "en": "train",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "transporte sobre carris"
+     },
+     "example": "O comboio chega atrasado."
+    },
+    {
+     "front": "avião",
+     "back": {
+      "ru": "самолёт",
+      "en": "plane",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "transporte pelo ar"
+     },
+     "example": "O avião levanta às sete."
+    },
+    {
+     "front": "bicicleta",
+     "back": {
+      "ru": "велосипед",
+      "en": "bicycle",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "veículo de duas rodas"
+     },
+     "example": "Vou para o trabalho de bicicleta."
+    },
+    {
+     "front": "sol",
+     "back": {
+      "ru": "солнце",
+      "en": "sun",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "estrela que aquece a Terra"
+     },
+     "example": "O sol nasce às seis e meia."
+    },
+    {
+     "front": "lua",
+     "back": {
+      "ru": "луна",
+      "en": "moon",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "astro da noite"
+     },
+     "example": "A lua está cheia esta noite."
+    },
+    {
+     "front": "estrela",
+     "back": {
+      "ru": "звезда",
+      "en": "star",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "ponto de luz no céu"
+     },
+     "example": "Vê-se uma estrela muito clara."
+    },
+    {
+     "front": "céu",
+     "back": {
+      "ru": "небо",
+      "en": "sky",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "espaço acima da Terra"
+     },
+     "example": "O céu está limpo."
+    },
+    {
+     "front": "chuva",
+     "back": {
+      "ru": "дождь",
+      "en": "rain",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "água que cai das nuvens"
+     },
+     "example": "A chuva não para desde ontem."
+    },
+    {
+     "front": "vento",
+     "back": {
+      "ru": "ветер",
+      "en": "wind",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "ar em movimento"
+     },
+     "example": "O vento derrubou as cadeiras."
+    },
+    {
+     "front": "neve",
+     "back": {
+      "ru": "снег",
+      "en": "snow",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "água gelada que cai do céu"
+     },
+     "example": "Aqui a neve é rara."
+    },
+    {
+     "front": "fogo",
+     "back": {
+      "ru": "огонь",
+      "en": "fire",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "chama que queima"
+     },
+     "example": "Acendemos o fogo na lareira."
+    },
+    {
+     "front": "terra",
+     "back": {
+      "ru": "земля",
+      "en": "earth",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "solo do planeta"
+     },
+     "example": "A terra ainda está molhada."
+    },
+    {
+     "front": "árvore",
+     "back": {
+      "ru": "дерево",
+      "en": "tree",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "planta alta de tronco lenhoso"
+     },
+     "example": "A árvore dá sombra ao quintal."
+    },
+    {
+     "front": "flor",
+     "back": {
+      "ru": "цветок",
+      "en": "flower",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "parte colorida da planta"
+     },
+     "example": "Trouxe uma flor da rua."
+    },
+    {
+     "front": "animal",
+     "back": {
+      "ru": "животное",
+      "en": "animal",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "ser vivo que se move"
+     },
+     "example": "Que animal é aquele?"
+    },
+    {
+     "front": "cão",
+     "back": {
+      "ru": "собака",
+      "en": "dog",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "animal doméstico que ladra"
+     },
+     "example": "O cão dorme à porta."
+    },
+    {
+     "front": "gato",
+     "back": {
+      "ru": "кошка",
+      "en": "cat",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "animal doméstico que mia"
+     },
+     "example": "O gato subiu ao telhado."
+    },
+    {
+     "front": "pássaro",
+     "back": {
+      "ru": "птица",
+      "en": "bird",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "animal com asas e penas"
+     },
+     "example": "Um pássaro cantou de manhã."
+    },
+    {
+     "front": "cavalo",
+     "back": {
+      "ru": "лошадь",
+      "en": "horse",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "animal grande que se monta"
+     },
+     "example": "O cavalo corre pelo campo."
+    },
+    {
+     "front": "livro",
+     "back": {
+      "ru": "книга",
+      "en": "book",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "conjunto de páginas escritas"
+     },
+     "example": "Este livro tem trezentas páginas."
+    },
+    {
+     "front": "papel",
+     "back": {
+      "ru": "бумага",
+      "en": "paper",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "folha para escrever"
+     },
+     "example": "Dá-me uma folha de papel."
+    },
+    {
+     "front": "caneta",
+     "back": {
+      "ru": "ручка",
+      "en": "pen",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "objeto de escrever"
+     },
+     "example": "A caneta ficou sem tinta."
+    },
+    {
+     "front": "telefone",
+     "back": {
+      "ru": "телефон",
+      "en": "phone",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "aparelho para falar à distância"
+     },
+     "example": "O telefone tocou duas vezes."
+    },
+    {
+     "front": "computador",
+     "back": {
+      "ru": "компьютер",
+      "en": "computer",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "máquina de processar dados"
+     },
+     "example": "O computador está lento."
+    },
+    {
+     "front": "dinheiro",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "meio de pagamento"
+     },
+     "example": "Não trago dinheiro comigo."
+    },
+    {
+     "front": "chave",
+     "back": {
+      "ru": "ключ",
+      "en": "key",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "objeto que abre fechaduras"
+     },
+     "example": "Perdi a chave de casa."
+    },
+    {
+     "front": "relógio",
+     "back": {
+      "ru": "часы",
+      "en": "watch",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "aparelho que marca as horas"
+     },
+     "example": "O relógio está adiantado."
+    },
+    {
+     "front": "luz",
+     "back": {
+      "ru": "свет",
+      "en": "light",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "claridade"
+     },
+     "example": "Acende a luz, por favor."
+    },
+    {
+     "front": "música",
+     "back": {
+      "ru": "музыка",
+      "en": "music",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "arte dos sons"
+     },
+     "example": "A música vem do café ao lado."
+    },
+    {
+     "front": "filme",
+     "back": {
+      "ru": "фильм",
+      "en": "film",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "obra de imagens em movimento"
+     },
+     "example": "O filme começa às nove."
+    },
+    {
+     "front": "foto",
+     "back": {
+      "ru": "фотография",
+      "en": "photo",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "imagem tirada com câmara"
+     },
+     "example": "Tirei uma foto da praça."
+    },
+    {
+     "front": "carta",
+     "back": {
+      "ru": "письмо",
+      "en": "letter",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "texto enviado pelo correio"
+     },
+     "example": "Recebi uma carta da minha avó."
+    },
+    {
+     "front": "jornal",
+     "back": {
+      "ru": "газета",
+      "en": "newspaper",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "publicação diária de notícias"
+     },
+     "example": "Leio o jornal ao pequeno-almoço."
+    },
+    {
+     "front": "cor",
+     "back": {
+      "ru": "цвет",
+      "en": "colour",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "aspeto visual da luz"
+     },
+     "example": "De que cor é o teu carro?"
+    },
+    {
+     "front": "palavra",
+     "back": {
+      "ru": "слово",
+      "en": "word",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "unidade da língua"
+     },
+     "example": "Não percebi a última palavra."
+    },
+    {
+     "front": "língua",
+     "back": {
+      "ru": "язык",
+      "en": "language",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "sistema de falar"
+     },
+     "example": "O português é a minha língua."
+    },
+    {
+     "front": "cabeça",
+     "back": {
+      "ru": "голова",
+      "en": "head",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "parte de cima do corpo"
+     },
+     "example": "Dói-me a cabeça desde ontem."
+    },
+    {
+     "front": "mão",
+     "back": {
+      "ru": "рука",
+      "en": "hand",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "extremidade do braço"
+     },
+     "example": "Dá-me a mão."
+    },
+    {
+     "front": "pé",
+     "back": {
+      "ru": "нога",
+      "en": "foot",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "extremidade da perna"
+     },
+     "example": "Tenho o pé inchado."
+    },
+    {
+     "front": "olho",
+     "back": {
+      "ru": "глаз",
+      "en": "eye",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "órgão da vista"
+     },
+     "example": "Entrou-me pó no olho."
+    },
+    {
+     "front": "boca",
+     "back": {
+      "ru": "рот",
+      "en": "mouth",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "abertura para falar e comer"
+     },
+     "example": "Abre a boca, disse o médico."
+    },
+    {
+     "front": "coração",
+     "back": {
+      "ru": "сердце",
+      "en": "heart",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "órgão que bombeia o sangue"
+     },
+     "example": "O coração bate depressa."
+    },
+    {
+     "front": "cabelo",
+     "back": {
+      "ru": "волосы",
+      "en": "hair",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "pelos da cabeça"
+     },
+     "example": "Cortei o cabelo ontem."
+    },
+    {
+     "front": "corpo",
+     "back": {
+      "ru": "тело",
+      "en": "body",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "conjunto físico do ser vivo"
+     },
+     "example": "O corpo pede descanso."
+    },
+    {
+     "front": "bom",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "de qualidade"
+     },
+     "example": "Foi um bom dia de trabalho."
+    },
+    {
+     "front": "mau",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "sem qualidade"
+     },
+     "example": "O tempo está mau."
+    },
+    {
+     "front": "grande",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "de tamanho superior"
+     },
+     "example": "Precisamos de uma mesa grande."
+    },
+    {
+     "front": "pequeno",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "de tamanho reduzido"
+     },
+     "example": "O quarto é pequeno mas claro."
+    },
+    {
+     "front": "novo",
+     "back": {
+      "ru": "новый",
+      "en": "new",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "feito há pouco"
+     },
+     "example": "Comprei um telefone novo."
+    },
+    {
+     "front": "velho",
+     "back": {
+      "ru": "старый",
+      "en": "old",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "de muita idade"
+     },
+     "example": "Este prédio é velho."
+    },
+    {
+     "front": "jovem",
+     "back": {
+      "ru": "молодой",
+      "en": "young",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "de pouca idade"
+     },
+     "example": "É um professor jovem."
+    },
+    {
+     "front": "alto",
+     "back": {
+      "ru": "высокий",
+      "en": "tall",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "de altura elevada"
+     },
+     "example": "O prédio é muito alto."
+    },
+    {
+     "front": "baixo",
+     "back": {
+      "ru": "низкий",
+      "en": "short",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "de pouca altura"
+     },
+     "example": "O teto é baixo."
+    },
+    {
+     "front": "longo",
+     "back": {
+      "ru": "длинный",
+      "en": "long",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "de grande comprimento"
+     },
+     "example": "O caminho é longo."
+    },
+    {
+     "front": "curto",
+     "back": {
+      "ru": "короткий",
+      "en": "short",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "de pouco comprimento"
+     },
+     "example": "O filme foi curto."
+    },
+    {
+     "front": "quente",
+     "back": {
+      "ru": "горячий",
+      "en": "hot",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "de temperatura alta"
+     },
+     "example": "O chá está quente."
+    },
+    {
+     "front": "frio",
+     "back": {
+      "ru": "холодный",
+      "en": "cold",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "de temperatura baixa"
+     },
+     "example": "O quarto está frio."
+    },
+    {
+     "front": "bonito",
+     "back": {
+      "ru": "красивый",
+      "en": "beautiful",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "agradável à vista"
+     },
+     "example": "Que vista bonita!"
+    },
+    {
+     "front": "feio",
+     "back": {
+      "ru": "некрасивый",
+      "en": "ugly",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "desagradável à vista"
+     },
+     "example": "O prédio novo é feio."
+    },
+    {
+     "front": "fácil",
+     "back": {
+      "ru": "лёгкий",
+      "en": "easy",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "que não custa"
+     },
+     "example": "O exercício foi fácil."
+    },
+    {
+     "front": "difícil",
+     "back": {
+      "ru": "трудный",
+      "en": "difficult",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "que custa muito"
+     },
+     "example": "A pergunta é difícil."
+    },
+    {
+     "front": "forte",
+     "back": {
+      "ru": "сильный",
+      "en": "strong",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "que tem força"
+     },
+     "example": "O café está forte."
+    },
+    {
+     "front": "fraco",
+     "back": {
+      "ru": "слабый",
+      "en": "weak",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "sem força"
+     },
+     "example": "O sinal está fraco."
+    },
+    {
+     "front": "rápido",
+     "back": {
+      "ru": "быстрый",
+      "en": "fast",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "de grande velocidade"
+     },
+     "example": "O comboio é rápido."
+    },
+    {
+     "front": "lento",
+     "back": {
+      "ru": "медленный",
+      "en": "slow",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "de pouca velocidade"
+     },
+     "example": "O serviço aqui é lento."
+    },
+    {
+     "front": "caro",
+     "back": {
+      "ru": "дорогой",
+      "en": "expensive",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "de preço alto"
+     },
+     "example": "O hotel é caro."
+    },
+    {
+     "front": "barato",
+     "back": {
+      "ru": "дешёвый",
+      "en": "cheap",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "de preço baixo"
+     },
+     "example": "Encontrei um bilhete barato."
+    },
+    {
+     "front": "limpo",
+     "back": {
+      "ru": "чистый",
+      "en": "clean",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "sem sujidade"
+     },
+     "example": "O chão está limpo."
+    },
+    {
+     "front": "sujo",
+     "back": {
+      "ru": "грязный",
+      "en": "dirty",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "com sujidade"
+     },
+     "example": "O carro está sujo de pó."
+    },
+    {
+     "front": "cheio",
+     "back": {
+      "ru": "полный",
+      "en": "full",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "sem espaço livre"
+     },
+     "example": "O autocarro vinha cheio."
+    },
+    {
+     "front": "vazio",
+     "back": {
+      "ru": "пустой",
+      "en": "empty",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "sem nada dentro"
+     },
+     "example": "O copo está vazio."
+    },
+    {
+     "front": "feliz",
+     "back": {
+      "ru": "счастливый",
+      "en": "happy",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "com alegria"
+     },
+     "example": "Ela ficou feliz com a notícia."
+    },
+    {
+     "front": "triste",
+     "back": {
+      "ru": "грустный",
+      "en": "sad",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "com tristeza"
+     },
+     "example": "Ele voltou triste do trabalho."
+    },
+    {
+     "front": "cansado",
+     "back": {
+      "ru": "усталый",
+      "en": "tired",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "sem forças"
+     },
+     "example": "Estou cansado do dia."
+    },
+    {
+     "front": "doente",
+     "back": {
+      "ru": "больной",
+      "en": "sick",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "com doença"
+     },
+     "example": "O meu filho está doente."
+    },
+    {
+     "front": "certo",
+     "back": {
+      "ru": "правильный",
+      "en": "right",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "sem erro"
+     },
+     "example": "A resposta está certa."
+    },
+    {
+     "front": "errado",
+     "back": {
+      "ru": "неправильный",
+      "en": "wrong",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "com erro"
+     },
+     "example": "O número está errado."
+    },
+    {
+     "front": "branco",
+     "back": {
+      "ru": "белый",
+      "en": "white",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "da cor da neve"
+     },
+     "example": "A parede é branca."
+    },
+    {
+     "front": "preto",
+     "back": {
+      "ru": "чёрный",
+      "en": "black",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "da cor do carvão"
+     },
+     "example": "Tenho um gato preto."
+    },
+    {
+     "front": "vermelho",
+     "back": {
+      "ru": "красный",
+      "en": "red",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "da cor do sangue"
+     },
+     "example": "O semáforo está vermelho."
+    },
+    {
+     "front": "azul",
+     "back": {
+      "ru": "синий",
+      "en": "blue",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "da cor do céu"
+     },
+     "example": "O mar está muito azul."
+    },
+    {
+     "front": "verde",
+     "back": {
+      "ru": "зелёный",
+      "en": "green",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "da cor das folhas"
+     },
+     "example": "As folhas ficam verdes na primavera."
+    },
+    {
+     "front": "amarelo",
+     "back": {
+      "ru": "жёлтый",
+      "en": "yellow",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "da cor do sol"
+     },
+     "example": "A casa é amarela."
+    },
+    {
+     "front": "aqui",
+     "back": {
+      "ru": "здесь",
+      "en": "here",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "neste lugar"
+     },
+     "example": "Espera aqui um momento."
+    },
+    {
+     "front": "ali",
+     "back": {
+      "ru": "там",
+      "en": "there",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "naquele lugar"
+     },
+     "example": "O carro está ali."
+    },
+    {
+     "front": "muito",
+     "back": {
+      "ru": "много",
+      "en": "much",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "em grande quantidade"
+     },
+     "example": "Bebo muito chá."
+    },
+    {
+     "front": "pouco",
+     "back": {
+      "ru": "мало",
+      "en": "little",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "em pequena quantidade"
+     },
+     "example": "Dormi pouco esta noite."
+    },
+    {
+     "front": "mais",
+     "back": {
+      "ru": "больше",
+      "en": "more",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "em maior quantidade"
+     },
+     "example": "Quero mais tempo."
+    },
+    {
+     "front": "menos",
+     "back": {
+      "ru": "меньше",
+      "en": "less",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "em menor quantidade"
+     },
+     "example": "Hoje há menos gente."
+    },
+    {
+     "front": "também",
+     "back": {
+      "ru": "тоже",
+      "en": "also",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "de igual modo"
+     },
+     "example": "Eu também vou."
+    },
+    {
+     "front": "bem",
+     "back": {
+      "ru": "хорошо",
+      "en": "well",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "de boa maneira"
+     },
+     "example": "Ela fala bem francês."
+    },
+    {
+     "front": "mal",
+     "back": {
+      "ru": "плохо",
+      "en": "badly",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "de má maneira"
+     },
+     "example": "Dormi mal esta noite."
+    },
+    {
+     "front": "com",
+     "back": {
+      "ru": "с",
+      "en": "with",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "em companhia de"
+     },
+     "example": "Vou com a minha irmã."
+    },
+    {
+     "front": "sem",
+     "back": {
+      "ru": "без",
+      "en": "without",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "na falta de"
+     },
+     "example": "Bebo o café sem açúcar."
+    },
+    {
+     "front": "para",
+     "back": {
+      "ru": "для",
+      "en": "for",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "com destino a"
+     },
+     "example": "Este pacote é para ti."
+    },
+    {
+     "front": "mas",
+     "back": {
+      "ru": "но",
+      "en": "but",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "porém"
+     },
+     "example": "Queria ir, mas não posso."
+    },
+    {
+     "front": "ou",
+     "back": {
+      "ru": "или",
+      "en": "or",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "alternativa"
+     },
+     "example": "Chá ou café?"
+    },
+    {
+     "front": "porque",
+     "back": {
+      "ru": "потому что",
+      "en": "because",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "por essa razão"
+     },
+     "example": "Fiquei em casa porque chovia."
+    },
+    {
+     "front": "se",
+     "back": {
+      "ru": "если",
+      "en": "if",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "na condição de"
+     },
+     "example": "Se chover, ficamos."
+    },
+    {
+     "front": "talvez",
+     "back": {
+      "ru": "может быть",
+      "en": "maybe",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "com dúvida"
+     },
+     "example": "Talvez venha amanhã."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "ser",
+     "back": {
+      "ru": "быть",
+      "en": "to be",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "existir, ter qualidade"
+     },
+     "example": "Ela é professora de música."
+    },
+    {
+     "front": "estar",
+     "back": {
+      "ru": "находиться",
+      "en": "to be (state)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "encontrar-se num estado"
+     },
+     "example": "Estou em casa desde as seis."
+    },
+    {
+     "front": "ter",
+     "back": {
+      "ru": "иметь",
+      "en": "to have",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "possuir"
+     },
+     "example": "Tenho dois irmãos mais novos."
+    },
+    {
+     "front": "fazer",
+     "back": {
+      "ru": "делать",
+      "en": "to do",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "realizar"
+     },
+     "example": "O que fazes ao domingo?"
+    },
+    {
+     "front": "ir",
+     "back": {
+      "ru": "идти",
+      "en": "to go",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "deslocar-se para longe"
+     },
+     "example": "Vou ao mercado agora."
+    },
+    {
+     "front": "vir",
+     "back": {
+      "ru": "приходить",
+      "en": "to come",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "deslocar-se para cá"
+     },
+     "example": "Vens jantar connosco?"
+    },
+    {
+     "front": "dizer",
+     "back": {
+      "ru": "говорить",
+      "en": "to say",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "exprimir por palavras"
+     },
+     "example": "Diz-me a verdade."
+    },
+    {
+     "front": "ver",
+     "back": {
+      "ru": "видеть",
+      "en": "to see",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "perceber pelos olhos"
+     },
+     "example": "Vi o teu irmão na rua."
+    },
+    {
+     "front": "dar",
+     "back": {
+      "ru": "давать",
+      "en": "to give",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "entregar a alguém"
+     },
+     "example": "Dá-me a chave, por favor."
+    },
+    {
+     "front": "saber",
+     "back": {
+      "ru": "знать",
+      "en": "to know",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "ter conhecimento"
+     },
+     "example": "Não sei onde ele mora."
+    },
+    {
+     "front": "poder",
+     "back": {
+      "ru": "мочь",
+      "en": "can",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "ter possibilidade"
+     },
+     "example": "Podes ajudar-me?"
+    },
+    {
+     "front": "querer",
+     "back": {
+      "ru": "хотеть",
+      "en": "to want",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "desejar"
+     },
+     "example": "Quero um copo de água."
+    },
+    {
+     "front": "dever",
+     "back": {
+      "ru": "быть должным",
+      "en": "must",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "ter obrigação"
+     },
+     "example": "Devo sair mais cedo hoje."
+    },
+    {
+     "front": "ficar",
+     "back": {
+      "ru": "оставаться",
+      "en": "to stay",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "permanecer"
+     },
+     "example": "Fico em casa esta noite."
+    },
+    {
+     "front": "passar",
+     "back": {
+      "ru": "проходить",
+      "en": "to pass",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "seguir adiante"
+     },
+     "example": "O autocarro passa às nove."
+    },
+    {
+     "front": "chegar",
+     "back": {
+      "ru": "прибывать",
+      "en": "to arrive",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "alcançar o destino"
+     },
+     "example": "O comboio chegou atrasado."
+    },
+    {
+     "front": "sair",
+     "back": {
+      "ru": "выходить",
+      "en": "to leave",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "ir para fora"
+     },
+     "example": "Saio do trabalho às seis."
+    },
+    {
+     "front": "entrar",
+     "back": {
+      "ru": "входить",
+      "en": "to enter",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "ir para dentro"
+     },
+     "example": "Entra, a porta está aberta."
+    },
+    {
+     "front": "voltar",
+     "back": {
+      "ru": "возвращаться",
+      "en": "to return",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "regressar"
+     },
+     "example": "Volto dentro de meia hora."
+    },
+    {
+     "front": "começar",
+     "back": {
+      "ru": "начинать",
+      "en": "to begin",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "dar início"
+     },
+     "example": "A aula começa às oito."
+    },
+    {
+     "front": "acabar",
+     "back": {
+      "ru": "заканчивать",
+      "en": "to finish",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "dar por concluído"
+     },
+     "example": "Acabei o livro ontem."
+    },
+    {
+     "front": "continuar",
+     "back": {
+      "ru": "продолжать",
+      "en": "to continue",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "seguir sem parar"
+     },
+     "example": "Continua a chover."
+    },
+    {
+     "front": "parar",
+     "back": {
+      "ru": "останавливаться",
+      "en": "to stop",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "deixar de andar"
+     },
+     "example": "O carro parou à porta."
+    },
+    {
+     "front": "esperar",
+     "back": {
+      "ru": "ждать",
+      "en": "to wait",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "ficar até algo acontecer"
+     },
+     "example": "Espero por ti na estação."
+    },
+    {
+     "front": "encontrar",
+     "back": {
+      "ru": "находить",
+      "en": "to find",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "dar com algo procurado"
+     },
+     "example": "Encontrei as chaves na mesa."
+    },
+    {
+     "front": "procurar",
+     "back": {
+      "ru": "искать",
+      "en": "to look for",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "tentar encontrar"
+     },
+     "example": "Procuro um livro de gramática."
+    },
+    {
+     "front": "perder",
+     "back": {
+      "ru": "терять",
+      "en": "to lose",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "deixar de ter"
+     },
+     "example": "Perdi o comboio das sete."
+    },
+    {
+     "front": "ganhar",
+     "back": {
+      "ru": "выигрывать",
+      "en": "to win",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "obter vitória ou lucro"
+     },
+     "example": "A nossa equipa ganhou."
+    },
+    {
+     "front": "comprar",
+     "back": {
+      "ru": "покупать",
+      "en": "to buy",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "obter por dinheiro"
+     },
+     "example": "Comprei pão para o jantar."
+    },
+    {
+     "front": "vender",
+     "back": {
+      "ru": "продавать",
+      "en": "to sell",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "dar por dinheiro"
+     },
+     "example": "Vendem fruta ali na esquina."
+    },
+    {
+     "front": "pagar",
+     "back": {
+      "ru": "платить",
+      "en": "to pay",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "dar dinheiro por algo"
+     },
+     "example": "Pago eu o café."
+    },
+    {
+     "front": "custar",
+     "back": {
+      "ru": "стоить",
+      "en": "to cost",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "ter certo preço"
+     },
+     "example": "Quanto custa o bilhete?"
+    },
+    {
+     "front": "trabalhar",
+     "back": {
+      "ru": "работать",
+      "en": "to work",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "exercer atividade"
+     },
+     "example": "Trabalho num hospital."
+    },
+    {
+     "front": "estudar",
+     "back": {
+      "ru": "учиться",
+      "en": "to study",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "dedicar-se a aprender"
+     },
+     "example": "Estudo português há um ano."
+    },
+    {
+     "front": "aprender",
+     "back": {
+      "ru": "изучать",
+      "en": "to learn",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "adquirir conhecimento"
+     },
+     "example": "Aprendi a nadar em criança."
+    },
+    {
+     "front": "ensinar",
+     "back": {
+      "ru": "учить",
+      "en": "to teach",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "transmitir conhecimento"
+     },
+     "example": "Ela ensina numa escola de aldeia."
+    },
+    {
+     "front": "ler",
+     "back": {
+      "ru": "читать",
+      "en": "to read",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "entender o que está escrito"
+     },
+     "example": "Leio o jornal de manhã."
+    },
+    {
+     "front": "escrever",
+     "back": {
+      "ru": "писать",
+      "en": "to write",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "pôr palavras no papel"
+     },
+     "example": "Escrevi-lhe uma carta longa."
+    },
+    {
+     "front": "falar",
+     "back": {
+      "ru": "разговаривать",
+      "en": "to speak",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "usar a palavra"
+     },
+     "example": "Falamos ao telefone ontem."
+    },
+    {
+     "front": "ouvir",
+     "back": {
+      "ru": "слышать",
+      "en": "to hear",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "perceber pelo ouvido"
+     },
+     "example": "Ouvi um barulho na cozinha."
+    },
+    {
+     "front": "escutar",
+     "back": {
+      "ru": "слушать",
+      "en": "to listen",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "prestar atenção ao som"
+     },
+     "example": "Escuta bem o que te digo."
+    },
+    {
+     "front": "olhar",
+     "back": {
+      "ru": "смотреть",
+      "en": "to look",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "dirigir a vista"
+     },
+     "example": "Olha para a esquerda."
+    },
+    {
+     "front": "sentir",
+     "back": {
+      "ru": "чувствовать",
+      "en": "to feel",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "ter sensação"
+     },
+     "example": "Sinto frio nas mãos."
+    },
+    {
+     "front": "pensar",
+     "back": {
+      "ru": "думать",
+      "en": "to think",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "usar o pensamento"
+     },
+     "example": "Penso nisso desde ontem."
+    },
+    {
+     "front": "lembrar",
+     "back": {
+      "ru": "помнить",
+      "en": "to remember",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "ter na memória"
+     },
+     "example": "Lembro-me bem daquele dia."
+    },
+    {
+     "front": "esquecer",
+     "back": {
+      "ru": "забывать",
+      "en": "to forget",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "perder da memória"
+     },
+     "example": "Esqueci-me do teu nome."
+    },
+    {
+     "front": "entender",
+     "back": {
+      "ru": "понимать",
+      "en": "to understand",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "perceber o sentido"
+     },
+     "example": "Não entendi a pergunta."
+    },
+    {
+     "front": "explicar",
+     "back": {
+      "ru": "объяснять",
+      "en": "to explain",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "tornar claro"
+     },
+     "example": "Explica isso outra vez."
+    },
+    {
+     "front": "perguntar",
+     "back": {
+      "ru": "спрашивать",
+      "en": "to ask",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "pedir informação"
+     },
+     "example": "Perguntei ao vizinho."
+    },
+    {
+     "front": "responder",
+     "back": {
+      "ru": "отвечать",
+      "en": "to answer",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "dar resposta"
+     },
+     "example": "Ela ainda não respondeu."
+    },
+    {
+     "front": "chamar",
+     "back": {
+      "ru": "звать",
+      "en": "to call",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "dizer o nome para vir"
+     },
+     "example": "Chama o médico, depressa."
+    },
+    {
+     "front": "telefonar",
+     "back": {
+      "ru": "звонить",
+      "en": "to phone",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "falar por telefone"
+     },
+     "example": "Telefono-te logo à noite."
+    },
+    {
+     "front": "abrir",
+     "back": {
+      "ru": "открывать",
+      "en": "to open",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "deixar de estar fechado"
+     },
+     "example": "Abre a janela, por favor."
+    },
+    {
+     "front": "fechar",
+     "back": {
+      "ru": "закрывать",
+      "en": "to close",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "tapar a passagem"
+     },
+     "example": "Fecha a porta ao sair."
+    },
+    {
+     "front": "pôr",
+     "back": {
+      "ru": "класть",
+      "en": "to put",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "colocar num lugar"
+     },
+     "example": "Põe o pão na mesa."
+    },
+    {
+     "front": "tirar",
+     "back": {
+      "ru": "убирать",
+      "en": "to take off",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "retirar de um lugar"
+     },
+     "example": "Tira os sapatos à entrada."
+    },
+    {
+     "front": "levar",
+     "back": {
+      "ru": "нести",
+      "en": "to take",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "transportar para outro sítio"
+     },
+     "example": "Levo o guarda-chuva comigo."
+    },
+    {
+     "front": "trazer",
+     "back": {
+      "ru": "приносить",
+      "en": "to bring",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "transportar para cá"
+     },
+     "example": "Trouxe bolo para todos."
+    },
+    {
+     "front": "mandar",
+     "back": {
+      "ru": "посылать",
+      "en": "to send",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "fazer chegar a alguém"
+     },
+     "example": "Mandei a carta na segunda."
+    },
+    {
+     "front": "receber",
+     "back": {
+      "ru": "получать",
+      "en": "to receive",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "ficar com o que foi dado"
+     },
+     "example": "Recebi o teu recado."
+    },
+    {
+     "front": "guardar",
+     "back": {
+      "ru": "хранить",
+      "en": "to keep",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "pôr em lugar seguro"
+     },
+     "example": "Guardo as fotos numa caixa."
+    },
+    {
+     "front": "deixar",
+     "back": {
+      "ru": "оставлять",
+      "en": "to leave behind",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "não levar consigo"
+     },
+     "example": "Deixei o casaco no carro."
+    },
+    {
+     "front": "segurar",
+     "back": {
+      "ru": "держать",
+      "en": "to hold",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "manter preso na mão"
+     },
+     "example": "Segura bem o copo."
+    },
+    {
+     "front": "empurrar",
+     "back": {
+      "ru": "толкать",
+      "en": "to push",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "fazer força para afastar"
+     },
+     "example": "Empurra a porta, não puxa."
+    },
+    {
+     "front": "puxar",
+     "back": {
+      "ru": "тянуть",
+      "en": "to pull",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "fazer força para trazer"
+     },
+     "example": "Puxa a corda com força."
+    },
+    {
+     "front": "apanhar",
+     "back": {
+      "ru": "ловить",
+      "en": "to catch",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "agarrar o que se move"
+     },
+     "example": "Apanhei a bola no ar."
+    },
+    {
+     "front": "mostrar",
+     "back": {
+      "ru": "показывать",
+      "en": "to show",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "pôr à vista"
+     },
+     "example": "Mostra-me a fotografia."
+    },
+    {
+     "front": "esconder",
+     "back": {
+      "ru": "прятать",
+      "en": "to hide",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "pôr fora da vista"
+     },
+     "example": "Escondeu o presente no armário."
+    },
+    {
+     "front": "mudar",
+     "back": {
+      "ru": "менять",
+      "en": "to change",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "tornar diferente"
+     },
+     "example": "Mudei de ideias."
+    },
+    {
+     "front": "criar",
+     "back": {
+      "ru": "создавать",
+      "en": "to create",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "fazer nascer"
+     },
+     "example": "Criaram uma escola nova."
+    },
+    {
+     "front": "construir",
+     "back": {
+      "ru": "строить",
+      "en": "to build",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "levantar uma obra"
+     },
+     "example": "Constroem um prédio ao lado."
+    },
+    {
+     "front": "partir",
+     "back": {
+      "ru": "ломать",
+      "en": "to break",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "separar em pedaços"
+     },
+     "example": "Parti um copo esta manhã."
+    },
+    {
+     "front": "cortar",
+     "back": {
+      "ru": "резать",
+      "en": "to cut",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "separar com lâmina"
+     },
+     "example": "Corta o pão em fatias."
+    },
+    {
+     "front": "limpar",
+     "back": {
+      "ru": "убирать",
+      "en": "to clean",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "tirar a sujidade"
+     },
+     "example": "Limpei a cozinha toda."
+    },
+    {
+     "front": "lavar",
+     "back": {
+      "ru": "мыть",
+      "en": "to wash",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "limpar com água"
+     },
+     "example": "Lava as mãos antes de comer."
+    },
+    {
+     "front": "secar",
+     "back": {
+      "ru": "сушить",
+      "en": "to dry",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "tirar a humidade"
+     },
+     "example": "A roupa seca ao sol."
+    },
+    {
+     "front": "cozinhar",
+     "back": {
+      "ru": "готовить",
+      "en": "to cook",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "preparar comida ao lume"
+     },
+     "example": "Cozinho todos os dias."
+    },
+    {
+     "front": "comer",
+     "back": {
+      "ru": "есть",
+      "en": "to eat",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "tomar alimento"
+     },
+     "example": "Comemos às oito."
+    },
+    {
+     "front": "beber",
+     "back": {
+      "ru": "пить",
+      "en": "to drink",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "tomar líquido"
+     },
+     "example": "Bebo água durante o dia."
+    },
+    {
+     "front": "provar",
+     "back": {
+      "ru": "пробовать",
+      "en": "to taste",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "sentir o sabor"
+     },
+     "example": "Prova a sopa, está boa."
+    },
+    {
+     "front": "servir",
+     "back": {
+      "ru": "подавать",
+      "en": "to serve",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "pôr à mesa"
+     },
+     "example": "Servem o almoço ao meio-dia."
+    },
+    {
+     "front": "dormir",
+     "back": {
+      "ru": "спать",
+      "en": "to sleep",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "estar em sono"
+     },
+     "example": "Dormi oito horas seguidas."
+    },
+    {
+     "front": "acordar",
+     "back": {
+      "ru": "просыпаться",
+      "en": "to wake up",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "deixar de dormir"
+     },
+     "example": "Acordo sempre às seis."
+    },
+    {
+     "front": "levantar",
+     "back": {
+      "ru": "вставать",
+      "en": "to get up",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "pôr-se de pé"
+     },
+     "example": "Levanta-te, é tarde."
+    },
+    {
+     "front": "sentar",
+     "back": {
+      "ru": "садиться",
+      "en": "to sit",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "pôr-se sentado"
+     },
+     "example": "Senta-te aqui ao meu lado."
+    },
+    {
+     "front": "deitar",
+     "back": {
+      "ru": "ложиться",
+      "en": "to lie down",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "pôr-se na cama"
+     },
+     "example": "Deito-me cedo à semana."
+    },
+    {
+     "front": "andar",
+     "back": {
+      "ru": "ходить",
+      "en": "to walk",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "deslocar-se a pé"
+     },
+     "example": "Ando meia hora por dia."
+    },
+    {
+     "front": "correr",
+     "back": {
+      "ru": "бегать",
+      "en": "to run",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "andar depressa"
+     },
+     "example": "Corro no parque de manhã."
+    },
+    {
+     "front": "saltar",
+     "back": {
+      "ru": "прыгать",
+      "en": "to jump",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "dar salto"
+     },
+     "example": "O gato saltou para a mesa."
+    },
+    {
+     "front": "nadar",
+     "back": {
+      "ru": "плавать",
+      "en": "to swim",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "mover-se na água"
+     },
+     "example": "Aprendi a nadar no rio."
+    },
+    {
+     "front": "voar",
+     "back": {
+      "ru": "летать",
+      "en": "to fly",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "mover-se no ar"
+     },
+     "example": "Os pássaros voam para sul."
+    },
+    {
+     "front": "viajar",
+     "back": {
+      "ru": "путешествовать",
+      "en": "to travel",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "andar por outros lugares"
+     },
+     "example": "Viajámos de comboio."
+    },
+    {
+     "front": "conduzir",
+     "back": {
+      "ru": "водить",
+      "en": "to drive",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "dirigir um veículo"
+     },
+     "example": "Ele conduz com cuidado."
+    },
+    {
+     "front": "subir",
+     "back": {
+      "ru": "подниматься",
+      "en": "to go up",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "ir para cima"
+     },
+     "example": "Subimos até ao terceiro andar."
+    },
+    {
+     "front": "descer",
+     "back": {
+      "ru": "спускаться",
+      "en": "to go down",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "ir para baixo"
+     },
+     "example": "Desce as escadas devagar."
+    },
+    {
+     "front": "cair",
+     "back": {
+      "ru": "падать",
+      "en": "to fall",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "ir ao chão"
+     },
+     "example": "A chávena caiu da mesa."
+    },
+    {
+     "front": "morar",
+     "back": {
+      "ru": "жить",
+      "en": "to live (reside)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "ter casa num lugar"
+     },
+     "example": "Moro perto da estação."
+    },
+    {
+     "front": "viver",
+     "back": {
+      "ru": "жить",
+      "en": "to live",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "estar vivo"
+     },
+     "example": "Viveu noventa anos."
+    },
+    {
+     "front": "morrer",
+     "back": {
+      "ru": "умирать",
+      "en": "to die",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "deixar de viver"
+     },
+     "example": "A árvore morreu no inverno."
+    },
+    {
+     "front": "nascer",
+     "back": {
+      "ru": "рождаться",
+      "en": "to be born",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "vir ao mundo"
+     },
+     "example": "Nasci em março."
+    },
+    {
+     "front": "crescer",
+     "back": {
+      "ru": "расти",
+      "en": "to grow",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "tornar-se maior"
+     },
+     "example": "As crianças crescem depressa."
+    },
+    {
+     "front": "casar",
+     "back": {
+      "ru": "жениться",
+      "en": "to marry",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "unir-se em casamento"
+     },
+     "example": "Casaram na primavera."
+    },
+    {
+     "front": "ajudar",
+     "back": {
+      "ru": "помогать",
+      "en": "to help",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "dar apoio"
+     },
+     "example": "Ajuda-me com estas malas."
+    },
+    {
+     "front": "gostar",
+     "back": {
+      "ru": "нравиться",
+      "en": "to like",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "achar bom"
+     },
+     "example": "Gosto muito deste café."
+    },
+    {
+     "front": "amar",
+     "back": {
+      "ru": "любить",
+      "en": "to love",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "sentir amor"
+     },
+     "example": "Ama a família acima de tudo."
+    },
+    {
+     "front": "odiar",
+     "back": {
+      "ru": "ненавидеть",
+      "en": "to hate",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "sentir ódio"
+     },
+     "example": "Odeio acordar cedo."
+    },
+    {
+     "front": "rir",
+     "back": {
+      "ru": "смеяться",
+      "en": "to laugh",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "mostrar alegria com som"
+     },
+     "example": "Rimos a noite toda."
+    },
+    {
+     "front": "chorar",
+     "back": {
+      "ru": "плакать",
+      "en": "to cry",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "deitar lágrimas"
+     },
+     "example": "A criança chorou de sono."
+    },
+    {
+     "front": "cantar",
+     "back": {
+      "ru": "петь",
+      "en": "to sing",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "fazer música com a voz"
+     },
+     "example": "Cantam no coro da igreja."
+    },
+    {
+     "front": "dançar",
+     "back": {
+      "ru": "танцевать",
+      "en": "to dance",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "mover-se ao ritmo"
+     },
+     "example": "Dançámos até tarde."
+    },
+    {
+     "front": "brincar",
+     "back": {
+      "ru": "играть",
+      "en": "to play (children)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "divertir-se a brincar"
+     },
+     "example": "As crianças brincam no jardim."
+    },
+    {
+     "front": "jogar",
+     "back": {
+      "ru": "играть",
+      "en": "to play (a game)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "participar num jogo"
+     },
+     "example": "Jogamos futebol ao sábado."
+    },
+    {
+     "front": "tocar",
+     "back": {
+      "ru": "трогать",
+      "en": "to touch",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "pôr a mão em algo"
+     },
+     "example": "Não toques na tinta fresca."
+    },
+    {
+     "front": "descansar",
+     "back": {
+      "ru": "отдыхать",
+      "en": "to rest",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "parar para recuperar"
+     },
+     "example": "Descansa um pouco."
+    },
+    {
+     "front": "tentar",
+     "back": {
+      "ru": "пытаться",
+      "en": "to try",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "fazer esforço"
+     },
+     "example": "Tentei ligar-te três vezes."
+    },
+    {
+     "front": "conseguir",
+     "back": {
+      "ru": "удаваться",
+      "en": "to manage",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "obter o que se quer"
+     },
+     "example": "Consegui bilhetes para hoje."
+    },
+    {
+     "front": "precisar",
+     "back": {
+      "ru": "нуждаться",
+      "en": "to need",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "ter necessidade"
+     },
+     "example": "Preciso de ajuda agora."
+    },
+    {
+     "front": "usar",
+     "back": {
+      "ru": "использовать",
+      "en": "to use",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "servir-se de algo"
+     },
+     "example": "Uso o telefone para tudo."
+    },
+    {
+     "front": "escolher",
+     "back": {
+      "ru": "выбирать",
+      "en": "to choose",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "preferir entre opções"
+     },
+     "example": "Escolhe tu o restaurante."
+    },
+    {
+     "front": "decidir",
+     "back": {
+      "ru": "решать",
+      "en": "to decide",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "tomar decisão"
+     },
+     "example": "Decidimos ficar mais um dia."
+    },
+    {
+     "front": "aceitar",
+     "back": {
+      "ru": "принимать",
+      "en": "to accept",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "dar por bom"
+     },
+     "example": "Aceitou o convite."
+    },
+    {
+     "front": "recusar",
+     "back": {
+      "ru": "отказывать",
+      "en": "to refuse",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "não aceitar"
+     },
+     "example": "Recusou a ajuda dos vizinhos."
+    },
+    {
+     "front": "prometer",
+     "back": {
+      "ru": "обещать",
+      "en": "to promise",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "dar palavra"
+     },
+     "example": "Prometeu voltar cedo."
+    },
+    {
+     "front": "agradecer",
+     "back": {
+      "ru": "благодарить",
+      "en": "to thank",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "dizer obrigado"
+     },
+     "example": "Agradeço a tua paciência."
+    },
+    {
+     "front": "pedir",
+     "back": {
+      "ru": "просить",
+      "en": "to ask for",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "dizer que se quer algo"
+     },
+     "example": "Pedi um copo de água."
+    },
+    {
+     "front": "acontecer",
+     "back": {
+      "ru": "случаться",
+      "en": "to happen",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "dar-se um facto"
+     },
+     "example": "O que aconteceu ontem?"
+    },
+    {
+     "front": "parecer",
+     "back": {
+      "ru": "казаться",
+      "en": "to seem",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "dar impressão"
+     },
+     "example": "Pareces cansado."
+    },
+    {
+     "front": "ligar",
+     "back": {
+      "ru": "включать",
+      "en": "to turn on",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "pôr a funcionar"
+     },
+     "example": "Liga a luz da cozinha."
+    },
+    {
+     "front": "desligar",
+     "back": {
+      "ru": "выключать",
+      "en": "to turn off",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "deixar de fazer funcionar"
+     },
+     "example": "Desliga o computador antes de sair."
+    },
+    {
+     "front": "chover",
+     "back": {
+      "ru": "идти (о дожде)",
+      "en": "to rain",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "cair chuva"
+     },
+     "example": "Choveu a noite toda."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "água",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "líquido sem cor nem sabor"
+     },
+     "example": "Traz-me um copo de água."
+    },
+    {
+     "front": "pão",
+     "back": {
+      "ru": "хлеб",
+      "en": "bread",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "alimento feito de farinha"
+     },
+     "example": "O pão está quente ainda."
+    },
+    {
+     "front": "leite",
+     "back": {
+      "ru": "молоко",
+      "en": "milk",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "líquido branco da vaca"
+     },
+     "example": "Bebo leite ao pequeno-almoço."
+    },
+    {
+     "front": "café",
+     "back": {
+      "ru": "кофе",
+      "en": "coffee",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "bebida escura e amarga"
+     },
+     "example": "Um café, se faz favor."
+    },
+    {
+     "front": "chá",
+     "back": {
+      "ru": "чай",
+      "en": "tea",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "bebida de folhas em água quente"
+     },
+     "example": "Faço chá à tarde."
+    },
+    {
+     "front": "sumo",
+     "back": {
+      "ru": "сок",
+      "en": "juice",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "bebida de fruta espremida"
+     },
+     "example": "Sumo de laranja natural."
+    },
+    {
+     "front": "vinho",
+     "back": {
+      "ru": "вино",
+      "en": "wine",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "bebida de uvas fermentadas"
+     },
+     "example": "Um copo de vinho tinto."
+    },
+    {
+     "front": "cerveja",
+     "back": {
+      "ru": "пиво",
+      "en": "beer",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "bebida de cevada"
+     },
+     "example": "A cerveja está bem fresca."
+    },
+    {
+     "front": "gelo",
+     "back": {
+      "ru": "лёд",
+      "en": "ice",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "água congelada"
+     },
+     "example": "Queres gelo na bebida?"
+    },
+    {
+     "front": "açúcar",
+     "back": {
+      "ru": "сахар",
+      "en": "sugar",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "produto doce em grão"
+     },
+     "example": "Bebo o café sem açúcar."
+    },
+    {
+     "front": "sal",
+     "back": {
+      "ru": "соль",
+      "en": "salt",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "tempero branco do mar"
+     },
+     "example": "Falta sal na sopa."
+    },
+    {
+     "front": "pimenta",
+     "back": {
+      "ru": "перец",
+      "en": "pepper",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "tempero picante"
+     },
+     "example": "Põe um pouco de pimenta."
+    },
+    {
+     "front": "azeite",
+     "back": {
+      "ru": "оливковое масло",
+      "en": "olive oil",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "óleo tirado da azeitona"
+     },
+     "example": "Rega a salada com azeite."
+    },
+    {
+     "front": "manteiga",
+     "back": {
+      "ru": "масло",
+      "en": "butter",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "gordura feita de leite"
+     },
+     "example": "Passa manteiga no pão."
+    },
+    {
+     "front": "queijo",
+     "back": {
+      "ru": "сыр",
+      "en": "cheese",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "alimento feito de leite"
+     },
+     "example": "Este queijo é da serra."
+    },
+    {
+     "front": "ovo",
+     "back": {
+      "ru": "яйцо",
+      "en": "egg",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "alimento posto pela galinha"
+     },
+     "example": "Comi um ovo cozido."
+    },
+    {
+     "front": "carne",
+     "back": {
+      "ru": "мясо",
+      "en": "meat",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "alimento animal"
+     },
+     "example": "Não como carne à noite."
+    },
+    {
+     "front": "frango",
+     "back": {
+      "ru": "курица",
+      "en": "chicken",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "carne de galinha"
+     },
+     "example": "Frango assado com batatas."
+    },
+    {
+     "front": "peixe",
+     "back": {
+      "ru": "рыба",
+      "en": "fish",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "animal do mar que se come"
+     },
+     "example": "O peixe é fresco hoje."
+    },
+    {
+     "front": "bacalhau",
+     "back": {
+      "ru": "треска",
+      "en": "cod",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "peixe salgado tradicional"
+     },
+     "example": "O bacalhau é o prato da casa."
+    },
+    {
+     "front": "sardinha",
+     "back": {
+      "ru": "сардина",
+      "en": "sardine",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "peixe pequeno grelhado"
+     },
+     "example": "Sardinhas assadas no carvão."
+    },
+    {
+     "front": "atum",
+     "back": {
+      "ru": "тунец",
+      "en": "tuna",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "peixe grande do mar"
+     },
+     "example": "Uma sanduíche de atum."
+    },
+    {
+     "front": "camarão",
+     "back": {
+      "ru": "креветка",
+      "en": "shrimp",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "marisco pequeno"
+     },
+     "example": "Camarões com alho."
+    },
+    {
+     "front": "marisco",
+     "back": {
+      "ru": "морепродукты",
+      "en": "seafood",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "animais do mar comestíveis"
+     },
+     "example": "Comemos marisco à beira-mar."
+    },
+    {
+     "front": "presunto",
+     "back": {
+      "ru": "ветчина",
+      "en": "ham",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "carne de porco curada"
+     },
+     "example": "Presunto com melão."
+    },
+    {
+     "front": "salsicha",
+     "back": {
+      "ru": "сосиска",
+      "en": "sausage",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "carne moída em tripa"
+     },
+     "example": "Salsichas para as crianças."
+    },
+    {
+     "front": "arroz",
+     "back": {
+      "ru": "рис",
+      "en": "rice",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "grão branco cozido"
+     },
+     "example": "Arroz de peixe ao domingo."
+    },
+    {
+     "front": "batata",
+     "back": {
+      "ru": "картофель",
+      "en": "potato",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "tubérculo comestível"
+     },
+     "example": "Batatas cozidas com azeite."
+    },
+    {
+     "front": "massa",
+     "back": {
+      "ru": "макароны",
+      "en": "pasta",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "comida de farinha e água"
+     },
+     "example": "Faço massa quando tenho pressa."
+    },
+    {
+     "front": "farinha",
+     "back": {
+      "ru": "мука",
+      "en": "flour",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "pó de cereais moídos"
+     },
+     "example": "Falta farinha para o bolo."
+    },
+    {
+     "front": "sopa",
+     "back": {
+      "ru": "суп",
+      "en": "soup",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "comida líquida quente"
+     },
+     "example": "A sopa está a arrefecer."
+    },
+    {
+     "front": "salada",
+     "back": {
+      "ru": "салат",
+      "en": "salad",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "prato de legumes crus"
+     },
+     "example": "Uma salada de tomate."
+    },
+    {
+     "front": "legumes",
+     "back": {
+      "ru": "овощи",
+      "en": "vegetables",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "plantas de horta"
+     },
+     "example": "Como legumes todos os dias."
+    },
+    {
+     "front": "fruta",
+     "back": {
+      "ru": "фрукты",
+      "en": "fruit",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "produto doce das árvores"
+     },
+     "example": "Há fruta na cozinha."
+    },
+    {
+     "front": "maçã",
+     "back": {
+      "ru": "яблоко",
+      "en": "apple",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "fruto redondo da macieira"
+     },
+     "example": "Levo uma maçã para o trabalho."
+    },
+    {
+     "front": "pera",
+     "back": {
+      "ru": "груша",
+      "en": "pear",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "fruto doce da pereira"
+     },
+     "example": "Esta pera está madura."
+    },
+    {
+     "front": "laranja",
+     "back": {
+      "ru": "апельсин",
+      "en": "orange",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "fruto de casca alaranjada"
+     },
+     "example": "Descasquei uma laranja."
+    },
+    {
+     "front": "limão",
+     "back": {
+      "ru": "лимон",
+      "en": "lemon",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "fruto amarelo e ácido"
+     },
+     "example": "Chá com limão."
+    },
+    {
+     "front": "banana",
+     "back": {
+      "ru": "банан",
+      "en": "banana",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "fruto comprido e amarelo"
+     },
+     "example": "Comi uma banana antes do treino."
+    },
+    {
+     "front": "uva",
+     "back": {
+      "ru": "виноград",
+      "en": "grape",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "fruto de que se faz vinho"
+     },
+     "example": "As uvas estão doces."
+    },
+    {
+     "front": "morango",
+     "back": {
+      "ru": "клубника",
+      "en": "strawberry",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "fruto pequeno e vermelho"
+     },
+     "example": "Morangos com natas."
+    },
+    {
+     "front": "cereja",
+     "back": {
+      "ru": "вишня",
+      "en": "cherry",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "fruto vermelho de caroço"
+     },
+     "example": "As cerejas do Fundão são famosas."
+    },
+    {
+     "front": "pêssego",
+     "back": {
+      "ru": "персик",
+      "en": "peach",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "fruto de pele aveludada"
+     },
+     "example": "Um pêssego bem maduro."
+    },
+    {
+     "front": "melão",
+     "back": {
+      "ru": "дыня",
+      "en": "melon",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "fruto grande e doce"
+     },
+     "example": "Melão com presunto."
+    },
+    {
+     "front": "melancia",
+     "back": {
+      "ru": "арбуз",
+      "en": "watermelon",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "fruto grande de polpa vermelha"
+     },
+     "example": "Melancia fresca no verão."
+    },
+    {
+     "front": "ananás",
+     "back": {
+      "ru": "ананас",
+      "en": "pineapple",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "fruto tropical de casca dura"
+     },
+     "example": "Sumo de ananás."
+    },
+    {
+     "front": "figo",
+     "back": {
+      "ru": "инжир",
+      "en": "fig",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "fruto doce do figueira"
+     },
+     "example": "Figos secos no inverno."
+    },
+    {
+     "front": "tomate",
+     "back": {
+      "ru": "помидор",
+      "en": "tomato",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "fruto vermelho de salada"
+     },
+     "example": "Salada de tomate com orégãos."
+    },
+    {
+     "front": "cebola",
+     "back": {
+      "ru": "лук",
+      "en": "onion",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "bolbo de sabor forte"
+     },
+     "example": "Refoga a cebola primeiro."
+    },
+    {
+     "front": "alho",
+     "back": {
+      "ru": "чеснок",
+      "en": "garlic",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "tempero de cheiro forte"
+     },
+     "example": "Dois dentes de alho chegam."
+    },
+    {
+     "front": "cenoura",
+     "back": {
+      "ru": "морковь",
+      "en": "carrot",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "raiz laranja comestível"
+     },
+     "example": "Sopa de cenoura."
+    },
+    {
+     "front": "alface",
+     "back": {
+      "ru": "салат-латук",
+      "en": "lettuce",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "planta de folhas verdes"
+     },
+     "example": "Lava bem a alface."
+    },
+    {
+     "front": "pepino",
+     "back": {
+      "ru": "огурец",
+      "en": "cucumber",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "legume comprido e verde"
+     },
+     "example": "Pepino às rodelas."
+    },
+    {
+     "front": "feijão",
+     "back": {
+      "ru": "фасоль",
+      "en": "beans",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "grão de vagem"
+     },
+     "example": "Feijão com arroz."
+    },
+    {
+     "front": "ervilha",
+     "back": {
+      "ru": "горох",
+      "en": "pea",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "grão pequeno e verde"
+     },
+     "example": "Ervilhas com ovo escalfado."
+    },
+    {
+     "front": "couve",
+     "back": {
+      "ru": "капуста",
+      "en": "cabbage",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "planta de folhas grandes"
+     },
+     "example": "Caldo verde leva couve."
+    },
+    {
+     "front": "abóbora",
+     "back": {
+      "ru": "тыква",
+      "en": "pumpkin",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "fruto grande e alaranjado"
+     },
+     "example": "Sopa de abóbora no outono."
+    },
+    {
+     "front": "cogumelo",
+     "back": {
+      "ru": "гриб",
+      "en": "mushroom",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "planta do bosque comestível"
+     },
+     "example": "Cogumelos salteados."
+    },
+    {
+     "front": "azeitona",
+     "back": {
+      "ru": "оливка",
+      "en": "olive",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "fruto de que se faz azeite"
+     },
+     "example": "Azeitonas antes da refeição."
+    },
+    {
+     "front": "bolo",
+     "back": {
+      "ru": "торт",
+      "en": "cake",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "doce cozido no forno"
+     },
+     "example": "Fiz um bolo de laranja."
+    },
+    {
+     "front": "bolacha",
+     "back": {
+      "ru": "печенье",
+      "en": "biscuit",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "doce seco e pequeno"
+     },
+     "example": "Bolachas com o chá."
+    },
+    {
+     "front": "pastel de nata",
+     "back": {
+      "ru": "пирожное с кремом",
+      "en": "custard tart",
+      "de": "Pastel de Nata",
+      "fr": "pastel de nata",
+      "es": "pastel de nata",
+      "it": "pastel de nata",
+      "pt": "doce típico de Lisboa"
+     },
+     "example": "Dois pastéis de nata, por favor."
+    },
+    {
+     "front": "chocolate",
+     "back": {
+      "ru": "шоколад",
+      "en": "chocolate",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "doce escuro de cacau"
+     },
+     "example": "Uma barra de chocolate preto."
+    },
+    {
+     "front": "gelado",
+     "back": {
+      "ru": "мороженое",
+      "en": "ice cream",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "doce gelado"
+     },
+     "example": "Gelado de baunilha."
+    },
+    {
+     "front": "mel",
+     "back": {
+      "ru": "мёд",
+      "en": "honey",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "doce feito pelas abelhas"
+     },
+     "example": "Chá com mel para a garganta."
+    },
+    {
+     "front": "doce",
+     "back": {
+      "ru": "сладость",
+      "en": "sweet",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "comida açucarada"
+     },
+     "example": "Não como doces à noite."
+    },
+    {
+     "front": "sobremesa",
+     "back": {
+      "ru": "десерт",
+      "en": "dessert",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "prato do fim da refeição"
+     },
+     "example": "De sobremesa, fruta."
+    },
+    {
+     "front": "iogurte",
+     "back": {
+      "ru": "йогурт",
+      "en": "yoghurt",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "leite fermentado"
+     },
+     "example": "Iogurte natural sem açúcar."
+    },
+    {
+     "front": "natas",
+     "back": {
+      "ru": "сливки",
+      "en": "cream",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "parte gorda do leite"
+     },
+     "example": "Morangos com natas."
+    },
+    {
+     "front": "torrada",
+     "back": {
+      "ru": "тост",
+      "en": "toast",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "pão aquecido e estaladiço"
+     },
+     "example": "Torradas com manteiga."
+    },
+    {
+     "front": "sanduíche",
+     "back": {
+      "ru": "бутерброд",
+      "en": "sandwich",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "pão com recheio"
+     },
+     "example": "Uma sanduíche mista."
+    },
+    {
+     "front": "pequeno-almoço",
+     "back": {
+      "ru": "завтрак",
+      "en": "breakfast",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "primeira refeição do dia"
+     },
+     "example": "Tomo o pequeno-almoço às sete."
+    },
+    {
+     "front": "almoço",
+     "back": {
+      "ru": "обед",
+      "en": "lunch",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "refeição do meio-dia"
+     },
+     "example": "O almoço é à uma."
+    },
+    {
+     "front": "jantar",
+     "back": {
+      "ru": "ужин",
+      "en": "dinner",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "refeição da noite"
+     },
+     "example": "Jantamos por volta das oito."
+    },
+    {
+     "front": "lanche",
+     "back": {
+      "ru": "полдник",
+      "en": "snack",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "refeição leve da tarde"
+     },
+     "example": "As crianças levam o lanche."
+    },
+    {
+     "front": "refeição",
+     "back": {
+      "ru": "приём пищи",
+      "en": "meal",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "conjunto de pratos"
+     },
+     "example": "Faço três refeições por dia."
+    },
+    {
+     "front": "comida",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "tudo o que se come"
+     },
+     "example": "A comida está na mesa."
+    },
+    {
+     "front": "bebida",
+     "back": {
+      "ru": "напиток",
+      "en": "drink",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "tudo o que se bebe"
+     },
+     "example": "Que bebida queres?"
+    },
+    {
+     "front": "prato",
+     "back": {
+      "ru": "тарелка",
+      "en": "plate",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "louça funda para comer"
+     },
+     "example": "Põe os pratos na bancada."
+    },
+    {
+     "front": "copo",
+     "back": {
+      "ru": "стакан",
+      "en": "glass",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "recipiente de beber"
+     },
+     "example": "Enche o copo até meio."
+    },
+    {
+     "front": "chávena",
+     "back": {
+      "ru": "чашка",
+      "en": "cup",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "recipiente pequeno para chá"
+     },
+     "example": "Uma chávena de café."
+    },
+    {
+     "front": "garrafa",
+     "back": {
+      "ru": "бутылка",
+      "en": "bottle",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "recipiente alto de líquido"
+     },
+     "example": "Uma garrafa de água."
+    },
+    {
+     "front": "colher",
+     "back": {
+      "ru": "ложка",
+      "en": "spoon",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "talher fundo"
+     },
+     "example": "Falta uma colher de sopa."
+    },
+    {
+     "front": "garfo",
+     "back": {
+      "ru": "вилка",
+      "en": "fork",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "talher de dentes"
+     },
+     "example": "O garfo caiu ao chão."
+    },
+    {
+     "front": "faca",
+     "back": {
+      "ru": "нож",
+      "en": "knife",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "talher que corta"
+     },
+     "example": "Esta faca não corta nada."
+    },
+    {
+     "front": "guardanapo",
+     "back": {
+      "ru": "салфетка",
+      "en": "napkin",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "pano para limpar a boca"
+     },
+     "example": "Dá-me um guardanapo."
+    },
+    {
+     "front": "panela",
+     "back": {
+      "ru": "кастрюля",
+      "en": "pot",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "recipiente de cozinhar"
+     },
+     "example": "A panela está ao lume."
+    },
+    {
+     "front": "frigideira",
+     "back": {
+      "ru": "сковорода",
+      "en": "frying pan",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "recipiente raso de fritar"
+     },
+     "example": "Aquece a frigideira."
+    },
+    {
+     "front": "restaurante",
+     "back": {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "casa onde se come"
+     },
+     "example": "Reservei mesa no restaurante."
+    },
+    {
+     "front": "ementa",
+     "back": {
+      "ru": "меню",
+      "en": "menu",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "lista de pratos"
+     },
+     "example": "Pede a ementa ao empregado."
+    },
+    {
+     "front": "conta",
+     "back": {
+      "ru": "счёт",
+      "en": "bill",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "papel do que há a pagar"
+     },
+     "example": "A conta, por favor."
+    },
+    {
+     "front": "empregado",
+     "back": {
+      "ru": "официант",
+      "en": "waiter",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "quem serve à mesa"
+     },
+     "example": "O empregado trouxe o pão."
+    },
+    {
+     "front": "fome",
+     "back": {
+      "ru": "голод",
+      "en": "hunger",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "vontade de comer"
+     },
+     "example": "Tenho muita fome."
+    },
+    {
+     "front": "sede",
+     "back": {
+      "ru": "жажда",
+      "en": "thirst",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "vontade de beber"
+     },
+     "example": "Com este calor dá sede."
+    },
+    {
+     "front": "sabor",
+     "back": {
+      "ru": "вкус",
+      "en": "taste",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "o que a língua sente"
+     },
+     "example": "Esta sopa tem pouco sabor."
+    },
+    {
+     "front": "receita",
+     "back": {
+      "ru": "рецепт",
+      "en": "recipe",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "instruções de um prato"
+     },
+     "example": "É a receita da minha avó."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "roupa",
+     "back": {
+      "ru": "одежда",
+      "en": "clothes",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "o que se veste"
+     },
+     "example": "Levo pouca roupa na mala."
+    },
+    {
+     "front": "camisa",
+     "back": {
+      "ru": "рубашка",
+      "en": "shirt",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "peça de cima com botões"
+     },
+     "example": "A camisa está por engomar."
+    },
+    {
+     "front": "camisola",
+     "back": {
+      "ru": "свитер",
+      "en": "jumper",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "peça quente de malha"
+     },
+     "example": "Veste a camisola, está frio."
+    },
+    {
+     "front": "t-shirt",
+     "back": {
+      "ru": "футболка",
+      "en": "T-shirt",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "peça leve de mangas curtas"
+     },
+     "example": "Uma t-shirt branca e lisa."
+    },
+    {
+     "front": "casaco",
+     "back": {
+      "ru": "пальто",
+      "en": "coat",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "peça de vestir por cima"
+     },
+     "example": "Esqueci o casaco no carro."
+    },
+    {
+     "front": "blusão",
+     "back": {
+      "ru": "куртка",
+      "en": "jacket",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "casaco curto e leve"
+     },
+     "example": "Um blusão para a chuva."
+    },
+    {
+     "front": "colete",
+     "back": {
+      "ru": "жилет",
+      "en": "waistcoat",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "peça sem mangas"
+     },
+     "example": "Um colete por cima da camisa."
+    },
+    {
+     "front": "calças",
+     "back": {
+      "ru": "брюки",
+      "en": "trousers",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "peça das duas pernas"
+     },
+     "example": "Estas calças ficam-me largas."
+    },
+    {
+     "front": "calções",
+     "back": {
+      "ru": "шорты",
+      "en": "shorts",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calças curtas"
+     },
+     "example": "Calções para o verão."
+    },
+    {
+     "front": "saia",
+     "back": {
+      "ru": "юбка",
+      "en": "skirt",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "peça feminina da cintura"
+     },
+     "example": "Uma saia até ao joelho."
+    },
+    {
+     "front": "vestido",
+     "back": {
+      "ru": "платье",
+      "en": "dress",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "peça inteira feminina"
+     },
+     "example": "O vestido é de linho."
+    },
+    {
+     "front": "fato",
+     "back": {
+      "ru": "костюм",
+      "en": "suit",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "casaco e calças a condizer"
+     },
+     "example": "Vai de fato ao casamento."
+    },
+    {
+     "front": "gravata",
+     "back": {
+      "ru": "галстук",
+      "en": "tie",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "tira de pano ao pescoço"
+     },
+     "example": "Não sei fazer o nó da gravata."
+    },
+    {
+     "front": "cinto",
+     "back": {
+      "ru": "ремень",
+      "en": "belt",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "tira que prende as calças"
+     },
+     "example": "Aperta mais o cinto."
+    },
+    {
+     "front": "meias",
+     "back": {
+      "ru": "носки",
+      "en": "socks",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "peça que cobre o pé"
+     },
+     "example": "Estas meias estão furadas."
+    },
+    {
+     "front": "collants",
+     "back": {
+      "ru": "колготки",
+      "en": "tights",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "peça fina das pernas"
+     },
+     "example": "Uns collants pretos."
+    },
+    {
+     "front": "sapatos",
+     "back": {
+      "ru": "туфли",
+      "en": "shoes",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "calçado fechado"
+     },
+     "example": "Sapatos pretos de couro."
+    },
+    {
+     "front": "ténis",
+     "back": {
+      "ru": "кроссовки",
+      "en": "trainers",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "calçado de desporto"
+     },
+     "example": "Ando de ténis o dia todo."
+    },
+    {
+     "front": "botas",
+     "back": {
+      "ru": "сапоги",
+      "en": "boots",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "calçado alto"
+     },
+     "example": "Botas de inverno."
+    },
+    {
+     "front": "sandálias",
+     "back": {
+      "ru": "сандалии",
+      "en": "sandals",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "calçado aberto de verão"
+     },
+     "example": "Sandálias para a praia."
+    },
+    {
+     "front": "chinelos",
+     "back": {
+      "ru": "тапочки",
+      "en": "slippers",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "calçado de andar em casa"
+     },
+     "example": "Chinelos à porta do quarto."
+    },
+    {
+     "front": "chapéu",
+     "back": {
+      "ru": "шляпа",
+      "en": "hat",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "peça de cobrir a cabeça"
+     },
+     "example": "Um chapéu de palha."
+    },
+    {
+     "front": "boné",
+     "back": {
+      "ru": "кепка",
+      "en": "cap",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "chapéu com pala"
+     },
+     "example": "Boné para o sol."
+    },
+    {
+     "front": "gorro",
+     "back": {
+      "ru": "шапка",
+      "en": "woolly hat",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "chapéu de lã"
+     },
+     "example": "Gorro e cachecol para a neve."
+    },
+    {
+     "front": "luvas",
+     "back": {
+      "ru": "перчатки",
+      "en": "gloves",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "peça que cobre as mãos"
+     },
+     "example": "Luvas de couro forradas."
+    },
+    {
+     "front": "cachecol",
+     "back": {
+      "ru": "шарф",
+      "en": "scarf",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "tira quente ao pescoço"
+     },
+     "example": "Enrola o cachecol duas vezes."
+    },
+    {
+     "front": "lenço",
+     "back": {
+      "ru": "платок",
+      "en": "handkerchief",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "pano pequeno de bolso"
+     },
+     "example": "Um lenço de algodão."
+    },
+    {
+     "front": "óculos",
+     "back": {
+      "ru": "очки",
+      "en": "glasses",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "lentes para ver melhor"
+     },
+     "example": "Parti os óculos ontem."
+    },
+    {
+     "front": "mala",
+     "back": {
+      "ru": "сумка",
+      "en": "bag",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "saco de levar coisas"
+     },
+     "example": "A mala pesa demasiado."
+    },
+    {
+     "front": "carteira",
+     "back": {
+      "ru": "кошелёк",
+      "en": "wallet",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "onde se guarda dinheiro"
+     },
+     "example": "Deixei a carteira em casa."
+    },
+    {
+     "front": "mochila",
+     "back": {
+      "ru": "рюкзак",
+      "en": "backpack",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "saco que se leva às costas"
+     },
+     "example": "A mochila da escola é pesada."
+    },
+    {
+     "front": "guarda-chuva",
+     "back": {
+      "ru": "зонт",
+      "en": "umbrella",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "proteção contra a chuva"
+     },
+     "example": "Leva o guarda-chuva."
+    },
+    {
+     "front": "pijama",
+     "back": {
+      "ru": "пижама",
+      "en": "pyjamas",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "roupa de dormir"
+     },
+     "example": "Um pijama de flanela."
+    },
+    {
+     "front": "roupão",
+     "back": {
+      "ru": "халат",
+      "en": "dressing gown",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "peça sobre a roupa de dormir"
+     },
+     "example": "O roupão está atrás da porta."
+    },
+    {
+     "front": "toalha",
+     "back": {
+      "ru": "полотенце",
+      "en": "towel",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "pano de secar"
+     },
+     "example": "Uma toalha limpa para o banho."
+    },
+    {
+     "front": "bolso",
+     "back": {
+      "ru": "карман",
+      "en": "pocket",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "abertura para guardar coisas"
+     },
+     "example": "Tenho a chave no bolso."
+    },
+    {
+     "front": "botão",
+     "back": {
+      "ru": "пуговица",
+      "en": "button",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "peça que fecha a roupa"
+     },
+     "example": "Caiu um botão da camisa."
+    },
+    {
+     "front": "fecho",
+     "back": {
+      "ru": "молния",
+      "en": "zip",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "tira de dentes que fecha"
+     },
+     "example": "O fecho da mala partiu-se."
+    },
+    {
+     "front": "manga",
+     "back": {
+      "ru": "рукав",
+      "en": "sleeve",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "parte que cobre o braço"
+     },
+     "example": "Arregaça as mangas."
+    },
+    {
+     "front": "gola",
+     "back": {
+      "ru": "воротник",
+      "en": "collar",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "parte à volta do pescoço"
+     },
+     "example": "A gola está manchada."
+    },
+    {
+     "front": "tamanho",
+     "back": {
+      "ru": "размер",
+      "en": "size",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "medida da peça"
+     },
+     "example": "Tem esta camisa noutro tamanho?"
+    },
+    {
+     "front": "tecido",
+     "back": {
+      "ru": "ткань",
+      "en": "fabric",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "material da roupa"
+     },
+     "example": "Um tecido leve para o verão."
+    },
+    {
+     "front": "algodão",
+     "back": {
+      "ru": "хлопок",
+      "en": "cotton",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "fibra branca de planta"
+     },
+     "example": "Camisa de algodão."
+    },
+    {
+     "front": "lã",
+     "back": {
+      "ru": "шерсть",
+      "en": "wool",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "fibra da ovelha"
+     },
+     "example": "Meias de lã grossa."
+    },
+    {
+     "front": "seda",
+     "back": {
+      "ru": "шёлк",
+      "en": "silk",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "tecido fino e brilhante"
+     },
+     "example": "Um lenço de seda."
+    },
+    {
+     "front": "couro",
+     "back": {
+      "ru": "кожа",
+      "en": "leather",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "pele curtida de animal"
+     },
+     "example": "Botas de couro castanho."
+    },
+    {
+     "front": "cabide",
+     "back": {
+      "ru": "вешалка",
+      "en": "hanger",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "suporte de pendurar roupa"
+     },
+     "example": "Põe o casaco no cabide."
+    },
+    {
+     "front": "armário",
+     "back": {
+      "ru": "шкаф",
+      "en": "wardrobe",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "móvel de guardar roupa"
+     },
+     "example": "O armário está cheio."
+    },
+    {
+     "front": "anel",
+     "back": {
+      "ru": "кольцо",
+      "en": "ring",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "joia do dedo"
+     },
+     "example": "Um anel de prata."
+    }
+   ]
+  }
+ ]
+}

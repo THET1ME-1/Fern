@@ -1,0 +1,6533 @@
+{
+ "lang": "th",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "สวัสดี",
+     "back": {
+      "ru": "привет (sawatdee)",
+      "en": "hello (sawatdee)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "สวัสดีครับ วันนี้สบายดีไหม"
+    },
+    {
+     "front": "ลาก่อน",
+     "back": {
+      "ru": "до свидания (la kon)",
+      "en": "goodbye (la kon)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "ลาก่อน แล้วเจอกันใหม่"
+    },
+    {
+     "front": "ใช่",
+     "back": {
+      "ru": "да (chai)",
+      "en": "yes (chai)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "ใช่ ผมเป็นคนไทย"
+    },
+    {
+     "front": "ไม่",
+     "back": {
+      "ru": "нет (mai)",
+      "en": "no (mai)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "ไม่ ผมไม่หิว"
+    },
+    {
+     "front": "กรุณา",
+     "back": {
+      "ru": "пожалуйста (karuna)",
+      "en": "please (karuna)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "กรุณารอสักครู่"
+    },
+    {
+     "front": "ขอบคุณ",
+     "back": {
+      "ru": "спасибо (khop khun)",
+      "en": "thank you (khop khun)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "ขอบคุณมากครับ"
+    },
+    {
+     "front": "ขอโทษ",
+     "back": {
+      "ru": "извини (kho thot)",
+      "en": "sorry (kho thot)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "ขอโทษ ผมมาสาย"
+    },
+    {
+     "front": "อรุณสวัสดิ์",
+     "back": {
+      "ru": "доброе утро (arun sawat)",
+      "en": "good morning (arun sawat)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "อรุณสวัสดิ์ วันนี้อากาศดี"
+    },
+    {
+     "front": "ราตรีสวัสดิ์",
+     "back": {
+      "ru": "спокойной ночи (ratri sawat)",
+      "en": "good night (ratri sawat)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "ราตรีสวัสดิ์ ฝันดีนะ"
+    },
+    {
+     "front": "สบายดี",
+     "back": {
+      "ru": "всё хорошо (sabai dee)",
+      "en": "all right (sabai dee)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "ผมสบายดี ขอบคุณ"
+    },
+    {
+     "front": "ผู้ชาย",
+     "back": {
+      "ru": "мужчина (phu chai)",
+      "en": "man (phu chai)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "ผู้ชายคนนั้นสูงมาก"
+    },
+    {
+     "front": "ผู้หญิง",
+     "back": {
+      "ru": "женщина (phu ying)",
+      "en": "woman (phu ying)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "ผู้หญิงคนนี้เป็นครู"
+    },
+    {
+     "front": "เด็ก",
+     "back": {
+      "ru": "ребёнок (dek)",
+      "en": "child (dek)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "เด็กกำลังเล่นอยู่ในสวน"
+    },
+    {
+     "front": "เด็กชาย",
+     "back": {
+      "ru": "мальчик (dek chai)",
+      "en": "boy (dek chai)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "เด็กชายคนนั้นชื่อสมชาย"
+    },
+    {
+     "front": "เด็กหญิง",
+     "back": {
+      "ru": "девочка (dek ying)",
+      "en": "girl (dek ying)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "เด็กหญิงคนนี้ร้องเพลงเก่ง"
+    },
+    {
+     "front": "เพื่อน",
+     "back": {
+      "ru": "друг (phuean)",
+      "en": "friend (phuean)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "เพื่อนของผมมาจากเชียงใหม่"
+    },
+    {
+     "front": "ครอบครัว",
+     "back": {
+      "ru": "семья (khropkhrua)",
+      "en": "family (khropkhrua)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "ครอบครัวของฉันมีห้าคน"
+    },
+    {
+     "front": "แม่",
+     "back": {
+      "ru": "мама (mae)",
+      "en": "mother (mae)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "แม่ทำอาหารอร่อยมาก"
+    },
+    {
+     "front": "พ่อ",
+     "back": {
+      "ru": "папа (pho)",
+      "en": "father (pho)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "พ่อไปทำงานทุกวัน"
+    },
+    {
+     "front": "ลูกชาย",
+     "back": {
+      "ru": "сын (luk chai)",
+      "en": "son (luk chai)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "ลูกชายของเขาอายุสิบขวบ"
+    },
+    {
+     "front": "ลูกสาว",
+     "back": {
+      "ru": "дочь (luk sao)",
+      "en": "daughter (luk sao)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "ลูกสาวของฉันเรียนเก่ง"
+    },
+    {
+     "front": "พี่ชาย",
+     "back": {
+      "ru": "брат (phi chai)",
+      "en": "brother (phi chai)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "พี่ชายผมทำงานที่ธนาคาร"
+    },
+    {
+     "front": "พี่สาว",
+     "back": {
+      "ru": "сестра (phi sao)",
+      "en": "sister (phi sao)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "พี่สาวของฉันอยู่กรุงเทพ"
+    },
+    {
+     "front": "ยาย",
+     "back": {
+      "ru": "бабушка (yai)",
+      "en": "grandmother (yai)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "ยายเล่านิทานให้หลานฟัง"
+    },
+    {
+     "front": "ปู่",
+     "back": {
+      "ru": "дедушка (pu)",
+      "en": "grandfather (pu)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "ปู่ชอบดื่มชาตอนเช้า"
+    },
+    {
+     "front": "คน",
+     "back": {
+      "ru": "человек (khon)",
+      "en": "person (khon)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "มีคนรออยู่หน้าร้าน"
+    },
+    {
+     "front": "ผู้คน",
+     "back": {
+      "ru": "люди (phu khon)",
+      "en": "people (phu khon)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "ผู้คนเดินอยู่บนถนน"
+    },
+    {
+     "front": "ชื่อ",
+     "back": {
+      "ru": "имя (chue)",
+      "en": "name (chue)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "คุณชื่ออะไรครับ"
+    },
+    {
+     "front": "ท่าน",
+     "back": {
+      "ru": "господин (than)",
+      "en": "sir (than)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "เชิญท่านนั่งตรงนี้"
+    },
+    {
+     "front": "คุณนาย",
+     "back": {
+      "ru": "госпожа (khun nai)",
+      "en": "madam (khun nai)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "คุณนายกำลังรออยู่ข้างนอก"
+    },
+    {
+     "front": "ฉัน",
+     "back": {
+      "ru": "я (chan)",
+      "en": "I (chan)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "ฉันเป็นนักเรียน"
+    },
+    {
+     "front": "เธอ",
+     "back": {
+      "ru": "ты (thoe)",
+      "en": "you (thoe)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "เธอไปไหนมา"
+    },
+    {
+     "front": "คุณ",
+     "back": {
+      "ru": "вы (khun)",
+      "en": "you (khun)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "คุณมาจากประเทศอะไร"
+    },
+    {
+     "front": "เขา",
+     "back": {
+      "ru": "он (khao)",
+      "en": "he (khao)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "เขาทำงานที่โรงเรียน"
+    },
+    {
+     "front": "หล่อน",
+     "back": {
+      "ru": "она (lon)",
+      "en": "she (lon)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "หล่อนสวยมาก"
+    },
+    {
+     "front": "เรา",
+     "back": {
+      "ru": "мы (rao)",
+      "en": "we (rao)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "เราไปตลาดด้วยกัน"
+    },
+    {
+     "front": "พวกเขา",
+     "back": {
+      "ru": "они (phuak khao)",
+      "en": "they (phuak khao)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "พวกเขากลับบ้านกันแล้ว"
+    },
+    {
+     "front": "ของฉัน",
+     "back": {
+      "ru": "мой (khong chan)",
+      "en": "my (khong chan)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "หนังสือเล่มนี้ของฉัน"
+    },
+    {
+     "front": "ของคุณ",
+     "back": {
+      "ru": "твой (khong khun)",
+      "en": "your (khong khun)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "นี่กระเป๋าของคุณใช่ไหม"
+    },
+    {
+     "front": "ของเรา",
+     "back": {
+      "ru": "наш (khong rao)",
+      "en": "our (khong rao)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "บ้านของเราอยู่ใกล้ทะเล"
+    },
+    {
+     "front": "นี้",
+     "back": {
+      "ru": "этот (ni)",
+      "en": "this (ni)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "เสื้อตัวนี้สวยมาก"
+    },
+    {
+     "front": "นั้น",
+     "back": {
+      "ru": "тот (nan)",
+      "en": "that (nan)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "คนนั้นเป็นเพื่อนผม"
+    },
+    {
+     "front": "ใคร",
+     "back": {
+      "ru": "кто (khrai)",
+      "en": "who (khrai)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "ใครอยู่ในห้อง"
+    },
+    {
+     "front": "อะไร",
+     "back": {
+      "ru": "что (arai)",
+      "en": "what (arai)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "คุณกำลังทำอะไร"
+    },
+    {
+     "front": "ที่ไหน",
+     "back": {
+      "ru": "где (thi nai)",
+      "en": "where (thi nai)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "ตอนนี้คุณอยู่ที่ไหน"
+    },
+    {
+     "front": "เมื่อไหร่",
+     "back": {
+      "ru": "когда (muea rai)",
+      "en": "when (muea rai)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "คุณจะกลับเมื่อไหร่"
+    },
+    {
+     "front": "อย่างไร",
+     "back": {
+      "ru": "как (yang rai)",
+      "en": "how (yang rai)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "เรื่องนี้เกิดขึ้นอย่างไร"
+    },
+    {
+     "front": "ทำไม",
+     "back": {
+      "ru": "почему (tham mai)",
+      "en": "why (tham mai)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "ทำไมคุณมาสาย"
+    },
+    {
+     "front": "ซึ่ง",
+     "back": {
+      "ru": "который (sueng)",
+      "en": "which (sueng)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "นี่คือบ้านซึ่งผมเกิด"
+    },
+    {
+     "front": "ศูนย์",
+     "back": {
+      "ru": "ноль (sun)",
+      "en": "zero (sun)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "ศูนย์บวกหนึ่งเท่ากับหนึ่ง"
+    },
+    {
+     "front": "หนึ่ง",
+     "back": {
+      "ru": "один (nueng)",
+      "en": "one (nueng)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "ผมขอกาแฟหนึ่งแก้ว"
+    },
+    {
+     "front": "สอง",
+     "back": {
+      "ru": "два (song)",
+      "en": "two (song)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "ฉันมีพี่สาวสองคน"
+    },
+    {
+     "front": "สาม",
+     "back": {
+      "ru": "три (sam)",
+      "en": "three (sam)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "เขารอมาสามชั่วโมงแล้ว"
+    },
+    {
+     "front": "สี่",
+     "back": {
+      "ru": "четыре (si)",
+      "en": "four (si)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "ห้องนี้มีสี่หน้าต่าง"
+    },
+    {
+     "front": "ห้า",
+     "back": {
+      "ru": "пять (ha)",
+      "en": "five (ha)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "ผมทำงานห้าวันต่อสัปดาห์"
+    },
+    {
+     "front": "หก",
+     "back": {
+      "ru": "шесть (hok)",
+      "en": "six (hok)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "เด็กหกคนเล่นอยู่ในสวน"
+    },
+    {
+     "front": "เจ็ด",
+     "back": {
+      "ru": "семь (chet)",
+      "en": "seven (chet)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "หนึ่งสัปดาห์มีเจ็ดวัน"
+    },
+    {
+     "front": "แปด",
+     "back": {
+      "ru": "восемь (paet)",
+      "en": "eight (paet)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "เขาตื่นตอนแปดโมงเช้า"
+    },
+    {
+     "front": "เก้า",
+     "back": {
+      "ru": "девять (kao)",
+      "en": "nine (kao)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "ร้านเปิดตอนเก้าโมงเช้า"
+    },
+    {
+     "front": "สิบ",
+     "back": {
+      "ru": "десять (sip)",
+      "en": "ten (sip)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "ฉันรอมาสิบนาทีแล้ว"
+    },
+    {
+     "front": "สิบเอ็ด",
+     "back": {
+      "ru": "одиннадцать (sip et)",
+      "en": "eleven (sip et)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "ตอนนี้สิบเอ็ดโมงแล้ว"
+    },
+    {
+     "front": "สิบสอง",
+     "back": {
+      "ru": "двенадцать (sip song)",
+      "en": "twelve (sip song)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "หนึ่งปีมีสิบสองเดือน"
+    },
+    {
+     "front": "ยี่สิบ",
+     "back": {
+      "ru": "двадцать (yi sip)",
+      "en": "twenty (yi sip)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "เขาอายุยี่สิบปี"
+    },
+    {
+     "front": "สามสิบ",
+     "back": {
+      "ru": "тридцать (sam sip)",
+      "en": "thirty (sam sip)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "เดือนนี้มีสามสิบวัน"
+    },
+    {
+     "front": "ร้อย",
+     "back": {
+      "ru": "сто (roi)",
+      "en": "hundred (roi)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "เสื้อตัวนี้ราคาหนึ่งร้อยบาท"
+    },
+    {
+     "front": "พัน",
+     "back": {
+      "ru": "тысяча (phan)",
+      "en": "thousand (phan)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "ผมมีเงินหนึ่งพันบาท"
+    },
+    {
+     "front": "แรก",
+     "back": {
+      "ru": "первый (raek)",
+      "en": "first (raek)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "วันแรกของปีคือวันปีใหม่"
+    },
+    {
+     "front": "สุดท้าย",
+     "back": {
+      "ru": "последний (sut thai)",
+      "en": "last (sut thai)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "นี่คือรถไฟขบวนสุดท้าย"
+    },
+    {
+     "front": "หมายเลข",
+     "back": {
+      "ru": "номер (mai lek)",
+      "en": "number (mai lek)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "หมายเลขโทรศัพท์ของคุณคืออะไร"
+    },
+    {
+     "front": "ครึ่ง",
+     "back": {
+      "ru": "половина (khrueng)",
+      "en": "half (khrueng)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "ผมกินขนมปังไปครึ่งก้อน"
+    },
+    {
+     "front": "วัน",
+     "back": {
+      "ru": "день (wan)",
+      "en": "day (wan)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "วันนี้อากาศร้อนมาก"
+    },
+    {
+     "front": "คืน",
+     "back": {
+      "ru": "ночь (khuen)",
+      "en": "night (khuen)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "คืนนี้ดาวสวยมาก"
+    },
+    {
+     "front": "เช้า",
+     "back": {
+      "ru": "утро (chao)",
+      "en": "morning (chao)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "ตอนเช้าผมดื่มกาแฟ"
+    },
+    {
+     "front": "บ่าย",
+     "back": {
+      "ru": "вечер (bai)",
+      "en": "afternoon (bai)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "ตอนบ่ายฉันไปตลาด"
+    },
+    {
+     "front": "วันนี้",
+     "back": {
+      "ru": "сегодня (wan ni)",
+      "en": "today (wan ni)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "วันนี้ผมไม่ไปทำงาน"
+    },
+    {
+     "front": "พรุ่งนี้",
+     "back": {
+      "ru": "завтра (phrung ni)",
+      "en": "tomorrow (phrung ni)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "พรุ่งนี้เราจะไปทะเล"
+    },
+    {
+     "front": "เมื่อวาน",
+     "back": {
+      "ru": "вчера (muea wan)",
+      "en": "yesterday (muea wan)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "เมื่อวานฝนตกหนัก"
+    },
+    {
+     "front": "สัปดาห์",
+     "back": {
+      "ru": "неделя (sapda)",
+      "en": "week (sapda)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "สัปดาห์หน้าผมจะไปเชียงใหม่"
+    },
+    {
+     "front": "เดือน",
+     "back": {
+      "ru": "месяц (duean)",
+      "en": "month (duean)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "เดือนนี้ผมยุ่งมาก"
+    },
+    {
+     "front": "ปี",
+     "back": {
+      "ru": "год (pi)",
+      "en": "year (pi)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "ปีนี้ผมอายุสามสิบ"
+    },
+    {
+     "front": "ชั่วโมง",
+     "back": {
+      "ru": "час (chua mong)",
+      "en": "hour (chua mong)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "ผมรอคุณมาหนึ่งชั่วโมง"
+    },
+    {
+     "front": "นาที",
+     "back": {
+      "ru": "минута (na thi)",
+      "en": "minute (na thi)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "ขอเวลาห้านาที"
+    },
+    {
+     "front": "เวลา",
+     "back": {
+      "ru": "время (wela)",
+      "en": "time (wela)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "ตอนนี้เวลาเท่าไหร่"
+    },
+    {
+     "front": "ตอนนี้",
+     "back": {
+      "ru": "сейчас (ton ni)",
+      "en": "now (ton ni)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "ตอนนี้ผมอยู่ที่บ้าน"
+    },
+    {
+     "front": "เสมอ",
+     "back": {
+      "ru": "всегда (samoe)",
+      "en": "always (samoe)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "เขามาสายเสมอ"
+    },
+    {
+     "front": "ไม่เคย",
+     "back": {
+      "ru": "никогда (mai khoei)",
+      "en": "never (mai khoei)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "ฉันไม่เคยไปญี่ปุ่น"
+    },
+    {
+     "front": "เช้าตรู่",
+     "back": {
+      "ru": "рано (chao tru)",
+      "en": "early (chao tru)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "เขาออกจากบ้านตั้งแต่เช้าตรู่"
+    },
+    {
+     "front": "วันจันทร์",
+     "back": {
+      "ru": "понедельник (wan chan)",
+      "en": "Monday (wan chan)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "วันจันทร์ผมต้องไปทำงาน"
+    },
+    {
+     "front": "วันเสาร์",
+     "back": {
+      "ru": "суббота (wan sao)",
+      "en": "Saturday (wan sao)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "วันเสาร์เราไปเที่ยวทะเล"
+    },
+    {
+     "front": "วันอาทิตย์",
+     "back": {
+      "ru": "воскресенье (wan athit)",
+      "en": "Sunday (wan athit)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "วันอาทิตย์ฉันอยู่บ้าน"
+    },
+    {
+     "front": "บ้าน",
+     "back": {
+      "ru": "дом (ban)",
+      "en": "house (ban)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "บ้านของผมอยู่ใกล้โรงเรียน"
+    },
+    {
+     "front": "เมือง",
+     "back": {
+      "ru": "город (mueang)",
+      "en": "city (mueang)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "เมืองนี้สวยและเงียบ"
+    },
+    {
+     "front": "หมู่บ้าน",
+     "back": {
+      "ru": "деревня (mu ban)",
+      "en": "village (mu ban)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "หมู่บ้านนี้มีคนไม่มาก"
+    },
+    {
+     "front": "ถนน",
+     "back": {
+      "ru": "улица (thanon)",
+      "en": "street (thanon)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "ถนนสายนี้รถติดมาก"
+    },
+    {
+     "front": "โรงเรียน",
+     "back": {
+      "ru": "школа (rong rian)",
+      "en": "school (rong rian)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "ลูกของฉันไปโรงเรียนทุกวัน"
+    },
+    {
+     "front": "งาน",
+     "back": {
+      "ru": "работа (ngan)",
+      "en": "work (ngan)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "วันนี้ผมมีงานเยอะ"
+    },
+    {
+     "front": "ร้าน",
+     "back": {
+      "ru": "магазин (ran)",
+      "en": "shop (ran)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "ร้านนี้เปิดถึงสามทุ่ม"
+    },
+    {
+     "front": "ตลาด",
+     "back": {
+      "ru": "рынок (talat)",
+      "en": "market (talat)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "แม่ไปซื้อผักที่ตลาด"
+    },
+    {
+     "front": "โรงพยาบาล",
+     "back": {
+      "ru": "больница (rong phayaban)",
+      "en": "hospital (rong phayaban)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "เขานอนอยู่ที่โรงพยาบาล"
+    },
+    {
+     "front": "ร้านขายยา",
+     "back": {
+      "ru": "аптека (ran khai ya)",
+      "en": "pharmacy (ran khai ya)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "ผมซื้อยาที่ร้านขายยา"
+    },
+    {
+     "front": "ธนาคาร",
+     "back": {
+      "ru": "банк (thanakhan)",
+      "en": "bank (thanakhan)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "ธนาคารเปิดตอนเก้าโมง"
+    },
+    {
+     "front": "โรงแรม",
+     "back": {
+      "ru": "гостиница (rong raem)",
+      "en": "hotel (rong raem)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "เราพักที่โรงแรมใกล้ทะเล"
+    },
+    {
+     "front": "โบสถ์",
+     "back": {
+      "ru": "церковь (bot)",
+      "en": "church (bot)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "โบสถ์หลังนี้เก่ามาก"
+    },
+    {
+     "front": "สวน",
+     "back": {
+      "ru": "сад (suan)",
+      "en": "garden (suan)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "เด็กๆ วิ่งเล่นอยู่ในสวน"
+    },
+    {
+     "front": "ชายหาด",
+     "back": {
+      "ru": "пляж (chai hat)",
+      "en": "beach (chai hat)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "ชายหาดที่นี่สะอาดมาก"
+    },
+    {
+     "front": "ทะเล",
+     "back": {
+      "ru": "море (thale)",
+      "en": "sea (thale)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "ทะเลวันนี้สงบมาก"
+    },
+    {
+     "front": "แม่น้ำ",
+     "back": {
+      "ru": "река (mae nam)",
+      "en": "river (mae nam)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "แม่น้ำสายนี้ยาวมาก"
+    },
+    {
+     "front": "ภูเขา",
+     "back": {
+      "ru": "гора (phu khao)",
+      "en": "mountain (phu khao)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "ภูเขาลูกนั้นสูงมาก"
+    },
+    {
+     "front": "ทุ่งนา",
+     "back": {
+      "ru": "поле (thung na)",
+      "en": "field (thung na)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "ทุ่งนาเขียวไปทั้งหมด"
+    },
+    {
+     "front": "ป่า",
+     "back": {
+      "ru": "лес (pa)",
+      "en": "forest (pa)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "ในป่ามีสัตว์หลายชนิด"
+    },
+    {
+     "front": "ประเทศ",
+     "back": {
+      "ru": "страна (prathet)",
+      "en": "country (prathet)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "ประเทศไทยมีอาหารอร่อย"
+    },
+    {
+     "front": "โลก",
+     "back": {
+      "ru": "мир (lok)",
+      "en": "world (lok)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "โลกใบนี้กว้างมาก"
+    },
+    {
+     "front": "ทาง",
+     "back": {
+      "ru": "дорога (thang)",
+      "en": "road (thang)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "ทางไปสถานีอยู่ทางซ้าย"
+    },
+    {
+     "front": "สะพาน",
+     "back": {
+      "ru": "мост (saphan)",
+      "en": "bridge (saphan)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "เราเดินข้ามสะพาน"
+    },
+    {
+     "front": "สถานีรถไฟ",
+     "back": {
+      "ru": "вокзал (sathani rot fai)",
+      "en": "station (sathani rot fai)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "สถานีรถไฟอยู่ใกล้ตลาด"
+    },
+    {
+     "front": "สนามบิน",
+     "back": {
+      "ru": "аэропорт (sanam bin)",
+      "en": "airport (sanam bin)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "เครื่องบินลงที่สนามบินแล้ว"
+    },
+    {
+     "front": "ห้อง",
+     "back": {
+      "ru": "комната (hong)",
+      "en": "room (hong)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "ห้องนี้สะอาดมาก"
+    },
+    {
+     "front": "ห้องครัว",
+     "back": {
+      "ru": "кухня (hong khrua)",
+      "en": "kitchen (hong khrua)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "แม่อยู่ในห้องครัว"
+    },
+    {
+     "front": "ประตู",
+     "back": {
+      "ru": "дверь (pratu)",
+      "en": "door (pratu)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "กรุณาปิดประตูด้วย"
+    },
+    {
+     "front": "หน้าต่าง",
+     "back": {
+      "ru": "окно (na tang)",
+      "en": "window (na tang)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "เปิดหน้าต่างให้ลมเข้าหน่อย"
+    },
+    {
+     "front": "โต๊ะ",
+     "back": {
+      "ru": "стол (to)",
+      "en": "table (to)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "หนังสืออยู่บนโต๊ะ"
+    },
+    {
+     "front": "เก้าอี้",
+     "back": {
+      "ru": "стул (kao i)",
+      "en": "chair (kao i)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "เชิญนั่งบนเก้าอี้ตัวนี้"
+    },
+    {
+     "front": "เตียง",
+     "back": {
+      "ru": "кровать (tiang)",
+      "en": "bed (tiang)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "เตียงนี้นอนสบายมาก"
+    },
+    {
+     "front": "รถยนต์",
+     "back": {
+      "ru": "машина (rot yon)",
+      "en": "car (rot yon)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "รถยนต์คันนี้ใหม่มาก"
+    },
+    {
+     "front": "รถเมล์",
+     "back": {
+      "ru": "автобус (rot me)",
+      "en": "bus (rot me)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "ผมไปทำงานโดยรถเมล์"
+    },
+    {
+     "front": "รถไฟ",
+     "back": {
+      "ru": "поезд (rot fai)",
+      "en": "train (rot fai)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "รถไฟออกตอนหกโมงเช้า"
+    },
+    {
+     "front": "เครื่องบิน",
+     "back": {
+      "ru": "самолёт (khrueang bin)",
+      "en": "plane (khrueang bin)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "เครื่องบินขึ้นตรงเวลา"
+    },
+    {
+     "front": "จักรยาน",
+     "back": {
+      "ru": "велосипед (chakkrayan)",
+      "en": "bicycle (chakkrayan)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "เด็กขี่จักรยานไปโรงเรียน"
+    },
+    {
+     "front": "ดวงอาทิตย์",
+     "back": {
+      "ru": "солнце (duang athit)",
+      "en": "sun (duang athit)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "ดวงอาทิตย์ขึ้นแล้ว"
+    },
+    {
+     "front": "ดวงจันทร์",
+     "back": {
+      "ru": "луна (duang chan)",
+      "en": "moon (duang chan)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "คืนนี้ดวงจันทร์สวยมาก"
+    },
+    {
+     "front": "ดาว",
+     "back": {
+      "ru": "звезда (dao)",
+      "en": "star (dao)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "ท้องฟ้ามีดาวเต็มไปหมด"
+    },
+    {
+     "front": "ท้องฟ้า",
+     "back": {
+      "ru": "небо (thong fa)",
+      "en": "sky (thong fa)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "ท้องฟ้าวันนี้ใสมาก"
+    },
+    {
+     "front": "ฝน",
+     "back": {
+      "ru": "дождь (fon)",
+      "en": "rain (fon)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "ฝนตกตั้งแต่เช้า"
+    },
+    {
+     "front": "ลม",
+     "back": {
+      "ru": "ветер (lom)",
+      "en": "wind (lom)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "วันนี้ลมแรงมาก"
+    },
+    {
+     "front": "หิมะ",
+     "back": {
+      "ru": "снег (hima)",
+      "en": "snow (hima)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "ที่ประเทศไทยไม่มีหิมะ"
+    },
+    {
+     "front": "ไฟ",
+     "back": {
+      "ru": "огонь (fai)",
+      "en": "fire (fai)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "อย่าเล่นกับไฟ"
+    },
+    {
+     "front": "ดิน",
+     "back": {
+      "ru": "земля (din)",
+      "en": "earth (din)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "ดินที่นี่ดีสำหรับปลูกผัก"
+    },
+    {
+     "front": "ต้นไม้",
+     "back": {
+      "ru": "дерево (ton mai)",
+      "en": "tree (ton mai)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "ต้นไม้ต้นนี้ใหญ่มาก"
+    },
+    {
+     "front": "ดอกไม้",
+     "back": {
+      "ru": "цветок (dok mai)",
+      "en": "flower (dok mai)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "เขาให้ดอกไม้กับแม่"
+    },
+    {
+     "front": "สัตว์",
+     "back": {
+      "ru": "животное (sat)",
+      "en": "animal (sat)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "ฉันชอบสัตว์ทุกชนิด"
+    },
+    {
+     "front": "หมา",
+     "back": {
+      "ru": "собака (maa)",
+      "en": "dog (maa)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "หมาตัวนี้น่ารักมาก"
+    },
+    {
+     "front": "แมว",
+     "back": {
+      "ru": "кошка (maeo)",
+      "en": "cat (maeo)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "แมวนอนอยู่บนเก้าอี้"
+    },
+    {
+     "front": "นก",
+     "back": {
+      "ru": "птица (nok)",
+      "en": "bird (nok)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "นกบินอยู่บนท้องฟ้า"
+    },
+    {
+     "front": "ม้า",
+     "back": {
+      "ru": "лошадь (ma)",
+      "en": "horse (ma)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "เขาขี่ม้าเก่งมาก"
+    },
+    {
+     "front": "หนังสือ",
+     "back": {
+      "ru": "книга (nangsue)",
+      "en": "book (nangsue)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "ผมอ่านหนังสือทุกคืน"
+    },
+    {
+     "front": "กระดาษ",
+     "back": {
+      "ru": "бумага (kradat)",
+      "en": "paper (kradat)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "ขอกระดาษหนึ่งแผ่น"
+    },
+    {
+     "front": "ปากกา",
+     "back": {
+      "ru": "ручка (pakka)",
+      "en": "pen (pakka)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "ปากกาด้ามนี้เขียนไม่ออก"
+    },
+    {
+     "front": "โทรศัพท์",
+     "back": {
+      "ru": "телефон (thorasap)",
+      "en": "phone (thorasap)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "โทรศัพท์ของฉันแบตหมด"
+    },
+    {
+     "front": "คอมพิวเตอร์",
+     "back": {
+      "ru": "компьютер (khomphiutoe)",
+      "en": "computer (khomphiutoe)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "คอมพิวเตอร์เครื่องนี้เร็วมาก"
+    },
+    {
+     "front": "เงิน",
+     "back": {
+      "ru": "деньги (ngoen)",
+      "en": "money (ngoen)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "ผมไม่มีเงินติดตัว"
+    },
+    {
+     "front": "กุญแจ",
+     "back": {
+      "ru": "ключ (kunchae)",
+      "en": "key (kunchae)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "ผมลืมกุญแจไว้ในรถ"
+    },
+    {
+     "front": "นาฬิกา",
+     "back": {
+      "ru": "часы (nalika)",
+      "en": "watch (nalika)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "นาฬิกาเรือนนี้แพงมาก"
+    },
+    {
+     "front": "แสง",
+     "back": {
+      "ru": "свет (saeng)",
+      "en": "light (saeng)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "แสงในห้องนี้น้อยไป"
+    },
+    {
+     "front": "ดนตรี",
+     "back": {
+      "ru": "музыка (dontri)",
+      "en": "music (dontri)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "ฉันชอบฟังดนตรีก่อนนอน"
+    },
+    {
+     "front": "ภาพยนตร์",
+     "back": {
+      "ru": "фильм (phapphayon)",
+      "en": "film (phapphayon)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "ภาพยนตร์เรื่องนี้สนุกมาก"
+    },
+    {
+     "front": "รูปถ่าย",
+     "back": {
+      "ru": "фотография (rup thai)",
+      "en": "photo (rup thai)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "นี่คือรูปถ่ายของครอบครัวผม"
+    },
+    {
+     "front": "จดหมาย",
+     "back": {
+      "ru": "письмо (chotmai)",
+      "en": "letter (chotmai)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "ผมได้รับจดหมายจากเพื่อน"
+    },
+    {
+     "front": "หนังสือพิมพ์",
+     "back": {
+      "ru": "газета (nangsuephim)",
+      "en": "newspaper (nangsuephim)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "พ่ออ่านหนังสือพิมพ์ทุกเช้า"
+    },
+    {
+     "front": "สี",
+     "back": {
+      "ru": "цвет (see)",
+      "en": "colour (see)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "คุณชอบสีอะไร"
+    },
+    {
+     "front": "คำ",
+     "back": {
+      "ru": "слово (kham)",
+      "en": "word (kham)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "คำนี้แปลว่าอะไร"
+    },
+    {
+     "front": "ภาษา",
+     "back": {
+      "ru": "язык (phasa)",
+      "en": "language (phasa)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "ผมกำลังเรียนภาษาไทย"
+    },
+    {
+     "front": "หัว",
+     "back": {
+      "ru": "голова (hua)",
+      "en": "head (hua)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "หัวของผมปวดมาก"
+    },
+    {
+     "front": "มือ",
+     "back": {
+      "ru": "рука (mue)",
+      "en": "hand (mue)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "เขาล้างมือก่อนกินข้าว"
+    },
+    {
+     "front": "เท้า",
+     "back": {
+      "ru": "нога (thao)",
+      "en": "foot (thao)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "เท้าของฉันเจ็บ"
+    },
+    {
+     "front": "ตา",
+     "back": {
+      "ru": "глаз (ta)",
+      "en": "eye (ta)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "ตาของเธอสวยมาก"
+    },
+    {
+     "front": "ปาก",
+     "back": {
+      "ru": "рот (pak)",
+      "en": "mouth (pak)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "เขาอ้าปากกว้าง"
+    },
+    {
+     "front": "หัวใจ",
+     "back": {
+      "ru": "сердце (hua chai)",
+      "en": "heart (hua chai)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "หัวใจของผมเต้นแรง"
+    },
+    {
+     "front": "ผม",
+     "back": {
+      "ru": "волосы (phom)",
+      "en": "hair (phom)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "ผมของเธอยาวมาก"
+    },
+    {
+     "front": "ร่างกาย",
+     "back": {
+      "ru": "тело (rangkai)",
+      "en": "body (rangkai)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "การออกกำลังกายดีต่อร่างกาย"
+    },
+    {
+     "front": "ดี",
+     "back": {
+      "ru": "хороший (di)",
+      "en": "good (di)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "วันนี้เป็นวันที่ดี"
+    },
+    {
+     "front": "ไม่ดี",
+     "back": {
+      "ru": "плохой (mai di)",
+      "en": "bad (mai di)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "อากาศวันนี้ไม่ดี"
+    },
+    {
+     "front": "ใหญ่",
+     "back": {
+      "ru": "большой (yai)",
+      "en": "big (yai)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "บ้านหลังนี้ใหญ่มาก"
+    },
+    {
+     "front": "เล็ก",
+     "back": {
+      "ru": "маленький (lek)",
+      "en": "small (lek)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "ห้องนี้เล็กเกินไป"
+    },
+    {
+     "front": "ใหม่",
+     "back": {
+      "ru": "новый (mai)",
+      "en": "new (mai)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "ผมเพิ่งซื้อรถใหม่"
+    },
+    {
+     "front": "เก่า",
+     "back": {
+      "ru": "старый (kao)",
+      "en": "old (kao)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "เสื้อตัวนี้เก่าแล้ว"
+    },
+    {
+     "front": "หนุ่ม",
+     "back": {
+      "ru": "молодой (num)",
+      "en": "young (num)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "เขายังหนุ่มอยู่"
+    },
+    {
+     "front": "สูง",
+     "back": {
+      "ru": "высокий (sung)",
+      "en": "tall (sung)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "พี่ชายผมสูงมาก"
+    },
+    {
+     "front": "เตี้ย",
+     "back": {
+      "ru": "низкий (tia)",
+      "en": "short (tia)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "โต๊ะตัวนี้เตี้ยไป"
+    },
+    {
+     "front": "ยาว",
+     "back": {
+      "ru": "длинный (yao)",
+      "en": "long (yao)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "ถนนสายนี้ยาวมาก"
+    },
+    {
+     "front": "สั้น",
+     "back": {
+      "ru": "короткий (san)",
+      "en": "short (san)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "ผมของเธอสั้น"
+    },
+    {
+     "front": "ร้อน",
+     "back": {
+      "ru": "горячий (ron)",
+      "en": "hot (ron)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "น้ำในแก้วยังร้อนอยู่"
+    },
+    {
+     "front": "เย็น",
+     "back": {
+      "ru": "холодный (yen)",
+      "en": "cold (yen)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "น้ำเย็นอยู่ในตู้"
+    },
+    {
+     "front": "สวย",
+     "back": {
+      "ru": "красивый (suai)",
+      "en": "beautiful (suai)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "ดอกไม้ช่อนี้สวยจัง"
+    },
+    {
+     "front": "น่าเกลียด",
+     "back": {
+      "ru": "некрасивый (na kliat)",
+      "en": "ugly (na kliat)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "เสื้อตัวนี้น่าเกลียด"
+    },
+    {
+     "front": "ง่าย",
+     "back": {
+      "ru": "лёгкий (ngai)",
+      "en": "easy (ngai)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "ข้อสอบวันนี้ง่ายมาก"
+    },
+    {
+     "front": "ยาก",
+     "back": {
+      "ru": "трудный (yak)",
+      "en": "difficult (yak)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "ภาษาไทยยากสำหรับผม"
+    },
+    {
+     "front": "แข็งแรง",
+     "back": {
+      "ru": "сильный (khaeng raeng)",
+      "en": "strong (khaeng raeng)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "คุณตายังแข็งแรงดี"
+    },
+    {
+     "front": "อ่อนแอ",
+     "back": {
+      "ru": "слабый (on ae)",
+      "en": "weak (on ae)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "เขาอ่อนแอเพราะป่วยมานาน"
+    },
+    {
+     "front": "เร็ว",
+     "back": {
+      "ru": "быстрый (reo)",
+      "en": "fast (reo)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "รถคันนี้เร็วมาก"
+    },
+    {
+     "front": "ช้า",
+     "back": {
+      "ru": "медленный (chaa)",
+      "en": "slow (chaa)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "รถไฟวันนี้ช้ามาก"
+    },
+    {
+     "front": "แพง",
+     "back": {
+      "ru": "дорогой (phaeng)",
+      "en": "expensive (phaeng)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "ร้านนี้อาหารแพง"
+    },
+    {
+     "front": "ถูก",
+     "back": {
+      "ru": "дешёвый (thuk)",
+      "en": "cheap (thuk)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "ผลไม้ที่ตลาดถูกกว่า"
+    },
+    {
+     "front": "สะอาด",
+     "back": {
+      "ru": "чистый (sa-at)",
+      "en": "clean (sa-at)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "ห้องน้ำที่นี่สะอาดดี"
+    },
+    {
+     "front": "สกปรก",
+     "back": {
+      "ru": "грязный (sokkaprok)",
+      "en": "dirty (sokkaprok)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "รองเท้าของผมสกปรก"
+    },
+    {
+     "front": "เต็ม",
+     "back": {
+      "ru": "полный (tem)",
+      "en": "full (tem)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "แก้วน้ำเต็มแล้ว"
+    },
+    {
+     "front": "ว่าง",
+     "back": {
+      "ru": "пустой (wang)",
+      "en": "empty (wang)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "ห้องนี้ยังว่างอยู่"
+    },
+    {
+     "front": "มีความสุข",
+     "back": {
+      "ru": "счастливый (mi khwam suk)",
+      "en": "happy (mi khwam suk)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "วันนี้ผมมีความสุขมาก"
+    },
+    {
+     "front": "เศร้า",
+     "back": {
+      "ru": "грустный (sao)",
+      "en": "sad (sao)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "วันนี้เธอดูเศร้ามาก"
+    },
+    {
+     "front": "เหนื่อย",
+     "back": {
+      "ru": "усталый (nueai)",
+      "en": "tired (nueai)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "วันนี้ผมเหนื่อยมาก"
+    },
+    {
+     "front": "ป่วย",
+     "back": {
+      "ru": "больной (puai)",
+      "en": "sick (puai)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "ลูกของฉันป่วย"
+    },
+    {
+     "front": "ถูกต้อง",
+     "back": {
+      "ru": "правильный (thuk tong)",
+      "en": "right (thuk tong)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "คำตอบของคุณถูกต้อง"
+    },
+    {
+     "front": "ผิด",
+     "back": {
+      "ru": "неправильный (phit)",
+      "en": "wrong (phit)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "ผมเขียนชื่อผิด"
+    },
+    {
+     "front": "ขาว",
+     "back": {
+      "ru": "белый (khao)",
+      "en": "white (khao)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "เขาใส่เสื้อสีขาว"
+    },
+    {
+     "front": "ดำ",
+     "back": {
+      "ru": "чёрный (dam)",
+      "en": "black (dam)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "แมวสีดำนอนอยู่ตรงนั้น"
+    },
+    {
+     "front": "แดง",
+     "back": {
+      "ru": "красный (daeng)",
+      "en": "red (daeng)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "ดอกไม้สีแดงสวยมาก"
+    },
+    {
+     "front": "น้ำเงิน",
+     "back": {
+      "ru": "синий (nam ngoen)",
+      "en": "blue (nam ngoen)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "ท้องฟ้าเป็นสีน้ำเงิน"
+    },
+    {
+     "front": "เขียว",
+     "back": {
+      "ru": "зелёный (khiao)",
+      "en": "green (khiao)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "ใบไม้เป็นสีเขียว"
+    },
+    {
+     "front": "เหลือง",
+     "back": {
+      "ru": "жёлтый (lueang)",
+      "en": "yellow (lueang)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "กล้วยสุกเป็นสีเหลือง"
+    },
+    {
+     "front": "ที่นี่",
+     "back": {
+      "ru": "здесь (thi ni)",
+      "en": "here (thi ni)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "ที่นี่เงียบและสบาย"
+    },
+    {
+     "front": "ที่นั่น",
+     "back": {
+      "ru": "там (thi nan)",
+      "en": "there (thi nan)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "เขารออยู่ที่นั่น"
+    },
+    {
+     "front": "มาก",
+     "back": {
+      "ru": "много (mak)",
+      "en": "much (mak)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "วันนี้ร้อนมาก"
+    },
+    {
+     "front": "น้อย",
+     "back": {
+      "ru": "мало (noi)",
+      "en": "little (noi)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "ผมมีเวลาน้อย"
+    },
+    {
+     "front": "มากกว่า",
+     "back": {
+      "ru": "больше (mak kwa)",
+      "en": "more (mak kwa)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "เขากินมากกว่าผม"
+    },
+    {
+     "front": "น้อยกว่า",
+     "back": {
+      "ru": "меньше (noi kwa)",
+      "en": "less (noi kwa)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "วันนี้คนน้อยกว่าเมื่อวาน"
+    },
+    {
+     "front": "ด้วย",
+     "back": {
+      "ru": "тоже (duai)",
+      "en": "also (duai)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "ผมอยากไปด้วย"
+    },
+    {
+     "front": "เก่ง",
+     "back": {
+      "ru": "хорошо (keng)",
+      "en": "well (keng)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "เธอพูดภาษาไทยเก่ง"
+    },
+    {
+     "front": "แย่",
+     "back": {
+      "ru": "плохо (yae)",
+      "en": "badly (yae)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "เขาทำข้อสอบได้แย่มาก"
+    },
+    {
+     "front": "กับ",
+     "back": {
+      "ru": "с (kap)",
+      "en": "with (kap)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "ผมไปตลาดกับเพื่อน"
+    },
+    {
+     "front": "ปราศจาก",
+     "back": {
+      "ru": "без (pratsachak)",
+      "en": "without (pratsachak)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "ชีวิตปราศจากดนตรีคงน่าเบื่อ"
+    },
+    {
+     "front": "สำหรับ",
+     "back": {
+      "ru": "для (samrap)",
+      "en": "for (samrap)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "ของขวัญนี้สำหรับคุณ"
+    },
+    {
+     "front": "แต่",
+     "back": {
+      "ru": "но (tae)",
+      "en": "but (tae)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "ผมอยากไปแต่ไม่มีเวลา"
+    },
+    {
+     "front": "หรือ",
+     "back": {
+      "ru": "или (rue)",
+      "en": "or (rue)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "คุณจะกินข้าวหรือก๋วยเตี๋ยว"
+    },
+    {
+     "front": "เพราะ",
+     "back": {
+      "ru": "потому что (phro)",
+      "en": "because (phro)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "ผมมาสายเพราะรถติด"
+    },
+    {
+     "front": "ถ้า",
+     "back": {
+      "ru": "если (tha)",
+      "en": "if (tha)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "ถ้าฝนตกเราจะอยู่บ้าน"
+    },
+    {
+     "front": "บางที",
+     "back": {
+      "ru": "может быть (bang thi)",
+      "en": "maybe (bang thi)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "บางทีเขาอาจจะมา"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "เป็น",
+     "back": {
+      "ru": "быть (pen)",
+      "en": "to be (pen)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "เขาเป็นครู"
+    },
+    {
+     "front": "อยู่",
+     "back": {
+      "ru": "находиться (yu)",
+      "en": "to be (state) (yu)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "พ่ออยู่ที่บ้าน"
+    },
+    {
+     "front": "มี",
+     "back": {
+      "ru": "иметь (mi)",
+      "en": "to have (mi)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "ผมมีพี่น้องสองคน"
+    },
+    {
+     "front": "ทำ",
+     "back": {
+      "ru": "делать (tham)",
+      "en": "to do (tham)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "คุณกำลังทำอะไรอยู่"
+    },
+    {
+     "front": "ไป",
+     "back": {
+      "ru": "идти (pai)",
+      "en": "to go (pai)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "ผมจะไปตลาด"
+    },
+    {
+     "front": "มา",
+     "back": {
+      "ru": "приходить (ma)",
+      "en": "to come (ma)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "เพื่อนมาหาผมเมื่อวาน"
+    },
+    {
+     "front": "บอก",
+     "back": {
+      "ru": "говорить (bok)",
+      "en": "to say (bok)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "เขาบอกผมว่าจะมาสาย"
+    },
+    {
+     "front": "เห็น",
+     "back": {
+      "ru": "видеть (hen)",
+      "en": "to see (hen)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "ผมเห็นเธอที่ตลาด"
+    },
+    {
+     "front": "ให้",
+     "back": {
+      "ru": "давать (hai)",
+      "en": "to give (hai)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "แม่ให้เงินผม"
+    },
+    {
+     "front": "รู้",
+     "back": {
+      "ru": "знать (ru)",
+      "en": "to know (ru)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "ผมไม่รู้เรื่องนี้"
+    },
+    {
+     "front": "สามารถ",
+     "back": {
+      "ru": "мочь (samat)",
+      "en": "can (samat)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "ผมสามารถพูดภาษาไทยได้"
+    },
+    {
+     "front": "อยาก",
+     "back": {
+      "ru": "хотеть (yak)",
+      "en": "to want (yak)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "ผมอยากกินข้าว"
+    },
+    {
+     "front": "ต้อง",
+     "back": {
+      "ru": "быть должным (tong)",
+      "en": "must (tong)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "คุณต้องไปตอนนี้"
+    },
+    {
+     "front": "พัก",
+     "back": {
+      "ru": "оставаться (phak)",
+      "en": "to stay (phak)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "เราจะพักที่นี่สองคืน"
+    },
+    {
+     "front": "ผ่าน",
+     "back": {
+      "ru": "проходить (phan)",
+      "en": "to pass (phan)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "รถเมล์ผ่านหน้าบ้านผม"
+    },
+    {
+     "front": "ถึง",
+     "back": {
+      "ru": "прибывать (thueng)",
+      "en": "to arrive (thueng)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "ผมถึงบ้านตอนหกโมง"
+    },
+    {
+     "front": "ออก",
+     "back": {
+      "ru": "выходить (ok)",
+      "en": "to leave (ok)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "เขาออกจากห้องไปแล้ว"
+    },
+    {
+     "front": "เข้า",
+     "back": {
+      "ru": "входить (khao)",
+      "en": "to enter (khao)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "เชิญเข้ามาข้างในครับ"
+    },
+    {
+     "front": "กลับ",
+     "back": {
+      "ru": "возвращаться (klap)",
+      "en": "to return (klap)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "ผมกลับบ้านทุกเย็น"
+    },
+    {
+     "front": "เริ่ม",
+     "back": {
+      "ru": "начинать (roem)",
+      "en": "to begin (roem)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "หนังเริ่มตอนสองทุ่ม"
+    },
+    {
+     "front": "จบ",
+     "back": {
+      "ru": "заканчивать (chop)",
+      "en": "to finish (chop)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "งานจบตอนห้าโมงเย็น"
+    },
+    {
+     "front": "ต่อ",
+     "back": {
+      "ru": "продолжать (to)",
+      "en": "to continue (to)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "เราทำงานต่อจนถึงเย็น"
+    },
+    {
+     "front": "หยุด",
+     "back": {
+      "ru": "останавливаться (yut)",
+      "en": "to stop (yut)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "รถหยุดหน้าโรงเรียน"
+    },
+    {
+     "front": "รอ",
+     "back": {
+      "ru": "ждать (ro)",
+      "en": "to wait (ro)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "ผมรอคุณอยู่หน้าร้าน"
+    },
+    {
+     "front": "เจอ",
+     "back": {
+      "ru": "находить (choe)",
+      "en": "to find (choe)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "ผมเจอกุญแจแล้ว"
+    },
+    {
+     "front": "หา",
+     "back": {
+      "ru": "искать (ha)",
+      "en": "to look for (ha)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "ผมกำลังหากระเป๋าอยู่"
+    },
+    {
+     "front": "สูญเสีย",
+     "back": {
+      "ru": "терять (sun sia)",
+      "en": "to lose (sun sia)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "เขาสูญเสียเงินไปมาก"
+    },
+    {
+     "front": "ชนะ",
+     "back": {
+      "ru": "выигрывать (chana)",
+      "en": "to win (chana)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "ทีมของเราชนะการแข่งขัน"
+    },
+    {
+     "front": "ซื้อ",
+     "back": {
+      "ru": "покупать (sue)",
+      "en": "to buy (sue)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "ผมซื้อผลไม้ที่ตลาด"
+    },
+    {
+     "front": "ขาย",
+     "back": {
+      "ru": "продавать (khai)",
+      "en": "to sell (khai)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "ร้านนี้ขายเสื้อผ้า"
+    },
+    {
+     "front": "จ่าย",
+     "back": {
+      "ru": "платить (jai)",
+      "en": "to pay (jai)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "ผมจ่ายเงินด้วยบัตร"
+    },
+    {
+     "front": "ราคา",
+     "back": {
+      "ru": "стоить (rakha)",
+      "en": "to cost (rakha)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "เสื้อตัวนี้ราคาเท่าไหร่"
+    },
+    {
+     "front": "ทำงาน",
+     "back": {
+      "ru": "работать (tham ngan)",
+      "en": "to work (tham ngan)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "ผมทำงานที่ธนาคาร"
+    },
+    {
+     "front": "เรียน",
+     "back": {
+      "ru": "учиться (rian)",
+      "en": "to study (rian)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "น้องเรียนอยู่ชั้นประถม"
+    },
+    {
+     "front": "เรียนรู้",
+     "back": {
+      "ru": "изучать (rian ru)",
+      "en": "to learn (rian ru)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "เราเรียนรู้จากความผิดพลาด"
+    },
+    {
+     "front": "สอน",
+     "back": {
+      "ru": "учить (son)",
+      "en": "to teach (son)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "ครูสอนภาษาไทย"
+    },
+    {
+     "front": "อ่าน",
+     "back": {
+      "ru": "читать (an)",
+      "en": "to read (an)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "เขาอ่านข่าวตอนเช้า"
+    },
+    {
+     "front": "เขียน",
+     "back": {
+      "ru": "писать (khian)",
+      "en": "to write (khian)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "ผมเขียนจดหมายถึงเพื่อน"
+    },
+    {
+     "front": "พูด",
+     "back": {
+      "ru": "разговаривать (phut)",
+      "en": "to speak (phut)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "เขาพูดภาษาอังกฤษได้"
+    },
+    {
+     "front": "ได้ยิน",
+     "back": {
+      "ru": "слышать (dai yin)",
+      "en": "to hear (dai yin)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "ผมไม่ได้ยินเสียงคุณ"
+    },
+    {
+     "front": "ฟัง",
+     "back": {
+      "ru": "слушать (fang)",
+      "en": "to listen (fang)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "ฉันฟังเพลงทุกเช้า"
+    },
+    {
+     "front": "ดู",
+     "back": {
+      "ru": "смотреть (du)",
+      "en": "to look (du)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "เราดูหนังด้วยกัน"
+    },
+    {
+     "front": "รู้สึก",
+     "back": {
+      "ru": "чувствовать (ru suek)",
+      "en": "to feel (ru suek)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "ผมรู้สึกดีขึ้นแล้ว"
+    },
+    {
+     "front": "คิด",
+     "back": {
+      "ru": "думать (khit)",
+      "en": "to think (khit)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "ผมคิดว่าเขาพูดถูก"
+    },
+    {
+     "front": "จำ",
+     "back": {
+      "ru": "помнить (cham)",
+      "en": "to remember (cham)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "ผมจำชื่อเขาไม่ได้"
+    },
+    {
+     "front": "ลืม",
+     "back": {
+      "ru": "забывать (luem)",
+      "en": "to forget (luem)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "ฉันลืมกุญแจไว้ที่บ้าน"
+    },
+    {
+     "front": "เข้าใจ",
+     "back": {
+      "ru": "понимать (khao chai)",
+      "en": "to understand (khao chai)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "ผมเข้าใจแล้วครับ"
+    },
+    {
+     "front": "อธิบาย",
+     "back": {
+      "ru": "объяснять (athibai)",
+      "en": "to explain (athibai)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "ครูอธิบายเรื่องนี้ให้ฟัง"
+    },
+    {
+     "front": "ถาม",
+     "back": {
+      "ru": "спрашивать (tham)",
+      "en": "to ask (tham)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "ผมขอถามอะไรหน่อย"
+    },
+    {
+     "front": "ตอบ",
+     "back": {
+      "ru": "отвечать (top)",
+      "en": "to answer (top)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "เขาตอบคำถามได้ถูก"
+    },
+    {
+     "front": "เรียก",
+     "back": {
+      "ru": "звать (riak)",
+      "en": "to call (riak)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "แม่เรียกลูกมากินข้าว"
+    },
+    {
+     "front": "โทร",
+     "back": {
+      "ru": "звонить (tho)",
+      "en": "to phone (tho)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "ผมจะโทรหาคุณพรุ่งนี้"
+    },
+    {
+     "front": "เปิด",
+     "back": {
+      "ru": "открывать (poet)",
+      "en": "to open (poet)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "ช่วยเปิดหน้าต่างหน่อย"
+    },
+    {
+     "front": "ปิด",
+     "back": {
+      "ru": "закрывать (pit)",
+      "en": "to close (pit)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "อย่าลืมปิดประตู"
+    },
+    {
+     "front": "วาง",
+     "back": {
+      "ru": "класть (wang)",
+      "en": "to put (wang)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "เขาวางหนังสือไว้บนโต๊ะ"
+    },
+    {
+     "front": "เอาออก",
+     "back": {
+      "ru": "убирать (ao ok)",
+      "en": "to take off (ao ok)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "ช่วยเอาออกไปจากโต๊ะหน่อย"
+    },
+    {
+     "front": "เอาไป",
+     "back": {
+      "ru": "нести (ao pai)",
+      "en": "to take (ao pai)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "ผมจะเอาไปให้เขาเอง"
+    },
+    {
+     "front": "เอามา",
+     "back": {
+      "ru": "приносить (ao ma)",
+      "en": "to bring (ao ma)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "ช่วยเอามาให้ผมหน่อย"
+    },
+    {
+     "front": "ส่ง",
+     "back": {
+      "ru": "посылать (song)",
+      "en": "to send (song)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "ผมส่งจดหมายเมื่อวาน"
+    },
+    {
+     "front": "ได้รับ",
+     "back": {
+      "ru": "получать (dai rap)",
+      "en": "to receive (dai rap)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "ผมได้รับของขวัญจากเพื่อน"
+    },
+    {
+     "front": "เก็บ",
+     "back": {
+      "ru": "хранить (kep)",
+      "en": "to keep (kep)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "เก็บเงินไว้ใช้ตอนจำเป็น"
+    },
+    {
+     "front": "ทิ้ง",
+     "back": {
+      "ru": "оставлять (thing)",
+      "en": "to leave behind (thing)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "อย่าทิ้งขยะที่นี่"
+    },
+    {
+     "front": "ถือ",
+     "back": {
+      "ru": "держать (thue)",
+      "en": "to hold (thue)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "เขาถือกระเป๋าใบใหญ่"
+    },
+    {
+     "front": "ผลัก",
+     "back": {
+      "ru": "толкать (phlak)",
+      "en": "to push (phlak)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "อย่าผลักเพื่อน"
+    },
+    {
+     "front": "ดึง",
+     "back": {
+      "ru": "тянуть (dueng)",
+      "en": "to pull (dueng)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "ช่วยดึงเชือกให้หน่อย"
+    },
+    {
+     "front": "จับ",
+     "back": {
+      "ru": "ловить (chap)",
+      "en": "to catch (chap)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "แมวจับหนูได้"
+    },
+    {
+     "front": "แสดง",
+     "back": {
+      "ru": "показывать (sadaeng)",
+      "en": "to show (sadaeng)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "เขาแสดงรูปให้ผมดู"
+    },
+    {
+     "front": "ซ่อน",
+     "back": {
+      "ru": "прятать (son)",
+      "en": "to hide (son)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "เด็กซ่อนอยู่หลังประตู"
+    },
+    {
+     "front": "เปลี่ยน",
+     "back": {
+      "ru": "менять (plian)",
+      "en": "to change (plian)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "ผมอยากเปลี่ยนงาน"
+    },
+    {
+     "front": "สร้างสรรค์",
+     "back": {
+      "ru": "создавать (sang san)",
+      "en": "to create (sang san)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "เขาสร้างสรรค์งานศิลปะใหม่"
+    },
+    {
+     "front": "สร้าง",
+     "back": {
+      "ru": "строить (sang)",
+      "en": "to build (sang)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "พวกเขาสร้างบ้านหลังใหม่"
+    },
+    {
+     "front": "หัก",
+     "back": {
+      "ru": "ломать (hak)",
+      "en": "to break (hak)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "กิ่งไม้หักเพราะลมแรง"
+    },
+    {
+     "front": "ตัด",
+     "back": {
+      "ru": "резать (tat)",
+      "en": "to cut (tat)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "ช่างตัดผมให้ผมสั้น"
+    },
+    {
+     "front": "ทำความสะอาด",
+     "back": {
+      "ru": "убирать (tham khwam sa-at)",
+      "en": "to clean (tham khwam sa-at)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "ฉันทำความสะอาดห้องทุกวันเสาร์"
+    },
+    {
+     "front": "ล้าง",
+     "back": {
+      "ru": "мыть (lang)",
+      "en": "to wash (lang)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "ล้างมือก่อนกินข้าว"
+    },
+    {
+     "front": "ตาก",
+     "back": {
+      "ru": "сушить (tak)",
+      "en": "to dry (tak)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "แม่ตากผ้าไว้หน้าบ้าน"
+    },
+    {
+     "front": "ทำอาหาร",
+     "back": {
+      "ru": "готовить (tham ahan)",
+      "en": "to cook (tham ahan)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "วันนี้ผมจะทำอาหารเอง"
+    },
+    {
+     "front": "กิน",
+     "back": {
+      "ru": "есть (kin)",
+      "en": "to eat (kin)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "เรากินข้าวเย็นด้วยกัน"
+    },
+    {
+     "front": "ดื่ม",
+     "back": {
+      "ru": "пить (duem)",
+      "en": "to drink (duem)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "ผมดื่มน้ำวันละหลายแก้ว"
+    },
+    {
+     "front": "ชิม",
+     "back": {
+      "ru": "пробовать (chim)",
+      "en": "to taste (chim)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "ลองชิมแกงนี้ดูสิ"
+    },
+    {
+     "front": "เสิร์ฟ",
+     "back": {
+      "ru": "подавать (soep)",
+      "en": "to serve (soep)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "พนักงานเสิร์ฟอาหารมาแล้ว"
+    },
+    {
+     "front": "นอน",
+     "back": {
+      "ru": "спать (non)",
+      "en": "to sleep (non)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "ผมนอนตอนสี่ทุ่ม"
+    },
+    {
+     "front": "ตื่น",
+     "back": {
+      "ru": "просыпаться (tuen)",
+      "en": "to wake up (tuen)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "ผมตื่นตอนหกโมงเช้า"
+    },
+    {
+     "front": "ลุก",
+     "back": {
+      "ru": "вставать (luk)",
+      "en": "to get up (luk)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "เขาลุกขึ้นจากเก้าอี้"
+    },
+    {
+     "front": "นั่ง",
+     "back": {
+      "ru": "садиться (nang)",
+      "en": "to sit (nang)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "เชิญนั่งตรงนี้ครับ"
+    },
+    {
+     "front": "นอนลง",
+     "back": {
+      "ru": "ложиться (non long)",
+      "en": "to lie down (non long)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "หมอบอกให้เขานอนลง"
+    },
+    {
+     "front": "เดิน",
+     "back": {
+      "ru": "ходить (doen)",
+      "en": "to walk (doen)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "เราเดินไปโรงเรียนทุกวัน"
+    },
+    {
+     "front": "วิ่ง",
+     "back": {
+      "ru": "бегать (wing)",
+      "en": "to run (wing)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "เด็กวิ่งเล่นอยู่ในสนาม"
+    },
+    {
+     "front": "กระโดด",
+     "back": {
+      "ru": "прыгать (kradot)",
+      "en": "to jump (kradot)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "แมวกระโดดขึ้นบนโต๊ะ"
+    },
+    {
+     "front": "ว่ายน้ำ",
+     "back": {
+      "ru": "плавать (wai nam)",
+      "en": "to swim (wai nam)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "ผมว่ายน้ำเก่ง"
+    },
+    {
+     "front": "บิน",
+     "back": {
+      "ru": "летать (bin)",
+      "en": "to fly (bin)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "นกบินสูงมาก"
+    },
+    {
+     "front": "เที่ยว",
+     "back": {
+      "ru": "путешествовать (thiao)",
+      "en": "to travel (thiao)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "ปีนี้เราจะไปเที่ยวทะเล"
+    },
+    {
+     "front": "ขับ",
+     "back": {
+      "ru": "водить (khap)",
+      "en": "to drive (khap)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "เขาขับรถไปทำงาน"
+    },
+    {
+     "front": "ขึ้น",
+     "back": {
+      "ru": "подниматься (khuen)",
+      "en": "to go up (khuen)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "เราขึ้นไปชั้นสอง"
+    },
+    {
+     "front": "ลง",
+     "back": {
+      "ru": "спускаться (long)",
+      "en": "to go down (long)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "ผมลงจากรถเมล์"
+    },
+    {
+     "front": "ตก",
+     "back": {
+      "ru": "падать (tok)",
+      "en": "to fall (tok)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "แก้วตกลงพื้น"
+    },
+    {
+     "front": "อาศัย",
+     "back": {
+      "ru": "жить (asai)",
+      "en": "to live (reside) (asai)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "ผมอาศัยอยู่ที่กรุงเทพ"
+    },
+    {
+     "front": "มีชีวิต",
+     "back": {
+      "ru": "жить (mi chiwit)",
+      "en": "to live (mi chiwit)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "เขามีชีวิตอยู่อย่างมีความสุข"
+    },
+    {
+     "front": "ตาย",
+     "back": {
+      "ru": "умирать (tai)",
+      "en": "to die (tai)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "ต้นไม้ต้นนี้ตายแล้ว"
+    },
+    {
+     "front": "เกิด",
+     "back": {
+      "ru": "рождаться (koet)",
+      "en": "to be born (koet)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "เขาเกิดที่เชียงใหม่"
+    },
+    {
+     "front": "โต",
+     "back": {
+      "ru": "расти (toh)",
+      "en": "to grow (toh)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "ลูกของเขาโตเร็วมาก"
+    },
+    {
+     "front": "แต่งงาน",
+     "back": {
+      "ru": "жениться (taeng ngan)",
+      "en": "to marry (taeng ngan)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "พี่สาวผมแต่งงานปีที่แล้ว"
+    },
+    {
+     "front": "ช่วย",
+     "back": {
+      "ru": "помогать (chuai)",
+      "en": "to help (chuai)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "ช่วยผมหน่อยได้ไหม"
+    },
+    {
+     "front": "ชอบ",
+     "back": {
+      "ru": "нравиться (chorp)",
+      "en": "to like (chorp)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "ผมชอบอาหารไทย"
+    },
+    {
+     "front": "รัก",
+     "back": {
+      "ru": "любить (rak)",
+      "en": "to love (rak)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "ผมรักครอบครัวของผม"
+    },
+    {
+     "front": "เกลียด",
+     "back": {
+      "ru": "ненавидеть (kliat)",
+      "en": "to hate (kliat)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "เขาเกลียดการรอคอย"
+    },
+    {
+     "front": "หัวเราะ",
+     "back": {
+      "ru": "смеяться (hua ro)",
+      "en": "to laugh (hua ro)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "เด็กๆ หัวเราะเสียงดัง"
+    },
+    {
+     "front": "ร้องไห้",
+     "back": {
+      "ru": "плакать (rong hai)",
+      "en": "to cry (rong hai)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "เด็กร้องไห้เพราะหิว"
+    },
+    {
+     "front": "ร้องเพลง",
+     "back": {
+      "ru": "петь (rong phleng)",
+      "en": "to sing (rong phleng)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "เธอร้องเพลงเพราะมาก"
+    },
+    {
+     "front": "เต้น",
+     "back": {
+      "ru": "танцевать (ten)",
+      "en": "to dance (ten)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "เราเต้นกันจนดึก"
+    },
+    {
+     "front": "เล่น",
+     "back": {
+      "ru": "играть (len)",
+      "en": "to play (children) (len)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "เด็กๆ เล่นอยู่หน้าบ้าน"
+    },
+    {
+     "front": "เล่นเกม",
+     "back": {
+      "ru": "играть (len kem)",
+      "en": "to play (a game) (len kem)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "เขาเล่นเกมทุกเย็น"
+    },
+    {
+     "front": "แตะ",
+     "back": {
+      "ru": "трогать (tae)",
+      "en": "to touch (tae)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "อย่าแตะของบนโต๊ะ"
+    },
+    {
+     "front": "พักผ่อน",
+     "back": {
+      "ru": "отдыхать (phak phon)",
+      "en": "to rest (phak phon)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "วันอาทิตย์ผมพักผ่อนอยู่บ้าน"
+    },
+    {
+     "front": "พยายาม",
+     "back": {
+      "ru": "пытаться (phayayam)",
+      "en": "to try (phayayam)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "ผมจะพยายามให้มากขึ้น"
+    },
+    {
+     "front": "สำเร็จ",
+     "back": {
+      "ru": "удаваться (samret)",
+      "en": "to manage (samret)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "งานนี้สำเร็จแล้ว"
+    },
+    {
+     "front": "ต้องการ",
+     "back": {
+      "ru": "нуждаться (tong kan)",
+      "en": "to need (tong kan)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "ผมต้องการความช่วยเหลือ"
+    },
+    {
+     "front": "ใช้",
+     "back": {
+      "ru": "использовать (chai)",
+      "en": "to use (chai)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "ผมใช้คอมพิวเตอร์ทำงาน"
+    },
+    {
+     "front": "เลือก",
+     "back": {
+      "ru": "выбирать (lueak)",
+      "en": "to choose (lueak)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "คุณเลือกอันไหน"
+    },
+    {
+     "front": "ตัดสินใจ",
+     "back": {
+      "ru": "решать (tatsin chai)",
+      "en": "to decide (tatsin chai)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "ผมตัดสินใจไม่ไป"
+    },
+    {
+     "front": "ยอมรับ",
+     "back": {
+      "ru": "принимать (yom rap)",
+      "en": "to accept (yom rap)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "เขายอมรับความจริง"
+    },
+    {
+     "front": "ปฏิเสธ",
+     "back": {
+      "ru": "отказывать (patiset)",
+      "en": "to refuse (patiset)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "เธอปฏิเสธคำเชิญ"
+    },
+    {
+     "front": "สัญญา",
+     "back": {
+      "ru": "обещать (sanya)",
+      "en": "to promise (sanya)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "ผมสัญญาว่าจะมา"
+    },
+    {
+     "front": "ขอบใจ",
+     "back": {
+      "ru": "благодарить (khop chai)",
+      "en": "to thank (khop chai)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "ขอบใจนะที่ช่วยฉัน"
+    },
+    {
+     "front": "ขอ",
+     "back": {
+      "ru": "просить (kho)",
+      "en": "to ask for (kho)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "ผมขอน้ำหนึ่งแก้ว"
+    },
+    {
+     "front": "เกิดขึ้น",
+     "back": {
+      "ru": "случаться (koet khuen)",
+      "en": "to happen (koet khuen)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "เรื่องนี้เกิดขึ้นเมื่อวาน"
+    },
+    {
+     "front": "ดูเหมือน",
+     "back": {
+      "ru": "казаться (du muean)",
+      "en": "to seem (du muean)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "ดูเหมือนฝนจะตก"
+    },
+    {
+     "front": "เปิดเครื่อง",
+     "back": {
+      "ru": "включать (poet khrueang)",
+      "en": "to turn on (poet khrueang)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "ผมเปิดเครื่องคอมพิวเตอร์แล้ว"
+    },
+    {
+     "front": "ปิดเครื่อง",
+     "back": {
+      "ru": "выключать (pit khrueang)",
+      "en": "to turn off (pit khrueang)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "อย่าลืมปิดเครื่องก่อนกลับ"
+    },
+    {
+     "front": "ฝนตก",
+     "back": {
+      "ru": "идти (о дожде) (fon tok)",
+      "en": "to rain (fon tok)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "เมื่อคืนฝนตกหนัก"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "น้ำ",
+     "back": {
+      "ru": "вода (nam)",
+      "en": "water (nam)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "ผมขอน้ำเย็นหนึ่งแก้ว"
+    },
+    {
+     "front": "ขนมปัง",
+     "back": {
+      "ru": "хлеб (khanom pang)",
+      "en": "bread (khanom pang)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "ผมกินขนมปังตอนเช้า"
+    },
+    {
+     "front": "นม",
+     "back": {
+      "ru": "молоко (nom)",
+      "en": "milk (nom)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "เด็กดื่มนมทุกวัน"
+    },
+    {
+     "front": "กาแฟ",
+     "back": {
+      "ru": "кофе (kafae)",
+      "en": "coffee (kafae)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "ผมดื่มกาแฟวันละสองแก้ว"
+    },
+    {
+     "front": "ชา",
+     "back": {
+      "ru": "чай (cha)",
+      "en": "tea (cha)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "คุณยายชอบดื่มชาร้อน"
+    },
+    {
+     "front": "น้ำผลไม้",
+     "back": {
+      "ru": "сок (nam phonlamai)",
+      "en": "juice (nam phonlamai)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "ผมสั่งน้ำผลไม้หนึ่งแก้ว"
+    },
+    {
+     "front": "ไวน์",
+     "back": {
+      "ru": "вино (wai)",
+      "en": "wine (wai)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "เขาดื่มไวน์แดงกับอาหาร"
+    },
+    {
+     "front": "เบียร์",
+     "back": {
+      "ru": "пиво (bia)",
+      "en": "beer (bia)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "เบียร์เย็นๆ อร่อยมาก"
+    },
+    {
+     "front": "น้ำแข็ง",
+     "back": {
+      "ru": "лёд (nam khaeng)",
+      "en": "ice (nam khaeng)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "ขอน้ำแข็งเพิ่มหน่อย"
+    },
+    {
+     "front": "น้ำตาล",
+     "back": {
+      "ru": "сахар (nam tan)",
+      "en": "sugar (nam tan)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "ผมไม่ใส่น้ำตาลในกาแฟ"
+    },
+    {
+     "front": "เกลือ",
+     "back": {
+      "ru": "соль (kluea)",
+      "en": "salt (kluea)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "ใส่เกลือนิดหน่อย"
+    },
+    {
+     "front": "พริกไทย",
+     "back": {
+      "ru": "перец (phrik thai)",
+      "en": "pepper (phrik thai)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "โรยพริกไทยลงในซุป"
+    },
+    {
+     "front": "น้ำมันมะกอก",
+     "back": {
+      "ru": "оливковое масло (nam man makok)",
+      "en": "olive oil (nam man makok)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "ฉันใช้น้ำมันมะกอกทำสลัด"
+    },
+    {
+     "front": "เนย",
+     "back": {
+      "ru": "масло (noei)",
+      "en": "butter (noei)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "ทาเนยบนขนมปัง"
+    },
+    {
+     "front": "ชีส",
+     "back": {
+      "ru": "сыр (chit)",
+      "en": "cheese (chit)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "ฉันชอบกินชีสกับขนมปัง"
+    },
+    {
+     "front": "ไข่",
+     "back": {
+      "ru": "яйцо (khai)",
+      "en": "egg (khai)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "เช้านี้ผมกินไข่ต้ม"
+    },
+    {
+     "front": "เนื้อ",
+     "back": {
+      "ru": "мясо (nuea)",
+      "en": "meat (nuea)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "เขาไม่กินเนื้อวัว"
+    },
+    {
+     "front": "ไก่",
+     "back": {
+      "ru": "курица (kai)",
+      "en": "chicken (kai)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "แม่ทำไก่ทอดอร่อยมาก"
+    },
+    {
+     "front": "ปลา",
+     "back": {
+      "ru": "рыба (pla)",
+      "en": "fish (pla)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "ปลาตัวนี้สดมาก"
+    },
+    {
+     "front": "ปลาค็อด",
+     "back": {
+      "ru": "треска (pla khot)",
+      "en": "cod (pla khot)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "ปลาค็อดเป็นปลาน้ำเย็น"
+    },
+    {
+     "front": "ปลาซาร์ดีน",
+     "back": {
+      "ru": "сардина (pla sadin)",
+      "en": "sardine (pla sadin)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "ผมซื้อปลาซาร์ดีนกระป๋อง"
+    },
+    {
+     "front": "ปลาทูน่า",
+     "back": {
+      "ru": "тунец (pla thuna)",
+      "en": "tuna (pla thuna)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "สลัดจานนี้ใส่ปลาทูน่า"
+    },
+    {
+     "front": "กุ้ง",
+     "back": {
+      "ru": "креветка (kung)",
+      "en": "shrimp (kung)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "กุ้งเผาอร่อยมาก"
+    },
+    {
+     "front": "อาหารทะเล",
+     "back": {
+      "ru": "морепродукты (ahan thale)",
+      "en": "seafood (ahan thale)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "ร้านนี้มีอาหารทะเลสด"
+    },
+    {
+     "front": "แฮม",
+     "back": {
+      "ru": "ветчина (haem)",
+      "en": "ham (haem)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "ผมกินแซนด์วิชแฮม"
+    },
+    {
+     "front": "ไส้กรอก",
+     "back": {
+      "ru": "сосиска (sai krok)",
+      "en": "sausage (sai krok)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "เด็กๆ ชอบไส้กรอกทอด"
+    },
+    {
+     "front": "ข้าว",
+     "back": {
+      "ru": "рис (khao)",
+      "en": "rice (khao)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "คนไทยกินข้าวทุกมื้อ"
+    },
+    {
+     "front": "มันฝรั่ง",
+     "back": {
+      "ru": "картофель (man farang)",
+      "en": "potato (man farang)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "ผมชอบมันฝรั่งทอด"
+    },
+    {
+     "front": "พาสต้า",
+     "back": {
+      "ru": "макароны (phasta)",
+      "en": "pasta (phasta)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "เย็นนี้เราจะทำพาสต้า"
+    },
+    {
+     "front": "แป้ง",
+     "back": {
+      "ru": "мука (paeng)",
+      "en": "flour (paeng)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "ทำขนมต้องใช้แป้ง"
+    },
+    {
+     "front": "ซุป",
+     "back": {
+      "ru": "суп (sup)",
+      "en": "soup (sup)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "ซุปร้อนๆ อร่อยดี"
+    },
+    {
+     "front": "สลัด",
+     "back": {
+      "ru": "салат (salat)",
+      "en": "salad (salat)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "ฉันกินสลัดเป็นมื้อเที่ยง"
+    },
+    {
+     "front": "ผัก",
+     "back": {
+      "ru": "овощи (phak)",
+      "en": "vegetables (phak)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "เด็กควรกินผักทุกวัน"
+    },
+    {
+     "front": "ผลไม้",
+     "back": {
+      "ru": "фрукты (phonlamai)",
+      "en": "fruit (phonlamai)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "ตลาดนี้มีผลไม้สด"
+    },
+    {
+     "front": "แอปเปิล",
+     "back": {
+      "ru": "яблоко (aeppoen)",
+      "en": "apple (aeppoen)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "ผมกินแอปเปิลวันละลูก"
+    },
+    {
+     "front": "สาลี่",
+     "back": {
+      "ru": "груша (sali)",
+      "en": "pear (sali)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "สาลี่ลูกนี้หวานมาก"
+    },
+    {
+     "front": "ส้ม",
+     "back": {
+      "ru": "апельсин (som)",
+      "en": "orange (som)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "น้ำส้มคั้นสดอร่อยมาก"
+    },
+    {
+     "front": "มะนาว",
+     "back": {
+      "ru": "лимон (manao)",
+      "en": "lemon (manao)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "บีบมะนาวลงในต้มยำ"
+    },
+    {
+     "front": "กล้วย",
+     "back": {
+      "ru": "банан (kluai)",
+      "en": "banana (kluai)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "กล้วยหวีนี้สุกแล้ว"
+    },
+    {
+     "front": "องุ่น",
+     "back": {
+      "ru": "виноград (angun)",
+      "en": "grape (angun)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "องุ่นพวงนี้หวานมาก"
+    },
+    {
+     "front": "สตรอว์เบอร์รี",
+     "back": {
+      "ru": "клубника (satroboeri)",
+      "en": "strawberry (satroboeri)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "เค้กก้อนนี้มีสตรอว์เบอร์รีข้างบน"
+    },
+    {
+     "front": "เชอร์รี",
+     "back": {
+      "ru": "вишня (choeri)",
+      "en": "cherry (choeri)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "เขาชอบกินเชอร์รีสด"
+    },
+    {
+     "front": "พีช",
+     "back": {
+      "ru": "персик (phich)",
+      "en": "peach (phich)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "พีชลูกนี้นิ่มมาก"
+    },
+    {
+     "front": "แคนตาลูป",
+     "back": {
+      "ru": "дыня (khaentalup)",
+      "en": "melon (khaentalup)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "แคนตาลูปหวานและเย็น"
+    },
+    {
+     "front": "แตงโม",
+     "back": {
+      "ru": "арбуз (taeng mo)",
+      "en": "watermelon (taeng mo)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "หน้าร้อนกินแตงโมเย็นๆ"
+    },
+    {
+     "front": "สับปะรด",
+     "back": {
+      "ru": "ананас (sapparot)",
+      "en": "pineapple (sapparot)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "สับปะรดลูกนี้หวานมาก"
+    },
+    {
+     "front": "มะเดื่อ",
+     "back": {
+      "ru": "инжир (maduea)",
+      "en": "fig (maduea)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "ต้นมะเดื่อออกผลแล้ว"
+    },
+    {
+     "front": "มะเขือเทศ",
+     "back": {
+      "ru": "помидор (makhuea thet)",
+      "en": "tomato (makhuea thet)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "สลัดใส่มะเขือเทศสด"
+    },
+    {
+     "front": "หัวหอม",
+     "back": {
+      "ru": "лук (hua hom)",
+      "en": "onion (hua hom)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "แม่หั่นหัวหอมทำแกง"
+    },
+    {
+     "front": "กระเทียม",
+     "back": {
+      "ru": "чеснок (krathiam)",
+      "en": "garlic (krathiam)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "ใส่กระเทียมลงในกระทะ"
+    },
+    {
+     "front": "แครอท",
+     "back": {
+      "ru": "морковь (khaerot)",
+      "en": "carrot (khaerot)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "กระต่ายชอบกินแครอท"
+    },
+    {
+     "front": "ผักกาดหอม",
+     "back": {
+      "ru": "салат-латук (phak kat hom)",
+      "en": "lettuce (phak kat hom)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "แซนด์วิชนี้ใส่ผักกาดหอม"
+    },
+    {
+     "front": "แตงกวา",
+     "back": {
+      "ru": "огурец (taeng kwa)",
+      "en": "cucumber (taeng kwa)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "ผมชอบกินแตงกวาสด"
+    },
+    {
+     "front": "ถั่ว",
+     "back": {
+      "ru": "фасоль (thua)",
+      "en": "beans (thua)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "ซุปนี้ใส่ถั่วขาว"
+    },
+    {
+     "front": "ถั่วลันเตา",
+     "back": {
+      "ru": "горох (thua lantao)",
+      "en": "pea (thua lantao)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "ข้าวผัดใส่ถั่วลันเตา"
+    },
+    {
+     "front": "กะหล่ำปลี",
+     "back": {
+      "ru": "капуста (kalam pli)",
+      "en": "cabbage (kalam pli)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "ฉันผัดกะหล่ำปลีกับหมู"
+    },
+    {
+     "front": "ฟักทอง",
+     "back": {
+      "ru": "тыква (fak thong)",
+      "en": "pumpkin (fak thong)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "แกงฟักทองอร่อยมาก"
+    },
+    {
+     "front": "เห็ด",
+     "back": {
+      "ru": "гриб (het)",
+      "en": "mushroom (het)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "ซุปเห็ดหอมอร่อยดี"
+    },
+    {
+     "front": "มะกอก",
+     "back": {
+      "ru": "оливка (makok)",
+      "en": "olive (makok)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "เขาชอบกินมะกอกดอง"
+    },
+    {
+     "front": "เค้ก",
+     "back": {
+      "ru": "торт (khek)",
+      "en": "cake (khek)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "วันเกิดเรากินเค้กกัน"
+    },
+    {
+     "front": "คุกกี้",
+     "back": {
+      "ru": "печенье (khukki)",
+      "en": "biscuit (khukki)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "แม่อบคุกกี้ให้เด็กๆ"
+    },
+    {
+     "front": "แยม",
+     "back": {
+      "ru": "варенье (yaem)",
+      "en": "jam (yaem)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "ผมทาแยมบนขนมปัง"
+    },
+    {
+     "front": "ช็อกโกแลต",
+     "back": {
+      "ru": "шоколад (chokkolaet)",
+      "en": "chocolate (chokkolaet)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "เด็กๆ ชอบช็อกโกแลต"
+    },
+    {
+     "front": "ไอศกรีม",
+     "back": {
+      "ru": "мороженое (aisakrim)",
+      "en": "ice cream (aisakrim)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "วันนี้ร้อน กินไอศกรีมกันเถอะ"
+    },
+    {
+     "front": "น้ำผึ้ง",
+     "back": {
+      "ru": "мёд (nam phueng)",
+      "en": "honey (nam phueng)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "ใส่น้ำผึ้งลงในชาร้อน"
+    },
+    {
+     "front": "ขนมหวาน",
+     "back": {
+      "ru": "сладость (khanom wan)",
+      "en": "sweet (khanom wan)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "คนไทยชอบขนมหวาน"
+    },
+    {
+     "front": "ของหวาน",
+     "back": {
+      "ru": "десерт (khong wan)",
+      "en": "dessert (khong wan)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "มื้อนี้มีของหวานด้วย"
+    },
+    {
+     "front": "โยเกิร์ต",
+     "back": {
+      "ru": "йогурт (yokoet)",
+      "en": "yoghurt (yokoet)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "ผมกินโยเกิร์ตทุกเช้า"
+    },
+    {
+     "front": "ครีม",
+     "back": {
+      "ru": "сливки (khrim)",
+      "en": "cream (khrim)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "เค้กก้อนนี้มีครีมเยอะ"
+    },
+    {
+     "front": "ขนมปังปิ้ง",
+     "back": {
+      "ru": "тост (khanom pang ping)",
+      "en": "toast (khanom pang ping)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "เช้านี้ผมกินขนมปังปิ้ง"
+    },
+    {
+     "front": "แซนด์วิช",
+     "back": {
+      "ru": "бутерброд (saenwit)",
+      "en": "sandwich (saenwit)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "ผมทำแซนด์วิชไปกินที่ทำงาน"
+    },
+    {
+     "front": "อาหารเช้า",
+     "back": {
+      "ru": "завтрак (ahan chao)",
+      "en": "breakfast (ahan chao)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "อาหารเช้าสำคัญที่สุด"
+    },
+    {
+     "front": "อาหารกลางวัน",
+     "back": {
+      "ru": "обед (ahan klang wan)",
+      "en": "lunch (ahan klang wan)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "เรากินอาหารกลางวันด้วยกัน"
+    },
+    {
+     "front": "อาหารเย็น",
+     "back": {
+      "ru": "ужин (ahan yen)",
+      "en": "dinner (ahan yen)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "อาหารเย็นพร้อมแล้ว"
+    },
+    {
+     "front": "ของว่าง",
+     "back": {
+      "ru": "полдник (khong wang)",
+      "en": "snack (khong wang)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "ตอนบ่ายผมกินของว่าง"
+    },
+    {
+     "front": "มื้ออาหาร",
+     "back": {
+      "ru": "приём пищи (mue ahan)",
+      "en": "meal (mue ahan)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "มื้ออาหารนี้อร่อยมาก"
+    },
+    {
+     "front": "อาหาร",
+     "back": {
+      "ru": "еда (ahan)",
+      "en": "food (ahan)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "อาหารไทยเผ็ดแต่อร่อย"
+    },
+    {
+     "front": "เครื่องดื่ม",
+     "back": {
+      "ru": "напиток (khrueang duem)",
+      "en": "drink (khrueang duem)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "คุณต้องการเครื่องดื่มอะไร"
+    },
+    {
+     "front": "จาน",
+     "back": {
+      "ru": "тарелка (chan)",
+      "en": "plate (chan)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "ขอจานอีกใบหนึ่ง"
+    },
+    {
+     "front": "แก้ว",
+     "back": {
+      "ru": "стакан (kaeo)",
+      "en": "glass (kaeo)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "แก้วใบนี้แตกแล้ว"
+    },
+    {
+     "front": "ถ้วย",
+     "back": {
+      "ru": "чашка (thuai)",
+      "en": "cup (thuai)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "เขาดื่มชาไปหนึ่งถ้วย"
+    },
+    {
+     "front": "ขวด",
+     "back": {
+      "ru": "бутылка (khuat)",
+      "en": "bottle (khuat)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "ขอน้ำหนึ่งขวด"
+    },
+    {
+     "front": "ช้อน",
+     "back": {
+      "ru": "ложка (chon)",
+      "en": "spoon (chon)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "ขอช้อนหนึ่งคัน"
+    },
+    {
+     "front": "ส้อม",
+     "back": {
+      "ru": "вилка (sorm)",
+      "en": "fork (sorm)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "ผมกินสลัดด้วยส้อม"
+    },
+    {
+     "front": "มีด",
+     "back": {
+      "ru": "нож (mit)",
+      "en": "knife (mit)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "มีดเล่มนี้คมมาก"
+    },
+    {
+     "front": "กระดาษเช็ดปาก",
+     "back": {
+      "ru": "салфетка (kradat chet pak)",
+      "en": "napkin (kradat chet pak)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "ขอกระดาษเช็ดปากหน่อย"
+    },
+    {
+     "front": "หม้อ",
+     "back": {
+      "ru": "кастрюля (mo)",
+      "en": "pot (mo)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "ต้มน้ำในหม้อใบใหญ่"
+    },
+    {
+     "front": "กระทะ",
+     "back": {
+      "ru": "сковорода (kratha)",
+      "en": "frying pan (kratha)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "ผัดผักในกระทะร้อน"
+    },
+    {
+     "front": "ร้านอาหาร",
+     "back": {
+      "ru": "ресторан (ran ahan)",
+      "en": "restaurant (ran ahan)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "ร้านอาหารนี้คนเยอะมาก"
+    },
+    {
+     "front": "เมนู",
+     "back": {
+      "ru": "меню (menu)",
+      "en": "menu (menu)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "ขอดูเมนูหน่อยครับ"
+    },
+    {
+     "front": "บิล",
+     "back": {
+      "ru": "счёт (bin)",
+      "en": "bill (bin)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "เก็บบิลด้วยครับ"
+    },
+    {
+     "front": "พนักงานเสิร์ฟ",
+     "back": {
+      "ru": "официант (phanakngan soep)",
+      "en": "waiter (phanakngan soep)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "พนักงานเสิร์ฟใจดีมาก"
+    },
+    {
+     "front": "ความหิว",
+     "back": {
+      "ru": "голод (khwam hiu)",
+      "en": "hunger (khwam hiu)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "ความหิวทำให้ผมทำงานไม่ได้"
+    },
+    {
+     "front": "ความกระหาย",
+     "back": {
+      "ru": "жажда (khwam krahai)",
+      "en": "thirst (khwam krahai)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "น้ำเย็นช่วยดับความกระหาย"
+    },
+    {
+     "front": "รสชาติ",
+     "back": {
+      "ru": "вкус (rot chat)",
+      "en": "taste (rot chat)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "แกงนี้รสชาติดีมาก"
+    },
+    {
+     "front": "สูตรอาหาร",
+     "back": {
+      "ru": "рецепт (sut ahan)",
+      "en": "recipe (sut ahan)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "แม่ให้สูตรอาหารกับฉัน"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "เสื้อผ้า",
+     "back": {
+      "ru": "одежда (suea pha)",
+      "en": "clothes (suea pha)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "ฉันซักเสื้อผ้าทุกวันเสาร์"
+    },
+    {
+     "front": "เสื้อเชิ้ต",
+     "back": {
+      "ru": "рубашка (suea choet)",
+      "en": "shirt (suea choet)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "เขาใส่เสื้อเชิ้ตสีขาวไปทำงาน"
+    },
+    {
+     "front": "เสื้อกันหนาว",
+     "back": {
+      "ru": "свитер (suea kan nao)",
+      "en": "jumper (suea kan nao)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "หน้าหนาวต้องใส่เสื้อกันหนาว"
+    },
+    {
+     "front": "เสื้อยืด",
+     "back": {
+      "ru": "футболка (suea yuet)",
+      "en": "T-shirt (suea yuet)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "ผมใส่เสื้อยืดอยู่บ้าน"
+    },
+    {
+     "front": "เสื้อโค้ต",
+     "back": {
+      "ru": "пальто (suea khot)",
+      "en": "coat (suea khot)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "เสื้อโค้ตตัวนี้อุ่นมาก"
+    },
+    {
+     "front": "แจ็คเก็ต",
+     "back": {
+      "ru": "куртка (chaeket)",
+      "en": "jacket (chaeket)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "เขาใส่แจ็คเก็ตหนัง"
+    },
+    {
+     "front": "เสื้อกั๊ก",
+     "back": {
+      "ru": "жилет (suea kak)",
+      "en": "waistcoat (suea kak)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "เขาใส่เสื้อกั๊กทับเสื้อเชิ้ต"
+    },
+    {
+     "front": "กางเกง",
+     "back": {
+      "ru": "брюки (kang keng)",
+      "en": "trousers (kang keng)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "กางเกงตัวนี้ใหญ่ไป"
+    },
+    {
+     "front": "กางเกงขาสั้น",
+     "back": {
+      "ru": "шорты (kang keng kha san)",
+      "en": "shorts (kang keng kha san)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "หน้าร้อนผมใส่กางเกงขาสั้น"
+    },
+    {
+     "front": "กระโปรง",
+     "back": {
+      "ru": "юбка (kraprong)",
+      "en": "skirt (kraprong)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "เธอใส่กระโปรงสีแดง"
+    },
+    {
+     "front": "ชุดเดรส",
+     "back": {
+      "ru": "платье (chut dret)",
+      "en": "dress (chut dret)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "ชุดเดรสตัวนี้สวยมาก"
+    },
+    {
+     "front": "สูท",
+     "back": {
+      "ru": "костюм (sut)",
+      "en": "suit (sut)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "เขาใส่สูทไปงานแต่งงาน"
+    },
+    {
+     "front": "เนคไท",
+     "back": {
+      "ru": "галстук (nekthai)",
+      "en": "tie (nekthai)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "พ่อผูกเนคไททุกเช้า"
+    },
+    {
+     "front": "เข็มขัด",
+     "back": {
+      "ru": "ремень (khem khat)",
+      "en": "belt (khem khat)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "เข็มขัดเส้นนี้ทำจากหนัง"
+    },
+    {
+     "front": "ถุงเท้า",
+     "back": {
+      "ru": "носки (thung thao)",
+      "en": "socks (thung thao)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "ผมใส่ถุงเท้าสีดำ"
+    },
+    {
+     "front": "ถุงน่อง",
+     "back": {
+      "ru": "колготки (thung nong)",
+      "en": "tights (thung nong)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "เธอใส่ถุงน่องกับกระโปรง"
+    },
+    {
+     "front": "รองเท้า",
+     "back": {
+      "ru": "туфли (rong thao)",
+      "en": "shoes (rong thao)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "รองเท้าคู่นี้ใส่สบาย"
+    },
+    {
+     "front": "รองเท้าผ้าใบ",
+     "back": {
+      "ru": "кроссовки (rong thao pha bai)",
+      "en": "trainers (rong thao pha bai)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "ผมใส่รองเท้าผ้าใบไปวิ่ง"
+    },
+    {
+     "front": "รองเท้าบูท",
+     "back": {
+      "ru": "сапоги (rong thao but)",
+      "en": "boots (rong thao but)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "หน้าฝนเธอใส่รองเท้าบูท"
+    },
+    {
+     "front": "รองเท้าแตะ",
+     "back": {
+      "ru": "сандалии (rong thao tae)",
+      "en": "sandals (rong thao tae)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "ผมใส่รองเท้าแตะไปทะเล"
+    },
+    {
+     "front": "สลิปเปอร์",
+     "back": {
+      "ru": "тапочки (salippoe)",
+      "en": "slippers (salippoe)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "ในบ้านเราใส่สลิปเปอร์"
+    },
+    {
+     "front": "หมวก",
+     "back": {
+      "ru": "шляпа (muak)",
+      "en": "hat (muak)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "แดดแรง อย่าลืมใส่หมวก"
+    },
+    {
+     "front": "หมวกแก๊ป",
+     "back": {
+      "ru": "кепка (muak kaep)",
+      "en": "cap (muak kaep)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "เด็กชายใส่หมวกแก๊ปสีน้ำเงิน"
+    },
+    {
+     "front": "หมวกไหมพรม",
+     "back": {
+      "ru": "шапка (muak mai phrom)",
+      "en": "woolly hat (muak mai phrom)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "หน้าหนาวเขาใส่หมวกไหมพรม"
+    },
+    {
+     "front": "ถุงมือ",
+     "back": {
+      "ru": "перчатки (thung mue)",
+      "en": "gloves (thung mue)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "อากาศหนาวต้องใส่ถุงมือ"
+    },
+    {
+     "front": "ผ้าพันคอ",
+     "back": {
+      "ru": "шарф (pha phan kho)",
+      "en": "scarf (pha phan kho)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "เธอพันผ้าพันคอสีแดง"
+    },
+    {
+     "front": "ผ้าเช็ดหน้า",
+     "back": {
+      "ru": "платок (pha chet na)",
+      "en": "handkerchief (pha chet na)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "เขามีผ้าเช็ดหน้าอยู่ในกระเป๋า"
+    },
+    {
+     "front": "แว่นตา",
+     "back": {
+      "ru": "очки (waen ta)",
+      "en": "glasses (waen ta)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "ผมใส่แว่นตาเวลาอ่านหนังสือ"
+    },
+    {
+     "front": "กระเป๋า",
+     "back": {
+      "ru": "сумка (krapao)",
+      "en": "bag (krapao)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "กระเป๋าใบนี้หนักมาก"
+    },
+    {
+     "front": "กระเป๋าสตางค์",
+     "back": {
+      "ru": "кошелёк (krapao satang)",
+      "en": "wallet (krapao satang)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "ผมลืมกระเป๋าสตางค์ไว้ที่บ้าน"
+    },
+    {
+     "front": "เป้",
+     "back": {
+      "ru": "рюкзак (pe)",
+      "en": "backpack (pe)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "นักเรียนสะพายเป้ไปโรงเรียน"
+    },
+    {
+     "front": "ร่ม",
+     "back": {
+      "ru": "зонт (rom)",
+      "en": "umbrella (rom)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "ฝนตก อย่าลืมเอาร่มไป"
+    },
+    {
+     "front": "ชุดนอน",
+     "back": {
+      "ru": "пижама (chut non)",
+      "en": "pyjamas (chut non)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "เขาใส่ชุดนอนสีฟ้า"
+    },
+    {
+     "front": "เสื้อคลุมอาบน้ำ",
+     "back": {
+      "ru": "халат (suea khlum ap nam)",
+      "en": "dressing gown (suea khlum ap nam)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "เธอใส่เสื้อคลุมอาบน้ำหลังอาบน้ำเสร็จ"
+    },
+    {
+     "front": "ผ้าเช็ดตัว",
+     "back": {
+      "ru": "полотенце (pha chet tua)",
+      "en": "towel (pha chet tua)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "ผ้าเช็ดตัวผืนนี้นุ่มมาก"
+    },
+    {
+     "front": "กระเป๋าเสื้อ",
+     "back": {
+      "ru": "карман (krapao suea)",
+      "en": "pocket (krapao suea)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "เขาเก็บกุญแจไว้ในกระเป๋าเสื้อ"
+    },
+    {
+     "front": "กระดุม",
+     "back": {
+      "ru": "пуговица (kradum)",
+      "en": "button (kradum)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "กระดุมเสื้อหลุดไปเม็ดหนึ่ง"
+    },
+    {
+     "front": "ซิป",
+     "back": {
+      "ru": "молния (zip)",
+      "en": "zip (zip)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "ซิปกระเป๋าเสีย"
+    },
+    {
+     "front": "แขนเสื้อ",
+     "back": {
+      "ru": "рукав (khaen suea)",
+      "en": "sleeve (khaen suea)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "แขนเสื้อยาวเกินไป"
+    },
+    {
+     "front": "ปกเสื้อ",
+     "back": {
+      "ru": "воротник (pok suea)",
+      "en": "collar (pok suea)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "ปกเสื้อของเขาสกปรก"
+    },
+    {
+     "front": "ขนาด",
+     "back": {
+      "ru": "размер (khanat)",
+      "en": "size (khanat)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "เสื้อตัวนี้ขนาดใหญ่ไป"
+    },
+    {
+     "front": "ผ้า",
+     "back": {
+      "ru": "ткань (pha)",
+      "en": "fabric (pha)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "ผ้าผืนนี้นุ่มมาก"
+    },
+    {
+     "front": "ฝ้าย",
+     "back": {
+      "ru": "хлопок (fai)",
+      "en": "cotton (fai)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "เสื้อตัวนี้ทำจากฝ้าย"
+    },
+    {
+     "front": "ขนสัตว์",
+     "back": {
+      "ru": "шерсть (khon sat)",
+      "en": "wool (khon sat)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "เสื้อขนสัตว์อุ่นมาก"
+    },
+    {
+     "front": "ไหม",
+     "back": {
+      "ru": "шёлк (mai)",
+      "en": "silk (mai)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "ผ้าไหมไทยสวยมาก"
+    },
+    {
+     "front": "หนัง",
+     "back": {
+      "ru": "кожа (nang)",
+      "en": "leather (nang)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "กระเป๋าหนังใบนี้แพง"
+    },
+    {
+     "front": "ไม้แขวนเสื้อ",
+     "back": {
+      "ru": "вешалка (mai khwaen suea)",
+      "en": "hanger (mai khwaen suea)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "แขวนเสื้อไว้บนไม้แขวนเสื้อ"
+    },
+    {
+     "front": "ตู้เสื้อผ้า",
+     "back": {
+      "ru": "шкаф (tu suea pha)",
+      "en": "wardrobe (tu suea pha)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "เสื้อผ้าอยู่ในตู้เสื้อผ้า"
+    },
+    {
+     "front": "แหวน",
+     "back": {
+      "ru": "кольцо (waen)",
+      "en": "ring (waen)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "เธอใส่แหวนทองที่นิ้ว"
+    }
+   ]
+  }
+ ]
+}

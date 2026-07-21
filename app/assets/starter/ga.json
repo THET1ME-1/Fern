@@ -1,0 +1,6533 @@
+{
+ "lang": "ga",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "dia duit",
+     "back": {
+      "ru": "привет",
+      "en": "hello",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Dia duit, conas atá tú?"
+    },
+    {
+     "front": "slán",
+     "back": {
+      "ru": "до свидания",
+      "en": "goodbye",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Slán, feicfidh mé amárach thú."
+    },
+    {
+     "front": "tá",
+     "back": {
+      "ru": "да",
+      "en": "yes",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Tá, ar ndóigh tiocfaidh mé."
+    },
+    {
+     "front": "níl",
+     "back": {
+      "ru": "нет",
+      "en": "no",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "Níl, go raibh maith agat."
+    },
+    {
+     "front": "le do thoil",
+     "back": {
+      "ru": "пожалуйста",
+      "en": "please",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Caife amháin, le do thoil."
+    },
+    {
+     "front": "go raibh maith agat",
+     "back": {
+      "ru": "спасибо",
+      "en": "thank you",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Go raibh maith agat as an gcabhair."
+    },
+    {
+     "front": "tá brón orm",
+     "back": {
+      "ru": "извини",
+      "en": "sorry",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Tá brón orm, bhí mé déanach."
+    },
+    {
+     "front": "maidin mhaith",
+     "back": {
+      "ru": "доброе утро",
+      "en": "good morning",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Maidin mhaith, ar chodail tú go maith?"
+    },
+    {
+     "front": "oíche mhaith",
+     "back": {
+      "ru": "спокойной ночи",
+      "en": "good night",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Oíche mhaith, slán go fóill."
+    },
+    {
+     "front": "tá gach rud ceart",
+     "back": {
+      "ru": "всё хорошо",
+      "en": "all right",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "Ná bí buartha, tá gach rud ceart."
+    },
+    {
+     "front": "fear",
+     "back": {
+      "ru": "мужчина",
+      "en": "man",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "Is é an fear sin ár gcomharsa."
+    },
+    {
+     "front": "bean",
+     "back": {
+      "ru": "женщина",
+      "en": "woman",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "Is dochtúir í an bhean leis an gcóta gorm."
+    },
+    {
+     "front": "páiste",
+     "back": {
+      "ru": "ребёнок",
+      "en": "child",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "Tá an páiste ag súgradh sa ghairdín."
+    },
+    {
+     "front": "buachaill",
+     "back": {
+      "ru": "мальчик",
+      "en": "boy",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "Tá an buachaill ag rith chun na scoile."
+    },
+    {
+     "front": "cailín",
+     "back": {
+      "ru": "девочка",
+      "en": "girl",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "Tá an cailín ag tarraingt bláth."
+    },
+    {
+     "front": "cara",
+     "back": {
+      "ru": "друг",
+      "en": "friend",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Tá mo chara ina chónaí i nGaillimh."
+    },
+    {
+     "front": "teaghlach",
+     "back": {
+      "ru": "семья",
+      "en": "family",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Tháinig an teaghlach ar fad chun dinnéir."
+    },
+    {
+     "front": "máthair",
+     "back": {
+      "ru": "мама",
+      "en": "mother",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "Canann mo mháthair go hálainn."
+    },
+    {
+     "front": "athair",
+     "back": {
+      "ru": "папа",
+      "en": "father",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "Oibríonn m'athair san oíche."
+    },
+    {
+     "front": "mac",
+     "back": {
+      "ru": "сын",
+      "en": "son",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "Tá a mac cúig bliana d'aois."
+    },
+    {
+     "front": "iníon",
+     "back": {
+      "ru": "дочь",
+      "en": "daughter",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "Tá an iníon is sine ag staidéar leighis."
+    },
+    {
+     "front": "deartháir",
+     "back": {
+      "ru": "брат",
+      "en": "brother",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "Imríonn mo dheartháir peil."
+    },
+    {
+     "front": "deirfiúr",
+     "back": {
+      "ru": "сестра",
+      "en": "sister",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "Tá mo dheirfiúr ina cónaí i gCorcaigh."
+    },
+    {
+     "front": "seanmháthair",
+     "back": {
+      "ru": "бабушка",
+      "en": "grandmother",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "Bácálann an tseanmháthair an cáca is fearr."
+    },
+    {
+     "front": "seanathair",
+     "back": {
+      "ru": "дедушка",
+      "en": "grandfather",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "Insíonn an seanathair seanscéalta."
+    },
+    {
+     "front": "duine",
+     "back": {
+      "ru": "человек",
+      "en": "person",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Níl aithne agam ar an duine sin."
+    },
+    {
+     "front": "daoine",
+     "back": {
+      "ru": "люди",
+      "en": "people",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "Scaip na daoine ón gcearnóg."
+    },
+    {
+     "front": "ainm",
+     "back": {
+      "ru": "имя",
+      "en": "name",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Cad is ainm duit?"
+    },
+    {
+     "front": "an tUasal",
+     "back": {
+      "ru": "господин",
+      "en": "sir",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Maidin mhaith, a Uasail Uí Néill."
+    },
+    {
+     "front": "bean uasal",
+     "back": {
+      "ru": "госпожа",
+      "en": "madam",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "An bhfuil cabhair ag teastáil ón mbean uasal?"
+    },
+    {
+     "front": "mé",
+     "back": {
+      "ru": "я",
+      "en": "I",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Tá mé i mo chónaí in aice láimhe."
+    },
+    {
+     "front": "tú",
+     "back": {
+      "ru": "ты",
+      "en": "you",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "An labhraíonn tú Gaeilge?"
+    },
+    {
+     "front": "sibh",
+     "back": {
+      "ru": "вы",
+      "en": "you",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Ar mhaith libh suí síos?"
+    },
+    {
+     "front": "sé",
+     "back": {
+      "ru": "он",
+      "en": "he",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "Tagann sé ar a hocht."
+    },
+    {
+     "front": "sí",
+     "back": {
+      "ru": "она",
+      "en": "she",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "Oibríonn sí in ospidéal."
+    },
+    {
+     "front": "muid",
+     "back": {
+      "ru": "мы",
+      "en": "we",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Táimid ag dul ar an traein."
+    },
+    {
+     "front": "siad",
+     "back": {
+      "ru": "они",
+      "en": "they",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Tá siad ina gcónaí sa bhfoirgneamh céanna."
+    },
+    {
+     "front": "mo",
+     "back": {
+      "ru": "мой",
+      "en": "my",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Seo é mo shuíochán."
+    },
+    {
+     "front": "do",
+     "back": {
+      "ru": "твой",
+      "en": "your",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "D'fhág tú do chóta ar an gcathaoir."
+    },
+    {
+     "front": "ár",
+     "back": {
+      "ru": "наш",
+      "en": "our",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "Tá ár gcarr beag."
+    },
+    {
+     "front": "an ceann seo",
+     "back": {
+      "ru": "этот",
+      "en": "this",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Tá an leabhar seo an-suimiúil."
+    },
+    {
+     "front": "an ceann sin",
+     "back": {
+      "ru": "тот",
+      "en": "that",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "Tá an foirgneamh sin an-sean."
+    },
+    {
+     "front": "cé",
+     "back": {
+      "ru": "кто",
+      "en": "who",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Cé atá ag an doras?"
+    },
+    {
+     "front": "cad",
+     "back": {
+      "ru": "что",
+      "en": "what",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Cad atá á rá agat?"
+    },
+    {
+     "front": "cá",
+     "back": {
+      "ru": "где",
+      "en": "where",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "Cá bhfuil an stáisiún?"
+    },
+    {
+     "front": "cathain",
+     "back": {
+      "ru": "когда",
+      "en": "when",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Cathain a thosaíonn an scannán?"
+    },
+    {
+     "front": "conas",
+     "back": {
+      "ru": "как",
+      "en": "how",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Conas a deirtear é seo?"
+    },
+    {
+     "front": "cén fáth",
+     "back": {
+      "ru": "почему",
+      "en": "why",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Cén fáth an deifir seo?"
+    },
+    {
+     "front": "cé acu",
+     "back": {
+      "ru": "который",
+      "en": "which",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Cé acu is fearr leat?"
+    },
+    {
+     "front": "náid",
+     "back": {
+      "ru": "ноль",
+      "en": "zero",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "Tá an teocht ag náid céim."
+    },
+    {
+     "front": "a haon",
+     "back": {
+      "ru": "один",
+      "en": "one",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Níl fágtha ach suíochán amháin."
+    },
+    {
+     "front": "a dó",
+     "back": {
+      "ru": "два",
+      "en": "two",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "Tá beirt deartháireacha agam."
+    },
+    {
+     "front": "a trí",
+     "back": {
+      "ru": "три",
+      "en": "three",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Fillfidh mé i gceann trí lá."
+    },
+    {
+     "front": "a ceathair",
+     "back": {
+      "ru": "четыре",
+      "en": "four",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "Tá ceithre chathaoir ag an mbord."
+    },
+    {
+     "front": "a cúig",
+     "back": {
+      "ru": "пять",
+      "en": "five",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "Maireann an scannán cúig uair an chloig."
+    },
+    {
+     "front": "a sé",
+     "back": {
+      "ru": "шесть",
+      "en": "six",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Éirím ar a sé."
+    },
+    {
+     "front": "a seacht",
+     "back": {
+      "ru": "семь",
+      "en": "seven",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "Tá seacht lá sa tseachtain."
+    },
+    {
+     "front": "a hocht",
+     "back": {
+      "ru": "восемь",
+      "en": "eight",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "Fágann an traein ar a hocht."
+    },
+    {
+     "front": "a naoi",
+     "back": {
+      "ru": "девять",
+      "en": "nine",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "Tá sí naoi mbliana d'aois."
+    },
+    {
+     "front": "a deich",
+     "back": {
+      "ru": "десять",
+      "en": "ten",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "Tá deich nóiméad fágtha."
+    },
+    {
+     "front": "a haon déag",
+     "back": {
+      "ru": "одиннадцать",
+      "en": "eleven",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "Críochnaíonn an rang ar a haon déag."
+    },
+    {
+     "front": "a dó dhéag",
+     "back": {
+      "ru": "двенадцать",
+      "en": "twelve",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "Tá dhá mhí dhéag sa bhliain."
+    },
+    {
+     "front": "fiche",
+     "back": {
+      "ru": "двадцать",
+      "en": "twenty",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "Cosnaíonn an ticéad fiche euro."
+    },
+    {
+     "front": "tríocha",
+     "back": {
+      "ru": "тридцать",
+      "en": "thirty",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Tá tríocha lá sa mhí seo."
+    },
+    {
+     "front": "céad",
+     "back": {
+      "ru": "сто",
+      "en": "hundred",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Tá céad méadar fágtha."
+    },
+    {
+     "front": "míle",
+     "back": {
+      "ru": "тысяча",
+      "en": "thousand",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "Tá míle duine ina gcónaí sa sráidbhaile."
+    },
+    {
+     "front": "an chéad",
+     "back": {
+      "ru": "первый",
+      "en": "first",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Inniu an chéad lá scoile."
+    },
+    {
+     "front": "an ceann deireanach",
+     "back": {
+      "ru": "последний",
+      "en": "last",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "Fuair mé an bus deireanach."
+    },
+    {
+     "front": "uimhir",
+     "back": {
+      "ru": "номер",
+      "en": "number",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Cén uimhir atá ar bhur dteach?"
+    },
+    {
+     "front": "leath",
+     "back": {
+      "ru": "половина",
+      "en": "half",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "D'ith mé leath den cháca."
+    },
+    {
+     "front": "lá",
+     "back": {
+      "ru": "день",
+      "en": "day",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Ba lá fada é."
+    },
+    {
+     "front": "oíche",
+     "back": {
+      "ru": "ночь",
+      "en": "night",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Tá an oíche fuar."
+    },
+    {
+     "front": "maidin",
+     "back": {
+      "ru": "утро",
+      "en": "morning",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Ólaim tae ar maidin."
+    },
+    {
+     "front": "tráthnóna",
+     "back": {
+      "ru": "вечер",
+      "en": "afternoon",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "Téim chuig an margadh tráthnóna."
+    },
+    {
+     "front": "inniu",
+     "back": {
+      "ru": "сегодня",
+      "en": "today",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Níl mé ag obair inniu."
+    },
+    {
+     "front": "amárach",
+     "back": {
+      "ru": "завтра",
+      "en": "tomorrow",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Amárach rachaimid go dtí an trá."
+    },
+    {
+     "front": "inné",
+     "back": {
+      "ru": "вчера",
+      "en": "yesterday",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Bhí sé ag cur báistí inné ar feadh an lae."
+    },
+    {
+     "front": "seachtain",
+     "back": {
+      "ru": "неделя",
+      "en": "week",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Fillfidh mé an tseachtain seo chugainn."
+    },
+    {
+     "front": "mí",
+     "back": {
+      "ru": "месяц",
+      "en": "month",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Tá an mhí seo ag dul go maith."
+    },
+    {
+     "front": "bliain",
+     "back": {
+      "ru": "год",
+      "en": "year",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "Bhí an bhliain seo caite crua."
+    },
+    {
+     "front": "uair an chloig",
+     "back": {
+      "ru": "час",
+      "en": "hour",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "Tógann an turas uair an chloig."
+    },
+    {
+     "front": "nóiméad",
+     "back": {
+      "ru": "минута",
+      "en": "minute",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Fan nóiméad, le do thoil."
+    },
+    {
+     "front": "am",
+     "back": {
+      "ru": "время",
+      "en": "time",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "Níl am agam anois."
+    },
+    {
+     "front": "anois",
+     "back": {
+      "ru": "сейчас",
+      "en": "now",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "Tá mé gnóthach anois."
+    },
+    {
+     "front": "i gcónaí",
+     "back": {
+      "ru": "всегда",
+      "en": "always",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "Tagann sí go luath i gcónaí."
+    },
+    {
+     "front": "riamh",
+     "back": {
+      "ru": "никогда",
+      "en": "never",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Ní raibh mé riamh sa Róimh."
+    },
+    {
+     "front": "go luath",
+     "back": {
+      "ru": "рано",
+      "en": "early",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "D'éirigh mé an-luath."
+    },
+    {
+     "front": "Dé Luain",
+     "back": {
+      "ru": "понедельник",
+      "en": "Monday",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "Tá coinne dochtúra agam Dé Luain."
+    },
+    {
+     "front": "Dé Sathairn",
+     "back": {
+      "ru": "суббота",
+      "en": "Saturday",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Codlaím go déanach Dé Sathairn."
+    },
+    {
+     "front": "Dé Domhnaigh",
+     "back": {
+      "ru": "воскресенье",
+      "en": "Sunday",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Ithimid le chéile Dé Domhnaigh."
+    },
+    {
+     "front": "teach",
+     "back": {
+      "ru": "дом",
+      "en": "house",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Tá gairdín taobh thiar den teach."
+    },
+    {
+     "front": "cathair",
+     "back": {
+      "ru": "город",
+      "en": "city",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Is cathair mhór í Baile Átha Cliath."
+    },
+    {
+     "front": "sráidbhaile",
+     "back": {
+      "ru": "деревня",
+      "en": "village",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "Tá an sráidbhaile ag bun an tsléibhe."
+    },
+    {
+     "front": "sráid",
+     "back": {
+      "ru": "улица",
+      "en": "street",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "Tá an tsráid lán de dhaoine."
+    },
+    {
+     "front": "scoil",
+     "back": {
+      "ru": "школа",
+      "en": "school",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "Osclaíonn an scoil ar a hocht."
+    },
+    {
+     "front": "obair",
+     "back": {
+      "ru": "работа",
+      "en": "work",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "Críochnaíonn an obair ar a sé."
+    },
+    {
+     "front": "siopa",
+     "back": {
+      "ru": "магазин",
+      "en": "shop",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "Tá an siopa dúnta Dé Domhnaigh."
+    },
+    {
+     "front": "margadh",
+     "back": {
+      "ru": "рынок",
+      "en": "market",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Ceannaím torthaí ag an margadh."
+    },
+    {
+     "front": "ospidéal",
+     "back": {
+      "ru": "больница",
+      "en": "hospital",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "Tá an t-ospidéal in aice láimhe."
+    },
+    {
+     "front": "cógaslann",
+     "back": {
+      "ru": "аптека",
+      "en": "pharmacy",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "Tá an chógaslann oscailte san oíche freisin."
+    },
+    {
+     "front": "banc",
+     "back": {
+      "ru": "банк",
+      "en": "bank",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Téim chuig an mbanc ar maidin."
+    },
+    {
+     "front": "óstán",
+     "back": {
+      "ru": "гостиница",
+      "en": "hotel",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "Tá an t-óstán díreach cois farraige."
+    },
+    {
+     "front": "séipéal",
+     "back": {
+      "ru": "церковь",
+      "en": "church",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Tá an séipéal seo an-sean."
+    },
+    {
+     "front": "gairdín",
+     "back": {
+      "ru": "сад",
+      "en": "garden",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "Tá an gairdín lán de bhláthanna."
+    },
+    {
+     "front": "trá",
+     "back": {
+      "ru": "пляж",
+      "en": "beach",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "Tá an trá deich nóiméad uainn."
+    },
+    {
+     "front": "farraige",
+     "back": {
+      "ru": "море",
+      "en": "sea",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "Tá an fharraige ciúin inniu."
+    },
+    {
+     "front": "abhainn",
+     "back": {
+      "ru": "река",
+      "en": "river",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "Gabhann an abhainn tríd an gcathair."
+    },
+    {
+     "front": "sliabh",
+     "back": {
+      "ru": "гора",
+      "en": "mountain",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Tá sneachta ar bharr an tsléibhe."
+    },
+    {
+     "front": "gort",
+     "back": {
+      "ru": "поле",
+      "en": "field",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Fásann arbhar sa ghort."
+    },
+    {
+     "front": "foraois",
+     "back": {
+      "ru": "лес",
+      "en": "forest",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "Tosaíonn an fhoraois tar éis an droichid."
+    },
+    {
+     "front": "tír",
+     "back": {
+      "ru": "страна",
+      "en": "country",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Is tír bheag í an Phortaingéil."
+    },
+    {
+     "front": "domhan",
+     "back": {
+      "ru": "мир",
+      "en": "world",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "Thaistil sé leath an domhain."
+    },
+    {
+     "front": "bóthar",
+     "back": {
+      "ru": "дорога",
+      "en": "road",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "Tá an bóthar cúng."
+    },
+    {
+     "front": "droichead",
+     "back": {
+      "ru": "мост",
+      "en": "bridge",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "Tá an droichead dúnta le haghaidh oibre."
+    },
+    {
+     "front": "stáisiún",
+     "back": {
+      "ru": "вокзал",
+      "en": "station",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Buailfimid le chéile ag an stáisiún."
+    },
+    {
+     "front": "aerfort",
+     "back": {
+      "ru": "аэропорт",
+      "en": "airport",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "Tá an t-aerfort i bhfad ón lár."
+    },
+    {
+     "front": "seomra",
+     "back": {
+      "ru": "комната",
+      "en": "room",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "Tá fuinneog mhór sa seomra."
+    },
+    {
+     "front": "cistin",
+     "back": {
+      "ru": "кухня",
+      "en": "kitchen",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "Tá boladh caife sa chistin."
+    },
+    {
+     "front": "doras",
+     "back": {
+      "ru": "дверь",
+      "en": "door",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Dún an doras, tá sé fuar."
+    },
+    {
+     "front": "fuinneog",
+     "back": {
+      "ru": "окно",
+      "en": "window",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Oscail an fhuinneog, tá sé plúchta."
+    },
+    {
+     "front": "bord",
+     "back": {
+      "ru": "стол",
+      "en": "table",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Cuir na plátaí ar an mbord."
+    },
+    {
+     "front": "cathaoir",
+     "back": {
+      "ru": "стул",
+      "en": "chair",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Tá cathaoir in easnamh ag an mbord."
+    },
+    {
+     "front": "leaba",
+     "back": {
+      "ru": "кровать",
+      "en": "bed",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Tá an leaba seo ró-chrua."
+    },
+    {
+     "front": "carr",
+     "back": {
+      "ru": "машина",
+      "en": "car",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "Ní thosaíonn an carr ar maidin."
+    },
+    {
+     "front": "bus",
+     "back": {
+      "ru": "автобус",
+      "en": "bus",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "Gabhann an bus gach leathuair."
+    },
+    {
+     "front": "traein",
+     "back": {
+      "ru": "поезд",
+      "en": "train",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "Tháinig an traein go déanach."
+    },
+    {
+     "front": "eitleán",
+     "back": {
+      "ru": "самолёт",
+      "en": "plane",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "Éiríonn an t-eitleán ar a seacht."
+    },
+    {
+     "front": "rothar",
+     "back": {
+      "ru": "велосипед",
+      "en": "bicycle",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "Téim ag obair ar rothar."
+    },
+    {
+     "front": "grian",
+     "back": {
+      "ru": "солнце",
+      "en": "sun",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "Éiríonn an ghrian ag leathuair tar éis a sé."
+    },
+    {
+     "front": "gealach",
+     "back": {
+      "ru": "луна",
+      "en": "moon",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "Tá an ghealach lán anocht."
+    },
+    {
+     "front": "réalta",
+     "back": {
+      "ru": "звезда",
+      "en": "star",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Tá réalta gheal le feiceáil sa spéir."
+    },
+    {
+     "front": "spéir",
+     "back": {
+      "ru": "небо",
+      "en": "sky",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "Tá an spéir glan."
+    },
+    {
+     "front": "báisteach",
+     "back": {
+      "ru": "дождь",
+      "en": "rain",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "Níor stop an bháisteach ó inné."
+    },
+    {
+     "front": "gaoth",
+     "back": {
+      "ru": "ветер",
+      "en": "wind",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "Leag an ghaoth na cathaoireacha."
+    },
+    {
+     "front": "sneachta",
+     "back": {
+      "ru": "снег",
+      "en": "snow",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Is annamh a bhíonn sneachta anseo."
+    },
+    {
+     "front": "tine",
+     "back": {
+      "ru": "огонь",
+      "en": "fire",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Las muid tine sa teallach."
+    },
+    {
+     "front": "talamh",
+     "back": {
+      "ru": "земля",
+      "en": "earth",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "Tá an talamh fliuch fós."
+    },
+    {
+     "front": "crann",
+     "back": {
+      "ru": "дерево",
+      "en": "tree",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "Tugann an crann scáth don chlós."
+    },
+    {
+     "front": "bláth",
+     "back": {
+      "ru": "цветок",
+      "en": "flower",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "Thug mé bláth liom ón tsráid."
+    },
+    {
+     "front": "ainmhí",
+     "back": {
+      "ru": "животное",
+      "en": "animal",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "Cén t-ainmhí é sin?"
+    },
+    {
+     "front": "madra",
+     "back": {
+      "ru": "собака",
+      "en": "dog",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "Codlaíonn an madra ag an doras."
+    },
+    {
+     "front": "cat",
+     "back": {
+      "ru": "кошка",
+      "en": "cat",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "Chuaigh an cat suas ar an díon."
+    },
+    {
+     "front": "éan",
+     "back": {
+      "ru": "птица",
+      "en": "bird",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Chan éan ar maidin."
+    },
+    {
+     "front": "capall",
+     "back": {
+      "ru": "лошадь",
+      "en": "horse",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "Ritheann an capall sa ghort."
+    },
+    {
+     "front": "leabhar",
+     "back": {
+      "ru": "книга",
+      "en": "book",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Tá trí chéad leathanach sa leabhar seo."
+    },
+    {
+     "front": "páipéar",
+     "back": {
+      "ru": "бумага",
+      "en": "paper",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Tabhair dom bileog pháipéir."
+    },
+    {
+     "front": "peann",
+     "back": {
+      "ru": "ручка",
+      "en": "pen",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "Tá an peann as dúch."
+    },
+    {
+     "front": "guthán",
+     "back": {
+      "ru": "телефон",
+      "en": "phone",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "Bhuail an guthán faoi dhó."
+    },
+    {
+     "front": "ríomhaire",
+     "back": {
+      "ru": "компьютер",
+      "en": "computer",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "Tá an ríomhaire mall."
+    },
+    {
+     "front": "airgead",
+     "back": {
+      "ru": "деньги",
+      "en": "money",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "Níl airgead agam liom."
+    },
+    {
+     "front": "eochair",
+     "back": {
+      "ru": "ключ",
+      "en": "key",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "Chaill mé eochair an tí."
+    },
+    {
+     "front": "uaireadóir",
+     "back": {
+      "ru": "часы",
+      "en": "watch",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "Tá m'uaireadóir chun tosaigh."
+    },
+    {
+     "front": "solas",
+     "back": {
+      "ru": "свет",
+      "en": "light",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "Las an solas, le do thoil."
+    },
+    {
+     "front": "ceol",
+     "back": {
+      "ru": "музыка",
+      "en": "music",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "Tá an ceol ag teacht ón gcaife béal dorais."
+    },
+    {
+     "front": "scannán",
+     "back": {
+      "ru": "фильм",
+      "en": "film",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "Tosaíonn an scannán ar a naoi."
+    },
+    {
+     "front": "grianghraf",
+     "back": {
+      "ru": "фотография",
+      "en": "photo",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "Thóg mé grianghraf den chearnóg."
+    },
+    {
+     "front": "litir",
+     "back": {
+      "ru": "письмо",
+      "en": "letter",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "Fuair mé litir ó mo sheanmháthair."
+    },
+    {
+     "front": "nuachtán",
+     "back": {
+      "ru": "газета",
+      "en": "newspaper",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Léim an nuachtán ag am bricfeasta."
+    },
+    {
+     "front": "dath",
+     "back": {
+      "ru": "цвет",
+      "en": "colour",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "Cén dath atá ar do charr?"
+    },
+    {
+     "front": "focal",
+     "back": {
+      "ru": "слово",
+      "en": "word",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "Níor thuig mé an focal deireanach."
+    },
+    {
+     "front": "teanga",
+     "back": {
+      "ru": "язык",
+      "en": "language",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "Is í an Ghaeilge mo mháthairtheanga."
+    },
+    {
+     "front": "ceann",
+     "back": {
+      "ru": "голова",
+      "en": "head",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Tá tinneas cinn orm ó inné."
+    },
+    {
+     "front": "lámh",
+     "back": {
+      "ru": "рука",
+      "en": "hand",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Tabhair dom do lámh."
+    },
+    {
+     "front": "cos",
+     "back": {
+      "ru": "нога",
+      "en": "foot",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Tá mo chos ata."
+    },
+    {
+     "front": "súil",
+     "back": {
+      "ru": "глаз",
+      "en": "eye",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "Chuaigh deannach i mo shúil."
+    },
+    {
+     "front": "béal",
+     "back": {
+      "ru": "рот",
+      "en": "mouth",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Oscail do bhéal, a dúirt an dochtúir."
+    },
+    {
+     "front": "croí",
+     "back": {
+      "ru": "сердце",
+      "en": "heart",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "Tá an croí ag bualadh go tapa."
+    },
+    {
+     "front": "gruaig",
+     "back": {
+      "ru": "волосы",
+      "en": "hair",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Ghearr mé mo chuid gruaige inné."
+    },
+    {
+     "front": "corp",
+     "back": {
+      "ru": "тело",
+      "en": "body",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "Tá an corp ag iarraidh scíthe."
+    },
+    {
+     "front": "maith",
+     "back": {
+      "ru": "хороший",
+      "en": "good",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Ba lá oibre maith é."
+    },
+    {
+     "front": "olc",
+     "back": {
+      "ru": "плохой",
+      "en": "bad",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "Tá an aimsir go dona."
+    },
+    {
+     "front": "mór",
+     "back": {
+      "ru": "большой",
+      "en": "big",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Teastaíonn bord mór uainn."
+    },
+    {
+     "front": "beag",
+     "back": {
+      "ru": "маленький",
+      "en": "small",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Tá an seomra beag ach geal."
+    },
+    {
+     "front": "nua",
+     "back": {
+      "ru": "новый",
+      "en": "new",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "Cheannaigh mé fón nua."
+    },
+    {
+     "front": "sean",
+     "back": {
+      "ru": "старый",
+      "en": "old",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Tá an foirgneamh seo sean."
+    },
+    {
+     "front": "óg",
+     "back": {
+      "ru": "молодой",
+      "en": "young",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "Is múinteoir óg é."
+    },
+    {
+     "front": "ard",
+     "back": {
+      "ru": "высокий",
+      "en": "tall",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "Tá an foirgneamh an-ard."
+    },
+    {
+     "front": "íseal",
+     "back": {
+      "ru": "низкий",
+      "en": "short",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "Tá an tsíleáil íseal."
+    },
+    {
+     "front": "fada",
+     "back": {
+      "ru": "длинный",
+      "en": "long",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "Tá an bóthar fada."
+    },
+    {
+     "front": "gearr",
+     "back": {
+      "ru": "короткий",
+      "en": "short",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "Bhí an scannán gearr."
+    },
+    {
+     "front": "te",
+     "back": {
+      "ru": "горячий",
+      "en": "hot",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "Tá an tae te."
+    },
+    {
+     "front": "fuar",
+     "back": {
+      "ru": "холодный",
+      "en": "cold",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "Tá sé fuar sa seomra."
+    },
+    {
+     "front": "álainn",
+     "back": {
+      "ru": "красивый",
+      "en": "beautiful",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Nach álainn an radharc é!"
+    },
+    {
+     "front": "gránna",
+     "back": {
+      "ru": "некрасивый",
+      "en": "ugly",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "Tá an foirgneamh nua gránna."
+    },
+    {
+     "front": "éasca",
+     "back": {
+      "ru": "лёгкий",
+      "en": "easy",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "Bhí an cleachtadh éasca."
+    },
+    {
+     "front": "deacair",
+     "back": {
+      "ru": "трудный",
+      "en": "difficult",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "Tá an cheist deacair."
+    },
+    {
+     "front": "láidir",
+     "back": {
+      "ru": "сильный",
+      "en": "strong",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "Tá an caife láidir."
+    },
+    {
+     "front": "lag",
+     "back": {
+      "ru": "слабый",
+      "en": "weak",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "Tá an comhartha lag."
+    },
+    {
+     "front": "tapa",
+     "back": {
+      "ru": "быстрый",
+      "en": "fast",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "Tá an traein tapa."
+    },
+    {
+     "front": "mall",
+     "back": {
+      "ru": "медленный",
+      "en": "slow",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "Tá an tseirbhís anseo mall."
+    },
+    {
+     "front": "daor",
+     "back": {
+      "ru": "дорогой",
+      "en": "expensive",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "Tá an t-óstán daor."
+    },
+    {
+     "front": "saor",
+     "back": {
+      "ru": "дешёвый",
+      "en": "cheap",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "Fuair mé ticéad saor."
+    },
+    {
+     "front": "glan",
+     "back": {
+      "ru": "чистый",
+      "en": "clean",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "Tá an t-urlár glan."
+    },
+    {
+     "front": "salach",
+     "back": {
+      "ru": "грязный",
+      "en": "dirty",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "Tá an carr salach le deannach."
+    },
+    {
+     "front": "lán",
+     "back": {
+      "ru": "полный",
+      "en": "full",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "Tháinig an bus lán."
+    },
+    {
+     "front": "folamh",
+     "back": {
+      "ru": "пустой",
+      "en": "empty",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "Tá an gloine folamh."
+    },
+    {
+     "front": "sona",
+     "back": {
+      "ru": "счастливый",
+      "en": "happy",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "Bhí sí sona leis an nuacht."
+    },
+    {
+     "front": "brónach",
+     "back": {
+      "ru": "грустный",
+      "en": "sad",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "Tháinig sé abhaile brónach ón obair."
+    },
+    {
+     "front": "tuirseach",
+     "back": {
+      "ru": "усталый",
+      "en": "tired",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Tá mé tuirseach tar éis an lae."
+    },
+    {
+     "front": "tinn",
+     "back": {
+      "ru": "больной",
+      "en": "sick",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "Tá mo mhac tinn."
+    },
+    {
+     "front": "ceart",
+     "back": {
+      "ru": "правильный",
+      "en": "right",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "Tá an freagra ceart."
+    },
+    {
+     "front": "mícheart",
+     "back": {
+      "ru": "неправильный",
+      "en": "wrong",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "Tá an uimhir mícheart."
+    },
+    {
+     "front": "bán",
+     "back": {
+      "ru": "белый",
+      "en": "white",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "Tá an balla bán."
+    },
+    {
+     "front": "dubh",
+     "back": {
+      "ru": "чёрный",
+      "en": "black",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Tá cat dubh agam."
+    },
+    {
+     "front": "dearg",
+     "back": {
+      "ru": "красный",
+      "en": "red",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "Tá an solas dearg."
+    },
+    {
+     "front": "gorm",
+     "back": {
+      "ru": "синий",
+      "en": "blue",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "Tá an fharraige an-ghorm."
+    },
+    {
+     "front": "glas",
+     "back": {
+      "ru": "зелёный",
+      "en": "green",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "San earrach éiríonn na duilleoga glas."
+    },
+    {
+     "front": "buí",
+     "back": {
+      "ru": "жёлтый",
+      "en": "yellow",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "Tá an teach buí."
+    },
+    {
+     "front": "anseo",
+     "back": {
+      "ru": "здесь",
+      "en": "here",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Fan anseo nóiméad."
+    },
+    {
+     "front": "ansin",
+     "back": {
+      "ru": "там",
+      "en": "there",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "Tá an carr ansin."
+    },
+    {
+     "front": "go leor",
+     "back": {
+      "ru": "много",
+      "en": "much",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Ólaim go leor tae."
+    },
+    {
+     "front": "beagán",
+     "back": {
+      "ru": "мало",
+      "en": "little",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "Chodail mé beagán aréir."
+    },
+    {
+     "front": "níos mó",
+     "back": {
+      "ru": "больше",
+      "en": "more",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Teastaíonn níos mó ama uaim."
+    },
+    {
+     "front": "níos lú",
+     "back": {
+      "ru": "меньше",
+      "en": "less",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Tá níos lú daoine ann inniu."
+    },
+    {
+     "front": "freisin",
+     "back": {
+      "ru": "тоже",
+      "en": "also",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "Tá mise ag dul freisin."
+    },
+    {
+     "front": "go maith",
+     "back": {
+      "ru": "хорошо",
+      "en": "well",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "Labhraíonn sí Fraincis go maith."
+    },
+    {
+     "front": "go dona",
+     "back": {
+      "ru": "плохо",
+      "en": "badly",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "Chodail mé go dona aréir."
+    },
+    {
+     "front": "le",
+     "back": {
+      "ru": "с",
+      "en": "with",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Táim ag dul le mo dheirfiúr."
+    },
+    {
+     "front": "gan",
+     "back": {
+      "ru": "без",
+      "en": "without",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Ólaim an caife gan siúcra."
+    },
+    {
+     "front": "do (chun)",
+     "back": {
+      "ru": "для",
+      "en": "for",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Tá an beart seo duitse."
+    },
+    {
+     "front": "ach",
+     "back": {
+      "ru": "но",
+      "en": "but",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Bhí mé ag iarraidh dul, ach ní féidir liom."
+    },
+    {
+     "front": "nó",
+     "back": {
+      "ru": "или",
+      "en": "or",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Tae nó caife?"
+    },
+    {
+     "front": "mar",
+     "back": {
+      "ru": "потому что",
+      "en": "because",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "D'fhan mé sa bhaile mar bhí sé ag cur báistí."
+    },
+    {
+     "front": "má",
+     "back": {
+      "ru": "если",
+      "en": "if",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Má chuireann sé báisteach, fanfaimid istigh."
+    },
+    {
+     "front": "b'fhéidir",
+     "back": {
+      "ru": "может быть",
+      "en": "maybe",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "B'fhéidir go dtiocfaidh sé amárach."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "bí",
+     "back": {
+      "ru": "быть",
+      "en": "to be",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "Is múinteoir ceoil í."
+    },
+    {
+     "front": "bí suite",
+     "back": {
+      "ru": "находиться",
+      "en": "to be (state)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "Tá an leabhar ar an mbord."
+    },
+    {
+     "front": "bíodh ag",
+     "back": {
+      "ru": "иметь",
+      "en": "to have",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "Tá beirt deartháireacha níos óige agam."
+    },
+    {
+     "front": "déan",
+     "back": {
+      "ru": "делать",
+      "en": "to do",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Cad a dhéanann tú Dé Domhnaigh?"
+    },
+    {
+     "front": "téigh",
+     "back": {
+      "ru": "идти",
+      "en": "to go",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "Táim ag dul chuig an margadh anois."
+    },
+    {
+     "front": "tar",
+     "back": {
+      "ru": "приходить",
+      "en": "to come",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "An dtiocfaidh tú chun dinnéir?"
+    },
+    {
+     "front": "abair",
+     "back": {
+      "ru": "говорить",
+      "en": "to say",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Abair an fhírinne liom."
+    },
+    {
+     "front": "feic",
+     "back": {
+      "ru": "видеть",
+      "en": "to see",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "Chonaic mé do dheartháir ar an tsráid."
+    },
+    {
+     "front": "tabhair",
+     "back": {
+      "ru": "давать",
+      "en": "to give",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Tabhair dom an eochair, le do thoil."
+    },
+    {
+     "front": "bíodh a fhios",
+     "back": {
+      "ru": "знать",
+      "en": "to know",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "Níl a fhios agam cá bhfuil sé ina chónaí."
+    },
+    {
+     "front": "féad",
+     "back": {
+      "ru": "мочь",
+      "en": "can",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "An féidir leat cabhrú liom?"
+    },
+    {
+     "front": "teastaigh",
+     "back": {
+      "ru": "хотеть",
+      "en": "to want",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Teastaíonn gloine uisce uaim."
+    },
+    {
+     "front": "caith",
+     "back": {
+      "ru": "быть должным",
+      "en": "must",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Caithfidh mé imeacht níos luaithe inniu."
+    },
+    {
+     "front": "fan",
+     "back": {
+      "ru": "оставаться",
+      "en": "to stay",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Fanfaidh mé sa bhaile anocht."
+    },
+    {
+     "front": "gabh thar",
+     "back": {
+      "ru": "проходить",
+      "en": "to pass",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "Gabhann an bus thar ar a naoi."
+    },
+    {
+     "front": "sroich",
+     "back": {
+      "ru": "прибывать",
+      "en": "to arrive",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "Shroich an traein go déanach."
+    },
+    {
+     "front": "imigh",
+     "back": {
+      "ru": "выходить",
+      "en": "to leave",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "Imím ón obair ar a sé."
+    },
+    {
+     "front": "téigh isteach",
+     "back": {
+      "ru": "входить",
+      "en": "to enter",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Tar isteach, tá an doras oscailte."
+    },
+    {
+     "front": "fill",
+     "back": {
+      "ru": "возвращаться",
+      "en": "to return",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Fillfidh mé i gceann leathuair."
+    },
+    {
+     "front": "tosaigh",
+     "back": {
+      "ru": "начинать",
+      "en": "to begin",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "Tosaíonn an rang ar a hocht."
+    },
+    {
+     "front": "críochnaigh",
+     "back": {
+      "ru": "заканчивать",
+      "en": "to finish",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Chríochnaigh mé an leabhar inné."
+    },
+    {
+     "front": "lean ar aghaidh",
+     "back": {
+      "ru": "продолжать",
+      "en": "to continue",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "Leanann an bháisteach ar aghaidh."
+    },
+    {
+     "front": "stop",
+     "back": {
+      "ru": "останавливаться",
+      "en": "to stop",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "Stop an carr os comhair an dorais."
+    },
+    {
+     "front": "fan le",
+     "back": {
+      "ru": "ждать",
+      "en": "to wait",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "Tá mé ag fanacht leat ag an stáisiún."
+    },
+    {
+     "front": "faigh",
+     "back": {
+      "ru": "находить",
+      "en": "to find",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "Fuair mé na heochracha ar an mbord."
+    },
+    {
+     "front": "cuardaigh",
+     "back": {
+      "ru": "искать",
+      "en": "to look for",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Táim ag cuardach leabhar gramadaí."
+    },
+    {
+     "front": "caill",
+     "back": {
+      "ru": "терять",
+      "en": "to lose",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "Chaill mé traein a seacht."
+    },
+    {
+     "front": "buaigh",
+     "back": {
+      "ru": "выигрывать",
+      "en": "to win",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "Bhuaigh ár bhfoireann."
+    },
+    {
+     "front": "ceannaigh",
+     "back": {
+      "ru": "покупать",
+      "en": "to buy",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "Cheannaigh mé arán don dinnéar."
+    },
+    {
+     "front": "díol",
+     "back": {
+      "ru": "продавать",
+      "en": "to sell",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "Díolann siad torthaí ag an gcúinne."
+    },
+    {
+     "front": "íoc",
+     "back": {
+      "ru": "платить",
+      "en": "to pay",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "Íocfaidh mise as an gcaife."
+    },
+    {
+     "front": "cosain",
+     "back": {
+      "ru": "стоить",
+      "en": "to cost",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Cé mhéad a chosnaíonn an ticéad?"
+    },
+    {
+     "front": "obair (déan)",
+     "back": {
+      "ru": "работать",
+      "en": "to work",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Oibrím in ospidéal."
+    },
+    {
+     "front": "déan staidéar",
+     "back": {
+      "ru": "учиться",
+      "en": "to study",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Táim ag déanamh staidéir ar an nGaeilge le bliain."
+    },
+    {
+     "front": "foghlaim",
+     "back": {
+      "ru": "изучать",
+      "en": "to learn",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "D'fhoghlaim mé snámh nuair a bhí mé óg."
+    },
+    {
+     "front": "múin",
+     "back": {
+      "ru": "учить",
+      "en": "to teach",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "Múineann sí i scoil tuaithe."
+    },
+    {
+     "front": "léigh",
+     "back": {
+      "ru": "читать",
+      "en": "to read",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Léim an nuachtán ar maidin."
+    },
+    {
+     "front": "scríobh",
+     "back": {
+      "ru": "писать",
+      "en": "to write",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Scríobh mé litir fhada chuici."
+    },
+    {
+     "front": "labhair",
+     "back": {
+      "ru": "разговаривать",
+      "en": "to speak",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Labhraíomar ar an bhfón inné."
+    },
+    {
+     "front": "clois",
+     "back": {
+      "ru": "слышать",
+      "en": "to hear",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "Chuala mé torann sa chistin."
+    },
+    {
+     "front": "éist",
+     "back": {
+      "ru": "слушать",
+      "en": "to listen",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Éist go maith leis an méid a deirim."
+    },
+    {
+     "front": "féach",
+     "back": {
+      "ru": "смотреть",
+      "en": "to look",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Féach ar chlé."
+    },
+    {
+     "front": "mothaigh",
+     "back": {
+      "ru": "чувствовать",
+      "en": "to feel",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Mothaím fuacht i mo lámha."
+    },
+    {
+     "front": "smaoinigh",
+     "back": {
+      "ru": "думать",
+      "en": "to think",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Táim ag smaoineamh air ó inné."
+    },
+    {
+     "front": "cuimhnigh",
+     "back": {
+      "ru": "помнить",
+      "en": "to remember",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "Cuimhním go maith ar an lá sin."
+    },
+    {
+     "front": "déan dearmad",
+     "back": {
+      "ru": "забывать",
+      "en": "to forget",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "Rinne mé dearmad ar d'ainm."
+    },
+    {
+     "front": "tuig",
+     "back": {
+      "ru": "понимать",
+      "en": "to understand",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "Níor thuig mé an cheist."
+    },
+    {
+     "front": "mínigh",
+     "back": {
+      "ru": "объяснять",
+      "en": "to explain",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Mínigh é sin arís."
+    },
+    {
+     "front": "fiafraigh",
+     "back": {
+      "ru": "спрашивать",
+      "en": "to ask",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "D'fhiafraigh mé den chomharsa."
+    },
+    {
+     "front": "freagair",
+     "back": {
+      "ru": "отвечать",
+      "en": "to answer",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "Níor fhreagair sí fós."
+    },
+    {
+     "front": "glaoigh",
+     "back": {
+      "ru": "звать",
+      "en": "to call",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Glaoigh ar an dochtúir go tapa."
+    },
+    {
+     "front": "cuir glaoch",
+     "back": {
+      "ru": "звонить",
+      "en": "to phone",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Cuirfidh mé glaoch ort tráthnóna."
+    },
+    {
+     "front": "oscail",
+     "back": {
+      "ru": "открывать",
+      "en": "to open",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Oscail an fhuinneog, le do thoil."
+    },
+    {
+     "front": "dún",
+     "back": {
+      "ru": "закрывать",
+      "en": "to close",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Dún an doras agus tú ag imeacht."
+    },
+    {
+     "front": "cuir",
+     "back": {
+      "ru": "класть",
+      "en": "to put",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Cuir an t-arán ar an mbord."
+    },
+    {
+     "front": "bain díot",
+     "back": {
+      "ru": "убирать",
+      "en": "to take off",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Bain díot do bhróga ag an doras."
+    },
+    {
+     "front": "tabhair leat",
+     "back": {
+      "ru": "нести",
+      "en": "to take",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "Tugaim an scáth fearthainne liom."
+    },
+    {
+     "front": "tabhair chugat",
+     "back": {
+      "ru": "приносить",
+      "en": "to bring",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "Thug mé cáca do chách."
+    },
+    {
+     "front": "seol",
+     "back": {
+      "ru": "посылать",
+      "en": "to send",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Sheol mé an litir Dé Luain."
+    },
+    {
+     "front": "faigh (glac)",
+     "back": {
+      "ru": "получать",
+      "en": "to receive",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "Fuair mé do theachtaireacht."
+    },
+    {
+     "front": "coimeád",
+     "back": {
+      "ru": "хранить",
+      "en": "to keep",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Coimeádaim na grianghraif i mbosca."
+    },
+    {
+     "front": "fág",
+     "back": {
+      "ru": "оставлять",
+      "en": "to leave behind",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "D'fhág mé an cóta sa charr."
+    },
+    {
+     "front": "coinnigh",
+     "back": {
+      "ru": "держать",
+      "en": "to hold",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Coinnigh an gloine go daingean."
+    },
+    {
+     "front": "brúigh",
+     "back": {
+      "ru": "толкать",
+      "en": "to push",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Brúigh an doras, ná tarraing é."
+    },
+    {
+     "front": "tarraing",
+     "back": {
+      "ru": "тянуть",
+      "en": "to pull",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Tarraing an rópa go láidir."
+    },
+    {
+     "front": "beir ar",
+     "back": {
+      "ru": "ловить",
+      "en": "to catch",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "Rug mé ar an liathróid san aer."
+    },
+    {
+     "front": "taispeáin",
+     "back": {
+      "ru": "показывать",
+      "en": "to show",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Taispeáin an grianghraf dom."
+    },
+    {
+     "front": "folaigh",
+     "back": {
+      "ru": "прятать",
+      "en": "to hide",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "D'fholaigh sé an bronntanas sa chófra."
+    },
+    {
+     "front": "athraigh",
+     "back": {
+      "ru": "менять",
+      "en": "to change",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "D'athraigh mé m'intinn."
+    },
+    {
+     "front": "cruthaigh",
+     "back": {
+      "ru": "создавать",
+      "en": "to create",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Chruthaigh siad post nua."
+    },
+    {
+     "front": "tóg",
+     "back": {
+      "ru": "строить",
+      "en": "to build",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Tá siad ag tógáil foirgnimh in aice linn."
+    },
+    {
+     "front": "bris",
+     "back": {
+      "ru": "ломать",
+      "en": "to break",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Bhris mé gloine ar maidin."
+    },
+    {
+     "front": "gearr ina slisní",
+     "back": {
+      "ru": "резать",
+      "en": "to cut",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Gearr an t-arán ina shlisní."
+    },
+    {
+     "front": "glan amach",
+     "back": {
+      "ru": "убирать",
+      "en": "to clean",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "Ghlan mé amach an chistin ar fad."
+    },
+    {
+     "front": "nigh",
+     "back": {
+      "ru": "мыть",
+      "en": "to wash",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Nigh do lámha roimh an mbéile."
+    },
+    {
+     "front": "triomaigh",
+     "back": {
+      "ru": "сушить",
+      "en": "to dry",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Triomaigh do chuid gruaige go maith."
+    },
+    {
+     "front": "cócaráil",
+     "back": {
+      "ru": "готовить",
+      "en": "to cook",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Cócarálaim gach lá."
+    },
+    {
+     "front": "ith",
+     "back": {
+      "ru": "есть",
+      "en": "to eat",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Ithimid ar a hocht."
+    },
+    {
+     "front": "ól",
+     "back": {
+      "ru": "пить",
+      "en": "to drink",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Ólaim uisce i rith an lae."
+    },
+    {
+     "front": "blais",
+     "back": {
+      "ru": "пробовать",
+      "en": "to taste",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Blais an t-anraith, tá sé go deas."
+    },
+    {
+     "front": "freastail",
+     "back": {
+      "ru": "подавать",
+      "en": "to serve",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Freastalaítear an lón ar a dó dhéag."
+    },
+    {
+     "front": "codail",
+     "back": {
+      "ru": "спать",
+      "en": "to sleep",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "Chodail mé ocht n-uaire as a chéile."
+    },
+    {
+     "front": "dúisigh",
+     "back": {
+      "ru": "просыпаться",
+      "en": "to wake up",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Dúisím i gcónaí ar a sé."
+    },
+    {
+     "front": "éirigh",
+     "back": {
+      "ru": "вставать",
+      "en": "to get up",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Éirigh, tá sé déanach."
+    },
+    {
+     "front": "suigh",
+     "back": {
+      "ru": "садиться",
+      "en": "to sit",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Suigh anseo in aice liom."
+    },
+    {
+     "front": "luigh",
+     "back": {
+      "ru": "ложиться",
+      "en": "to lie down",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "Luím go luath i rith na seachtaine."
+    },
+    {
+     "front": "siúil",
+     "back": {
+      "ru": "ходить",
+      "en": "to walk",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Siúlaim leathuair in aghaidh an lae."
+    },
+    {
+     "front": "rith",
+     "back": {
+      "ru": "бегать",
+      "en": "to run",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Rithim sa pháirc ar maidin."
+    },
+    {
+     "front": "léim",
+     "back": {
+      "ru": "прыгать",
+      "en": "to jump",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "Léim an cat ar an mbord."
+    },
+    {
+     "front": "snámh",
+     "back": {
+      "ru": "плавать",
+      "en": "to swim",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "D'fhoghlaim mé snámh san abhainn."
+    },
+    {
+     "front": "eitil",
+     "back": {
+      "ru": "летать",
+      "en": "to fly",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Eitlíonn na héin ó dheas."
+    },
+    {
+     "front": "taistil",
+     "back": {
+      "ru": "путешествовать",
+      "en": "to travel",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Thaistil muid ar an traein."
+    },
+    {
+     "front": "tiomáin",
+     "back": {
+      "ru": "водить",
+      "en": "to drive",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "Tiomáineann sé go cúramach."
+    },
+    {
+     "front": "téigh suas",
+     "back": {
+      "ru": "подниматься",
+      "en": "to go up",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Chuamar suas go dtí an tríú hurlár."
+    },
+    {
+     "front": "téigh síos",
+     "back": {
+      "ru": "спускаться",
+      "en": "to go down",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Téigh síos an staighre go mall."
+    },
+    {
+     "front": "tit",
+     "back": {
+      "ru": "падать",
+      "en": "to fall",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "Thit an cupán den bhord."
+    },
+    {
+     "front": "cónaigh",
+     "back": {
+      "ru": "жить",
+      "en": "to live (reside)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Tá mé i mo chónaí in aice leis an stáisiún."
+    },
+    {
+     "front": "mair",
+     "back": {
+      "ru": "жить",
+      "en": "to live",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "Mhair sé nócha bliain."
+    },
+    {
+     "front": "faigh bás",
+     "back": {
+      "ru": "умирать",
+      "en": "to die",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "Fuair an crann bás sa gheimhreadh."
+    },
+    {
+     "front": "saolaigh",
+     "back": {
+      "ru": "рождаться",
+      "en": "to be born",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Saolaíodh mé i mí an Mhárta."
+    },
+    {
+     "front": "fás",
+     "back": {
+      "ru": "расти",
+      "en": "to grow",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Fásann páistí go tapa."
+    },
+    {
+     "front": "pós",
+     "back": {
+      "ru": "жениться",
+      "en": "to marry",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Phós siad san earrach."
+    },
+    {
+     "front": "cabhraigh",
+     "back": {
+      "ru": "помогать",
+      "en": "to help",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Cabhraigh liom leis na málaí seo."
+    },
+    {
+     "front": "taitin",
+     "back": {
+      "ru": "нравиться",
+      "en": "to like",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "Taitníonn an caife seo go mór liom."
+    },
+    {
+     "front": "gráigh",
+     "back": {
+      "ru": "любить",
+      "en": "to love",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "Tá grá aige dá theaghlach thar aon rud eile."
+    },
+    {
+     "front": "fuathaigh",
+     "back": {
+      "ru": "ненавидеть",
+      "en": "to hate",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Is fuath liom éirí go luath."
+    },
+    {
+     "front": "gáir",
+     "back": {
+      "ru": "смеяться",
+      "en": "to laugh",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Bhíomar ag gáire ar feadh na hoíche."
+    },
+    {
+     "front": "caoin",
+     "back": {
+      "ru": "плакать",
+      "en": "to cry",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "Chaoin an páiste le tuirse."
+    },
+    {
+     "front": "can",
+     "back": {
+      "ru": "петь",
+      "en": "to sing",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Canann siad i gcór an tséipéil."
+    },
+    {
+     "front": "damhsaigh",
+     "back": {
+      "ru": "танцевать",
+      "en": "to dance",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Rinneamar damhsa go déanach."
+    },
+    {
+     "front": "súgraigh",
+     "back": {
+      "ru": "играть",
+      "en": "to play (children)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Tá na páistí ag súgradh sa ghairdín."
+    },
+    {
+     "front": "imir",
+     "back": {
+      "ru": "играть",
+      "en": "to play (a game)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "Imrímid cluiche Dé Sathairn."
+    },
+    {
+     "front": "teagmháil",
+     "back": {
+      "ru": "трогать",
+      "en": "to touch",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "Ná bain leis an bpéint úr."
+    },
+    {
+     "front": "lig do scíth",
+     "back": {
+      "ru": "отдыхать",
+      "en": "to rest",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Lig do scíth tamall."
+    },
+    {
+     "front": "bain triail",
+     "back": {
+      "ru": "пытаться",
+      "en": "to try",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "Bhain mé triail as glaoch ort trí huaire."
+    },
+    {
+     "front": "éirigh le",
+     "back": {
+      "ru": "удаваться",
+      "en": "to manage",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "D'éirigh liom ticéid a fháil don lá inniu."
+    },
+    {
+     "front": "teastaigh ó",
+     "back": {
+      "ru": "нуждаться",
+      "en": "to need",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "Teastaíonn cabhair uaim anois."
+    },
+    {
+     "front": "úsáid",
+     "back": {
+      "ru": "использовать",
+      "en": "to use",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Úsáidim an fón le haghaidh gach rud."
+    },
+    {
+     "front": "roghnaigh",
+     "back": {
+      "ru": "выбирать",
+      "en": "to choose",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Roghnaigh tusa an bhialann."
+    },
+    {
+     "front": "socraigh",
+     "back": {
+      "ru": "решать",
+      "en": "to decide",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Shocraíomar fanacht lá eile."
+    },
+    {
+     "front": "glac le",
+     "back": {
+      "ru": "принимать",
+      "en": "to accept",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "Ghlac sé leis an gcuireadh."
+    },
+    {
+     "front": "diúltaigh",
+     "back": {
+      "ru": "отказывать",
+      "en": "to refuse",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "Dhiúltaigh sé cabhair na gcomharsan."
+    },
+    {
+     "front": "geall",
+     "back": {
+      "ru": "обещать",
+      "en": "to promise",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "Gheall sé filleadh go luath."
+    },
+    {
+     "front": "gabh buíochas",
+     "back": {
+      "ru": "благодарить",
+      "en": "to thank",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "Gabhaim buíochas leat as d'fhoighne."
+    },
+    {
+     "front": "iarr",
+     "back": {
+      "ru": "просить",
+      "en": "to ask for",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "D'iarr mé gloine uisce."
+    },
+    {
+     "front": "tarlaigh",
+     "back": {
+      "ru": "случаться",
+      "en": "to happen",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Cad a tharla inné?"
+    },
+    {
+     "front": "dealraigh",
+     "back": {
+      "ru": "казаться",
+      "en": "to seem",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Tá cuma thuirseach ort."
+    },
+    {
+     "front": "las",
+     "back": {
+      "ru": "включать",
+      "en": "to turn on",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Las an solas sa chistin."
+    },
+    {
+     "front": "múch",
+     "back": {
+      "ru": "выключать",
+      "en": "to turn off",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Múch an ríomhaire sula n-imeoidh tú."
+    },
+    {
+     "front": "cuir báisteach",
+     "back": {
+      "ru": "идти (о дожде)",
+      "en": "to rain",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Chuir sé báisteach ar feadh na hoíche."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "uisce",
+     "back": {
+      "ru": "вода",
+      "en": "water",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Tabhair dom gloine uisce."
+    },
+    {
+     "front": "arán",
+     "back": {
+      "ru": "хлеб",
+      "en": "bread",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "Tá an t-arán te fós."
+    },
+    {
+     "front": "bainne",
+     "back": {
+      "ru": "молоко",
+      "en": "milk",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "Ólaim bainne ag am bricfeasta."
+    },
+    {
+     "front": "caife",
+     "back": {
+      "ru": "кофе",
+      "en": "coffee",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Caife amháin, le do thoil."
+    },
+    {
+     "front": "tae",
+     "back": {
+      "ru": "чай",
+      "en": "tea",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "Déanaim tae tráthnóna."
+    },
+    {
+     "front": "sú",
+     "back": {
+      "ru": "сок",
+      "en": "juice",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Sú oráiste úrfháiscthe."
+    },
+    {
+     "front": "fíon",
+     "back": {
+      "ru": "вино",
+      "en": "wine",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Gloine fíona dhearg."
+    },
+    {
+     "front": "beoir",
+     "back": {
+      "ru": "пиво",
+      "en": "beer",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "Tá an bheoir deas fuar."
+    },
+    {
+     "front": "oighear",
+     "back": {
+      "ru": "лёд",
+      "en": "ice",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "An bhfuil oighear uait sa deoch?"
+    },
+    {
+     "front": "siúcra",
+     "back": {
+      "ru": "сахар",
+      "en": "sugar",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Ólaim an caife gan siúcra."
+    },
+    {
+     "front": "salann",
+     "back": {
+      "ru": "соль",
+      "en": "salt",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "Tá salann in easnamh san anraith."
+    },
+    {
+     "front": "piobar",
+     "back": {
+      "ru": "перец",
+      "en": "pepper",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Cuir beagán piobair leis."
+    },
+    {
+     "front": "ola olóige",
+     "back": {
+      "ru": "оливковое масло",
+      "en": "olive oil",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Doirt ola olóige ar an sailéad."
+    },
+    {
+     "front": "im",
+     "back": {
+      "ru": "масло",
+      "en": "butter",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Cuir im ar an arán."
+    },
+    {
+     "front": "cáis",
+     "back": {
+      "ru": "сыр",
+      "en": "cheese",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Tá an cháis seo ó na sléibhte."
+    },
+    {
+     "front": "ubh",
+     "back": {
+      "ru": "яйцо",
+      "en": "egg",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "D'ith mé ubh bhruite."
+    },
+    {
+     "front": "feoil",
+     "back": {
+      "ru": "мясо",
+      "en": "meat",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Ní ithim feoil san oíche."
+    },
+    {
+     "front": "sicín",
+     "back": {
+      "ru": "курица",
+      "en": "chicken",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Sicín rósta le prátaí."
+    },
+    {
+     "front": "iasc",
+     "back": {
+      "ru": "рыба",
+      "en": "fish",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "Tá an t-iasc úr inniu."
+    },
+    {
+     "front": "trosc",
+     "back": {
+      "ru": "треска",
+      "en": "cod",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "Coinnítear trosc saillte."
+    },
+    {
+     "front": "sairdín",
+     "back": {
+      "ru": "сардина",
+      "en": "sardine",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Sairdíní ar an ngríosach."
+    },
+    {
+     "front": "tuinnín",
+     "back": {
+      "ru": "тунец",
+      "en": "tuna",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Ceapaire tuinnín."
+    },
+    {
+     "front": "sliogéisc",
+     "back": {
+      "ru": "креветка",
+      "en": "shrimp",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Sliogéisc le gairleog."
+    },
+    {
+     "front": "bia mara",
+     "back": {
+      "ru": "морепродукты",
+      "en": "seafood",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "D'itheamar bia mara cois farraige."
+    },
+    {
+     "front": "liamhás",
+     "back": {
+      "ru": "ветчина",
+      "en": "ham",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Liamhás le mealbhacán."
+    },
+    {
+     "front": "ispín",
+     "back": {
+      "ru": "сосиска",
+      "en": "sausage",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "Cheannaigh mé ispíní do na páistí."
+    },
+    {
+     "front": "rís",
+     "back": {
+      "ru": "рис",
+      "en": "rice",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Déanaimid rís Dé Domhnaigh."
+    },
+    {
+     "front": "práta",
+     "back": {
+      "ru": "картофель",
+      "en": "potato",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Prátaí bruite le hola olóige."
+    },
+    {
+     "front": "pasta",
+     "back": {
+      "ru": "макароны",
+      "en": "pasta",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Nuair a bhím faoi dheifir déanaim pasta."
+    },
+    {
+     "front": "plúr",
+     "back": {
+      "ru": "мука",
+      "en": "flour",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "Níl plúr ann don cháca."
+    },
+    {
+     "front": "anraith",
+     "back": {
+      "ru": "суп",
+      "en": "soup",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "Tá an t-anraith ag fuarú."
+    },
+    {
+     "front": "sailéad",
+     "back": {
+      "ru": "салат",
+      "en": "salad",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Sailéad trátaí."
+    },
+    {
+     "front": "glasraí",
+     "back": {
+      "ru": "овощи",
+      "en": "vegetables",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Ithim glasraí gach lá."
+    },
+    {
+     "front": "torthaí",
+     "back": {
+      "ru": "фрукты",
+      "en": "fruit",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "Tá torthaí sa chistin."
+    },
+    {
+     "front": "úll",
+     "back": {
+      "ru": "яблоко",
+      "en": "apple",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "Tugaim úll liom chun na hoibre."
+    },
+    {
+     "front": "piorra",
+     "back": {
+      "ru": "груша",
+      "en": "pear",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Tá an piorra seo aibí."
+    },
+    {
+     "front": "oráiste",
+     "back": {
+      "ru": "апельсин",
+      "en": "orange",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "Scamh mé oráiste."
+    },
+    {
+     "front": "líomóid",
+     "back": {
+      "ru": "лимон",
+      "en": "lemon",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Tae le líomóid."
+    },
+    {
+     "front": "banana",
+     "back": {
+      "ru": "банан",
+      "en": "banana",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "D'ith mé banana roimh an traenáil."
+    },
+    {
+     "front": "fíonchaor",
+     "back": {
+      "ru": "виноград",
+      "en": "grape",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "Tá na fíonchaora milis."
+    },
+    {
+     "front": "sú talún",
+     "back": {
+      "ru": "клубника",
+      "en": "strawberry",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Sútha talún le huachtar."
+    },
+    {
+     "front": "silín",
+     "back": {
+      "ru": "вишня",
+      "en": "cherry",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Bíonn silíní saor ina séasúr."
+    },
+    {
+     "front": "péitseog",
+     "back": {
+      "ru": "персик",
+      "en": "peach",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Péitseog dheas aibí."
+    },
+    {
+     "front": "mealbhacán",
+     "back": {
+      "ru": "дыня",
+      "en": "melon",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Mealbhacán le liamhás."
+    },
+    {
+     "front": "mealbhacán uisce",
+     "back": {
+      "ru": "арбуз",
+      "en": "watermelon",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "Mealbhacán uisce fuar sa samhradh."
+    },
+    {
+     "front": "anann",
+     "back": {
+      "ru": "ананас",
+      "en": "pineapple",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Sú anainn."
+    },
+    {
+     "front": "fige",
+     "back": {
+      "ru": "инжир",
+      "en": "fig",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "Figí triomaithe sa gheimhreadh."
+    },
+    {
+     "front": "tráta",
+     "back": {
+      "ru": "помидор",
+      "en": "tomato",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Sailéad trátaí le luibheanna."
+    },
+    {
+     "front": "oinniún",
+     "back": {
+      "ru": "лук",
+      "en": "onion",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Friocht an t-oinniún ar dtús."
+    },
+    {
+     "front": "gairleog",
+     "back": {
+      "ru": "чеснок",
+      "en": "garlic",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "Is leor dhá ionga gairleoige."
+    },
+    {
+     "front": "cairéad",
+     "back": {
+      "ru": "морковь",
+      "en": "carrot",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Anraith cairéad."
+    },
+    {
+     "front": "leitís",
+     "back": {
+      "ru": "салат-латук",
+      "en": "lettuce",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Nigh an leitís go maith."
+    },
+    {
+     "front": "cúcamar",
+     "back": {
+      "ru": "огурец",
+      "en": "cucumber",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Cúcamar i slisní."
+    },
+    {
+     "front": "pónairí",
+     "back": {
+      "ru": "фасоль",
+      "en": "beans",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Pónairí le rís."
+    },
+    {
+     "front": "pis",
+     "back": {
+      "ru": "горох",
+      "en": "pea",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Piseanna le hubh."
+    },
+    {
+     "front": "cabáiste",
+     "back": {
+      "ru": "капуста",
+      "en": "cabbage",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "Is béile geimhridh é anraith cabáiste."
+    },
+    {
+     "front": "puimcín",
+     "back": {
+      "ru": "тыква",
+      "en": "pumpkin",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "San fhómhar déanaimid anraith puimcín."
+    },
+    {
+     "front": "beacán",
+     "back": {
+      "ru": "гриб",
+      "en": "mushroom",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Beacáin friochta."
+    },
+    {
+     "front": "ológ",
+     "back": {
+      "ru": "оливка",
+      "en": "olive",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Ológa roimh an mbéile."
+    },
+    {
+     "front": "cáca",
+     "back": {
+      "ru": "торт",
+      "en": "cake",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "Bhácáil mé cáca oráiste."
+    },
+    {
+     "front": "briosca",
+     "back": {
+      "ru": "печенье",
+      "en": "biscuit",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Brioscaí leis an tae."
+    },
+    {
+     "front": "subh",
+     "back": {
+      "ru": "варенье",
+      "en": "jam",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "Chuir mé subh sútha talún ar an arán."
+    },
+    {
+     "front": "seacláid",
+     "back": {
+      "ru": "шоколад",
+      "en": "chocolate",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Barra seacláide dorcha."
+    },
+    {
+     "front": "uachtar reoite",
+     "back": {
+      "ru": "мороженое",
+      "en": "ice cream",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Uachtar reoite fanaile."
+    },
+    {
+     "front": "mil",
+     "back": {
+      "ru": "мёд",
+      "en": "honey",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Tae le mil don scornach."
+    },
+    {
+     "front": "milseán",
+     "back": {
+      "ru": "сладость",
+      "en": "sweet",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Ní ithim milseáin san oíche."
+    },
+    {
+     "front": "milseog",
+     "back": {
+      "ru": "десерт",
+      "en": "dessert",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "Torthaí mar mhilseog."
+    },
+    {
+     "front": "iógart",
+     "back": {
+      "ru": "йогурт",
+      "en": "yoghurt",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Iógart nádúrtha gan siúcra."
+    },
+    {
+     "front": "uachtar",
+     "back": {
+      "ru": "сливки",
+      "en": "cream",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Sútha talún le huachtar."
+    },
+    {
+     "front": "tósta",
+     "back": {
+      "ru": "тост",
+      "en": "toast",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Tósta le him."
+    },
+    {
+     "front": "ceapaire",
+     "back": {
+      "ru": "бутерброд",
+      "en": "sandwich",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Ceapaire cáise agus liamháis."
+    },
+    {
+     "front": "bricfeasta",
+     "back": {
+      "ru": "завтрак",
+      "en": "breakfast",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Ithim bricfeasta ar a seacht."
+    },
+    {
+     "front": "lón",
+     "back": {
+      "ru": "обед",
+      "en": "lunch",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "Bíonn an lón ar a haon."
+    },
+    {
+     "front": "dinnéar",
+     "back": {
+      "ru": "ужин",
+      "en": "dinner",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Ithimid dinnéar timpeall a hocht."
+    },
+    {
+     "front": "sneaic",
+     "back": {
+      "ru": "полдник",
+      "en": "snack",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Tugann na páistí sneaic leo."
+    },
+    {
+     "front": "béile",
+     "back": {
+      "ru": "приём пищи",
+      "en": "meal",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Ithim trí bhéile sa lá."
+    },
+    {
+     "front": "bia",
+     "back": {
+      "ru": "еда",
+      "en": "food",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "Tá an bia ar an mbord."
+    },
+    {
+     "front": "deoch",
+     "back": {
+      "ru": "напиток",
+      "en": "drink",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Cén deoch atá uait?"
+    },
+    {
+     "front": "pláta",
+     "back": {
+      "ru": "тарелка",
+      "en": "plate",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Cuir na plátaí ar an gcuntar."
+    },
+    {
+     "front": "gloine",
+     "back": {
+      "ru": "стакан",
+      "en": "glass",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Líon an gloine go dtí an leath."
+    },
+    {
+     "front": "cupán",
+     "back": {
+      "ru": "чашка",
+      "en": "cup",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Cupán caife."
+    },
+    {
+     "front": "buidéal",
+     "back": {
+      "ru": "бутылка",
+      "en": "bottle",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Buidéal uisce."
+    },
+    {
+     "front": "spúnóg",
+     "back": {
+      "ru": "ложка",
+      "en": "spoon",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Tá spúnóg anraith in easnamh."
+    },
+    {
+     "front": "forc",
+     "back": {
+      "ru": "вилка",
+      "en": "fork",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "Thit an forc ar an urlár."
+    },
+    {
+     "front": "scian",
+     "back": {
+      "ru": "нож",
+      "en": "knife",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Ní ghearrann an scian seo ar chor ar bith."
+    },
+    {
+     "front": "naipcín",
+     "back": {
+      "ru": "салфетка",
+      "en": "napkin",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Tabhair dom naipcín."
+    },
+    {
+     "front": "pota",
+     "back": {
+      "ru": "кастрюля",
+      "en": "pot",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "Tá an pota ar an sorn."
+    },
+    {
+     "front": "friochtán",
+     "back": {
+      "ru": "сковорода",
+      "en": "frying pan",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Téigh an friochtán."
+    },
+    {
+     "front": "bialann",
+     "back": {
+      "ru": "ресторан",
+      "en": "restaurant",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "Chuir mé bord in áirithe sa bhialann."
+    },
+    {
+     "front": "biachlár",
+     "back": {
+      "ru": "меню",
+      "en": "menu",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Iarr an biachlár ar an bhfreastalaí."
+    },
+    {
+     "front": "bille",
+     "back": {
+      "ru": "счёт",
+      "en": "bill",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "An bille, le do thoil."
+    },
+    {
+     "front": "freastalaí",
+     "back": {
+      "ru": "официант",
+      "en": "waiter",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "Thug an freastalaí an t-arán."
+    },
+    {
+     "front": "ocras",
+     "back": {
+      "ru": "голод",
+      "en": "hunger",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Tá ocras mór orm."
+    },
+    {
+     "front": "tart",
+     "back": {
+      "ru": "жажда",
+      "en": "thirst",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Sa teas seo tagann tart."
+    },
+    {
+     "front": "blas",
+     "back": {
+      "ru": "вкус",
+      "en": "taste",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Níl mórán blais ar an anraith seo."
+    },
+    {
+     "front": "oideas",
+     "back": {
+      "ru": "рецепт",
+      "en": "recipe",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Seo oideas mo sheanmháthar."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "éadaí",
+     "back": {
+      "ru": "одежда",
+      "en": "clothes",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Tugaim beagán éadaí sa mhála."
+    },
+    {
+     "front": "léine",
+     "back": {
+      "ru": "рубашка",
+      "en": "shirt",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "Níl an léine iarnáilte fós."
+    },
+    {
+     "front": "geansaí",
+     "back": {
+      "ru": "свитер",
+      "en": "jumper",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Cuir ort an geansaí, tá sé fuar."
+    },
+    {
+     "front": "T léine",
+     "back": {
+      "ru": "футболка",
+      "en": "T-shirt",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "T léine bhán shimplí."
+    },
+    {
+     "front": "cóta",
+     "back": {
+      "ru": "пальто",
+      "en": "coat",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "Rinne mé dearmad ar an gcóta sa charr."
+    },
+    {
+     "front": "seaicéad",
+     "back": {
+      "ru": "куртка",
+      "en": "jacket",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Seaicéad don bháisteach."
+    },
+    {
+     "front": "veist",
+     "back": {
+      "ru": "жилет",
+      "en": "waistcoat",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Veist os cionn na léine."
+    },
+    {
+     "front": "bríste",
+     "back": {
+      "ru": "брюки",
+      "en": "trousers",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Tá an bríste seo rómhór orm."
+    },
+    {
+     "front": "bríste gearr",
+     "back": {
+      "ru": "шорты",
+      "en": "shorts",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Bríste gearr don samhradh."
+    },
+    {
+     "front": "sciorta",
+     "back": {
+      "ru": "юбка",
+      "en": "skirt",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Sciorta go dtí an glúin."
+    },
+    {
+     "front": "gúna",
+     "back": {
+      "ru": "платье",
+      "en": "dress",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "Tá an gúna déanta as línéadach."
+    },
+    {
+     "front": "culaith",
+     "back": {
+      "ru": "костюм",
+      "en": "suit",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Téann sé chuig an mbainis i gculaith."
+    },
+    {
+     "front": "carbhat",
+     "back": {
+      "ru": "галстук",
+      "en": "tie",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "Níl a fhios agam conas carbhat a cheangal."
+    },
+    {
+     "front": "crios",
+     "back": {
+      "ru": "ремень",
+      "en": "belt",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Teann an crios beagán eile."
+    },
+    {
+     "front": "stocaí",
+     "back": {
+      "ru": "носки",
+      "en": "socks",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Tá poill sna stocaí seo."
+    },
+    {
+     "front": "riteoga",
+     "back": {
+      "ru": "колготки",
+      "en": "tights",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Riteoga dubha."
+    },
+    {
+     "front": "bróga",
+     "back": {
+      "ru": "туфли",
+      "en": "shoes",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Bróga leathair dubha."
+    },
+    {
+     "front": "bróga reatha",
+     "back": {
+      "ru": "кроссовки",
+      "en": "trainers",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Caithim bróga reatha an lá ar fad."
+    },
+    {
+     "front": "buataisí",
+     "back": {
+      "ru": "сапоги",
+      "en": "boots",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Buataisí don gheimhreadh."
+    },
+    {
+     "front": "cuaráin",
+     "back": {
+      "ru": "сандалии",
+      "en": "sandals",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Cuaráin don trá."
+    },
+    {
+     "front": "slipéir",
+     "back": {
+      "ru": "тапочки",
+      "en": "slippers",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Tá na slipéir ag doras an tseomra codlata."
+    },
+    {
+     "front": "hata",
+     "back": {
+      "ru": "шляпа",
+      "en": "hat",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Hata tuí."
+    },
+    {
+     "front": "caipín",
+     "back": {
+      "ru": "кепка",
+      "en": "cap",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Caipín in aghaidh na gréine."
+    },
+    {
+     "front": "caipín olla",
+     "back": {
+      "ru": "шапка",
+      "en": "woolly hat",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Caipín olla agus scairf don sneachta."
+    },
+    {
+     "front": "lámhainní",
+     "back": {
+      "ru": "перчатки",
+      "en": "gloves",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Lámhainní leathair líonta."
+    },
+    {
+     "front": "scairf",
+     "back": {
+      "ru": "шарф",
+      "en": "scarf",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Cas an scairf faoi dhó."
+    },
+    {
+     "front": "ciarsúr",
+     "back": {
+      "ru": "платок",
+      "en": "handkerchief",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Ciarsúr cadáis."
+    },
+    {
+     "front": "spéaclaí",
+     "back": {
+      "ru": "очки",
+      "en": "glasses",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Bhris mé mo spéaclaí inné."
+    },
+    {
+     "front": "mála",
+     "back": {
+      "ru": "сумка",
+      "en": "bag",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "Tá an mála róthrom."
+    },
+    {
+     "front": "sparán",
+     "back": {
+      "ru": "кошелёк",
+      "en": "wallet",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "D'fhág mé an sparán sa bhaile."
+    },
+    {
+     "front": "mála droma",
+     "back": {
+      "ru": "рюкзак",
+      "en": "backpack",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "Tá mála droma na scoile trom."
+    },
+    {
+     "front": "scáth fearthainne",
+     "back": {
+      "ru": "зонт",
+      "en": "umbrella",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Tabhair an scáth fearthainne leat."
+    },
+    {
+     "front": "pitseámaí",
+     "back": {
+      "ru": "пижама",
+      "en": "pyjamas",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Pitseámaí flainín."
+    },
+    {
+     "front": "fallaing folctha",
+     "back": {
+      "ru": "халат",
+      "en": "dressing gown",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "Tá an fhallaing folctha taobh thiar den doras."
+    },
+    {
+     "front": "tuáille",
+     "back": {
+      "ru": "полотенце",
+      "en": "towel",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Tuáille glan don fholcadán."
+    },
+    {
+     "front": "póca",
+     "back": {
+      "ru": "карман",
+      "en": "pocket",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Tá an eochair i mo phóca."
+    },
+    {
+     "front": "cnaipe",
+     "back": {
+      "ru": "пуговица",
+      "en": "button",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "Thit cnaipe den léine."
+    },
+    {
+     "front": "zip",
+     "back": {
+      "ru": "молния",
+      "en": "zip",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "Bhris an zip ar an mála."
+    },
+    {
+     "front": "muinchille",
+     "back": {
+      "ru": "рукав",
+      "en": "sleeve",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Cas suas do mhuinchillí."
+    },
+    {
+     "front": "bóna",
+     "back": {
+      "ru": "воротник",
+      "en": "collar",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "Tá an bóna salach."
+    },
+    {
+     "front": "tomhas",
+     "back": {
+      "ru": "размер",
+      "en": "size",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "An bhfuil an léine seo agaibh i dtomhas eile?"
+    },
+    {
+     "front": "fabraic",
+     "back": {
+      "ru": "ткань",
+      "en": "fabric",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Fabraic éadrom don samhradh."
+    },
+    {
+     "front": "cadás",
+     "back": {
+      "ru": "хлопок",
+      "en": "cotton",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Léine chadáis."
+    },
+    {
+     "front": "olann",
+     "back": {
+      "ru": "шерсть",
+      "en": "wool",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Stocaí tiubha olla."
+    },
+    {
+     "front": "síoda",
+     "back": {
+      "ru": "шёлк",
+      "en": "silk",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "Scairf shíoda."
+    },
+    {
+     "front": "leathar",
+     "back": {
+      "ru": "кожа",
+      "en": "leather",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Buataisí leathair donn."
+    },
+    {
+     "front": "crochadán",
+     "back": {
+      "ru": "вешалка",
+      "en": "hanger",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Croch an cóta ar an gcrochadán."
+    },
+    {
+     "front": "vardrús",
+     "back": {
+      "ru": "шкаф",
+      "en": "wardrobe",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "Tá an vardrús lán."
+    },
+    {
+     "front": "fáinne",
+     "back": {
+      "ru": "кольцо",
+      "en": "ring",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Fáinne airgid."
+    }
+   ]
+  }
+ ]
+}

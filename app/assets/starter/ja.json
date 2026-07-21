@@ -1,0 +1,6533 @@
+{
+ "lang": "ja",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "こんにちは",
+     "back": {
+      "ru": "привет (konnichiwa)",
+      "en": "hello (konnichiwa)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "こんにちは、お元気ですか。"
+    },
+    {
+     "front": "さようなら",
+     "back": {
+      "ru": "до свидания (sayōnara)",
+      "en": "goodbye (sayōnara)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "さようなら、また明日。"
+    },
+    {
+     "front": "はい",
+     "back": {
+      "ru": "да (hai)",
+      "en": "yes (hai)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "はい、もちろん行きます。"
+    },
+    {
+     "front": "いいえ",
+     "back": {
+      "ru": "нет (iie)",
+      "en": "no (iie)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "いいえ、けっこうです。"
+    },
+    {
+     "front": "お願いします",
+     "back": {
+      "ru": "пожалуйста (onegai shimasu)",
+      "en": "please (onegai shimasu)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "コーヒーを一杯お願いします。"
+    },
+    {
+     "front": "ありがとう",
+     "back": {
+      "ru": "спасибо (arigatō)",
+      "en": "thank you (arigatō)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "手伝ってくれてありがとう。"
+    },
+    {
+     "front": "ごめんなさい",
+     "back": {
+      "ru": "извини (gomen nasai)",
+      "en": "sorry (gomen nasai)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "ごめんなさい、遅れました。"
+    },
+    {
+     "front": "おはよう",
+     "back": {
+      "ru": "доброе утро (ohayō)",
+      "en": "good morning (ohayō)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "おはよう、よく眠れた？"
+    },
+    {
+     "front": "おやすみなさい",
+     "back": {
+      "ru": "спокойной ночи (oyasumi nasai)",
+      "en": "good night (oyasumi nasai)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "おやすみなさい、また明日。"
+    },
+    {
+     "front": "大丈夫",
+     "back": {
+      "ru": "всё хорошо (daijōbu)",
+      "en": "all right (daijōbu)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "心配しないで、大丈夫です。"
+    },
+    {
+     "front": "男の人",
+     "back": {
+      "ru": "мужчина (otoko no hito)",
+      "en": "man (otoko no hito)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "あの男の人は隣人です。"
+    },
+    {
+     "front": "女の人",
+     "back": {
+      "ru": "женщина (onna no hito)",
+      "en": "woman (onna no hito)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "青いコートの女の人は医者です。"
+    },
+    {
+     "front": "子ども",
+     "back": {
+      "ru": "ребёнок (kodomo)",
+      "en": "child (kodomo)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "子どもが庭で遊んでいます。"
+    },
+    {
+     "front": "男の子",
+     "back": {
+      "ru": "мальчик (otoko no ko)",
+      "en": "boy (otoko no ko)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "男の子が学校へ走っていきます。"
+    },
+    {
+     "front": "女の子",
+     "back": {
+      "ru": "девочка (onna no ko)",
+      "en": "girl (onna no ko)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "女の子が花の絵を描いています。"
+    },
+    {
+     "front": "友だち",
+     "back": {
+      "ru": "друг (tomodachi)",
+      "en": "friend (tomodachi)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "友だちは大阪に住んでいます。"
+    },
+    {
+     "front": "家族",
+     "back": {
+      "ru": "семья (kazoku)",
+      "en": "family (kazoku)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "家族みんなが夕食に来ました。"
+    },
+    {
+     "front": "母",
+     "back": {
+      "ru": "мама (haha)",
+      "en": "mother (haha)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "母は歌がとても上手です。"
+    },
+    {
+     "front": "父",
+     "back": {
+      "ru": "папа (chichi)",
+      "en": "father (chichi)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "父は夜に働いています。"
+    },
+    {
+     "front": "息子",
+     "back": {
+      "ru": "сын (musuko)",
+      "en": "son (musuko)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "彼らの息子は五歳です。"
+    },
+    {
+     "front": "娘",
+     "back": {
+      "ru": "дочь (musume)",
+      "en": "daughter (musume)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "上の娘は医学を学んでいます。"
+    },
+    {
+     "front": "兄",
+     "back": {
+      "ru": "брат (ani)",
+      "en": "brother (ani)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "兄はサッカーをしています。"
+    },
+    {
+     "front": "姉",
+     "back": {
+      "ru": "сестра (ane)",
+      "en": "sister (ane)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "姉は京都に住んでいます。"
+    },
+    {
+     "front": "祖母",
+     "back": {
+      "ru": "бабушка (sobo)",
+      "en": "grandmother (sobo)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "祖母のケーキがいちばんおいしい。"
+    },
+    {
+     "front": "祖父",
+     "back": {
+      "ru": "дедушка (sofu)",
+      "en": "grandfather (sofu)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "祖父は昔の話をしてくれます。"
+    },
+    {
+     "front": "人",
+     "back": {
+      "ru": "человек (hito)",
+      "en": "person (hito)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "この人は知りません。"
+    },
+    {
+     "front": "人々",
+     "back": {
+      "ru": "люди (hitobito)",
+      "en": "people (hitobito)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "広場の人々が散っていきました。"
+    },
+    {
+     "front": "名前",
+     "back": {
+      "ru": "имя (namae)",
+      "en": "name (namae)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "お名前は何ですか。"
+    },
+    {
+     "front": "さん",
+     "back": {
+      "ru": "господин (san)",
+      "en": "sir (san)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "おはようございます、田中さん。"
+    },
+    {
+     "front": "奥様",
+     "back": {
+      "ru": "госпожа (okusama)",
+      "en": "madam (okusama)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "奥様、お手伝いしましょうか。"
+    },
+    {
+     "front": "私",
+     "back": {
+      "ru": "я (watashi)",
+      "en": "I (watashi)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "私はこの近くに住んでいます。"
+    },
+    {
+     "front": "きみ",
+     "back": {
+      "ru": "ты (kimi)",
+      "en": "you (kimi)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "きみは日本語を話しますか。"
+    },
+    {
+     "front": "あなた",
+     "back": {
+      "ru": "вы (anata)",
+      "en": "you (anata)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "あなたは座りたいですか。"
+    },
+    {
+     "front": "彼",
+     "back": {
+      "ru": "он (kare)",
+      "en": "he (kare)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "彼は八時に着きます。"
+    },
+    {
+     "front": "彼女",
+     "back": {
+      "ru": "она (kanojo)",
+      "en": "she (kanojo)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "彼女は病院で働いています。"
+    },
+    {
+     "front": "私たち",
+     "back": {
+      "ru": "мы (watashitachi)",
+      "en": "we (watashitachi)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "私たちは電車で行きます。"
+    },
+    {
+     "front": "彼ら",
+     "back": {
+      "ru": "они (karera)",
+      "en": "they (karera)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "彼らは同じ建物に住んでいます。"
+    },
+    {
+     "front": "私の",
+     "back": {
+      "ru": "мой (watashi no)",
+      "en": "my (watashi no)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "ここは私の席です。"
+    },
+    {
+     "front": "きみの",
+     "back": {
+      "ru": "твой (kimi no)",
+      "en": "your (kimi no)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "きみの上着は椅子の上だよ。"
+    },
+    {
+     "front": "私たちの",
+     "back": {
+      "ru": "наш (watashitachi no)",
+      "en": "our (watashitachi no)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "私たちの車は小さいです。"
+    },
+    {
+     "front": "この",
+     "back": {
+      "ru": "этот (kono)",
+      "en": "this (kono)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "この本はとても面白い。"
+    },
+    {
+     "front": "あの",
+     "back": {
+      "ru": "тот (ano)",
+      "en": "that (ano)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "あの建物はとても古い。"
+    },
+    {
+     "front": "だれ",
+     "back": {
+      "ru": "кто (dare)",
+      "en": "who (dare)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "ドアのところにだれかいますか。"
+    },
+    {
+     "front": "何",
+     "back": {
+      "ru": "что (nani)",
+      "en": "what (nani)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "何を言っているのですか。"
+    },
+    {
+     "front": "どこ",
+     "back": {
+      "ru": "где (doko)",
+      "en": "where (doko)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "駅はどこですか。"
+    },
+    {
+     "front": "いつ",
+     "back": {
+      "ru": "когда (itsu)",
+      "en": "when (itsu)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "映画はいつ始まりますか。"
+    },
+    {
+     "front": "どう",
+     "back": {
+      "ru": "как (dō)",
+      "en": "how (dō)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "これはどう言いますか。"
+    },
+    {
+     "front": "なぜ",
+     "back": {
+      "ru": "почему (naze)",
+      "en": "why (naze)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "なぜそんなに急ぐのですか。"
+    },
+    {
+     "front": "どれ",
+     "back": {
+      "ru": "который (dore)",
+      "en": "which (dore)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "どれがいいですか。"
+    },
+    {
+     "front": "ゼロ",
+     "back": {
+      "ru": "ноль (zero)",
+      "en": "zero (zero)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "気温はゼロ度です。"
+    },
+    {
+     "front": "一",
+     "back": {
+      "ru": "один (ichi)",
+      "en": "one (ichi)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "席は一つしか残っていません。"
+    },
+    {
+     "front": "二",
+     "back": {
+      "ru": "два (ni)",
+      "en": "two (ni)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "兄が二人います。"
+    },
+    {
+     "front": "三",
+     "back": {
+      "ru": "три (san)",
+      "en": "three (san)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "三日後に戻ります。"
+    },
+    {
+     "front": "四",
+     "back": {
+      "ru": "четыре (shi)",
+      "en": "four (shi)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "テーブルには椅子が四つあります。"
+    },
+    {
+     "front": "五",
+     "back": {
+      "ru": "пять (go)",
+      "en": "five (go)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "映画は五時間あります。"
+    },
+    {
+     "front": "六",
+     "back": {
+      "ru": "шесть (roku)",
+      "en": "six (roku)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "朝は六時に起きます。"
+    },
+    {
+     "front": "七",
+     "back": {
+      "ru": "семь (nana)",
+      "en": "seven (nana)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "一週間は七日です。"
+    },
+    {
+     "front": "八",
+     "back": {
+      "ru": "восемь (hachi)",
+      "en": "eight (hachi)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "電車は八時に出ます。"
+    },
+    {
+     "front": "九",
+     "back": {
+      "ru": "девять (kyū)",
+      "en": "nine (kyū)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "彼女は九歳です。"
+    },
+    {
+     "front": "十",
+     "back": {
+      "ru": "десять (jū)",
+      "en": "ten (jū)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "あと十分です。"
+    },
+    {
+     "front": "十一",
+     "back": {
+      "ru": "одиннадцать (jūichi)",
+      "en": "eleven (jūichi)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "授業は十一時に終わります。"
+    },
+    {
+     "front": "十二",
+     "back": {
+      "ru": "двенадцать (jūni)",
+      "en": "twelve (jūni)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "一年は十二か月です。"
+    },
+    {
+     "front": "二十",
+     "back": {
+      "ru": "двадцать (nijū)",
+      "en": "twenty (nijū)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "切符は二十ユーロです。"
+    },
+    {
+     "front": "三十",
+     "back": {
+      "ru": "тридцать (sanjū)",
+      "en": "thirty (sanjū)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "今月は三十日あります。"
+    },
+    {
+     "front": "百",
+     "back": {
+      "ru": "сто (hyaku)",
+      "en": "hundred (hyaku)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "あと百メートルです。"
+    },
+    {
+     "front": "千",
+     "back": {
+      "ru": "тысяча (sen)",
+      "en": "thousand (sen)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "村には千人が住んでいます。"
+    },
+    {
+     "front": "最初",
+     "back": {
+      "ru": "первый (saisho)",
+      "en": "first (saisho)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "今日は学校の最初の日です。"
+    },
+    {
+     "front": "最後",
+     "back": {
+      "ru": "последний (saigo)",
+      "en": "last (saigo)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "最後のバスに間に合いました。"
+    },
+    {
+     "front": "番号",
+     "back": {
+      "ru": "номер (bangō)",
+      "en": "number (bangō)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "家の番号は何番ですか。"
+    },
+    {
+     "front": "半分",
+     "back": {
+      "ru": "половина (hanbun)",
+      "en": "half (hanbun)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "ケーキを半分食べました。"
+    },
+    {
+     "front": "日",
+     "back": {
+      "ru": "день (hi)",
+      "en": "day (hi)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "長い一日でした。"
+    },
+    {
+     "front": "夜",
+     "back": {
+      "ru": "ночь (yoru)",
+      "en": "night (yoru)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "夜は寒いです。"
+    },
+    {
+     "front": "朝",
+     "back": {
+      "ru": "утро (asa)",
+      "en": "morning (asa)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "朝はお茶を飲みます。"
+    },
+    {
+     "front": "午後",
+     "back": {
+      "ru": "вечер (gogo)",
+      "en": "afternoon (gogo)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "午後は市場へ行きます。"
+    },
+    {
+     "front": "今日",
+     "back": {
+      "ru": "сегодня (kyō)",
+      "en": "today (kyō)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "今日は働きません。"
+    },
+    {
+     "front": "明日",
+     "back": {
+      "ru": "завтра (ashita)",
+      "en": "tomorrow (ashita)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "明日は海へ行きます。"
+    },
+    {
+     "front": "昨日",
+     "back": {
+      "ru": "вчера (kinō)",
+      "en": "yesterday (kinō)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "昨日は一日中雨でした。"
+    },
+    {
+     "front": "週",
+     "back": {
+      "ru": "неделя (shū)",
+      "en": "week (shū)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "来週戻ります。"
+    },
+    {
+     "front": "ひと月",
+     "back": {
+      "ru": "месяц (hitotsuki)",
+      "en": "month (hitotsuki)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "ひと月で仕事が終わりました。"
+    },
+    {
+     "front": "年",
+     "back": {
+      "ru": "год (toshi)",
+      "en": "year (toshi)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "去年は大変でした。"
+    },
+    {
+     "front": "時間",
+     "back": {
+      "ru": "час (jikan)",
+      "en": "hour (jikan)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "旅は一時間かかります。"
+    },
+    {
+     "front": "分",
+     "back": {
+      "ru": "минута (fun)",
+      "en": "minute (fun)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "一分待ってください。"
+    },
+    {
+     "front": "とき",
+     "back": {
+      "ru": "время (toki)",
+      "en": "time (toki)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "今はそのときではありません。"
+    },
+    {
+     "front": "今",
+     "back": {
+      "ru": "сейчас (ima)",
+      "en": "now (ima)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "今は忙しいです。"
+    },
+    {
+     "front": "いつも",
+     "back": {
+      "ru": "всегда (itsumo)",
+      "en": "always (itsumo)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "彼女はいつも早く来ます。"
+    },
+    {
+     "front": "決して",
+     "back": {
+      "ru": "никогда (kesshite)",
+      "en": "never (kesshite)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "ローマには決して行ったことがない。"
+    },
+    {
+     "front": "早く",
+     "back": {
+      "ru": "рано (hayaku)",
+      "en": "early (hayaku)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "今日はとても早く起きました。"
+    },
+    {
+     "front": "月曜日",
+     "back": {
+      "ru": "понедельник (getsuyōbi)",
+      "en": "Monday (getsuyōbi)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "月曜日に診察があります。"
+    },
+    {
+     "front": "土曜日",
+     "back": {
+      "ru": "суббота (doyōbi)",
+      "en": "Saturday (doyōbi)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "土曜日は遅くまで寝ます。"
+    },
+    {
+     "front": "日曜日",
+     "back": {
+      "ru": "воскресенье (nichiyōbi)",
+      "en": "Sunday (nichiyōbi)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "日曜日は家族で昼食をとります。"
+    },
+    {
+     "front": "家",
+     "back": {
+      "ru": "дом (ie)",
+      "en": "house (ie)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "家の裏に庭があります。"
+    },
+    {
+     "front": "町",
+     "back": {
+      "ru": "город (machi)",
+      "en": "city (machi)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "大阪は大きな町です。"
+    },
+    {
+     "front": "村",
+     "back": {
+      "ru": "деревня (mura)",
+      "en": "village (mura)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "村は山のふもとにあります。"
+    },
+    {
+     "front": "通り",
+     "back": {
+      "ru": "улица (tōri)",
+      "en": "street (tōri)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "通りは人でいっぱいです。"
+    },
+    {
+     "front": "学校",
+     "back": {
+      "ru": "школа (gakkō)",
+      "en": "school (gakkō)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "学校は八時に開きます。"
+    },
+    {
+     "front": "仕事",
+     "back": {
+      "ru": "работа (shigoto)",
+      "en": "work (shigoto)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "仕事は六時に終わります。"
+    },
+    {
+     "front": "店",
+     "back": {
+      "ru": "магазин (mise)",
+      "en": "shop (mise)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "店は日曜日に閉まります。"
+    },
+    {
+     "front": "市場",
+     "back": {
+      "ru": "рынок (ichiba)",
+      "en": "market (ichiba)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "果物は市場で買います。"
+    },
+    {
+     "front": "病院",
+     "back": {
+      "ru": "больница (byōin)",
+      "en": "hospital (byōin)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "病院はここから近いです。"
+    },
+    {
+     "front": "薬局",
+     "back": {
+      "ru": "аптека (yakkyoku)",
+      "en": "pharmacy (yakkyoku)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "薬局は夜も開いています。"
+    },
+    {
+     "front": "銀行",
+     "back": {
+      "ru": "банк (ginkō)",
+      "en": "bank (ginkō)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "午前中に銀行へ行きます。"
+    },
+    {
+     "front": "ホテル",
+     "back": {
+      "ru": "гостиница (hoteru)",
+      "en": "hotel (hoteru)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "ホテルは海のそばです。"
+    },
+    {
+     "front": "教会",
+     "back": {
+      "ru": "церковь (kyōkai)",
+      "en": "church (kyōkai)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "この教会はとても古い。"
+    },
+    {
+     "front": "庭",
+     "back": {
+      "ru": "сад (niwa)",
+      "en": "garden (niwa)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "庭は花でいっぱいです。"
+    },
+    {
+     "front": "浜辺",
+     "back": {
+      "ru": "пляж (hamabe)",
+      "en": "beach (hamabe)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "浜辺まで十分です。"
+    },
+    {
+     "front": "海",
+     "back": {
+      "ru": "море (umi)",
+      "en": "sea (umi)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "今日は海が静かです。"
+    },
+    {
+     "front": "川",
+     "back": {
+      "ru": "река (kawa)",
+      "en": "river (kawa)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "川が町を横切っています。"
+    },
+    {
+     "front": "山",
+     "back": {
+      "ru": "гора (yama)",
+      "en": "mountain (yama)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "山の頂上に雪があります。"
+    },
+    {
+     "front": "畑",
+     "back": {
+      "ru": "поле (hatake)",
+      "en": "field (hatake)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "畑で麦が育っています。"
+    },
+    {
+     "front": "森",
+     "back": {
+      "ru": "лес (mori)",
+      "en": "forest (mori)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "橋の先から森が始まります。"
+    },
+    {
+     "front": "国",
+     "back": {
+      "ru": "страна (kuni)",
+      "en": "country (kuni)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "ポルトガルは小さな国です。"
+    },
+    {
+     "front": "世界",
+     "back": {
+      "ru": "мир (sekai)",
+      "en": "world (sekai)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "彼は世界の半分を旅しました。"
+    },
+    {
+     "front": "道",
+     "back": {
+      "ru": "дорога (michi)",
+      "en": "road (michi)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "道はせまいです。"
+    },
+    {
+     "front": "橋",
+     "back": {
+      "ru": "мост (hashi)",
+      "en": "bridge (hashi)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "橋は工事で通れません。"
+    },
+    {
+     "front": "駅",
+     "back": {
+      "ru": "вокзал (eki)",
+      "en": "station (eki)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "駅で会いましょう。"
+    },
+    {
+     "front": "空港",
+     "back": {
+      "ru": "аэропорт (kūkō)",
+      "en": "airport (kūkō)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "空港は中心から遠いです。"
+    },
+    {
+     "front": "部屋",
+     "back": {
+      "ru": "комната (heya)",
+      "en": "room (heya)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "部屋には大きな窓があります。"
+    },
+    {
+     "front": "台所",
+     "back": {
+      "ru": "кухня (daidokoro)",
+      "en": "kitchen (daidokoro)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "台所はコーヒーの香りがします。"
+    },
+    {
+     "front": "ドア",
+     "back": {
+      "ru": "дверь (doa)",
+      "en": "door (doa)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "寒いのでドアを閉めて。"
+    },
+    {
+     "front": "窓",
+     "back": {
+      "ru": "окно (mado)",
+      "en": "window (mado)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "息苦しいから窓を開けて。"
+    },
+    {
+     "front": "テーブル",
+     "back": {
+      "ru": "стол (tēburu)",
+      "en": "table (tēburu)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "お皿をテーブルに置いて。"
+    },
+    {
+     "front": "椅子",
+     "back": {
+      "ru": "стул (isu)",
+      "en": "chair (isu)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "テーブルに椅子が一つ足りません。"
+    },
+    {
+     "front": "ベッド",
+     "back": {
+      "ru": "кровать (beddo)",
+      "en": "bed (beddo)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "このベッドは硬すぎます。"
+    },
+    {
+     "front": "車",
+     "back": {
+      "ru": "машина (kuruma)",
+      "en": "car (kuruma)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "車が朝かからないんです。"
+    },
+    {
+     "front": "バス",
+     "back": {
+      "ru": "автобус (basu)",
+      "en": "bus (basu)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "バスは三十分おきに来ます。"
+    },
+    {
+     "front": "電車",
+     "back": {
+      "ru": "поезд (densha)",
+      "en": "train (densha)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "電車が遅れて着きました。"
+    },
+    {
+     "front": "飛行機",
+     "back": {
+      "ru": "самолёт (hikōki)",
+      "en": "plane (hikōki)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "飛行機は七時に飛び立ちます。"
+    },
+    {
+     "front": "自転車",
+     "back": {
+      "ru": "велосипед (jitensha)",
+      "en": "bicycle (jitensha)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "自転車で通勤しています。"
+    },
+    {
+     "front": "太陽",
+     "back": {
+      "ru": "солнце (taiyō)",
+      "en": "sun (taiyō)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "太陽は六時半に昇ります。"
+    },
+    {
+     "front": "月",
+     "back": {
+      "ru": "луна (tsuki)",
+      "en": "moon (tsuki)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "今夜は月がきれいです。"
+    },
+    {
+     "front": "星",
+     "back": {
+      "ru": "звезда (hoshi)",
+      "en": "star (hoshi)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "空にとても明るい星が見えます。"
+    },
+    {
+     "front": "空",
+     "back": {
+      "ru": "небо (sora)",
+      "en": "sky (sora)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "空が晴れています。"
+    },
+    {
+     "front": "雨",
+     "back": {
+      "ru": "дождь (ame)",
+      "en": "rain (ame)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "昨日から雨がやみません。"
+    },
+    {
+     "front": "風",
+     "back": {
+      "ru": "ветер (kaze)",
+      "en": "wind (kaze)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "風で椅子が倒れました。"
+    },
+    {
+     "front": "雪",
+     "back": {
+      "ru": "снег (yuki)",
+      "en": "snow (yuki)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "ここでは雪はめずらしい。"
+    },
+    {
+     "front": "火",
+     "back": {
+      "ru": "огонь (hi)",
+      "en": "fire (hi)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "暖炉に火をおこしました。"
+    },
+    {
+     "front": "土",
+     "back": {
+      "ru": "земля (tsuchi)",
+      "en": "earth (tsuchi)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "土はまだ湿っています。"
+    },
+    {
+     "front": "木",
+     "back": {
+      "ru": "дерево (ki)",
+      "en": "tree (ki)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "木が庭に影をつくっています。"
+    },
+    {
+     "front": "花",
+     "back": {
+      "ru": "цветок (hana)",
+      "en": "flower (hana)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "通りで花を一輪買ってきました。"
+    },
+    {
+     "front": "動物",
+     "back": {
+      "ru": "животное (dōbutsu)",
+      "en": "animal (dōbutsu)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "あれは何の動物ですか。"
+    },
+    {
+     "front": "犬",
+     "back": {
+      "ru": "собака (inu)",
+      "en": "dog (inu)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "犬がドアの前で寝ています。"
+    },
+    {
+     "front": "猫",
+     "back": {
+      "ru": "кошка (neko)",
+      "en": "cat (neko)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "猫が屋根に上りました。"
+    },
+    {
+     "front": "鳥",
+     "back": {
+      "ru": "птица (tori)",
+      "en": "bird (tori)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "朝、鳥が鳴きました。"
+    },
+    {
+     "front": "馬",
+     "back": {
+      "ru": "лошадь (uma)",
+      "en": "horse (uma)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "馬が野原を走っています。"
+    },
+    {
+     "front": "本",
+     "back": {
+      "ru": "книга (hon)",
+      "en": "book (hon)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "この本は三百ページあります。"
+    },
+    {
+     "front": "紙",
+     "back": {
+      "ru": "бумага (kami)",
+      "en": "paper (kami)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "紙を一枚ください。"
+    },
+    {
+     "front": "ペン",
+     "back": {
+      "ru": "ручка (pen)",
+      "en": "pen (pen)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "ペンのインクが切れました。"
+    },
+    {
+     "front": "電話",
+     "back": {
+      "ru": "телефон (denwa)",
+      "en": "phone (denwa)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "電話が二回鳴りました。"
+    },
+    {
+     "front": "パソコン",
+     "back": {
+      "ru": "компьютер (pasokon)",
+      "en": "computer (pasokon)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "パソコンの動きが遅いです。"
+    },
+    {
+     "front": "お金",
+     "back": {
+      "ru": "деньги (okane)",
+      "en": "money (okane)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "お金を持っていません。"
+    },
+    {
+     "front": "鍵",
+     "back": {
+      "ru": "ключ (kagi)",
+      "en": "key (kagi)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "家の鍵をなくしました。"
+    },
+    {
+     "front": "腕時計",
+     "back": {
+      "ru": "часы (udedokei)",
+      "en": "watch (udedokei)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "腕時計が進んでいます。"
+    },
+    {
+     "front": "明かり",
+     "back": {
+      "ru": "свет (akari)",
+      "en": "light (akari)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "明かりをつけてください。"
+    },
+    {
+     "front": "音楽",
+     "back": {
+      "ru": "музыка (ongaku)",
+      "en": "music (ongaku)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "音楽は隣のカフェから聞こえます。"
+    },
+    {
+     "front": "映画",
+     "back": {
+      "ru": "фильм (eiga)",
+      "en": "film (eiga)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "映画は九時に始まります。"
+    },
+    {
+     "front": "写真",
+     "back": {
+      "ru": "фотография (shashin)",
+      "en": "photo (shashin)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "広場の写真を撮りました。"
+    },
+    {
+     "front": "手紙",
+     "back": {
+      "ru": "письмо (tegami)",
+      "en": "letter (tegami)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "祖母から手紙が届きました。"
+    },
+    {
+     "front": "新聞",
+     "back": {
+      "ru": "газета (shinbun)",
+      "en": "newspaper (shinbun)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "朝食のときに新聞を読みます。"
+    },
+    {
+     "front": "色",
+     "back": {
+      "ru": "цвет (iro)",
+      "en": "colour (iro)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "あなたの車は何色ですか。"
+    },
+    {
+     "front": "言葉",
+     "back": {
+      "ru": "слово (kotoba)",
+      "en": "word (kotoba)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "最後の言葉が聞き取れませんでした。"
+    },
+    {
+     "front": "言語",
+     "back": {
+      "ru": "язык (gengo)",
+      "en": "language (gengo)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "日本語は私の母語です。"
+    },
+    {
+     "front": "頭",
+     "back": {
+      "ru": "голова (atama)",
+      "en": "head (atama)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "昨日から頭が痛いです。"
+    },
+    {
+     "front": "手",
+     "back": {
+      "ru": "рука (te)",
+      "en": "hand (te)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "手を貸してください。"
+    },
+    {
+     "front": "足",
+     "back": {
+      "ru": "нога (ashi)",
+      "en": "foot (ashi)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "足がむくんでいます。"
+    },
+    {
+     "front": "目",
+     "back": {
+      "ru": "глаз (me)",
+      "en": "eye (me)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "目にほこりが入りました。"
+    },
+    {
+     "front": "口",
+     "back": {
+      "ru": "рот (kuchi)",
+      "en": "mouth (kuchi)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "口を開けてくださいと医者が言いました。"
+    },
+    {
+     "front": "心臓",
+     "back": {
+      "ru": "сердце (shinzō)",
+      "en": "heart (shinzō)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "心臓が速く打っています。"
+    },
+    {
+     "front": "髪",
+     "back": {
+      "ru": "волосы (kami no ke)",
+      "en": "hair (kami no ke)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "昨日、髪を切りました。"
+    },
+    {
+     "front": "体",
+     "back": {
+      "ru": "тело (karada)",
+      "en": "body (karada)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "体が休みを求めています。"
+    },
+    {
+     "front": "いい",
+     "back": {
+      "ru": "хороший (ii)",
+      "en": "good (ii)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "いい一日でした。"
+    },
+    {
+     "front": "悪い",
+     "back": {
+      "ru": "плохой (warui)",
+      "en": "bad (warui)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "天気が悪いです。"
+    },
+    {
+     "front": "大きい",
+     "back": {
+      "ru": "большой (ōkii)",
+      "en": "big (ōkii)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "大きなテーブルが必要です。"
+    },
+    {
+     "front": "小さい",
+     "back": {
+      "ru": "маленький (chiisai)",
+      "en": "small (chiisai)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "部屋は小さいけれど明るい。"
+    },
+    {
+     "front": "新しい",
+     "back": {
+      "ru": "новый (atarashii)",
+      "en": "new (atarashii)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "新しい電話を買いました。"
+    },
+    {
+     "front": "古い",
+     "back": {
+      "ru": "старый (furui)",
+      "en": "old (furui)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "この建物は古いです。"
+    },
+    {
+     "front": "若い",
+     "back": {
+      "ru": "молодой (wakai)",
+      "en": "young (wakai)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "若い先生です。"
+    },
+    {
+     "front": "高い",
+     "back": {
+      "ru": "высокий (takai)",
+      "en": "tall (takai)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "この建物はとても高い。"
+    },
+    {
+     "front": "低い",
+     "back": {
+      "ru": "низкий (hikui)",
+      "en": "short (hikui)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "天井が低いです。"
+    },
+    {
+     "front": "長い",
+     "back": {
+      "ru": "длинный (nagai)",
+      "en": "long (nagai)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "道のりが長いです。"
+    },
+    {
+     "front": "短い",
+     "back": {
+      "ru": "короткий (mijikai)",
+      "en": "short (mijikai)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "映画は短かったです。"
+    },
+    {
+     "front": "熱い",
+     "back": {
+      "ru": "горячий (atsui)",
+      "en": "hot (atsui)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "お茶が熱いです。"
+    },
+    {
+     "front": "冷たい",
+     "back": {
+      "ru": "холодный (tsumetai)",
+      "en": "cold (tsumetai)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "部屋が冷えています。"
+    },
+    {
+     "front": "きれい",
+     "back": {
+      "ru": "красивый (kirei)",
+      "en": "beautiful (kirei)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "なんてきれいな景色でしょう。"
+    },
+    {
+     "front": "みにくい",
+     "back": {
+      "ru": "некрасивый (minikui)",
+      "en": "ugly (minikui)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "新しい建物はみにくい。"
+    },
+    {
+     "front": "やさしい",
+     "back": {
+      "ru": "лёгкий (yasashii)",
+      "en": "easy (yasashii)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "練習はやさしかったです。"
+    },
+    {
+     "front": "難しい",
+     "back": {
+      "ru": "трудный (muzukashii)",
+      "en": "difficult (muzukashii)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "この質問は難しい。"
+    },
+    {
+     "front": "強い",
+     "back": {
+      "ru": "сильный (tsuyoi)",
+      "en": "strong (tsuyoi)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "コーヒーが強いです。"
+    },
+    {
+     "front": "弱い",
+     "back": {
+      "ru": "слабый (yowai)",
+      "en": "weak (yowai)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "電波が弱いです。"
+    },
+    {
+     "front": "速い",
+     "back": {
+      "ru": "быстрый (hayai)",
+      "en": "fast (hayai)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "電車は速いです。"
+    },
+    {
+     "front": "遅い",
+     "back": {
+      "ru": "медленный (osoi)",
+      "en": "slow (osoi)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "ここのサービスは遅い。"
+    },
+    {
+     "front": "高価",
+     "back": {
+      "ru": "дорогой (kōka)",
+      "en": "expensive (kōka)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "ホテルは高価です。"
+    },
+    {
+     "front": "安い",
+     "back": {
+      "ru": "дешёвый (yasui)",
+      "en": "cheap (yasui)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "安い切符を見つけました。"
+    },
+    {
+     "front": "清潔",
+     "back": {
+      "ru": "чистый (seiketsu)",
+      "en": "clean (seiketsu)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "床が清潔です。"
+    },
+    {
+     "front": "汚い",
+     "back": {
+      "ru": "грязный (kitanai)",
+      "en": "dirty (kitanai)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "車がほこりで汚い。"
+    },
+    {
+     "front": "いっぱい",
+     "back": {
+      "ru": "полный (ippai)",
+      "en": "full (ippai)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "バスはいっぱいで来ました。"
+    },
+    {
+     "front": "空っぽ",
+     "back": {
+      "ru": "пустой (karappo)",
+      "en": "empty (karappo)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "コップが空っぽです。"
+    },
+    {
+     "front": "幸せ",
+     "back": {
+      "ru": "счастливый (shiawase)",
+      "en": "happy (shiawase)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "その知らせに彼女は幸せそうでした。"
+    },
+    {
+     "front": "悲しい",
+     "back": {
+      "ru": "грустный (kanashii)",
+      "en": "sad (kanashii)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "仕事から悲しそうに帰ってきました。"
+    },
+    {
+     "front": "疲れた",
+     "back": {
+      "ru": "усталый (tsukareta)",
+      "en": "tired (tsukareta)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "一日で疲れました。"
+    },
+    {
+     "front": "病気",
+     "back": {
+      "ru": "больной (byōki)",
+      "en": "sick (byōki)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "息子が病気です。"
+    },
+    {
+     "front": "正しい",
+     "back": {
+      "ru": "правильный (tadashii)",
+      "en": "right (tadashii)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "答えは正しいです。"
+    },
+    {
+     "front": "まちがい",
+     "back": {
+      "ru": "неправильный (machigai)",
+      "en": "wrong (machigai)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "番号がまちがっています。"
+    },
+    {
+     "front": "白い",
+     "back": {
+      "ru": "белый (shiroi)",
+      "en": "white (shiroi)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "壁は白いです。"
+    },
+    {
+     "front": "黒い",
+     "back": {
+      "ru": "чёрный (kuroi)",
+      "en": "black (kuroi)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "黒い猫を飼っています。"
+    },
+    {
+     "front": "赤い",
+     "back": {
+      "ru": "красный (akai)",
+      "en": "red (akai)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "信号が赤です。"
+    },
+    {
+     "front": "青い",
+     "back": {
+      "ru": "синий (aoi)",
+      "en": "blue (aoi)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "海がとても青い。"
+    },
+    {
+     "front": "緑",
+     "back": {
+      "ru": "зелёный (midori)",
+      "en": "green (midori)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "春には葉が緑になります。"
+    },
+    {
+     "front": "黄色",
+     "back": {
+      "ru": "жёлтый (kiiro)",
+      "en": "yellow (kiiro)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "家は黄色です。"
+    },
+    {
+     "front": "ここ",
+     "back": {
+      "ru": "здесь (koko)",
+      "en": "here (koko)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "ここで少し待って。"
+    },
+    {
+     "front": "そこ",
+     "back": {
+      "ru": "там (soko)",
+      "en": "there (soko)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "車はそこにあります。"
+    },
+    {
+     "front": "たくさん",
+     "back": {
+      "ru": "много (takusan)",
+      "en": "much (takusan)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "お茶をたくさん飲みます。"
+    },
+    {
+     "front": "少し",
+     "back": {
+      "ru": "мало (sukoshi)",
+      "en": "little (sukoshi)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "昨夜は少ししか眠れませんでした。"
+    },
+    {
+     "front": "もっと",
+     "back": {
+      "ru": "больше (motto)",
+      "en": "more (motto)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "もっと時間がほしい。"
+    },
+    {
+     "front": "より少なく",
+     "back": {
+      "ru": "меньше (yori sukunaku)",
+      "en": "less (yori sukunaku)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "今日は人がより少ない。"
+    },
+    {
+     "front": "も",
+     "back": {
+      "ru": "тоже (mo)",
+      "en": "also (mo)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "私も行きます。"
+    },
+    {
+     "front": "よく",
+     "back": {
+      "ru": "хорошо (yoku)",
+      "en": "well (yoku)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "彼女はフランス語をよく話します。"
+    },
+    {
+     "front": "悪く",
+     "back": {
+      "ru": "плохо (waruku)",
+      "en": "badly (waruku)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "昨夜はよく眠れませんでした。"
+    },
+    {
+     "front": "と",
+     "back": {
+      "ru": "с (to)",
+      "en": "with (to)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "姉と一緒に行きます。"
+    },
+    {
+     "front": "なしで",
+     "back": {
+      "ru": "без (nashi de)",
+      "en": "without (nashi de)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "コーヒーは砂糖なしで飲みます。"
+    },
+    {
+     "front": "ために",
+     "back": {
+      "ru": "для (tame ni)",
+      "en": "for (tame ni)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "この小包はあなたのためです。"
+    },
+    {
+     "front": "でも",
+     "back": {
+      "ru": "но (demo)",
+      "en": "but (demo)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "行きたいけれど、でも無理です。"
+    },
+    {
+     "front": "または",
+     "back": {
+      "ru": "или (matawa)",
+      "en": "or (matawa)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "お茶、またはコーヒーはいかが。"
+    },
+    {
+     "front": "なぜなら",
+     "back": {
+      "ru": "потому что (nazenara)",
+      "en": "because (nazenara)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "家にいました。なぜなら雨だったからです。"
+    },
+    {
+     "front": "もし",
+     "back": {
+      "ru": "если (moshi)",
+      "en": "if (moshi)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "もし雨なら、家にいます。"
+    },
+    {
+     "front": "たぶん",
+     "back": {
+      "ru": "может быть (tabun)",
+      "en": "maybe (tabun)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "たぶん明日来ます。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "である",
+     "back": {
+      "ru": "быть (de aru)",
+      "en": "to be (de aru)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "彼女は音楽の先生である。"
+    },
+    {
+     "front": "ある",
+     "back": {
+      "ru": "находиться (aru)",
+      "en": "to be (state) (aru)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "机の上に本があります。"
+    },
+    {
+     "front": "持つ",
+     "back": {
+      "ru": "иметь (motsu)",
+      "en": "to have (motsu)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "兄弟を二人持っています。"
+    },
+    {
+     "front": "する",
+     "back": {
+      "ru": "делать (suru)",
+      "en": "to do (suru)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "日曜日は何をしますか。"
+    },
+    {
+     "front": "行く",
+     "back": {
+      "ru": "идти (iku)",
+      "en": "to go (iku)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "今から市場へ行きます。"
+    },
+    {
+     "front": "来る",
+     "back": {
+      "ru": "приходить (kuru)",
+      "en": "to come (kuru)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "夕食に来ますか。"
+    },
+    {
+     "front": "言う",
+     "back": {
+      "ru": "говорить (iu)",
+      "en": "to say (iu)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "本当のことを言ってください。"
+    },
+    {
+     "front": "見る",
+     "back": {
+      "ru": "видеть (miru)",
+      "en": "to see (miru)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "通りであなたの兄を見ました。"
+    },
+    {
+     "front": "あげる",
+     "back": {
+      "ru": "давать (ageru)",
+      "en": "to give (ageru)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "鍵をあげてください。"
+    },
+    {
+     "front": "知る",
+     "back": {
+      "ru": "знать (shiru)",
+      "en": "to know (shiru)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "彼がどこに住んでいるか知りません。"
+    },
+    {
+     "front": "できる",
+     "back": {
+      "ru": "мочь (dekiru)",
+      "en": "can (dekiru)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "手伝うことができますか。"
+    },
+    {
+     "front": "ほしい",
+     "back": {
+      "ru": "хотеть (hoshii)",
+      "en": "to want (hoshii)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "水を一杯ほしいです。"
+    },
+    {
+     "front": "しなければならない",
+     "back": {
+      "ru": "быть должным (shinakereba naranai)",
+      "en": "must (shinakereba naranai)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "今日は早く出なければならない。"
+    },
+    {
+     "front": "とどまる",
+     "back": {
+      "ru": "оставаться (todomaru)",
+      "en": "to stay (todomaru)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "今夜は家にとどまります。"
+    },
+    {
+     "front": "通る",
+     "back": {
+      "ru": "проходить (tōru)",
+      "en": "to pass (tōru)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "バスは九時に通ります。"
+    },
+    {
+     "front": "着く",
+     "back": {
+      "ru": "прибывать (tsuku)",
+      "en": "to arrive (tsuku)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "電車が遅れて着きました。"
+    },
+    {
+     "front": "出る",
+     "back": {
+      "ru": "выходить (deru)",
+      "en": "to leave (deru)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "六時に仕事を出ます。"
+    },
+    {
+     "front": "入る",
+     "back": {
+      "ru": "входить (hairu)",
+      "en": "to enter (hairu)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "どうぞ入って、開いています。"
+    },
+    {
+     "front": "戻る",
+     "back": {
+      "ru": "возвращаться (modoru)",
+      "en": "to return (modoru)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "三十分で戻ります。"
+    },
+    {
+     "front": "始まる",
+     "back": {
+      "ru": "начинать (hajimaru)",
+      "en": "to begin (hajimaru)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "授業は八時に始まります。"
+    },
+    {
+     "front": "終える",
+     "back": {
+      "ru": "заканчивать (oeru)",
+      "en": "to finish (oeru)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "昨日、本を読み終えました。"
+    },
+    {
+     "front": "続く",
+     "back": {
+      "ru": "продолжать (tsuzuku)",
+      "en": "to continue (tsuzuku)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "雨が続いています。"
+    },
+    {
+     "front": "止まる",
+     "back": {
+      "ru": "останавливаться (tomaru)",
+      "en": "to stop (tomaru)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "車が門の前で止まりました。"
+    },
+    {
+     "front": "待つ",
+     "back": {
+      "ru": "ждать (matsu)",
+      "en": "to wait (matsu)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "駅で待っています。"
+    },
+    {
+     "front": "見つける",
+     "back": {
+      "ru": "находить (mitsukeru)",
+      "en": "to find (mitsukeru)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "机の上で鍵を見つけました。"
+    },
+    {
+     "front": "探す",
+     "back": {
+      "ru": "искать (sagasu)",
+      "en": "to look for (sagasu)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "文法の本を探しています。"
+    },
+    {
+     "front": "なくす",
+     "back": {
+      "ru": "терять (nakusu)",
+      "en": "to lose (nakusu)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "七時の電車を逃しました。"
+    },
+    {
+     "front": "勝つ",
+     "back": {
+      "ru": "выигрывать (katsu)",
+      "en": "to win (katsu)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "私たちのチームが勝ちました。"
+    },
+    {
+     "front": "買う",
+     "back": {
+      "ru": "покупать (kau)",
+      "en": "to buy (kau)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "夕食用にパンを買いました。"
+    },
+    {
+     "front": "売る",
+     "back": {
+      "ru": "продавать (uru)",
+      "en": "to sell (uru)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "角で果物を売っています。"
+    },
+    {
+     "front": "払う",
+     "back": {
+      "ru": "платить (harau)",
+      "en": "to pay (harau)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "コーヒーは私が払います。"
+    },
+    {
+     "front": "かかる",
+     "back": {
+      "ru": "стоить (kakaru)",
+      "en": "to cost (kakaru)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "切符はいくらかかりますか。"
+    },
+    {
+     "front": "働く",
+     "back": {
+      "ru": "работать (hataraku)",
+      "en": "to work (hataraku)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "病院で働いています。"
+    },
+    {
+     "front": "勉強する",
+     "back": {
+      "ru": "учиться (benkyō suru)",
+      "en": "to study (benkyō suru)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "一年間、日本語を勉強しています。"
+    },
+    {
+     "front": "習う",
+     "back": {
+      "ru": "изучать (narau)",
+      "en": "to learn (narau)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "子どものころ泳ぎを習いました。"
+    },
+    {
+     "front": "教える",
+     "back": {
+      "ru": "учить (oshieru)",
+      "en": "to teach (oshieru)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "村の学校で教えています。"
+    },
+    {
+     "front": "読む",
+     "back": {
+      "ru": "читать (yomu)",
+      "en": "to read (yomu)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "朝、新聞を読みます。"
+    },
+    {
+     "front": "書く",
+     "back": {
+      "ru": "писать (kaku)",
+      "en": "to write (kaku)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "彼女に長い手紙を書きました。"
+    },
+    {
+     "front": "話す",
+     "back": {
+      "ru": "разговаривать (hanasu)",
+      "en": "to speak (hanasu)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "昨日、電話で話しました。"
+    },
+    {
+     "front": "聞こえる",
+     "back": {
+      "ru": "слышать (kikoeru)",
+      "en": "to hear (kikoeru)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "台所から音が聞こえました。"
+    },
+    {
+     "front": "聞く",
+     "back": {
+      "ru": "слушать (kiku)",
+      "en": "to listen (kiku)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "私の言うことをよく聞いて。"
+    },
+    {
+     "front": "ながめる",
+     "back": {
+      "ru": "смотреть (nagameru)",
+      "en": "to look (nagameru)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "左をながめてください。"
+    },
+    {
+     "front": "感じる",
+     "back": {
+      "ru": "чувствовать (kanjiru)",
+      "en": "to feel (kanjiru)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "手に冷たさを感じます。"
+    },
+    {
+     "front": "考える",
+     "back": {
+      "ru": "думать (kangaeru)",
+      "en": "to think (kangaeru)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "昨日からそれを考えています。"
+    },
+    {
+     "front": "覚えている",
+     "back": {
+      "ru": "помнить (oboete iru)",
+      "en": "to remember (oboete iru)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "あの日をよく覚えています。"
+    },
+    {
+     "front": "忘れる",
+     "back": {
+      "ru": "забывать (wasureru)",
+      "en": "to forget (wasureru)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "あなたの名前を忘れました。"
+    },
+    {
+     "front": "分かる",
+     "back": {
+      "ru": "понимать (wakaru)",
+      "en": "to understand (wakaru)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "質問が分かりませんでした。"
+    },
+    {
+     "front": "説明する",
+     "back": {
+      "ru": "объяснять (setsumei suru)",
+      "en": "to explain (setsumei suru)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "もう一度説明してください。"
+    },
+    {
+     "front": "たずねる",
+     "back": {
+      "ru": "спрашивать (tazuneru)",
+      "en": "to ask (tazuneru)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "隣の人にたずねました。"
+    },
+    {
+     "front": "答える",
+     "back": {
+      "ru": "отвечать (kotaeru)",
+      "en": "to answer (kotaeru)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "彼女はまだ答えていません。"
+    },
+    {
+     "front": "呼ぶ",
+     "back": {
+      "ru": "звать (yobu)",
+      "en": "to call (yobu)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "早く医者を呼んで。"
+    },
+    {
+     "front": "電話する",
+     "back": {
+      "ru": "звонить (denwa suru)",
+      "en": "to phone (denwa suru)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "夜に電話します。"
+    },
+    {
+     "front": "開ける",
+     "back": {
+      "ru": "открывать (akeru)",
+      "en": "to open (akeru)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "窓を開けてください。"
+    },
+    {
+     "front": "閉める",
+     "back": {
+      "ru": "закрывать (shimeru)",
+      "en": "to close (shimeru)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "出るときドアを閉めて。"
+    },
+    {
+     "front": "置く",
+     "back": {
+      "ru": "класть (oku)",
+      "en": "to put (oku)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "パンをテーブルに置いて。"
+    },
+    {
+     "front": "脱ぐ",
+     "back": {
+      "ru": "убирать (nugu)",
+      "en": "to take off (nugu)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "入り口で靴を脱いでください。"
+    },
+    {
+     "front": "持っていく",
+     "back": {
+      "ru": "нести (motte iku)",
+      "en": "to take (motte iku)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "傘を持っていきます。"
+    },
+    {
+     "front": "持ってくる",
+     "back": {
+      "ru": "приносить (motte kuru)",
+      "en": "to bring (motte kuru)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "みんなにケーキを持ってきました。"
+    },
+    {
+     "front": "送る",
+     "back": {
+      "ru": "посылать (okuru)",
+      "en": "to send (okuru)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "月曜日に手紙を送りました。"
+    },
+    {
+     "front": "受け取る",
+     "back": {
+      "ru": "получать (uketoru)",
+      "en": "to receive (uketoru)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "あなたの伝言を受け取りました。"
+    },
+    {
+     "front": "しまう",
+     "back": {
+      "ru": "хранить (shimau)",
+      "en": "to keep (shimau)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "写真は箱にしまっています。"
+    },
+    {
+     "front": "置き忘れる",
+     "back": {
+      "ru": "оставлять (okiwasureru)",
+      "en": "to leave behind (okiwasureru)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "上着を車に置き忘れました。"
+    },
+    {
+     "front": "つかむ",
+     "back": {
+      "ru": "держать (tsukamu)",
+      "en": "to hold (tsukamu)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "コップをしっかりつかんで。"
+    },
+    {
+     "front": "押す",
+     "back": {
+      "ru": "толкать (osu)",
+      "en": "to push (osu)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "引かずにドアを押して。"
+    },
+    {
+     "front": "引く",
+     "back": {
+      "ru": "тянуть (hiku)",
+      "en": "to pull (hiku)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "ロープを強く引いて。"
+    },
+    {
+     "front": "捕まえる",
+     "back": {
+      "ru": "ловить (tsukamaeru)",
+      "en": "to catch (tsukamaeru)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "ボールを空中で捕まえました。"
+    },
+    {
+     "front": "見せる",
+     "back": {
+      "ru": "показывать (miseru)",
+      "en": "to show (miseru)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "写真を見せてください。"
+    },
+    {
+     "front": "隠す",
+     "back": {
+      "ru": "прятать (kakusu)",
+      "en": "to hide (kakusu)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "贈り物を戸棚に隠しました。"
+    },
+    {
+     "front": "変える",
+     "back": {
+      "ru": "менять (kaeru)",
+      "en": "to change (kaeru)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "考えを変えました。"
+    },
+    {
+     "front": "つくる",
+     "back": {
+      "ru": "создавать (tsukuru)",
+      "en": "to create (tsukuru)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "新しい仕事をつくりました。"
+    },
+    {
+     "front": "建てる",
+     "back": {
+      "ru": "строить (tateru)",
+      "en": "to build (tateru)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "隣で建物を建てています。"
+    },
+    {
+     "front": "壊す",
+     "back": {
+      "ru": "ломать (kowasu)",
+      "en": "to break (kowasu)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "今朝コップを壊しました。"
+    },
+    {
+     "front": "切る",
+     "back": {
+      "ru": "резать (kiru)",
+      "en": "to cut (kiru)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "パンを薄く切って。"
+    },
+    {
+     "front": "掃除する",
+     "back": {
+      "ru": "убирать (sōji suru)",
+      "en": "to clean (sōji suru)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "台所を全部掃除しました。"
+    },
+    {
+     "front": "洗う",
+     "back": {
+      "ru": "мыть (arau)",
+      "en": "to wash (arau)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "食べる前に手を洗って。"
+    },
+    {
+     "front": "乾かす",
+     "back": {
+      "ru": "сушить (kawakasu)",
+      "en": "to dry (kawakasu)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "髪をよく乾かして。"
+    },
+    {
+     "front": "料理する",
+     "back": {
+      "ru": "готовить (ryōri suru)",
+      "en": "to cook (ryōri suru)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "毎日料理します。"
+    },
+    {
+     "front": "食べる",
+     "back": {
+      "ru": "есть (taberu)",
+      "en": "to eat (taberu)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "八時に食べます。"
+    },
+    {
+     "front": "飲む",
+     "back": {
+      "ru": "пить (nomu)",
+      "en": "to drink (nomu)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "日中は水を飲みます。"
+    },
+    {
+     "front": "味わう",
+     "back": {
+      "ru": "пробовать (ajiwau)",
+      "en": "to taste (ajiwau)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "スープを味わってみて、おいしいよ。"
+    },
+    {
+     "front": "出す",
+     "back": {
+      "ru": "подавать (dasu)",
+      "en": "to serve (dasu)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "昼食は十二時に出します。"
+    },
+    {
+     "front": "眠る",
+     "back": {
+      "ru": "спать (nemuru)",
+      "en": "to sleep (nemuru)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "八時間続けて眠りました。"
+    },
+    {
+     "front": "目を覚ます",
+     "back": {
+      "ru": "просыпаться (me o samasu)",
+      "en": "to wake up (me o samasu)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "いつも六時に目を覚まします。"
+    },
+    {
+     "front": "起きる",
+     "back": {
+      "ru": "вставать (okiru)",
+      "en": "to get up (okiru)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "起きて、もう遅いよ。"
+    },
+    {
+     "front": "座る",
+     "back": {
+      "ru": "садиться (suwaru)",
+      "en": "to sit (suwaru)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "ここ、私の隣に座って。"
+    },
+    {
+     "front": "横になる",
+     "back": {
+      "ru": "ложиться (yoko ni naru)",
+      "en": "to lie down (yoko ni naru)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "平日は早く横になります。"
+    },
+    {
+     "front": "歩く",
+     "back": {
+      "ru": "ходить (aruku)",
+      "en": "to walk (aruku)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "一日に三十分歩きます。"
+    },
+    {
+     "front": "走る",
+     "back": {
+      "ru": "бегать (hashiru)",
+      "en": "to run (hashiru)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "朝は公園を走ります。"
+    },
+    {
+     "front": "跳ぶ",
+     "back": {
+      "ru": "прыгать (tobu)",
+      "en": "to jump (tobu)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "猫がテーブルに跳び上がりました。"
+    },
+    {
+     "front": "泳ぐ",
+     "back": {
+      "ru": "плавать (oyogu)",
+      "en": "to swim (oyogu)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "川で泳ぎを覚えました。"
+    },
+    {
+     "front": "飛ぶ",
+     "back": {
+      "ru": "летать (tobu (sora))",
+      "en": "to fly (tobu (sora))",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "鳥が南へ飛んでいきます。"
+    },
+    {
+     "front": "旅行する",
+     "back": {
+      "ru": "путешествовать (ryokō suru)",
+      "en": "to travel (ryokō suru)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "電車で旅行しました。"
+    },
+    {
+     "front": "運転する",
+     "back": {
+      "ru": "водить (unten suru)",
+      "en": "to drive (unten suru)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "彼は慎重に運転します。"
+    },
+    {
+     "front": "のぼる",
+     "back": {
+      "ru": "подниматься (noboru)",
+      "en": "to go up (noboru)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "三階までのぼりました。"
+    },
+    {
+     "front": "おりる",
+     "back": {
+      "ru": "спускаться (oriru)",
+      "en": "to go down (oriru)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "階段をゆっくりおりて。"
+    },
+    {
+     "front": "落ちる",
+     "back": {
+      "ru": "падать (ochiru)",
+      "en": "to fall (ochiru)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "カップがテーブルから落ちました。"
+    },
+    {
+     "front": "住む",
+     "back": {
+      "ru": "жить (sumu)",
+      "en": "to live (reside) (sumu)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "駅の近くに住んでいます。"
+    },
+    {
+     "front": "生きる",
+     "back": {
+      "ru": "жить (ikiru)",
+      "en": "to live (ikiru)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "九十年生きました。"
+    },
+    {
+     "front": "死ぬ",
+     "back": {
+      "ru": "умирать (shinu)",
+      "en": "to die (shinu)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "木が冬に死にました。"
+    },
+    {
+     "front": "生まれる",
+     "back": {
+      "ru": "рождаться (umareru)",
+      "en": "to be born (umareru)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "三月に生まれました。"
+    },
+    {
+     "front": "育つ",
+     "back": {
+      "ru": "расти (sodatsu)",
+      "en": "to grow (sodatsu)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "子どもは早く育ちます。"
+    },
+    {
+     "front": "結婚する",
+     "back": {
+      "ru": "жениться (kekkon suru)",
+      "en": "to marry (kekkon suru)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "春に結婚しました。"
+    },
+    {
+     "front": "助ける",
+     "back": {
+      "ru": "помогать (tasukeru)",
+      "en": "to help (tasukeru)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "この荷物を持つのを助けて。"
+    },
+    {
+     "front": "好き",
+     "back": {
+      "ru": "нравиться (suki)",
+      "en": "to like (suki)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "このコーヒーがとても好きです。"
+    },
+    {
+     "front": "愛する",
+     "back": {
+      "ru": "любить (ai suru)",
+      "en": "to love (ai suru)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "何よりも家族を愛しています。"
+    },
+    {
+     "front": "きらう",
+     "back": {
+      "ru": "ненавидеть (kirau)",
+      "en": "to hate (kirau)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "早起きをきらっています。"
+    },
+    {
+     "front": "笑う",
+     "back": {
+      "ru": "смеяться (warau)",
+      "en": "to laugh (warau)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "一晩中笑いました。"
+    },
+    {
+     "front": "泣く",
+     "back": {
+      "ru": "плакать (naku)",
+      "en": "to cry (naku)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "子どもが眠くて泣きました。"
+    },
+    {
+     "front": "歌う",
+     "back": {
+      "ru": "петь (utau)",
+      "en": "to sing (utau)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "教会の合唱で歌っています。"
+    },
+    {
+     "front": "踊る",
+     "back": {
+      "ru": "танцевать (odoru)",
+      "en": "to dance (odoru)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "遅くまで踊りました。"
+    },
+    {
+     "front": "遊ぶ",
+     "back": {
+      "ru": "играть (asobu)",
+      "en": "to play (children) (asobu)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "子どもたちが庭で遊んでいます。"
+    },
+    {
+     "front": "試合をする",
+     "back": {
+      "ru": "играть (shiai o suru)",
+      "en": "to play (a game) (shiai o suru)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "土曜日に試合をします。"
+    },
+    {
+     "front": "さわる",
+     "back": {
+      "ru": "трогать (sawaru)",
+      "en": "to touch (sawaru)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "塗りたてのペンキにさわらないで。"
+    },
+    {
+     "front": "休む",
+     "back": {
+      "ru": "отдыхать (yasumu)",
+      "en": "to rest (yasumu)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "少し休んでください。"
+    },
+    {
+     "front": "試す",
+     "back": {
+      "ru": "пытаться (tamesu)",
+      "en": "to try (tamesu)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "三回電話を試しました。"
+    },
+    {
+     "front": "成功する",
+     "back": {
+      "ru": "удаваться (seikō suru)",
+      "en": "to manage (seikō suru)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "今日の切符が取れて成功しました。"
+    },
+    {
+     "front": "必要とする",
+     "back": {
+      "ru": "нуждаться (hitsuyō to suru)",
+      "en": "to need (hitsuyō to suru)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "今、助けを必要としています。"
+    },
+    {
+     "front": "使う",
+     "back": {
+      "ru": "использовать (tsukau)",
+      "en": "to use (tsukau)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "電話は何にでも使います。"
+    },
+    {
+     "front": "選ぶ",
+     "back": {
+      "ru": "выбирать (erabu)",
+      "en": "to choose (erabu)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "レストランはあなたが選んで。"
+    },
+    {
+     "front": "決める",
+     "back": {
+      "ru": "решать (kimeru)",
+      "en": "to decide (kimeru)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "もう一日いることに決めました。"
+    },
+    {
+     "front": "受け入れる",
+     "back": {
+      "ru": "принимать (ukeireru)",
+      "en": "to accept (ukeireru)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "招待を受け入れました。"
+    },
+    {
+     "front": "断る",
+     "back": {
+      "ru": "отказывать (kotowaru)",
+      "en": "to refuse (kotowaru)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "隣人の助けを断りました。"
+    },
+    {
+     "front": "約束する",
+     "back": {
+      "ru": "обещать (yakusoku suru)",
+      "en": "to promise (yakusoku suru)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "早く帰ると約束しました。"
+    },
+    {
+     "front": "感謝する",
+     "back": {
+      "ru": "благодарить (kansha suru)",
+      "en": "to thank (kansha suru)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "忍耐に感謝します。"
+    },
+    {
+     "front": "頼む",
+     "back": {
+      "ru": "просить (tanomu)",
+      "en": "to ask for (tanomu)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "水を一杯頼みました。"
+    },
+    {
+     "front": "起こる",
+     "back": {
+      "ru": "случаться (okoru)",
+      "en": "to happen (okoru)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "昨日、何が起こったのですか。"
+    },
+    {
+     "front": "見える",
+     "back": {
+      "ru": "казаться (mieru)",
+      "en": "to seem (mieru)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "疲れて見えますよ。"
+    },
+    {
+     "front": "つける",
+     "back": {
+      "ru": "включать (tsukeru)",
+      "en": "to turn on (tsukeru)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "台所の明かりをつけて。"
+    },
+    {
+     "front": "消す",
+     "back": {
+      "ru": "выключать (kesu)",
+      "en": "to turn off (kesu)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "出る前にパソコンを消して。"
+    },
+    {
+     "front": "雨が降る",
+     "back": {
+      "ru": "идти (о дожде) (ame ga furu)",
+      "en": "to rain (ame ga furu)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "一晩中雨が降りました。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "水",
+     "back": {
+      "ru": "вода (mizu)",
+      "en": "water (mizu)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "水を一杯ください。"
+    },
+    {
+     "front": "パン",
+     "back": {
+      "ru": "хлеб (pan)",
+      "en": "bread (pan)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "パンはまだ温かいです。"
+    },
+    {
+     "front": "牛乳",
+     "back": {
+      "ru": "молоко (gyūnyū)",
+      "en": "milk (gyūnyū)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "朝食に牛乳を飲みます。"
+    },
+    {
+     "front": "コーヒー",
+     "back": {
+      "ru": "кофе (kōhī)",
+      "en": "coffee (kōhī)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "コーヒーを一つお願いします。"
+    },
+    {
+     "front": "お茶",
+     "back": {
+      "ru": "чай (ocha)",
+      "en": "tea (ocha)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "午後にお茶をいれます。"
+    },
+    {
+     "front": "ジュース",
+     "back": {
+      "ru": "сок (jūsu)",
+      "en": "juice (jūsu)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "しぼりたてのオレンジジュース。"
+    },
+    {
+     "front": "ワイン",
+     "back": {
+      "ru": "вино (wain)",
+      "en": "wine (wain)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "赤ワインを一杯。"
+    },
+    {
+     "front": "ビール",
+     "back": {
+      "ru": "пиво (bīru)",
+      "en": "beer (bīru)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "ビールがよく冷えています。"
+    },
+    {
+     "front": "氷",
+     "back": {
+      "ru": "лёд (kōri)",
+      "en": "ice (kōri)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "飲み物に氷を入れますか。"
+    },
+    {
+     "front": "砂糖",
+     "back": {
+      "ru": "сахар (satō)",
+      "en": "sugar (satō)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "コーヒーは砂糖なしで飲みます。"
+    },
+    {
+     "front": "塩",
+     "back": {
+      "ru": "соль (shio)",
+      "en": "salt (shio)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "スープに塩が足りません。"
+    },
+    {
+     "front": "こしょう",
+     "back": {
+      "ru": "перец (koshō)",
+      "en": "pepper (koshō)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "こしょうを少し入れて。"
+    },
+    {
+     "front": "オリーブオイル",
+     "back": {
+      "ru": "оливковое масло (orību oiru)",
+      "en": "olive oil (orību oiru)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "サラダにオリーブオイルをかけて。"
+    },
+    {
+     "front": "バター",
+     "back": {
+      "ru": "масло (batā)",
+      "en": "butter (batā)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "パンにバターを塗って。"
+    },
+    {
+     "front": "チーズ",
+     "back": {
+      "ru": "сыр (chīzu)",
+      "en": "cheese (chīzu)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "このチーズは山のものです。"
+    },
+    {
+     "front": "卵",
+     "back": {
+      "ru": "яйцо (tamago)",
+      "en": "egg (tamago)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "ゆで卵を一つ食べました。"
+    },
+    {
+     "front": "肉",
+     "back": {
+      "ru": "мясо (niku)",
+      "en": "meat (niku)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "夜は肉を食べません。"
+    },
+    {
+     "front": "鶏肉",
+     "back": {
+      "ru": "курица (toriniku)",
+      "en": "chicken (toriniku)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "鶏肉とじゃがいものロースト。"
+    },
+    {
+     "front": "魚",
+     "back": {
+      "ru": "рыба (sakana)",
+      "en": "fish (sakana)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "今日は魚が新鮮です。"
+    },
+    {
+     "front": "たら",
+     "back": {
+      "ru": "треска (tara)",
+      "en": "cod (tara)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "たらは塩漬けにします。"
+    },
+    {
+     "front": "いわし",
+     "back": {
+      "ru": "сардина (iwashi)",
+      "en": "sardine (iwashi)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "炭火で焼いたいわし。"
+    },
+    {
+     "front": "まぐろ",
+     "back": {
+      "ru": "тунец (maguro)",
+      "en": "tuna (maguro)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "まぐろのサンドイッチ。"
+    },
+    {
+     "front": "えび",
+     "back": {
+      "ru": "креветка (ebi)",
+      "en": "shrimp (ebi)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "にんにく風味のえび。"
+    },
+    {
+     "front": "海の幸",
+     "back": {
+      "ru": "морепродукты (umi no sachi)",
+      "en": "seafood (umi no sachi)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "海辺で海の幸を食べました。"
+    },
+    {
+     "front": "ハム",
+     "back": {
+      "ru": "ветчина (hamu)",
+      "en": "ham (hamu)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "ハムとメロン。"
+    },
+    {
+     "front": "ソーセージ",
+     "back": {
+      "ru": "сосиска (sōsēji)",
+      "en": "sausage (sōsēji)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "子どもたちにソーセージを。"
+    },
+    {
+     "front": "ごはん",
+     "back": {
+      "ru": "рис (gohan)",
+      "en": "rice (gohan)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "日曜日は魚のごはんを作ります。"
+    },
+    {
+     "front": "じゃがいも",
+     "back": {
+      "ru": "картофель (jagaimo)",
+      "en": "potato (jagaimo)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "ゆでたじゃがいもにオリーブオイル。"
+    },
+    {
+     "front": "パスタ",
+     "back": {
+      "ru": "макароны (pasuta)",
+      "en": "pasta (pasuta)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "急ぐときはパスタを作ります。"
+    },
+    {
+     "front": "小麦粉",
+     "back": {
+      "ru": "мука (komugiko)",
+      "en": "flour (komugiko)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "ケーキ用の小麦粉が足りません。"
+    },
+    {
+     "front": "スープ",
+     "back": {
+      "ru": "суп (sūpu)",
+      "en": "soup (sūpu)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "スープが冷めていきます。"
+    },
+    {
+     "front": "サラダ",
+     "back": {
+      "ru": "салат (sarada)",
+      "en": "salad (sarada)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "トマトのサラダ。"
+    },
+    {
+     "front": "野菜",
+     "back": {
+      "ru": "овощи (yasai)",
+      "en": "vegetables (yasai)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "毎日、野菜を食べます。"
+    },
+    {
+     "front": "果物",
+     "back": {
+      "ru": "фрукты (kudamono)",
+      "en": "fruit (kudamono)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "台所に果物があります。"
+    },
+    {
+     "front": "りんご",
+     "back": {
+      "ru": "яблоко (ringo)",
+      "en": "apple (ringo)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "仕事にりんごを一つ持っていきます。"
+    },
+    {
+     "front": "なし",
+     "back": {
+      "ru": "груша (nashi)",
+      "en": "pear (nashi)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "このなしは熟しています。"
+    },
+    {
+     "front": "オレンジ",
+     "back": {
+      "ru": "апельсин (orenji)",
+      "en": "orange (orenji)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "オレンジの皮をむきました。"
+    },
+    {
+     "front": "レモン",
+     "back": {
+      "ru": "лимон (remon)",
+      "en": "lemon (remon)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "レモンを入れたお茶。"
+    },
+    {
+     "front": "バナナ",
+     "back": {
+      "ru": "банан (banana)",
+      "en": "banana (banana)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "練習の前にバナナを食べました。"
+    },
+    {
+     "front": "ぶどう",
+     "back": {
+      "ru": "виноград (budō)",
+      "en": "grape (budō)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "ぶどうが甘いです。"
+    },
+    {
+     "front": "いちご",
+     "back": {
+      "ru": "клубника (ichigo)",
+      "en": "strawberry (ichigo)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "いちごに生クリーム。"
+    },
+    {
+     "front": "さくらんぼ",
+     "back": {
+      "ru": "вишня (sakuranbo)",
+      "en": "cherry (sakuranbo)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "さくらんぼは今が旬です。"
+    },
+    {
+     "front": "もも",
+     "back": {
+      "ru": "персик (momo)",
+      "en": "peach (momo)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "よく熟したもも。"
+    },
+    {
+     "front": "メロン",
+     "back": {
+      "ru": "дыня (meron)",
+      "en": "melon (meron)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "メロンとハム。"
+    },
+    {
+     "front": "すいか",
+     "back": {
+      "ru": "арбуз (suika)",
+      "en": "watermelon (suika)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "夏には冷たいすいか。"
+    },
+    {
+     "front": "パイナップル",
+     "back": {
+      "ru": "ананас (painappuru)",
+      "en": "pineapple (painappuru)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "パイナップルのジュース。"
+    },
+    {
+     "front": "いちじく",
+     "back": {
+      "ru": "инжир (ichijiku)",
+      "en": "fig (ichijiku)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "冬には干しいちじく。"
+    },
+    {
+     "front": "トマト",
+     "back": {
+      "ru": "помидор (tomato)",
+      "en": "tomato (tomato)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "ハーブを添えたトマトサラダ。"
+    },
+    {
+     "front": "たまねぎ",
+     "back": {
+      "ru": "лук (tamanegi)",
+      "en": "onion (tamanegi)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "まずたまねぎを炒めて。"
+    },
+    {
+     "front": "にんにく",
+     "back": {
+      "ru": "чеснок (ninniku)",
+      "en": "garlic (ninniku)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "にんにくは二かけで足ります。"
+    },
+    {
+     "front": "にんじん",
+     "back": {
+      "ru": "морковь (ninjin)",
+      "en": "carrot (ninjin)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "にんじんのスープ。"
+    },
+    {
+     "front": "レタス",
+     "back": {
+      "ru": "салат-латук (retasu)",
+      "en": "lettuce (retasu)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "レタスをよく洗って。"
+    },
+    {
+     "front": "きゅうり",
+     "back": {
+      "ru": "огурец (kyūri)",
+      "en": "cucumber (kyūri)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "きゅうりの薄切り。"
+    },
+    {
+     "front": "豆",
+     "back": {
+      "ru": "фасоль (mame)",
+      "en": "beans (mame)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "豆とごはん。"
+    },
+    {
+     "front": "えんどう",
+     "back": {
+      "ru": "горох (endō)",
+      "en": "pea (endō)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "えんどうと落とし卵。"
+    },
+    {
+     "front": "キャベツ",
+     "back": {
+      "ru": "капуста (kyabetsu)",
+      "en": "cabbage (kyabetsu)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "キャベツのスープは冬の味です。"
+    },
+    {
+     "front": "かぼちゃ",
+     "back": {
+      "ru": "тыква (kabocha)",
+      "en": "pumpkin (kabocha)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "秋にはかぼちゃのスープ。"
+    },
+    {
+     "front": "きのこ",
+     "back": {
+      "ru": "гриб (kinoko)",
+      "en": "mushroom (kinoko)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "きのこのソテー。"
+    },
+    {
+     "front": "オリーブ",
+     "back": {
+      "ru": "оливка (orību)",
+      "en": "olive (orību)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "食事の前にオリーブを。"
+    },
+    {
+     "front": "ケーキ",
+     "back": {
+      "ru": "торт (kēki)",
+      "en": "cake (kēki)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "オレンジのケーキを焼きました。"
+    },
+    {
+     "front": "ビスケット",
+     "back": {
+      "ru": "печенье (bisuketto)",
+      "en": "biscuit (bisuketto)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "お茶にビスケットを。"
+    },
+    {
+     "front": "ジャム",
+     "back": {
+      "ru": "варенье (jamu)",
+      "en": "jam (jamu)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "パンにいちごジャムを塗りました。"
+    },
+    {
+     "front": "チョコレート",
+     "back": {
+      "ru": "шоколад (chokorēto)",
+      "en": "chocolate (chokorēto)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "ビターチョコレートを一枚。"
+    },
+    {
+     "front": "アイスクリーム",
+     "back": {
+      "ru": "мороженое (aisukurīmu)",
+      "en": "ice cream (aisukurīmu)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "バニラのアイスクリーム。"
+    },
+    {
+     "front": "はちみつ",
+     "back": {
+      "ru": "мёд (hachimitsu)",
+      "en": "honey (hachimitsu)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "のどにはちみつ入りのお茶。"
+    },
+    {
+     "front": "お菓子",
+     "back": {
+      "ru": "сладость (okashi)",
+      "en": "sweet (okashi)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "夜はお菓子を食べません。"
+    },
+    {
+     "front": "デザート",
+     "back": {
+      "ru": "десерт (dezāto)",
+      "en": "dessert (dezāto)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "デザートには果物を。"
+    },
+    {
+     "front": "ヨーグルト",
+     "back": {
+      "ru": "йогурт (yōguruto)",
+      "en": "yoghurt (yōguruto)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "砂糖なしのプレーンヨーグルト。"
+    },
+    {
+     "front": "生クリーム",
+     "back": {
+      "ru": "сливки (nama kurīmu)",
+      "en": "cream (nama kurīmu)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "いちごに生クリームを添えて。"
+    },
+    {
+     "front": "トースト",
+     "back": {
+      "ru": "тост (tōsuto)",
+      "en": "toast (tōsuto)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "バターを塗ったトースト。"
+    },
+    {
+     "front": "サンドイッチ",
+     "back": {
+      "ru": "бутерброд (sandoitchi)",
+      "en": "sandwich (sandoitchi)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "ミックスサンドイッチを一つ。"
+    },
+    {
+     "front": "朝食",
+     "back": {
+      "ru": "завтрак (chōshoku)",
+      "en": "breakfast (chōshoku)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "朝食は七時にとります。"
+    },
+    {
+     "front": "昼食",
+     "back": {
+      "ru": "обед (chūshoku)",
+      "en": "lunch (chūshoku)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "昼食は一時です。"
+    },
+    {
+     "front": "夕食",
+     "back": {
+      "ru": "ужин (yūshoku)",
+      "en": "dinner (yūshoku)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "夕食は八時ごろです。"
+    },
+    {
+     "front": "おやつ",
+     "back": {
+      "ru": "полдник (oyatsu)",
+      "en": "snack (oyatsu)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "子どもたちはおやつを持っていきます。"
+    },
+    {
+     "front": "食事",
+     "back": {
+      "ru": "приём пищи (shokuji)",
+      "en": "meal (shokuji)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "一日に三回食事をします。"
+    },
+    {
+     "front": "食べ物",
+     "back": {
+      "ru": "еда (tabemono)",
+      "en": "food (tabemono)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "食べ物はテーブルの上です。"
+    },
+    {
+     "front": "飲み物",
+     "back": {
+      "ru": "напиток (nomimono)",
+      "en": "drink (nomimono)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "どんな飲み物がいいですか。"
+    },
+    {
+     "front": "皿",
+     "back": {
+      "ru": "тарелка (sara)",
+      "en": "plate (sara)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "皿を台に置いて。"
+    },
+    {
+     "front": "コップ",
+     "back": {
+      "ru": "стакан (koppu)",
+      "en": "glass (koppu)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "コップに半分まで注いで。"
+    },
+    {
+     "front": "カップ",
+     "back": {
+      "ru": "чашка (kappu)",
+      "en": "cup (kappu)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "コーヒーを一カップ。"
+    },
+    {
+     "front": "びん",
+     "back": {
+      "ru": "бутылка (bin)",
+      "en": "bottle (bin)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "水を一びん。"
+    },
+    {
+     "front": "スプーン",
+     "back": {
+      "ru": "ложка (supūn)",
+      "en": "spoon (supūn)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "スプーンが一本足りません。"
+    },
+    {
+     "front": "フォーク",
+     "back": {
+      "ru": "вилка (fōku)",
+      "en": "fork (fōku)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "フォークが床に落ちました。"
+    },
+    {
+     "front": "ナイフ",
+     "back": {
+      "ru": "нож (naifu)",
+      "en": "knife (naifu)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "このナイフは全然切れません。"
+    },
+    {
+     "front": "ナプキン",
+     "back": {
+      "ru": "салфетка (napukin)",
+      "en": "napkin (napukin)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "ナプキンをください。"
+    },
+    {
+     "front": "なべ",
+     "back": {
+      "ru": "кастрюля (nabe)",
+      "en": "pot (nabe)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "なべが火にかかっています。"
+    },
+    {
+     "front": "フライパン",
+     "back": {
+      "ru": "сковорода (furaipan)",
+      "en": "frying pan (furaipan)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "フライパンを温めて。"
+    },
+    {
+     "front": "レストラン",
+     "back": {
+      "ru": "ресторан (resutoran)",
+      "en": "restaurant (resutoran)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "レストランに席を予約しました。"
+    },
+    {
+     "front": "メニュー",
+     "back": {
+      "ru": "меню (menyū)",
+      "en": "menu (menyū)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "店員にメニューを頼んで。"
+    },
+    {
+     "front": "勘定",
+     "back": {
+      "ru": "счёт (kanjō)",
+      "en": "bill (kanjō)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "お勘定をお願いします。"
+    },
+    {
+     "front": "店員",
+     "back": {
+      "ru": "официант (ten'in)",
+      "en": "waiter (ten'in)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "店員がパンを持ってきました。"
+    },
+    {
+     "front": "空腹",
+     "back": {
+      "ru": "голод (kūfuku)",
+      "en": "hunger (kūfuku)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "とても空腹です。"
+    },
+    {
+     "front": "のどのかわき",
+     "back": {
+      "ru": "жажда (nodo no kawaki)",
+      "en": "thirst (nodo no kawaki)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "この暑さでのどのかわきを感じます。"
+    },
+    {
+     "front": "味",
+     "back": {
+      "ru": "вкус (aji)",
+      "en": "taste (aji)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "このスープは味がうすい。"
+    },
+    {
+     "front": "レシピ",
+     "back": {
+      "ru": "рецепт (reshipi)",
+      "en": "recipe (reshipi)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "これは祖母のレシピです。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "服",
+     "back": {
+      "ru": "одежда (fuku)",
+      "en": "clothes (fuku)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "かばんには服を少ししか入れません。"
+    },
+    {
+     "front": "シャツ",
+     "back": {
+      "ru": "рубашка (shatsu)",
+      "en": "shirt (shatsu)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "シャツにアイロンがかかっていません。"
+    },
+    {
+     "front": "セーター",
+     "back": {
+      "ru": "свитер (sētā)",
+      "en": "jumper (sētā)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "寒いからセーターを着て。"
+    },
+    {
+     "front": "Tシャツ",
+     "back": {
+      "ru": "футболка (tī shatsu)",
+      "en": "T-shirt (tī shatsu)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "無地の白いTシャツ。"
+    },
+    {
+     "front": "コート",
+     "back": {
+      "ru": "пальто (kōto)",
+      "en": "coat (kōto)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "コートを車に忘れました。"
+    },
+    {
+     "front": "ジャケット",
+     "back": {
+      "ru": "куртка (jaketto)",
+      "en": "jacket (jaketto)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "雨のためのジャケット。"
+    },
+    {
+     "front": "ベスト",
+     "back": {
+      "ru": "жилет (besuto)",
+      "en": "waistcoat (besuto)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "シャツの上にベストを。"
+    },
+    {
+     "front": "ズボン",
+     "back": {
+      "ru": "брюки (zubon)",
+      "en": "trousers (zubon)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "このズボンはゆるいです。"
+    },
+    {
+     "front": "半ズボン",
+     "back": {
+      "ru": "шорты (han zubon)",
+      "en": "shorts (han zubon)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "夏には半ズボン。"
+    },
+    {
+     "front": "スカート",
+     "back": {
+      "ru": "юбка (sukāto)",
+      "en": "skirt (sukāto)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "ひざまでのスカート。"
+    },
+    {
+     "front": "ワンピース",
+     "back": {
+      "ru": "платье (wanpīsu)",
+      "en": "dress (wanpīsu)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "ワンピースは麻です。"
+    },
+    {
+     "front": "スーツ",
+     "back": {
+      "ru": "костюм (sūtsu)",
+      "en": "suit (sūtsu)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "結婚式にはスーツで行きます。"
+    },
+    {
+     "front": "ネクタイ",
+     "back": {
+      "ru": "галстук (nekutai)",
+      "en": "tie (nekutai)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "ネクタイの結び方を知りません。"
+    },
+    {
+     "front": "ベルト",
+     "back": {
+      "ru": "ремень (beruto)",
+      "en": "belt (beruto)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "ベルトをもう少し締めて。"
+    },
+    {
+     "front": "くつした",
+     "back": {
+      "ru": "носки (kutsushita)",
+      "en": "socks (kutsushita)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "このくつしたは穴が空いています。"
+    },
+    {
+     "front": "タイツ",
+     "back": {
+      "ru": "колготки (taitsu)",
+      "en": "tights (taitsu)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "黒いタイツ。"
+    },
+    {
+     "front": "くつ",
+     "back": {
+      "ru": "туфли (kutsu)",
+      "en": "shoes (kutsu)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "黒い革のくつ。"
+    },
+    {
+     "front": "運動ぐつ",
+     "back": {
+      "ru": "кроссовки (undōgutsu)",
+      "en": "trainers (undōgutsu)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "一日中、運動ぐつをはいています。"
+    },
+    {
+     "front": "ブーツ",
+     "back": {
+      "ru": "сапоги (būtsu)",
+      "en": "boots (būtsu)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "冬用のブーツ。"
+    },
+    {
+     "front": "サンダル",
+     "back": {
+      "ru": "сандалии (sandaru)",
+      "en": "sandals (sandaru)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "浜辺にはサンダル。"
+    },
+    {
+     "front": "スリッパ",
+     "back": {
+      "ru": "тапочки (surippa)",
+      "en": "slippers (surippa)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "寝室のドアの前にスリッパ。"
+    },
+    {
+     "front": "ぼうし",
+     "back": {
+      "ru": "шляпа (bōshi)",
+      "en": "hat (bōshi)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "麦わらのぼうし。"
+    },
+    {
+     "front": "キャップ",
+     "back": {
+      "ru": "кепка (kyappu)",
+      "en": "cap (kyappu)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "日よけのキャップ。"
+    },
+    {
+     "front": "ニット帽",
+     "back": {
+      "ru": "шапка (nittobō)",
+      "en": "woolly hat (nittobō)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "雪にはニット帽とマフラー。"
+    },
+    {
+     "front": "手ぶくろ",
+     "back": {
+      "ru": "перчатки (tebukuro)",
+      "en": "gloves (tebukuro)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "裏地つきの革の手ぶくろ。"
+    },
+    {
+     "front": "マフラー",
+     "back": {
+      "ru": "шарф (mafurā)",
+      "en": "scarf (mafurā)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "マフラーを二重に巻いて。"
+    },
+    {
+     "front": "ハンカチ",
+     "back": {
+      "ru": "платок (hankachi)",
+      "en": "handkerchief (hankachi)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "木綿のハンカチ。"
+    },
+    {
+     "front": "めがね",
+     "back": {
+      "ru": "очки (megane)",
+      "en": "glasses (megane)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "昨日、めがねを壊しました。"
+    },
+    {
+     "front": "かばん",
+     "back": {
+      "ru": "сумка (kaban)",
+      "en": "bag (kaban)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "かばんが重すぎます。"
+    },
+    {
+     "front": "さいふ",
+     "back": {
+      "ru": "кошелёк (saifu)",
+      "en": "wallet (saifu)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "さいふを家に忘れました。"
+    },
+    {
+     "front": "リュック",
+     "back": {
+      "ru": "рюкзак (ryukku)",
+      "en": "backpack (ryukku)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "学校のリュックは重いです。"
+    },
+    {
+     "front": "かさ",
+     "back": {
+      "ru": "зонт (kasa)",
+      "en": "umbrella (kasa)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "かさを持っていって。"
+    },
+    {
+     "front": "パジャマ",
+     "back": {
+      "ru": "пижама (pajama)",
+      "en": "pyjamas (pajama)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "ネル地のパジャマ。"
+    },
+    {
+     "front": "バスローブ",
+     "back": {
+      "ru": "халат (basurōbu)",
+      "en": "dressing gown (basurōbu)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "バスローブはドアの裏です。"
+    },
+    {
+     "front": "タオル",
+     "back": {
+      "ru": "полотенце (taoru)",
+      "en": "towel (taoru)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "風呂にきれいなタオルを。"
+    },
+    {
+     "front": "ポケット",
+     "back": {
+      "ru": "карман (poketto)",
+      "en": "pocket (poketto)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "鍵はポケットに入っています。"
+    },
+    {
+     "front": "ボタン",
+     "back": {
+      "ru": "пуговица (botan)",
+      "en": "button (botan)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "シャツのボタンが取れました。"
+    },
+    {
+     "front": "ファスナー",
+     "back": {
+      "ru": "молния (fasunā)",
+      "en": "zip (fasunā)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "かばんのファスナーが壊れました。"
+    },
+    {
+     "front": "そで",
+     "back": {
+      "ru": "рукав (sode)",
+      "en": "sleeve (sode)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "そでをまくって。"
+    },
+    {
+     "front": "えり",
+     "back": {
+      "ru": "воротник (eri)",
+      "en": "collar (eri)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "えりに汚れがついています。"
+    },
+    {
+     "front": "サイズ",
+     "back": {
+      "ru": "размер (saizu)",
+      "en": "size (saizu)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "このシャツ、別のサイズはありますか。"
+    },
+    {
+     "front": "生地",
+     "back": {
+      "ru": "ткань (kiji)",
+      "en": "fabric (kiji)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "夏には軽い生地を。"
+    },
+    {
+     "front": "綿",
+     "back": {
+      "ru": "хлопок (men)",
+      "en": "cotton (men)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "綿のシャツ。"
+    },
+    {
+     "front": "毛",
+     "back": {
+      "ru": "шерсть (ke)",
+      "en": "wool (ke)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "厚い毛のくつした。"
+    },
+    {
+     "front": "絹",
+     "back": {
+      "ru": "шёлк (kinu)",
+      "en": "silk (kinu)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "絹のスカーフ。"
+    },
+    {
+     "front": "革",
+     "back": {
+      "ru": "кожа (kawa)",
+      "en": "leather (kawa)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "茶色い革のブーツ。"
+    },
+    {
+     "front": "ハンガー",
+     "back": {
+      "ru": "вешалка (hangā)",
+      "en": "hanger (hangā)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "上着をハンガーにかけて。"
+    },
+    {
+     "front": "たんす",
+     "back": {
+      "ru": "шкаф (tansu)",
+      "en": "wardrobe (tansu)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "たんすがいっぱいです。"
+    },
+    {
+     "front": "指輪",
+     "back": {
+      "ru": "кольцо (yubiwa)",
+      "en": "ring (yubiwa)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "銀の指輪。"
+    }
+   ]
+  }
+ ]
+}

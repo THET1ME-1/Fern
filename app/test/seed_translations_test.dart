@@ -14,7 +14,9 @@ import 'test_helpers.dart';
 /// Если у карточки есть перевод только на русский, попробовать язык сможет
 /// один человек из семи, а остальные увидят кириллицу на обороте.
 const _uiLangs = ['ru', 'en', 'de', 'fr', 'es', 'it', 'pt'];
-const _assets = [
+
+/// Наборы первой волны: у них раскладка колод ровно 180/140/100/80.
+const _firstWave = [
   'assets/seed/en.json',
   'assets/starter/es.json',
   'assets/starter/de.json',
@@ -23,7 +25,24 @@ const _assets = [
   'assets/starter/ru.json',
 ];
 
-/// Раскладка набора: столько карточек в колоде с таким ключом имени.
+/// Остальные сорок девять языков. Слов те же 500, но делятся между колодами
+/// иначе: сетка понятий у них общая, и «Первых слов» в ней больше.
+const _secondWave = [
+  'af', 'ar', 'az', 'bg', 'bn', 'ca', 'cs', 'da',
+  'el', 'eo', 'et', 'fa', 'fi', 'ga', 'he', 'hi',
+  'hr', 'hu', 'hy', 'id', 'is', 'ja', 'ka', 'kk',
+  'ko', 'lt', 'lv', 'ms', 'nb', 'nl', 'pl', 'pt',
+  'ro', 'sk', 'sl', 'sq', 'sr', 'sv', 'sw', 'ta',
+  'te', 'th', 'tl', 'tr', 'uk', 'ur', 'uz', 'vi',
+  'zh',
+];
+
+List<String> get _assets => [
+      ..._firstWave,
+      for (final code in _secondWave) 'assets/starter/$code.json',
+    ];
+
+/// Раскладка набора первой волны: столько карточек в колоде с таким ключом.
 const _layout = {
   'seed_deck_first_words': 180,
   'seed_deck_verbs': 140,
@@ -71,7 +90,12 @@ void main() {
         for (final d in decks)
           d['nameKey'] as String: (d['cards'] as List).length,
       };
-      expect(sizes, _layout, reason: 'раскладка набора должна совпадать');
+      if (_firstWave.contains(path)) {
+        expect(sizes, _layout, reason: 'раскладка набора должна совпадать');
+      } else {
+        expect(sizes.keys.toSet(), _layout.keys.toSet(),
+            reason: 'колоды набора те же четыре');
+      }
 
       final cards = [
         for (final d in decks) ...(d['cards'] as List).cast<Map<String, dynamic>>(),

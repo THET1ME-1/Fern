@@ -1,0 +1,6533 @@
+{
+ "lang": "he",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "שלום",
+     "back": {
+      "ru": "привет (shalom)",
+      "en": "hello (shalom)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "שלום, מה שלומך?"
+    },
+    {
+     "front": "להתראות",
+     "back": {
+      "ru": "до свидания (lehitraot)",
+      "en": "goodbye (lehitraot)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "להתראות, נתראה מחר."
+    },
+    {
+     "front": "כן",
+     "back": {
+      "ru": "да (ken)",
+      "en": "yes (ken)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "כן, בטח שאבוא."
+    },
+    {
+     "front": "לא",
+     "back": {
+      "ru": "нет (lo)",
+      "en": "no (lo)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "לא, תודה."
+    },
+    {
+     "front": "בבקשה",
+     "back": {
+      "ru": "пожалуйста (bevakasha)",
+      "en": "please (bevakasha)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "קפה אחד, בבקשה."
+    },
+    {
+     "front": "תודה",
+     "back": {
+      "ru": "спасибо (toda)",
+      "en": "thank you (toda)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "תודה על העזרה."
+    },
+    {
+     "front": "סליחה",
+     "back": {
+      "ru": "извини (slikha)",
+      "en": "sorry (slikha)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "סליחה, איחרתי."
+    },
+    {
+     "front": "בוקר טוב",
+     "back": {
+      "ru": "доброе утро (boker tov)",
+      "en": "good morning (boker tov)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "בוקר טוב, ישנת טוב?"
+    },
+    {
+     "front": "לילה טוב",
+     "back": {
+      "ru": "спокойной ночи (layla tov)",
+      "en": "good night (layla tov)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "לילה טוב, נתראה מחר."
+    },
+    {
+     "front": "הכול בסדר",
+     "back": {
+      "ru": "всё хорошо (hakol beseder)",
+      "en": "all right (hakol beseder)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "אל תדאג, הכול בסדר."
+    },
+    {
+     "front": "גבר",
+     "back": {
+      "ru": "мужчина (gever)",
+      "en": "man (gever)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "הגבר ההוא הוא השכן שלנו."
+    },
+    {
+     "front": "אישה",
+     "back": {
+      "ru": "женщина (isha)",
+      "en": "woman (isha)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "האישה במעיל הכחול היא רופאה."
+    },
+    {
+     "front": "ילד",
+     "back": {
+      "ru": "ребёнок (yeled)",
+      "en": "child (yeled)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "הילד משחק בגינה."
+    },
+    {
+     "front": "נער",
+     "back": {
+      "ru": "мальчик (naar)",
+      "en": "boy (naar)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "הנער רץ לבית הספר."
+    },
+    {
+     "front": "נערה",
+     "back": {
+      "ru": "девочка (naara)",
+      "en": "girl (naara)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "הנערה מציירת פרח."
+    },
+    {
+     "front": "חבר",
+     "back": {
+      "ru": "друг (khaver)",
+      "en": "friend (khaver)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "החבר שלי גר בחיפה."
+    },
+    {
+     "front": "משפחה",
+     "back": {
+      "ru": "семья (mishpakha)",
+      "en": "family (mishpakha)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "כל המשפחה באה לארוחת ערב."
+    },
+    {
+     "front": "אמא",
+     "back": {
+      "ru": "мама (ima)",
+      "en": "mother (ima)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "אמא שלי שרה יפה מאוד."
+    },
+    {
+     "front": "אבא",
+     "back": {
+      "ru": "папа (aba)",
+      "en": "father (aba)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "אבא שלי עובד בלילה."
+    },
+    {
+     "front": "בן",
+     "back": {
+      "ru": "сын (ben)",
+      "en": "son (ben)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "הבן שלהם בן חמש."
+    },
+    {
+     "front": "בת",
+     "back": {
+      "ru": "дочь (bat)",
+      "en": "daughter (bat)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "הבת הגדולה לומדת רפואה."
+    },
+    {
+     "front": "אח",
+     "back": {
+      "ru": "брат (akh)",
+      "en": "brother (akh)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "האח שלי משחק כדורגל."
+    },
+    {
+     "front": "אחות",
+     "back": {
+      "ru": "сестра (akhot)",
+      "en": "sister (akhot)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "האחות שלי גרה בתל אביב."
+    },
+    {
+     "front": "סבתא",
+     "back": {
+      "ru": "бабушка (savta)",
+      "en": "grandmother (savta)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "סבתא אופה את העוגה הכי טובה."
+    },
+    {
+     "front": "סבא",
+     "back": {
+      "ru": "дедушка (saba)",
+      "en": "grandfather (saba)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "סבא מספר סיפורים ישנים."
+    },
+    {
+     "front": "אדם",
+     "back": {
+      "ru": "человек (adam)",
+      "en": "person (adam)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "את האדם הזה איני מכיר."
+    },
+    {
+     "front": "אנשים",
+     "back": {
+      "ru": "люди (anashim)",
+      "en": "people (anashim)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "האנשים בכיכר התפזרו."
+    },
+    {
+     "front": "שם",
+     "back": {
+      "ru": "имя (shem)",
+      "en": "name (shem)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "מה שמך?"
+    },
+    {
+     "front": "אדון",
+     "back": {
+      "ru": "господин (adon)",
+      "en": "sir (adon)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "בוקר טוב, אדון לוי."
+    },
+    {
+     "front": "גברת",
+     "back": {
+      "ru": "госпожа (gveret)",
+      "en": "madam (gveret)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "הגברת זקוקה לעזרה?"
+    },
+    {
+     "front": "אני",
+     "back": {
+      "ru": "я (ani)",
+      "en": "I (ani)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "אני גר כאן בקרבת מקום."
+    },
+    {
+     "front": "אתה",
+     "back": {
+      "ru": "ты (ata)",
+      "en": "you (ata)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "אתה מדבר עברית?"
+    },
+    {
+     "front": "אתם",
+     "back": {
+      "ru": "вы (atem)",
+      "en": "you (atem)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "אתם רוצים לשבת?"
+    },
+    {
+     "front": "הוא",
+     "back": {
+      "ru": "он (hu)",
+      "en": "he (hu)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "הוא מגיע בשמונה."
+    },
+    {
+     "front": "היא",
+     "back": {
+      "ru": "она (hi)",
+      "en": "she (hi)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "היא עובדת בבית חולים."
+    },
+    {
+     "front": "אנחנו",
+     "back": {
+      "ru": "мы (anakhnu)",
+      "en": "we (anakhnu)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "אנחנו נוסעים ברכבת."
+    },
+    {
+     "front": "הם",
+     "back": {
+      "ru": "они (hem)",
+      "en": "they (hem)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "הם גרים באותו בניין."
+    },
+    {
+     "front": "שלי",
+     "back": {
+      "ru": "мой (sheli)",
+      "en": "my (sheli)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "זה המקום שלי."
+    },
+    {
+     "front": "שלך",
+     "back": {
+      "ru": "твой (shelkha)",
+      "en": "your (shelkha)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "המעיל שלך נשאר על הכיסא."
+    },
+    {
+     "front": "שלנו",
+     "back": {
+      "ru": "наш (shelanu)",
+      "en": "our (shelanu)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "המכונית שלנו קטנה."
+    },
+    {
+     "front": "זה",
+     "back": {
+      "ru": "этот (ze)",
+      "en": "this (ze)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "הספר הזה מעניין מאוד."
+    },
+    {
+     "front": "ההוא",
+     "back": {
+      "ru": "тот (hahu)",
+      "en": "that (hahu)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "הבניין ההוא ישן מאוד."
+    },
+    {
+     "front": "מי",
+     "back": {
+      "ru": "кто (mi)",
+      "en": "who (mi)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "מי בדלת?"
+    },
+    {
+     "front": "מה",
+     "back": {
+      "ru": "что (ma)",
+      "en": "what (ma)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "מה אתה אומר?"
+    },
+    {
+     "front": "איפה",
+     "back": {
+      "ru": "где (eifo)",
+      "en": "where (eifo)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "איפה התחנה?"
+    },
+    {
+     "front": "מתי",
+     "back": {
+      "ru": "когда (matai)",
+      "en": "when (matai)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "מתי מתחיל הסרט?"
+    },
+    {
+     "front": "איך",
+     "back": {
+      "ru": "как (eikh)",
+      "en": "how (eikh)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "איך אומרים את זה?"
+    },
+    {
+     "front": "למה",
+     "back": {
+      "ru": "почему (lama)",
+      "en": "why (lama)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "למה כל הבהילות?"
+    },
+    {
+     "front": "איזה",
+     "back": {
+      "ru": "который (eize)",
+      "en": "which (eize)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "איזה אתה מעדיף?"
+    },
+    {
+     "front": "אפס",
+     "back": {
+      "ru": "ноль (efes)",
+      "en": "zero (efes)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "הטמפרטורה היא אפס מעלות."
+    },
+    {
+     "front": "אחד",
+     "back": {
+      "ru": "один (ekhad)",
+      "en": "one (ekhad)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "נשאר רק מקום אחד."
+    },
+    {
+     "front": "שניים",
+     "back": {
+      "ru": "два (shnayim)",
+      "en": "two (shnayim)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "יש לי שני אחים."
+    },
+    {
+     "front": "שלושה",
+     "back": {
+      "ru": "три (shlosha)",
+      "en": "three (shlosha)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "אני חוזר בעוד שלושה ימים."
+    },
+    {
+     "front": "ארבעה",
+     "back": {
+      "ru": "четыре (arbaa)",
+      "en": "four (arbaa)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "לשולחן יש ארבעה כיסאות."
+    },
+    {
+     "front": "חמישה",
+     "back": {
+      "ru": "пять (khamisha)",
+      "en": "five (khamisha)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "הסרט נמשך חמש שעות."
+    },
+    {
+     "front": "שישה",
+     "back": {
+      "ru": "шесть (shisha)",
+      "en": "six (shisha)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "אני קם בשש."
+    },
+    {
+     "front": "שבעה",
+     "back": {
+      "ru": "семь (shiva)",
+      "en": "seven (shiva)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "בשבוע יש שבעה ימים."
+    },
+    {
+     "front": "שמונה",
+     "back": {
+      "ru": "восемь (shmona)",
+      "en": "eight (shmona)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "הרכבת יוצאת בשמונה."
+    },
+    {
+     "front": "תשעה",
+     "back": {
+      "ru": "девять (tisha)",
+      "en": "nine (tisha)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "היא בת תשע."
+    },
+    {
+     "front": "עשרה",
+     "back": {
+      "ru": "десять (asara)",
+      "en": "ten (asara)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "נשארו עשר דקות."
+    },
+    {
+     "front": "אחד עשר",
+     "back": {
+      "ru": "одиннадцать (akhad asar)",
+      "en": "eleven (akhad asar)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "השיעור מסתיים באחת עשרה."
+    },
+    {
+     "front": "שנים עשר",
+     "back": {
+      "ru": "двенадцать (shneim asar)",
+      "en": "twelve (shneim asar)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "בשנה יש שנים עשר חודשים."
+    },
+    {
+     "front": "עשרים",
+     "back": {
+      "ru": "двадцать (esrim)",
+      "en": "twenty (esrim)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "הכרטיס עולה עשרים שקלים."
+    },
+    {
+     "front": "שלושים",
+     "back": {
+      "ru": "тридцать (shloshim)",
+      "en": "thirty (shloshim)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "בחודש הזה שלושים ימים."
+    },
+    {
+     "front": "מאה",
+     "back": {
+      "ru": "сто (mea)",
+      "en": "hundred (mea)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "נשארו מאה מטרים."
+    },
+    {
+     "front": "אלף",
+     "back": {
+      "ru": "тысяча (elef)",
+      "en": "thousand (elef)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "בכפר גרים אלף אנשים."
+    },
+    {
+     "front": "ראשון",
+     "back": {
+      "ru": "первый (rishon)",
+      "en": "first (rishon)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "היום הוא היום הראשון בבית הספר."
+    },
+    {
+     "front": "אחרון",
+     "back": {
+      "ru": "последний (akharon)",
+      "en": "last (akharon)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "תפסתי את האוטובוס האחרון."
+    },
+    {
+     "front": "מספר",
+     "back": {
+      "ru": "номер (mispar)",
+      "en": "number (mispar)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "מה מספר הבית שלכם?"
+    },
+    {
+     "front": "חצי",
+     "back": {
+      "ru": "половина (khatsi)",
+      "en": "half (khatsi)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "אכלתי חצי מהעוגה."
+    },
+    {
+     "front": "יום",
+     "back": {
+      "ru": "день (yom)",
+      "en": "day (yom)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "זה היה יום ארוך."
+    },
+    {
+     "front": "לילה",
+     "back": {
+      "ru": "ночь (layla)",
+      "en": "night (layla)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "הלילה קר."
+    },
+    {
+     "front": "בוקר",
+     "back": {
+      "ru": "утро (boker)",
+      "en": "morning (boker)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "בבוקר אני שותה תה."
+    },
+    {
+     "front": "אחר הצהריים",
+     "back": {
+      "ru": "вечер (akhar hatsohorayim)",
+      "en": "afternoon (akhar hatsohorayim)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "אחר הצהריים אני הולך לשוק."
+    },
+    {
+     "front": "היום",
+     "back": {
+      "ru": "сегодня (hayom)",
+      "en": "today (hayom)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "היום אני לא עובד."
+    },
+    {
+     "front": "מחר",
+     "back": {
+      "ru": "завтра (makhar)",
+      "en": "tomorrow (makhar)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "מחר אנחנו נוסעים לחוף."
+    },
+    {
+     "front": "אתמול",
+     "back": {
+      "ru": "вчера (etmol)",
+      "en": "yesterday (etmol)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "אתמול ירד גשם כל היום."
+    },
+    {
+     "front": "שבוע",
+     "back": {
+      "ru": "неделя (shavua)",
+      "en": "week (shavua)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "אני חוזר בשבוע הבא."
+    },
+    {
+     "front": "חודש",
+     "back": {
+      "ru": "месяц (khodesh)",
+      "en": "month (khodesh)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "החודש הזה עובר טוב."
+    },
+    {
+     "front": "שנה",
+     "back": {
+      "ru": "год (shana)",
+      "en": "year (shana)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "השנה שעברה הייתה קשה."
+    },
+    {
+     "front": "שעה",
+     "back": {
+      "ru": "час (shaa)",
+      "en": "hour (shaa)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "הנסיעה נמשכת שעה."
+    },
+    {
+     "front": "דקה",
+     "back": {
+      "ru": "минута (daka)",
+      "en": "minute (daka)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "חכה דקה, בבקשה."
+    },
+    {
+     "front": "זמן",
+     "back": {
+      "ru": "время (zman)",
+      "en": "time (zman)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "אין לי זמן עכשיו."
+    },
+    {
+     "front": "עכשיו",
+     "back": {
+      "ru": "сейчас (akhshav)",
+      "en": "now (akhshav)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "עכשיו אני עסוק."
+    },
+    {
+     "front": "תמיד",
+     "back": {
+      "ru": "всегда (tamid)",
+      "en": "always (tamid)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "היא תמיד מגיעה מוקדם."
+    },
+    {
+     "front": "אף פעם",
+     "back": {
+      "ru": "никогда (af paam)",
+      "en": "never (af paam)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "אף פעם לא הייתי ברומא."
+    },
+    {
+     "front": "מוקדם",
+     "back": {
+      "ru": "рано (mukdam)",
+      "en": "early (mukdam)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "קמתי מוקדם מאוד."
+    },
+    {
+     "front": "יום שני",
+     "back": {
+      "ru": "понедельник (yom sheni)",
+      "en": "Monday (yom sheni)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "ביום שני יש לי תור לרופא."
+    },
+    {
+     "front": "שבת",
+     "back": {
+      "ru": "суббота (shabat)",
+      "en": "Saturday (shabat)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "בשבת אני ישן עד מאוחר."
+    },
+    {
+     "front": "יום ראשון",
+     "back": {
+      "ru": "воскресенье (yom rishon)",
+      "en": "Sunday (yom rishon)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "ביום ראשון אנחנו אוכלים עם המשפחה."
+    },
+    {
+     "front": "בית",
+     "back": {
+      "ru": "дом (bayit)",
+      "en": "house (bayit)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "מאחורי הבית יש גינה."
+    },
+    {
+     "front": "עיר",
+     "back": {
+      "ru": "город (ir)",
+      "en": "city (ir)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "תל אביב היא עיר גדולה."
+    },
+    {
+     "front": "כפר",
+     "back": {
+      "ru": "деревня (kfar)",
+      "en": "village (kfar)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "הכפר נמצא למרגלות ההר."
+    },
+    {
+     "front": "רחוב",
+     "back": {
+      "ru": "улица (rekhov)",
+      "en": "street (rekhov)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "הרחוב מלא אנשים."
+    },
+    {
+     "front": "בית ספר",
+     "back": {
+      "ru": "школа (beit sefer)",
+      "en": "school (beit sefer)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "בית הספר נפתח בשמונה."
+    },
+    {
+     "front": "עבודה",
+     "back": {
+      "ru": "работа (avoda)",
+      "en": "work (avoda)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "העבודה מסתיימת בשש."
+    },
+    {
+     "front": "חנות",
+     "back": {
+      "ru": "магазин (khanut)",
+      "en": "shop (khanut)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "החנות סגורה בשבת."
+    },
+    {
+     "front": "שוק",
+     "back": {
+      "ru": "рынок (shuk)",
+      "en": "market (shuk)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "אני קונה פירות בשוק."
+    },
+    {
+     "front": "בית חולים",
+     "back": {
+      "ru": "больница (beit kholim)",
+      "en": "hospital (beit kholim)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "בית החולים קרוב לכאן."
+    },
+    {
+     "front": "בית מרקחת",
+     "back": {
+      "ru": "аптека (beit mirkakhat)",
+      "en": "pharmacy (beit mirkakhat)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "בית המרקחת פתוח גם בלילה."
+    },
+    {
+     "front": "בנק",
+     "back": {
+      "ru": "банк (bank)",
+      "en": "bank (bank)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "בבוקר אני הולך לבנק."
+    },
+    {
+     "front": "בית מלון",
+     "back": {
+      "ru": "гостиница (beit malon)",
+      "en": "hotel (beit malon)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "בית המלון נמצא ממש ליד הים."
+    },
+    {
+     "front": "כנסייה",
+     "back": {
+      "ru": "церковь (knesiya)",
+      "en": "church (knesiya)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "הכנסייה הזאת עתיקה מאוד."
+    },
+    {
+     "front": "גינה",
+     "back": {
+      "ru": "сад (gina)",
+      "en": "garden (gina)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "הגינה מלאה פרחים."
+    },
+    {
+     "front": "חוף",
+     "back": {
+      "ru": "пляж (khof)",
+      "en": "beach (khof)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "החוף במרחק עשר דקות."
+    },
+    {
+     "front": "ים",
+     "back": {
+      "ru": "море (yam)",
+      "en": "sea (yam)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "הים רגוע היום."
+    },
+    {
+     "front": "נהר",
+     "back": {
+      "ru": "река (nahar)",
+      "en": "river (nahar)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "הנהר חוצה את העיר."
+    },
+    {
+     "front": "הר",
+     "back": {
+      "ru": "гора (har)",
+      "en": "mountain (har)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "בפסגת ההר יש שלג."
+    },
+    {
+     "front": "שדה",
+     "back": {
+      "ru": "поле (sade)",
+      "en": "field (sade)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "בשדה גדלה חיטה."
+    },
+    {
+     "front": "יער",
+     "back": {
+      "ru": "лес (yaar)",
+      "en": "forest (yaar)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "היער מתחיל אחרי הגשר."
+    },
+    {
+     "front": "מדינה",
+     "back": {
+      "ru": "страна (medina)",
+      "en": "country (medina)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "פורטוגל היא מדינה קטנה."
+    },
+    {
+     "front": "עולם",
+     "back": {
+      "ru": "мир (olam)",
+      "en": "world (olam)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "הוא טייל בחצי העולם."
+    },
+    {
+     "front": "דרך",
+     "back": {
+      "ru": "дорога (derekh)",
+      "en": "road (derekh)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "הדרך צרה."
+    },
+    {
+     "front": "גשר",
+     "back": {
+      "ru": "мост (gesher)",
+      "en": "bridge (gesher)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "הגשר סגור בגלל עבודות."
+    },
+    {
+     "front": "תחנה",
+     "back": {
+      "ru": "вокзал (takhana)",
+      "en": "station (takhana)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "ניפגש בתחנה."
+    },
+    {
+     "front": "שדה תעופה",
+     "back": {
+      "ru": "аэропорт (sde teufa)",
+      "en": "airport (sde teufa)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "שדה התעופה רחוק מהמרכז."
+    },
+    {
+     "front": "חדר",
+     "back": {
+      "ru": "комната (kheder)",
+      "en": "room (kheder)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "לחדר יש חלון גדול."
+    },
+    {
+     "front": "מטבח",
+     "back": {
+      "ru": "кухня (mitbakh)",
+      "en": "kitchen (mitbakh)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "במטבח יש ריח של קפה."
+    },
+    {
+     "front": "דלת",
+     "back": {
+      "ru": "дверь (delet)",
+      "en": "door (delet)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "תסגור את הדלת, קר."
+    },
+    {
+     "front": "חלון",
+     "back": {
+      "ru": "окно (khalon)",
+      "en": "window (khalon)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "תפתח את החלון, מחניק כאן."
+    },
+    {
+     "front": "שולחן",
+     "back": {
+      "ru": "стол (shulkhan)",
+      "en": "table (shulkhan)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "שים את הצלחות על השולחן."
+    },
+    {
+     "front": "כיסא",
+     "back": {
+      "ru": "стул (kise)",
+      "en": "chair (kise)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "חסר כיסא ליד השולחן."
+    },
+    {
+     "front": "מיטה",
+     "back": {
+      "ru": "кровать (mita)",
+      "en": "bed (mita)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "המיטה הזאת קשה מדי."
+    },
+    {
+     "front": "מכונית",
+     "back": {
+      "ru": "машина (mekhonit)",
+      "en": "car (mekhonit)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "המכונית לא מתניעה בבוקר."
+    },
+    {
+     "front": "אוטובוס",
+     "back": {
+      "ru": "автобус (otobus)",
+      "en": "bus (otobus)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "האוטובוס עובר כל חצי שעה."
+    },
+    {
+     "front": "רכבת",
+     "back": {
+      "ru": "поезд (rakevet)",
+      "en": "train (rakevet)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "הרכבת הגיעה באיחור."
+    },
+    {
+     "front": "מטוס",
+     "back": {
+      "ru": "самолёт (matos)",
+      "en": "plane (matos)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "המטוס ממריא בשבע."
+    },
+    {
+     "front": "אופניים",
+     "back": {
+      "ru": "велосипед (ofanayim)",
+      "en": "bicycle (ofanayim)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "אני נוסע לעבודה באופניים."
+    },
+    {
+     "front": "שמש",
+     "back": {
+      "ru": "солнце (shemesh)",
+      "en": "sun (shemesh)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "השמש זורחת בשש וחצי."
+    },
+    {
+     "front": "ירח",
+     "back": {
+      "ru": "луна (yareakh)",
+      "en": "moon (yareakh)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "הירח מלא הלילה."
+    },
+    {
+     "front": "כוכב",
+     "back": {
+      "ru": "звезда (kokhav)",
+      "en": "star (kokhav)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "רואים כוכב בהיר בשמיים."
+    },
+    {
+     "front": "שמיים",
+     "back": {
+      "ru": "небо (shamayim)",
+      "en": "sky (shamayim)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "השמיים בהירים."
+    },
+    {
+     "front": "גשם",
+     "back": {
+      "ru": "дождь (geshem)",
+      "en": "rain (geshem)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "הגשם לא נפסק מאתמול."
+    },
+    {
+     "front": "רוח",
+     "back": {
+      "ru": "ветер (ruakh)",
+      "en": "wind (ruakh)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "הרוח הפילה את הכיסאות."
+    },
+    {
+     "front": "שלג",
+     "back": {
+      "ru": "снег (sheleg)",
+      "en": "snow (sheleg)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "שלג הוא דבר נדיר כאן."
+    },
+    {
+     "front": "אש",
+     "back": {
+      "ru": "огонь (esh)",
+      "en": "fire (esh)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "הדלקנו אש באח."
+    },
+    {
+     "front": "אדמה",
+     "back": {
+      "ru": "земля (adama)",
+      "en": "earth (adama)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "האדמה עדיין רטובה."
+    },
+    {
+     "front": "עץ",
+     "back": {
+      "ru": "дерево (ets)",
+      "en": "tree (ets)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "העץ נותן צל בחצר."
+    },
+    {
+     "front": "פרח",
+     "back": {
+      "ru": "цветок (perakh)",
+      "en": "flower (perakh)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "הבאתי פרח מהרחוב."
+    },
+    {
+     "front": "חיה",
+     "back": {
+      "ru": "животное (khaya)",
+      "en": "animal (khaya)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "איזו חיה זאת?"
+    },
+    {
+     "front": "כלב",
+     "back": {
+      "ru": "собака (kelev)",
+      "en": "dog (kelev)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "הכלב ישן ליד הדלת."
+    },
+    {
+     "front": "חתול",
+     "back": {
+      "ru": "кошка (khatul)",
+      "en": "cat (khatul)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "החתול טיפס על הגג."
+    },
+    {
+     "front": "ציפור",
+     "back": {
+      "ru": "птица (tsipor)",
+      "en": "bird (tsipor)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "בבוקר שרה ציפור."
+    },
+    {
+     "front": "סוס",
+     "back": {
+      "ru": "лошадь (sus)",
+      "en": "horse (sus)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "הסוס רץ בשדה."
+    },
+    {
+     "front": "ספר",
+     "back": {
+      "ru": "книга (sefer)",
+      "en": "book (sefer)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "בספר הזה שלוש מאות עמודים."
+    },
+    {
+     "front": "נייר",
+     "back": {
+      "ru": "бумага (neyar)",
+      "en": "paper (neyar)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "תן לי דף נייר."
+    },
+    {
+     "front": "עט",
+     "back": {
+      "ru": "ручка (et)",
+      "en": "pen (et)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "לעט נגמר הדיו."
+    },
+    {
+     "front": "טלפון",
+     "back": {
+      "ru": "телефон (telefon)",
+      "en": "phone (telefon)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "הטלפון צלצל פעמיים."
+    },
+    {
+     "front": "מחשב",
+     "back": {
+      "ru": "компьютер (makhshev)",
+      "en": "computer (makhshev)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "המחשב איטי."
+    },
+    {
+     "front": "כסף",
+     "back": {
+      "ru": "деньги (kesef)",
+      "en": "money (kesef)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "אין לי כסף איתי."
+    },
+    {
+     "front": "מפתח",
+     "back": {
+      "ru": "ключ (mafteakh)",
+      "en": "key (mafteakh)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "איבדתי את מפתח הבית."
+    },
+    {
+     "front": "שעון יד",
+     "back": {
+      "ru": "часы (shon yad)",
+      "en": "watch (shon yad)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "שעון היד שלי ממהר."
+    },
+    {
+     "front": "אור",
+     "back": {
+      "ru": "свет (or)",
+      "en": "light (or)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "תדליק את האור, בבקשה."
+    },
+    {
+     "front": "מוזיקה",
+     "back": {
+      "ru": "музыка (muzika)",
+      "en": "music (muzika)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "המוזיקה מגיעה מבית הקפה הסמוך."
+    },
+    {
+     "front": "סרט",
+     "back": {
+      "ru": "фильм (seret)",
+      "en": "film (seret)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "הסרט מתחיל בתשע."
+    },
+    {
+     "front": "תצלום",
+     "back": {
+      "ru": "фотография (tatslum)",
+      "en": "photo (tatslum)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "צילמתי תצלום של הכיכר."
+    },
+    {
+     "front": "מכתב",
+     "back": {
+      "ru": "письмо (mikhtav)",
+      "en": "letter (mikhtav)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "קיבלתי מכתב מסבתא."
+    },
+    {
+     "front": "עיתון",
+     "back": {
+      "ru": "газета (iton)",
+      "en": "newspaper (iton)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "אני קורא עיתון בארוחת הבוקר."
+    },
+    {
+     "front": "צבע",
+     "back": {
+      "ru": "цвет (tseva)",
+      "en": "colour (tseva)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "מה צבע המכונית שלך?"
+    },
+    {
+     "front": "מילה",
+     "back": {
+      "ru": "слово (mila)",
+      "en": "word (mila)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "לא הבנתי את המילה האחרונה."
+    },
+    {
+     "front": "שפה",
+     "back": {
+      "ru": "язык (safa)",
+      "en": "language (safa)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "עברית היא שפת האם שלי."
+    },
+    {
+     "front": "ראש",
+     "back": {
+      "ru": "голова (rosh)",
+      "en": "head (rosh)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "כואב לי הראש מאתמול."
+    },
+    {
+     "front": "יד",
+     "back": {
+      "ru": "рука (yad)",
+      "en": "hand (yad)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "תן לי את היד."
+    },
+    {
+     "front": "רגל",
+     "back": {
+      "ru": "нога (regel)",
+      "en": "foot (regel)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "הרגל שלי נפוחה."
+    },
+    {
+     "front": "עין",
+     "back": {
+      "ru": "глаз (ayin)",
+      "en": "eye (ayin)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "נכנס לי אבק לעין."
+    },
+    {
+     "front": "פה",
+     "back": {
+      "ru": "рот (pe)",
+      "en": "mouth (pe)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "תפתח את הפה, אמר הרופא."
+    },
+    {
+     "front": "לב",
+     "back": {
+      "ru": "сердце (lev)",
+      "en": "heart (lev)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "הלב פועם מהר."
+    },
+    {
+     "front": "שיער",
+     "back": {
+      "ru": "волосы (sear)",
+      "en": "hair (sear)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "אתמול הסתפרתי."
+    },
+    {
+     "front": "גוף",
+     "back": {
+      "ru": "тело (guf)",
+      "en": "body (guf)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "הגוף מבקש מנוחה."
+    },
+    {
+     "front": "טוב",
+     "back": {
+      "ru": "хороший (tov)",
+      "en": "good (tov)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "זה היה יום עבודה טוב."
+    },
+    {
+     "front": "רע",
+     "back": {
+      "ru": "плохой (ra)",
+      "en": "bad (ra)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "מזג האוויר רע."
+    },
+    {
+     "front": "גדול",
+     "back": {
+      "ru": "большой (gadol)",
+      "en": "big (gadol)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "אנחנו צריכים שולחן גדול."
+    },
+    {
+     "front": "קטן",
+     "back": {
+      "ru": "маленький (katan)",
+      "en": "small (katan)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "החדר קטן אבל מואר."
+    },
+    {
+     "front": "חדש",
+     "back": {
+      "ru": "новый (khadash)",
+      "en": "new (khadash)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "קניתי טלפון חדש."
+    },
+    {
+     "front": "ישן",
+     "back": {
+      "ru": "старый (yashan)",
+      "en": "old (yashan)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "הבניין הזה ישן."
+    },
+    {
+     "front": "צעיר",
+     "back": {
+      "ru": "молодой (tsair)",
+      "en": "young (tsair)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "הוא מורה צעיר."
+    },
+    {
+     "front": "גבוה",
+     "back": {
+      "ru": "высокий (gavoha)",
+      "en": "tall (gavoha)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "הבניין גבוה מאוד."
+    },
+    {
+     "front": "נמוך",
+     "back": {
+      "ru": "низкий (namukh)",
+      "en": "short (namukh)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "התקרה נמוכה."
+    },
+    {
+     "front": "ארוך",
+     "back": {
+      "ru": "длинный (arokh)",
+      "en": "long (arokh)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "הדרך ארוכה."
+    },
+    {
+     "front": "קצר",
+     "back": {
+      "ru": "короткий (katsar)",
+      "en": "short (katsar)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "הסרט היה קצר."
+    },
+    {
+     "front": "חם",
+     "back": {
+      "ru": "горячий (kham)",
+      "en": "hot (kham)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "התה חם."
+    },
+    {
+     "front": "קר",
+     "back": {
+      "ru": "холодный (kar)",
+      "en": "cold (kar)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "בחדר קר."
+    },
+    {
+     "front": "יפה",
+     "back": {
+      "ru": "красивый (yafe)",
+      "en": "beautiful (yafe)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "איזה נוף יפה!"
+    },
+    {
+     "front": "מכוער",
+     "back": {
+      "ru": "некрасивый (mekhoar)",
+      "en": "ugly (mekhoar)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "הבניין החדש מכוער."
+    },
+    {
+     "front": "קל",
+     "back": {
+      "ru": "лёгкий (kal)",
+      "en": "easy (kal)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "התרגיל היה קל."
+    },
+    {
+     "front": "קשה",
+     "back": {
+      "ru": "трудный (kashe)",
+      "en": "difficult (kashe)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "השאלה קשה."
+    },
+    {
+     "front": "חזק",
+     "back": {
+      "ru": "сильный (khazak)",
+      "en": "strong (khazak)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "הקפה חזק."
+    },
+    {
+     "front": "חלש",
+     "back": {
+      "ru": "слабый (khalash)",
+      "en": "weak (khalash)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "הקליטה חלשה."
+    },
+    {
+     "front": "מהיר",
+     "back": {
+      "ru": "быстрый (mahir)",
+      "en": "fast (mahir)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "הרכבת מהירה."
+    },
+    {
+     "front": "איטי",
+     "back": {
+      "ru": "медленный (iti)",
+      "en": "slow (iti)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "השירות כאן איטי."
+    },
+    {
+     "front": "יקר",
+     "back": {
+      "ru": "дорогой (yakar)",
+      "en": "expensive (yakar)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "המלון יקר."
+    },
+    {
+     "front": "זול",
+     "back": {
+      "ru": "дешёвый (zol)",
+      "en": "cheap (zol)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "מצאתי כרטיס זול."
+    },
+    {
+     "front": "נקי",
+     "back": {
+      "ru": "чистый (naki)",
+      "en": "clean (naki)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "הרצפה נקייה."
+    },
+    {
+     "front": "מלוכלך",
+     "back": {
+      "ru": "грязный (melukhlakh)",
+      "en": "dirty (melukhlakh)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "המכונית מלוכלכת מאבק."
+    },
+    {
+     "front": "מלא",
+     "back": {
+      "ru": "полный (male)",
+      "en": "full (male)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "האוטובוס הגיע מלא."
+    },
+    {
+     "front": "ריק",
+     "back": {
+      "ru": "пустой (reik)",
+      "en": "empty (reik)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "הכוס ריקה."
+    },
+    {
+     "front": "מאושר",
+     "back": {
+      "ru": "счастливый (meushar)",
+      "en": "happy (meushar)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "היא הייתה מאושרת מהחדשות."
+    },
+    {
+     "front": "עצוב",
+     "back": {
+      "ru": "грустный (atsuv)",
+      "en": "sad (atsuv)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "הוא חזר עצוב מהעבודה."
+    },
+    {
+     "front": "עייף",
+     "back": {
+      "ru": "усталый (ayef)",
+      "en": "tired (ayef)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "אני עייף אחרי היום הזה."
+    },
+    {
+     "front": "חולה",
+     "back": {
+      "ru": "больной (khole)",
+      "en": "sick (khole)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "הבן שלי חולה."
+    },
+    {
+     "front": "נכון",
+     "back": {
+      "ru": "правильный (nakhon)",
+      "en": "right (nakhon)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "התשובה נכונה."
+    },
+    {
+     "front": "שגוי",
+     "back": {
+      "ru": "неправильный (shagui)",
+      "en": "wrong (shagui)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "המספר שגוי."
+    },
+    {
+     "front": "לבן",
+     "back": {
+      "ru": "белый (lavan)",
+      "en": "white (lavan)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "הקיר לבן."
+    },
+    {
+     "front": "שחור",
+     "back": {
+      "ru": "чёрный (shakhor)",
+      "en": "black (shakhor)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "יש לי חתול שחור."
+    },
+    {
+     "front": "אדום",
+     "back": {
+      "ru": "красный (adom)",
+      "en": "red (adom)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "הרמזור אדום."
+    },
+    {
+     "front": "כחול",
+     "back": {
+      "ru": "синий (kakhol)",
+      "en": "blue (kakhol)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "הים כחול מאוד."
+    },
+    {
+     "front": "ירוק",
+     "back": {
+      "ru": "зелёный (yarok)",
+      "en": "green (yarok)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "באביב העלים נעשים ירוקים."
+    },
+    {
+     "front": "צהוב",
+     "back": {
+      "ru": "жёлтый (tsahov)",
+      "en": "yellow (tsahov)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "הבית צהוב."
+    },
+    {
+     "front": "כאן",
+     "back": {
+      "ru": "здесь (kan)",
+      "en": "here (kan)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "חכה כאן רגע."
+    },
+    {
+     "front": "שם (מקום)",
+     "back": {
+      "ru": "там (sham)",
+      "en": "there (sham)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "המכונית שם."
+    },
+    {
+     "front": "הרבה",
+     "back": {
+      "ru": "много (harbe)",
+      "en": "much (harbe)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "אני שותה הרבה תה."
+    },
+    {
+     "front": "מעט",
+     "back": {
+      "ru": "мало (meat)",
+      "en": "little (meat)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "ישנתי מעט הלילה."
+    },
+    {
+     "front": "יותר",
+     "back": {
+      "ru": "больше (yoter)",
+      "en": "more (yoter)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "אני רוצה יותר זמן."
+    },
+    {
+     "front": "פחות",
+     "back": {
+      "ru": "меньше (pakhot)",
+      "en": "less (pakhot)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "היום יש פחות אנשים."
+    },
+    {
+     "front": "גם",
+     "back": {
+      "ru": "тоже (gam)",
+      "en": "also (gam)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "גם אני הולך."
+    },
+    {
+     "front": "היטב",
+     "back": {
+      "ru": "хорошо (heitev)",
+      "en": "well (heitev)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "היא מדברת צרפתית היטב."
+    },
+    {
+     "front": "רע (תואר פועל)",
+     "back": {
+      "ru": "плохо (ra (toar poal))",
+      "en": "badly (ra (toar poal))",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "ישנתי רע הלילה."
+    },
+    {
+     "front": "עם",
+     "back": {
+      "ru": "с (im)",
+      "en": "with (im)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "אני הולך עם אחותי."
+    },
+    {
+     "front": "בלי",
+     "back": {
+      "ru": "без (bli)",
+      "en": "without (bli)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "אני שותה קפה בלי סוכר."
+    },
+    {
+     "front": "עבור",
+     "back": {
+      "ru": "для (avur)",
+      "en": "for (avur)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "החבילה הזאת עבורך."
+    },
+    {
+     "front": "אבל",
+     "back": {
+      "ru": "но (aval)",
+      "en": "but (aval)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "רציתי ללכת, אבל אי אפשר."
+    },
+    {
+     "front": "או",
+     "back": {
+      "ru": "или (o)",
+      "en": "or (o)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "תה או קפה?"
+    },
+    {
+     "front": "כי",
+     "back": {
+      "ru": "потому что (ki)",
+      "en": "because (ki)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "נשארתי בבית כי ירד גשם."
+    },
+    {
+     "front": "אם",
+     "back": {
+      "ru": "если (im (tnai))",
+      "en": "if (im (tnai))",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "אם ירד גשם, נישאר בבית."
+    },
+    {
+     "front": "אולי",
+     "back": {
+      "ru": "может быть (ulai)",
+      "en": "maybe (ulai)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "אולי הוא יבוא מחר."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "להיות",
+     "back": {
+      "ru": "быть (lihyot)",
+      "en": "to be (lihyot)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "היא מורה למוזיקה."
+    },
+    {
+     "front": "להימצא",
+     "back": {
+      "ru": "находиться (lehimatse)",
+      "en": "to be (state) (lehimatse)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "הספר נמצא על השולחן."
+    },
+    {
+     "front": "יש ל",
+     "back": {
+      "ru": "иметь (yesh le)",
+      "en": "to have (yesh le)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "יש לי שני אחים צעירים."
+    },
+    {
+     "front": "לעשות",
+     "back": {
+      "ru": "делать (laasot)",
+      "en": "to do (laasot)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "מה אתה עושה בימי ראשון?"
+    },
+    {
+     "front": "ללכת",
+     "back": {
+      "ru": "идти (lalekhet)",
+      "en": "to go (lalekhet)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "אני הולך עכשיו לשוק."
+    },
+    {
+     "front": "לבוא",
+     "back": {
+      "ru": "приходить (lavo)",
+      "en": "to come (lavo)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "אתה בא לארוחת ערב?"
+    },
+    {
+     "front": "לומר",
+     "back": {
+      "ru": "говорить (lomar)",
+      "en": "to say (lomar)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "תגיד לי את האמת."
+    },
+    {
+     "front": "לראות",
+     "back": {
+      "ru": "видеть (lirot)",
+      "en": "to see (lirot)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "ראיתי את אחיך ברחוב."
+    },
+    {
+     "front": "לתת",
+     "back": {
+      "ru": "давать (latet)",
+      "en": "to give (latet)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "תן לי את המפתח, בבקשה."
+    },
+    {
+     "front": "לדעת",
+     "back": {
+      "ru": "знать (ladaat)",
+      "en": "to know (ladaat)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "אני לא יודע איפה הוא גר."
+    },
+    {
+     "front": "יכול",
+     "back": {
+      "ru": "мочь (yakhol)",
+      "en": "can (yakhol)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "אתה יכול לעזור לי?"
+    },
+    {
+     "front": "לרצות",
+     "back": {
+      "ru": "хотеть (lirtsot)",
+      "en": "to want (lirtsot)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "אני רוצה כוס מים."
+    },
+    {
+     "front": "צריך",
+     "back": {
+      "ru": "быть должным (tsarikh)",
+      "en": "must (tsarikh)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "היום אני צריך לצאת מוקדם."
+    },
+    {
+     "front": "להישאר",
+     "back": {
+      "ru": "оставаться (lehishaer)",
+      "en": "to stay (lehishaer)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "הערב אני נשאר בבית."
+    },
+    {
+     "front": "לעבור",
+     "back": {
+      "ru": "проходить (laavor)",
+      "en": "to pass (laavor)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "האוטובוס עובר בתשע."
+    },
+    {
+     "front": "להגיע",
+     "back": {
+      "ru": "прибывать (lehagia)",
+      "en": "to arrive (lehagia)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "הרכבת הגיעה באיחור."
+    },
+    {
+     "front": "לצאת",
+     "back": {
+      "ru": "выходить (latset)",
+      "en": "to leave (latset)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "אני יוצא מהעבודה בשש."
+    },
+    {
+     "front": "להיכנס",
+     "back": {
+      "ru": "входить (lehikanes)",
+      "en": "to enter (lehikanes)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "תיכנס, הדלת פתוחה."
+    },
+    {
+     "front": "לחזור",
+     "back": {
+      "ru": "возвращаться (lakhzor)",
+      "en": "to return (lakhzor)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "אני חוזר בעוד חצי שעה."
+    },
+    {
+     "front": "להתחיל",
+     "back": {
+      "ru": "начинать (lehatkhil)",
+      "en": "to begin (lehatkhil)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "השיעור מתחיל בשמונה."
+    },
+    {
+     "front": "לסיים",
+     "back": {
+      "ru": "заканчивать (lesayem)",
+      "en": "to finish (lesayem)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "סיימתי את הספר אתמול."
+    },
+    {
+     "front": "להמשיך",
+     "back": {
+      "ru": "продолжать (lehamshikh)",
+      "en": "to continue (lehamshikh)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "הגשם ממשיך."
+    },
+    {
+     "front": "לעצור",
+     "back": {
+      "ru": "останавливаться (laatsor)",
+      "en": "to stop (laatsor)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "המכונית עצרה מול הדלת."
+    },
+    {
+     "front": "לחכות",
+     "back": {
+      "ru": "ждать (lekhakot)",
+      "en": "to wait (lekhakot)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "אני מחכה לך בתחנה."
+    },
+    {
+     "front": "למצוא",
+     "back": {
+      "ru": "находить (limtso)",
+      "en": "to find (limtso)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "מצאתי את המפתחות על השולחן."
+    },
+    {
+     "front": "לחפש",
+     "back": {
+      "ru": "искать (lekhapes)",
+      "en": "to look for (lekhapes)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "אני מחפש ספר דקדוק."
+    },
+    {
+     "front": "לאבד",
+     "back": {
+      "ru": "терять (leabed)",
+      "en": "to lose (leabed)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "פספסתי את רכבת השבע."
+    },
+    {
+     "front": "לנצח",
+     "back": {
+      "ru": "выигрывать (lenatseakh)",
+      "en": "to win (lenatseakh)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "הקבוצה שלנו ניצחה."
+    },
+    {
+     "front": "לקנות",
+     "back": {
+      "ru": "покупать (liknot)",
+      "en": "to buy (liknot)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "קניתי לחם לארוחת הערב."
+    },
+    {
+     "front": "למכור",
+     "back": {
+      "ru": "продавать (limkor)",
+      "en": "to sell (limkor)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "בפינה מוכרים פירות."
+    },
+    {
+     "front": "לשלם",
+     "back": {
+      "ru": "платить (leshalem)",
+      "en": "to pay (leshalem)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "אני משלם על הקפה."
+    },
+    {
+     "front": "לעלות (מחיר)",
+     "back": {
+      "ru": "стоить (laalot)",
+      "en": "to cost (laalot)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "כמה עולה הכרטיס?"
+    },
+    {
+     "front": "לעבוד",
+     "back": {
+      "ru": "работать (laavod)",
+      "en": "to work (laavod)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "אני עובד בבית חולים."
+    },
+    {
+     "front": "ללמוד",
+     "back": {
+      "ru": "учиться (lilmod)",
+      "en": "to study (lilmod)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "אני לומד עברית כבר שנה."
+    },
+    {
+     "front": "לרכוש מיומנות",
+     "back": {
+      "ru": "изучать (lirkosh meyumanut)",
+      "en": "to learn (lirkosh meyumanut)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "למדתי לשחות בילדות."
+    },
+    {
+     "front": "ללמד",
+     "back": {
+      "ru": "учить (lelamed)",
+      "en": "to teach (lelamed)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "היא מלמדת בבית ספר כפרי."
+    },
+    {
+     "front": "לקרוא",
+     "back": {
+      "ru": "читать (likro)",
+      "en": "to read (likro)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "בבוקר אני קורא עיתון."
+    },
+    {
+     "front": "לכתוב",
+     "back": {
+      "ru": "писать (likhtov)",
+      "en": "to write (likhtov)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "כתבתי לה מכתב ארוך."
+    },
+    {
+     "front": "לדבר",
+     "back": {
+      "ru": "разговаривать (ledaber)",
+      "en": "to speak (ledaber)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "דיברנו אתמול בטלפון."
+    },
+    {
+     "front": "לשמוע",
+     "back": {
+      "ru": "слышать (lishmoa)",
+      "en": "to hear (lishmoa)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "שמעתי רעש במטבח."
+    },
+    {
+     "front": "להקשיב",
+     "back": {
+      "ru": "слушать (lehakshiv)",
+      "en": "to listen (lehakshiv)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "תקשיב היטב למה שאני אומר."
+    },
+    {
+     "front": "להביט",
+     "back": {
+      "ru": "смотреть (lehabit)",
+      "en": "to look (lehabit)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "תביט שמאלה."
+    },
+    {
+     "front": "להרגיש",
+     "back": {
+      "ru": "чувствовать (lehargish)",
+      "en": "to feel (lehargish)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "אני מרגיש קור בידיים."
+    },
+    {
+     "front": "לחשוב",
+     "back": {
+      "ru": "думать (lakhshov)",
+      "en": "to think (lakhshov)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "אני חושב על זה מאתמול."
+    },
+    {
+     "front": "לזכור",
+     "back": {
+      "ru": "помнить (lizkor)",
+      "en": "to remember (lizkor)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "אני זוכר היטב את היום ההוא."
+    },
+    {
+     "front": "לשכוח",
+     "back": {
+      "ru": "забывать (lishkoakh)",
+      "en": "to forget (lishkoakh)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "שכחתי את שמך."
+    },
+    {
+     "front": "להבין",
+     "back": {
+      "ru": "понимать (lehavin)",
+      "en": "to understand (lehavin)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "לא הבנתי את השאלה."
+    },
+    {
+     "front": "להסביר",
+     "back": {
+      "ru": "объяснять (lehasbir)",
+      "en": "to explain (lehasbir)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "תסביר את זה שוב."
+    },
+    {
+     "front": "לשאול",
+     "back": {
+      "ru": "спрашивать (lishol)",
+      "en": "to ask (lishol)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "שאלתי את השכן."
+    },
+    {
+     "front": "לענות",
+     "back": {
+      "ru": "отвечать (laanot)",
+      "en": "to answer (laanot)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "היא עדיין לא ענתה."
+    },
+    {
+     "front": "לקרוא (להזעיק)",
+     "back": {
+      "ru": "звать (likro (lehazik))",
+      "en": "to call (likro (lehazik))",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "תקרא לרופא, מהר."
+    },
+    {
+     "front": "להתקשר",
+     "back": {
+      "ru": "звонить (lehitkasher)",
+      "en": "to phone (lehitkasher)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "אני אתקשר אליך בערב."
+    },
+    {
+     "front": "לפתוח",
+     "back": {
+      "ru": "открывать (liftoakh)",
+      "en": "to open (liftoakh)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "תפתח את החלון, בבקשה."
+    },
+    {
+     "front": "לסגור",
+     "back": {
+      "ru": "закрывать (lisgor)",
+      "en": "to close (lisgor)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "תסגור את הדלת כשאתה יוצא."
+    },
+    {
+     "front": "לשים",
+     "back": {
+      "ru": "класть (lasim)",
+      "en": "to put (lasim)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "שים את הלחם על השולחן."
+    },
+    {
+     "front": "לחלוץ",
+     "back": {
+      "ru": "убирать (lakhalots)",
+      "en": "to take off (lakhalots)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "תחלוץ נעליים בכניסה."
+    },
+    {
+     "front": "לקחת איתי",
+     "back": {
+      "ru": "нести (lakakhat iti)",
+      "en": "to take (lakakhat iti)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "אני לוקח איתי מטרייה."
+    },
+    {
+     "front": "להביא",
+     "back": {
+      "ru": "приносить (lehavi)",
+      "en": "to bring (lehavi)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "הבאתי עוגה לכולם."
+    },
+    {
+     "front": "לשלוח",
+     "back": {
+      "ru": "посылать (lishloakh)",
+      "en": "to send (lishloakh)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "שלחתי את המכתב ביום שני."
+    },
+    {
+     "front": "לקבל",
+     "back": {
+      "ru": "получать (lekabel)",
+      "en": "to receive (lekabel)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "קיבלתי את ההודעה שלך."
+    },
+    {
+     "front": "לשמור",
+     "back": {
+      "ru": "хранить (lishmor)",
+      "en": "to keep (lishmor)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "אני שומר את התמונות בקופסה."
+    },
+    {
+     "front": "להשאיר",
+     "back": {
+      "ru": "оставлять (lehashir)",
+      "en": "to leave behind (lehashir)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "השארתי את המעיל במכונית."
+    },
+    {
+     "front": "להחזיק",
+     "back": {
+      "ru": "держать (lehakhzik)",
+      "en": "to hold (lehakhzik)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "תחזיק את הכוס חזק."
+    },
+    {
+     "front": "לדחוף",
+     "back": {
+      "ru": "толкать (lidkhof)",
+      "en": "to push (lidkhof)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "תדחוף את הדלת, אל תמשוך."
+    },
+    {
+     "front": "למשוך",
+     "back": {
+      "ru": "тянуть (limshokh)",
+      "en": "to pull (limshokh)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "תמשוך את החבל חזק."
+    },
+    {
+     "front": "לתפוס",
+     "back": {
+      "ru": "ловить (litfos)",
+      "en": "to catch (litfos)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "תפסתי את הכדור באוויר."
+    },
+    {
+     "front": "להראות",
+     "back": {
+      "ru": "показывать (lehareot)",
+      "en": "to show (lehareot)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "תראה לי את התמונה."
+    },
+    {
+     "front": "להחביא",
+     "back": {
+      "ru": "прятать (lehakhbi)",
+      "en": "to hide (lehakhbi)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "הוא החביא את המתנה בארון."
+    },
+    {
+     "front": "לשנות",
+     "back": {
+      "ru": "менять (leshanot)",
+      "en": "to change (leshanot)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "שיניתי את דעתי."
+    },
+    {
+     "front": "ליצור",
+     "back": {
+      "ru": "создавать (litsor)",
+      "en": "to create (litsor)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "הם יצרו מקום עבודה חדש."
+    },
+    {
+     "front": "לבנות",
+     "back": {
+      "ru": "строить (livnot)",
+      "en": "to build (livnot)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "בונים בניין לידנו."
+    },
+    {
+     "front": "לשבור",
+     "back": {
+      "ru": "ломать (lishbor)",
+      "en": "to break (lishbor)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "שברתי כוס הבוקר."
+    },
+    {
+     "front": "לחתוך",
+     "back": {
+      "ru": "резать (lakhtokh)",
+      "en": "to cut (lakhtokh)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "תחתוך את הלחם לפרוסות."
+    },
+    {
+     "front": "לנקות",
+     "back": {
+      "ru": "убирать (lenakot)",
+      "en": "to clean (lenakot)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "ניקיתי את כל המטבח."
+    },
+    {
+     "front": "לרחוץ",
+     "back": {
+      "ru": "мыть (lirkhots)",
+      "en": "to wash (lirkhots)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "תרחץ ידיים לפני האוכל."
+    },
+    {
+     "front": "לייבש",
+     "back": {
+      "ru": "сушить (leyabesh)",
+      "en": "to dry (leyabesh)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "תייבש היטב את השיער."
+    },
+    {
+     "front": "לבשל",
+     "back": {
+      "ru": "готовить (levashel)",
+      "en": "to cook (levashel)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "אני מבשל כל יום."
+    },
+    {
+     "front": "לאכול",
+     "back": {
+      "ru": "есть (leekhol)",
+      "en": "to eat (leekhol)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "אנחנו אוכלים בשמונה."
+    },
+    {
+     "front": "לשתות",
+     "back": {
+      "ru": "пить (lishtot)",
+      "en": "to drink (lishtot)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "אני שותה מים כל היום."
+    },
+    {
+     "front": "לטעום",
+     "back": {
+      "ru": "пробовать (lit'om)",
+      "en": "to taste (lit'om)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "תטעם את המרק, הוא טעים."
+    },
+    {
+     "front": "להגיש",
+     "back": {
+      "ru": "подавать (lehagish)",
+      "en": "to serve (lehagish)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "מגישים את ארוחת הצהריים בשתים עשרה."
+    },
+    {
+     "front": "לישון",
+     "back": {
+      "ru": "спать (lishon)",
+      "en": "to sleep (lishon)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "ישנתי שמונה שעות ברצף."
+    },
+    {
+     "front": "להתעורר",
+     "back": {
+      "ru": "просыпаться (lehitorer)",
+      "en": "to wake up (lehitorer)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "אני מתעורר תמיד בשש."
+    },
+    {
+     "front": "לקום",
+     "back": {
+      "ru": "вставать (lakum)",
+      "en": "to get up (lakum)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "תקום, מאוחר."
+    },
+    {
+     "front": "לשבת",
+     "back": {
+      "ru": "садиться (lashevet)",
+      "en": "to sit (lashevet)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "שב כאן לידי."
+    },
+    {
+     "front": "לשכב",
+     "back": {
+      "ru": "ложиться (lishkav)",
+      "en": "to lie down (lishkav)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "בימי חול אני שוכב מוקדם."
+    },
+    {
+     "front": "ללכת ברגל",
+     "back": {
+      "ru": "ходить (lalekhet baregel)",
+      "en": "to walk (lalekhet baregel)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "אני הולך חצי שעה ביום."
+    },
+    {
+     "front": "לרוץ",
+     "back": {
+      "ru": "бегать (laruts)",
+      "en": "to run (laruts)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "בבוקר אני רץ בפארק."
+    },
+    {
+     "front": "לקפוץ",
+     "back": {
+      "ru": "прыгать (likpots)",
+      "en": "to jump (likpots)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "החתול קפץ על השולחן."
+    },
+    {
+     "front": "לשחות",
+     "back": {
+      "ru": "плавать (liskhot)",
+      "en": "to swim (liskhot)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "למדתי לשחות בנהר."
+    },
+    {
+     "front": "לעוף",
+     "back": {
+      "ru": "летать (lauf)",
+      "en": "to fly (lauf)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "הציפורים עפות דרומה."
+    },
+    {
+     "front": "לנסוע",
+     "back": {
+      "ru": "путешествовать (linsoa)",
+      "en": "to travel (linsoa)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "נסענו ברכבת."
+    },
+    {
+     "front": "לנהוג",
+     "back": {
+      "ru": "водить (linhog)",
+      "en": "to drive (linhog)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "הוא נוהג בזהירות."
+    },
+    {
+     "front": "לעלות",
+     "back": {
+      "ru": "подниматься (laalot (lemala))",
+      "en": "to go up (laalot (lemala))",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "עלינו לקומה השלישית."
+    },
+    {
+     "front": "לרדת",
+     "back": {
+      "ru": "спускаться (laredet)",
+      "en": "to go down (laredet)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "תרד לאט במדרגות."
+    },
+    {
+     "front": "ליפול",
+     "back": {
+      "ru": "падать (lipol)",
+      "en": "to fall (lipol)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "הספל נפל מהשולחן."
+    },
+    {
+     "front": "לגור",
+     "back": {
+      "ru": "жить (lagur)",
+      "en": "to live (reside) (lagur)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "אני גר ליד התחנה."
+    },
+    {
+     "front": "לחיות",
+     "back": {
+      "ru": "жить (likhyot)",
+      "en": "to live (likhyot)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "הוא חי תשעים שנה."
+    },
+    {
+     "front": "למות",
+     "back": {
+      "ru": "умирать (lamut)",
+      "en": "to die (lamut)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "העץ מת בחורף."
+    },
+    {
+     "front": "להיוולד",
+     "back": {
+      "ru": "рождаться (lehivaled)",
+      "en": "to be born (lehivaled)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "נולדתי במרץ."
+    },
+    {
+     "front": "לגדול",
+     "back": {
+      "ru": "расти (ligdol)",
+      "en": "to grow (ligdol)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "ילדים גדלים מהר."
+    },
+    {
+     "front": "להתחתן",
+     "back": {
+      "ru": "жениться (lehitkhaten)",
+      "en": "to marry (lehitkhaten)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "הם התחתנו באביב."
+    },
+    {
+     "front": "לעזור",
+     "back": {
+      "ru": "помогать (laazor)",
+      "en": "to help (laazor)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "תעזור לי עם התיקים האלה."
+    },
+    {
+     "front": "לחבב",
+     "back": {
+      "ru": "нравиться (lekhabev)",
+      "en": "to like (lekhabev)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "אני מאוד מחבב את הקפה הזה."
+    },
+    {
+     "front": "לאהוב",
+     "back": {
+      "ru": "любить (leehov)",
+      "en": "to love (leehov)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "הוא אוהב את משפחתו מעל לכול."
+    },
+    {
+     "front": "לשנוא",
+     "back": {
+      "ru": "ненавидеть (lisno)",
+      "en": "to hate (lisno)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "אני שונא לקום מוקדם."
+    },
+    {
+     "front": "לצחוק",
+     "back": {
+      "ru": "смеяться (litskhok)",
+      "en": "to laugh (litskhok)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "צחקנו כל הערב."
+    },
+    {
+     "front": "לבכות",
+     "back": {
+      "ru": "плакать (livkot)",
+      "en": "to cry (livkot)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "הילד בכה מעייפות."
+    },
+    {
+     "front": "לשיר",
+     "back": {
+      "ru": "петь (lashir)",
+      "en": "to sing (lashir)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "הם שרים במקהלת הכנסייה."
+    },
+    {
+     "front": "לרקוד",
+     "back": {
+      "ru": "танцевать (lirkod)",
+      "en": "to dance (lirkod)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "רקדנו עד מאוחר."
+    },
+    {
+     "front": "לשחק",
+     "back": {
+      "ru": "играть (lesakhek)",
+      "en": "to play (children) (lesakhek)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "הילדים משחקים בגינה."
+    },
+    {
+     "front": "לשחק משחק",
+     "back": {
+      "ru": "играть (lesakhek miskhak)",
+      "en": "to play (a game) (lesakhek miskhak)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "בשבת אנחנו משחקים משחק."
+    },
+    {
+     "front": "לגעת",
+     "back": {
+      "ru": "трогать (langoa)",
+      "en": "to touch (langoa)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "אל תיגע בצבע הטרי."
+    },
+    {
+     "front": "לנוח",
+     "back": {
+      "ru": "отдыхать (lanuakh)",
+      "en": "to rest (lanuakh)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "תנוח קצת."
+    },
+    {
+     "front": "לנסות",
+     "back": {
+      "ru": "пытаться (lenasot)",
+      "en": "to try (lenasot)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "ניסיתי להתקשר אליך שלוש פעמים."
+    },
+    {
+     "front": "להצליח",
+     "back": {
+      "ru": "удаваться (lehatsliakh)",
+      "en": "to manage (lehatsliakh)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "הצלחתי להשיג כרטיסים להיום."
+    },
+    {
+     "front": "להזדקק",
+     "back": {
+      "ru": "нуждаться (lehizdakek)",
+      "en": "to need (lehizdakek)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "אני זקוק לעזרה עכשיו."
+    },
+    {
+     "front": "להשתמש",
+     "back": {
+      "ru": "использовать (lehishtamesh)",
+      "en": "to use (lehishtamesh)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "אני משתמש בטלפון להכול."
+    },
+    {
+     "front": "לבחור",
+     "back": {
+      "ru": "выбирать (livkhor)",
+      "en": "to choose (livkhor)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "תבחר אתה את המסעדה."
+    },
+    {
+     "front": "להחליט",
+     "back": {
+      "ru": "решать (lehakhlit)",
+      "en": "to decide (lehakhlit)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "החלטנו להישאר עוד יום."
+    },
+    {
+     "front": "לקבל (הזמנה)",
+     "back": {
+      "ru": "принимать (lekabel (hazmana))",
+      "en": "to accept (lekabel (hazmana))",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "הוא קיבל את ההזמנה."
+    },
+    {
+     "front": "לסרב",
+     "back": {
+      "ru": "отказывать (lesarev)",
+      "en": "to refuse (lesarev)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "הוא סירב לעזרת השכנים."
+    },
+    {
+     "front": "להבטיח",
+     "back": {
+      "ru": "обещать (lehavtiakh)",
+      "en": "to promise (lehavtiakh)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "הוא הבטיח לחזור מוקדם."
+    },
+    {
+     "front": "להודות",
+     "back": {
+      "ru": "благодарить (lehodot)",
+      "en": "to thank (lehodot)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "אני מודה לך על הסבלנות."
+    },
+    {
+     "front": "לבקש",
+     "back": {
+      "ru": "просить (levakesh)",
+      "en": "to ask for (levakesh)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "ביקשתי כוס מים."
+    },
+    {
+     "front": "לקרות",
+     "back": {
+      "ru": "случаться (likrot)",
+      "en": "to happen (likrot)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "מה קרה אתמול?"
+    },
+    {
+     "front": "להיראות",
+     "back": {
+      "ru": "казаться (leheraot)",
+      "en": "to seem (leheraot)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "אתה נראה עייף."
+    },
+    {
+     "front": "להדליק",
+     "back": {
+      "ru": "включать (lehadlik)",
+      "en": "to turn on (lehadlik)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "תדליק את האור במטבח."
+    },
+    {
+     "front": "לכבות",
+     "back": {
+      "ru": "выключать (lekhabot)",
+      "en": "to turn off (lekhabot)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "תכבה את המחשב לפני שאתה יוצא."
+    },
+    {
+     "front": "לרדת גשם",
+     "back": {
+      "ru": "идти (о дожде) (laredet geshem)",
+      "en": "to rain (laredet geshem)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "ירד גשם כל הלילה."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "מים",
+     "back": {
+      "ru": "вода (mayim)",
+      "en": "water (mayim)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "תביא לי כוס מים."
+    },
+    {
+     "front": "לחם",
+     "back": {
+      "ru": "хлеб (lekhem)",
+      "en": "bread (lekhem)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "הלחם עדיין חם."
+    },
+    {
+     "front": "חלב",
+     "back": {
+      "ru": "молоко (khalav)",
+      "en": "milk (khalav)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "בארוחת הבוקר אני שותה חלב."
+    },
+    {
+     "front": "קפה",
+     "back": {
+      "ru": "кофе (kafe)",
+      "en": "coffee (kafe)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "קפה אחד, בבקשה."
+    },
+    {
+     "front": "תה",
+     "back": {
+      "ru": "чай (te)",
+      "en": "tea (te)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "אחר הצהריים אני מכין תה."
+    },
+    {
+     "front": "מיץ",
+     "back": {
+      "ru": "сок (mits)",
+      "en": "juice (mits)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "מיץ תפוזים סחוט."
+    },
+    {
+     "front": "יין",
+     "back": {
+      "ru": "вино (yayin)",
+      "en": "wine (yayin)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "כוס יין אדום."
+    },
+    {
+     "front": "בירה",
+     "back": {
+      "ru": "пиво (bira)",
+      "en": "beer (bira)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "הבירה קרה כמו שצריך."
+    },
+    {
+     "front": "קרח",
+     "back": {
+      "ru": "лёд (kerakh)",
+      "en": "ice (kerakh)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "רוצה קרח במשקה?"
+    },
+    {
+     "front": "סוכר",
+     "back": {
+      "ru": "сахар (sukar)",
+      "en": "sugar (sukar)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "אני שותה קפה בלי סוכר."
+    },
+    {
+     "front": "מלח",
+     "back": {
+      "ru": "соль (melakh)",
+      "en": "salt (melakh)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "חסר מלח במרק."
+    },
+    {
+     "front": "פלפל",
+     "back": {
+      "ru": "перец (pilpel)",
+      "en": "pepper (pilpel)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "תוסיף קצת פלפל."
+    },
+    {
+     "front": "שמן זית",
+     "back": {
+      "ru": "оливковое масло (shemen zayit)",
+      "en": "olive oil (shemen zayit)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "תמזוג שמן זית על הסלט."
+    },
+    {
+     "front": "חמאה",
+     "back": {
+      "ru": "масло (khem'a)",
+      "en": "butter (khem'a)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "תמרח חמאה על הלחם."
+    },
+    {
+     "front": "גבינה",
+     "back": {
+      "ru": "сыр (gvina)",
+      "en": "cheese (gvina)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "הגבינה הזאת מההרים."
+    },
+    {
+     "front": "ביצה",
+     "back": {
+      "ru": "яйцо (beitsa)",
+      "en": "egg (beitsa)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "אכלתי ביצה קשה."
+    },
+    {
+     "front": "בשר",
+     "back": {
+      "ru": "мясо (basar)",
+      "en": "meat (basar)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "בערב אני לא אוכל בשר."
+    },
+    {
+     "front": "עוף",
+     "back": {
+      "ru": "курица (of)",
+      "en": "chicken (of)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "עוף בתנור עם תפוחי אדמה."
+    },
+    {
+     "front": "דג",
+     "back": {
+      "ru": "рыба (dag)",
+      "en": "fish (dag)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "הדג טרי היום."
+    },
+    {
+     "front": "בקלה",
+     "back": {
+      "ru": "треска (bakala)",
+      "en": "cod (bakala)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "בקלה נשמר מומלח."
+    },
+    {
+     "front": "סרדין",
+     "back": {
+      "ru": "сардина (sardin)",
+      "en": "sardine (sardin)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "סרדינים על הגריל."
+    },
+    {
+     "front": "טונה",
+     "back": {
+      "ru": "тунец (tuna)",
+      "en": "tuna (tuna)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "כריך טונה."
+    },
+    {
+     "front": "שרימפס",
+     "back": {
+      "ru": "креветка (shrimps)",
+      "en": "shrimp (shrimps)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "שרימפס עם שום."
+    },
+    {
+     "front": "פירות ים",
+     "back": {
+      "ru": "морепродукты (perot yam)",
+      "en": "seafood (perot yam)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "אכלנו פירות ים ליד הים."
+    },
+    {
+     "front": "נקניק מיובש",
+     "back": {
+      "ru": "ветчина (naknik meyubash)",
+      "en": "ham (naknik meyubash)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "נקניק מיובש עם מלון."
+    },
+    {
+     "front": "נקניקייה",
+     "back": {
+      "ru": "сосиска (naknikiya)",
+      "en": "sausage (naknikiya)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "קניתי נקניקיות לילדים."
+    },
+    {
+     "front": "אורז",
+     "back": {
+      "ru": "рис (orez)",
+      "en": "rice (orez)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "בימי ראשון אנחנו מבשלים אורז."
+    },
+    {
+     "front": "תפוח אדמה",
+     "back": {
+      "ru": "картофель (tapuakh adama)",
+      "en": "potato (tapuakh adama)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "תפוחי אדמה מבושלים בשמן זית."
+    },
+    {
+     "front": "פסטה",
+     "back": {
+      "ru": "макароны (pasta)",
+      "en": "pasta (pasta)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "כשאני ממהר אני מכין פסטה."
+    },
+    {
+     "front": "קמח",
+     "back": {
+      "ru": "мука (kemakh)",
+      "en": "flour (kemakh)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "אין קמח לעוגה."
+    },
+    {
+     "front": "מרק",
+     "back": {
+      "ru": "суп (marak)",
+      "en": "soup (marak)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "המרק מתקרר."
+    },
+    {
+     "front": "סלט",
+     "back": {
+      "ru": "салат (salat)",
+      "en": "salad (salat)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "סלט עגבניות."
+    },
+    {
+     "front": "ירקות",
+     "back": {
+      "ru": "овощи (yerakot)",
+      "en": "vegetables (yerakot)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "אני אוכל ירקות כל יום."
+    },
+    {
+     "front": "פירות",
+     "back": {
+      "ru": "фрукты (perot)",
+      "en": "fruit (perot)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "יש פירות במטבח."
+    },
+    {
+     "front": "תפוח",
+     "back": {
+      "ru": "яблоко (tapuakh)",
+      "en": "apple (tapuakh)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "אני לוקח תפוח לעבודה."
+    },
+    {
+     "front": "אגס",
+     "back": {
+      "ru": "груша (agas)",
+      "en": "pear (agas)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "האגס הזה בשל."
+    },
+    {
+     "front": "תפוז",
+     "back": {
+      "ru": "апельсин (tapuz)",
+      "en": "orange (tapuz)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "קילפתי תפוז."
+    },
+    {
+     "front": "לימון",
+     "back": {
+      "ru": "лимон (limon)",
+      "en": "lemon (limon)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "תה עם לימון."
+    },
+    {
+     "front": "בננה",
+     "back": {
+      "ru": "банан (banana)",
+      "en": "banana (banana)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "אכלתי בננה לפני האימון."
+    },
+    {
+     "front": "ענב",
+     "back": {
+      "ru": "виноград (enav)",
+      "en": "grape (enav)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "הענבים מתוקים."
+    },
+    {
+     "front": "תות שדה",
+     "back": {
+      "ru": "клубника (tut sade)",
+      "en": "strawberry (tut sade)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "תותי שדה עם קצפת."
+    },
+    {
+     "front": "דובדבן",
+     "back": {
+      "ru": "вишня (duvdevan)",
+      "en": "cherry (duvdevan)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "דובדבנים בעונה זולים."
+    },
+    {
+     "front": "אפרסק",
+     "back": {
+      "ru": "персик (afarsek)",
+      "en": "peach (afarsek)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "אפרסק בשל היטב."
+    },
+    {
+     "front": "מלון",
+     "back": {
+      "ru": "дыня (melon)",
+      "en": "melon (melon)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "מלון עם נקניק מיובש."
+    },
+    {
+     "front": "אבטיח",
+     "back": {
+      "ru": "арбуз (avatiakh)",
+      "en": "watermelon (avatiakh)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "בקיץ אבטיח קר."
+    },
+    {
+     "front": "אננס",
+     "back": {
+      "ru": "ананас (ananas)",
+      "en": "pineapple (ananas)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "מיץ אננס."
+    },
+    {
+     "front": "תאנה",
+     "back": {
+      "ru": "инжир (teena)",
+      "en": "fig (teena)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "בחורף תאנים מיובשות."
+    },
+    {
+     "front": "עגבנייה",
+     "back": {
+      "ru": "помидор (agvaniya)",
+      "en": "tomato (agvaniya)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "סלט עגבניות עם עשבי תיבול."
+    },
+    {
+     "front": "בצל",
+     "back": {
+      "ru": "лук (batsal)",
+      "en": "onion (batsal)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "קודם תטגן את הבצל."
+    },
+    {
+     "front": "שום",
+     "back": {
+      "ru": "чеснок (shum)",
+      "en": "garlic (shum)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "שני שיני שום מספיקים."
+    },
+    {
+     "front": "גזר",
+     "back": {
+      "ru": "морковь (gezer)",
+      "en": "carrot (gezer)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "מרק גזר."
+    },
+    {
+     "front": "חסה",
+     "back": {
+      "ru": "салат-латук (khasa)",
+      "en": "lettuce (khasa)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "תשטוף היטב את החסה."
+    },
+    {
+     "front": "מלפפון",
+     "back": {
+      "ru": "огурец (melafefon)",
+      "en": "cucumber (melafefon)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "מלפפון פרוס."
+    },
+    {
+     "front": "שעועית",
+     "back": {
+      "ru": "фасоль (sheuit)",
+      "en": "beans (sheuit)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "שעועית עם אורז."
+    },
+    {
+     "front": "אפונה",
+     "back": {
+      "ru": "горох (afuna)",
+      "en": "pea (afuna)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "אפונה עם ביצה."
+    },
+    {
+     "front": "כרוב",
+     "back": {
+      "ru": "капуста (kruv)",
+      "en": "cabbage (kruv)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "מרק כרוב הוא מאכל חורף."
+    },
+    {
+     "front": "דלעת",
+     "back": {
+      "ru": "тыква (dlaat)",
+      "en": "pumpkin (dlaat)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "בסתיו אנחנו מבשלים מרק דלעת."
+    },
+    {
+     "front": "פטרייה",
+     "back": {
+      "ru": "гриб (pitriya)",
+      "en": "mushroom (pitriya)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "פטריות מוקפצות."
+    },
+    {
+     "front": "זית",
+     "back": {
+      "ru": "оливка (zayit)",
+      "en": "olive (zayit)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "זיתים לפני הארוחה."
+    },
+    {
+     "front": "עוגה",
+     "back": {
+      "ru": "торт (uga)",
+      "en": "cake (uga)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "אפיתי עוגת תפוזים."
+    },
+    {
+     "front": "ביסקוויט",
+     "back": {
+      "ru": "печенье (biskvit)",
+      "en": "biscuit (biskvit)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "ביסקוויטים עם התה."
+    },
+    {
+     "front": "ריבה",
+     "back": {
+      "ru": "варенье (riba)",
+      "en": "jam (riba)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "מרחתי ריבת תות על הלחם."
+    },
+    {
+     "front": "שוקולד",
+     "back": {
+      "ru": "шоколад (shokolad)",
+      "en": "chocolate (shokolad)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "חפיסת שוקולד מריר."
+    },
+    {
+     "front": "גלידה",
+     "back": {
+      "ru": "мороженое (glida)",
+      "en": "ice cream (glida)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "גלידת וניל."
+    },
+    {
+     "front": "דבש",
+     "back": {
+      "ru": "мёд (dvash)",
+      "en": "honey (dvash)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "תה עם דבש לגרון."
+    },
+    {
+     "front": "ממתק",
+     "back": {
+      "ru": "сладость (mamtak)",
+      "en": "sweet (mamtak)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "בערב אני לא אוכל ממתקים."
+    },
+    {
+     "front": "קינוח",
+     "back": {
+      "ru": "десерт (kinuakh)",
+      "en": "dessert (kinuakh)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "לקינוח, פירות."
+    },
+    {
+     "front": "יוגורט",
+     "back": {
+      "ru": "йогурт (yogurt)",
+      "en": "yoghurt (yogurt)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "יוגורט טבעי בלי סוכר."
+    },
+    {
+     "front": "שמנת",
+     "back": {
+      "ru": "сливки (shamenet)",
+      "en": "cream (shamenet)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "תותים עם שמנת."
+    },
+    {
+     "front": "טוסט",
+     "back": {
+      "ru": "тост (tost)",
+      "en": "toast (tost)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "טוסט עם חמאה."
+    },
+    {
+     "front": "כריך",
+     "back": {
+      "ru": "бутерброд (karikh)",
+      "en": "sandwich (karikh)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "כריך עם גבינה ונקניק."
+    },
+    {
+     "front": "ארוחת בוקר",
+     "back": {
+      "ru": "завтрак (arukhat boker)",
+      "en": "breakfast (arukhat boker)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "אני אוכל ארוחת בוקר בשבע."
+    },
+    {
+     "front": "ארוחת צהריים",
+     "back": {
+      "ru": "обед (arukhat tsohorayim)",
+      "en": "lunch (arukhat tsohorayim)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "ארוחת הצהריים בשעה אחת."
+    },
+    {
+     "front": "ארוחת ערב",
+     "back": {
+      "ru": "ужин (arukhat erev)",
+      "en": "dinner (arukhat erev)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "אנחנו אוכלים ארוחת ערב בערך בשמונה."
+    },
+    {
+     "front": "חטיף",
+     "back": {
+      "ru": "полдник (khatif)",
+      "en": "snack (khatif)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "הילדים לוקחים חטיף."
+    },
+    {
+     "front": "ארוחה",
+     "back": {
+      "ru": "приём пищи (arukha)",
+      "en": "meal (arukha)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "אני אוכל שלוש ארוחות ביום."
+    },
+    {
+     "front": "אוכל",
+     "back": {
+      "ru": "еда (okhel)",
+      "en": "food (okhel)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "האוכל על השולחן."
+    },
+    {
+     "front": "משקה",
+     "back": {
+      "ru": "напиток (mashke)",
+      "en": "drink (mashke)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "איזה משקה אתה רוצה?"
+    },
+    {
+     "front": "צלחת",
+     "back": {
+      "ru": "тарелка (tsalakhat)",
+      "en": "plate (tsalakhat)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "שים את הצלחות על השיש."
+    },
+    {
+     "front": "כוס",
+     "back": {
+      "ru": "стакан (kos)",
+      "en": "glass (kos)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "תמלא את הכוס עד חצי."
+    },
+    {
+     "front": "ספל",
+     "back": {
+      "ru": "чашка (sefel)",
+      "en": "cup (sefel)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "ספל קפה."
+    },
+    {
+     "front": "בקבוק",
+     "back": {
+      "ru": "бутылка (bakbuk)",
+      "en": "bottle (bakbuk)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "בקבוק מים."
+    },
+    {
+     "front": "כף",
+     "back": {
+      "ru": "ложка (kaf)",
+      "en": "spoon (kaf)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "חסרה כף מרק."
+    },
+    {
+     "front": "מזלג",
+     "back": {
+      "ru": "вилка (mazleg)",
+      "en": "fork (mazleg)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "המזלג נפל על הרצפה."
+    },
+    {
+     "front": "סכין",
+     "back": {
+      "ru": "нож (sakin)",
+      "en": "knife (sakin)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "הסכין הזאת לא חותכת בכלל."
+    },
+    {
+     "front": "מפית",
+     "back": {
+      "ru": "салфетка (mapit)",
+      "en": "napkin (mapit)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "תן לי מפית."
+    },
+    {
+     "front": "סיר",
+     "back": {
+      "ru": "кастрюля (sir)",
+      "en": "pot (sir)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "הסיר על הכיריים."
+    },
+    {
+     "front": "מחבת",
+     "back": {
+      "ru": "сковорода (makhvat)",
+      "en": "frying pan (makhvat)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "תחמם את המחבת."
+    },
+    {
+     "front": "מסעדה",
+     "back": {
+      "ru": "ресторан (misada)",
+      "en": "restaurant (misada)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "הזמנתי שולחן במסעדה."
+    },
+    {
+     "front": "תפריט",
+     "back": {
+      "ru": "меню (tafrit)",
+      "en": "menu (tafrit)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "תבקש מהמלצר את התפריט."
+    },
+    {
+     "front": "חשבון",
+     "back": {
+      "ru": "счёт (kheshbon)",
+      "en": "bill (kheshbon)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "את החשבון, בבקשה."
+    },
+    {
+     "front": "מלצר",
+     "back": {
+      "ru": "официант (meltsar)",
+      "en": "waiter (meltsar)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "המלצר הביא את הלחם."
+    },
+    {
+     "front": "רעב",
+     "back": {
+      "ru": "голод (raav)",
+      "en": "hunger (raav)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "אני רעב מאוד."
+    },
+    {
+     "front": "צמא",
+     "back": {
+      "ru": "жажда (tsama)",
+      "en": "thirst (tsama)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "בחום הזה מרגישים צמא."
+    },
+    {
+     "front": "טעם",
+     "back": {
+      "ru": "вкус (taam)",
+      "en": "taste (taam)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "למרק הזה אין הרבה טעם."
+    },
+    {
+     "front": "מתכון",
+     "back": {
+      "ru": "рецепт (matkon)",
+      "en": "recipe (matkon)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "זה המתכון של סבתא שלי."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "בגדים",
+     "back": {
+      "ru": "одежда (bgadim)",
+      "en": "clothes (bgadim)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "אני לוקח מעט בגדים למזוודה."
+    },
+    {
+     "front": "חולצה מכופתרת",
+     "back": {
+      "ru": "рубашка (khultsa mekhufteret)",
+      "en": "shirt (khultsa mekhufteret)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "החולצה עדיין לא מגוהצת."
+    },
+    {
+     "front": "סוודר",
+     "back": {
+      "ru": "свитер (sveder)",
+      "en": "jumper (sveder)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "תלבש סוודר, קר."
+    },
+    {
+     "front": "חולצת טי",
+     "back": {
+      "ru": "футболка (khultsat ti)",
+      "en": "T-shirt (khultsat ti)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "חולצת טי לבנה חלקה."
+    },
+    {
+     "front": "מעיל",
+     "back": {
+      "ru": "пальто (meil)",
+      "en": "coat (meil)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "שכחתי את המעיל במכונית."
+    },
+    {
+     "front": "ז'קט",
+     "back": {
+      "ru": "куртка (zhaket)",
+      "en": "jacket (zhaket)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "ז'קט לגשם."
+    },
+    {
+     "front": "וסט",
+     "back": {
+      "ru": "жилет (vest)",
+      "en": "waistcoat (vest)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "וסט מעל החולצה."
+    },
+    {
+     "front": "מכנסיים",
+     "back": {
+      "ru": "брюки (mikhnasayim)",
+      "en": "trousers (mikhnasayim)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "המכנסיים האלה רחבים עליי."
+    },
+    {
+     "front": "מכנסיים קצרים",
+     "back": {
+      "ru": "шорты (mikhnasayim ktsarim)",
+      "en": "shorts (mikhnasayim ktsarim)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "מכנסיים קצרים לקיץ."
+    },
+    {
+     "front": "חצאית",
+     "back": {
+      "ru": "юбка (khatsait)",
+      "en": "skirt (khatsait)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "חצאית עד הברך."
+    },
+    {
+     "front": "שמלה",
+     "back": {
+      "ru": "платье (simla)",
+      "en": "dress (simla)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "השמלה עשויה פשתן."
+    },
+    {
+     "front": "חליפה",
+     "back": {
+      "ru": "костюм (khalifa)",
+      "en": "suit (khalifa)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "הוא הולך לחתונה בחליפה."
+    },
+    {
+     "front": "עניבה",
+     "back": {
+      "ru": "галстук (aniva)",
+      "en": "tie (aniva)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "אני לא יודע לקשור עניבה."
+    },
+    {
+     "front": "חגורה",
+     "back": {
+      "ru": "ремень (khagora)",
+      "en": "belt (khagora)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "תהדק קצת את החגורה."
+    },
+    {
+     "front": "גרביים",
+     "back": {
+      "ru": "носки (garbayim)",
+      "en": "socks (garbayim)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "לגרביים האלה יש חורים."
+    },
+    {
+     "front": "גרביונים",
+     "back": {
+      "ru": "колготки (garbionim)",
+      "en": "tights (garbionim)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "גרביונים שחורים."
+    },
+    {
+     "front": "נעליים",
+     "back": {
+      "ru": "туфли (naalayim)",
+      "en": "shoes (naalayim)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "נעלי עור שחורות."
+    },
+    {
+     "front": "נעלי ספורט",
+     "back": {
+      "ru": "кроссовки (naalei sport)",
+      "en": "trainers (naalei sport)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "אני נועל נעלי ספורט כל היום."
+    },
+    {
+     "front": "מגפיים",
+     "back": {
+      "ru": "сапоги (magafayim)",
+      "en": "boots (magafayim)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "מגפיים לחורף."
+    },
+    {
+     "front": "סנדלים",
+     "back": {
+      "ru": "сандалии (sandalim)",
+      "en": "sandals (sandalim)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "סנדלים לחוף."
+    },
+    {
+     "front": "נעלי בית",
+     "back": {
+      "ru": "тапочки (naalei bayit)",
+      "en": "slippers (naalei bayit)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "נעלי הבית ליד דלת חדר השינה."
+    },
+    {
+     "front": "כובע",
+     "back": {
+      "ru": "шляпа (kova)",
+      "en": "hat (kova)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "כובע קש."
+    },
+    {
+     "front": "כובע מצחייה",
+     "back": {
+      "ru": "кепка (kova mitskhiya)",
+      "en": "cap (kova mitskhiya)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "כובע מצחייה נגד השמש."
+    },
+    {
+     "front": "כובע צמר",
+     "back": {
+      "ru": "шапка (kova tsemer)",
+      "en": "woolly hat (kova tsemer)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "כובע צמר וצעיף לשלג."
+    },
+    {
+     "front": "כפפות",
+     "back": {
+      "ru": "перчатки (kfafot)",
+      "en": "gloves (kfafot)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "כפפות עור מרופדות."
+    },
+    {
+     "front": "צעיף",
+     "back": {
+      "ru": "шарф (tsaif)",
+      "en": "scarf (tsaif)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "תלפף את הצעיף פעמיים."
+    },
+    {
+     "front": "ממחטה",
+     "back": {
+      "ru": "платок (mimkhata)",
+      "en": "handkerchief (mimkhata)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "ממחטת כותנה."
+    },
+    {
+     "front": "משקפיים",
+     "back": {
+      "ru": "очки (mishkafayim)",
+      "en": "glasses (mishkafayim)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "שברתי אתמול את המשקפיים."
+    },
+    {
+     "front": "תיק",
+     "back": {
+      "ru": "сумка (tik)",
+      "en": "bag (tik)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "התיק כבד מדי."
+    },
+    {
+     "front": "ארנק",
+     "back": {
+      "ru": "кошелёк (arnak)",
+      "en": "wallet (arnak)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "שכחתי את הארנק בבית."
+    },
+    {
+     "front": "תרמיל",
+     "back": {
+      "ru": "рюкзак (tarmil)",
+      "en": "backpack (tarmil)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "תרמיל בית הספר כבד."
+    },
+    {
+     "front": "מטרייה",
+     "back": {
+      "ru": "зонт (mitriya)",
+      "en": "umbrella (mitriya)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "קח איתך מטרייה."
+    },
+    {
+     "front": "פיג'מה",
+     "back": {
+      "ru": "пижама (pijama)",
+      "en": "pyjamas (pijama)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "פיג'מת פלנל."
+    },
+    {
+     "front": "חלוק",
+     "back": {
+      "ru": "халат (khaluk)",
+      "en": "dressing gown (khaluk)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "החלוק תלוי מאחורי הדלת."
+    },
+    {
+     "front": "מגבת",
+     "back": {
+      "ru": "полотенце (magevet)",
+      "en": "towel (magevet)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "מגבת נקייה לאמבטיה."
+    },
+    {
+     "front": "כיס",
+     "back": {
+      "ru": "карман (kis)",
+      "en": "pocket (kis)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "המפתח בכיס שלי."
+    },
+    {
+     "front": "כפתור",
+     "back": {
+      "ru": "пуговица (kaftor)",
+      "en": "button (kaftor)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "נפל כפתור מהחולצה."
+    },
+    {
+     "front": "רוכסן",
+     "back": {
+      "ru": "молния (rokhsan)",
+      "en": "zip (rokhsan)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "הרוכסן של התיק התקלקל."
+    },
+    {
+     "front": "שרוול",
+     "back": {
+      "ru": "рукав (sharvul)",
+      "en": "sleeve (sharvul)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "תפשיל את השרוולים."
+    },
+    {
+     "front": "צווארון",
+     "back": {
+      "ru": "воротник (tsavaron)",
+      "en": "collar (tsavaron)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "הצווארון מוכתם."
+    },
+    {
+     "front": "מידה",
+     "back": {
+      "ru": "размер (mida)",
+      "en": "size (mida)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "יש לכם את החולצה הזאת במידה אחרת?"
+    },
+    {
+     "front": "בד",
+     "back": {
+      "ru": "ткань (bad)",
+      "en": "fabric (bad)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "בד קל לקיץ."
+    },
+    {
+     "front": "כותנה",
+     "back": {
+      "ru": "хлопок (kutna)",
+      "en": "cotton (kutna)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "חולצת כותנה."
+    },
+    {
+     "front": "צמר",
+     "back": {
+      "ru": "шерсть (tsemer)",
+      "en": "wool (tsemer)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "גרבי צמר עבים."
+    },
+    {
+     "front": "משי",
+     "back": {
+      "ru": "шёлк (meshi)",
+      "en": "silk (meshi)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "צעיף משי."
+    },
+    {
+     "front": "עור",
+     "back": {
+      "ru": "кожа (or)",
+      "en": "leather (or)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "מגפי עור חומים."
+    },
+    {
+     "front": "קולב",
+     "back": {
+      "ru": "вешалка (kolav)",
+      "en": "hanger (kolav)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "תלה את המעיל על הקולב."
+    },
+    {
+     "front": "ארון",
+     "back": {
+      "ru": "шкаф (aron)",
+      "en": "wardrobe (aron)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "הארון מלא."
+    },
+    {
+     "front": "טבעת",
+     "back": {
+      "ru": "кольцо (tabaat)",
+      "en": "ring (tabaat)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "טבעת כסף."
+    }
+   ]
+  }
+ ]
+}

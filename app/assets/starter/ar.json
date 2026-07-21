@@ -1,0 +1,6533 @@
+{
+ "lang": "ar",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "مرحبا",
+     "back": {
+      "ru": "привет (marḥaban)",
+      "en": "hello (marḥaban)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "مرحبا، كيف حالك؟"
+    },
+    {
+     "front": "مع السلامة",
+     "back": {
+      "ru": "до свидания (maʿa s-salāma)",
+      "en": "goodbye (maʿa s-salāma)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "مع السلامة، إلى الغد."
+    },
+    {
+     "front": "نعم",
+     "back": {
+      "ru": "да (naʿam)",
+      "en": "yes (naʿam)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "نعم، بالتأكيد سآتي."
+    },
+    {
+     "front": "لا",
+     "back": {
+      "ru": "нет (lā)",
+      "en": "no (lā)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "لا، شكرا."
+    },
+    {
+     "front": "من فضلك",
+     "back": {
+      "ru": "пожалуйста (min faḍlik)",
+      "en": "please (min faḍlik)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "قهوة من فضلك."
+    },
+    {
+     "front": "شكرا",
+     "back": {
+      "ru": "спасибо (šukran)",
+      "en": "thank you (šukran)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "شكرا على مساعدتك."
+    },
+    {
+     "front": "آسف",
+     "back": {
+      "ru": "извини (āsif)",
+      "en": "sorry (āsif)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "آسف، تأخرت."
+    },
+    {
+     "front": "صباح الخير",
+     "back": {
+      "ru": "доброе утро (ṣabāḥ al-khayr)",
+      "en": "good morning (ṣabāḥ al-khayr)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "صباح الخير، هل نمت جيدا؟"
+    },
+    {
+     "front": "تصبح على خير",
+     "back": {
+      "ru": "спокойной ночи (tuṣbiḥ ʿalā khayr)",
+      "en": "good night (tuṣbiḥ ʿalā khayr)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "تصبح على خير، إلى الغد."
+    },
+    {
+     "front": "كل شيء بخير",
+     "back": {
+      "ru": "всё хорошо (kull šayʾ bi-khayr)",
+      "en": "all right (kull šayʾ bi-khayr)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "لا تقلق، كل شيء بخير."
+    },
+    {
+     "front": "رجل",
+     "back": {
+      "ru": "мужчина (rajul)",
+      "en": "man (rajul)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "ذلك الرجل جارنا."
+    },
+    {
+     "front": "امرأة",
+     "back": {
+      "ru": "женщина (imraʾa)",
+      "en": "woman (imraʾa)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "المرأة ذات المعطف الأزرق طبيبة."
+    },
+    {
+     "front": "طفل",
+     "back": {
+      "ru": "ребёнок (ṭifl)",
+      "en": "child (ṭifl)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "الطفل يلعب في الحديقة."
+    },
+    {
+     "front": "ولد",
+     "back": {
+      "ru": "мальчик (walad)",
+      "en": "boy (walad)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "الولد يركض إلى المدرسة."
+    },
+    {
+     "front": "بنت",
+     "back": {
+      "ru": "девочка (bint)",
+      "en": "girl (bint)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "البنت ترسم زهرة."
+    },
+    {
+     "front": "صديق",
+     "back": {
+      "ru": "друг (ṣadīq)",
+      "en": "friend (ṣadīq)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "صديقي يسكن في القاهرة."
+    },
+    {
+     "front": "عائلة",
+     "back": {
+      "ru": "семья (ʿāʾila)",
+      "en": "family (ʿāʾila)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "جاءت العائلة كلها للعشاء."
+    },
+    {
+     "front": "أم",
+     "back": {
+      "ru": "мама (umm)",
+      "en": "mother (umm)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "أمي تغني بشكل جميل."
+    },
+    {
+     "front": "أب",
+     "back": {
+      "ru": "папа (ab)",
+      "en": "father (ab)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "أبي يعمل في الليل."
+    },
+    {
+     "front": "ابن",
+     "back": {
+      "ru": "сын (ibn)",
+      "en": "son (ibn)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "ابنهم عمره خمس سنوات."
+    },
+    {
+     "front": "ابنة",
+     "back": {
+      "ru": "дочь (ibna)",
+      "en": "daughter (ibna)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "الابنة الكبرى تدرس الطب."
+    },
+    {
+     "front": "أخ",
+     "back": {
+      "ru": "брат (akh)",
+      "en": "brother (akh)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "أخي يلعب كرة القدم."
+    },
+    {
+     "front": "أخت",
+     "back": {
+      "ru": "сестра (ukht)",
+      "en": "sister (ukht)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "أختي تعيش في الإسكندرية."
+    },
+    {
+     "front": "جدة",
+     "back": {
+      "ru": "бабушка (jadda)",
+      "en": "grandmother (jadda)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "جدتي تصنع أطيب كعكة."
+    },
+    {
+     "front": "جد",
+     "back": {
+      "ru": "дедушка (jadd)",
+      "en": "grandfather (jadd)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "جدي يروي حكايات قديمة."
+    },
+    {
+     "front": "إنسان",
+     "back": {
+      "ru": "человек (insān)",
+      "en": "person (insān)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "هذا الإنسان لا أعرفه."
+    },
+    {
+     "front": "ناس",
+     "back": {
+      "ru": "люди (nās)",
+      "en": "people (nās)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "تفرق الناس في الساحة."
+    },
+    {
+     "front": "اسم",
+     "back": {
+      "ru": "имя (ism)",
+      "en": "name (ism)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "ما اسمك؟"
+    },
+    {
+     "front": "سيد",
+     "back": {
+      "ru": "господин (sayyid)",
+      "en": "sir (sayyid)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "صباح الخير يا سيد أحمد."
+    },
+    {
+     "front": "سيدة",
+     "back": {
+      "ru": "госпожа (sayyida)",
+      "en": "madam (sayyida)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "هل تحتاج السيدة مساعدة؟"
+    },
+    {
+     "front": "أنا",
+     "back": {
+      "ru": "я (anā)",
+      "en": "I (anā)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "أنا أسكن قريبا من هنا."
+    },
+    {
+     "front": "أنت",
+     "back": {
+      "ru": "ты (anta)",
+      "en": "you (anta)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "هل تتكلم العربية؟"
+    },
+    {
+     "front": "أنتم",
+     "back": {
+      "ru": "вы (antum)",
+      "en": "you (antum)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "هل تريدون الجلوس؟"
+    },
+    {
+     "front": "هو",
+     "back": {
+      "ru": "он (huwa)",
+      "en": "he (huwa)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "هو يصل في الثامنة."
+    },
+    {
+     "front": "هي",
+     "back": {
+      "ru": "она (hiya)",
+      "en": "she (hiya)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "هي تعمل في مستشفى."
+    },
+    {
+     "front": "نحن",
+     "back": {
+      "ru": "мы (naḥnu)",
+      "en": "we (naḥnu)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "نحن نسافر بالقطار."
+    },
+    {
+     "front": "هم",
+     "back": {
+      "ru": "они (hum)",
+      "en": "they (hum)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "هم يسكنون في نفس البناية."
+    },
+    {
+     "front": "لي",
+     "back": {
+      "ru": "мой (lī)",
+      "en": "my (lī)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "هذا مكاني أنا."
+    },
+    {
+     "front": "لك",
+     "back": {
+      "ru": "твой (laka)",
+      "en": "your (laka)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "معطفك بقي على الكرسي."
+    },
+    {
+     "front": "لنا",
+     "back": {
+      "ru": "наш (lanā)",
+      "en": "our (lanā)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "سيارتنا صغيرة."
+    },
+    {
+     "front": "هذا",
+     "back": {
+      "ru": "этот (hādhā)",
+      "en": "this (hādhā)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "هذا الكتاب ممتع جدا."
+    },
+    {
+     "front": "ذلك",
+     "back": {
+      "ru": "тот (dhālika)",
+      "en": "that (dhālika)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "تلك البناية قديمة جدا."
+    },
+    {
+     "front": "من",
+     "back": {
+      "ru": "кто (man)",
+      "en": "who (man)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "من عند الباب؟"
+    },
+    {
+     "front": "ماذا",
+     "back": {
+      "ru": "что (mādhā)",
+      "en": "what (mādhā)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "ماذا تقول؟"
+    },
+    {
+     "front": "أين",
+     "back": {
+      "ru": "где (ayna)",
+      "en": "where (ayna)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "أين المحطة؟"
+    },
+    {
+     "front": "متى",
+     "back": {
+      "ru": "когда (matā)",
+      "en": "when (matā)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "متى يبدأ الفيلم؟"
+    },
+    {
+     "front": "كيف",
+     "back": {
+      "ru": "как (kayfa)",
+      "en": "how (kayfa)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "كيف يقال هذا؟"
+    },
+    {
+     "front": "لماذا",
+     "back": {
+      "ru": "почему (limādhā)",
+      "en": "why (limādhā)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "لماذا كل هذه العجلة؟"
+    },
+    {
+     "front": "أي",
+     "back": {
+      "ru": "который (ayy)",
+      "en": "which (ayy)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "أيهما تفضل؟"
+    },
+    {
+     "front": "صفر",
+     "back": {
+      "ru": "ноль (ṣifr)",
+      "en": "zero (ṣifr)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "درجة الحرارة صفر."
+    },
+    {
+     "front": "واحد",
+     "back": {
+      "ru": "один (wāḥid)",
+      "en": "one (wāḥid)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "بقي مكان واحد فقط."
+    },
+    {
+     "front": "اثنان",
+     "back": {
+      "ru": "два (ithnān)",
+      "en": "two (ithnān)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "لي أخوان اثنان."
+    },
+    {
+     "front": "ثلاثة",
+     "back": {
+      "ru": "три (thalātha)",
+      "en": "three (thalātha)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "أعود بعد ثلاثة أيام."
+    },
+    {
+     "front": "أربعة",
+     "back": {
+      "ru": "четыре (arbaʿa)",
+      "en": "four (arbaʿa)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "للطاولة أربعة كراسي."
+    },
+    {
+     "front": "خمسة",
+     "back": {
+      "ru": "пять (khamsa)",
+      "en": "five (khamsa)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "الفيلم يستغرق خمس ساعات."
+    },
+    {
+     "front": "ستة",
+     "back": {
+      "ru": "шесть (sitta)",
+      "en": "six (sitta)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "أستيقظ في السادسة صباحا."
+    },
+    {
+     "front": "سبعة",
+     "back": {
+      "ru": "семь (sabʿa)",
+      "en": "seven (sabʿa)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "الأسبوع سبعة أيام."
+    },
+    {
+     "front": "ثمانية",
+     "back": {
+      "ru": "восемь (thamāniya)",
+      "en": "eight (thamāniya)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "القطار يغادر في الثامنة."
+    },
+    {
+     "front": "تسعة",
+     "back": {
+      "ru": "девять (tisʿa)",
+      "en": "nine (tisʿa)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "عمرها تسع سنوات."
+    },
+    {
+     "front": "عشرة",
+     "back": {
+      "ru": "десять (ʿašara)",
+      "en": "ten (ʿašara)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "بقيت عشر دقائق."
+    },
+    {
+     "front": "أحد عشر",
+     "back": {
+      "ru": "одиннадцать (aḥada ʿašar)",
+      "en": "eleven (aḥada ʿašar)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "الدرس ينتهي في الحادية عشرة."
+    },
+    {
+     "front": "اثنا عشر",
+     "back": {
+      "ru": "двенадцать (ithnā ʿašar)",
+      "en": "twelve (ithnā ʿašar)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "السنة اثنا عشر شهرا."
+    },
+    {
+     "front": "عشرون",
+     "back": {
+      "ru": "двадцать (ʿišrūn)",
+      "en": "twenty (ʿišrūn)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "التذكرة بعشرين جنيها."
+    },
+    {
+     "front": "ثلاثون",
+     "back": {
+      "ru": "тридцать (thalāthūn)",
+      "en": "thirty (thalāthūn)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "هذا الشهر ثلاثون يوما."
+    },
+    {
+     "front": "مئة",
+     "back": {
+      "ru": "сто (miʾa)",
+      "en": "hundred (miʾa)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "بقي مئة متر."
+    },
+    {
+     "front": "ألف",
+     "back": {
+      "ru": "тысяча (alf)",
+      "en": "thousand (alf)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "في القرية ألف نسمة."
+    },
+    {
+     "front": "أول",
+     "back": {
+      "ru": "первый (awwal)",
+      "en": "first (awwal)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "اليوم أول يوم دراسة."
+    },
+    {
+     "front": "أخير",
+     "back": {
+      "ru": "последний (akhīr)",
+      "en": "last (akhīr)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "لحقت بآخر حافلة."
+    },
+    {
+     "front": "رقم",
+     "back": {
+      "ru": "номер (raqm)",
+      "en": "number (raqm)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "ما رقم بيتك؟"
+    },
+    {
+     "front": "نصف",
+     "back": {
+      "ru": "половина (niṣf)",
+      "en": "half (niṣf)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "أكلت نصف الكعكة."
+    },
+    {
+     "front": "يوم",
+     "back": {
+      "ru": "день (yawm)",
+      "en": "day (yawm)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "كان يوما طويلا."
+    },
+    {
+     "front": "ليل",
+     "back": {
+      "ru": "ночь (layl)",
+      "en": "night (layl)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "الليل بارد."
+    },
+    {
+     "front": "صباح",
+     "back": {
+      "ru": "утро (ṣabāḥ)",
+      "en": "morning (ṣabāḥ)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "في الصباح أشرب الشاي."
+    },
+    {
+     "front": "بعد الظهر",
+     "back": {
+      "ru": "вечер (baʿda ẓ-ẓuhr)",
+      "en": "afternoon (baʿda ẓ-ẓuhr)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "بعد الظهر أذهب إلى السوق."
+    },
+    {
+     "front": "اليوم",
+     "back": {
+      "ru": "сегодня (al-yawm)",
+      "en": "today (al-yawm)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "اليوم لا أعمل."
+    },
+    {
+     "front": "غدا",
+     "back": {
+      "ru": "завтра (ghadan)",
+      "en": "tomorrow (ghadan)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "غدا نذهب إلى الشاطئ."
+    },
+    {
+     "front": "أمس",
+     "back": {
+      "ru": "вчера (ams)",
+      "en": "yesterday (ams)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "أمس أمطرت طوال اليوم."
+    },
+    {
+     "front": "أسبوع",
+     "back": {
+      "ru": "неделя (usbūʿ)",
+      "en": "week (usbūʿ)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "أعود الأسبوع القادم."
+    },
+    {
+     "front": "شهر",
+     "back": {
+      "ru": "месяц (šahr)",
+      "en": "month (šahr)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "هذا الشهر يمضي بخير."
+    },
+    {
+     "front": "سنة",
+     "back": {
+      "ru": "год (sana)",
+      "en": "year (sana)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "السنة الماضية كانت صعبة."
+    },
+    {
+     "front": "ساعة",
+     "back": {
+      "ru": "час (sāʿa)",
+      "en": "hour (sāʿa)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "الرحلة تستغرق ساعة."
+    },
+    {
+     "front": "دقيقة",
+     "back": {
+      "ru": "минута (daqīqa)",
+      "en": "minute (daqīqa)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "انتظر دقيقة من فضلك."
+    },
+    {
+     "front": "وقت",
+     "back": {
+      "ru": "время (waqt)",
+      "en": "time (waqt)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "ليس عندي وقت الآن."
+    },
+    {
+     "front": "الآن",
+     "back": {
+      "ru": "сейчас (al-ān)",
+      "en": "now (al-ān)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "أنا مشغول الآن."
+    },
+    {
+     "front": "دائما",
+     "back": {
+      "ru": "всегда (dāʾiman)",
+      "en": "always (dāʾiman)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "هي تصل دائما مبكرا."
+    },
+    {
+     "front": "أبدا",
+     "back": {
+      "ru": "никогда (abadan)",
+      "en": "never (abadan)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "لم أزر روما أبدا."
+    },
+    {
+     "front": "مبكرا",
+     "back": {
+      "ru": "рано (mubakkiran)",
+      "en": "early (mubakkiran)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "استيقظت مبكرا جدا."
+    },
+    {
+     "front": "الاثنين",
+     "back": {
+      "ru": "понедельник (al-ithnayn)",
+      "en": "Monday (al-ithnayn)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "عندي موعد يوم الاثنين."
+    },
+    {
+     "front": "السبت",
+     "back": {
+      "ru": "суббота (as-sabt)",
+      "en": "Saturday (as-sabt)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "يوم السبت أنام طويلا."
+    },
+    {
+     "front": "الأحد",
+     "back": {
+      "ru": "воскресенье (al-aḥad)",
+      "en": "Sunday (al-aḥad)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "يوم الأحد نتغدى مع العائلة."
+    },
+    {
+     "front": "بيت",
+     "back": {
+      "ru": "дом (bayt)",
+      "en": "house (bayt)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "خلف البيت حديقة."
+    },
+    {
+     "front": "مدينة",
+     "back": {
+      "ru": "город (madīna)",
+      "en": "city (madīna)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "القاهرة مدينة كبيرة."
+    },
+    {
+     "front": "قرية",
+     "back": {
+      "ru": "деревня (qarya)",
+      "en": "village (qarya)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "القرية عند سفح الجبل."
+    },
+    {
+     "front": "شارع",
+     "back": {
+      "ru": "улица (šāriʿ)",
+      "en": "street (šāriʿ)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "الشارع مليء بالناس."
+    },
+    {
+     "front": "مدرسة",
+     "back": {
+      "ru": "школа (madrasa)",
+      "en": "school (madrasa)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "المدرسة تفتح في الثامنة."
+    },
+    {
+     "front": "عمل",
+     "back": {
+      "ru": "работа (ʿamal)",
+      "en": "work (ʿamal)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "العمل ينتهي في السادسة."
+    },
+    {
+     "front": "دكان",
+     "back": {
+      "ru": "магазин (dukkān)",
+      "en": "shop (dukkān)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "الدكان مغلق يوم الأحد."
+    },
+    {
+     "front": "سوق",
+     "back": {
+      "ru": "рынок (sūq)",
+      "en": "market (sūq)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "أشتري الفاكهة من السوق."
+    },
+    {
+     "front": "مستشفى",
+     "back": {
+      "ru": "больница (mustašfā)",
+      "en": "hospital (mustašfā)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "المستشفى قريب من هنا."
+    },
+    {
+     "front": "صيدلية",
+     "back": {
+      "ru": "аптека (ṣaydaliyya)",
+      "en": "pharmacy (ṣaydaliyya)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "الصيدلية مفتوحة ليلا."
+    },
+    {
+     "front": "بنك",
+     "back": {
+      "ru": "банк (bank)",
+      "en": "bank (bank)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "أذهب إلى البنك صباحا."
+    },
+    {
+     "front": "فندق",
+     "back": {
+      "ru": "гостиница (funduq)",
+      "en": "hotel (funduq)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "الفندق على شاطئ البحر."
+    },
+    {
+     "front": "كنيسة",
+     "back": {
+      "ru": "церковь (kanīsa)",
+      "en": "church (kanīsa)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "الكنيسة قديمة جدا."
+    },
+    {
+     "front": "حديقة",
+     "back": {
+      "ru": "сад (ḥadīqa)",
+      "en": "garden (ḥadīqa)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "الحديقة مليئة بالزهور."
+    },
+    {
+     "front": "شاطئ",
+     "back": {
+      "ru": "пляж (šāṭiʾ)",
+      "en": "beach (šāṭiʾ)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "الشاطئ على بعد عشر دقائق."
+    },
+    {
+     "front": "بحر",
+     "back": {
+      "ru": "море (baḥr)",
+      "en": "sea (baḥr)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "البحر هادئ اليوم."
+    },
+    {
+     "front": "نهر",
+     "back": {
+      "ru": "река (nahr)",
+      "en": "river (nahr)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "النهر يعبر المدينة."
+    },
+    {
+     "front": "جبل",
+     "back": {
+      "ru": "гора (jabal)",
+      "en": "mountain (jabal)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "على قمة الجبل ثلج."
+    },
+    {
+     "front": "حقل",
+     "back": {
+      "ru": "поле (ḥaql)",
+      "en": "field (ḥaql)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "القمح ينمو في الحقل."
+    },
+    {
+     "front": "غابة",
+     "back": {
+      "ru": "лес (ghāba)",
+      "en": "forest (ghāba)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "الغابة تبدأ بعد الجسر."
+    },
+    {
+     "front": "بلد",
+     "back": {
+      "ru": "страна (balad)",
+      "en": "country (balad)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "البرتغال بلد صغير."
+    },
+    {
+     "front": "عالم",
+     "back": {
+      "ru": "мир (ʿālam)",
+      "en": "world (ʿālam)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "سافر نصف العالم."
+    },
+    {
+     "front": "طريق",
+     "back": {
+      "ru": "дорога (ṭarīq)",
+      "en": "road (ṭarīq)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "الطريق ضيق."
+    },
+    {
+     "front": "جسر",
+     "back": {
+      "ru": "мост (jisr)",
+      "en": "bridge (jisr)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "الجسر مغلق للصيانة."
+    },
+    {
+     "front": "محطة",
+     "back": {
+      "ru": "вокзал (maḥaṭṭa)",
+      "en": "station (maḥaṭṭa)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "نلتقي في المحطة."
+    },
+    {
+     "front": "مطار",
+     "back": {
+      "ru": "аэропорт (maṭār)",
+      "en": "airport (maṭār)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "المطار بعيد عن المركز."
+    },
+    {
+     "front": "غرفة",
+     "back": {
+      "ru": "комната (ghurfa)",
+      "en": "room (ghurfa)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "في الغرفة نافذة كبيرة."
+    },
+    {
+     "front": "مطبخ",
+     "back": {
+      "ru": "кухня (maṭbakh)",
+      "en": "kitchen (maṭbakh)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "المطبخ تفوح منه رائحة القهوة."
+    },
+    {
+     "front": "باب",
+     "back": {
+      "ru": "дверь (bāb)",
+      "en": "door (bāb)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "أغلق الباب، الجو بارد."
+    },
+    {
+     "front": "نافذة",
+     "back": {
+      "ru": "окно (nāfidha)",
+      "en": "window (nāfidha)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "افتح النافذة، الجو خانق."
+    },
+    {
+     "front": "طاولة",
+     "back": {
+      "ru": "стол (ṭāwila)",
+      "en": "table (ṭāwila)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "ضع الأطباق على الطاولة."
+    },
+    {
+     "front": "كرسي",
+     "back": {
+      "ru": "стул (kursī)",
+      "en": "chair (kursī)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "ينقص كرسي على الطاولة."
+    },
+    {
+     "front": "سرير",
+     "back": {
+      "ru": "кровать (sarīr)",
+      "en": "bed (sarīr)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "السرير قاس جدا."
+    },
+    {
+     "front": "سيارة",
+     "back": {
+      "ru": "машина (sayyāra)",
+      "en": "car (sayyāra)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "السيارة لا تدور في الصباح."
+    },
+    {
+     "front": "حافلة",
+     "back": {
+      "ru": "автобус (ḥāfila)",
+      "en": "bus (ḥāfila)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "الحافلة تمر كل نصف ساعة."
+    },
+    {
+     "front": "قطار",
+     "back": {
+      "ru": "поезд (qiṭār)",
+      "en": "train (qiṭār)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "وصل القطار متأخرا."
+    },
+    {
+     "front": "طائرة",
+     "back": {
+      "ru": "самолёт (ṭāʾira)",
+      "en": "plane (ṭāʾira)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "الطائرة تقلع في السابعة."
+    },
+    {
+     "front": "دراجة",
+     "back": {
+      "ru": "велосипед (darrāja)",
+      "en": "bicycle (darrāja)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "أذهب إلى العمل بالدراجة."
+    },
+    {
+     "front": "شمس",
+     "back": {
+      "ru": "солнце (šams)",
+      "en": "sun (šams)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "الشمس تشرق في السادسة والنصف."
+    },
+    {
+     "front": "قمر",
+     "back": {
+      "ru": "луна (qamar)",
+      "en": "moon (qamar)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "القمر مكتمل هذه الليلة."
+    },
+    {
+     "front": "نجمة",
+     "back": {
+      "ru": "звезда (najma)",
+      "en": "star (najma)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "تظهر نجمة ساطعة في السماء."
+    },
+    {
+     "front": "سماء",
+     "back": {
+      "ru": "небо (samāʾ)",
+      "en": "sky (samāʾ)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "السماء صافية."
+    },
+    {
+     "front": "مطر",
+     "back": {
+      "ru": "дождь (maṭar)",
+      "en": "rain (maṭar)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "المطر لم يتوقف منذ أمس."
+    },
+    {
+     "front": "ريح",
+     "back": {
+      "ru": "ветер (rīḥ)",
+      "en": "wind (rīḥ)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "الريح قلبت الكراسي."
+    },
+    {
+     "front": "ثلج",
+     "back": {
+      "ru": "снег (thalj)",
+      "en": "snow (thalj)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "الثلج نادر هنا."
+    },
+    {
+     "front": "نار",
+     "back": {
+      "ru": "огонь (nār)",
+      "en": "fire (nār)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "أشعلنا النار في المدفأة."
+    },
+    {
+     "front": "أرض",
+     "back": {
+      "ru": "земля (arḍ)",
+      "en": "earth (arḍ)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "الأرض ما زالت مبللة."
+    },
+    {
+     "front": "شجرة",
+     "back": {
+      "ru": "дерево (šajara)",
+      "en": "tree (šajara)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "الشجرة تظلل الفناء."
+    },
+    {
+     "front": "زهرة",
+     "back": {
+      "ru": "цветок (zahra)",
+      "en": "flower (zahra)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "أحضرت زهرة من الشارع."
+    },
+    {
+     "front": "حيوان",
+     "back": {
+      "ru": "животное (ḥayawān)",
+      "en": "animal (ḥayawān)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "أي حيوان هذا؟"
+    },
+    {
+     "front": "كلب",
+     "back": {
+      "ru": "собака (kalb)",
+      "en": "dog (kalb)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "الكلب ينام عند الباب."
+    },
+    {
+     "front": "قطة",
+     "back": {
+      "ru": "кошка (qiṭṭa)",
+      "en": "cat (qiṭṭa)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "القطة صعدت إلى السطح."
+    },
+    {
+     "front": "طائر",
+     "back": {
+      "ru": "птица (ṭāʾir)",
+      "en": "bird (ṭāʾir)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "غرد طائر في الصباح."
+    },
+    {
+     "front": "حصان",
+     "back": {
+      "ru": "лошадь (ḥiṣān)",
+      "en": "horse (ḥiṣān)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "الحصان يركض في الحقل."
+    },
+    {
+     "front": "كتاب",
+     "back": {
+      "ru": "книга (kitāb)",
+      "en": "book (kitāb)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "هذا الكتاب ثلاثمئة صفحة."
+    },
+    {
+     "front": "ورق",
+     "back": {
+      "ru": "бумага (waraq)",
+      "en": "paper (waraq)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "أعطني ورقة."
+    },
+    {
+     "front": "قلم",
+     "back": {
+      "ru": "ручка (qalam)",
+      "en": "pen (qalam)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "القلم نفد حبره."
+    },
+    {
+     "front": "هاتف",
+     "back": {
+      "ru": "телефон (hātif)",
+      "en": "phone (hātif)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "رن الهاتف مرتين."
+    },
+    {
+     "front": "حاسوب",
+     "back": {
+      "ru": "компьютер (ḥāsūb)",
+      "en": "computer (ḥāsūb)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "الحاسوب بطيء."
+    },
+    {
+     "front": "مال",
+     "back": {
+      "ru": "деньги (māl)",
+      "en": "money (māl)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "ليس معي مال."
+    },
+    {
+     "front": "مفتاح",
+     "back": {
+      "ru": "ключ (miftāḥ)",
+      "en": "key (miftāḥ)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "أضعت مفتاح البيت."
+    },
+    {
+     "front": "ساعة يد",
+     "back": {
+      "ru": "часы (sāʿat yad)",
+      "en": "watch (sāʿat yad)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "ساعة يدي متقدمة."
+    },
+    {
+     "front": "ضوء",
+     "back": {
+      "ru": "свет (ḍawʾ)",
+      "en": "light (ḍawʾ)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "أشعل الضوء من فضلك."
+    },
+    {
+     "front": "موسيقى",
+     "back": {
+      "ru": "музыка (mūsīqā)",
+      "en": "music (mūsīqā)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "الموسيقى تأتي من المقهى المجاور."
+    },
+    {
+     "front": "فيلم",
+     "back": {
+      "ru": "фильм (fīlm)",
+      "en": "film (fīlm)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "الفيلم يبدأ في التاسعة."
+    },
+    {
+     "front": "صورة",
+     "back": {
+      "ru": "фотография (ṣūra)",
+      "en": "photo (ṣūra)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "التقطت صورة للساحة."
+    },
+    {
+     "front": "رسالة",
+     "back": {
+      "ru": "письмо (risāla)",
+      "en": "letter (risāla)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "وصلتني رسالة من جدتي."
+    },
+    {
+     "front": "جريدة",
+     "back": {
+      "ru": "газета (jarīda)",
+      "en": "newspaper (jarīda)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "أقرأ الجريدة مع الفطور."
+    },
+    {
+     "front": "لون",
+     "back": {
+      "ru": "цвет (lawn)",
+      "en": "colour (lawn)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "ما لون سيارتك؟"
+    },
+    {
+     "front": "كلمة",
+     "back": {
+      "ru": "слово (kalima)",
+      "en": "word (kalima)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "لم أفهم الكلمة الأخيرة."
+    },
+    {
+     "front": "لغة",
+     "back": {
+      "ru": "язык (lugha)",
+      "en": "language (lugha)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "العربية لغتي الأم."
+    },
+    {
+     "front": "رأس",
+     "back": {
+      "ru": "голова (raʾs)",
+      "en": "head (raʾs)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "رأسي يؤلمني منذ أمس."
+    },
+    {
+     "front": "يد",
+     "back": {
+      "ru": "рука (yad)",
+      "en": "hand (yad)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "أعطني يدك."
+    },
+    {
+     "front": "قدم",
+     "back": {
+      "ru": "нога (qadam)",
+      "en": "foot (qadam)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "قدمي متورمة."
+    },
+    {
+     "front": "عين",
+     "back": {
+      "ru": "глаз (ʿayn)",
+      "en": "eye (ʿayn)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "دخل الغبار في عيني."
+    },
+    {
+     "front": "فم",
+     "back": {
+      "ru": "рот (fam)",
+      "en": "mouth (fam)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "قال الطبيب افتح فمك."
+    },
+    {
+     "front": "قلب",
+     "back": {
+      "ru": "сердце (qalb)",
+      "en": "heart (qalb)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "القلب يخفق بسرعة."
+    },
+    {
+     "front": "شعر",
+     "back": {
+      "ru": "волосы (šaʿr)",
+      "en": "hair (šaʿr)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "قصصت شعري أمس."
+    },
+    {
+     "front": "جسم",
+     "back": {
+      "ru": "тело (jism)",
+      "en": "body (jism)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "الجسم يطلب الراحة."
+    },
+    {
+     "front": "جيد",
+     "back": {
+      "ru": "хороший (jayyid)",
+      "en": "good (jayyid)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "كان يوم عمل جيد."
+    },
+    {
+     "front": "سيئ",
+     "back": {
+      "ru": "плохой (sayyiʾ)",
+      "en": "bad (sayyiʾ)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "الطقس سيئ."
+    },
+    {
+     "front": "كبير",
+     "back": {
+      "ru": "большой (kabīr)",
+      "en": "big (kabīr)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "نحتاج طاولة كبيرة."
+    },
+    {
+     "front": "صغير",
+     "back": {
+      "ru": "маленький (ṣaghīr)",
+      "en": "small (ṣaghīr)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "الغرفة صغيرة لكنها مضيئة."
+    },
+    {
+     "front": "جديد",
+     "back": {
+      "ru": "новый (jadīd)",
+      "en": "new (jadīd)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "اشتريت هاتفا جديدا."
+    },
+    {
+     "front": "قديم",
+     "back": {
+      "ru": "старый (qadīm)",
+      "en": "old (qadīm)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "هذه البناية قديمة."
+    },
+    {
+     "front": "شاب",
+     "back": {
+      "ru": "молодой (šābb)",
+      "en": "young (šābb)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "هو مدرس شاب."
+    },
+    {
+     "front": "عال",
+     "back": {
+      "ru": "высокий (ʿālin)",
+      "en": "tall (ʿālin)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "البناية عالية جدا."
+    },
+    {
+     "front": "منخفض",
+     "back": {
+      "ru": "низкий (munkhafiḍ)",
+      "en": "short (munkhafiḍ)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "السقف منخفض."
+    },
+    {
+     "front": "طويل",
+     "back": {
+      "ru": "длинный (ṭawīl)",
+      "en": "long (ṭawīl)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "الطريق طويل."
+    },
+    {
+     "front": "قصير",
+     "back": {
+      "ru": "короткий (qaṣīr)",
+      "en": "short (qaṣīr)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "كان الفيلم قصيرا."
+    },
+    {
+     "front": "ساخن",
+     "back": {
+      "ru": "горячий (sākhin)",
+      "en": "hot (sākhin)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "الشاي ساخن."
+    },
+    {
+     "front": "بارد",
+     "back": {
+      "ru": "холодный (bārid)",
+      "en": "cold (bārid)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "الغرفة باردة."
+    },
+    {
+     "front": "جميل",
+     "back": {
+      "ru": "красивый (jamīl)",
+      "en": "beautiful (jamīl)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "يا له من منظر جميل!"
+    },
+    {
+     "front": "قبيح",
+     "back": {
+      "ru": "некрасивый (qabīḥ)",
+      "en": "ugly (qabīḥ)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "البناية الجديدة قبيحة."
+    },
+    {
+     "front": "سهل",
+     "back": {
+      "ru": "лёгкий (sahl)",
+      "en": "easy (sahl)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "كان التمرين سهلا."
+    },
+    {
+     "front": "صعب",
+     "back": {
+      "ru": "трудный (ṣaʿb)",
+      "en": "difficult (ṣaʿb)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "السؤال صعب."
+    },
+    {
+     "front": "قوي",
+     "back": {
+      "ru": "сильный (qawī)",
+      "en": "strong (qawī)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "القهوة قوية."
+    },
+    {
+     "front": "ضعيف",
+     "back": {
+      "ru": "слабый (ḍaʿīf)",
+      "en": "weak (ḍaʿīf)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "الإشارة ضعيفة."
+    },
+    {
+     "front": "سريع",
+     "back": {
+      "ru": "быстрый (sarīʿ)",
+      "en": "fast (sarīʿ)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "القطار سريع."
+    },
+    {
+     "front": "بطيء",
+     "back": {
+      "ru": "медленный (baṭīʾ)",
+      "en": "slow (baṭīʾ)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "الخدمة هنا بطيئة."
+    },
+    {
+     "front": "غال",
+     "back": {
+      "ru": "дорогой (ghālin)",
+      "en": "expensive (ghālin)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "الفندق غال."
+    },
+    {
+     "front": "رخيص",
+     "back": {
+      "ru": "дешёвый (rakhīṣ)",
+      "en": "cheap (rakhīṣ)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "وجدت تذكرة رخيصة."
+    },
+    {
+     "front": "نظيف",
+     "back": {
+      "ru": "чистый (naẓīf)",
+      "en": "clean (naẓīf)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "الأرضية نظيفة."
+    },
+    {
+     "front": "متسخ",
+     "back": {
+      "ru": "грязный (muttasikh)",
+      "en": "dirty (muttasikh)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "السيارة متسخة بالغبار."
+    },
+    {
+     "front": "ممتلئ",
+     "back": {
+      "ru": "полный (mumtaliʾ)",
+      "en": "full (mumtaliʾ)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "جاءت الحافلة ممتلئة."
+    },
+    {
+     "front": "فارغ",
+     "back": {
+      "ru": "пустой (fārigh)",
+      "en": "empty (fārigh)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "الكوب فارغ."
+    },
+    {
+     "front": "سعيد",
+     "back": {
+      "ru": "счастливый (saʿīd)",
+      "en": "happy (saʿīd)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "سعدت بالخبر."
+    },
+    {
+     "front": "حزين",
+     "back": {
+      "ru": "грустный (ḥazīn)",
+      "en": "sad (ḥazīn)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "عاد حزينا من العمل."
+    },
+    {
+     "front": "متعب",
+     "back": {
+      "ru": "усталый (mutʿab)",
+      "en": "tired (mutʿab)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "أنا متعب من اليوم."
+    },
+    {
+     "front": "مريض",
+     "back": {
+      "ru": "больной (marīḍ)",
+      "en": "sick (marīḍ)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "ابني مريض."
+    },
+    {
+     "front": "صحيح",
+     "back": {
+      "ru": "правильный (ṣaḥīḥ)",
+      "en": "right (ṣaḥīḥ)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "الجواب صحيح."
+    },
+    {
+     "front": "خطأ",
+     "back": {
+      "ru": "неправильный (khaṭaʾ)",
+      "en": "wrong (khaṭaʾ)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "الرقم خطأ."
+    },
+    {
+     "front": "أبيض",
+     "back": {
+      "ru": "белый (abyaḍ)",
+      "en": "white (abyaḍ)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "الجدار أبيض."
+    },
+    {
+     "front": "أسود",
+     "back": {
+      "ru": "чёрный (aswad)",
+      "en": "black (aswad)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "عندي قطة سوداء."
+    },
+    {
+     "front": "أحمر",
+     "back": {
+      "ru": "красный (aḥmar)",
+      "en": "red (aḥmar)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "الإشارة حمراء."
+    },
+    {
+     "front": "أزرق",
+     "back": {
+      "ru": "синий (azraq)",
+      "en": "blue (azraq)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "البحر أزرق جدا."
+    },
+    {
+     "front": "أخضر",
+     "back": {
+      "ru": "зелёный (akhḍar)",
+      "en": "green (akhḍar)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "تخضر الأوراق في الربيع."
+    },
+    {
+     "front": "أصفر",
+     "back": {
+      "ru": "жёлтый (aṣfar)",
+      "en": "yellow (aṣfar)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "البيت أصفر."
+    },
+    {
+     "front": "هنا",
+     "back": {
+      "ru": "здесь (hunā)",
+      "en": "here (hunā)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "انتظر هنا لحظة."
+    },
+    {
+     "front": "هناك",
+     "back": {
+      "ru": "там (hunāk)",
+      "en": "there (hunāk)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "السيارة هناك."
+    },
+    {
+     "front": "كثيرا",
+     "back": {
+      "ru": "много (kathīran)",
+      "en": "much (kathīran)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "أشرب الشاي كثيرا."
+    },
+    {
+     "front": "قليلا",
+     "back": {
+      "ru": "мало (qalīlan)",
+      "en": "little (qalīlan)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "نمت قليلا هذه الليلة."
+    },
+    {
+     "front": "أكثر",
+     "back": {
+      "ru": "больше (akthar)",
+      "en": "more (akthar)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "أريد وقتا أكثر."
+    },
+    {
+     "front": "أقل",
+     "back": {
+      "ru": "меньше (aqall)",
+      "en": "less (aqall)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "اليوم الناس أقل."
+    },
+    {
+     "front": "أيضا",
+     "back": {
+      "ru": "тоже (ayḍan)",
+      "en": "also (ayḍan)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "أنا أيضا ذاهب."
+    },
+    {
+     "front": "جيدا",
+     "back": {
+      "ru": "хорошо (jayyidan)",
+      "en": "well (jayyidan)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "هي تتكلم الفرنسية جيدا."
+    },
+    {
+     "front": "بشكل سيئ",
+     "back": {
+      "ru": "плохо (bi-šakl sayyiʾ)",
+      "en": "badly (bi-šakl sayyiʾ)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "نمت بشكل سيئ الليلة."
+    },
+    {
+     "front": "مع",
+     "back": {
+      "ru": "с (maʿa)",
+      "en": "with (maʿa)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "أذهب مع أختي."
+    },
+    {
+     "front": "بدون",
+     "back": {
+      "ru": "без (bidūn)",
+      "en": "without (bidūn)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "أشرب القهوة بدون سكر."
+    },
+    {
+     "front": "لأجل",
+     "back": {
+      "ru": "для (li-ajl)",
+      "en": "for (li-ajl)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "هذا الطرد لأجلك."
+    },
+    {
+     "front": "لكن",
+     "back": {
+      "ru": "но (lākin)",
+      "en": "but (lākin)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "أردت الذهاب لكني لا أستطيع."
+    },
+    {
+     "front": "أو",
+     "back": {
+      "ru": "или (aw)",
+      "en": "or (aw)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "شاي أو قهوة؟"
+    },
+    {
+     "front": "لأن",
+     "back": {
+      "ru": "потому что (li-anna)",
+      "en": "because (li-anna)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "بقيت في البيت لأن المطر نزل."
+    },
+    {
+     "front": "إذا",
+     "back": {
+      "ru": "если (idhā)",
+      "en": "if (idhā)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "إذا أمطرت نبقى."
+    },
+    {
+     "front": "ربما",
+     "back": {
+      "ru": "может быть (rubbamā)",
+      "en": "maybe (rubbamā)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "ربما يأتي غدا."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "كان",
+     "back": {
+      "ru": "быть (kāna)",
+      "en": "to be (kāna)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "كانت معلمة موسيقى."
+    },
+    {
+     "front": "يوجد",
+     "back": {
+      "ru": "находиться (yūjad)",
+      "en": "to be (state) (yūjad)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "يوجد كتاب على الطاولة."
+    },
+    {
+     "front": "يملك",
+     "back": {
+      "ru": "иметь (yamlik)",
+      "en": "to have (yamlik)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "يملك أخوين."
+    },
+    {
+     "front": "يفعل",
+     "back": {
+      "ru": "делать (yafʿal)",
+      "en": "to do (yafʿal)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "ماذا تفعل يوم الأحد؟"
+    },
+    {
+     "front": "يذهب",
+     "back": {
+      "ru": "идти (yadhhab)",
+      "en": "to go (yadhhab)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "أذهب إلى السوق الآن."
+    },
+    {
+     "front": "يأتي",
+     "back": {
+      "ru": "приходить (yaʾtī)",
+      "en": "to come (yaʾtī)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "هل تأتي للعشاء؟"
+    },
+    {
+     "front": "يقول",
+     "back": {
+      "ru": "говорить (yaqūl)",
+      "en": "to say (yaqūl)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "قل لي الحقيقة."
+    },
+    {
+     "front": "يرى",
+     "back": {
+      "ru": "видеть (yarā)",
+      "en": "to see (yarā)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "رأيت أخاك في الشارع."
+    },
+    {
+     "front": "يعطي",
+     "back": {
+      "ru": "давать (yuʿṭī)",
+      "en": "to give (yuʿṭī)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "أعطني المفتاح من فضلك."
+    },
+    {
+     "front": "يعرف",
+     "back": {
+      "ru": "знать (yaʿrif)",
+      "en": "to know (yaʿrif)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "لا أعرف أين يسكن."
+    },
+    {
+     "front": "يستطيع",
+     "back": {
+      "ru": "мочь (yastaṭīʿ)",
+      "en": "can (yastaṭīʿ)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "هل تستطيع مساعدتي؟"
+    },
+    {
+     "front": "يريد",
+     "back": {
+      "ru": "хотеть (yurīd)",
+      "en": "to want (yurīd)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "أريد كوب ماء."
+    },
+    {
+     "front": "يجب",
+     "back": {
+      "ru": "быть должным (yajib)",
+      "en": "must (yajib)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "يجب أن أخرج مبكرا اليوم."
+    },
+    {
+     "front": "يبقى",
+     "back": {
+      "ru": "оставаться (yabqā)",
+      "en": "to stay (yabqā)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "أبقى في البيت الليلة."
+    },
+    {
+     "front": "يمر",
+     "back": {
+      "ru": "проходить (yamurr)",
+      "en": "to pass (yamurr)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "الحافلة تمر في التاسعة."
+    },
+    {
+     "front": "يصل",
+     "back": {
+      "ru": "прибывать (yaṣil)",
+      "en": "to arrive (yaṣil)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "وصل القطار متأخرا."
+    },
+    {
+     "front": "يخرج",
+     "back": {
+      "ru": "выходить (yakhruj)",
+      "en": "to leave (yakhruj)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "أخرج من العمل في السادسة."
+    },
+    {
+     "front": "يدخل",
+     "back": {
+      "ru": "входить (yadkhul)",
+      "en": "to enter (yadkhul)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "ادخل، الباب مفتوح."
+    },
+    {
+     "front": "يعود",
+     "back": {
+      "ru": "возвращаться (yaʿūd)",
+      "en": "to return (yaʿūd)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "أعود بعد نصف ساعة."
+    },
+    {
+     "front": "يبدأ",
+     "back": {
+      "ru": "начинать (yabdaʾ)",
+      "en": "to begin (yabdaʾ)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "الدرس يبدأ في الثامنة."
+    },
+    {
+     "front": "ينهي",
+     "back": {
+      "ru": "заканчивать (yunhī)",
+      "en": "to finish (yunhī)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "أنهيت الكتاب أمس."
+    },
+    {
+     "front": "يستمر",
+     "back": {
+      "ru": "продолжать (yastamirr)",
+      "en": "to continue (yastamirr)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "المطر مستمر."
+    },
+    {
+     "front": "يتوقف",
+     "back": {
+      "ru": "останавливаться (yatawaqqaf)",
+      "en": "to stop (yatawaqqaf)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "توقفت السيارة أمام الباب."
+    },
+    {
+     "front": "ينتظر",
+     "back": {
+      "ru": "ждать (yantaẓir)",
+      "en": "to wait (yantaẓir)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "أنتظرك في المحطة."
+    },
+    {
+     "front": "يجد",
+     "back": {
+      "ru": "находить (yajid)",
+      "en": "to find (yajid)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "وجدت المفاتيح على الطاولة."
+    },
+    {
+     "front": "يبحث",
+     "back": {
+      "ru": "искать (yabḥath)",
+      "en": "to look for (yabḥath)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "أبحث عن كتاب قواعد."
+    },
+    {
+     "front": "يفقد",
+     "back": {
+      "ru": "терять (yafqid)",
+      "en": "to lose (yafqid)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "فاتني قطار السابعة."
+    },
+    {
+     "front": "يفوز",
+     "back": {
+      "ru": "выигрывать (yafūz)",
+      "en": "to win (yafūz)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "فاز فريقنا."
+    },
+    {
+     "front": "يشتري",
+     "back": {
+      "ru": "покупать (yaštarī)",
+      "en": "to buy (yaštarī)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "اشتريت خبزا للعشاء."
+    },
+    {
+     "front": "يبيع",
+     "back": {
+      "ru": "продавать (yabīʿ)",
+      "en": "to sell (yabīʿ)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "يبيعون الفاكهة عند الزاوية."
+    },
+    {
+     "front": "يدفع",
+     "back": {
+      "ru": "платить (yadfaʿ)",
+      "en": "to pay (yadfaʿ)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "أنا أدفع ثمن القهوة."
+    },
+    {
+     "front": "يكلف",
+     "back": {
+      "ru": "стоить (yukallif)",
+      "en": "to cost (yukallif)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "كم تكلف التذكرة؟"
+    },
+    {
+     "front": "يعمل",
+     "back": {
+      "ru": "работать (yaʿmal)",
+      "en": "to work (yaʿmal)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "أعمل في مستشفى."
+    },
+    {
+     "front": "يدرس",
+     "back": {
+      "ru": "учиться (yadrus)",
+      "en": "to study (yadrus)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "أدرس العربية منذ سنة."
+    },
+    {
+     "front": "يتعلم",
+     "back": {
+      "ru": "изучать (yataʿallam)",
+      "en": "to learn (yataʿallam)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "تعلمت السباحة صغيرا."
+    },
+    {
+     "front": "يعلم",
+     "back": {
+      "ru": "учить (yuʿallim)",
+      "en": "to teach (yuʿallim)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "تعلم في مدرسة قروية."
+    },
+    {
+     "front": "يقرأ",
+     "back": {
+      "ru": "читать (yaqraʾ)",
+      "en": "to read (yaqraʾ)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "أقرأ الجريدة صباحا."
+    },
+    {
+     "front": "يكتب",
+     "back": {
+      "ru": "писать (yaktub)",
+      "en": "to write (yaktub)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "كتبت لها رسالة طويلة."
+    },
+    {
+     "front": "يتكلم",
+     "back": {
+      "ru": "разговаривать (yatakallam)",
+      "en": "to speak (yatakallam)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "تكلمنا بالهاتف أمس."
+    },
+    {
+     "front": "يسمع",
+     "back": {
+      "ru": "слышать (yasmaʿ)",
+      "en": "to hear (yasmaʿ)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "سمعت صوتا في المطبخ."
+    },
+    {
+     "front": "ينصت",
+     "back": {
+      "ru": "слушать (yunṣit)",
+      "en": "to listen (yunṣit)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "أنصت جيدا لما أقول."
+    },
+    {
+     "front": "ينظر",
+     "back": {
+      "ru": "смотреть (yanẓur)",
+      "en": "to look (yanẓur)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "انظر إلى اليسار."
+    },
+    {
+     "front": "يشعر",
+     "back": {
+      "ru": "чувствовать (yašʿur)",
+      "en": "to feel (yašʿur)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "أشعر بالبرد في يدي."
+    },
+    {
+     "front": "يفكر",
+     "back": {
+      "ru": "думать (yufakkir)",
+      "en": "to think (yufakkir)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "أفكر في ذلك منذ أمس."
+    },
+    {
+     "front": "يتذكر",
+     "back": {
+      "ru": "помнить (yatadhakkar)",
+      "en": "to remember (yatadhakkar)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "أتذكر ذلك اليوم جيدا."
+    },
+    {
+     "front": "ينسى",
+     "back": {
+      "ru": "забывать (yansā)",
+      "en": "to forget (yansā)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "نسيت اسمك."
+    },
+    {
+     "front": "يفهم",
+     "back": {
+      "ru": "понимать (yafham)",
+      "en": "to understand (yafham)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "لم أفهم السؤال."
+    },
+    {
+     "front": "يشرح",
+     "back": {
+      "ru": "объяснять (yašraḥ)",
+      "en": "to explain (yašraḥ)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "اشرح ذلك مرة أخرى."
+    },
+    {
+     "front": "يسأل",
+     "back": {
+      "ru": "спрашивать (yasʾal)",
+      "en": "to ask (yasʾal)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "سألت الجار."
+    },
+    {
+     "front": "يجيب",
+     "back": {
+      "ru": "отвечать (yujīb)",
+      "en": "to answer (yujīb)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "لم تجب بعد."
+    },
+    {
+     "front": "ينادي",
+     "back": {
+      "ru": "звать (yunādī)",
+      "en": "to call (yunādī)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "ناد الطبيب بسرعة."
+    },
+    {
+     "front": "يتصل",
+     "back": {
+      "ru": "звонить (yattaṣil)",
+      "en": "to phone (yattaṣil)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "أتصل بك في المساء."
+    },
+    {
+     "front": "يفتح",
+     "back": {
+      "ru": "открывать (yaftaḥ)",
+      "en": "to open (yaftaḥ)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "افتح النافذة من فضلك."
+    },
+    {
+     "front": "يغلق",
+     "back": {
+      "ru": "закрывать (yughliq)",
+      "en": "to close (yughliq)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "أغلق الباب عند الخروج."
+    },
+    {
+     "front": "يضع",
+     "back": {
+      "ru": "класть (yaḍaʿ)",
+      "en": "to put (yaḍaʿ)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "ضع الخبز على الطاولة."
+    },
+    {
+     "front": "يخلع",
+     "back": {
+      "ru": "убирать (yakhlaʿ)",
+      "en": "to take off (yakhlaʿ)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "اخلع حذاءك عند المدخل."
+    },
+    {
+     "front": "يأخذ",
+     "back": {
+      "ru": "нести (yaʾkhudh)",
+      "en": "to take (yaʾkhudh)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "آخذ المظلة معي."
+    },
+    {
+     "front": "يحضر",
+     "back": {
+      "ru": "приносить (yuḥḍir)",
+      "en": "to bring (yuḥḍir)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "أحضرت كعكة للجميع."
+    },
+    {
+     "front": "يرسل",
+     "back": {
+      "ru": "посылать (yursil)",
+      "en": "to send (yursil)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "أرسلت الرسالة يوم الاثنين."
+    },
+    {
+     "front": "يستلم",
+     "back": {
+      "ru": "получать (yastalim)",
+      "en": "to receive (yastalim)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "استلمت رسالتك."
+    },
+    {
+     "front": "يحفظ",
+     "back": {
+      "ru": "хранить (yaḥfaẓ)",
+      "en": "to keep (yaḥfaẓ)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "أحفظ الصور في صندوق."
+    },
+    {
+     "front": "يترك",
+     "back": {
+      "ru": "оставлять (yatruk)",
+      "en": "to leave behind (yatruk)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "تركت المعطف في السيارة."
+    },
+    {
+     "front": "يمسك",
+     "back": {
+      "ru": "держать (yumsik)",
+      "en": "to hold (yumsik)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "أمسك الكوب جيدا."
+    },
+    {
+     "front": "يدفع بقوة",
+     "back": {
+      "ru": "толкать (yadfaʿ bi-quwwa)",
+      "en": "to push (yadfaʿ bi-quwwa)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "ادفع الباب ولا تسحبه."
+    },
+    {
+     "front": "يسحب",
+     "back": {
+      "ru": "тянуть (yasḥab)",
+      "en": "to pull (yasḥab)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "اسحب الحبل بقوة."
+    },
+    {
+     "front": "يلتقط",
+     "back": {
+      "ru": "ловить (yaltaqiṭ)",
+      "en": "to catch (yaltaqiṭ)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "التقطت الكرة في الهواء."
+    },
+    {
+     "front": "يري",
+     "back": {
+      "ru": "показывать (yurī)",
+      "en": "to show (yurī)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "أرني الصورة."
+    },
+    {
+     "front": "يخفي",
+     "back": {
+      "ru": "прятать (yukhfī)",
+      "en": "to hide (yukhfī)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "أخفى الهدية في الخزانة."
+    },
+    {
+     "front": "يغير",
+     "back": {
+      "ru": "менять (yughayyir)",
+      "en": "to change (yughayyir)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "غيرت رأيي."
+    },
+    {
+     "front": "ينشئ",
+     "back": {
+      "ru": "создавать (yunšiʾ)",
+      "en": "to create (yunšiʾ)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "أنشأوا مدرسة جديدة."
+    },
+    {
+     "front": "يبني",
+     "back": {
+      "ru": "строить (yabnī)",
+      "en": "to build (yabnī)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "يبنون بناية بجوارنا."
+    },
+    {
+     "front": "يكسر",
+     "back": {
+      "ru": "ломать (yaksir)",
+      "en": "to break (yaksir)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "كسرت كوبا هذا الصباح."
+    },
+    {
+     "front": "يقطع",
+     "back": {
+      "ru": "резать (yaqṭaʿ)",
+      "en": "to cut (yaqṭaʿ)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "اقطع الخبز شرائح."
+    },
+    {
+     "front": "ينظف",
+     "back": {
+      "ru": "убирать (yunaẓẓif)",
+      "en": "to clean (yunaẓẓif)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "نظفت المطبخ كله."
+    },
+    {
+     "front": "يغسل",
+     "back": {
+      "ru": "мыть (yaghsil)",
+      "en": "to wash (yaghsil)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "اغسل يديك قبل الأكل."
+    },
+    {
+     "front": "يجفف",
+     "back": {
+      "ru": "сушить (yujaffif)",
+      "en": "to dry (yujaffif)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "جفف شعرك جيدا."
+    },
+    {
+     "front": "يطبخ",
+     "back": {
+      "ru": "готовить (yaṭbukh)",
+      "en": "to cook (yaṭbukh)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "أطبخ كل يوم."
+    },
+    {
+     "front": "يأكل",
+     "back": {
+      "ru": "есть (yaʾkul)",
+      "en": "to eat (yaʾkul)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "نأكل في الثامنة."
+    },
+    {
+     "front": "يشرب",
+     "back": {
+      "ru": "пить (yašrab)",
+      "en": "to drink (yašrab)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "أشرب الماء طوال اليوم."
+    },
+    {
+     "front": "يتذوق",
+     "back": {
+      "ru": "пробовать (yatadhawwaq)",
+      "en": "to taste (yatadhawwaq)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "تذوق الشوربة، إنها لذيذة."
+    },
+    {
+     "front": "يقدم",
+     "back": {
+      "ru": "подавать (yuqaddim)",
+      "en": "to serve (yuqaddim)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "يقدمون الغداء عند الثانية عشرة."
+    },
+    {
+     "front": "ينام",
+     "back": {
+      "ru": "спать (yanām)",
+      "en": "to sleep (yanām)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "نمت ثماني ساعات متواصلة."
+    },
+    {
+     "front": "يستيقظ",
+     "back": {
+      "ru": "просыпаться (yastayqiẓ)",
+      "en": "to wake up (yastayqiẓ)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "أستيقظ دائما في السادسة."
+    },
+    {
+     "front": "ينهض",
+     "back": {
+      "ru": "вставать (yanhaḍ)",
+      "en": "to get up (yanhaḍ)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "انهض، تأخر الوقت."
+    },
+    {
+     "front": "يجلس",
+     "back": {
+      "ru": "садиться (yajlis)",
+      "en": "to sit (yajlis)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "اجلس هنا بجانبي."
+    },
+    {
+     "front": "يستلقي",
+     "back": {
+      "ru": "ложиться (yastalqī)",
+      "en": "to lie down (yastalqī)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "أستلقي مبكرا في أيام العمل."
+    },
+    {
+     "front": "يمشي",
+     "back": {
+      "ru": "ходить (yamšī)",
+      "en": "to walk (yamšī)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "أمشي نصف ساعة يوميا."
+    },
+    {
+     "front": "يجري",
+     "back": {
+      "ru": "бегать (yajrī)",
+      "en": "to run (yajrī)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "أجري في الحديقة صباحا."
+    },
+    {
+     "front": "يقفز",
+     "back": {
+      "ru": "прыгать (yaqfiz)",
+      "en": "to jump (yaqfiz)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "قفزت القطة على الطاولة."
+    },
+    {
+     "front": "يسبح",
+     "back": {
+      "ru": "плавать (yasbaḥ)",
+      "en": "to swim (yasbaḥ)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "تعلمت السباحة في النهر."
+    },
+    {
+     "front": "يطير",
+     "back": {
+      "ru": "летать (yaṭīr)",
+      "en": "to fly (yaṭīr)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "الطيور تطير جنوبا."
+    },
+    {
+     "front": "يسافر",
+     "back": {
+      "ru": "путешествовать (yusāfir)",
+      "en": "to travel (yusāfir)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "سافرنا بالقطار."
+    },
+    {
+     "front": "يقود",
+     "back": {
+      "ru": "водить (yaqūd)",
+      "en": "to drive (yaqūd)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "يقود السيارة بحذر."
+    },
+    {
+     "front": "يصعد",
+     "back": {
+      "ru": "подниматься (yaṣʿad)",
+      "en": "to go up (yaṣʿad)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "صعدنا إلى الطابق الثالث."
+    },
+    {
+     "front": "ينزل",
+     "back": {
+      "ru": "спускаться (yanzil)",
+      "en": "to go down (yanzil)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "انزل الدرج ببطء."
+    },
+    {
+     "front": "يقع",
+     "back": {
+      "ru": "падать (yaqaʿ)",
+      "en": "to fall (yaqaʿ)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "وقع الفنجان من الطاولة."
+    },
+    {
+     "front": "يسكن",
+     "back": {
+      "ru": "жить (yaskun)",
+      "en": "to live (reside) (yaskun)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "أسكن قرب المحطة."
+    },
+    {
+     "front": "يعيش",
+     "back": {
+      "ru": "жить (yaʿīš)",
+      "en": "to live (yaʿīš)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "عاش تسعين عاما."
+    },
+    {
+     "front": "يموت",
+     "back": {
+      "ru": "умирать (yamūt)",
+      "en": "to die (yamūt)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "ماتت الشجرة في الشتاء."
+    },
+    {
+     "front": "يولد",
+     "back": {
+      "ru": "рождаться (yūlad)",
+      "en": "to be born (yūlad)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "ولدت في آذار."
+    },
+    {
+     "front": "ينمو",
+     "back": {
+      "ru": "расти (yanmū)",
+      "en": "to grow (yanmū)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "الأطفال ينمون بسرعة."
+    },
+    {
+     "front": "يتزوج",
+     "back": {
+      "ru": "жениться (yatazawwaj)",
+      "en": "to marry (yatazawwaj)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "تزوجا في الربيع."
+    },
+    {
+     "front": "يساعد",
+     "back": {
+      "ru": "помогать (yusāʿid)",
+      "en": "to help (yusāʿid)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "ساعدني في هذه الحقائب."
+    },
+    {
+     "front": "يعجبه",
+     "back": {
+      "ru": "нравиться (yuʿjibuhu)",
+      "en": "to like (yuʿjibuhu)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "تعجبني هذه القهوة كثيرا."
+    },
+    {
+     "front": "يحب",
+     "back": {
+      "ru": "любить (yuḥibb)",
+      "en": "to love (yuḥibb)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "يحب عائلته فوق كل شيء."
+    },
+    {
+     "front": "يكره",
+     "back": {
+      "ru": "ненавидеть (yakrah)",
+      "en": "to hate (yakrah)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "أكره الاستيقاظ مبكرا."
+    },
+    {
+     "front": "يضحك",
+     "back": {
+      "ru": "смеяться (yaḍḥak)",
+      "en": "to laugh (yaḍḥak)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "ضحكنا طوال الليل."
+    },
+    {
+     "front": "يبكي",
+     "back": {
+      "ru": "плакать (yabkī)",
+      "en": "to cry (yabkī)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "بكى الطفل من النعاس."
+    },
+    {
+     "front": "يغني",
+     "back": {
+      "ru": "петь (yughannī)",
+      "en": "to sing (yughannī)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "يغنون في جوقة الكنيسة."
+    },
+    {
+     "front": "يرقص",
+     "back": {
+      "ru": "танцевать (yarquṣ)",
+      "en": "to dance (yarquṣ)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "رقصنا حتى وقت متأخر."
+    },
+    {
+     "front": "يلعب",
+     "back": {
+      "ru": "играть (yalʿab)",
+      "en": "to play (children) (yalʿab)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "الأطفال يلعبون في الحديقة."
+    },
+    {
+     "front": "يباري",
+     "back": {
+      "ru": "играть (yubārī)",
+      "en": "to play (a game) (yubārī)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "نباري يوم السبت."
+    },
+    {
+     "front": "يلمس",
+     "back": {
+      "ru": "трогать (yalmis)",
+      "en": "to touch (yalmis)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "لا تلمس الطلاء الطازج."
+    },
+    {
+     "front": "يستريح",
+     "back": {
+      "ru": "отдыхать (yastarīḥ)",
+      "en": "to rest (yastarīḥ)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "استرح قليلا."
+    },
+    {
+     "front": "يحاول",
+     "back": {
+      "ru": "пытаться (yuḥāwil)",
+      "en": "to try (yuḥāwil)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "حاولت الاتصال بك ثلاث مرات."
+    },
+    {
+     "front": "ينجح",
+     "back": {
+      "ru": "удаваться (yanjaḥ)",
+      "en": "to manage (yanjaḥ)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "نجحت في حجز تذاكر اليوم."
+    },
+    {
+     "front": "يحتاج",
+     "back": {
+      "ru": "нуждаться (yaḥtāj)",
+      "en": "to need (yaḥtāj)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "أحتاج مساعدة الآن."
+    },
+    {
+     "front": "يستخدم",
+     "back": {
+      "ru": "использовать (yastakhdim)",
+      "en": "to use (yastakhdim)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "أستخدم الهاتف في كل شيء."
+    },
+    {
+     "front": "يختار",
+     "back": {
+      "ru": "выбирать (yakhtār)",
+      "en": "to choose (yakhtār)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "اختر أنت المطعم."
+    },
+    {
+     "front": "يقرر",
+     "back": {
+      "ru": "решать (yuqarrir)",
+      "en": "to decide (yuqarrir)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "قررنا البقاء يوما آخر."
+    },
+    {
+     "front": "يقبل",
+     "back": {
+      "ru": "принимать (yaqbal)",
+      "en": "to accept (yaqbal)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "قبل الدعوة."
+    },
+    {
+     "front": "يرفض",
+     "back": {
+      "ru": "отказывать (yarfuḍ)",
+      "en": "to refuse (yarfuḍ)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "رفض مساعدة الجيران."
+    },
+    {
+     "front": "يعد",
+     "back": {
+      "ru": "обещать (yaʿid)",
+      "en": "to promise (yaʿid)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "وعد بالعودة مبكرا."
+    },
+    {
+     "front": "يشكر",
+     "back": {
+      "ru": "благодарить (yaškur)",
+      "en": "to thank (yaškur)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "أشكرك على صبرك."
+    },
+    {
+     "front": "يطلب",
+     "back": {
+      "ru": "просить (yaṭlub)",
+      "en": "to ask for (yaṭlub)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "طلبت كوب ماء."
+    },
+    {
+     "front": "يحدث",
+     "back": {
+      "ru": "случаться (yaḥduth)",
+      "en": "to happen (yaḥduth)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "ماذا حدث أمس؟"
+    },
+    {
+     "front": "يبدو",
+     "back": {
+      "ru": "казаться (yabdū)",
+      "en": "to seem (yabdū)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "تبدو متعبا."
+    },
+    {
+     "front": "يشعل",
+     "back": {
+      "ru": "включать (yušʿil)",
+      "en": "to turn on (yušʿil)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "أشعل ضوء المطبخ."
+    },
+    {
+     "front": "يطفئ",
+     "back": {
+      "ru": "выключать (yuṭfiʾ)",
+      "en": "to turn off (yuṭfiʾ)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "أطفئ الحاسوب قبل الخروج."
+    },
+    {
+     "front": "تمطر",
+     "back": {
+      "ru": "идти (о дожде) (tumṭir)",
+      "en": "to rain (tumṭir)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "أمطرت طوال الليل."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "ماء",
+     "back": {
+      "ru": "вода (māʾ)",
+      "en": "water (māʾ)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "أحضر لي كوب ماء."
+    },
+    {
+     "front": "خبز",
+     "back": {
+      "ru": "хлеб (khubz)",
+      "en": "bread (khubz)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "الخبز ما زال ساخنا."
+    },
+    {
+     "front": "حليب",
+     "back": {
+      "ru": "молоко (ḥalīb)",
+      "en": "milk (ḥalīb)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "أشرب الحليب مع الفطور."
+    },
+    {
+     "front": "قهوة",
+     "back": {
+      "ru": "кофе (qahwa)",
+      "en": "coffee (qahwa)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "قهوة من فضلك."
+    },
+    {
+     "front": "شاي",
+     "back": {
+      "ru": "чай (šāy)",
+      "en": "tea (šāy)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "أعد الشاي بعد الظهر."
+    },
+    {
+     "front": "عصير",
+     "back": {
+      "ru": "сок (ʿaṣīr)",
+      "en": "juice (ʿaṣīr)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "عصير برتقال طازج."
+    },
+    {
+     "front": "نبيذ",
+     "back": {
+      "ru": "вино (nabīdh)",
+      "en": "wine (nabīdh)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "كأس نبيذ أحمر."
+    },
+    {
+     "front": "بيرة",
+     "back": {
+      "ru": "пиво (bīra)",
+      "en": "beer (bīra)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "البيرة باردة تماما."
+    },
+    {
+     "front": "ثلج مكعبات",
+     "back": {
+      "ru": "лёд (thalj mukaʿʿabāt)",
+      "en": "ice (thalj mukaʿʿabāt)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "هل تريد ثلج مكعبات في المشروب؟"
+    },
+    {
+     "front": "سكر",
+     "back": {
+      "ru": "сахар (sukkar)",
+      "en": "sugar (sukkar)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "أشرب القهوة بلا سكر."
+    },
+    {
+     "front": "ملح",
+     "back": {
+      "ru": "соль (milḥ)",
+      "en": "salt (milḥ)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "ينقص الملح في الشوربة."
+    },
+    {
+     "front": "فلفل",
+     "back": {
+      "ru": "перец (filfil)",
+      "en": "pepper (filfil)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "أضف قليلا من الفلفل."
+    },
+    {
+     "front": "زيت زيتون",
+     "back": {
+      "ru": "оливковое масло (zayt zaytūn)",
+      "en": "olive oil (zayt zaytūn)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "اسكب زيت الزيتون على السلطة."
+    },
+    {
+     "front": "زبدة",
+     "back": {
+      "ru": "масло (zubda)",
+      "en": "butter (zubda)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "ادهن الزبدة على الخبز."
+    },
+    {
+     "front": "جبن",
+     "back": {
+      "ru": "сыр (jubn)",
+      "en": "cheese (jubn)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "هذا الجبن من الجبل."
+    },
+    {
+     "front": "بيضة",
+     "back": {
+      "ru": "яйцо (bayḍa)",
+      "en": "egg (bayḍa)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "أكلت بيضة مسلوقة."
+    },
+    {
+     "front": "لحم",
+     "back": {
+      "ru": "мясо (laḥm)",
+      "en": "meat (laḥm)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "لا آكل اللحم في المساء."
+    },
+    {
+     "front": "دجاج",
+     "back": {
+      "ru": "курица (dajāj)",
+      "en": "chicken (dajāj)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "دجاج مشوي مع البطاطا."
+    },
+    {
+     "front": "سمك",
+     "back": {
+      "ru": "рыба (samak)",
+      "en": "fish (samak)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "السمك طازج اليوم."
+    },
+    {
+     "front": "قد",
+     "back": {
+      "ru": "треска (qad)",
+      "en": "cod (qad)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "القد يحفظ مملحا."
+    },
+    {
+     "front": "سردين",
+     "back": {
+      "ru": "сардина (sardīn)",
+      "en": "sardine (sardīn)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "سردين مشوي على الفحم."
+    },
+    {
+     "front": "تونة",
+     "back": {
+      "ru": "тунец (tūna)",
+      "en": "tuna (tūna)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "شطيرة تونة."
+    },
+    {
+     "front": "جمبري",
+     "back": {
+      "ru": "креветка (jambarī)",
+      "en": "shrimp (jambarī)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "جمبري بالثوم."
+    },
+    {
+     "front": "مأكولات بحرية",
+     "back": {
+      "ru": "морепродукты (maʾkūlāt baḥriyya)",
+      "en": "seafood (maʾkūlāt baḥriyya)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "أكلنا مأكولات بحرية على الشاطئ."
+    },
+    {
+     "front": "لحم مقدد",
+     "back": {
+      "ru": "ветчина (laḥm muqaddad)",
+      "en": "ham (laḥm muqaddad)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "لحم مقدد مع الشمام."
+    },
+    {
+     "front": "سجق",
+     "back": {
+      "ru": "сосиска (sujuq)",
+      "en": "sausage (sujuq)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "اشتريت سجقا للأطفال."
+    },
+    {
+     "front": "أرز",
+     "back": {
+      "ru": "рис (aruzz)",
+      "en": "rice (aruzz)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "نطبخ الأرز يوم الأحد."
+    },
+    {
+     "front": "بطاطا",
+     "back": {
+      "ru": "картофель (baṭāṭā)",
+      "en": "potato (baṭāṭā)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "بطاطا مسلوقة بزيت الزيتون."
+    },
+    {
+     "front": "معكرونة",
+     "back": {
+      "ru": "макароны (maʿkarūna)",
+      "en": "pasta (maʿkarūna)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "أطبخ المعكرونة حين أستعجل."
+    },
+    {
+     "front": "طحين",
+     "back": {
+      "ru": "мука (ṭaḥīn)",
+      "en": "flour (ṭaḥīn)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "لا يوجد طحين للكعكة."
+    },
+    {
+     "front": "شوربة",
+     "back": {
+      "ru": "суп (šūraba)",
+      "en": "soup (šūraba)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "الشوربة تبرد."
+    },
+    {
+     "front": "سلطة",
+     "back": {
+      "ru": "салат (salaṭa)",
+      "en": "salad (salaṭa)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "سلطة طماطم."
+    },
+    {
+     "front": "خضار",
+     "back": {
+      "ru": "овощи (khuḍār)",
+      "en": "vegetables (khuḍār)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "آكل الخضار كل يوم."
+    },
+    {
+     "front": "فاكهة",
+     "back": {
+      "ru": "фрукты (fākiha)",
+      "en": "fruit (fākiha)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "توجد فاكهة في المطبخ."
+    },
+    {
+     "front": "تفاحة",
+     "back": {
+      "ru": "яблоко (tuffāḥa)",
+      "en": "apple (tuffāḥa)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "آخذ تفاحة إلى العمل."
+    },
+    {
+     "front": "كمثرى",
+     "back": {
+      "ru": "груша (kummathrā)",
+      "en": "pear (kummathrā)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "هذه الكمثرى ناضجة."
+    },
+    {
+     "front": "برتقالة",
+     "back": {
+      "ru": "апельсин (burtuqāla)",
+      "en": "orange (burtuqāla)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "قشرت برتقالة."
+    },
+    {
+     "front": "ليمون",
+     "back": {
+      "ru": "лимон (laymūn)",
+      "en": "lemon (laymūn)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "شاي بالليمون."
+    },
+    {
+     "front": "موزة",
+     "back": {
+      "ru": "банан (mawza)",
+      "en": "banana (mawza)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "أكلت موزة قبل التمرين."
+    },
+    {
+     "front": "عنب",
+     "back": {
+      "ru": "виноград (ʿinab)",
+      "en": "grape (ʿinab)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "العنب حلو جدا."
+    },
+    {
+     "front": "فراولة",
+     "back": {
+      "ru": "клубника (frāwla)",
+      "en": "strawberry (frāwla)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "فراولة بالقشدة."
+    },
+    {
+     "front": "كرز",
+     "back": {
+      "ru": "вишня (karaz)",
+      "en": "cherry (karaz)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "الكرز رخيص في موسمه."
+    },
+    {
+     "front": "خوخ",
+     "back": {
+      "ru": "персик (khawkh)",
+      "en": "peach (khawkh)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "خوخة ناضجة تماما."
+    },
+    {
+     "front": "شمام",
+     "back": {
+      "ru": "дыня (šammām)",
+      "en": "melon (šammām)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "شمام مع لحم مقدد."
+    },
+    {
+     "front": "بطيخ",
+     "back": {
+      "ru": "арбуз (baṭṭīkh)",
+      "en": "watermelon (baṭṭīkh)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "بطيخ بارد في الصيف."
+    },
+    {
+     "front": "أناناس",
+     "back": {
+      "ru": "ананас (anānās)",
+      "en": "pineapple (anānās)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "عصير أناناس."
+    },
+    {
+     "front": "تين",
+     "back": {
+      "ru": "инжир (tīn)",
+      "en": "fig (tīn)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "تين مجفف في الشتاء."
+    },
+    {
+     "front": "طماطم",
+     "back": {
+      "ru": "помидор (ṭamāṭim)",
+      "en": "tomato (ṭamāṭim)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "سلطة طماطم بالأعشاب."
+    },
+    {
+     "front": "بصل",
+     "back": {
+      "ru": "лук (baṣal)",
+      "en": "onion (baṣal)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "اقل البصل أولا."
+    },
+    {
+     "front": "ثوم",
+     "back": {
+      "ru": "чеснок (thūm)",
+      "en": "garlic (thūm)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "فصان من الثوم يكفيان."
+    },
+    {
+     "front": "جزر",
+     "back": {
+      "ru": "морковь (jazar)",
+      "en": "carrot (jazar)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "شوربة جزر."
+    },
+    {
+     "front": "خس",
+     "back": {
+      "ru": "салат-латук (khass)",
+      "en": "lettuce (khass)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "اغسل الخس جيدا."
+    },
+    {
+     "front": "خيار",
+     "back": {
+      "ru": "огурец (khiyār)",
+      "en": "cucumber (khiyār)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "خيار مقطع شرائح."
+    },
+    {
+     "front": "فاصولياء",
+     "back": {
+      "ru": "фасоль (fāṣūliyāʾ)",
+      "en": "beans (fāṣūliyāʾ)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "فاصولياء مع الأرز."
+    },
+    {
+     "front": "بازلاء",
+     "back": {
+      "ru": "горох (bāzillāʾ)",
+      "en": "pea (bāzillāʾ)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "بازلاء مع بيضة."
+    },
+    {
+     "front": "ملفوف",
+     "back": {
+      "ru": "капуста (malfūf)",
+      "en": "cabbage (malfūf)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "شوربة الملفوف طبق شتوي."
+    },
+    {
+     "front": "قرع",
+     "back": {
+      "ru": "тыква (qarʿ)",
+      "en": "pumpkin (qarʿ)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "شوربة القرع في الخريف."
+    },
+    {
+     "front": "فطر",
+     "back": {
+      "ru": "гриб (fuṭr)",
+      "en": "mushroom (fuṭr)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "فطر مقلي."
+    },
+    {
+     "front": "زيتون",
+     "back": {
+      "ru": "оливка (zaytūn)",
+      "en": "olive (zaytūn)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "زيتون قبل الطعام."
+    },
+    {
+     "front": "كعكة",
+     "back": {
+      "ru": "торт (kaʿka)",
+      "en": "cake (kaʿka)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "خبزت كعكة برتقال."
+    },
+    {
+     "front": "بسكويت",
+     "back": {
+      "ru": "печенье (baskawīt)",
+      "en": "biscuit (baskawīt)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "بسكويت مع الشاي."
+    },
+    {
+     "front": "مربى",
+     "back": {
+      "ru": "варенье (murabbā)",
+      "en": "jam (murabbā)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "دهنت مربى الفراولة على الخبز."
+    },
+    {
+     "front": "شوكولاتة",
+     "back": {
+      "ru": "шоколад (šūkūlāta)",
+      "en": "chocolate (šūkūlāta)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "لوح شوكولاتة داكنة."
+    },
+    {
+     "front": "مثلجات",
+     "back": {
+      "ru": "мороженое (muthallajāt)",
+      "en": "ice cream (muthallajāt)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "مثلجات بالفانيليا."
+    },
+    {
+     "front": "عسل",
+     "back": {
+      "ru": "мёд (ʿasal)",
+      "en": "honey (ʿasal)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "شاي بالعسل للحلق."
+    },
+    {
+     "front": "حلوى",
+     "back": {
+      "ru": "сладость (ḥalwā)",
+      "en": "sweet (ḥalwā)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "لا آكل الحلوى في الليل."
+    },
+    {
+     "front": "تحلية",
+     "back": {
+      "ru": "десерт (taḥliya)",
+      "en": "dessert (taḥliya)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "التحلية فاكهة."
+    },
+    {
+     "front": "لبن",
+     "back": {
+      "ru": "йогурт (laban)",
+      "en": "yoghurt (laban)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "لبن سادة بلا سكر."
+    },
+    {
+     "front": "قشدة",
+     "back": {
+      "ru": "сливки (qišda)",
+      "en": "cream (qišda)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "فراولة مع القشدة."
+    },
+    {
+     "front": "خبز محمص",
+     "back": {
+      "ru": "тост (khubz muḥammaṣ)",
+      "en": "toast (khubz muḥammaṣ)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "خبز محمص بالزبدة."
+    },
+    {
+     "front": "شطيرة",
+     "back": {
+      "ru": "бутерброд (šaṭīra)",
+      "en": "sandwich (šaṭīra)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "شطيرة مشكلة."
+    },
+    {
+     "front": "فطور",
+     "back": {
+      "ru": "завтрак (fuṭūr)",
+      "en": "breakfast (fuṭūr)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "أتناول الفطور في السابعة."
+    },
+    {
+     "front": "غداء",
+     "back": {
+      "ru": "обед (ghadāʾ)",
+      "en": "lunch (ghadāʾ)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "الغداء في الواحدة."
+    },
+    {
+     "front": "عشاء",
+     "back": {
+      "ru": "ужин (ʿašāʾ)",
+      "en": "dinner (ʿašāʾ)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "نتعشى حوالي الثامنة."
+    },
+    {
+     "front": "وجبة خفيفة",
+     "back": {
+      "ru": "полдник (wajba khafīfa)",
+      "en": "snack (wajba khafīfa)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "يأخذ الأطفال وجبة خفيفة."
+    },
+    {
+     "front": "وجبة",
+     "back": {
+      "ru": "приём пищи (wajba)",
+      "en": "meal (wajba)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "أتناول ثلاث وجبات يوميا."
+    },
+    {
+     "front": "طعام",
+     "back": {
+      "ru": "еда (ṭaʿām)",
+      "en": "food (ṭaʿām)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "الطعام على الطاولة."
+    },
+    {
+     "front": "مشروب",
+     "back": {
+      "ru": "напиток (mašrūb)",
+      "en": "drink (mašrūb)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "أي مشروب تريد؟"
+    },
+    {
+     "front": "صحن",
+     "back": {
+      "ru": "тарелка (ṣaḥn)",
+      "en": "plate (ṣaḥn)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "ضع الصحون على الرف."
+    },
+    {
+     "front": "كوب",
+     "back": {
+      "ru": "стакан (kūb)",
+      "en": "glass (kūb)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "املأ الكوب إلى النصف."
+    },
+    {
+     "front": "فنجان",
+     "back": {
+      "ru": "чашка (finjān)",
+      "en": "cup (finjān)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "فنجان قهوة."
+    },
+    {
+     "front": "زجاجة",
+     "back": {
+      "ru": "бутылка (zujāja)",
+      "en": "bottle (zujāja)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "زجاجة ماء."
+    },
+    {
+     "front": "ملعقة",
+     "back": {
+      "ru": "ложка (milʿaqa)",
+      "en": "spoon (milʿaqa)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "تنقص ملعقة شوربة."
+    },
+    {
+     "front": "شوكة",
+     "back": {
+      "ru": "вилка (šawka)",
+      "en": "fork (šawka)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "سقطت الشوكة على الأرض."
+    },
+    {
+     "front": "سكين",
+     "back": {
+      "ru": "нож (sikkīn)",
+      "en": "knife (sikkīn)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "هذه السكين لا تقطع."
+    },
+    {
+     "front": "منديل",
+     "back": {
+      "ru": "салфетка (mindīl)",
+      "en": "napkin (mindīl)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "أعطني منديلا."
+    },
+    {
+     "front": "قدر",
+     "back": {
+      "ru": "кастрюля (qidr)",
+      "en": "pot (qidr)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "القدر على النار."
+    },
+    {
+     "front": "مقلاة",
+     "back": {
+      "ru": "сковорода (miqlāh)",
+      "en": "frying pan (miqlāh)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "سخن المقلاة."
+    },
+    {
+     "front": "مطعم",
+     "back": {
+      "ru": "ресторан (maṭʿam)",
+      "en": "restaurant (maṭʿam)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "حجزت طاولة في المطعم."
+    },
+    {
+     "front": "قائمة الطعام",
+     "back": {
+      "ru": "меню (qāʾimat aṭ-ṭaʿām)",
+      "en": "menu (qāʾimat aṭ-ṭaʿām)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "اطلب قائمة الطعام من النادل."
+    },
+    {
+     "front": "حساب",
+     "back": {
+      "ru": "счёт (ḥisāb)",
+      "en": "bill (ḥisāb)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "الحساب من فضلك."
+    },
+    {
+     "front": "نادل",
+     "back": {
+      "ru": "официант (nādil)",
+      "en": "waiter (nādil)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "أحضر النادل الخبز."
+    },
+    {
+     "front": "جوع",
+     "back": {
+      "ru": "голод (jūʿ)",
+      "en": "hunger (jūʿ)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "أشعر بجوع شديد."
+    },
+    {
+     "front": "عطش",
+     "back": {
+      "ru": "жажда (ʿaṭaš)",
+      "en": "thirst (ʿaṭaš)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "هذا الحر يسبب العطش."
+    },
+    {
+     "front": "طعم",
+     "back": {
+      "ru": "вкус (ṭaʿm)",
+      "en": "taste (ṭaʿm)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "طعم الشوربة خفيف."
+    },
+    {
+     "front": "وصفة",
+     "back": {
+      "ru": "рецепт (waṣfa)",
+      "en": "recipe (waṣfa)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "هذه وصفة جدتي."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "ملابس",
+     "back": {
+      "ru": "одежда (malābis)",
+      "en": "clothes (malābis)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "آخذ ملابس قليلة في الحقيبة."
+    },
+    {
+     "front": "قميص",
+     "back": {
+      "ru": "рубашка (qamīṣ)",
+      "en": "shirt (qamīṣ)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "القميص لم يكو بعد."
+    },
+    {
+     "front": "كنزة",
+     "back": {
+      "ru": "свитер (kanza)",
+      "en": "jumper (kanza)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "البس الكنزة، الجو بارد."
+    },
+    {
+     "front": "تي شيرت",
+     "back": {
+      "ru": "футболка (tī šīrt)",
+      "en": "T-shirt (tī šīrt)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "تي شيرت أبيض سادة."
+    },
+    {
+     "front": "معطف",
+     "back": {
+      "ru": "пальто (miʿṭaf)",
+      "en": "coat (miʿṭaf)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "نسيت المعطف في السيارة."
+    },
+    {
+     "front": "جاكيت",
+     "back": {
+      "ru": "куртка (jākīt)",
+      "en": "jacket (jākīt)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "جاكيت للمطر."
+    },
+    {
+     "front": "صدرية",
+     "back": {
+      "ru": "жилет (ṣudriyya)",
+      "en": "waistcoat (ṣudriyya)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "صدرية فوق القميص."
+    },
+    {
+     "front": "بنطال",
+     "back": {
+      "ru": "брюки (banṭāl)",
+      "en": "trousers (banṭāl)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "هذا البنطال واسع علي."
+    },
+    {
+     "front": "شورت",
+     "back": {
+      "ru": "шорты (šūrt)",
+      "en": "shorts (šūrt)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "شورت للصيف."
+    },
+    {
+     "front": "تنورة",
+     "back": {
+      "ru": "юбка (tannūra)",
+      "en": "skirt (tannūra)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "تنورة حتى الركبة."
+    },
+    {
+     "front": "فستان",
+     "back": {
+      "ru": "платье (fustān)",
+      "en": "dress (fustān)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "الفستان من الكتان."
+    },
+    {
+     "front": "بدلة",
+     "back": {
+      "ru": "костюм (badla)",
+      "en": "suit (badla)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "يذهب إلى العرس ببدلة."
+    },
+    {
+     "front": "ربطة عنق",
+     "back": {
+      "ru": "галстук (rabṭat ʿunuq)",
+      "en": "tie (rabṭat ʿunuq)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "لا أعرف ربط ربطة العنق."
+    },
+    {
+     "front": "حزام",
+     "back": {
+      "ru": "ремень (ḥizām)",
+      "en": "belt (ḥizām)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "شد الحزام أكثر."
+    },
+    {
+     "front": "جوارب",
+     "back": {
+      "ru": "носки (jawārib)",
+      "en": "socks (jawārib)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "هذه الجوارب مثقوبة."
+    },
+    {
+     "front": "جوارب طويلة",
+     "back": {
+      "ru": "колготки (jawārib ṭawīla)",
+      "en": "tights (jawārib ṭawīla)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "جوارب طويلة سوداء."
+    },
+    {
+     "front": "حذاء",
+     "back": {
+      "ru": "туфли (ḥidhāʾ)",
+      "en": "shoes (ḥidhāʾ)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "حذاء جلدي أسود."
+    },
+    {
+     "front": "حذاء رياضي",
+     "back": {
+      "ru": "кроссовки (ḥidhāʾ riyāḍī)",
+      "en": "trainers (ḥidhāʾ riyāḍī)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "ألبس الحذاء الرياضي طوال اليوم."
+    },
+    {
+     "front": "جزمة",
+     "back": {
+      "ru": "сапоги (jazma)",
+      "en": "boots (jazma)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "جزمة للشتاء."
+    },
+    {
+     "front": "صندل",
+     "back": {
+      "ru": "сандалии (ṣandal)",
+      "en": "sandals (ṣandal)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "صندل للشاطئ."
+    },
+    {
+     "front": "خف",
+     "back": {
+      "ru": "тапочки (khuff)",
+      "en": "slippers (khuff)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "الخف عند باب الغرفة."
+    },
+    {
+     "front": "قبعة",
+     "back": {
+      "ru": "шляпа (qubbaʿa)",
+      "en": "hat (qubbaʿa)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "قبعة من القش."
+    },
+    {
+     "front": "كاسكيت",
+     "back": {
+      "ru": "кепка (kāskīt)",
+      "en": "cap (kāskīt)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "كاسكيت للشمس."
+    },
+    {
+     "front": "طاقية صوف",
+     "back": {
+      "ru": "шапка (ṭāqiyat ṣūf)",
+      "en": "woolly hat (ṭāqiyat ṣūf)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "طاقية صوف ولفحة للثلج."
+    },
+    {
+     "front": "قفازات",
+     "back": {
+      "ru": "перчатки (quffāzāt)",
+      "en": "gloves (quffāzāt)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "قفازات جلدية مبطنة."
+    },
+    {
+     "front": "لفحة",
+     "back": {
+      "ru": "шарф (lafḥa)",
+      "en": "scarf (lafḥa)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "لف اللفحة مرتين."
+    },
+    {
+     "front": "منديل جيب",
+     "back": {
+      "ru": "платок (mindīl jayb)",
+      "en": "handkerchief (mindīl jayb)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "منديل جيب قطني."
+    },
+    {
+     "front": "نظارة",
+     "back": {
+      "ru": "очки (naẓẓāra)",
+      "en": "glasses (naẓẓāra)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "كسرت نظارتي أمس."
+    },
+    {
+     "front": "حقيبة",
+     "back": {
+      "ru": "сумка (ḥaqība)",
+      "en": "bag (ḥaqība)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "الحقيبة ثقيلة جدا."
+    },
+    {
+     "front": "محفظة",
+     "back": {
+      "ru": "кошелёк (miḥfaẓa)",
+      "en": "wallet (miḥfaẓa)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "تركت المحفظة في البيت."
+    },
+    {
+     "front": "حقيبة ظهر",
+     "back": {
+      "ru": "рюкзак (ḥaqībat ẓahr)",
+      "en": "backpack (ḥaqībat ẓahr)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "حقيبة الظهر المدرسية ثقيلة."
+    },
+    {
+     "front": "مظلة",
+     "back": {
+      "ru": "зонт (miẓalla)",
+      "en": "umbrella (miẓalla)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "خذ المظلة معك."
+    },
+    {
+     "front": "بيجاما",
+     "back": {
+      "ru": "пижама (bījāmā)",
+      "en": "pyjamas (bījāmā)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "بيجاما من الفانيلا."
+    },
+    {
+     "front": "روب",
+     "back": {
+      "ru": "халат (rūb)",
+      "en": "dressing gown (rūb)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "الروب خلف الباب."
+    },
+    {
+     "front": "منشفة",
+     "back": {
+      "ru": "полотенце (minšafa)",
+      "en": "towel (minšafa)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "منشفة نظيفة للحمام."
+    },
+    {
+     "front": "جيب",
+     "back": {
+      "ru": "карман (jayb)",
+      "en": "pocket (jayb)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "المفتاح في جيبي."
+    },
+    {
+     "front": "زر",
+     "back": {
+      "ru": "пуговица (zirr)",
+      "en": "button (zirr)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "سقط زر من القميص."
+    },
+    {
+     "front": "سحاب",
+     "back": {
+      "ru": "молния (saḥḥāb)",
+      "en": "zip (saḥḥāb)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "تعطل سحاب الحقيبة."
+    },
+    {
+     "front": "كم",
+     "back": {
+      "ru": "рукав (kumm)",
+      "en": "sleeve (kumm)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "شمر كميك."
+    },
+    {
+     "front": "ياقة",
+     "back": {
+      "ru": "воротник (yāqa)",
+      "en": "collar (yāqa)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "الياقة متسخة."
+    },
+    {
+     "front": "مقاس",
+     "back": {
+      "ru": "размер (maqās)",
+      "en": "size (maqās)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "هل يوجد مقاس آخر لهذا القميص؟"
+    },
+    {
+     "front": "قماش",
+     "back": {
+      "ru": "ткань (qumāš)",
+      "en": "fabric (qumāš)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "قماش خفيف للصيف."
+    },
+    {
+     "front": "قطن",
+     "back": {
+      "ru": "хлопок (quṭn)",
+      "en": "cotton (quṭn)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "قميص قطني."
+    },
+    {
+     "front": "صوف",
+     "back": {
+      "ru": "шерсть (ṣūf)",
+      "en": "wool (ṣūf)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "جوارب صوف سميكة."
+    },
+    {
+     "front": "حرير",
+     "back": {
+      "ru": "шёлк (ḥarīr)",
+      "en": "silk (ḥarīr)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "وشاح حرير."
+    },
+    {
+     "front": "جلد",
+     "back": {
+      "ru": "кожа (jild)",
+      "en": "leather (jild)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "جزمة جلدية بنية."
+    },
+    {
+     "front": "علاقة ملابس",
+     "back": {
+      "ru": "вешалка (ʿallāqat malābis)",
+      "en": "hanger (ʿallāqat malābis)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "علق المعطف على علاقة الملابس."
+    },
+    {
+     "front": "خزانة",
+     "back": {
+      "ru": "шкаф (khizāna)",
+      "en": "wardrobe (khizāna)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "الخزانة ممتلئة."
+    },
+    {
+     "front": "خاتم",
+     "back": {
+      "ru": "кольцо (khātim)",
+      "en": "ring (khātim)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "خاتم من الفضة."
+    }
+   ]
+  }
+ ]
+}

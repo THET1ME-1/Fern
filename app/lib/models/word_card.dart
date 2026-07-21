@@ -1,3 +1,5 @@
+import '../l10n/strings.dart';
+
 /// Оценка припоминания карточки. Свайп мапится на [again]/[good], четыре
 /// кнопки дают полный контроль. Порядок = грейд FSRS 1..4.
 enum Rating { again, hard, good, easy }
@@ -244,12 +246,15 @@ extension WordCardStatus on WordCard {
 }
 
 /// Человекочитаемая подпись длительности до следующего повтора.
+///
+/// Единицы идут через словарь: подписи стоят на кнопках оценки, и в английском
+/// интерфейсе они показывались по-русски («10 мин», «16 дн»).
 String durationLabel(Duration d) {
-  if (d.inMinutes < 1) return '<1 мин';
-  if (d.inMinutes < 60) return '${d.inMinutes} мин';
-  if (d.inHours < 24) return '${d.inHours} ч';
+  if (d.inMinutes < 1) return tr('ivl_lt_min');
+  if (d.inMinutes < 60) return trf('ivl_min', {'n': '${d.inMinutes}'});
+  if (d.inHours < 24) return trf('ivl_hour', {'n': '${d.inHours}'});
   final days = d.inHours ~/ 24;
-  if (days < 30) return '$days дн';
-  if (days < 365) return '${(days / 30).round()} мес';
-  return '${(days / 365).round()} г';
+  if (days < 30) return trf('ivl_day', {'n': '$days'});
+  if (days < 365) return trf('ivl_month', {'n': '${(days / 30).round()}'});
+  return trf('ivl_year', {'n': '${(days / 365).round()}'});
 }

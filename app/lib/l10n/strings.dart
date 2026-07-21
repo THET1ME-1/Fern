@@ -1106,6 +1106,13 @@ const Map<String, Map<String, String>> _strings = {
   },
   'dur_min_sec': {'ru': '{m} мин {s} с', 'en': '{m} min {s} s'},
   'dur_sec': {'ru': '{s} с', 'en': '{s} s'},
+  // Интервал до следующего повтора: подписи на кнопках оценки и в списке карт.
+  'ivl_lt_min': {'ru': '<1 мин', 'en': '<1 min'},
+  'ivl_min': {'ru': '{n} мин', 'en': '{n} min'},
+  'ivl_hour': {'ru': '{n} ч', 'en': '{n} h'},
+  'ivl_day': {'ru': '{n} дн', 'en': '{n} d'},
+  'ivl_month': {'ru': '{n} мес', 'en': '{n} mo'},
+  'ivl_year': {'ru': '{n} г', 'en': '{n} y'},
   'forecast_today': {'ru': 'Сег', 'en': 'Now'},
   'notif_channel_name': {
     'ru': 'Ежедневные напоминания',

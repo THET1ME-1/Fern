@@ -1,0 +1,6533 @@
+{
+ "lang": "zh",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "你好",
+     "back": {
+      "ru": "привет (nǐ hǎo)",
+      "en": "hello (nǐ hǎo)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "你好，最近怎么样？"
+    },
+    {
+     "front": "再见",
+     "back": {
+      "ru": "до свидания (zàijiàn)",
+      "en": "goodbye (zàijiàn)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "再见，明天见。"
+    },
+    {
+     "front": "是的",
+     "back": {
+      "ru": "да (shì de)",
+      "en": "yes (shì de)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "是的，我当然去。"
+    },
+    {
+     "front": "不",
+     "back": {
+      "ru": "нет (bù)",
+      "en": "no (bù)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "不，谢谢。"
+    },
+    {
+     "front": "请",
+     "back": {
+      "ru": "пожалуйста (qǐng)",
+      "en": "please (qǐng)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "请给我一杯咖啡。"
+    },
+    {
+     "front": "谢谢",
+     "back": {
+      "ru": "спасибо (xièxie)",
+      "en": "thank you (xièxie)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "谢谢你的帮助。"
+    },
+    {
+     "front": "对不起",
+     "back": {
+      "ru": "извини (duìbuqǐ)",
+      "en": "sorry (duìbuqǐ)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "对不起，我迟到了。"
+    },
+    {
+     "front": "早上好",
+     "back": {
+      "ru": "доброе утро (zǎoshang hǎo)",
+      "en": "good morning (zǎoshang hǎo)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "早上好，睡得好吗？"
+    },
+    {
+     "front": "晚安",
+     "back": {
+      "ru": "спокойной ночи (wǎn'ān)",
+      "en": "good night (wǎn'ān)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "晚安，明天见。"
+    },
+    {
+     "front": "一切都好",
+     "back": {
+      "ru": "всё хорошо (yíqiè dōu hǎo)",
+      "en": "all right (yíqiè dōu hǎo)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "别担心，一切都好。"
+    },
+    {
+     "front": "男人",
+     "back": {
+      "ru": "мужчина (nánrén)",
+      "en": "man (nánrén)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "那个男人是我的邻居。"
+    },
+    {
+     "front": "女人",
+     "back": {
+      "ru": "женщина (nǚrén)",
+      "en": "woman (nǚrén)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "穿蓝外套的女人是医生。"
+    },
+    {
+     "front": "孩子",
+     "back": {
+      "ru": "ребёнок (háizi)",
+      "en": "child (háizi)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "孩子在花园里玩。"
+    },
+    {
+     "front": "男孩",
+     "back": {
+      "ru": "мальчик (nánhái)",
+      "en": "boy (nánhái)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "男孩跑去上学。"
+    },
+    {
+     "front": "女孩",
+     "back": {
+      "ru": "девочка (nǚhái)",
+      "en": "girl (nǚhái)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "女孩在画一朵花。"
+    },
+    {
+     "front": "朋友",
+     "back": {
+      "ru": "друг (péngyou)",
+      "en": "friend (péngyou)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "我的朋友住在北京。"
+    },
+    {
+     "front": "家庭",
+     "back": {
+      "ru": "семья (jiātíng)",
+      "en": "family (jiātíng)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "全家人都来吃晚饭了。"
+    },
+    {
+     "front": "妈妈",
+     "back": {
+      "ru": "мама (māma)",
+      "en": "mother (māma)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "我妈妈唱歌很好听。"
+    },
+    {
+     "front": "爸爸",
+     "back": {
+      "ru": "папа (bàba)",
+      "en": "father (bàba)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "我爸爸上夜班。"
+    },
+    {
+     "front": "儿子",
+     "back": {
+      "ru": "сын (érzi)",
+      "en": "son (érzi)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "他们的儿子五岁。"
+    },
+    {
+     "front": "女儿",
+     "back": {
+      "ru": "дочь (nǚ'ér)",
+      "en": "daughter (nǚ'ér)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "大女儿在学医。"
+    },
+    {
+     "front": "哥哥",
+     "back": {
+      "ru": "брат (gēge)",
+      "en": "brother (gēge)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "我哥哥踢足球。"
+    },
+    {
+     "front": "姐姐",
+     "back": {
+      "ru": "сестра (jiějie)",
+      "en": "sister (jiějie)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "我姐姐住在上海。"
+    },
+    {
+     "front": "奶奶",
+     "back": {
+      "ru": "бабушка (nǎinai)",
+      "en": "grandmother (nǎinai)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "奶奶做的蛋糕最好吃。"
+    },
+    {
+     "front": "爷爷",
+     "back": {
+      "ru": "дедушка (yéye)",
+      "en": "grandfather (yéye)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "爷爷讲从前的故事。"
+    },
+    {
+     "front": "人",
+     "back": {
+      "ru": "человек (rén)",
+      "en": "person (rén)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "这个人我不认识。"
+    },
+    {
+     "front": "人们",
+     "back": {
+      "ru": "люди (rénmen)",
+      "en": "people (rénmen)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "广场上的人们散开了。"
+    },
+    {
+     "front": "名字",
+     "back": {
+      "ru": "имя (míngzi)",
+      "en": "name (míngzi)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "你叫什么名字？"
+    },
+    {
+     "front": "先生",
+     "back": {
+      "ru": "господин (xiānsheng)",
+      "en": "sir (xiānsheng)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "早上好，王先生。"
+    },
+    {
+     "front": "女士",
+     "back": {
+      "ru": "госпожа (nǚshì)",
+      "en": "madam (nǚshì)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "这位女士需要帮忙吗？"
+    },
+    {
+     "front": "我",
+     "back": {
+      "ru": "я (wǒ)",
+      "en": "I (wǒ)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "我住在附近。"
+    },
+    {
+     "front": "你",
+     "back": {
+      "ru": "ты (nǐ)",
+      "en": "you (nǐ)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "你会说中文吗？"
+    },
+    {
+     "front": "您",
+     "back": {
+      "ru": "вы (nín)",
+      "en": "you (nín)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "您想坐一会儿吗？"
+    },
+    {
+     "front": "他",
+     "back": {
+      "ru": "он (tā)",
+      "en": "he (tā)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "他八点到。"
+    },
+    {
+     "front": "她",
+     "back": {
+      "ru": "она (tā)",
+      "en": "she (tā)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "她在医院工作。"
+    },
+    {
+     "front": "我们",
+     "back": {
+      "ru": "мы (wǒmen)",
+      "en": "we (wǒmen)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "我们坐火车去。"
+    },
+    {
+     "front": "他们",
+     "back": {
+      "ru": "они (tāmen)",
+      "en": "they (tāmen)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "他们住在同一栋楼。"
+    },
+    {
+     "front": "我的",
+     "back": {
+      "ru": "мой (wǒ de)",
+      "en": "my (wǒ de)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "这是我的位子。"
+    },
+    {
+     "front": "你的",
+     "back": {
+      "ru": "твой (nǐ de)",
+      "en": "your (nǐ de)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "你的外套落在椅子上了。"
+    },
+    {
+     "front": "我们的",
+     "back": {
+      "ru": "наш (wǒmen de)",
+      "en": "our (wǒmen de)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "我们的车很小。"
+    },
+    {
+     "front": "这个",
+     "back": {
+      "ru": "этот (zhège)",
+      "en": "this (zhège)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "这本书很有意思。"
+    },
+    {
+     "front": "那个",
+     "back": {
+      "ru": "тот (nàge)",
+      "en": "that (nàge)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "那栋楼很旧了。"
+    },
+    {
+     "front": "谁",
+     "back": {
+      "ru": "кто (shéi)",
+      "en": "who (shéi)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "谁在门口？"
+    },
+    {
+     "front": "什么",
+     "back": {
+      "ru": "что (shénme)",
+      "en": "what (shénme)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "你在说什么？"
+    },
+    {
+     "front": "哪里",
+     "back": {
+      "ru": "где (nǎlǐ)",
+      "en": "where (nǎlǐ)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "车站在哪里？"
+    },
+    {
+     "front": "什么时候",
+     "back": {
+      "ru": "когда (shénme shíhou)",
+      "en": "when (shénme shíhou)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "电影什么时候开始？"
+    },
+    {
+     "front": "怎么",
+     "back": {
+      "ru": "как (zěnme)",
+      "en": "how (zěnme)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "这个怎么说？"
+    },
+    {
+     "front": "为什么",
+     "back": {
+      "ru": "почему (wèishénme)",
+      "en": "why (wèishénme)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "为什么这么着急？"
+    },
+    {
+     "front": "哪一个",
+     "back": {
+      "ru": "который (nǎ yí gè)",
+      "en": "which (nǎ yí gè)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "你更喜欢哪一个？"
+    },
+    {
+     "front": "零",
+     "back": {
+      "ru": "ноль (líng)",
+      "en": "zero (líng)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "气温是零度。"
+    },
+    {
+     "front": "一",
+     "back": {
+      "ru": "один (yī)",
+      "en": "one (yī)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "只剩一个位子了。"
+    },
+    {
+     "front": "二",
+     "back": {
+      "ru": "два (èr)",
+      "en": "two (èr)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "我有两个哥哥。"
+    },
+    {
+     "front": "三",
+     "back": {
+      "ru": "три (sān)",
+      "en": "three (sān)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "我三天后回来。"
+    },
+    {
+     "front": "四",
+     "back": {
+      "ru": "четыре (sì)",
+      "en": "four (sì)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "桌子配四把椅子。"
+    },
+    {
+     "front": "五",
+     "back": {
+      "ru": "пять (wǔ)",
+      "en": "five (wǔ)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "电影有五个小时。"
+    },
+    {
+     "front": "六",
+     "back": {
+      "ru": "шесть (liù)",
+      "en": "six (liù)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "我早上六点起床。"
+    },
+    {
+     "front": "七",
+     "back": {
+      "ru": "семь (qī)",
+      "en": "seven (qī)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "一个星期有七天。"
+    },
+    {
+     "front": "八",
+     "back": {
+      "ru": "восемь (bā)",
+      "en": "eight (bā)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "火车八点开。"
+    },
+    {
+     "front": "九",
+     "back": {
+      "ru": "девять (jiǔ)",
+      "en": "nine (jiǔ)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "她今年九岁。"
+    },
+    {
+     "front": "十",
+     "back": {
+      "ru": "десять (shí)",
+      "en": "ten (shí)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "还有十分钟。"
+    },
+    {
+     "front": "十一",
+     "back": {
+      "ru": "одиннадцать (shíyī)",
+      "en": "eleven (shíyī)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "课十一点结束。"
+    },
+    {
+     "front": "十二",
+     "back": {
+      "ru": "двенадцать (shí'èr)",
+      "en": "twelve (shí'èr)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "一年有十二个月。"
+    },
+    {
+     "front": "二十",
+     "back": {
+      "ru": "двадцать (èrshí)",
+      "en": "twenty (èrshí)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "车票二十块。"
+    },
+    {
+     "front": "三十",
+     "back": {
+      "ru": "тридцать (sānshí)",
+      "en": "thirty (sānshí)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "这个月有三十天。"
+    },
+    {
+     "front": "一百",
+     "back": {
+      "ru": "сто (yìbǎi)",
+      "en": "hundred (yìbǎi)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "还有一百米。"
+    },
+    {
+     "front": "一千",
+     "back": {
+      "ru": "тысяча (yìqiān)",
+      "en": "thousand (yìqiān)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "村里住着一千人。"
+    },
+    {
+     "front": "第一",
+     "back": {
+      "ru": "первый (dì yī)",
+      "en": "first (dì yī)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "今天是开学第一天。"
+    },
+    {
+     "front": "最后",
+     "back": {
+      "ru": "последний (zuìhòu)",
+      "en": "last (zuìhòu)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "我赶上了最后一班车。"
+    },
+    {
+     "front": "号码",
+     "back": {
+      "ru": "номер (hàomǎ)",
+      "en": "number (hàomǎ)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "你家的门牌号码是多少？"
+    },
+    {
+     "front": "一半",
+     "back": {
+      "ru": "половина (yíbàn)",
+      "en": "half (yíbàn)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "我等了半个小时。"
+    },
+    {
+     "front": "天",
+     "back": {
+      "ru": "день (tiān)",
+      "en": "day (tiān)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "今天真是漫长的一天。"
+    },
+    {
+     "front": "夜晚",
+     "back": {
+      "ru": "ночь (yèwǎn)",
+      "en": "night (yèwǎn)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "夜晚很冷。"
+    },
+    {
+     "front": "早晨",
+     "back": {
+      "ru": "утро (zǎochen)",
+      "en": "morning (zǎochen)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "我早晨喝茶。"
+    },
+    {
+     "front": "下午",
+     "back": {
+      "ru": "вечер (xiàwǔ)",
+      "en": "afternoon (xiàwǔ)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "下午我去市场。"
+    },
+    {
+     "front": "今天",
+     "back": {
+      "ru": "сегодня (jīntiān)",
+      "en": "today (jīntiān)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "我今天不上班。"
+    },
+    {
+     "front": "明天",
+     "back": {
+      "ru": "завтра (míngtiān)",
+      "en": "tomorrow (míngtiān)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "我们明天去海边。"
+    },
+    {
+     "front": "昨天",
+     "back": {
+      "ru": "вчера (zuótiān)",
+      "en": "yesterday (zuótiān)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "昨天下了一整天雨。"
+    },
+    {
+     "front": "星期",
+     "back": {
+      "ru": "неделя (xīngqī)",
+      "en": "week (xīngqī)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "我下个星期回来。"
+    },
+    {
+     "front": "月",
+     "back": {
+      "ru": "месяц (yuè)",
+      "en": "month (yuè)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "这个月过得不错。"
+    },
+    {
+     "front": "年",
+     "back": {
+      "ru": "год (nián)",
+      "en": "year (nián)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "去年很难熬。"
+    },
+    {
+     "front": "小时",
+     "back": {
+      "ru": "час (xiǎoshí)",
+      "en": "hour (xiǎoshí)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "路上要一个小时。"
+    },
+    {
+     "front": "分钟",
+     "back": {
+      "ru": "минута (fēnzhōng)",
+      "en": "minute (fēnzhōng)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "请等一分钟。"
+    },
+    {
+     "front": "时间",
+     "back": {
+      "ru": "время (shíjiān)",
+      "en": "time (shíjiān)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "我现在没有时间。"
+    },
+    {
+     "front": "现在",
+     "back": {
+      "ru": "сейчас (xiànzài)",
+      "en": "now (xiànzài)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "我现在很忙。"
+    },
+    {
+     "front": "总是",
+     "back": {
+      "ru": "всегда (zǒngshì)",
+      "en": "always (zǒngshì)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "她总是来得很早。"
+    },
+    {
+     "front": "从不",
+     "back": {
+      "ru": "никогда (cóngbù)",
+      "en": "never (cóngbù)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "我从不迟到。"
+    },
+    {
+     "front": "早",
+     "back": {
+      "ru": "рано (zǎo)",
+      "en": "early (zǎo)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "我今天起得很早。"
+    },
+    {
+     "front": "星期一",
+     "back": {
+      "ru": "понедельник (xīngqīyī)",
+      "en": "Monday (xīngqīyī)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "星期一我要去看病。"
+    },
+    {
+     "front": "星期六",
+     "back": {
+      "ru": "суббота (xīngqīliù)",
+      "en": "Saturday (xīngqīliù)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "星期六我睡到很晚。"
+    },
+    {
+     "front": "星期天",
+     "back": {
+      "ru": "воскресенье (xīngqītiān)",
+      "en": "Sunday (xīngqītiān)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "星期天我们全家一起吃饭。"
+    },
+    {
+     "front": "房子",
+     "back": {
+      "ru": "дом (fángzi)",
+      "en": "house (fángzi)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "房子后面有个花园。"
+    },
+    {
+     "front": "城市",
+     "back": {
+      "ru": "город (chéngshì)",
+      "en": "city (chéngshì)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "上海是座很大的城市。"
+    },
+    {
+     "front": "村子",
+     "back": {
+      "ru": "деревня (cūnzi)",
+      "en": "village (cūnzi)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "村子在山脚下。"
+    },
+    {
+     "front": "街",
+     "back": {
+      "ru": "улица (jiē)",
+      "en": "street (jiē)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "街上都是人。"
+    },
+    {
+     "front": "学校",
+     "back": {
+      "ru": "школа (xuéxiào)",
+      "en": "school (xuéxiào)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "学校八点开门。"
+    },
+    {
+     "front": "工作",
+     "back": {
+      "ru": "работа (gōngzuò)",
+      "en": "work (gōngzuò)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "工作六点结束。"
+    },
+    {
+     "front": "商店",
+     "back": {
+      "ru": "магазин (shāngdiàn)",
+      "en": "shop (shāngdiàn)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "商店星期天关门。"
+    },
+    {
+     "front": "市场",
+     "back": {
+      "ru": "рынок (shìchǎng)",
+      "en": "market (shìchǎng)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "我在市场买水果。"
+    },
+    {
+     "front": "医院",
+     "back": {
+      "ru": "больница (yīyuàn)",
+      "en": "hospital (yīyuàn)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "医院离这儿很近。"
+    },
+    {
+     "front": "药店",
+     "back": {
+      "ru": "аптека (yàodiàn)",
+      "en": "pharmacy (yàodiàn)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "药店晚上也开。"
+    },
+    {
+     "front": "银行",
+     "back": {
+      "ru": "банк (yínháng)",
+      "en": "bank (yínháng)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "我上午去银行。"
+    },
+    {
+     "front": "旅馆",
+     "back": {
+      "ru": "гостиница (lǚguǎn)",
+      "en": "hotel (lǚguǎn)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "旅馆就在海边。"
+    },
+    {
+     "front": "教堂",
+     "back": {
+      "ru": "церковь (jiàotáng)",
+      "en": "church (jiàotáng)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "这座教堂很古老。"
+    },
+    {
+     "front": "花园",
+     "back": {
+      "ru": "сад (huāyuán)",
+      "en": "garden (huāyuán)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "花园里开满了花。"
+    },
+    {
+     "front": "海滩",
+     "back": {
+      "ru": "пляж (hǎitān)",
+      "en": "beach (hǎitān)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "海滩走十分钟就到。"
+    },
+    {
+     "front": "海",
+     "back": {
+      "ru": "море (hǎi)",
+      "en": "sea (hǎi)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "今天海面很平静。"
+    },
+    {
+     "front": "河",
+     "back": {
+      "ru": "река (hé)",
+      "en": "river (hé)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "河从城中穿过。"
+    },
+    {
+     "front": "山",
+     "back": {
+      "ru": "гора (shān)",
+      "en": "mountain (shān)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "山顶上有雪。"
+    },
+    {
+     "front": "田",
+     "back": {
+      "ru": "поле (tián)",
+      "en": "field (tián)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "田里的麦子长高了。"
+    },
+    {
+     "front": "森林",
+     "back": {
+      "ru": "лес (sēnlín)",
+      "en": "forest (sēnlín)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "过了桥就是森林。"
+    },
+    {
+     "front": "国家",
+     "back": {
+      "ru": "страна (guójiā)",
+      "en": "country (guójiā)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "葡萄牙是个小国家。"
+    },
+    {
+     "front": "世界",
+     "back": {
+      "ru": "мир (shìjiè)",
+      "en": "world (shìjiè)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "他走遍了半个世界。"
+    },
+    {
+     "front": "路",
+     "back": {
+      "ru": "дорога (lù)",
+      "en": "road (lù)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "这条路很窄。"
+    },
+    {
+     "front": "桥",
+     "back": {
+      "ru": "мост (qiáo)",
+      "en": "bridge (qiáo)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "桥因为施工封了。"
+    },
+    {
+     "front": "车站",
+     "back": {
+      "ru": "вокзал (chēzhàn)",
+      "en": "station (chēzhàn)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "我们在车站见。"
+    },
+    {
+     "front": "机场",
+     "back": {
+      "ru": "аэропорт (jīchǎng)",
+      "en": "airport (jīchǎng)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "机场离市中心很远。"
+    },
+    {
+     "front": "房间",
+     "back": {
+      "ru": "комната (fángjiān)",
+      "en": "room (fángjiān)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "房间有一扇大窗户。"
+    },
+    {
+     "front": "厨房",
+     "back": {
+      "ru": "кухня (chúfáng)",
+      "en": "kitchen (chúfáng)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "厨房里有咖啡的香味。"
+    },
+    {
+     "front": "门",
+     "back": {
+      "ru": "дверь (mén)",
+      "en": "door (mén)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "关上门，外面冷。"
+    },
+    {
+     "front": "窗户",
+     "back": {
+      "ru": "окно (chuānghu)",
+      "en": "window (chuānghu)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "把窗户打开，太闷了。"
+    },
+    {
+     "front": "桌子",
+     "back": {
+      "ru": "стол (zhuōzi)",
+      "en": "table (zhuōzi)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "把盘子放在桌子上。"
+    },
+    {
+     "front": "椅子",
+     "back": {
+      "ru": "стул (yǐzi)",
+      "en": "chair (yǐzi)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "桌边少一把椅子。"
+    },
+    {
+     "front": "床",
+     "back": {
+      "ru": "кровать (chuáng)",
+      "en": "bed (chuáng)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "这张床太硬了。"
+    },
+    {
+     "front": "汽车",
+     "back": {
+      "ru": "машина (qìchē)",
+      "en": "car (qìchē)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "汽车早上打不着火。"
+    },
+    {
+     "front": "公共汽车",
+     "back": {
+      "ru": "автобус (gōnggòng qìchē)",
+      "en": "bus (gōnggòng qìchē)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "公共汽车每半小时一班。"
+    },
+    {
+     "front": "火车",
+     "back": {
+      "ru": "поезд (huǒchē)",
+      "en": "train (huǒchē)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "火车晚点了。"
+    },
+    {
+     "front": "飞机",
+     "back": {
+      "ru": "самолёт (fēijī)",
+      "en": "plane (fēijī)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "飞机七点起飞。"
+    },
+    {
+     "front": "自行车",
+     "back": {
+      "ru": "велосипед (zìxíngchē)",
+      "en": "bicycle (zìxíngchē)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "我骑自行车上班。"
+    },
+    {
+     "front": "太阳",
+     "back": {
+      "ru": "солнце (tàiyáng)",
+      "en": "sun (tàiyáng)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "太阳六点半升起。"
+    },
+    {
+     "front": "月亮",
+     "back": {
+      "ru": "луна (yuèliang)",
+      "en": "moon (yuèliang)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "今晚的月亮很圆。"
+    },
+    {
+     "front": "星星",
+     "back": {
+      "ru": "звезда (xīngxing)",
+      "en": "star (xīngxing)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "天上有颗很亮的星星。"
+    },
+    {
+     "front": "天空",
+     "back": {
+      "ru": "небо (tiānkōng)",
+      "en": "sky (tiānkōng)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "天空很晴朗。"
+    },
+    {
+     "front": "雨",
+     "back": {
+      "ru": "дождь (yǔ)",
+      "en": "rain (yǔ)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "雨从昨天就没停。"
+    },
+    {
+     "front": "风",
+     "back": {
+      "ru": "ветер (fēng)",
+      "en": "wind (fēng)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "风把椅子吹倒了。"
+    },
+    {
+     "front": "雪",
+     "back": {
+      "ru": "снег (xuě)",
+      "en": "snow (xuě)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "这里很少下雪。"
+    },
+    {
+     "front": "火",
+     "back": {
+      "ru": "огонь (huǒ)",
+      "en": "fire (huǒ)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "我们在壁炉里生了火。"
+    },
+    {
+     "front": "土地",
+     "back": {
+      "ru": "земля (tǔdì)",
+      "en": "earth (tǔdì)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "土地还是湿的。"
+    },
+    {
+     "front": "树",
+     "back": {
+      "ru": "дерево (shù)",
+      "en": "tree (shù)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "这棵树给院子遮阴。"
+    },
+    {
+     "front": "花",
+     "back": {
+      "ru": "цветок (huā)",
+      "en": "flower (huā)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "我从街上带回一朵花。"
+    },
+    {
+     "front": "动物",
+     "back": {
+      "ru": "животное (dòngwù)",
+      "en": "animal (dòngwù)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "那是什么动物？"
+    },
+    {
+     "front": "狗",
+     "back": {
+      "ru": "собака (gǒu)",
+      "en": "dog (gǒu)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "狗睡在门口。"
+    },
+    {
+     "front": "猫",
+     "back": {
+      "ru": "кошка (māo)",
+      "en": "cat (māo)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "猫爬上了屋顶。"
+    },
+    {
+     "front": "鸟",
+     "back": {
+      "ru": "птица (niǎo)",
+      "en": "bird (niǎo)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "早上有只鸟在叫。"
+    },
+    {
+     "front": "马",
+     "back": {
+      "ru": "лошадь (mǎ)",
+      "en": "horse (mǎ)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "马在田野里奔跑。"
+    },
+    {
+     "front": "书",
+     "back": {
+      "ru": "книга (shū)",
+      "en": "book (shū)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "这本书有三百页。"
+    },
+    {
+     "front": "纸",
+     "back": {
+      "ru": "бумага (zhǐ)",
+      "en": "paper (zhǐ)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "给我一张纸。"
+    },
+    {
+     "front": "笔",
+     "back": {
+      "ru": "ручка (bǐ)",
+      "en": "pen (bǐ)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "这支笔没墨水了。"
+    },
+    {
+     "front": "电话",
+     "back": {
+      "ru": "телефон (diànhuà)",
+      "en": "phone (diànhuà)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "电话响了两次。"
+    },
+    {
+     "front": "电脑",
+     "back": {
+      "ru": "компьютер (diànnǎo)",
+      "en": "computer (diànnǎo)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "电脑很慢。"
+    },
+    {
+     "front": "钱",
+     "back": {
+      "ru": "деньги (qián)",
+      "en": "money (qián)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "我身上没带钱。"
+    },
+    {
+     "front": "钥匙",
+     "back": {
+      "ru": "ключ (yàoshi)",
+      "en": "key (yàoshi)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "我把家里的钥匙弄丢了。"
+    },
+    {
+     "front": "手表",
+     "back": {
+      "ru": "часы (shǒubiǎo)",
+      "en": "watch (shǒubiǎo)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "我的手表快了。"
+    },
+    {
+     "front": "灯光",
+     "back": {
+      "ru": "свет (dēngguāng)",
+      "en": "light (dēngguāng)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "请把灯打开。"
+    },
+    {
+     "front": "音乐",
+     "back": {
+      "ru": "музыка (yīnyuè)",
+      "en": "music (yīnyuè)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "音乐是从隔壁咖啡馆传来的。"
+    },
+    {
+     "front": "电影",
+     "back": {
+      "ru": "фильм (diànyǐng)",
+      "en": "film (diànyǐng)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "电影九点开始。"
+    },
+    {
+     "front": "照片",
+     "back": {
+      "ru": "фотография (zhàopiàn)",
+      "en": "photo (zhàopiàn)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "我给广场拍了张照片。"
+    },
+    {
+     "front": "信",
+     "back": {
+      "ru": "письмо (xìn)",
+      "en": "letter (xìn)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "我收到奶奶的一封信。"
+    },
+    {
+     "front": "报纸",
+     "back": {
+      "ru": "газета (bàozhǐ)",
+      "en": "newspaper (bàozhǐ)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "我早饭时看报纸。"
+    },
+    {
+     "front": "颜色",
+     "back": {
+      "ru": "цвет (yánsè)",
+      "en": "colour (yánsè)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "你的车是什么颜色？"
+    },
+    {
+     "front": "词",
+     "back": {
+      "ru": "слово (cí)",
+      "en": "word (cí)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "最后一个词我没听懂。"
+    },
+    {
+     "front": "语言",
+     "back": {
+      "ru": "язык (yǔyán)",
+      "en": "language (yǔyán)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "中文是我的母语。"
+    },
+    {
+     "front": "头",
+     "back": {
+      "ru": "голова (tóu)",
+      "en": "head (tóu)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "我从昨天就头疼。"
+    },
+    {
+     "front": "手",
+     "back": {
+      "ru": "рука (shǒu)",
+      "en": "hand (shǒu)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "把手给我。"
+    },
+    {
+     "front": "脚",
+     "back": {
+      "ru": "нога (jiǎo)",
+      "en": "foot (jiǎo)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "我的脚肿了。"
+    },
+    {
+     "front": "眼睛",
+     "back": {
+      "ru": "глаз (yǎnjing)",
+      "en": "eye (yǎnjing)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "我眼睛里进了灰。"
+    },
+    {
+     "front": "嘴",
+     "back": {
+      "ru": "рот (zuǐ)",
+      "en": "mouth (zuǐ)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "医生说：把嘴张开。"
+    },
+    {
+     "front": "心",
+     "back": {
+      "ru": "сердце (xīn)",
+      "en": "heart (xīn)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "他的心跳得很快。"
+    },
+    {
+     "front": "头发",
+     "back": {
+      "ru": "волосы (tóufa)",
+      "en": "hair (tóufa)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "我昨天剪了头发。"
+    },
+    {
+     "front": "身体",
+     "back": {
+      "ru": "тело (shēntǐ)",
+      "en": "body (shēntǐ)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "身体需要休息。"
+    },
+    {
+     "front": "好",
+     "back": {
+      "ru": "хороший (hǎo)",
+      "en": "good (hǎo)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "今天工作得很顺利。"
+    },
+    {
+     "front": "坏",
+     "back": {
+      "ru": "плохой (huài)",
+      "en": "bad (huài)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "天气很坏。"
+    },
+    {
+     "front": "大",
+     "back": {
+      "ru": "большой (dà)",
+      "en": "big (dà)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "我们需要一张大桌子。"
+    },
+    {
+     "front": "小",
+     "back": {
+      "ru": "маленький (xiǎo)",
+      "en": "small (xiǎo)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "房间小，但很亮。"
+    },
+    {
+     "front": "新",
+     "back": {
+      "ru": "новый (xīn)",
+      "en": "new (xīn)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "我买了个新手机。"
+    },
+    {
+     "front": "旧",
+     "back": {
+      "ru": "старый (jiù)",
+      "en": "old (jiù)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "这栋楼很旧。"
+    },
+    {
+     "front": "年轻",
+     "back": {
+      "ru": "молодой (niánqīng)",
+      "en": "young (niánqīng)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "他是位年轻的老师。"
+    },
+    {
+     "front": "高",
+     "back": {
+      "ru": "высокий (gāo)",
+      "en": "tall (gāo)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "这栋楼很高。"
+    },
+    {
+     "front": "矮",
+     "back": {
+      "ru": "низкий (ǎi)",
+      "en": "short (ǎi)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "天花板很矮。"
+    },
+    {
+     "front": "长",
+     "back": {
+      "ru": "длинный (cháng)",
+      "en": "long (cháng)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "路很长。"
+    },
+    {
+     "front": "短",
+     "back": {
+      "ru": "короткий (duǎn)",
+      "en": "short (duǎn)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "电影很短。"
+    },
+    {
+     "front": "热",
+     "back": {
+      "ru": "горячий (rè)",
+      "en": "hot (rè)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "茶很热。"
+    },
+    {
+     "front": "冷",
+     "back": {
+      "ru": "холодный (lěng)",
+      "en": "cold (lěng)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "房间里很冷。"
+    },
+    {
+     "front": "漂亮",
+     "back": {
+      "ru": "красивый (piàoliang)",
+      "en": "beautiful (piàoliang)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "多漂亮的景色！"
+    },
+    {
+     "front": "难看",
+     "back": {
+      "ru": "некрасивый (nánkàn)",
+      "en": "ugly (nánkàn)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "新楼很难看。"
+    },
+    {
+     "front": "容易",
+     "back": {
+      "ru": "лёгкий (róngyì)",
+      "en": "easy (róngyì)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "这道练习很容易。"
+    },
+    {
+     "front": "难",
+     "back": {
+      "ru": "трудный (nán)",
+      "en": "difficult (nán)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "这个问题很难。"
+    },
+    {
+     "front": "强壮",
+     "back": {
+      "ru": "сильный (qiángzhuàng)",
+      "en": "strong (qiángzhuàng)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "他很强壮。"
+    },
+    {
+     "front": "弱",
+     "back": {
+      "ru": "слабый (ruò)",
+      "en": "weak (ruò)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "信号很弱。"
+    },
+    {
+     "front": "快",
+     "back": {
+      "ru": "быстрый (kuài)",
+      "en": "fast (kuài)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "火车很快。"
+    },
+    {
+     "front": "慢",
+     "back": {
+      "ru": "медленный (màn)",
+      "en": "slow (màn)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "这里的服务很慢。"
+    },
+    {
+     "front": "贵",
+     "back": {
+      "ru": "дорогой (guì)",
+      "en": "expensive (guì)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "这家旅馆很贵。"
+    },
+    {
+     "front": "便宜",
+     "back": {
+      "ru": "дешёвый (piányi)",
+      "en": "cheap (piányi)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "我买到一张便宜的票。"
+    },
+    {
+     "front": "干净",
+     "back": {
+      "ru": "чистый (gānjìng)",
+      "en": "clean (gānjìng)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "地板很干净。"
+    },
+    {
+     "front": "脏",
+     "back": {
+      "ru": "грязный (zāng)",
+      "en": "dirty (zāng)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "车上都是灰，很脏。"
+    },
+    {
+     "front": "满",
+     "back": {
+      "ru": "полный (mǎn)",
+      "en": "full (mǎn)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "公共汽车来的时候是满的。"
+    },
+    {
+     "front": "空",
+     "back": {
+      "ru": "пустой (kōng)",
+      "en": "empty (kōng)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "杯子空了。"
+    },
+    {
+     "front": "幸福",
+     "back": {
+      "ru": "счастливый (xìngfú)",
+      "en": "happy (xìngfú)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "她听到消息很幸福。"
+    },
+    {
+     "front": "难过",
+     "back": {
+      "ru": "грустный (nánguò)",
+      "en": "sad (nánguò)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "他下班回来很难过。"
+    },
+    {
+     "front": "累",
+     "back": {
+      "ru": "усталый (lèi)",
+      "en": "tired (lèi)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "忙了一天，我很累。"
+    },
+    {
+     "front": "生病",
+     "back": {
+      "ru": "больной (shēngbìng)",
+      "en": "sick (shēngbìng)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "我儿子生病了。"
+    },
+    {
+     "front": "对",
+     "back": {
+      "ru": "правильный (duì)",
+      "en": "right (duì)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "答案是对的。"
+    },
+    {
+     "front": "错",
+     "back": {
+      "ru": "неправильный (cuò)",
+      "en": "wrong (cuò)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "号码写错了。"
+    },
+    {
+     "front": "白",
+     "back": {
+      "ru": "белый (bái)",
+      "en": "white (bái)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "墙是白的。"
+    },
+    {
+     "front": "黑",
+     "back": {
+      "ru": "чёрный (hēi)",
+      "en": "black (hēi)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "我有一只黑猫。"
+    },
+    {
+     "front": "红",
+     "back": {
+      "ru": "красный (hóng)",
+      "en": "red (hóng)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "红灯亮了。"
+    },
+    {
+     "front": "蓝",
+     "back": {
+      "ru": "синий (lán)",
+      "en": "blue (lán)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "今天海很蓝。"
+    },
+    {
+     "front": "绿",
+     "back": {
+      "ru": "зелёный (lǜ)",
+      "en": "green (lǜ)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "春天树叶变绿。"
+    },
+    {
+     "front": "黄",
+     "back": {
+      "ru": "жёлтый (huáng)",
+      "en": "yellow (huáng)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "房子是黄色的。"
+    },
+    {
+     "front": "这里",
+     "back": {
+      "ru": "здесь (zhèlǐ)",
+      "en": "here (zhèlǐ)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "在这里等一下。"
+    },
+    {
+     "front": "那里",
+     "back": {
+      "ru": "там (nàlǐ)",
+      "en": "there (nàlǐ)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "车在那里。"
+    },
+    {
+     "front": "很多",
+     "back": {
+      "ru": "много (hěn duō)",
+      "en": "much (hěn duō)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "我喝很多茶。"
+    },
+    {
+     "front": "很少",
+     "back": {
+      "ru": "мало (hěn shǎo)",
+      "en": "little (hěn shǎo)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "我昨晚睡得很少。"
+    },
+    {
+     "front": "更多",
+     "back": {
+      "ru": "больше (gèng duō)",
+      "en": "more (gèng duō)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "我想要更多时间。"
+    },
+    {
+     "front": "更少",
+     "back": {
+      "ru": "меньше (gèng shǎo)",
+      "en": "less (gèng shǎo)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "今天人更少。"
+    },
+    {
+     "front": "也",
+     "back": {
+      "ru": "тоже (yě)",
+      "en": "also (yě)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "我也去。"
+    },
+    {
+     "front": "好好地",
+     "back": {
+      "ru": "хорошо (hǎohāor de)",
+      "en": "well (hǎohāor de)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "她法语说得很好。"
+    },
+    {
+     "front": "不好",
+     "back": {
+      "ru": "плохо (bù hǎo)",
+      "en": "badly (bù hǎo)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "我昨晚睡得不好。"
+    },
+    {
+     "front": "和",
+     "back": {
+      "ru": "с (hé)",
+      "en": "with (hé)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "我和姐姐一起去。"
+    },
+    {
+     "front": "没有",
+     "back": {
+      "ru": "без (méiyǒu)",
+      "en": "without (méiyǒu)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "我喝咖啡不加糖。"
+    },
+    {
+     "front": "为了",
+     "back": {
+      "ru": "для (wèile)",
+      "en": "for (wèile)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "这个包裹是给你的。"
+    },
+    {
+     "front": "但是",
+     "back": {
+      "ru": "но (dànshì)",
+      "en": "but (dànshì)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "我想去，但是去不了。"
+    },
+    {
+     "front": "或者",
+     "back": {
+      "ru": "или (huòzhě)",
+      "en": "or (huòzhě)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "喝茶或者咖啡？"
+    },
+    {
+     "front": "因为",
+     "back": {
+      "ru": "потому что (yīnwèi)",
+      "en": "because (yīnwèi)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "我在家没出门，因为下雨。"
+    },
+    {
+     "front": "如果",
+     "back": {
+      "ru": "если (rúguǒ)",
+      "en": "if (rúguǒ)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "如果下雨，我们就留下。"
+    },
+    {
+     "front": "也许",
+     "back": {
+      "ru": "может быть (yěxǔ)",
+      "en": "maybe (yěxǔ)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "他也许明天来。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "是",
+     "back": {
+      "ru": "быть (shì)",
+      "en": "to be (shì)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "她是音乐老师。"
+    },
+    {
+     "front": "在",
+     "back": {
+      "ru": "находиться (zài)",
+      "en": "to be (state) (zài)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "我从六点就在家。"
+    },
+    {
+     "front": "有",
+     "back": {
+      "ru": "иметь (yǒu)",
+      "en": "to have (yǒu)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "我有两个弟弟。"
+    },
+    {
+     "front": "做",
+     "back": {
+      "ru": "делать (zuò)",
+      "en": "to do (zuò)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "你星期天做什么？"
+    },
+    {
+     "front": "去",
+     "back": {
+      "ru": "идти (qù)",
+      "en": "to go (qù)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "我现在去市场。"
+    },
+    {
+     "front": "来",
+     "back": {
+      "ru": "приходить (lái)",
+      "en": "to come (lái)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "你来和我们一起吃饭吗？"
+    },
+    {
+     "front": "说",
+     "back": {
+      "ru": "говорить (shuō)",
+      "en": "to say (shuō)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "跟我说实话。"
+    },
+    {
+     "front": "看见",
+     "back": {
+      "ru": "видеть (kànjiàn)",
+      "en": "to see (kànjiàn)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "我在街上看见你哥哥了。"
+    },
+    {
+     "front": "给",
+     "back": {
+      "ru": "давать (gěi)",
+      "en": "to give (gěi)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "请把钥匙给我。"
+    },
+    {
+     "front": "知道",
+     "back": {
+      "ru": "знать (zhīdào)",
+      "en": "to know (zhīdào)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "我不知道他住在哪里。"
+    },
+    {
+     "front": "能",
+     "back": {
+      "ru": "мочь (néng)",
+      "en": "can (néng)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "你能帮我一下吗？"
+    },
+    {
+     "front": "要",
+     "back": {
+      "ru": "хотеть (yào)",
+      "en": "to want (yào)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "我要一杯水。"
+    },
+    {
+     "front": "应该",
+     "back": {
+      "ru": "быть должным (yīnggāi)",
+      "en": "must (yīnggāi)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "我今天应该早点走。"
+    },
+    {
+     "front": "留下",
+     "back": {
+      "ru": "оставаться (liúxià)",
+      "en": "to stay (liúxià)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "我今晚留在家里。"
+    },
+    {
+     "front": "经过",
+     "back": {
+      "ru": "проходить (jīngguò)",
+      "en": "to pass (jīngguò)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "公共汽车九点经过这里。"
+    },
+    {
+     "front": "到达",
+     "back": {
+      "ru": "прибывать (dàodá)",
+      "en": "to arrive (dàodá)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "火车晚点到达。"
+    },
+    {
+     "front": "出去",
+     "back": {
+      "ru": "выходить (chūqù)",
+      "en": "to leave (chūqù)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "我六点下班出去。"
+    },
+    {
+     "front": "进来",
+     "back": {
+      "ru": "входить (jìnlái)",
+      "en": "to enter (jìnlái)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "进来吧，门开着。"
+    },
+    {
+     "front": "回来",
+     "back": {
+      "ru": "возвращаться (huílái)",
+      "en": "to return (huílái)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "我半小时后回来。"
+    },
+    {
+     "front": "开始",
+     "back": {
+      "ru": "начинать (kāishǐ)",
+      "en": "to begin (kāishǐ)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "课八点开始。"
+    },
+    {
+     "front": "结束",
+     "back": {
+      "ru": "заканчивать (jiéshù)",
+      "en": "to finish (jiéshù)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "我昨天把书看完了。"
+    },
+    {
+     "front": "继续",
+     "back": {
+      "ru": "продолжать (jìxù)",
+      "en": "to continue (jìxù)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "雨还在继续下。"
+    },
+    {
+     "front": "停",
+     "back": {
+      "ru": "останавливаться (tíng)",
+      "en": "to stop (tíng)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "车停在门口。"
+    },
+    {
+     "front": "等",
+     "back": {
+      "ru": "ждать (děng)",
+      "en": "to wait (děng)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "我在车站等你。"
+    },
+    {
+     "front": "找到",
+     "back": {
+      "ru": "находить (zhǎodào)",
+      "en": "to find (zhǎodào)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "我在桌上找到了钥匙。"
+    },
+    {
+     "front": "找",
+     "back": {
+      "ru": "искать (zhǎo)",
+      "en": "to look for (zhǎo)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "我在找一本语法书。"
+    },
+    {
+     "front": "丢",
+     "back": {
+      "ru": "терять (diū)",
+      "en": "to lose (diū)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "我错过了七点的火车。"
+    },
+    {
+     "front": "赢",
+     "back": {
+      "ru": "выигрывать (yíng)",
+      "en": "to win (yíng)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "我们队赢了。"
+    },
+    {
+     "front": "买",
+     "back": {
+      "ru": "покупать (mǎi)",
+      "en": "to buy (mǎi)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "我买了晚饭吃的面包。"
+    },
+    {
+     "front": "卖",
+     "back": {
+      "ru": "продавать (mài)",
+      "en": "to sell (mài)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "那个拐角有人卖水果。"
+    },
+    {
+     "front": "付",
+     "back": {
+      "ru": "платить (fù)",
+      "en": "to pay (fù)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "咖啡我来付。"
+    },
+    {
+     "front": "值",
+     "back": {
+      "ru": "стоить (zhí)",
+      "en": "to cost (zhí)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "这张票多少钱？"
+    },
+    {
+     "front": "上班",
+     "back": {
+      "ru": "работать (shàngbān)",
+      "en": "to work (shàngbān)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "我在医院上班。"
+    },
+    {
+     "front": "学习",
+     "back": {
+      "ru": "учиться (xuéxí)",
+      "en": "to study (xuéxí)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "我学中文一年了。"
+    },
+    {
+     "front": "学会",
+     "back": {
+      "ru": "изучать (xuéhuì)",
+      "en": "to learn (xuéhuì)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "我小时候学会了游泳。"
+    },
+    {
+     "front": "教",
+     "back": {
+      "ru": "учить (jiāo)",
+      "en": "to teach (jiāo)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "她在乡村学校教书。"
+    },
+    {
+     "front": "读",
+     "back": {
+      "ru": "читать (dú)",
+      "en": "to read (dú)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "我早上读报纸。"
+    },
+    {
+     "front": "写",
+     "back": {
+      "ru": "писать (xiě)",
+      "en": "to write (xiě)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "我给她写了一封长信。"
+    },
+    {
+     "front": "说话",
+     "back": {
+      "ru": "разговаривать (shuōhuà)",
+      "en": "to speak (shuōhuà)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "我们昨天在电话里说过话。"
+    },
+    {
+     "front": "听见",
+     "back": {
+      "ru": "слышать (tīngjiàn)",
+      "en": "to hear (tīngjiàn)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "我听见厨房有响声。"
+    },
+    {
+     "front": "听",
+     "back": {
+      "ru": "слушать (tīng)",
+      "en": "to listen (tīng)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "好好听我说。"
+    },
+    {
+     "front": "看",
+     "back": {
+      "ru": "смотреть (kàn)",
+      "en": "to look (kàn)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "往左看。"
+    },
+    {
+     "front": "感觉",
+     "back": {
+      "ru": "чувствовать (gǎnjué)",
+      "en": "to feel (gǎnjué)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "我手上感觉很冷。"
+    },
+    {
+     "front": "想",
+     "back": {
+      "ru": "думать (xiǎng)",
+      "en": "to think (xiǎng)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "我从昨天就在想这件事。"
+    },
+    {
+     "front": "记得",
+     "back": {
+      "ru": "помнить (jìde)",
+      "en": "to remember (jìde)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "那天我记得很清楚。"
+    },
+    {
+     "front": "忘",
+     "back": {
+      "ru": "забывать (wàng)",
+      "en": "to forget (wàng)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "我忘了你的名字。"
+    },
+    {
+     "front": "懂",
+     "back": {
+      "ru": "понимать (dǒng)",
+      "en": "to understand (dǒng)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "我没懂这个问题。"
+    },
+    {
+     "front": "解释",
+     "back": {
+      "ru": "объяснять (jiěshì)",
+      "en": "to explain (jiěshì)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "你再解释一遍。"
+    },
+    {
+     "front": "问",
+     "back": {
+      "ru": "спрашивать (wèn)",
+      "en": "to ask (wèn)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "我问了邻居。"
+    },
+    {
+     "front": "回答",
+     "back": {
+      "ru": "отвечать (huídá)",
+      "en": "to answer (huídá)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "她还没有回答。"
+    },
+    {
+     "front": "叫",
+     "back": {
+      "ru": "звать (jiào)",
+      "en": "to call (jiào)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "快叫医生来。"
+    },
+    {
+     "front": "打电话",
+     "back": {
+      "ru": "звонить (dǎ diànhuà)",
+      "en": "to phone (dǎ diànhuà)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "我晚上给你打电话。"
+    },
+    {
+     "front": "开",
+     "back": {
+      "ru": "открывать (kāi)",
+      "en": "to open (kāi)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "请把窗户打开。"
+    },
+    {
+     "front": "关",
+     "back": {
+      "ru": "закрывать (guān)",
+      "en": "to close (guān)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "走的时候把门关上。"
+    },
+    {
+     "front": "放",
+     "back": {
+      "ru": "класть (fàng)",
+      "en": "to put (fàng)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "把面包放在桌上。"
+    },
+    {
+     "front": "脱",
+     "back": {
+      "ru": "убирать (tuō)",
+      "en": "to take off (tuō)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "进门请脱鞋。"
+    },
+    {
+     "front": "带",
+     "back": {
+      "ru": "нести (dài)",
+      "en": "to take (dài)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "我带着伞。"
+    },
+    {
+     "front": "拿来",
+     "back": {
+      "ru": "приносить (nálái)",
+      "en": "to bring (nálái)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "我给大家拿来了蛋糕。"
+    },
+    {
+     "front": "寄",
+     "back": {
+      "ru": "посылать (jì)",
+      "en": "to send (jì)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "信我星期一寄出去了。"
+    },
+    {
+     "front": "收到",
+     "back": {
+      "ru": "получать (shōudào)",
+      "en": "to receive (shōudào)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "我收到你的口信了。"
+    },
+    {
+     "front": "保存",
+     "back": {
+      "ru": "хранить (bǎocún)",
+      "en": "to keep (bǎocún)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "我把照片保存在盒子里。"
+    },
+    {
+     "front": "落下",
+     "back": {
+      "ru": "оставлять (làxià)",
+      "en": "to leave behind (làxià)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "我把外套落在车里了。"
+    },
+    {
+     "front": "拿着",
+     "back": {
+      "ru": "держать (názhe)",
+      "en": "to hold (názhe)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "把杯子拿稳。"
+    },
+    {
+     "front": "推",
+     "back": {
+      "ru": "толкать (tuī)",
+      "en": "to push (tuī)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "推门，别拉。"
+    },
+    {
+     "front": "拉",
+     "back": {
+      "ru": "тянуть (lā)",
+      "en": "to pull (lā)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "用力拉绳子。"
+    },
+    {
+     "front": "接住",
+     "back": {
+      "ru": "ловить (jiēzhù)",
+      "en": "to catch (jiēzhù)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "我在空中接住了球。"
+    },
+    {
+     "front": "给看",
+     "back": {
+      "ru": "показывать (gěi kàn)",
+      "en": "to show (gěi kàn)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "把照片给我看看。"
+    },
+    {
+     "front": "藏",
+     "back": {
+      "ru": "прятать (cáng)",
+      "en": "to hide (cáng)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "他把礼物藏在柜子里。"
+    },
+    {
+     "front": "改变",
+     "back": {
+      "ru": "менять (gǎibiàn)",
+      "en": "to change (gǎibiàn)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "我改变主意了。"
+    },
+    {
+     "front": "创造",
+     "back": {
+      "ru": "создавать (chuàngzào)",
+      "en": "to create (chuàngzào)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "他们创造了一份新工作。"
+    },
+    {
+     "front": "建",
+     "back": {
+      "ru": "строить (jiàn)",
+      "en": "to build (jiàn)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "旁边在建一栋楼。"
+    },
+    {
+     "front": "弄坏",
+     "back": {
+      "ru": "ломать (nònghuài)",
+      "en": "to break (nònghuài)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "我今天早上打碎了一个杯子。"
+    },
+    {
+     "front": "切",
+     "back": {
+      "ru": "резать (qiē)",
+      "en": "to cut (qiē)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "把面包切成片。"
+    },
+    {
+     "front": "打扫",
+     "back": {
+      "ru": "убирать (dǎsǎo)",
+      "en": "to clean (dǎsǎo)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "我把厨房都打扫了。"
+    },
+    {
+     "front": "洗",
+     "back": {
+      "ru": "мыть (xǐ)",
+      "en": "to wash (xǐ)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "吃饭前先洗手。"
+    },
+    {
+     "front": "弄干",
+     "back": {
+      "ru": "сушить (nònggān)",
+      "en": "to dry (nònggān)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "把头发擦干。"
+    },
+    {
+     "front": "做饭",
+     "back": {
+      "ru": "готовить (zuòfàn)",
+      "en": "to cook (zuòfàn)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "我每天做饭。"
+    },
+    {
+     "front": "吃",
+     "back": {
+      "ru": "есть (chī)",
+      "en": "to eat (chī)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "我们八点吃饭。"
+    },
+    {
+     "front": "喝",
+     "back": {
+      "ru": "пить (hē)",
+      "en": "to drink (hē)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "我白天一直喝水。"
+    },
+    {
+     "front": "尝",
+     "back": {
+      "ru": "пробовать (cháng)",
+      "en": "to taste (cháng)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "尝尝汤，很好喝。"
+    },
+    {
+     "front": "上菜",
+     "back": {
+      "ru": "подавать (shàng cài)",
+      "en": "to serve (shàng cài)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "他们十二点上午饭。"
+    },
+    {
+     "front": "睡觉",
+     "back": {
+      "ru": "спать (shuìjiào)",
+      "en": "to sleep (shuìjiào)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "我一觉睡了八个小时。"
+    },
+    {
+     "front": "醒",
+     "back": {
+      "ru": "просыпаться (xǐng)",
+      "en": "to wake up (xǐng)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "我总是六点醒。"
+    },
+    {
+     "front": "起床",
+     "back": {
+      "ru": "вставать (qǐchuáng)",
+      "en": "to get up (qǐchuáng)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "起床吧，不早了。"
+    },
+    {
+     "front": "坐",
+     "back": {
+      "ru": "садиться (zuò)",
+      "en": "to sit (zuò)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "坐到我旁边来。"
+    },
+    {
+     "front": "躺",
+     "back": {
+      "ru": "ложиться (tǎng)",
+      "en": "to lie down (tǎng)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "平时我很早就躺下。"
+    },
+    {
+     "front": "走路",
+     "back": {
+      "ru": "ходить (zǒulù)",
+      "en": "to walk (zǒulù)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "我每天走路半小时。"
+    },
+    {
+     "front": "跑",
+     "back": {
+      "ru": "бегать (pǎo)",
+      "en": "to run (pǎo)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "我早上在公园跑步。"
+    },
+    {
+     "front": "跳",
+     "back": {
+      "ru": "прыгать (tiào)",
+      "en": "to jump (tiào)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "猫跳上了桌子。"
+    },
+    {
+     "front": "游泳",
+     "back": {
+      "ru": "плавать (yóuyǒng)",
+      "en": "to swim (yóuyǒng)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "我在河里学会了游泳。"
+    },
+    {
+     "front": "飞",
+     "back": {
+      "ru": "летать (fēi)",
+      "en": "to fly (fēi)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "鸟往南飞。"
+    },
+    {
+     "front": "旅行",
+     "back": {
+      "ru": "путешествовать (lǚxíng)",
+      "en": "to travel (lǚxíng)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "我们坐火车旅行。"
+    },
+    {
+     "front": "开车",
+     "back": {
+      "ru": "водить (kāichē)",
+      "en": "to drive (kāichē)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "他开车很小心。"
+    },
+    {
+     "front": "上去",
+     "back": {
+      "ru": "подниматься (shàngqù)",
+      "en": "to go up (shàngqù)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "我们上到三楼。"
+    },
+    {
+     "front": "下来",
+     "back": {
+      "ru": "спускаться (xiàlái)",
+      "en": "to go down (xiàlái)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "下楼梯要慢一点。"
+    },
+    {
+     "front": "掉",
+     "back": {
+      "ru": "падать (diào)",
+      "en": "to fall (diào)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "杯子从桌上掉下去了。"
+    },
+    {
+     "front": "住",
+     "back": {
+      "ru": "жить (zhù)",
+      "en": "to live (reside) (zhù)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "我住在车站附近。"
+    },
+    {
+     "front": "生活",
+     "back": {
+      "ru": "жить (shēnghuó)",
+      "en": "to live (shēnghuó)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "他活了九十岁。"
+    },
+    {
+     "front": "死",
+     "back": {
+      "ru": "умирать (sǐ)",
+      "en": "to die (sǐ)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "那棵树冬天死了。"
+    },
+    {
+     "front": "出生",
+     "back": {
+      "ru": "рождаться (chūshēng)",
+      "en": "to be born (chūshēng)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "我三月出生。"
+    },
+    {
+     "front": "长大",
+     "back": {
+      "ru": "расти (zhǎngdà)",
+      "en": "to grow (zhǎngdà)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "孩子长得真快。"
+    },
+    {
+     "front": "结婚",
+     "back": {
+      "ru": "жениться (jiéhūn)",
+      "en": "to marry (jiéhūn)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "他们春天结婚了。"
+    },
+    {
+     "front": "帮助",
+     "back": {
+      "ru": "помогать (bāngzhù)",
+      "en": "to help (bāngzhù)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "帮我拿一下这些箱子。"
+    },
+    {
+     "front": "喜欢",
+     "back": {
+      "ru": "нравиться (xǐhuan)",
+      "en": "to like (xǐhuan)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "我很喜欢这家的咖啡。"
+    },
+    {
+     "front": "爱",
+     "back": {
+      "ru": "любить (ài)",
+      "en": "to love (ài)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "他最爱自己的家人。"
+    },
+    {
+     "front": "讨厌",
+     "back": {
+      "ru": "ненавидеть (tǎoyàn)",
+      "en": "to hate (tǎoyàn)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "我讨厌早起。"
+    },
+    {
+     "front": "笑",
+     "back": {
+      "ru": "смеяться (xiào)",
+      "en": "to laugh (xiào)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "我们笑了一晚上。"
+    },
+    {
+     "front": "哭",
+     "back": {
+      "ru": "плакать (kū)",
+      "en": "to cry (kū)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "孩子困得哭了。"
+    },
+    {
+     "front": "唱歌",
+     "back": {
+      "ru": "петь (chànggē)",
+      "en": "to sing (chànggē)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "他们在教堂合唱团唱歌。"
+    },
+    {
+     "front": "跳舞",
+     "back": {
+      "ru": "танцевать (tiàowǔ)",
+      "en": "to dance (tiàowǔ)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "我们跳舞跳到很晚。"
+    },
+    {
+     "front": "玩",
+     "back": {
+      "ru": "играть (wán)",
+      "en": "to play (children) (wán)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "孩子们在花园里玩。"
+    },
+    {
+     "front": "打球",
+     "back": {
+      "ru": "играть (dǎ qiú)",
+      "en": "to play (a game) (dǎ qiú)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "星期六我们打球。"
+    },
+    {
+     "front": "碰",
+     "back": {
+      "ru": "трогать (pèng)",
+      "en": "to touch (pèng)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "别碰刚刷的漆。"
+    },
+    {
+     "front": "休息",
+     "back": {
+      "ru": "отдыхать (xiūxi)",
+      "en": "to rest (xiūxi)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "你休息一会儿。"
+    },
+    {
+     "front": "试",
+     "back": {
+      "ru": "пытаться (shì)",
+      "en": "to try (shì)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "我试着给你打了三次电话。"
+    },
+    {
+     "front": "做到",
+     "back": {
+      "ru": "удаваться (zuòdào)",
+      "en": "to manage (zuòdào)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "我做到了，买到今天的票。"
+    },
+    {
+     "front": "需要",
+     "back": {
+      "ru": "нуждаться (xūyào)",
+      "en": "to need (xūyào)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "我现在需要帮忙。"
+    },
+    {
+     "front": "用",
+     "back": {
+      "ru": "использовать (yòng)",
+      "en": "to use (yòng)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "手机我什么都用它。"
+    },
+    {
+     "front": "选",
+     "back": {
+      "ru": "выбирать (xuǎn)",
+      "en": "to choose (xuǎn)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "餐厅你来选。"
+    },
+    {
+     "front": "决定",
+     "back": {
+      "ru": "решать (juédìng)",
+      "en": "to decide (juédìng)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "我们决定再住一天。"
+    },
+    {
+     "front": "接受",
+     "back": {
+      "ru": "принимать (jiēshòu)",
+      "en": "to accept (jiēshòu)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "他接受了邀请。"
+    },
+    {
+     "front": "拒绝",
+     "back": {
+      "ru": "отказывать (jùjué)",
+      "en": "to refuse (jùjué)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "他拒绝了邻居的帮助。"
+    },
+    {
+     "front": "答应",
+     "back": {
+      "ru": "обещать (dāying)",
+      "en": "to promise (dāying)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "他答应早点回来。"
+    },
+    {
+     "front": "感谢",
+     "back": {
+      "ru": "благодарить (gǎnxiè)",
+      "en": "to thank (gǎnxiè)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "谢谢你的耐心。"
+    },
+    {
+     "front": "请求",
+     "back": {
+      "ru": "просить (qǐngqiú)",
+      "en": "to ask for (qǐngqiú)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "我请他给我一杯水。"
+    },
+    {
+     "front": "发生",
+     "back": {
+      "ru": "случаться (fāshēng)",
+      "en": "to happen (fāshēng)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "昨天发生了什么？"
+    },
+    {
+     "front": "好像",
+     "back": {
+      "ru": "казаться (hǎoxiàng)",
+      "en": "to seem (hǎoxiàng)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "你好像很累。"
+    },
+    {
+     "front": "打开",
+     "back": {
+      "ru": "включать (dǎkāi)",
+      "en": "to turn on (dǎkāi)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "把厨房的灯打开。"
+    },
+    {
+     "front": "关掉",
+     "back": {
+      "ru": "выключать (guāndiào)",
+      "en": "to turn off (guāndiào)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "走之前把电脑关掉。"
+    },
+    {
+     "front": "下雨",
+     "back": {
+      "ru": "идти (о дожде) (xiàyǔ)",
+      "en": "to rain (xiàyǔ)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "昨晚下了一夜的雨。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "水",
+     "back": {
+      "ru": "вода (shuǐ)",
+      "en": "water (shuǐ)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "给我一杯水。"
+    },
+    {
+     "front": "面包",
+     "back": {
+      "ru": "хлеб (miànbāo)",
+      "en": "bread (miànbāo)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "面包还是热的。"
+    },
+    {
+     "front": "牛奶",
+     "back": {
+      "ru": "молоко (niúnǎi)",
+      "en": "milk (niúnǎi)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "我早饭喝牛奶。"
+    },
+    {
+     "front": "咖啡",
+     "back": {
+      "ru": "кофе (kāfēi)",
+      "en": "coffee (kāfēi)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "请给我一杯咖啡。"
+    },
+    {
+     "front": "茶",
+     "back": {
+      "ru": "чай (chá)",
+      "en": "tea (chá)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "我下午泡茶喝。"
+    },
+    {
+     "front": "果汁",
+     "back": {
+      "ru": "сок (guǒzhī)",
+      "en": "juice (guǒzhī)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "鲜榨橙汁。"
+    },
+    {
+     "front": "葡萄酒",
+     "back": {
+      "ru": "вино (pútáojiǔ)",
+      "en": "wine (pútáojiǔ)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "一杯红葡萄酒。"
+    },
+    {
+     "front": "啤酒",
+     "back": {
+      "ru": "пиво (píjiǔ)",
+      "en": "beer (píjiǔ)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "啤酒冰得正好。"
+    },
+    {
+     "front": "冰",
+     "back": {
+      "ru": "лёд (bīng)",
+      "en": "ice (bīng)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "饮料里要加冰吗？"
+    },
+    {
+     "front": "糖",
+     "back": {
+      "ru": "сахар (táng)",
+      "en": "sugar (táng)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "我喝咖啡不加糖。"
+    },
+    {
+     "front": "盐",
+     "back": {
+      "ru": "соль (yán)",
+      "en": "salt (yán)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "汤里盐放少了。"
+    },
+    {
+     "front": "胡椒",
+     "back": {
+      "ru": "перец (hújiāo)",
+      "en": "pepper (hújiāo)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "放一点胡椒。"
+    },
+    {
+     "front": "橄榄油",
+     "back": {
+      "ru": "оливковое масло (gǎnlǎnyóu)",
+      "en": "olive oil (gǎnlǎnyóu)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "沙拉上淋点橄榄油。"
+    },
+    {
+     "front": "黄油",
+     "back": {
+      "ru": "масло (huángyóu)",
+      "en": "butter (huángyóu)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "在面包上抹黄油。"
+    },
+    {
+     "front": "奶酪",
+     "back": {
+      "ru": "сыр (nǎilào)",
+      "en": "cheese (nǎilào)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "这种奶酪很香。"
+    },
+    {
+     "front": "鸡蛋",
+     "back": {
+      "ru": "яйцо (jīdàn)",
+      "en": "egg (jīdàn)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "我吃了一个煮鸡蛋。"
+    },
+    {
+     "front": "肉",
+     "back": {
+      "ru": "мясо (ròu)",
+      "en": "meat (ròu)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "我晚上不吃肉。"
+    },
+    {
+     "front": "鸡肉",
+     "back": {
+      "ru": "курица (jīròu)",
+      "en": "chicken (jīròu)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "烤鸡配土豆。"
+    },
+    {
+     "front": "鱼",
+     "back": {
+      "ru": "рыба (yú)",
+      "en": "fish (yú)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "今天的鱼很新鲜。"
+    },
+    {
+     "front": "鳕鱼",
+     "back": {
+      "ru": "треска (xuěyú)",
+      "en": "cod (xuěyú)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "鳕鱼是腌着保存的。"
+    },
+    {
+     "front": "沙丁鱼",
+     "back": {
+      "ru": "сардина (shādīngyú)",
+      "en": "sardine (shādīngyú)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "炭火烤沙丁鱼。"
+    },
+    {
+     "front": "金枪鱼",
+     "back": {
+      "ru": "тунец (jīnqiāngyú)",
+      "en": "tuna (jīnqiāngyú)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "一份金枪鱼三明治。"
+    },
+    {
+     "front": "虾",
+     "back": {
+      "ru": "креветка (xiā)",
+      "en": "shrimp (xiā)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "蒜香虾。"
+    },
+    {
+     "front": "海鲜",
+     "back": {
+      "ru": "морепродукты (hǎixiān)",
+      "en": "seafood (hǎixiān)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "我们在海边吃了海鲜。"
+    },
+    {
+     "front": "火腿",
+     "back": {
+      "ru": "ветчина (huǒtuǐ)",
+      "en": "ham (huǒtuǐ)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "火腿配甜瓜。"
+    },
+    {
+     "front": "香肠",
+     "back": {
+      "ru": "сосиска (xiāngcháng)",
+      "en": "sausage (xiāngcháng)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "给孩子们买了香肠。"
+    },
+    {
+     "front": "米饭",
+     "back": {
+      "ru": "рис (mǐfàn)",
+      "en": "rice (mǐfàn)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "星期天我们做米饭。"
+    },
+    {
+     "front": "土豆",
+     "back": {
+      "ru": "картофель (tǔdòu)",
+      "en": "potato (tǔdòu)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "水煮土豆浇橄榄油。"
+    },
+    {
+     "front": "面条",
+     "back": {
+      "ru": "макароны (miàntiáo)",
+      "en": "pasta (miàntiáo)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "赶时间的时候我煮面条。"
+    },
+    {
+     "front": "面粉",
+     "back": {
+      "ru": "мука (miànfěn)",
+      "en": "flour (miànfěn)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "做蛋糕的面粉不够了。"
+    },
+    {
+     "front": "汤",
+     "back": {
+      "ru": "суп (tāng)",
+      "en": "soup (tāng)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "汤要凉了。"
+    },
+    {
+     "front": "沙拉",
+     "back": {
+      "ru": "салат (shālā)",
+      "en": "salad (shālā)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "西红柿沙拉。"
+    },
+    {
+     "front": "蔬菜",
+     "back": {
+      "ru": "овощи (shūcài)",
+      "en": "vegetables (shūcài)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "我每天吃蔬菜。"
+    },
+    {
+     "front": "水果",
+     "back": {
+      "ru": "фрукты (shuǐguǒ)",
+      "en": "fruit (shuǐguǒ)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "厨房里有水果。"
+    },
+    {
+     "front": "苹果",
+     "back": {
+      "ru": "яблоко (píngguǒ)",
+      "en": "apple (píngguǒ)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "我带一个苹果去上班。"
+    },
+    {
+     "front": "梨",
+     "back": {
+      "ru": "груша (lí)",
+      "en": "pear (lí)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "这个梨熟了。"
+    },
+    {
+     "front": "橙子",
+     "back": {
+      "ru": "апельсин (chéngzi)",
+      "en": "orange (chéngzi)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "我剥了一个橙子。"
+    },
+    {
+     "front": "柠檬",
+     "back": {
+      "ru": "лимон (níngméng)",
+      "en": "lemon (níngméng)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "柠檬茶。"
+    },
+    {
+     "front": "香蕉",
+     "back": {
+      "ru": "банан (xiāngjiāo)",
+      "en": "banana (xiāngjiāo)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "训练前我吃了根香蕉。"
+    },
+    {
+     "front": "葡萄",
+     "back": {
+      "ru": "виноград (pútáo)",
+      "en": "grape (pútáo)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "葡萄很甜。"
+    },
+    {
+     "front": "草莓",
+     "back": {
+      "ru": "клубника (cǎoméi)",
+      "en": "strawberry (cǎoméi)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "草莓配奶油。"
+    },
+    {
+     "front": "樱桃",
+     "back": {
+      "ru": "вишня (yīngtáo)",
+      "en": "cherry (yīngtáo)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "樱桃当季的时候很便宜。"
+    },
+    {
+     "front": "桃子",
+     "back": {
+      "ru": "персик (táozi)",
+      "en": "peach (táozi)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "一个熟透的桃子。"
+    },
+    {
+     "front": "甜瓜",
+     "back": {
+      "ru": "дыня (tiánguā)",
+      "en": "melon (tiánguā)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "甜瓜配火腿。"
+    },
+    {
+     "front": "西瓜",
+     "back": {
+      "ru": "арбуз (xīguā)",
+      "en": "watermelon (xīguā)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "夏天吃冰西瓜。"
+    },
+    {
+     "front": "菠萝",
+     "back": {
+      "ru": "ананас (bōluó)",
+      "en": "pineapple (bōluó)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "菠萝汁。"
+    },
+    {
+     "front": "无花果",
+     "back": {
+      "ru": "инжир (wúhuāguǒ)",
+      "en": "fig (wúhuāguǒ)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "冬天吃干无花果。"
+    },
+    {
+     "front": "西红柿",
+     "back": {
+      "ru": "помидор (xīhóngshì)",
+      "en": "tomato (xīhóngshì)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "西红柿沙拉加香草。"
+    },
+    {
+     "front": "洋葱",
+     "back": {
+      "ru": "лук (yángcōng)",
+      "en": "onion (yángcōng)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "先炒洋葱。"
+    },
+    {
+     "front": "大蒜",
+     "back": {
+      "ru": "чеснок (dàsuàn)",
+      "en": "garlic (dàsuàn)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "两瓣大蒜就够了。"
+    },
+    {
+     "front": "胡萝卜",
+     "back": {
+      "ru": "морковь (húluóbo)",
+      "en": "carrot (húluóbo)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "胡萝卜汤。"
+    },
+    {
+     "front": "生菜",
+     "back": {
+      "ru": "салат-латук (shēngcài)",
+      "en": "lettuce (shēngcài)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "把生菜洗干净。"
+    },
+    {
+     "front": "黄瓜",
+     "back": {
+      "ru": "огурец (huángguā)",
+      "en": "cucumber (huángguā)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "黄瓜切成片。"
+    },
+    {
+     "front": "豆子",
+     "back": {
+      "ru": "фасоль (dòuzi)",
+      "en": "beans (dòuzi)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "豆子配米饭。"
+    },
+    {
+     "front": "豌豆",
+     "back": {
+      "ru": "горох (wāndòu)",
+      "en": "pea (wāndòu)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "豌豆配水煮蛋。"
+    },
+    {
+     "front": "白菜",
+     "back": {
+      "ru": "капуста (báicài)",
+      "en": "cabbage (báicài)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "白菜汤是冬天的菜。"
+    },
+    {
+     "front": "南瓜",
+     "back": {
+      "ru": "тыква (nánguā)",
+      "en": "pumpkin (nánguā)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "秋天喝南瓜汤。"
+    },
+    {
+     "front": "蘑菇",
+     "back": {
+      "ru": "гриб (mógu)",
+      "en": "mushroom (mógu)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "清炒蘑菇。"
+    },
+    {
+     "front": "橄榄",
+     "back": {
+      "ru": "оливка (gǎnlǎn)",
+      "en": "olive (gǎnlǎn)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "饭前吃点橄榄。"
+    },
+    {
+     "front": "蛋糕",
+     "back": {
+      "ru": "торт (dàngāo)",
+      "en": "cake (dàngāo)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "我做了个橙子蛋糕。"
+    },
+    {
+     "front": "饼干",
+     "back": {
+      "ru": "печенье (bǐnggān)",
+      "en": "biscuit (bǐnggān)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "喝茶配饼干。"
+    },
+    {
+     "front": "果酱",
+     "back": {
+      "ru": "варенье (guǒjiàng)",
+      "en": "jam (guǒjiàng)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "我在面包上抹了草莓果酱。"
+    },
+    {
+     "front": "巧克力",
+     "back": {
+      "ru": "шоколад (qiǎokèlì)",
+      "en": "chocolate (qiǎokèlì)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "一块黑巧克力。"
+    },
+    {
+     "front": "冰淇淋",
+     "back": {
+      "ru": "мороженое (bīngqílín)",
+      "en": "ice cream (bīngqílín)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "香草冰淇淋。"
+    },
+    {
+     "front": "蜂蜜",
+     "back": {
+      "ru": "мёд (fēngmì)",
+      "en": "honey (fēngmì)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "嗓子不舒服就喝蜂蜜茶。"
+    },
+    {
+     "front": "糖果",
+     "back": {
+      "ru": "сладость (tángguǒ)",
+      "en": "sweet (tángguǒ)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "我晚上不吃糖果。"
+    },
+    {
+     "front": "甜点",
+     "back": {
+      "ru": "десерт (tiándiǎn)",
+      "en": "dessert (tiándiǎn)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "甜点吃水果吧。"
+    },
+    {
+     "front": "酸奶",
+     "back": {
+      "ru": "йогурт (suānnǎi)",
+      "en": "yoghurt (suānnǎi)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "不加糖的原味酸奶。"
+    },
+    {
+     "front": "奶油",
+     "back": {
+      "ru": "сливки (nǎiyóu)",
+      "en": "cream (nǎiyóu)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "蛋糕上有一层奶油。"
+    },
+    {
+     "front": "烤面包片",
+     "back": {
+      "ru": "тост (kǎo miànbāopiàn)",
+      "en": "toast (kǎo miànbāopiàn)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "抹黄油的烤面包片。"
+    },
+    {
+     "front": "三明治",
+     "back": {
+      "ru": "бутерброд (sānmíngzhì)",
+      "en": "sandwich (sānmíngzhì)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "一份火腿奶酪三明治。"
+    },
+    {
+     "front": "早饭",
+     "back": {
+      "ru": "завтрак (zǎofàn)",
+      "en": "breakfast (zǎofàn)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "我七点吃早饭。"
+    },
+    {
+     "front": "午饭",
+     "back": {
+      "ru": "обед (wǔfàn)",
+      "en": "lunch (wǔfàn)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "午饭一点吃。"
+    },
+    {
+     "front": "晚饭",
+     "back": {
+      "ru": "ужин (wǎnfàn)",
+      "en": "dinner (wǎnfàn)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "我们八点左右吃晚饭。"
+    },
+    {
+     "front": "点心",
+     "back": {
+      "ru": "полдник (diǎnxin)",
+      "en": "snack (diǎnxin)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "孩子们带着点心去学校。"
+    },
+    {
+     "front": "一餐",
+     "back": {
+      "ru": "приём пищи (yì cān)",
+      "en": "meal (yì cān)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "我一天吃三餐。"
+    },
+    {
+     "front": "食物",
+     "back": {
+      "ru": "еда (shíwù)",
+      "en": "food (shíwù)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "食物已经摆上桌了。"
+    },
+    {
+     "front": "饮料",
+     "back": {
+      "ru": "напиток (yǐnliào)",
+      "en": "drink (yǐnliào)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "你想喝什么饮料？"
+    },
+    {
+     "front": "盘子",
+     "back": {
+      "ru": "тарелка (pánzi)",
+      "en": "plate (pánzi)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "把盘子放到台面上。"
+    },
+    {
+     "front": "杯子",
+     "back": {
+      "ru": "стакан (bēizi)",
+      "en": "glass (bēizi)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "杯子倒到一半就行。"
+    },
+    {
+     "front": "茶杯",
+     "back": {
+      "ru": "чашка (chábēi)",
+      "en": "cup (chábēi)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "一杯咖啡。"
+    },
+    {
+     "front": "瓶子",
+     "back": {
+      "ru": "бутылка (píngzi)",
+      "en": "bottle (píngzi)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "一瓶水。"
+    },
+    {
+     "front": "勺子",
+     "back": {
+      "ru": "ложка (sháozi)",
+      "en": "spoon (sháozi)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "少一把汤勺。"
+    },
+    {
+     "front": "叉子",
+     "back": {
+      "ru": "вилка (chāzi)",
+      "en": "fork (chāzi)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "叉子掉在地上了。"
+    },
+    {
+     "front": "刀",
+     "back": {
+      "ru": "нож (dāo)",
+      "en": "knife (dāo)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "这把刀一点都不快。"
+    },
+    {
+     "front": "餐巾",
+     "back": {
+      "ru": "салфетка (cānjīn)",
+      "en": "napkin (cānjīn)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "给我一张餐巾。"
+    },
+    {
+     "front": "锅",
+     "back": {
+      "ru": "кастрюля (guō)",
+      "en": "pot (guō)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "锅还在炉子上。"
+    },
+    {
+     "front": "平底锅",
+     "back": {
+      "ru": "сковорода (píngdǐguō)",
+      "en": "frying pan (píngdǐguō)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "先把平底锅烧热。"
+    },
+    {
+     "front": "饭馆",
+     "back": {
+      "ru": "ресторан (fànguǎn)",
+      "en": "restaurant (fànguǎn)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "我在饭馆订了位子。"
+    },
+    {
+     "front": "菜单",
+     "back": {
+      "ru": "меню (càidān)",
+      "en": "menu (càidān)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "跟服务员要一下菜单。"
+    },
+    {
+     "front": "账单",
+     "back": {
+      "ru": "счёт (zhàngdān)",
+      "en": "bill (zhàngdān)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "请结账。"
+    },
+    {
+     "front": "服务员",
+     "back": {
+      "ru": "официант (fúwùyuán)",
+      "en": "waiter (fúwùyuán)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "服务员端上了面包。"
+    },
+    {
+     "front": "饿",
+     "back": {
+      "ru": "голод (è)",
+      "en": "hunger (è)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "我饿得胃疼。"
+    },
+    {
+     "front": "渴",
+     "back": {
+      "ru": "жажда (kě)",
+      "en": "thirst (kě)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "这么热的天很容易渴。"
+    },
+    {
+     "front": "味道",
+     "back": {
+      "ru": "вкус (wèidào)",
+      "en": "taste (wèidào)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "这汤味道太淡。"
+    },
+    {
+     "front": "食谱",
+     "back": {
+      "ru": "рецепт (shípǔ)",
+      "en": "recipe (shípǔ)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "这是我奶奶的食谱。"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "衣服",
+     "back": {
+      "ru": "одежда (yīfu)",
+      "en": "clothes (yīfu)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "我行李里带的衣服不多。"
+    },
+    {
+     "front": "衬衫",
+     "back": {
+      "ru": "рубашка (chènshān)",
+      "en": "shirt (chènshān)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "衬衫还没熨。"
+    },
+    {
+     "front": "毛衣",
+     "back": {
+      "ru": "свитер (máoyī)",
+      "en": "jumper (máoyī)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "穿上毛衣，外面冷。"
+    },
+    {
+     "front": "T恤",
+     "back": {
+      "ru": "футболка (T xù)",
+      "en": "T-shirt (T xù)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "一件素白的T恤。"
+    },
+    {
+     "front": "大衣",
+     "back": {
+      "ru": "пальто (dàyī)",
+      "en": "coat (dàyī)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "我把大衣落在车里了。"
+    },
+    {
+     "front": "夹克",
+     "back": {
+      "ru": "куртка (jiákè)",
+      "en": "jacket (jiákè)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "一件挡雨的夹克。"
+    },
+    {
+     "front": "马甲",
+     "back": {
+      "ru": "жилет (mǎjiǎ)",
+      "en": "waistcoat (mǎjiǎ)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "衬衫外面套件马甲。"
+    },
+    {
+     "front": "裤子",
+     "back": {
+      "ru": "брюки (kùzi)",
+      "en": "trousers (kùzi)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "这条裤子我穿着太肥。"
+    },
+    {
+     "front": "短裤",
+     "back": {
+      "ru": "шорты (duǎnkù)",
+      "en": "shorts (duǎnkù)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "夏天穿短裤。"
+    },
+    {
+     "front": "裙子",
+     "back": {
+      "ru": "юбка (qúnzi)",
+      "en": "skirt (qúnzi)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "一条到膝盖的裙子。"
+    },
+    {
+     "front": "连衣裙",
+     "back": {
+      "ru": "платье (liányīqún)",
+      "en": "dress (liányīqún)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "这条连衣裙是亚麻的。"
+    },
+    {
+     "front": "西装",
+     "back": {
+      "ru": "костюм (xīzhuāng)",
+      "en": "suit (xīzhuāng)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "他穿西装去参加婚礼。"
+    },
+    {
+     "front": "领带",
+     "back": {
+      "ru": "галстук (lǐngdài)",
+      "en": "tie (lǐngdài)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "我不会打领带。"
+    },
+    {
+     "front": "腰带",
+     "back": {
+      "ru": "ремень (yāodài)",
+      "en": "belt (yāodài)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "腰带再系紧一点。"
+    },
+    {
+     "front": "袜子",
+     "back": {
+      "ru": "носки (wàzi)",
+      "en": "socks (wàzi)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "这双袜子破了。"
+    },
+    {
+     "front": "连裤袜",
+     "back": {
+      "ru": "колготки (liánkùwà)",
+      "en": "tights (liánkùwà)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "一条黑色连裤袜。"
+    },
+    {
+     "front": "皮鞋",
+     "back": {
+      "ru": "туфли (píxié)",
+      "en": "shoes (píxié)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "黑色的皮鞋。"
+    },
+    {
+     "front": "运动鞋",
+     "back": {
+      "ru": "кроссовки (yùndòngxié)",
+      "en": "trainers (yùndòngxié)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "我整天穿运动鞋。"
+    },
+    {
+     "front": "靴子",
+     "back": {
+      "ru": "сапоги (xuēzi)",
+      "en": "boots (xuēzi)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "冬天穿的靴子。"
+    },
+    {
+     "front": "凉鞋",
+     "back": {
+      "ru": "сандалии (liángxié)",
+      "en": "sandals (liángxié)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "去海边穿凉鞋。"
+    },
+    {
+     "front": "拖鞋",
+     "back": {
+      "ru": "тапочки (tuōxié)",
+      "en": "slippers (tuōxié)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "拖鞋在卧室门口。"
+    },
+    {
+     "front": "帽子",
+     "back": {
+      "ru": "шляпа (màozi)",
+      "en": "hat (màozi)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "一顶草帽。"
+    },
+    {
+     "front": "鸭舌帽",
+     "back": {
+      "ru": "кепка (yāshémào)",
+      "en": "cap (yāshémào)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "戴顶鸭舌帽挡太阳。"
+    },
+    {
+     "front": "毛线帽",
+     "back": {
+      "ru": "шапка (máoxiànmào)",
+      "en": "woolly hat (máoxiànmào)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "下雪就戴毛线帽和围巾。"
+    },
+    {
+     "front": "手套",
+     "back": {
+      "ru": "перчатки (shǒutào)",
+      "en": "gloves (shǒutào)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "里面带绒的皮手套。"
+    },
+    {
+     "front": "围巾",
+     "back": {
+      "ru": "шарф (wéijīn)",
+      "en": "scarf (wéijīn)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "围巾绕两圈。"
+    },
+    {
+     "front": "手帕",
+     "back": {
+      "ru": "платок (shǒupà)",
+      "en": "handkerchief (shǒupà)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "一块棉手帕。"
+    },
+    {
+     "front": "眼镜",
+     "back": {
+      "ru": "очки (yǎnjìng)",
+      "en": "glasses (yǎnjìng)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "我昨天把眼镜摔坏了。"
+    },
+    {
+     "front": "包",
+     "back": {
+      "ru": "сумка (bāo)",
+      "en": "bag (bāo)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "这个包太重了。"
+    },
+    {
+     "front": "钱包",
+     "back": {
+      "ru": "кошелёк (qiánbāo)",
+      "en": "wallet (qiánbāo)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "我把钱包忘在家里了。"
+    },
+    {
+     "front": "背包",
+     "back": {
+      "ru": "рюкзак (bēibāo)",
+      "en": "backpack (bēibāo)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "书包很重。"
+    },
+    {
+     "front": "雨伞",
+     "back": {
+      "ru": "зонт (yǔsǎn)",
+      "en": "umbrella (yǔsǎn)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "记得带雨伞。"
+    },
+    {
+     "front": "睡衣",
+     "back": {
+      "ru": "пижама (shuìyī)",
+      "en": "pyjamas (shuìyī)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "一套法兰绒睡衣。"
+    },
+    {
+     "front": "浴袍",
+     "back": {
+      "ru": "халат (yùpáo)",
+      "en": "dressing gown (yùpáo)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "浴袍挂在门后。"
+    },
+    {
+     "front": "毛巾",
+     "back": {
+      "ru": "полотенце (máojīn)",
+      "en": "towel (máojīn)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "洗澡用一条干净毛巾。"
+    },
+    {
+     "front": "口袋",
+     "back": {
+      "ru": "карман (kǒudài)",
+      "en": "pocket (kǒudài)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "钥匙在我口袋里。"
+    },
+    {
+     "front": "扣子",
+     "back": {
+      "ru": "пуговица (kòuzi)",
+      "en": "button (kòuzi)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "衬衫掉了一颗扣子。"
+    },
+    {
+     "front": "拉链",
+     "back": {
+      "ru": "молния (lāliàn)",
+      "en": "zip (lāliàn)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "包上的拉链坏了。"
+    },
+    {
+     "front": "袖子",
+     "back": {
+      "ru": "рукав (xiùzi)",
+      "en": "sleeve (xiùzi)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "把袖子卷起来。"
+    },
+    {
+     "front": "领子",
+     "back": {
+      "ru": "воротник (lǐngzi)",
+      "en": "collar (lǐngzi)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "领子上有污渍。"
+    },
+    {
+     "front": "尺码",
+     "back": {
+      "ru": "размер (chǐmǎ)",
+      "en": "size (chǐmǎ)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "这件衬衫有别的尺码吗？"
+    },
+    {
+     "front": "布料",
+     "back": {
+      "ru": "ткань (bùliào)",
+      "en": "fabric (bùliào)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "夏天用轻薄的布料。"
+    },
+    {
+     "front": "棉",
+     "back": {
+      "ru": "хлопок (mián)",
+      "en": "cotton (mián)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "棉衬衫很凉快。"
+    },
+    {
+     "front": "羊毛",
+     "back": {
+      "ru": "шерсть (yángmáo)",
+      "en": "wool (yángmáo)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "厚羊毛袜子。"
+    },
+    {
+     "front": "丝绸",
+     "back": {
+      "ru": "шёлк (sīchóu)",
+      "en": "silk (sīchóu)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "一条丝绸围巾。"
+    },
+    {
+     "front": "皮革",
+     "back": {
+      "ru": "кожа (pígé)",
+      "en": "leather (pígé)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "棕色皮革靴子。"
+    },
+    {
+     "front": "衣架",
+     "back": {
+      "ru": "вешалка (yījià)",
+      "en": "hanger (yījià)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "把外套挂到衣架上。"
+    },
+    {
+     "front": "衣柜",
+     "back": {
+      "ru": "шкаф (yīguì)",
+      "en": "wardrobe (yīguì)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "衣柜塞得满满的。"
+    },
+    {
+     "front": "戒指",
+     "back": {
+      "ru": "кольцо (jièzhi)",
+      "en": "ring (jièzhi)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "一枚银戒指。"
+    }
+   ]
+  }
+ ]
+}

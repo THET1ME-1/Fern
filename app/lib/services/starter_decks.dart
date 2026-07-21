@@ -45,7 +45,15 @@ class StarterDecks {
 
   /// Языки, для которых есть готовые наборы (файлы `assets/starter/<code>.json`).
   /// Английский НЕ здесь — он сеется как набор по умолчанию.
-  static const Set<String> availableLanguages = {'es', 'de', 'fr', 'it', 'ru'};
+  static const Set<String> availableLanguages = {
+    'af', 'ar', 'az', 'bg', 'bn', 'ca', 'cs', 'da',
+    'de', 'el', 'eo', 'es', 'et', 'fa', 'fi', 'fr',
+    'ga', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is',
+    'it', 'ja', 'ka', 'kk', 'ko', 'lt', 'lv', 'ms',
+    'nb', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl',
+    'sq', 'sr', 'sv', 'sw', 'ta', 'te', 'th', 'tl',
+    'tr', 'uk', 'ur', 'uz', 'vi', 'zh',
+  };
 
   /// Кладёт готовый набор для выбранного языка изучения — целиком, все колоды.
   ///

@@ -1,0 +1,6533 @@
+{
+ "lang": "fa",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "سلام",
+     "back": {
+      "ru": "привет (salâm)",
+      "en": "hello (salâm)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "سلام، حالت چطور است؟"
+    },
+    {
+     "front": "خداحافظ",
+     "back": {
+      "ru": "до свидания (khodâhâfez)",
+      "en": "goodbye (khodâhâfez)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "خداحافظ، تا فردا."
+    },
+    {
+     "front": "بله",
+     "back": {
+      "ru": "да (bale)",
+      "en": "yes (bale)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "بله، حتماً می‌آیم."
+    },
+    {
+     "front": "نه",
+     "back": {
+      "ru": "нет (na)",
+      "en": "no (na)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "نه، ممنون."
+    },
+    {
+     "front": "لطفاً",
+     "back": {
+      "ru": "пожалуйста (lotfan)",
+      "en": "please (lotfan)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "یک قهوه، لطفاً."
+    },
+    {
+     "front": "ممنون",
+     "back": {
+      "ru": "спасибо (mamnun)",
+      "en": "thank you (mamnun)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "ممنون از کمکت."
+    },
+    {
+     "front": "ببخشید",
+     "back": {
+      "ru": "извини (bebakhshid)",
+      "en": "sorry (bebakhshid)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "ببخشید، دیر کردم."
+    },
+    {
+     "front": "صبح بخیر",
+     "back": {
+      "ru": "доброе утро (sobh bekheyr)",
+      "en": "good morning (sobh bekheyr)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "صبح بخیر، خوب خوابیدی؟"
+    },
+    {
+     "front": "شب بخیر",
+     "back": {
+      "ru": "спокойной ночи (shab bekheyr)",
+      "en": "good night (shab bekheyr)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "شب بخیر، تا فردا."
+    },
+    {
+     "front": "همه چیز خوب است",
+     "back": {
+      "ru": "всё хорошо (hame chiz khub ast)",
+      "en": "all right (hame chiz khub ast)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "نگران نباش، همه چیز خوب است."
+    },
+    {
+     "front": "مرد",
+     "back": {
+      "ru": "мужчина (mard)",
+      "en": "man (mard)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "آن مرد همسایه‌ی ماست."
+    },
+    {
+     "front": "زن",
+     "back": {
+      "ru": "женщина (zan)",
+      "en": "woman (zan)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "زنی که پالتوی آبی پوشیده پزشک است."
+    },
+    {
+     "front": "کودک",
+     "back": {
+      "ru": "ребёнок (kudak)",
+      "en": "child (kudak)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "کودک در باغ بازی می‌کند."
+    },
+    {
+     "front": "پسر",
+     "back": {
+      "ru": "мальчик (pesar)",
+      "en": "boy (pesar)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "پسر به مدرسه می‌دود."
+    },
+    {
+     "front": "دختر",
+     "back": {
+      "ru": "девочка (dokhtar)",
+      "en": "girl (dokhtar)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "دختر یک گل می‌کشد."
+    },
+    {
+     "front": "دوست",
+     "back": {
+      "ru": "друг (dust)",
+      "en": "friend (dust)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "دوست من در شیراز زندگی می‌کند."
+    },
+    {
+     "front": "خانواده",
+     "back": {
+      "ru": "семья (khânevâde)",
+      "en": "family (khânevâde)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "تمام خانواده برای شام آمدند."
+    },
+    {
+     "front": "مادر",
+     "back": {
+      "ru": "мама (mâdar)",
+      "en": "mother (mâdar)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "مادرم خیلی زیبا آواز می‌خواند."
+    },
+    {
+     "front": "پدر",
+     "back": {
+      "ru": "папа (pedar)",
+      "en": "father (pedar)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "پدرم شب کار می‌کند."
+    },
+    {
+     "front": "پسر (فرزند)",
+     "back": {
+      "ru": "сын (pesar (farzand))",
+      "en": "son (pesar (farzand))",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "پسرشان پنج ساله است."
+    },
+    {
+     "front": "دختر (فرزند)",
+     "back": {
+      "ru": "дочь (dokhtar (farzand))",
+      "en": "daughter (dokhtar (farzand))",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "دختر بزرگ‌تر پزشکی می‌خواند."
+    },
+    {
+     "front": "برادر",
+     "back": {
+      "ru": "брат (barâdar)",
+      "en": "brother (barâdar)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "برادرم فوتبال بازی می‌کند."
+    },
+    {
+     "front": "خواهر",
+     "back": {
+      "ru": "сестра (khâhar)",
+      "en": "sister (khâhar)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "خواهرم در اصفهان زندگی می‌کند."
+    },
+    {
+     "front": "مادربزرگ",
+     "back": {
+      "ru": "бабушка (mâdarbozorg)",
+      "en": "grandmother (mâdarbozorg)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "مادربزرگ بهترین کیک را می‌پزد."
+    },
+    {
+     "front": "پدربزرگ",
+     "back": {
+      "ru": "дедушка (pedarbozorg)",
+      "en": "grandfather (pedarbozorg)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "پدربزرگ داستان‌های قدیمی تعریف می‌کند."
+    },
+    {
+     "front": "انسان",
+     "back": {
+      "ru": "человек (ensân)",
+      "en": "person (ensân)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "این انسان را نمی‌شناسم."
+    },
+    {
+     "front": "مردم",
+     "back": {
+      "ru": "люди (mardom)",
+      "en": "people (mardom)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "مردم در میدان پراکنده شدند."
+    },
+    {
+     "front": "نام",
+     "back": {
+      "ru": "имя (nâm)",
+      "en": "name (nâm)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "نام تو چیست؟"
+    },
+    {
+     "front": "آقا",
+     "back": {
+      "ru": "господин (âqâ)",
+      "en": "sir (âqâ)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "صبح بخیر، آقای احمدی."
+    },
+    {
+     "front": "خانم",
+     "back": {
+      "ru": "госпожа (khânom)",
+      "en": "madam (khânom)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "آیا خانم به کمک نیاز دارد؟"
+    },
+    {
+     "front": "من",
+     "back": {
+      "ru": "я (man)",
+      "en": "I (man)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "من همین نزدیکی زندگی می‌کنم."
+    },
+    {
+     "front": "تو",
+     "back": {
+      "ru": "ты (to)",
+      "en": "you (to)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "تو فارسی صحبت می‌کنی؟"
+    },
+    {
+     "front": "شما",
+     "back": {
+      "ru": "вы (shomâ)",
+      "en": "you (shomâ)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "می‌خواهید بنشینید؟"
+    },
+    {
+     "front": "او",
+     "back": {
+      "ru": "он (u)",
+      "en": "he (u)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "او ساعت هشت می‌رسد."
+    },
+    {
+     "front": "او (زن)",
+     "back": {
+      "ru": "она (u (zan))",
+      "en": "she (u (zan))",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "او در بیمارستان کار می‌کند."
+    },
+    {
+     "front": "ما",
+     "back": {
+      "ru": "мы (mâ)",
+      "en": "we (mâ)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "ما با قطار می‌رویم."
+    },
+    {
+     "front": "آنها",
+     "back": {
+      "ru": "они (ânhâ)",
+      "en": "they (ânhâ)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "آنها در همان ساختمان زندگی می‌کنند."
+    },
+    {
+     "front": "مال من",
+     "back": {
+      "ru": "мой (mâle man)",
+      "en": "my (mâle man)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "اینجا جای من است."
+    },
+    {
+     "front": "مال تو",
+     "back": {
+      "ru": "твой (mâle to)",
+      "en": "your (mâle to)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "پالتوی تو روی صندلی ماند."
+    },
+    {
+     "front": "مال ما",
+     "back": {
+      "ru": "наш (mâle mâ)",
+      "en": "our (mâle mâ)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "ماشین ما کوچک است."
+    },
+    {
+     "front": "این",
+     "back": {
+      "ru": "этот (in)",
+      "en": "this (in)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "این کتاب خیلی جالب است."
+    },
+    {
+     "front": "آن",
+     "back": {
+      "ru": "тот (ân)",
+      "en": "that (ân)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "آن ساختمان خیلی قدیمی است."
+    },
+    {
+     "front": "چه کسی",
+     "back": {
+      "ru": "кто (che kasi)",
+      "en": "who (che kasi)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "چه کسی پشت در است؟"
+    },
+    {
+     "front": "چه",
+     "back": {
+      "ru": "что (che)",
+      "en": "what (che)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "چه می‌گویی؟"
+    },
+    {
+     "front": "کجا",
+     "back": {
+      "ru": "где (kojâ)",
+      "en": "where (kojâ)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "ایستگاه کجاست؟"
+    },
+    {
+     "front": "کی",
+     "back": {
+      "ru": "когда (key)",
+      "en": "when (key)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "فیلم کی شروع می‌شود؟"
+    },
+    {
+     "front": "چگونه",
+     "back": {
+      "ru": "как (chegune)",
+      "en": "how (chegune)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "این را چگونه می‌گویند؟"
+    },
+    {
+     "front": "چرا",
+     "back": {
+      "ru": "почему (cherâ)",
+      "en": "why (cherâ)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "چرا این‌قدر عجله؟"
+    },
+    {
+     "front": "کدام",
+     "back": {
+      "ru": "который (kodâm)",
+      "en": "which (kodâm)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "کدام را ترجیح می‌دهی؟"
+    },
+    {
+     "front": "صفر",
+     "back": {
+      "ru": "ноль (sefr)",
+      "en": "zero (sefr)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "دما صفر درجه است."
+    },
+    {
+     "front": "یک",
+     "back": {
+      "ru": "один (yek)",
+      "en": "one (yek)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "فقط یک جا مانده است."
+    },
+    {
+     "front": "دو",
+     "back": {
+      "ru": "два (do)",
+      "en": "two (do)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "من دو برادر دارم."
+    },
+    {
+     "front": "سه",
+     "back": {
+      "ru": "три (se)",
+      "en": "three (se)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "سه روز دیگر برمی‌گردم."
+    },
+    {
+     "front": "چهار",
+     "back": {
+      "ru": "четыре (chahâr)",
+      "en": "four (chahâr)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "میز چهار صندلی دارد."
+    },
+    {
+     "front": "پنج",
+     "back": {
+      "ru": "пять (panj)",
+      "en": "five (panj)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "فیلم پنج ساعت طول می‌کشد."
+    },
+    {
+     "front": "شش",
+     "back": {
+      "ru": "шесть (shesh)",
+      "en": "six (shesh)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "ساعت شش بیدار می‌شوم."
+    },
+    {
+     "front": "هفت",
+     "back": {
+      "ru": "семь (haft)",
+      "en": "seven (haft)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "هفته هفت روز دارد."
+    },
+    {
+     "front": "هشت",
+     "back": {
+      "ru": "восемь (hasht)",
+      "en": "eight (hasht)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "قطار ساعت هشت حرکت می‌کند."
+    },
+    {
+     "front": "نه (عدد)",
+     "back": {
+      "ru": "девять (noh)",
+      "en": "nine (noh)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "او نه ساله است."
+    },
+    {
+     "front": "ده",
+     "back": {
+      "ru": "десять (dah)",
+      "en": "ten (dah)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "ده دقیقه مانده است."
+    },
+    {
+     "front": "یازده",
+     "back": {
+      "ru": "одиннадцать (yâzdah)",
+      "en": "eleven (yâzdah)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "کلاس ساعت یازده تمام می‌شود."
+    },
+    {
+     "front": "دوازده",
+     "back": {
+      "ru": "двенадцать (davâzdah)",
+      "en": "twelve (davâzdah)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "سال دوازده ماه دارد."
+    },
+    {
+     "front": "بیست",
+     "back": {
+      "ru": "двадцать (bist)",
+      "en": "twenty (bist)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "بلیت بیست یورو است."
+    },
+    {
+     "front": "سی",
+     "back": {
+      "ru": "тридцать (si)",
+      "en": "thirty (si)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "این ماه سی روز دارد."
+    },
+    {
+     "front": "صد",
+     "back": {
+      "ru": "сто (sad)",
+      "en": "hundred (sad)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "صد متر مانده است."
+    },
+    {
+     "front": "هزار",
+     "back": {
+      "ru": "тысяча (hezâr)",
+      "en": "thousand (hezâr)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "در روستا هزار نفر زندگی می‌کنند."
+    },
+    {
+     "front": "اول",
+     "back": {
+      "ru": "первый (avval)",
+      "en": "first (avval)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "امروز اولین روز مدرسه است."
+    },
+    {
+     "front": "آخر",
+     "back": {
+      "ru": "последний (âkhar)",
+      "en": "last (âkhar)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "به آخرین اتوبوس رسیدم."
+    },
+    {
+     "front": "شماره",
+     "back": {
+      "ru": "номер (shomâre)",
+      "en": "number (shomâre)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "شماره‌ی خانه‌ی شما چند است؟"
+    },
+    {
+     "front": "نصف",
+     "back": {
+      "ru": "половина (nesf)",
+      "en": "half (nesf)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "نصف کیک را خوردم."
+    },
+    {
+     "front": "روز",
+     "back": {
+      "ru": "день (ruz)",
+      "en": "day (ruz)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "روز طولانی‌ای بود."
+    },
+    {
+     "front": "شب",
+     "back": {
+      "ru": "ночь (shab)",
+      "en": "night (shab)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "شب سرد است."
+    },
+    {
+     "front": "صبح",
+     "back": {
+      "ru": "утро (sobh)",
+      "en": "morning (sobh)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "صبح‌ها چای می‌نوشم."
+    },
+    {
+     "front": "بعد از ظهر",
+     "back": {
+      "ru": "вечер (bad az zohr)",
+      "en": "afternoon (bad az zohr)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "بعد از ظهر به بازار می‌روم."
+    },
+    {
+     "front": "امروز",
+     "back": {
+      "ru": "сегодня (emruz)",
+      "en": "today (emruz)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "امروز کار نمی‌کنم."
+    },
+    {
+     "front": "فردا",
+     "back": {
+      "ru": "завтра (fardâ)",
+      "en": "tomorrow (fardâ)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "فردا به ساحل می‌رویم."
+    },
+    {
+     "front": "دیروز",
+     "back": {
+      "ru": "вчера (diruz)",
+      "en": "yesterday (diruz)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "دیروز تمام روز باران بارید."
+    },
+    {
+     "front": "هفته",
+     "back": {
+      "ru": "неделя (hafte)",
+      "en": "week (hafte)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "هفته‌ی آینده برمی‌گردم."
+    },
+    {
+     "front": "ماه",
+     "back": {
+      "ru": "месяц (mâh)",
+      "en": "month (mâh)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "این ماه خوب پیش می‌رود."
+    },
+    {
+     "front": "سال",
+     "back": {
+      "ru": "год (sâl)",
+      "en": "year (sâl)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "سال گذشته سخت بود."
+    },
+    {
+     "front": "ساعت",
+     "back": {
+      "ru": "час (sâat)",
+      "en": "hour (sâat)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "سفر یک ساعت طول می‌کشد."
+    },
+    {
+     "front": "دقیقه",
+     "back": {
+      "ru": "минута (daqiqe)",
+      "en": "minute (daqiqe)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "یک دقیقه صبر کن، لطفاً."
+    },
+    {
+     "front": "زمان",
+     "back": {
+      "ru": "время (zamân)",
+      "en": "time (zamân)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "الان وقت ندارم."
+    },
+    {
+     "front": "حالا",
+     "back": {
+      "ru": "сейчас (hâlâ)",
+      "en": "now (hâlâ)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "حالا مشغولم."
+    },
+    {
+     "front": "همیشه",
+     "back": {
+      "ru": "всегда (hamishe)",
+      "en": "always (hamishe)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "او همیشه زود می‌آید."
+    },
+    {
+     "front": "هرگز",
+     "back": {
+      "ru": "никогда (hargez)",
+      "en": "never (hargez)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "هرگز به رم نرفته‌ام."
+    },
+    {
+     "front": "زود",
+     "back": {
+      "ru": "рано (zud)",
+      "en": "early (zud)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "خیلی زود بیدار شدم."
+    },
+    {
+     "front": "دوشنبه",
+     "back": {
+      "ru": "понедельник (doshanbe)",
+      "en": "Monday (doshanbe)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "دوشنبه نوبت دکتر دارم."
+    },
+    {
+     "front": "شنبه",
+     "back": {
+      "ru": "суббота (shanbe)",
+      "en": "Saturday (shanbe)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "شنبه‌ها تا دیر می‌خوابم."
+    },
+    {
+     "front": "یکشنبه",
+     "back": {
+      "ru": "воскресенье (yekshanbe)",
+      "en": "Sunday (yekshanbe)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "یکشنبه‌ها با خانواده ناهار می‌خوریم."
+    },
+    {
+     "front": "خانه",
+     "back": {
+      "ru": "дом (khâne)",
+      "en": "house (khâne)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "پشت خانه یک باغ است."
+    },
+    {
+     "front": "شهر",
+     "back": {
+      "ru": "город (shahr)",
+      "en": "city (shahr)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "تهران شهر بزرگی است."
+    },
+    {
+     "front": "روستا",
+     "back": {
+      "ru": "деревня (rustâ)",
+      "en": "village (rustâ)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "روستا در دامنه‌ی کوه است."
+    },
+    {
+     "front": "خیابان",
+     "back": {
+      "ru": "улица (khiyâbân)",
+      "en": "street (khiyâbân)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "خیابان پر از مردم است."
+    },
+    {
+     "front": "مدرسه",
+     "back": {
+      "ru": "школа (madrese)",
+      "en": "school (madrese)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "مدرسه ساعت هشت باز می‌شود."
+    },
+    {
+     "front": "کار",
+     "back": {
+      "ru": "работа (kâr)",
+      "en": "work (kâr)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "کار ساعت شش تمام می‌شود."
+    },
+    {
+     "front": "مغازه",
+     "back": {
+      "ru": "магазин (maqâze)",
+      "en": "shop (maqâze)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "مغازه یکشنبه‌ها بسته است."
+    },
+    {
+     "front": "بازار",
+     "back": {
+      "ru": "рынок (bâzâr)",
+      "en": "market (bâzâr)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "میوه را از بازار می‌خرم."
+    },
+    {
+     "front": "بیمارستان",
+     "back": {
+      "ru": "больница (bimârestân)",
+      "en": "hospital (bimârestân)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "بیمارستان نزدیک اینجاست."
+    },
+    {
+     "front": "داروخانه",
+     "back": {
+      "ru": "аптека (dârukhâne)",
+      "en": "pharmacy (dârukhâne)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "داروخانه شب هم باز است."
+    },
+    {
+     "front": "بانک",
+     "back": {
+      "ru": "банк (bânk)",
+      "en": "bank (bânk)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "صبح به بانک می‌روم."
+    },
+    {
+     "front": "هتل",
+     "back": {
+      "ru": "гостиница (hotel)",
+      "en": "hotel (hotel)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "هتل درست کنار دریاست."
+    },
+    {
+     "front": "کلیسا",
+     "back": {
+      "ru": "церковь (kelisâ)",
+      "en": "church (kelisâ)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "این کلیسا خیلی قدیمی است."
+    },
+    {
+     "front": "باغ",
+     "back": {
+      "ru": "сад (bâq)",
+      "en": "garden (bâq)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "باغ پر از گل است."
+    },
+    {
+     "front": "ساحل",
+     "back": {
+      "ru": "пляж (sâhel)",
+      "en": "beach (sâhel)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "تا ساحل ده دقیقه راه است."
+    },
+    {
+     "front": "دریا",
+     "back": {
+      "ru": "море (daryâ)",
+      "en": "sea (daryâ)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "دریا امروز آرام است."
+    },
+    {
+     "front": "رودخانه",
+     "back": {
+      "ru": "река (rudkhâne)",
+      "en": "river (rudkhâne)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "رودخانه از میان شهر می‌گذرد."
+    },
+    {
+     "front": "کوه",
+     "back": {
+      "ru": "гора (kuh)",
+      "en": "mountain (kuh)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "روی قله‌ی کوه برف است."
+    },
+    {
+     "front": "مزرعه",
+     "back": {
+      "ru": "поле (mazrae)",
+      "en": "field (mazrae)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "در مزرعه گندم می‌روید."
+    },
+    {
+     "front": "جنگل",
+     "back": {
+      "ru": "лес (jangal)",
+      "en": "forest (jangal)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "جنگل بعد از پل شروع می‌شود."
+    },
+    {
+     "front": "کشور",
+     "back": {
+      "ru": "страна (keshvar)",
+      "en": "country (keshvar)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "پرتغال کشور کوچکی است."
+    },
+    {
+     "front": "جهان",
+     "back": {
+      "ru": "мир (jahân)",
+      "en": "world (jahân)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "او نیمی از جهان را سفر کرده است."
+    },
+    {
+     "front": "راه",
+     "back": {
+      "ru": "дорога (râh)",
+      "en": "road (râh)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "راه باریک است."
+    },
+    {
+     "front": "پل",
+     "back": {
+      "ru": "мост (pol)",
+      "en": "bridge (pol)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "پل به خاطر تعمیر بسته است."
+    },
+    {
+     "front": "ایستگاه",
+     "back": {
+      "ru": "вокзал (istgâh)",
+      "en": "station (istgâh)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "در ایستگاه همدیگر را می‌بینیم."
+    },
+    {
+     "front": "فرودگاه",
+     "back": {
+      "ru": "аэропорт (forudgâh)",
+      "en": "airport (forudgâh)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "فرودگاه از مرکز دور است."
+    },
+    {
+     "front": "اتاق",
+     "back": {
+      "ru": "комната (otâq)",
+      "en": "room (otâq)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "اتاق پنجره‌ی بزرگی دارد."
+    },
+    {
+     "front": "آشپزخانه",
+     "back": {
+      "ru": "кухня (âshpazkhâne)",
+      "en": "kitchen (âshpazkhâne)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "آشپزخانه بوی قهوه می‌دهد."
+    },
+    {
+     "front": "در",
+     "back": {
+      "ru": "дверь (dar)",
+      "en": "door (dar)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "در را ببند، هوا سرد است."
+    },
+    {
+     "front": "پنجره",
+     "back": {
+      "ru": "окно (panjere)",
+      "en": "window (panjere)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "پنجره را باز کن، هوا خفه است."
+    },
+    {
+     "front": "میز",
+     "back": {
+      "ru": "стол (miz)",
+      "en": "table (miz)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "بشقاب‌ها را روی میز بگذار."
+    },
+    {
+     "front": "صندلی",
+     "back": {
+      "ru": "стул (sandali)",
+      "en": "chair (sandali)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "کنار میز یک صندلی کم است."
+    },
+    {
+     "front": "تخت",
+     "back": {
+      "ru": "кровать (takht)",
+      "en": "bed (takht)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "این تخت خیلی سفت است."
+    },
+    {
+     "front": "ماشین",
+     "back": {
+      "ru": "машина (mâshin)",
+      "en": "car (mâshin)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "ماشین صبح‌ها روشن نمی‌شود."
+    },
+    {
+     "front": "اتوبوس",
+     "back": {
+      "ru": "автобус (otobus)",
+      "en": "bus (otobus)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "اتوبوس هر نیم ساعت می‌آید."
+    },
+    {
+     "front": "قطار",
+     "back": {
+      "ru": "поезд (qatâr)",
+      "en": "train (qatâr)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "قطار با تأخیر رسید."
+    },
+    {
+     "front": "هواپیما",
+     "back": {
+      "ru": "самолёт (havâpeymâ)",
+      "en": "plane (havâpeymâ)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "هواپیما ساعت هفت بلند می‌شود."
+    },
+    {
+     "front": "دوچرخه",
+     "back": {
+      "ru": "велосипед (docharkhe)",
+      "en": "bicycle (docharkhe)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "با دوچرخه به سر کار می‌روم."
+    },
+    {
+     "front": "خورشید",
+     "back": {
+      "ru": "солнце (khorshid)",
+      "en": "sun (khorshid)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "خورشید شش و نیم طلوع می‌کند."
+    },
+    {
+     "front": "ماه (آسمان)",
+     "back": {
+      "ru": "луна (mâh (âsemân))",
+      "en": "moon (mâh (âsemân))",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "ماه امشب کامل است."
+    },
+    {
+     "front": "ستاره",
+     "back": {
+      "ru": "звезда (setâre)",
+      "en": "star (setâre)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "در آسمان ستاره‌ای درخشان دیده می‌شود."
+    },
+    {
+     "front": "آسمان",
+     "back": {
+      "ru": "небо (âsemân)",
+      "en": "sky (âsemân)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "آسمان صاف است."
+    },
+    {
+     "front": "باران",
+     "back": {
+      "ru": "дождь (bârân)",
+      "en": "rain (bârân)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "باران از دیروز بند نیامده است."
+    },
+    {
+     "front": "باد",
+     "back": {
+      "ru": "ветер (bâd)",
+      "en": "wind (bâd)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "باد صندلی‌ها را انداخت."
+    },
+    {
+     "front": "برف",
+     "back": {
+      "ru": "снег (barf)",
+      "en": "snow (barf)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "برف اینجا کم می‌بارد."
+    },
+    {
+     "front": "آتش",
+     "back": {
+      "ru": "огонь (âtash)",
+      "en": "fire (âtash)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "در بخاری آتش روشن کردیم."
+    },
+    {
+     "front": "زمین",
+     "back": {
+      "ru": "земля (zamin)",
+      "en": "earth (zamin)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "زمین هنوز خیس است."
+    },
+    {
+     "front": "درخت",
+     "back": {
+      "ru": "дерево (derakht)",
+      "en": "tree (derakht)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "درخت در حیاط سایه می‌اندازد."
+    },
+    {
+     "front": "گل",
+     "back": {
+      "ru": "цветок (gol)",
+      "en": "flower (gol)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "از خیابان یک گل آوردم."
+    },
+    {
+     "front": "حیوان",
+     "back": {
+      "ru": "животное (heyvân)",
+      "en": "animal (heyvân)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "آن چه حیوانی است؟"
+    },
+    {
+     "front": "سگ",
+     "back": {
+      "ru": "собака (sag)",
+      "en": "dog (sag)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "سگ کنار در خوابیده است."
+    },
+    {
+     "front": "گربه",
+     "back": {
+      "ru": "кошка (gorbe)",
+      "en": "cat (gorbe)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "گربه روی پشت‌بام رفت."
+    },
+    {
+     "front": "پرنده",
+     "back": {
+      "ru": "птица (parande)",
+      "en": "bird (parande)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "صبح پرنده‌ای آواز خواند."
+    },
+    {
+     "front": "اسب",
+     "back": {
+      "ru": "лошадь (asb)",
+      "en": "horse (asb)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "اسب در مزرعه می‌دود."
+    },
+    {
+     "front": "کتاب",
+     "back": {
+      "ru": "книга (ketâb)",
+      "en": "book (ketâb)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "این کتاب سیصد صفحه دارد."
+    },
+    {
+     "front": "کاغذ",
+     "back": {
+      "ru": "бумага (kâqaz)",
+      "en": "paper (kâqaz)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "یک برگ کاغذ به من بده."
+    },
+    {
+     "front": "خودکار",
+     "back": {
+      "ru": "ручка (khodkâr)",
+      "en": "pen (khodkâr)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "جوهر خودکار تمام شد."
+    },
+    {
+     "front": "تلفن",
+     "back": {
+      "ru": "телефон (telefon)",
+      "en": "phone (telefon)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "تلفن دو بار زنگ خورد."
+    },
+    {
+     "front": "رایانه",
+     "back": {
+      "ru": "компьютер (râyâne)",
+      "en": "computer (râyâne)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "رایانه کند کار می‌کند."
+    },
+    {
+     "front": "پول",
+     "back": {
+      "ru": "деньги (pul)",
+      "en": "money (pul)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "پول همراهم نیست."
+    },
+    {
+     "front": "کلید",
+     "back": {
+      "ru": "ключ (kelid)",
+      "en": "key (kelid)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "کلید خانه را گم کردم."
+    },
+    {
+     "front": "ساعت مچی",
+     "back": {
+      "ru": "часы (sâate mochi)",
+      "en": "watch (sâate mochi)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "ساعت مچی‌ام جلو می‌رود."
+    },
+    {
+     "front": "نور",
+     "back": {
+      "ru": "свет (nur)",
+      "en": "light (nur)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "چراغ را روشن کن، لطفاً."
+    },
+    {
+     "front": "موسیقی",
+     "back": {
+      "ru": "музыка (musiqi)",
+      "en": "music (musiqi)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "موسیقی از کافه‌ی کناری می‌آید."
+    },
+    {
+     "front": "فیلم",
+     "back": {
+      "ru": "фильм (film)",
+      "en": "film (film)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "فیلم ساعت نه شروع می‌شود."
+    },
+    {
+     "front": "عکس",
+     "back": {
+      "ru": "фотография (aks)",
+      "en": "photo (aks)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "از میدان عکسی گرفتم."
+    },
+    {
+     "front": "نامه",
+     "back": {
+      "ru": "письмо (nâme)",
+      "en": "letter (nâme)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "از مادربزرگم نامه‌ای گرفتم."
+    },
+    {
+     "front": "روزنامه",
+     "back": {
+      "ru": "газета (ruznâme)",
+      "en": "newspaper (ruznâme)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "سر صبحانه روزنامه می‌خوانم."
+    },
+    {
+     "front": "رنگ",
+     "back": {
+      "ru": "цвет (rang)",
+      "en": "colour (rang)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "ماشین تو چه رنگی است؟"
+    },
+    {
+     "front": "واژه",
+     "back": {
+      "ru": "слово (vâzhe)",
+      "en": "word (vâzhe)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "واژه‌ی آخر را نفهمیدم."
+    },
+    {
+     "front": "زبان",
+     "back": {
+      "ru": "язык (zabân)",
+      "en": "language (zabân)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "فارسی زبان مادری من است."
+    },
+    {
+     "front": "سر",
+     "back": {
+      "ru": "голова (sar)",
+      "en": "head (sar)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "از دیروز سرم درد می‌کند."
+    },
+    {
+     "front": "دست",
+     "back": {
+      "ru": "рука (dast)",
+      "en": "hand (dast)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "دستت را به من بده."
+    },
+    {
+     "front": "پا",
+     "back": {
+      "ru": "нога (pâ)",
+      "en": "foot (pâ)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "پایم ورم کرده است."
+    },
+    {
+     "front": "چشم",
+     "back": {
+      "ru": "глаз (cheshm)",
+      "en": "eye (cheshm)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "خاک به چشمم رفت."
+    },
+    {
+     "front": "دهان",
+     "back": {
+      "ru": "рот (dahân)",
+      "en": "mouth (dahân)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "دکتر گفت دهانت را باز کن."
+    },
+    {
+     "front": "قلب",
+     "back": {
+      "ru": "сердце (qalb)",
+      "en": "heart (qalb)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "قلب تند می‌زند."
+    },
+    {
+     "front": "مو",
+     "back": {
+      "ru": "волосы (mu)",
+      "en": "hair (mu)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "دیروز موهایم را کوتاه کردم."
+    },
+    {
+     "front": "بدن",
+     "back": {
+      "ru": "тело (badan)",
+      "en": "body (badan)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "بدن استراحت می‌خواهد."
+    },
+    {
+     "front": "خوب",
+     "back": {
+      "ru": "хороший (khub)",
+      "en": "good (khub)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "روز کاری خوبی بود."
+    },
+    {
+     "front": "بد",
+     "back": {
+      "ru": "плохой (bad)",
+      "en": "bad (bad)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "هوا بد است."
+    },
+    {
+     "front": "بزرگ",
+     "back": {
+      "ru": "большой (bozorg)",
+      "en": "big (bozorg)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "به یک میز بزرگ نیاز داریم."
+    },
+    {
+     "front": "کوچک",
+     "back": {
+      "ru": "маленький (kuchak)",
+      "en": "small (kuchak)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "اتاق کوچک اما روشن است."
+    },
+    {
+     "front": "نو",
+     "back": {
+      "ru": "новый (no)",
+      "en": "new (no)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "یک تلفن نو خریدم."
+    },
+    {
+     "front": "قدیمی",
+     "back": {
+      "ru": "старый (qadimi)",
+      "en": "old (qadimi)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "این ساختمان قدیمی است."
+    },
+    {
+     "front": "جوان",
+     "back": {
+      "ru": "молодой (javân)",
+      "en": "young (javân)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "او معلمی جوان است."
+    },
+    {
+     "front": "بلند",
+     "back": {
+      "ru": "высокий (boland)",
+      "en": "tall (boland)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "ساختمان خیلی بلند است."
+    },
+    {
+     "front": "کوتاه (ارتفاع)",
+     "back": {
+      "ru": "низкий (kutâh (ertefâ))",
+      "en": "short (kutâh (ertefâ))",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "سقف کوتاه است."
+    },
+    {
+     "front": "دراز",
+     "back": {
+      "ru": "длинный (derâz)",
+      "en": "long (derâz)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "راه دراز است."
+    },
+    {
+     "front": "کوتاه",
+     "back": {
+      "ru": "короткий (kutâh)",
+      "en": "short (kutâh)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "فیلم کوتاه بود."
+    },
+    {
+     "front": "داغ",
+     "back": {
+      "ru": "горячий (dâq)",
+      "en": "hot (dâq)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "چای داغ است."
+    },
+    {
+     "front": "سرد",
+     "back": {
+      "ru": "холодный (sard)",
+      "en": "cold (sard)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "اتاق سرد است."
+    },
+    {
+     "front": "زیبا",
+     "back": {
+      "ru": "красивый (zibâ)",
+      "en": "beautiful (zibâ)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "چه منظره‌ی زیبایی!"
+    },
+    {
+     "front": "زشت",
+     "back": {
+      "ru": "некрасивый (zesht)",
+      "en": "ugly (zesht)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "ساختمان جدید زشت است."
+    },
+    {
+     "front": "آسان",
+     "back": {
+      "ru": "лёгкий (âsân)",
+      "en": "easy (âsân)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "تمرین آسان بود."
+    },
+    {
+     "front": "سخت",
+     "back": {
+      "ru": "трудный (sakht)",
+      "en": "difficult (sakht)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "سؤال سخت است."
+    },
+    {
+     "front": "قوی",
+     "back": {
+      "ru": "сильный (qavi)",
+      "en": "strong (qavi)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "قهوه قوی است."
+    },
+    {
+     "front": "ضعیف",
+     "back": {
+      "ru": "слабый (zaif)",
+      "en": "weak (zaif)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "آنتن ضعیف است."
+    },
+    {
+     "front": "سریع",
+     "back": {
+      "ru": "быстрый (sari)",
+      "en": "fast (sari)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "قطار سریع است."
+    },
+    {
+     "front": "کند",
+     "back": {
+      "ru": "медленный (kond)",
+      "en": "slow (kond)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "خدمات اینجا کند است."
+    },
+    {
+     "front": "گران",
+     "back": {
+      "ru": "дорогой (gerân)",
+      "en": "expensive (gerân)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "هتل گران است."
+    },
+    {
+     "front": "ارزان",
+     "back": {
+      "ru": "дешёвый (arzân)",
+      "en": "cheap (arzân)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "بلیت ارزانی پیدا کردم."
+    },
+    {
+     "front": "تمیز",
+     "back": {
+      "ru": "чистый (tamiz)",
+      "en": "clean (tamiz)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "کف اتاق تمیز است."
+    },
+    {
+     "front": "کثیف",
+     "back": {
+      "ru": "грязный (kasif)",
+      "en": "dirty (kasif)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "ماشین از گرد و خاک کثیف است."
+    },
+    {
+     "front": "پر",
+     "back": {
+      "ru": "полный (por)",
+      "en": "full (por)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "اتوبوس پر آمد."
+    },
+    {
+     "front": "خالی",
+     "back": {
+      "ru": "пустой (khâli)",
+      "en": "empty (khâli)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "لیوان خالی است."
+    },
+    {
+     "front": "خوشحال",
+     "back": {
+      "ru": "счастливый (khoshhâl)",
+      "en": "happy (khoshhâl)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "از خبر خوشحال شد."
+    },
+    {
+     "front": "غمگین",
+     "back": {
+      "ru": "грустный (qamgin)",
+      "en": "sad (qamgin)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "غمگین از کار برگشت."
+    },
+    {
+     "front": "خسته",
+     "back": {
+      "ru": "усталый (khaste)",
+      "en": "tired (khaste)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "بعد از این روز خسته‌ام."
+    },
+    {
+     "front": "بیمار",
+     "back": {
+      "ru": "больной (bimâr)",
+      "en": "sick (bimâr)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "پسرم بیمار است."
+    },
+    {
+     "front": "درست",
+     "back": {
+      "ru": "правильный (dorost)",
+      "en": "right (dorost)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "پاسخ درست است."
+    },
+    {
+     "front": "نادرست",
+     "back": {
+      "ru": "неправильный (nâdorost)",
+      "en": "wrong (nâdorost)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "شماره نادرست است."
+    },
+    {
+     "front": "سفید",
+     "back": {
+      "ru": "белый (sefid)",
+      "en": "white (sefid)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "دیوار سفید است."
+    },
+    {
+     "front": "سیاه",
+     "back": {
+      "ru": "чёрный (siyâh)",
+      "en": "black (siyâh)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "یک گربه‌ی سیاه دارم."
+    },
+    {
+     "front": "قرمز",
+     "back": {
+      "ru": "красный (qermez)",
+      "en": "red (qermez)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "چراغ قرمز است."
+    },
+    {
+     "front": "آبی",
+     "back": {
+      "ru": "синий (âbi)",
+      "en": "blue (âbi)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "دریا خیلی آبی است."
+    },
+    {
+     "front": "سبز",
+     "back": {
+      "ru": "зелёный (sabz)",
+      "en": "green (sabz)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "در بهار برگ‌ها سبز می‌شوند."
+    },
+    {
+     "front": "زرد",
+     "back": {
+      "ru": "жёлтый (zard)",
+      "en": "yellow (zard)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "خانه زرد است."
+    },
+    {
+     "front": "اینجا",
+     "back": {
+      "ru": "здесь (injâ)",
+      "en": "here (injâ)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "یک لحظه اینجا صبر کن."
+    },
+    {
+     "front": "آنجا",
+     "back": {
+      "ru": "там (ânjâ)",
+      "en": "there (ânjâ)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "ماشین آنجاست."
+    },
+    {
+     "front": "زیاد",
+     "back": {
+      "ru": "много (ziyâd)",
+      "en": "much (ziyâd)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "چای زیاد می‌نوشم."
+    },
+    {
+     "front": "کم",
+     "back": {
+      "ru": "мало (kam)",
+      "en": "little (kam)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "دیشب کم خوابیدم."
+    },
+    {
+     "front": "بیشتر",
+     "back": {
+      "ru": "больше (bishtar)",
+      "en": "more (bishtar)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "وقت بیشتری می‌خواهم."
+    },
+    {
+     "front": "کمتر",
+     "back": {
+      "ru": "меньше (kamtar)",
+      "en": "less (kamtar)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "امروز مردم کمتری هست."
+    },
+    {
+     "front": "هم",
+     "back": {
+      "ru": "тоже (ham)",
+      "en": "also (ham)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "من هم می‌روم."
+    },
+    {
+     "front": "خوب (قید)",
+     "back": {
+      "ru": "хорошо (khub (qeyd))",
+      "en": "well (khub (qeyd))",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "او فرانسه را خوب صحبت می‌کند."
+    },
+    {
+     "front": "بد (قید)",
+     "back": {
+      "ru": "плохо (bad (qeyd))",
+      "en": "badly (bad (qeyd))",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "دیشب بد خوابیدم."
+    },
+    {
+     "front": "با",
+     "back": {
+      "ru": "с (bâ)",
+      "en": "with (bâ)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "با خواهرم می‌روم."
+    },
+    {
+     "front": "بدون",
+     "back": {
+      "ru": "без (bedun)",
+      "en": "without (bedun)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "قهوه را بدون شکر می‌نوشم."
+    },
+    {
+     "front": "برای",
+     "back": {
+      "ru": "для (barâye)",
+      "en": "for (barâye)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "این بسته برای توست."
+    },
+    {
+     "front": "اما",
+     "back": {
+      "ru": "но (ammâ)",
+      "en": "but (ammâ)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "می‌خواستم بروم، اما نمی‌شود."
+    },
+    {
+     "front": "یا",
+     "back": {
+      "ru": "или (yâ)",
+      "en": "or (yâ)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "چای یا قهوه؟"
+    },
+    {
+     "front": "چون",
+     "back": {
+      "ru": "потому что (chon)",
+      "en": "because (chon)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "خانه ماندم چون باران می‌بارید."
+    },
+    {
+     "front": "اگر",
+     "back": {
+      "ru": "если (agar)",
+      "en": "if (agar)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "اگر باران ببارد، خانه می‌مانیم."
+    },
+    {
+     "front": "شاید",
+     "back": {
+      "ru": "может быть (shâyad)",
+      "en": "maybe (shâyad)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "شاید فردا بیاید."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "بودن",
+     "back": {
+      "ru": "быть (budan)",
+      "en": "to be (budan)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "او معلم موسیقی است."
+    },
+    {
+     "front": "قرار داشتن",
+     "back": {
+      "ru": "находиться (qarâr dâshtan)",
+      "en": "to be (state) (qarâr dâshtan)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "کتاب روی میز قرار دارد."
+    },
+    {
+     "front": "داشتن",
+     "back": {
+      "ru": "иметь (dâshtan)",
+      "en": "to have (dâshtan)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "دو برادر کوچک‌تر دارم."
+    },
+    {
+     "front": "انجام دادن",
+     "back": {
+      "ru": "делать (anjâm dâdan)",
+      "en": "to do (anjâm dâdan)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "یکشنبه‌ها چه کار می‌کنی؟"
+    },
+    {
+     "front": "رفتن",
+     "back": {
+      "ru": "идти (raftan)",
+      "en": "to go (raftan)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "الان به بازار می‌روم."
+    },
+    {
+     "front": "آمدن",
+     "back": {
+      "ru": "приходить (âmadan)",
+      "en": "to come (âmadan)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "برای شام می‌آیی؟"
+    },
+    {
+     "front": "گفتن",
+     "back": {
+      "ru": "говорить (goftan)",
+      "en": "to say (goftan)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "حقیقت را به من بگو."
+    },
+    {
+     "front": "دیدن",
+     "back": {
+      "ru": "видеть (didan)",
+      "en": "to see (didan)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "برادرت را در خیابان دیدم."
+    },
+    {
+     "front": "دادن",
+     "back": {
+      "ru": "давать (dâdan)",
+      "en": "to give (dâdan)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "کلید را به من بده، لطفاً."
+    },
+    {
+     "front": "دانستن",
+     "back": {
+      "ru": "знать (dânestan)",
+      "en": "to know (dânestan)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "نمی‌دانم کجا زندگی می‌کند."
+    },
+    {
+     "front": "توانستن",
+     "back": {
+      "ru": "мочь (tavânestan)",
+      "en": "can (tavânestan)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "می‌توانی به من کمک کنی؟"
+    },
+    {
+     "front": "خواستن",
+     "back": {
+      "ru": "хотеть (khâstan)",
+      "en": "to want (khâstan)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "یک لیوان آب می‌خواهم."
+    },
+    {
+     "front": "باید",
+     "back": {
+      "ru": "быть должным (bâyad)",
+      "en": "must (bâyad)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "امروز باید زودتر بروم."
+    },
+    {
+     "front": "ماندن",
+     "back": {
+      "ru": "оставаться (mândan)",
+      "en": "to stay (mândan)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "امشب خانه می‌مانم."
+    },
+    {
+     "front": "گذشتن",
+     "back": {
+      "ru": "проходить (gozashtan)",
+      "en": "to pass (gozashtan)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "اتوبوس ساعت نه می‌گذرد."
+    },
+    {
+     "front": "رسیدن",
+     "back": {
+      "ru": "прибывать (residan)",
+      "en": "to arrive (residan)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "قطار با تأخیر رسید."
+    },
+    {
+     "front": "بیرون رفتن",
+     "back": {
+      "ru": "выходить (birun raftan)",
+      "en": "to leave (birun raftan)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "ساعت شش از سر کار بیرون می‌روم."
+    },
+    {
+     "front": "وارد شدن",
+     "back": {
+      "ru": "входить (vâred shodan)",
+      "en": "to enter (vâred shodan)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "بیا تو، در باز است."
+    },
+    {
+     "front": "برگشتن",
+     "back": {
+      "ru": "возвращаться (bargashtan)",
+      "en": "to return (bargashtan)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "نیم ساعت دیگر برمی‌گردم."
+    },
+    {
+     "front": "شروع کردن",
+     "back": {
+      "ru": "начинать (shoru kardan)",
+      "en": "to begin (shoru kardan)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "کلاس ساعت هشت شروع می‌شود."
+    },
+    {
+     "front": "تمام کردن",
+     "back": {
+      "ru": "заканчивать (tamâm kardan)",
+      "en": "to finish (tamâm kardan)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "کتاب را دیروز تمام کردم."
+    },
+    {
+     "front": "ادامه دادن",
+     "back": {
+      "ru": "продолжать (edâme dâdan)",
+      "en": "to continue (edâme dâdan)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "باران ادامه دارد."
+    },
+    {
+     "front": "ایستادن",
+     "back": {
+      "ru": "останавливаться (istâdan)",
+      "en": "to stop (istâdan)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "ماشین جلوی در ایستاد."
+    },
+    {
+     "front": "منتظر ماندن",
+     "back": {
+      "ru": "ждать (montazer mândan)",
+      "en": "to wait (montazer mândan)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "در ایستگاه منتظرت هستم."
+    },
+    {
+     "front": "پیدا کردن",
+     "back": {
+      "ru": "находить (peydâ kardan)",
+      "en": "to find (peydâ kardan)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "کلیدها را روی میز پیدا کردم."
+    },
+    {
+     "front": "گشتن",
+     "back": {
+      "ru": "искать (gashtan)",
+      "en": "to look for (gashtan)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "دنبال یک کتاب دستور زبان می‌گردم."
+    },
+    {
+     "front": "از دست دادن",
+     "back": {
+      "ru": "терять (az dast dâdan)",
+      "en": "to lose (az dast dâdan)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "قطار ساعت هفت را از دست دادم."
+    },
+    {
+     "front": "بردن (پیروزی)",
+     "back": {
+      "ru": "выигрывать (bordan)",
+      "en": "to win (bordan)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "تیم ما برد."
+    },
+    {
+     "front": "خریدن",
+     "back": {
+      "ru": "покупать (kharidan)",
+      "en": "to buy (kharidan)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "برای شام نان خریدم."
+    },
+    {
+     "front": "فروختن",
+     "back": {
+      "ru": "продавать (forukhtan)",
+      "en": "to sell (forukhtan)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "سر نبش میوه می‌فروشند."
+    },
+    {
+     "front": "پرداختن",
+     "back": {
+      "ru": "платить (pardâkhtan)",
+      "en": "to pay (pardâkhtan)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "قهوه را من می‌پردازم."
+    },
+    {
+     "front": "قیمت داشتن",
+     "back": {
+      "ru": "стоить (qeymat dâshtan)",
+      "en": "to cost (qeymat dâshtan)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "بلیت چقدر قیمت دارد؟"
+    },
+    {
+     "front": "کار کردن",
+     "back": {
+      "ru": "работать (kâr kardan)",
+      "en": "to work (kâr kardan)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "در بیمارستان کار می‌کنم."
+    },
+    {
+     "front": "درس خواندن",
+     "back": {
+      "ru": "учиться (dars khândan)",
+      "en": "to study (dars khândan)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "یک سال است فارسی می‌خوانم."
+    },
+    {
+     "front": "یاد گرفتن",
+     "back": {
+      "ru": "изучать (yâd gereftan)",
+      "en": "to learn (yâd gereftan)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "شنا را در کودکی یاد گرفتم."
+    },
+    {
+     "front": "درس دادن",
+     "back": {
+      "ru": "учить (dars dâdan)",
+      "en": "to teach (dars dâdan)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "او در مدرسه‌ای روستایی درس می‌دهد."
+    },
+    {
+     "front": "خواندن",
+     "back": {
+      "ru": "читать (khândan)",
+      "en": "to read (khândan)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "صبح روزنامه می‌خوانم."
+    },
+    {
+     "front": "نوشتن",
+     "back": {
+      "ru": "писать (neveshtan)",
+      "en": "to write (neveshtan)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "برایش نامه‌ی بلندی نوشتم."
+    },
+    {
+     "front": "صحبت کردن",
+     "back": {
+      "ru": "разговаривать (sohbat kardan)",
+      "en": "to speak (sohbat kardan)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "دیروز تلفنی صحبت کردیم."
+    },
+    {
+     "front": "شنیدن",
+     "back": {
+      "ru": "слышать (shenidan)",
+      "en": "to hear (shenidan)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "از آشپزخانه صدایی شنیدم."
+    },
+    {
+     "front": "گوش دادن",
+     "back": {
+      "ru": "слушать (gush dâdan)",
+      "en": "to listen (gush dâdan)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "خوب گوش بده چه می‌گویم."
+    },
+    {
+     "front": "نگاه کردن",
+     "back": {
+      "ru": "смотреть (negâh kardan)",
+      "en": "to look (negâh kardan)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "به چپ نگاه کن."
+    },
+    {
+     "front": "احساس کردن",
+     "back": {
+      "ru": "чувствовать (ehsâs kardan)",
+      "en": "to feel (ehsâs kardan)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "در دست‌هایم سرما احساس می‌کنم."
+    },
+    {
+     "front": "فکر کردن",
+     "back": {
+      "ru": "думать (fekr kardan)",
+      "en": "to think (fekr kardan)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "از دیروز به آن فکر می‌کنم."
+    },
+    {
+     "front": "به یاد داشتن",
+     "back": {
+      "ru": "помнить (be yâd dâshtan)",
+      "en": "to remember (be yâd dâshtan)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "آن روز را خوب به یاد دارم."
+    },
+    {
+     "front": "فراموش کردن",
+     "back": {
+      "ru": "забывать (farâmush kardan)",
+      "en": "to forget (farâmush kardan)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "نامت را فراموش کردم."
+    },
+    {
+     "front": "فهمیدن",
+     "back": {
+      "ru": "понимать (fahmidan)",
+      "en": "to understand (fahmidan)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "سؤال را نفهمیدم."
+    },
+    {
+     "front": "توضیح دادن",
+     "back": {
+      "ru": "объяснять (tozih dâdan)",
+      "en": "to explain (tozih dâdan)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "آن را یک بار دیگر توضیح بده."
+    },
+    {
+     "front": "پرسیدن",
+     "back": {
+      "ru": "спрашивать (porsidan)",
+      "en": "to ask (porsidan)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "از همسایه پرسیدم."
+    },
+    {
+     "front": "پاسخ دادن",
+     "back": {
+      "ru": "отвечать (pâsokh dâdan)",
+      "en": "to answer (pâsokh dâdan)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "او هنوز پاسخ نداده است."
+    },
+    {
+     "front": "صدا کردن",
+     "back": {
+      "ru": "звать (sedâ kardan)",
+      "en": "to call (sedâ kardan)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "زود دکتر را صدا کن."
+    },
+    {
+     "front": "زنگ زدن",
+     "back": {
+      "ru": "звонить (zang zadan)",
+      "en": "to phone (zang zadan)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "شب به تو زنگ می‌زنم."
+    },
+    {
+     "front": "باز کردن",
+     "back": {
+      "ru": "открывать (bâz kardan)",
+      "en": "to open (bâz kardan)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "پنجره را باز کن، لطفاً."
+    },
+    {
+     "front": "بستن",
+     "back": {
+      "ru": "закрывать (bastan)",
+      "en": "to close (bastan)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "موقع رفتن در را ببند."
+    },
+    {
+     "front": "گذاشتن",
+     "back": {
+      "ru": "класть (gozâshtan)",
+      "en": "to put (gozâshtan)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "نان را روی میز بگذار."
+    },
+    {
+     "front": "درآوردن",
+     "back": {
+      "ru": "убирать (dar âvardan)",
+      "en": "to take off (dar âvardan)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "کفش‌ها را دم در دربیاور."
+    },
+    {
+     "front": "با خود بردن",
+     "back": {
+      "ru": "нести (bâ khod bordan)",
+      "en": "to take (bâ khod bordan)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "چتر را با خودم می‌برم."
+    },
+    {
+     "front": "آوردن",
+     "back": {
+      "ru": "приносить (âvardan)",
+      "en": "to bring (âvardan)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "برای همه کیک آوردم."
+    },
+    {
+     "front": "فرستادن",
+     "back": {
+      "ru": "посылать (ferestâdan)",
+      "en": "to send (ferestâdan)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "نامه را دوشنبه فرستادم."
+    },
+    {
+     "front": "دریافت کردن",
+     "back": {
+      "ru": "получать (daryâft kardan)",
+      "en": "to receive (daryâft kardan)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "پیام تو را دریافت کردم."
+    },
+    {
+     "front": "نگه داشتن",
+     "back": {
+      "ru": "хранить (negah dâshtan)",
+      "en": "to keep (negah dâshtan)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "عکس‌ها را در جعبه نگه می‌دارم."
+    },
+    {
+     "front": "جا گذاشتن",
+     "back": {
+      "ru": "оставлять (jâ gozâshtan)",
+      "en": "to leave behind (jâ gozâshtan)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "پالتو را در ماشین جا گذاشتم."
+    },
+    {
+     "front": "گرفتن (در دست)",
+     "back": {
+      "ru": "держать (gereftan)",
+      "en": "to hold (gereftan)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "لیوان را محکم بگیر."
+    },
+    {
+     "front": "هل دادن",
+     "back": {
+      "ru": "толкать (hol dâdan)",
+      "en": "to push (hol dâdan)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "در را هل بده، نکش."
+    },
+    {
+     "front": "کشیدن",
+     "back": {
+      "ru": "тянуть (keshidan)",
+      "en": "to pull (keshidan)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "طناب را محکم بکش."
+    },
+    {
+     "front": "گرفتن (شکار)",
+     "back": {
+      "ru": "ловить (gereftan (shekâr))",
+      "en": "to catch (gereftan (shekâr))",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "توپ را در هوا گرفتم."
+    },
+    {
+     "front": "نشان دادن",
+     "back": {
+      "ru": "показывать (neshân dâdan)",
+      "en": "to show (neshân dâdan)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "عکس را به من نشان بده."
+    },
+    {
+     "front": "پنهان کردن",
+     "back": {
+      "ru": "прятать (penhân kardan)",
+      "en": "to hide (penhân kardan)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "هدیه را در کمد پنهان کرد."
+    },
+    {
+     "front": "عوض کردن",
+     "back": {
+      "ru": "менять (avaz kardan)",
+      "en": "to change (avaz kardan)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "نظرم را عوض کردم."
+    },
+    {
+     "front": "ایجاد کردن",
+     "back": {
+      "ru": "создавать (ijâd kardan)",
+      "en": "to create (ijâd kardan)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "یک شغل تازه ایجاد کردند."
+    },
+    {
+     "front": "ساختن",
+     "back": {
+      "ru": "строить (sâkhtan)",
+      "en": "to build (sâkhtan)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "کنار ما ساختمانی می‌سازند."
+    },
+    {
+     "front": "شکستن",
+     "back": {
+      "ru": "ломать (shekastan)",
+      "en": "to break (shekastan)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "صبح یک لیوان شکستم."
+    },
+    {
+     "front": "بریدن",
+     "back": {
+      "ru": "резать (boridan)",
+      "en": "to cut (boridan)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "نان را ورقه ورقه ببر."
+    },
+    {
+     "front": "تمیز کردن",
+     "back": {
+      "ru": "убирать (tamiz kardan)",
+      "en": "to clean (tamiz kardan)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "تمام آشپزخانه را تمیز کردم."
+    },
+    {
+     "front": "شستن",
+     "back": {
+      "ru": "мыть (shostan)",
+      "en": "to wash (shostan)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "پیش از غذا دست‌هایت را بشوی."
+    },
+    {
+     "front": "خشک کردن",
+     "back": {
+      "ru": "сушить (khoshk kardan)",
+      "en": "to dry (khoshk kardan)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "موهایت را خوب خشک کن."
+    },
+    {
+     "front": "پختن",
+     "back": {
+      "ru": "готовить (pokhtan)",
+      "en": "to cook (pokhtan)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "هر روز غذا می‌پزم."
+    },
+    {
+     "front": "خوردن",
+     "back": {
+      "ru": "есть (khordan)",
+      "en": "to eat (khordan)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "ساعت هشت غذا می‌خوریم."
+    },
+    {
+     "front": "نوشیدن",
+     "back": {
+      "ru": "пить (nushidan)",
+      "en": "to drink (nushidan)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "تمام روز آب می‌نوشم."
+    },
+    {
+     "front": "چشیدن",
+     "back": {
+      "ru": "пробовать (cheshidan)",
+      "en": "to taste (cheshidan)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "سوپ را بچش، خوب است."
+    },
+    {
+     "front": "سرو کردن",
+     "back": {
+      "ru": "подавать (serv kardan)",
+      "en": "to serve (serv kardan)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "ناهار را ساعت دوازده سرو می‌کنند."
+    },
+    {
+     "front": "خوابیدن",
+     "back": {
+      "ru": "спать (khâbidan)",
+      "en": "to sleep (khâbidan)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "هشت ساعت پشت سر هم خوابیدم."
+    },
+    {
+     "front": "بیدار شدن",
+     "back": {
+      "ru": "просыпаться (bidâr shodan)",
+      "en": "to wake up (bidâr shodan)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "همیشه ساعت شش بیدار می‌شوم."
+    },
+    {
+     "front": "بلند شدن",
+     "back": {
+      "ru": "вставать (boland shodan)",
+      "en": "to get up (boland shodan)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "بلند شو، دیر شد."
+    },
+    {
+     "front": "نشستن",
+     "back": {
+      "ru": "садиться (neshastan)",
+      "en": "to sit (neshastan)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "اینجا کنار من بنشین."
+    },
+    {
+     "front": "دراز کشیدن",
+     "back": {
+      "ru": "ложиться (derâz keshidan)",
+      "en": "to lie down (derâz keshidan)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "روزهای کاری زود دراز می‌کشم."
+    },
+    {
+     "front": "راه رفتن",
+     "back": {
+      "ru": "ходить (râh raftan)",
+      "en": "to walk (râh raftan)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "روزی نیم ساعت راه می‌روم."
+    },
+    {
+     "front": "دویدن",
+     "back": {
+      "ru": "бегать (davidan)",
+      "en": "to run (davidan)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "صبح در پارک می‌دوم."
+    },
+    {
+     "front": "پریدن",
+     "back": {
+      "ru": "прыгать (paridan)",
+      "en": "to jump (paridan)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "گربه روی میز پرید."
+    },
+    {
+     "front": "شنا کردن",
+     "back": {
+      "ru": "плавать (shenâ kardan)",
+      "en": "to swim (shenâ kardan)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "شنا را در رودخانه یاد گرفتم."
+    },
+    {
+     "front": "پرواز کردن",
+     "back": {
+      "ru": "летать (parvâz kardan)",
+      "en": "to fly (parvâz kardan)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "پرندگان به جنوب پرواز می‌کنند."
+    },
+    {
+     "front": "سفر کردن",
+     "back": {
+      "ru": "путешествовать (safar kardan)",
+      "en": "to travel (safar kardan)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "با قطار سفر کردیم."
+    },
+    {
+     "front": "رانندگی کردن",
+     "back": {
+      "ru": "водить (rânandegi kardan)",
+      "en": "to drive (rânandegi kardan)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "او با احتیاط رانندگی می‌کند."
+    },
+    {
+     "front": "بالا رفتن",
+     "back": {
+      "ru": "подниматься (bâlâ raftan)",
+      "en": "to go up (bâlâ raftan)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "تا طبقه‌ی سوم بالا رفتیم."
+    },
+    {
+     "front": "پایین رفتن",
+     "back": {
+      "ru": "спускаться (pâyin raftan)",
+      "en": "to go down (pâyin raftan)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "آهسته از پله‌ها پایین برو."
+    },
+    {
+     "front": "افتادن",
+     "back": {
+      "ru": "падать (oftâdan)",
+      "en": "to fall (oftâdan)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "فنجان از روی میز افتاد."
+    },
+    {
+     "front": "سکونت داشتن",
+     "back": {
+      "ru": "жить (sokunat dâshtan)",
+      "en": "to live (reside) (sokunat dâshtan)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "نزدیک ایستگاه سکونت دارم."
+    },
+    {
+     "front": "زندگی کردن",
+     "back": {
+      "ru": "жить (zendegi kardan)",
+      "en": "to live (zendegi kardan)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "او نود سال زندگی کرد."
+    },
+    {
+     "front": "مردن",
+     "back": {
+      "ru": "умирать (mordan)",
+      "en": "to die (mordan)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "درخت در زمستان خشکید."
+    },
+    {
+     "front": "به دنیا آمدن",
+     "back": {
+      "ru": "рождаться (be donyâ âmadan)",
+      "en": "to be born (be donyâ âmadan)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "در ماه مارس به دنیا آمدم."
+    },
+    {
+     "front": "رشد کردن",
+     "back": {
+      "ru": "расти (roshd kardan)",
+      "en": "to grow (roshd kardan)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "بچه‌ها زود رشد می‌کنند."
+    },
+    {
+     "front": "ازدواج کردن",
+     "back": {
+      "ru": "жениться (ezdevâj kardan)",
+      "en": "to marry (ezdevâj kardan)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "در بهار ازدواج کردند."
+    },
+    {
+     "front": "کمک کردن",
+     "back": {
+      "ru": "помогать (komak kardan)",
+      "en": "to help (komak kardan)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "با این کیف‌ها به من کمک کن."
+    },
+    {
+     "front": "خوش آمدن",
+     "back": {
+      "ru": "нравиться (khosh âmadan)",
+      "en": "to like (khosh âmadan)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "این قهوه خیلی به من خوش می‌آید."
+    },
+    {
+     "front": "دوست داشتن",
+     "back": {
+      "ru": "любить (dust dâshtan)",
+      "en": "to love (dust dâshtan)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "خانواده‌اش را بیش از همه دوست دارد."
+    },
+    {
+     "front": "متنفر بودن",
+     "back": {
+      "ru": "ненавидеть (motenaffer budan)",
+      "en": "to hate (motenaffer budan)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "از زود بیدار شدن متنفرم."
+    },
+    {
+     "front": "خندیدن",
+     "back": {
+      "ru": "смеяться (khandidan)",
+      "en": "to laugh (khandidan)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "تمام شب خندیدیم."
+    },
+    {
+     "front": "گریه کردن",
+     "back": {
+      "ru": "плакать (gerye kardan)",
+      "en": "to cry (gerye kardan)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "کودک از خستگی گریه کرد."
+    },
+    {
+     "front": "آواز خواندن",
+     "back": {
+      "ru": "петь (âvâz khândan)",
+      "en": "to sing (âvâz khândan)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "در گروه کر کلیسا آواز می‌خوانند."
+    },
+    {
+     "front": "رقصیدن",
+     "back": {
+      "ru": "танцевать (raqsidan)",
+      "en": "to dance (raqsidan)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "تا دیروقت رقصیدیم."
+    },
+    {
+     "front": "بازی کردن",
+     "back": {
+      "ru": "играть (bâzi kardan)",
+      "en": "to play (children) (bâzi kardan)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "بچه‌ها در باغ بازی می‌کنند."
+    },
+    {
+     "front": "مسابقه دادن",
+     "back": {
+      "ru": "играть (mosâbeqe dâdan)",
+      "en": "to play (a game) (mosâbeqe dâdan)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "شنبه مسابقه می‌دهیم."
+    },
+    {
+     "front": "لمس کردن",
+     "back": {
+      "ru": "трогать (lams kardan)",
+      "en": "to touch (lams kardan)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "رنگ تازه را لمس نکن."
+    },
+    {
+     "front": "استراحت کردن",
+     "back": {
+      "ru": "отдыхать (esterâhat kardan)",
+      "en": "to rest (esterâhat kardan)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "کمی استراحت کن."
+    },
+    {
+     "front": "تلاش کردن",
+     "back": {
+      "ru": "пытаться (talâsh kardan)",
+      "en": "to try (talâsh kardan)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "سه بار تلاش کردم به تو زنگ بزنم."
+    },
+    {
+     "front": "موفق شدن",
+     "back": {
+      "ru": "удаваться (movaffaq shodan)",
+      "en": "to manage (movaffaq shodan)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "موفق شدم برای امروز بلیت بگیرم."
+    },
+    {
+     "front": "نیاز داشتن",
+     "back": {
+      "ru": "нуждаться (niyâz dâshtan)",
+      "en": "to need (niyâz dâshtan)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "الان به کمک نیاز دارم."
+    },
+    {
+     "front": "استفاده کردن",
+     "back": {
+      "ru": "использовать (estefâde kardan)",
+      "en": "to use (estefâde kardan)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "از تلفن برای همه چیز استفاده می‌کنم."
+    },
+    {
+     "front": "انتخاب کردن",
+     "back": {
+      "ru": "выбирать (entekhâb kardan)",
+      "en": "to choose (entekhâb kardan)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "رستوران را تو انتخاب کن."
+    },
+    {
+     "front": "تصمیم گرفتن",
+     "back": {
+      "ru": "решать (tasmim gereftan)",
+      "en": "to decide (tasmim gereftan)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "تصمیم گرفتیم یک روز دیگر بمانیم."
+    },
+    {
+     "front": "پذیرفتن",
+     "back": {
+      "ru": "принимать (paziroftan)",
+      "en": "to accept (paziroftan)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "دعوت را پذیرفت."
+    },
+    {
+     "front": "رد کردن",
+     "back": {
+      "ru": "отказывать (rad kardan)",
+      "en": "to refuse (rad kardan)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "کمک همسایه‌ها را رد کرد."
+    },
+    {
+     "front": "قول دادن",
+     "back": {
+      "ru": "обещать (qol dâdan)",
+      "en": "to promise (qol dâdan)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "قول داد زود برگردد."
+    },
+    {
+     "front": "تشکر کردن",
+     "back": {
+      "ru": "благодарить (tashakkor kardan)",
+      "en": "to thank (tashakkor kardan)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "از صبرت تشکر می‌کنم."
+    },
+    {
+     "front": "درخواست کردن",
+     "back": {
+      "ru": "просить (darkhâst kardan)",
+      "en": "to ask for (darkhâst kardan)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "یک لیوان آب درخواست کردم."
+    },
+    {
+     "front": "اتفاق افتادن",
+     "back": {
+      "ru": "случаться (ettefâq oftâdan)",
+      "en": "to happen (ettefâq oftâdan)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "دیروز چه اتفاقی افتاد؟"
+    },
+    {
+     "front": "به نظر رسیدن",
+     "back": {
+      "ru": "казаться (be nazar residan)",
+      "en": "to seem (be nazar residan)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "خسته به نظر می‌رسی."
+    },
+    {
+     "front": "روشن کردن",
+     "back": {
+      "ru": "включать (roshan kardan)",
+      "en": "to turn on (roshan kardan)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "چراغ آشپزخانه را روشن کن."
+    },
+    {
+     "front": "خاموش کردن",
+     "back": {
+      "ru": "выключать (khâmush kardan)",
+      "en": "to turn off (khâmush kardan)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "پیش از رفتن رایانه را خاموش کن."
+    },
+    {
+     "front": "باران باریدن",
+     "back": {
+      "ru": "идти (о дожде) (bârân bâridan)",
+      "en": "to rain (bârân bâridan)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "تمام شب باران بارید."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "آب",
+     "back": {
+      "ru": "вода (âb)",
+      "en": "water (âb)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "یک لیوان آب برایم بیاور."
+    },
+    {
+     "front": "نان",
+     "back": {
+      "ru": "хлеб (nân)",
+      "en": "bread (nân)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "نان هنوز گرم است."
+    },
+    {
+     "front": "شیر",
+     "back": {
+      "ru": "молоко (shir)",
+      "en": "milk (shir)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "صبحانه شیر می‌نوشم."
+    },
+    {
+     "front": "قهوه",
+     "back": {
+      "ru": "кофе (qahve)",
+      "en": "coffee (qahve)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "یک قهوه، لطفاً."
+    },
+    {
+     "front": "چای",
+     "back": {
+      "ru": "чай (chây)",
+      "en": "tea (chây)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "بعد از ظهر چای دم می‌کنم."
+    },
+    {
+     "front": "آبمیوه",
+     "back": {
+      "ru": "сок (âbmive)",
+      "en": "juice (âbmive)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "آب پرتقال تازه."
+    },
+    {
+     "front": "شراب",
+     "back": {
+      "ru": "вино (sharâb)",
+      "en": "wine (sharâb)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "یک گیلاس شراب قرمز."
+    },
+    {
+     "front": "آبجو",
+     "back": {
+      "ru": "пиво (âbjo)",
+      "en": "beer (âbjo)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "آبجو خوب خنک است."
+    },
+    {
+     "front": "یخ",
+     "back": {
+      "ru": "лёд (yakh)",
+      "en": "ice (yakh)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "در نوشیدنی یخ می‌خواهی؟"
+    },
+    {
+     "front": "شکر",
+     "back": {
+      "ru": "сахар (shekar)",
+      "en": "sugar (shekar)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "قهوه را بدون شکر می‌نوشم."
+    },
+    {
+     "front": "نمک",
+     "back": {
+      "ru": "соль (namak)",
+      "en": "salt (namak)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "سوپ نمک کم دارد."
+    },
+    {
+     "front": "فلفل",
+     "back": {
+      "ru": "перец (felfel)",
+      "en": "pepper (felfel)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "کمی فلفل اضافه کن."
+    },
+    {
+     "front": "روغن زیتون",
+     "back": {
+      "ru": "оливковое масло (roqane zeytun)",
+      "en": "olive oil (roqane zeytun)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "روی سالاد روغن زیتون بریز."
+    },
+    {
+     "front": "کره",
+     "back": {
+      "ru": "масло (kare)",
+      "en": "butter (kare)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "روی نان کره بمال."
+    },
+    {
+     "front": "پنیر",
+     "back": {
+      "ru": "сыр (panir)",
+      "en": "cheese (panir)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "این پنیر از کوهستان است."
+    },
+    {
+     "front": "تخم مرغ",
+     "back": {
+      "ru": "яйцо (tokhme morq)",
+      "en": "egg (tokhme morq)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "یک تخم مرغ آب‌پز خوردم."
+    },
+    {
+     "front": "گوشت",
+     "back": {
+      "ru": "мясо (gusht)",
+      "en": "meat (gusht)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "شب‌ها گوشت نمی‌خورم."
+    },
+    {
+     "front": "مرغ",
+     "back": {
+      "ru": "курица (morq)",
+      "en": "chicken (morq)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "مرغ در فر با سیب‌زمینی."
+    },
+    {
+     "front": "ماهی",
+     "back": {
+      "ru": "рыба (mâhi)",
+      "en": "fish (mâhi)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "ماهی امروز تازه است."
+    },
+    {
+     "front": "ماهی کاد",
+     "back": {
+      "ru": "треска (mâhiye kâd)",
+      "en": "cod (mâhiye kâd)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "ماهی کاد را نمک‌سود نگه می‌دارند."
+    },
+    {
+     "front": "ساردین",
+     "back": {
+      "ru": "сардина (sârdin)",
+      "en": "sardine (sârdin)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "ساردین کبابی روی زغال."
+    },
+    {
+     "front": "تن ماهی",
+     "back": {
+      "ru": "тунец (tone mâhi)",
+      "en": "tuna (tone mâhi)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "ساندویچ تن ماهی."
+    },
+    {
+     "front": "میگو",
+     "back": {
+      "ru": "креветка (meygu)",
+      "en": "shrimp (meygu)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "میگو با سیر."
+    },
+    {
+     "front": "غذای دریایی",
+     "back": {
+      "ru": "морепродукты (qazâye daryâyi)",
+      "en": "seafood (qazâye daryâyi)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "کنار دریا غذای دریایی خوردیم."
+    },
+    {
+     "front": "ژامبون",
+     "back": {
+      "ru": "ветчина (zhâmbon)",
+      "en": "ham (zhâmbon)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "ژامبون با طالبی."
+    },
+    {
+     "front": "سوسیس",
+     "back": {
+      "ru": "сосиска (sosis)",
+      "en": "sausage (sosis)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "برای بچه‌ها سوسیس خریدم."
+    },
+    {
+     "front": "برنج",
+     "back": {
+      "ru": "рис (berenj)",
+      "en": "rice (berenj)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "یکشنبه‌ها برنج می‌پزیم."
+    },
+    {
+     "front": "سیب‌زمینی",
+     "back": {
+      "ru": "картофель (sibzamini)",
+      "en": "potato (sibzamini)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "سیب‌زمینی آب‌پز با روغن زیتون."
+    },
+    {
+     "front": "ماکارونی",
+     "back": {
+      "ru": "макароны (mâkâroni)",
+      "en": "pasta (mâkâroni)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "وقتی عجله دارم ماکارونی می‌پزم."
+    },
+    {
+     "front": "آرد",
+     "back": {
+      "ru": "мука (ârd)",
+      "en": "flour (ârd)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "برای کیک آرد نداریم."
+    },
+    {
+     "front": "سوپ",
+     "back": {
+      "ru": "суп (sup)",
+      "en": "soup (sup)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "سوپ دارد سرد می‌شود."
+    },
+    {
+     "front": "سالاد",
+     "back": {
+      "ru": "салат (sâlâd)",
+      "en": "salad (sâlâd)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "سالاد گوجه‌فرنگی."
+    },
+    {
+     "front": "سبزیجات",
+     "back": {
+      "ru": "овощи (sabzijât)",
+      "en": "vegetables (sabzijât)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "هر روز سبزیجات می‌خورم."
+    },
+    {
+     "front": "میوه",
+     "back": {
+      "ru": "фрукты (mive)",
+      "en": "fruit (mive)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "در آشپزخانه میوه هست."
+    },
+    {
+     "front": "سیب",
+     "back": {
+      "ru": "яблоко (sib)",
+      "en": "apple (sib)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "یک سیب سر کار می‌برم."
+    },
+    {
+     "front": "گلابی",
+     "back": {
+      "ru": "груша (golâbi)",
+      "en": "pear (golâbi)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "این گلابی رسیده است."
+    },
+    {
+     "front": "پرتقال",
+     "back": {
+      "ru": "апельсин (porteqâl)",
+      "en": "orange (porteqâl)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "یک پرتقال پوست کندم."
+    },
+    {
+     "front": "لیمو",
+     "back": {
+      "ru": "лимон (limu)",
+      "en": "lemon (limu)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "چای با لیمو."
+    },
+    {
+     "front": "موز",
+     "back": {
+      "ru": "банан (moz)",
+      "en": "banana (moz)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "پیش از تمرین یک موز خوردم."
+    },
+    {
+     "front": "انگور",
+     "back": {
+      "ru": "виноград (angur)",
+      "en": "grape (angur)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "انگورها شیرین هستند."
+    },
+    {
+     "front": "توت‌فرنگی",
+     "back": {
+      "ru": "клубника (tutfarangi)",
+      "en": "strawberry (tutfarangi)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "توت‌فرنگی با خامه."
+    },
+    {
+     "front": "گیلاس",
+     "back": {
+      "ru": "вишня (gilâs)",
+      "en": "cherry (gilâs)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "گیلاس در فصلش ارزان است."
+    },
+    {
+     "front": "هلو",
+     "back": {
+      "ru": "персик (holu)",
+      "en": "peach (holu)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "یک هلوی خوب رسیده."
+    },
+    {
+     "front": "طالبی",
+     "back": {
+      "ru": "дыня (tâlebi)",
+      "en": "melon (tâlebi)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "طالبی با ژامبون."
+    },
+    {
+     "front": "هندوانه",
+     "back": {
+      "ru": "арбуз (hendevâne)",
+      "en": "watermelon (hendevâne)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "تابستان هندوانه‌ی خنک."
+    },
+    {
+     "front": "آناناس",
+     "back": {
+      "ru": "ананас (ânânâs)",
+      "en": "pineapple (ânânâs)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "آب آناناس."
+    },
+    {
+     "front": "انجیر",
+     "back": {
+      "ru": "инжир (anjir)",
+      "en": "fig (anjir)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "زمستان انجیر خشک."
+    },
+    {
+     "front": "گوجه‌فرنگی",
+     "back": {
+      "ru": "помидор (gojefarangi)",
+      "en": "tomato (gojefarangi)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "سالاد گوجه‌فرنگی با سبزی."
+    },
+    {
+     "front": "پیاز",
+     "back": {
+      "ru": "лук (piyâz)",
+      "en": "onion (piyâz)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "اول پیاز را تفت بده."
+    },
+    {
+     "front": "سیر",
+     "back": {
+      "ru": "чеснок (sir)",
+      "en": "garlic (sir)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "دو حبه سیر کافی است."
+    },
+    {
+     "front": "هویج",
+     "back": {
+      "ru": "морковь (havij)",
+      "en": "carrot (havij)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "سوپ هویج."
+    },
+    {
+     "front": "کاهو",
+     "back": {
+      "ru": "салат-латук (kâhu)",
+      "en": "lettuce (kâhu)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "کاهو را خوب بشوی."
+    },
+    {
+     "front": "خیار",
+     "back": {
+      "ru": "огурец (khiyâr)",
+      "en": "cucumber (khiyâr)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "خیار حلقه حلقه."
+    },
+    {
+     "front": "لوبیا",
+     "back": {
+      "ru": "фасоль (lubiyâ)",
+      "en": "beans (lubiyâ)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "لوبیا با برنج."
+    },
+    {
+     "front": "نخود فرنگی",
+     "back": {
+      "ru": "горох (nokhode farangi)",
+      "en": "pea (nokhode farangi)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "نخود فرنگی با تخم مرغ."
+    },
+    {
+     "front": "کلم",
+     "back": {
+      "ru": "капуста (kalam)",
+      "en": "cabbage (kalam)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "سوپ کلم غذای زمستان است."
+    },
+    {
+     "front": "کدو تنبل",
+     "back": {
+      "ru": "тыква (kadu tanbal)",
+      "en": "pumpkin (kadu tanbal)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "پاییز سوپ کدو تنبل می‌پزیم."
+    },
+    {
+     "front": "قارچ",
+     "back": {
+      "ru": "гриб (qârch)",
+      "en": "mushroom (qârch)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "قارچ سرخ‌شده."
+    },
+    {
+     "front": "زیتون",
+     "back": {
+      "ru": "оливка (zeytun)",
+      "en": "olive (zeytun)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "پیش از غذا زیتون."
+    },
+    {
+     "front": "کیک",
+     "back": {
+      "ru": "торт (keyk)",
+      "en": "cake (keyk)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "یک کیک پرتقالی پختم."
+    },
+    {
+     "front": "بیسکویت",
+     "back": {
+      "ru": "печенье (biskuit)",
+      "en": "biscuit (biskuit)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "بیسکویت با چای."
+    },
+    {
+     "front": "مربا",
+     "back": {
+      "ru": "варенье (morabbâ)",
+      "en": "jam (morabbâ)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "روی نان مربای توت‌فرنگی مالیدم."
+    },
+    {
+     "front": "شکلات",
+     "back": {
+      "ru": "шоколад (shokolât)",
+      "en": "chocolate (shokolât)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "یک تخته شکلات تلخ."
+    },
+    {
+     "front": "بستنی",
+     "back": {
+      "ru": "мороженое (bastani)",
+      "en": "ice cream (bastani)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "بستنی وانیلی."
+    },
+    {
+     "front": "عسل",
+     "back": {
+      "ru": "мёд (asal)",
+      "en": "honey (asal)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "چای با عسل برای گلو."
+    },
+    {
+     "front": "شیرینی",
+     "back": {
+      "ru": "сладость (shirini)",
+      "en": "sweet (shirini)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "شب‌ها شیرینی نمی‌خورم."
+    },
+    {
+     "front": "دسر",
+     "back": {
+      "ru": "десерт (deser)",
+      "en": "dessert (deser)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "برای دسر، میوه."
+    },
+    {
+     "front": "ماست",
+     "back": {
+      "ru": "йогурт (mâst)",
+      "en": "yoghurt (mâst)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "ماست ساده بدون شکر."
+    },
+    {
+     "front": "خامه",
+     "back": {
+      "ru": "сливки (khâme)",
+      "en": "cream (khâme)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "توت‌فرنگی با خامه."
+    },
+    {
+     "front": "نان تست",
+     "back": {
+      "ru": "тост (nâne tost)",
+      "en": "toast (nâne tost)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "نان تست با کره."
+    },
+    {
+     "front": "ساندویچ",
+     "back": {
+      "ru": "бутерброд (sândevich)",
+      "en": "sandwich (sândevich)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "ساندویچ پنیر و ژامبون."
+    },
+    {
+     "front": "صبحانه",
+     "back": {
+      "ru": "завтрак (sobhâne)",
+      "en": "breakfast (sobhâne)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "ساعت هفت صبحانه می‌خورم."
+    },
+    {
+     "front": "ناهار",
+     "back": {
+      "ru": "обед (nâhâr)",
+      "en": "lunch (nâhâr)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "ناهار ساعت یک است."
+    },
+    {
+     "front": "شام",
+     "back": {
+      "ru": "ужин (shâm)",
+      "en": "dinner (shâm)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "حدود ساعت هشت شام می‌خوریم."
+    },
+    {
+     "front": "میان‌وعده",
+     "back": {
+      "ru": "полдник (miyânvade)",
+      "en": "snack (miyânvade)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "بچه‌ها میان‌وعده می‌برند."
+    },
+    {
+     "front": "وعده‌ی غذایی",
+     "back": {
+      "ru": "приём пищи (vade qazâyi)",
+      "en": "meal (vade qazâyi)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "روزی سه وعده‌ی غذایی می‌خورم."
+    },
+    {
+     "front": "غذا",
+     "back": {
+      "ru": "еда (qazâ)",
+      "en": "food (qazâ)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "غذا روی میز است."
+    },
+    {
+     "front": "نوشیدنی",
+     "back": {
+      "ru": "напиток (nushidani)",
+      "en": "drink (nushidani)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "چه نوشیدنی می‌خواهی؟"
+    },
+    {
+     "front": "بشقاب",
+     "back": {
+      "ru": "тарелка (boshqâb)",
+      "en": "plate (boshqâb)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "بشقاب‌ها را روی کابینت بگذار."
+    },
+    {
+     "front": "لیوان",
+     "back": {
+      "ru": "стакан (livân)",
+      "en": "glass (livân)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "لیوان را تا نیمه پر کن."
+    },
+    {
+     "front": "فنجان",
+     "back": {
+      "ru": "чашка (fenjân)",
+      "en": "cup (fenjân)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "یک فنجان قهوه."
+    },
+    {
+     "front": "بطری",
+     "back": {
+      "ru": "бутылка (botri)",
+      "en": "bottle (botri)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "یک بطری آب."
+    },
+    {
+     "front": "قاشق",
+     "back": {
+      "ru": "ложка (qâshoq)",
+      "en": "spoon (qâshoq)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "یک قاشق سوپ‌خوری کم است."
+    },
+    {
+     "front": "چنگال",
+     "back": {
+      "ru": "вилка (changâl)",
+      "en": "fork (changâl)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "چنگال روی زمین افتاد."
+    },
+    {
+     "front": "چاقو",
+     "back": {
+      "ru": "нож (châqu)",
+      "en": "knife (châqu)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "این چاقو اصلاً نمی‌برد."
+    },
+    {
+     "front": "دستمال سفره",
+     "back": {
+      "ru": "салфетка (dastmâle sofre)",
+      "en": "napkin (dastmâle sofre)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "یک دستمال سفره به من بده."
+    },
+    {
+     "front": "قابلمه",
+     "back": {
+      "ru": "кастрюля (qâblame)",
+      "en": "pot (qâblame)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "قابلمه روی اجاق است."
+    },
+    {
+     "front": "ماهیتابه",
+     "back": {
+      "ru": "сковорода (mâhitâbe)",
+      "en": "frying pan (mâhitâbe)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "ماهیتابه را گرم کن."
+    },
+    {
+     "front": "رستوران",
+     "back": {
+      "ru": "ресторан (restorân)",
+      "en": "restaurant (restorân)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "در رستوران میز رزرو کردم."
+    },
+    {
+     "front": "منو",
+     "back": {
+      "ru": "меню (meno)",
+      "en": "menu (meno)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "از پیشخدمت منو را بخواه."
+    },
+    {
+     "front": "صورتحساب",
+     "back": {
+      "ru": "счёт (surathesâb)",
+      "en": "bill (surathesâb)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "صورتحساب، لطفاً."
+    },
+    {
+     "front": "پیشخدمت",
+     "back": {
+      "ru": "официант (pishkhedmat)",
+      "en": "waiter (pishkhedmat)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "پیشخدمت نان آورد."
+    },
+    {
+     "front": "گرسنگی",
+     "back": {
+      "ru": "голод (gorosnegi)",
+      "en": "hunger (gorosnegi)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "خیلی گرسنه‌ام."
+    },
+    {
+     "front": "تشنگی",
+     "back": {
+      "ru": "жажда (teshnegi)",
+      "en": "thirst (teshnegi)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "در این گرما تشنگی می‌آید."
+    },
+    {
+     "front": "طعم",
+     "back": {
+      "ru": "вкус (tam)",
+      "en": "taste (tam)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "این سوپ طعم کمی دارد."
+    },
+    {
+     "front": "دستور پخت",
+     "back": {
+      "ru": "рецепт (dasture pokht)",
+      "en": "recipe (dasture pokht)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "این دستور پخت مادربزرگم است."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "لباس",
+     "back": {
+      "ru": "одежда (lebâs)",
+      "en": "clothes (lebâs)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "در چمدان لباس کم می‌برم."
+    },
+    {
+     "front": "پیراهن",
+     "back": {
+      "ru": "рубашка (pirâhan)",
+      "en": "shirt (pirâhan)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "پیراهن هنوز اتو نشده است."
+    },
+    {
+     "front": "ژاکت پشمی",
+     "back": {
+      "ru": "свитер (zhâkate pashmi)",
+      "en": "jumper (zhâkate pashmi)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "ژاکت پشمی بپوش، هوا سرد است."
+    },
+    {
+     "front": "تی‌شرت",
+     "back": {
+      "ru": "футболка (tishert)",
+      "en": "T-shirt (tishert)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "یک تی‌شرت سفید ساده."
+    },
+    {
+     "front": "پالتو",
+     "back": {
+      "ru": "пальто (pâlto)",
+      "en": "coat (pâlto)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "پالتو را در ماشین جا گذاشتم."
+    },
+    {
+     "front": "کاپشن",
+     "back": {
+      "ru": "куртка (kâpshan)",
+      "en": "jacket (kâpshan)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "یک کاپشن برای باران."
+    },
+    {
+     "front": "جلیقه",
+     "back": {
+      "ru": "жилет (jeliqe)",
+      "en": "waistcoat (jeliqe)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "یک جلیقه روی پیراهن."
+    },
+    {
+     "front": "شلوار",
+     "back": {
+      "ru": "брюки (shalvâr)",
+      "en": "trousers (shalvâr)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "این شلوار برایم گشاد است."
+    },
+    {
+     "front": "شلوارک",
+     "back": {
+      "ru": "шорты (shalvârak)",
+      "en": "shorts (shalvârak)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "شلوارک برای تابستان."
+    },
+    {
+     "front": "دامن",
+     "back": {
+      "ru": "юбка (dâman)",
+      "en": "skirt (dâman)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "یک دامن تا زانو."
+    },
+    {
+     "front": "پیراهن زنانه",
+     "back": {
+      "ru": "платье (pirâhane zanâne)",
+      "en": "dress (pirâhane zanâne)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "پیراهن از کتان است."
+    },
+    {
+     "front": "کت و شلوار",
+     "back": {
+      "ru": "костюм (kot o shalvâr)",
+      "en": "suit (kot o shalvâr)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "با کت و شلوار به عروسی می‌رود."
+    },
+    {
+     "front": "کراوات",
+     "back": {
+      "ru": "галстук (kerâvât)",
+      "en": "tie (kerâvât)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "بلد نیستم کراوات ببندم."
+    },
+    {
+     "front": "کمربند",
+     "back": {
+      "ru": "ремень (kamarband)",
+      "en": "belt (kamarband)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "کمربند را کمی سفت‌تر کن."
+    },
+    {
+     "front": "جوراب",
+     "back": {
+      "ru": "носки (jurâb)",
+      "en": "socks (jurâb)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "این جوراب‌ها سوراخ شده‌اند."
+    },
+    {
+     "front": "جوراب شلواری",
+     "back": {
+      "ru": "колготки (jurâbe shalvâri)",
+      "en": "tights (jurâbe shalvâri)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "جوراب شلواری مشکی."
+    },
+    {
+     "front": "کفش",
+     "back": {
+      "ru": "туфли (kafsh)",
+      "en": "shoes (kafsh)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "کفش چرمی مشکی."
+    },
+    {
+     "front": "کفش ورزشی",
+     "back": {
+      "ru": "кроссовки (kafshe varzeshi)",
+      "en": "trainers (kafshe varzeshi)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "تمام روز کفش ورزشی می‌پوشم."
+    },
+    {
+     "front": "چکمه",
+     "back": {
+      "ru": "сапоги (chakme)",
+      "en": "boots (chakme)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "چکمه برای زمستان."
+    },
+    {
+     "front": "صندل",
+     "back": {
+      "ru": "сандалии (sandal)",
+      "en": "sandals (sandal)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "صندل برای ساحل."
+    },
+    {
+     "front": "دمپایی",
+     "back": {
+      "ru": "тапочки (dampâyi)",
+      "en": "slippers (dampâyi)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "دمپایی‌ها دم در اتاق خواب است."
+    },
+    {
+     "front": "کلاه",
+     "back": {
+      "ru": "шляпа (kolâh)",
+      "en": "hat (kolâh)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "یک کلاه حصیری."
+    },
+    {
+     "front": "کلاه لبه‌دار",
+     "back": {
+      "ru": "кепка (kolâhe labedâr)",
+      "en": "cap (kolâhe labedâr)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "کلاه لبه‌دار برای آفتاب."
+    },
+    {
+     "front": "کلاه پشمی",
+     "back": {
+      "ru": "шапка (kolâhe pashmi)",
+      "en": "woolly hat (kolâhe pashmi)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "کلاه پشمی و شال‌گردن برای برف."
+    },
+    {
+     "front": "دستکش",
+     "back": {
+      "ru": "перчатки (dastkesh)",
+      "en": "gloves (dastkesh)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "دستکش چرمی آستردار."
+    },
+    {
+     "front": "شال‌گردن",
+     "back": {
+      "ru": "шарф (shâlgardan)",
+      "en": "scarf (shâlgardan)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "شال‌گردن را دو بار بپیچ."
+    },
+    {
+     "front": "دستمال",
+     "back": {
+      "ru": "платок (dastmâl)",
+      "en": "handkerchief (dastmâl)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "یک دستمال نخی."
+    },
+    {
+     "front": "عینک",
+     "back": {
+      "ru": "очки (eynak)",
+      "en": "glasses (eynak)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "دیروز عینکم را شکستم."
+    },
+    {
+     "front": "کیف",
+     "back": {
+      "ru": "сумка (kif)",
+      "en": "bag (kif)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "کیف خیلی سنگین است."
+    },
+    {
+     "front": "کیف پول",
+     "back": {
+      "ru": "кошелёк (kife pul)",
+      "en": "wallet (kife pul)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "کیف پولم را در خانه جا گذاشتم."
+    },
+    {
+     "front": "کوله‌پشتی",
+     "back": {
+      "ru": "рюкзак (kulepošti)",
+      "en": "backpack (kulepošti)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "کوله‌پشتی مدرسه سنگین است."
+    },
+    {
+     "front": "چتر",
+     "back": {
+      "ru": "зонт (chatr)",
+      "en": "umbrella (chatr)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "چتر را با خودت ببر."
+    },
+    {
+     "front": "لباس خواب",
+     "back": {
+      "ru": "пижама (lebâse khâb)",
+      "en": "pyjamas (lebâse khâb)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "لباس خواب فلانل."
+    },
+    {
+     "front": "حوله‌ای (ربدوشامبر)",
+     "back": {
+      "ru": "халат (rob-du-shâmbr)",
+      "en": "dressing gown (rob-du-shâmbr)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "ربدوشامبر پشت در آویزان است."
+    },
+    {
+     "front": "حوله",
+     "back": {
+      "ru": "полотенце (hole)",
+      "en": "towel (hole)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "یک حوله‌ی تمیز برای حمام."
+    },
+    {
+     "front": "جیب",
+     "back": {
+      "ru": "карман (jib)",
+      "en": "pocket (jib)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "کلید در جیبم است."
+    },
+    {
+     "front": "دکمه",
+     "back": {
+      "ru": "пуговица (dokme)",
+      "en": "button (dokme)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "یک دکمه از پیراهن افتاد."
+    },
+    {
+     "front": "زیپ",
+     "back": {
+      "ru": "молния (zip)",
+      "en": "zip (zip)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "زیپ کیف خراب شد."
+    },
+    {
+     "front": "آستین",
+     "back": {
+      "ru": "рукав (âstin)",
+      "en": "sleeve (âstin)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "آستین‌هایت را بالا بزن."
+    },
+    {
+     "front": "یقه",
+     "back": {
+      "ru": "воротник (yaqe)",
+      "en": "collar (yaqe)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "یقه لک شده است."
+    },
+    {
+     "front": "اندازه",
+     "back": {
+      "ru": "размер (andâze)",
+      "en": "size (andâze)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "این پیراهن اندازه‌ی دیگری دارید؟"
+    },
+    {
+     "front": "پارچه",
+     "back": {
+      "ru": "ткань (pârche)",
+      "en": "fabric (pârche)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "پارچه‌ی سبک برای تابستان."
+    },
+    {
+     "front": "پنبه",
+     "back": {
+      "ru": "хлопок (panbe)",
+      "en": "cotton (panbe)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "پیراهن نخی."
+    },
+    {
+     "front": "پشم",
+     "back": {
+      "ru": "шерсть (pashm)",
+      "en": "wool (pashm)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "جوراب پشمی ضخیم."
+    },
+    {
+     "front": "ابریشم",
+     "back": {
+      "ru": "шёлк (abrisham)",
+      "en": "silk (abrisham)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "روسری ابریشمی."
+    },
+    {
+     "front": "چرم",
+     "back": {
+      "ru": "кожа (charm)",
+      "en": "leather (charm)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "چکمه‌ی چرمی قهوه‌ای."
+    },
+    {
+     "front": "چوب‌لباسی",
+     "back": {
+      "ru": "вешалка (chub lebâsi)",
+      "en": "hanger (chub lebâsi)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "پالتو را روی چوب‌لباسی آویزان کن."
+    },
+    {
+     "front": "کمد",
+     "back": {
+      "ru": "шкаф (komod)",
+      "en": "wardrobe (komod)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "کمد پر است."
+    },
+    {
+     "front": "انگشتر",
+     "back": {
+      "ru": "кольцо (angoshtar)",
+      "en": "ring (angoshtar)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "یک انگشتر نقره."
+    }
+   ]
+  }
+ ]
+}

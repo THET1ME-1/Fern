@@ -1,0 +1,6533 @@
+{
+ "lang": "ko",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "안녕하세요",
+     "back": {
+      "ru": "привет (annyeonghaseyo)",
+      "en": "hello (annyeonghaseyo)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "안녕하세요, 잘 지내셨어요?"
+    },
+    {
+     "front": "안녕히 가세요",
+     "back": {
+      "ru": "до свидания (annyeonghi gaseyo)",
+      "en": "goodbye (annyeonghi gaseyo)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "안녕히 가세요, 내일 봬요."
+    },
+    {
+     "front": "네",
+     "back": {
+      "ru": "да (ne)",
+      "en": "yes (ne)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "네, 당연히 갑니다."
+    },
+    {
+     "front": "아니요",
+     "back": {
+      "ru": "нет (aniyo)",
+      "en": "no (aniyo)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "아니요, 괜찮습니다."
+    },
+    {
+     "front": "주세요",
+     "back": {
+      "ru": "пожалуйста (juseyo)",
+      "en": "please (juseyo)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "커피 한 잔 주세요."
+    },
+    {
+     "front": "고맙습니다",
+     "back": {
+      "ru": "спасибо (gomapseumnida)",
+      "en": "thank you (gomapseumnida)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "도와주셔서 고맙습니다."
+    },
+    {
+     "front": "죄송합니다",
+     "back": {
+      "ru": "извини (joesonghamnida)",
+      "en": "sorry (joesonghamnida)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "죄송합니다, 늦었습니다."
+    },
+    {
+     "front": "좋은 아침",
+     "back": {
+      "ru": "доброе утро (joeun achim)",
+      "en": "good morning (joeun achim)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "좋은 아침, 잘 잤어요?"
+    },
+    {
+     "front": "안녕히 주무세요",
+     "back": {
+      "ru": "спокойной ночи (annyeonghi jumuseyo)",
+      "en": "good night (annyeonghi jumuseyo)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "안녕히 주무세요, 내일 봬요."
+    },
+    {
+     "front": "괜찮아요",
+     "back": {
+      "ru": "всё хорошо (gwaenchanayo)",
+      "en": "all right (gwaenchanayo)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "걱정 마세요, 다 괜찮아요."
+    },
+    {
+     "front": "남자",
+     "back": {
+      "ru": "мужчина (namja)",
+      "en": "man (namja)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "저 남자는 우리 이웃이에요."
+    },
+    {
+     "front": "여자",
+     "back": {
+      "ru": "женщина (yeoja)",
+      "en": "woman (yeoja)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "파란 외투를 입은 여자는 의사예요."
+    },
+    {
+     "front": "아이",
+     "back": {
+      "ru": "ребёнок (ai)",
+      "en": "child (ai)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "아이가 마당에서 놀고 있어요."
+    },
+    {
+     "front": "소년",
+     "back": {
+      "ru": "мальчик (sonyeon)",
+      "en": "boy (sonyeon)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "소년이 학교로 뛰어갑니다."
+    },
+    {
+     "front": "소녀",
+     "back": {
+      "ru": "девочка (sonyeo)",
+      "en": "girl (sonyeo)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "소녀가 꽃을 그리고 있어요."
+    },
+    {
+     "front": "친구",
+     "back": {
+      "ru": "друг (chingu)",
+      "en": "friend (chingu)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "제 친구는 부산에 살아요."
+    },
+    {
+     "front": "가족",
+     "back": {
+      "ru": "семья (gajok)",
+      "en": "family (gajok)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "가족 모두가 저녁을 먹으러 왔어요."
+    },
+    {
+     "front": "어머니",
+     "back": {
+      "ru": "мама (eomeoni)",
+      "en": "mother (eomeoni)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "어머니는 노래를 아주 잘하세요."
+    },
+    {
+     "front": "아버지",
+     "back": {
+      "ru": "папа (abeoji)",
+      "en": "father (abeoji)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "아버지는 밤에 일하세요."
+    },
+    {
+     "front": "아들",
+     "back": {
+      "ru": "сын (adeul)",
+      "en": "son (adeul)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "그들의 아들은 다섯 살이에요."
+    },
+    {
+     "front": "딸",
+     "back": {
+      "ru": "дочь (ttal)",
+      "en": "daughter (ttal)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "큰딸은 의학을 공부해요."
+    },
+    {
+     "front": "형",
+     "back": {
+      "ru": "брат (hyeong)",
+      "en": "brother (hyeong)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "형은 축구를 해요."
+    },
+    {
+     "front": "누나",
+     "back": {
+      "ru": "сестра (nuna)",
+      "en": "sister (nuna)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "누나는 서울에 살아요."
+    },
+    {
+     "front": "할머니",
+     "back": {
+      "ru": "бабушка (halmeoni)",
+      "en": "grandmother (halmeoni)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "할머니가 만든 케이크가 제일 맛있어요."
+    },
+    {
+     "front": "할아버지",
+     "back": {
+      "ru": "дедушка (harabeoji)",
+      "en": "grandfather (harabeoji)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "할아버지는 옛날이야기를 들려주세요."
+    },
+    {
+     "front": "사람",
+     "back": {
+      "ru": "человек (saram)",
+      "en": "person (saram)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "이 사람은 처음 봐요."
+    },
+    {
+     "front": "사람들",
+     "back": {
+      "ru": "люди (saramdeul)",
+      "en": "people (saramdeul)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "광장의 사람들이 흩어졌어요."
+    },
+    {
+     "front": "이름",
+     "back": {
+      "ru": "имя (ireum)",
+      "en": "name (ireum)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "이름이 뭐예요?"
+    },
+    {
+     "front": "선생님",
+     "back": {
+      "ru": "господин (seonsaengnim)",
+      "en": "sir (seonsaengnim)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "안녕하세요, 김 선생님."
+    },
+    {
+     "front": "부인",
+     "back": {
+      "ru": "госпожа (buin)",
+      "en": "madam (buin)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "부인, 도와드릴까요?"
+    },
+    {
+     "front": "나",
+     "back": {
+      "ru": "я (na)",
+      "en": "I (na)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "나는 이 근처에 살아요."
+    },
+    {
+     "front": "너",
+     "back": {
+      "ru": "ты (neo)",
+      "en": "you (neo)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "너 한국어 할 줄 알아?"
+    },
+    {
+     "front": "당신",
+     "back": {
+      "ru": "вы (dangsin)",
+      "en": "you (dangsin)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "당신은 앉으시겠어요?"
+    },
+    {
+     "front": "그",
+     "back": {
+      "ru": "он (geu)",
+      "en": "he (geu)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "그는 여덟 시에 도착해요."
+    },
+    {
+     "front": "그녀",
+     "back": {
+      "ru": "она (geunyeo)",
+      "en": "she (geunyeo)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "그녀는 병원에서 일해요."
+    },
+    {
+     "front": "우리",
+     "back": {
+      "ru": "мы (uri)",
+      "en": "we (uri)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "우리는 기차로 가요."
+    },
+    {
+     "front": "그들",
+     "back": {
+      "ru": "они (geudeul)",
+      "en": "they (geudeul)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "그들은 같은 건물에 살아요."
+    },
+    {
+     "front": "나의",
+     "back": {
+      "ru": "мой (naui)",
+      "en": "my (naui)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "여기가 나의 자리예요."
+    },
+    {
+     "front": "너의",
+     "back": {
+      "ru": "твой (neoui)",
+      "en": "your (neoui)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "너의 외투가 의자에 있어."
+    },
+    {
+     "front": "우리의",
+     "back": {
+      "ru": "наш (uriui)",
+      "en": "our (uriui)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "우리의 차는 작아요."
+    },
+    {
+     "front": "이것",
+     "back": {
+      "ru": "этот (igeot)",
+      "en": "this (igeot)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "이 책은 아주 재미있어요."
+    },
+    {
+     "front": "저것",
+     "back": {
+      "ru": "тот (jeogeot)",
+      "en": "that (jeogeot)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "저 건물은 아주 오래됐어요."
+    },
+    {
+     "front": "누구",
+     "back": {
+      "ru": "кто (nugu)",
+      "en": "who (nugu)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "문 앞에 누구예요?"
+    },
+    {
+     "front": "무엇",
+     "back": {
+      "ru": "что (mueot)",
+      "en": "what (mueot)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "무엇을 말하는 거예요?"
+    },
+    {
+     "front": "어디",
+     "back": {
+      "ru": "где (eodi)",
+      "en": "where (eodi)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "역이 어디예요?"
+    },
+    {
+     "front": "언제",
+     "back": {
+      "ru": "когда (eonje)",
+      "en": "when (eonje)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "영화가 언제 시작해요?"
+    },
+    {
+     "front": "어떻게",
+     "back": {
+      "ru": "как (eotteoke)",
+      "en": "how (eotteoke)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "이건 어떻게 말해요?"
+    },
+    {
+     "front": "왜",
+     "back": {
+      "ru": "почему (wae)",
+      "en": "why (wae)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "왜 그렇게 서둘러요?"
+    },
+    {
+     "front": "어느",
+     "back": {
+      "ru": "который (eoneu)",
+      "en": "which (eoneu)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "어느 것이 더 좋아요?"
+    },
+    {
+     "front": "영",
+     "back": {
+      "ru": "ноль (yeong)",
+      "en": "zero (yeong)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "기온이 영도예요."
+    },
+    {
+     "front": "하나",
+     "back": {
+      "ru": "один (hana)",
+      "en": "one (hana)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "자리가 하나 남았어요."
+    },
+    {
+     "front": "둘",
+     "back": {
+      "ru": "два (dul)",
+      "en": "two (dul)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "형이 둘 있어요."
+    },
+    {
+     "front": "셋",
+     "back": {
+      "ru": "три (set)",
+      "en": "three (set)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "사흘 뒤에 돌아와요."
+    },
+    {
+     "front": "넷",
+     "back": {
+      "ru": "четыре (net)",
+      "en": "four (net)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "탁자에 의자가 넷 있어요."
+    },
+    {
+     "front": "다섯",
+     "back": {
+      "ru": "пять (daseot)",
+      "en": "five (daseot)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "영화가 다섯 시간이에요."
+    },
+    {
+     "front": "여섯",
+     "back": {
+      "ru": "шесть (yeoseot)",
+      "en": "six (yeoseot)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "아침 여섯 시에 일어나요."
+    },
+    {
+     "front": "일곱",
+     "back": {
+      "ru": "семь (ilgop)",
+      "en": "seven (ilgop)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "일주일은 일곱 날이에요."
+    },
+    {
+     "front": "여덟",
+     "back": {
+      "ru": "восемь (yeodeol)",
+      "en": "eight (yeodeol)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "기차는 여덟 시에 떠나요."
+    },
+    {
+     "front": "아홉",
+     "back": {
+      "ru": "девять (ahop)",
+      "en": "nine (ahop)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "그 아이는 아홉 살이에요."
+    },
+    {
+     "front": "열",
+     "back": {
+      "ru": "десять (yeol)",
+      "en": "ten (yeol)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "십 분 남았어요."
+    },
+    {
+     "front": "열하나",
+     "back": {
+      "ru": "одиннадцать (yeolhana)",
+      "en": "eleven (yeolhana)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "수업은 열한 시에 끝나요."
+    },
+    {
+     "front": "열둘",
+     "back": {
+      "ru": "двенадцать (yeoldul)",
+      "en": "twelve (yeoldul)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "일 년은 열두 달이에요."
+    },
+    {
+     "front": "스물",
+     "back": {
+      "ru": "двадцать (seumul)",
+      "en": "twenty (seumul)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "표는 스무 유로예요."
+    },
+    {
+     "front": "서른",
+     "back": {
+      "ru": "тридцать (seoreun)",
+      "en": "thirty (seoreun)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "이번 달은 서른 날이에요."
+    },
+    {
+     "front": "백",
+     "back": {
+      "ru": "сто (baek)",
+      "en": "hundred (baek)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "백 미터 남았어요."
+    },
+    {
+     "front": "천",
+     "back": {
+      "ru": "тысяча (cheon)",
+      "en": "thousand (cheon)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "마을에 천 명이 살아요."
+    },
+    {
+     "front": "첫째",
+     "back": {
+      "ru": "первый (betjjae)",
+      "en": "first (betjjae)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "오늘은 학교 첫째 날이에요."
+    },
+    {
+     "front": "마지막",
+     "back": {
+      "ru": "последний (majimak)",
+      "en": "last (majimak)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "마지막 버스를 탔어요."
+    },
+    {
+     "front": "번호",
+     "back": {
+      "ru": "номер (beonho)",
+      "en": "number (beonho)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "집 번호가 몇 번이에요?"
+    },
+    {
+     "front": "절반",
+     "back": {
+      "ru": "половина (jeolban)",
+      "en": "half (jeolban)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "케이크를 절반 먹었어요."
+    },
+    {
+     "front": "날",
+     "back": {
+      "ru": "день (nal)",
+      "en": "day (nal)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "긴 하루였어요."
+    },
+    {
+     "front": "밤",
+     "back": {
+      "ru": "ночь (bam)",
+      "en": "night (bam)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "밤에는 추워요."
+    },
+    {
+     "front": "아침",
+     "back": {
+      "ru": "утро (achim)",
+      "en": "morning (achim)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "아침에는 차를 마셔요."
+    },
+    {
+     "front": "오후",
+     "back": {
+      "ru": "вечер (ohu)",
+      "en": "afternoon (ohu)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "오후에 시장에 가요."
+    },
+    {
+     "front": "오늘",
+     "back": {
+      "ru": "сегодня (oneul)",
+      "en": "today (oneul)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "오늘은 일하지 않아요."
+    },
+    {
+     "front": "내일",
+     "back": {
+      "ru": "завтра (naeil)",
+      "en": "tomorrow (naeil)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "내일 바다에 가요."
+    },
+    {
+     "front": "어제",
+     "back": {
+      "ru": "вчера (eoje)",
+      "en": "yesterday (eoje)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "어제는 하루 종일 비가 왔어요."
+    },
+    {
+     "front": "주",
+     "back": {
+      "ru": "неделя (ju)",
+      "en": "week (ju)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "다음 주에 돌아와요."
+    },
+    {
+     "front": "개월",
+     "back": {
+      "ru": "месяц (gaewol)",
+      "en": "month (gaewol)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "세 개월 동안 배웠어요."
+    },
+    {
+     "front": "해",
+     "back": {
+      "ru": "год (hae)",
+      "en": "year (hae)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "작년은 힘든 해였어요."
+    },
+    {
+     "front": "시간",
+     "back": {
+      "ru": "час (sigan)",
+      "en": "hour (sigan)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "여행은 한 시간 걸려요."
+    },
+    {
+     "front": "분",
+     "back": {
+      "ru": "минута (bun)",
+      "en": "minute (bun)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "잠깐 일 분만 기다려 주세요."
+    },
+    {
+     "front": "때",
+     "back": {
+      "ru": "время (ttae)",
+      "en": "time (ttae)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "지금은 그럴 때가 아니에요."
+    },
+    {
+     "front": "지금",
+     "back": {
+      "ru": "сейчас (jigeum)",
+      "en": "now (jigeum)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "지금은 바빠요."
+    },
+    {
+     "front": "항상",
+     "back": {
+      "ru": "всегда (hangsang)",
+      "en": "always (hangsang)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "그녀는 항상 일찍 와요."
+    },
+    {
+     "front": "결코",
+     "back": {
+      "ru": "никогда (gyeolko)",
+      "en": "never (gyeolko)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "로마에는 결코 가 본 적이 없어요."
+    },
+    {
+     "front": "일찍",
+     "back": {
+      "ru": "рано (iljjik)",
+      "en": "early (iljjik)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "오늘은 아주 일찍 일어났어요."
+    },
+    {
+     "front": "월요일",
+     "back": {
+      "ru": "понедельник (woryoil)",
+      "en": "Monday (woryoil)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "월요일에 진료가 있어요."
+    },
+    {
+     "front": "토요일",
+     "back": {
+      "ru": "суббота (toyoil)",
+      "en": "Saturday (toyoil)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "토요일에는 늦게까지 자요."
+    },
+    {
+     "front": "일요일",
+     "back": {
+      "ru": "воскресенье (iryoil)",
+      "en": "Sunday (iryoil)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "일요일에는 가족과 점심을 먹어요."
+    },
+    {
+     "front": "집",
+     "back": {
+      "ru": "дом (jip)",
+      "en": "house (jip)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "집 뒤에 마당이 있어요."
+    },
+    {
+     "front": "도시",
+     "back": {
+      "ru": "город (dosi)",
+      "en": "city (dosi)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "서울은 큰 도시예요."
+    },
+    {
+     "front": "마을",
+     "back": {
+      "ru": "деревня (maeul)",
+      "en": "village (maeul)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "마을은 산기슭에 있어요."
+    },
+    {
+     "front": "거리",
+     "back": {
+      "ru": "улица (geori)",
+      "en": "street (geori)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "거리가 사람으로 가득해요."
+    },
+    {
+     "front": "학교",
+     "back": {
+      "ru": "школа (hakgyo)",
+      "en": "school (hakgyo)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "학교는 여덟 시에 열어요."
+    },
+    {
+     "front": "일",
+     "back": {
+      "ru": "работа (il)",
+      "en": "work (il)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "일은 여섯 시에 끝나요."
+    },
+    {
+     "front": "가게",
+     "back": {
+      "ru": "магазин (gage)",
+      "en": "shop (gage)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "가게는 일요일에 문을 닫아요."
+    },
+    {
+     "front": "시장",
+     "back": {
+      "ru": "рынок (sijang)",
+      "en": "market (sijang)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "과일은 시장에서 사요."
+    },
+    {
+     "front": "병원",
+     "back": {
+      "ru": "больница (byeongwon)",
+      "en": "hospital (byeongwon)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "병원은 여기서 가까워요."
+    },
+    {
+     "front": "약국",
+     "back": {
+      "ru": "аптека (yakguk)",
+      "en": "pharmacy (yakguk)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "약국은 밤에도 열어요."
+    },
+    {
+     "front": "은행",
+     "back": {
+      "ru": "банк (eunhaeng)",
+      "en": "bank (eunhaeng)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "오전에 은행에 가요."
+    },
+    {
+     "front": "호텔",
+     "back": {
+      "ru": "гостиница (hotel)",
+      "en": "hotel (hotel)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "호텔은 바다 바로 옆이에요."
+    },
+    {
+     "front": "교회",
+     "back": {
+      "ru": "церковь (gyohoe)",
+      "en": "church (gyohoe)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "이 교회는 아주 오래됐어요."
+    },
+    {
+     "front": "정원",
+     "back": {
+      "ru": "сад (jeongwon)",
+      "en": "garden (jeongwon)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "정원이 꽃으로 가득해요."
+    },
+    {
+     "front": "해변",
+     "back": {
+      "ru": "пляж (haebyeon)",
+      "en": "beach (haebyeon)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "해변까지 십 분 걸려요."
+    },
+    {
+     "front": "바다",
+     "back": {
+      "ru": "море (bada)",
+      "en": "sea (bada)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "오늘은 바다가 잔잔해요."
+    },
+    {
+     "front": "강",
+     "back": {
+      "ru": "река (gang)",
+      "en": "river (gang)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "강이 도시를 가로질러요."
+    },
+    {
+     "front": "산",
+     "back": {
+      "ru": "гора (san)",
+      "en": "mountain (san)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "산 정상에 눈이 있어요."
+    },
+    {
+     "front": "밭",
+     "back": {
+      "ru": "поле (bat)",
+      "en": "field (bat)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "밭에서 밀이 자라요."
+    },
+    {
+     "front": "숲",
+     "back": {
+      "ru": "лес (sup)",
+      "en": "forest (sup)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "다리 건너서 숲이 시작돼요."
+    },
+    {
+     "front": "나라",
+     "back": {
+      "ru": "страна (nara)",
+      "en": "country (nara)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "포르투갈은 작은 나라예요."
+    },
+    {
+     "front": "세계",
+     "back": {
+      "ru": "мир (segye)",
+      "en": "world (segye)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "그는 세계의 절반을 여행했어요."
+    },
+    {
+     "front": "길",
+     "back": {
+      "ru": "дорога (gil)",
+      "en": "road (gil)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "길이 좁아요."
+    },
+    {
+     "front": "다리",
+     "back": {
+      "ru": "мост (dari)",
+      "en": "bridge (dari)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "다리는 공사로 막혔어요."
+    },
+    {
+     "front": "역",
+     "back": {
+      "ru": "вокзал (yeok)",
+      "en": "station (yeok)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "역에서 만나요."
+    },
+    {
+     "front": "공항",
+     "back": {
+      "ru": "аэропорт (gonghang)",
+      "en": "airport (gonghang)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "공항은 도심에서 멀어요."
+    },
+    {
+     "front": "방",
+     "back": {
+      "ru": "комната (bang)",
+      "en": "room (bang)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "방에 큰 창문이 있어요."
+    },
+    {
+     "front": "부엌",
+     "back": {
+      "ru": "кухня (bueok)",
+      "en": "kitchen (bueok)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "부엌에서 커피 향이 나요."
+    },
+    {
+     "front": "문",
+     "back": {
+      "ru": "дверь (mun)",
+      "en": "door (mun)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "추우니까 문을 닫아요."
+    },
+    {
+     "front": "창문",
+     "back": {
+      "ru": "окно (changmun)",
+      "en": "window (changmun)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "답답하니 창문을 열어요."
+    },
+    {
+     "front": "탁자",
+     "back": {
+      "ru": "стол (takja)",
+      "en": "table (takja)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "접시를 탁자에 놓으세요."
+    },
+    {
+     "front": "의자",
+     "back": {
+      "ru": "стул (uija)",
+      "en": "chair (uija)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "탁자에 의자가 하나 부족해요."
+    },
+    {
+     "front": "침대",
+     "back": {
+      "ru": "кровать (chimdae)",
+      "en": "bed (chimdae)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "이 침대는 너무 딱딱해요."
+    },
+    {
+     "front": "자동차",
+     "back": {
+      "ru": "машина (jadongcha)",
+      "en": "car (jadongcha)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "아침에 자동차 시동이 안 걸려요."
+    },
+    {
+     "front": "버스",
+     "back": {
+      "ru": "автобус (beoseu)",
+      "en": "bus (beoseu)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "버스는 삼십 분마다 와요."
+    },
+    {
+     "front": "기차",
+     "back": {
+      "ru": "поезд (gicha)",
+      "en": "train (gicha)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "기차가 늦게 도착했어요."
+    },
+    {
+     "front": "비행기",
+     "back": {
+      "ru": "самолёт (bihaenggi)",
+      "en": "plane (bihaenggi)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "비행기는 일곱 시에 떠나요."
+    },
+    {
+     "front": "자전거",
+     "back": {
+      "ru": "велосипед (jajeongeo)",
+      "en": "bicycle (jajeongeo)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "자전거로 출근해요."
+    },
+    {
+     "front": "태양",
+     "back": {
+      "ru": "солнце (taeyang)",
+      "en": "sun (taeyang)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "태양이 여섯 시 반에 떠요."
+    },
+    {
+     "front": "달",
+     "back": {
+      "ru": "луна (dal)",
+      "en": "moon (dal)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "오늘 밤 달이 아주 밝아요."
+    },
+    {
+     "front": "별",
+     "back": {
+      "ru": "звезда (byeol)",
+      "en": "star (byeol)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "하늘에 아주 밝은 별이 보여요."
+    },
+    {
+     "front": "하늘",
+     "back": {
+      "ru": "небо (haneul)",
+      "en": "sky (haneul)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "하늘이 맑아요."
+    },
+    {
+     "front": "비",
+     "back": {
+      "ru": "дождь (bi)",
+      "en": "rain (bi)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "어제부터 비가 그치지 않아요."
+    },
+    {
+     "front": "바람",
+     "back": {
+      "ru": "ветер (baram)",
+      "en": "wind (baram)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "바람에 의자가 넘어졌어요."
+    },
+    {
+     "front": "흰 눈",
+     "back": {
+      "ru": "снег (huin nun)",
+      "en": "snow (huin nun)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "여기는 흰 눈이 드물어요."
+    },
+    {
+     "front": "불",
+     "back": {
+      "ru": "огонь (bul)",
+      "en": "fire (bul)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "벽난로에 불을 피웠어요."
+    },
+    {
+     "front": "땅",
+     "back": {
+      "ru": "земля (ttang)",
+      "en": "earth (ttang)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "땅이 아직 젖어 있어요."
+    },
+    {
+     "front": "나무",
+     "back": {
+      "ru": "дерево (namu)",
+      "en": "tree (namu)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "나무가 마당에 그늘을 줘요."
+    },
+    {
+     "front": "꽃",
+     "back": {
+      "ru": "цветок (kkot)",
+      "en": "flower (kkot)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "거리에서 꽃 한 송이를 사 왔어요."
+    },
+    {
+     "front": "동물",
+     "back": {
+      "ru": "животное (dongmul)",
+      "en": "animal (dongmul)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "저건 무슨 동물이에요?"
+    },
+    {
+     "front": "개",
+     "back": {
+      "ru": "собака (gae)",
+      "en": "dog (gae)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "개가 문 앞에서 자요."
+    },
+    {
+     "front": "고양이",
+     "back": {
+      "ru": "кошка (goyangi)",
+      "en": "cat (goyangi)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "고양이가 지붕에 올라갔어요."
+    },
+    {
+     "front": "새",
+     "back": {
+      "ru": "птица (sae)",
+      "en": "bird (sae)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "아침에 새가 울었어요."
+    },
+    {
+     "front": "말",
+     "back": {
+      "ru": "лошадь (mal)",
+      "en": "horse (mal)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "말이 들판을 달려요."
+    },
+    {
+     "front": "책",
+     "back": {
+      "ru": "книга (chaek)",
+      "en": "book (chaek)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "이 책은 삼백 쪽이에요."
+    },
+    {
+     "front": "종이",
+     "back": {
+      "ru": "бумага (jongi)",
+      "en": "paper (jongi)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "종이 한 장 주세요."
+    },
+    {
+     "front": "펜",
+     "back": {
+      "ru": "ручка (pen)",
+      "en": "pen (pen)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "펜에 잉크가 다 됐어요."
+    },
+    {
+     "front": "전화",
+     "back": {
+      "ru": "телефон (jeonhwa)",
+      "en": "phone (jeonhwa)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "전화가 두 번 울렸어요."
+    },
+    {
+     "front": "컴퓨터",
+     "back": {
+      "ru": "компьютер (keompyuteo)",
+      "en": "computer (keompyuteo)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "컴퓨터가 느려요."
+    },
+    {
+     "front": "돈",
+     "back": {
+      "ru": "деньги (don)",
+      "en": "money (don)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "지금 돈이 없어요."
+    },
+    {
+     "front": "열쇠",
+     "back": {
+      "ru": "ключ (yeolsoe)",
+      "en": "key (yeolsoe)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "집 열쇠를 잃어버렸어요."
+    },
+    {
+     "front": "손목시계",
+     "back": {
+      "ru": "часы (sonmoksigye)",
+      "en": "watch (sonmoksigye)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "손목시계가 빨라요."
+    },
+    {
+     "front": "불빛",
+     "back": {
+      "ru": "свет (bulbit)",
+      "en": "light (bulbit)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "불빛 좀 켜 주세요."
+    },
+    {
+     "front": "음악",
+     "back": {
+      "ru": "музыка (eumak)",
+      "en": "music (eumak)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "음악이 옆 카페에서 들려요."
+    },
+    {
+     "front": "영화",
+     "back": {
+      "ru": "фильм (yeonghwa)",
+      "en": "film (yeonghwa)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "영화는 아홉 시에 시작해요."
+    },
+    {
+     "front": "사진",
+     "back": {
+      "ru": "фотография (sajin)",
+      "en": "photo (sajin)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "광장 사진을 찍었어요."
+    },
+    {
+     "front": "편지",
+     "back": {
+      "ru": "письмо (pyeonji)",
+      "en": "letter (pyeonji)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "할머니한테서 편지를 받았어요."
+    },
+    {
+     "front": "신문",
+     "back": {
+      "ru": "газета (sinmun)",
+      "en": "newspaper (sinmun)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "아침 식사 때 신문을 읽어요."
+    },
+    {
+     "front": "색",
+     "back": {
+      "ru": "цвет (saek)",
+      "en": "colour (saek)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "차 색이 뭐예요?"
+    },
+    {
+     "front": "단어",
+     "back": {
+      "ru": "слово (daneo)",
+      "en": "word (daneo)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "마지막 단어를 못 알아들었어요."
+    },
+    {
+     "front": "언어",
+     "back": {
+      "ru": "язык (eoneo)",
+      "en": "language (eoneo)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "한국어는 제 모국어예요."
+    },
+    {
+     "front": "머리",
+     "back": {
+      "ru": "голова (meori)",
+      "en": "head (meori)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "어제부터 머리가 아파요."
+    },
+    {
+     "front": "손",
+     "back": {
+      "ru": "рука (son)",
+      "en": "hand (son)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "손 좀 주세요."
+    },
+    {
+     "front": "발",
+     "back": {
+      "ru": "нога (bal)",
+      "en": "foot (bal)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "발이 부었어요."
+    },
+    {
+     "front": "눈",
+     "back": {
+      "ru": "глаз (nun)",
+      "en": "eye (nun)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "눈에 먼지가 들어갔어요."
+    },
+    {
+     "front": "입",
+     "back": {
+      "ru": "рот (ip)",
+      "en": "mouth (ip)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "의사가 입을 벌리라고 했어요."
+    },
+    {
+     "front": "심장",
+     "back": {
+      "ru": "сердце (simjang)",
+      "en": "heart (simjang)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "심장이 빨리 뛰어요."
+    },
+    {
+     "front": "머리카락",
+     "back": {
+      "ru": "волосы (meorikarak)",
+      "en": "hair (meorikarak)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "어제 머리카락을 잘랐어요."
+    },
+    {
+     "front": "몸",
+     "back": {
+      "ru": "тело (mom)",
+      "en": "body (mom)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "몸이 쉬라고 해요."
+    },
+    {
+     "front": "좋다",
+     "back": {
+      "ru": "хороший (jota)",
+      "en": "good (jota)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "좋은 하루였어요."
+    },
+    {
+     "front": "나쁘다",
+     "back": {
+      "ru": "плохой (nappeuda)",
+      "en": "bad (nappeuda)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "날씨가 나빠요."
+    },
+    {
+     "front": "크다",
+     "back": {
+      "ru": "большой (keuda)",
+      "en": "big (keuda)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "큰 탁자가 필요해요."
+    },
+    {
+     "front": "작다",
+     "back": {
+      "ru": "маленький (jakda)",
+      "en": "small (jakda)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "방은 작지만 밝아요."
+    },
+    {
+     "front": "새롭다",
+     "back": {
+      "ru": "новый (saeropda)",
+      "en": "new (saeropda)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "새 전화를 샀어요."
+    },
+    {
+     "front": "낡다",
+     "back": {
+      "ru": "старый (nakda)",
+      "en": "old (nakda)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "이 건물은 낡았어요."
+    },
+    {
+     "front": "젊다",
+     "back": {
+      "ru": "молодой (jeomda)",
+      "en": "young (jeomda)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "젊은 선생님이에요."
+    },
+    {
+     "front": "높다",
+     "back": {
+      "ru": "высокий (nopda)",
+      "en": "tall (nopda)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "건물이 아주 높아요."
+    },
+    {
+     "front": "낮다",
+     "back": {
+      "ru": "низкий (natda)",
+      "en": "short (natda)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "천장이 낮아요."
+    },
+    {
+     "front": "길다",
+     "back": {
+      "ru": "длинный (gilda)",
+      "en": "long (gilda)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "길이 길어요."
+    },
+    {
+     "front": "짧다",
+     "back": {
+      "ru": "короткий (jjalda)",
+      "en": "short (jjalda)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "영화가 짧았어요."
+    },
+    {
+     "front": "뜨겁다",
+     "back": {
+      "ru": "горячий (tteugeopda)",
+      "en": "hot (tteugeopda)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "차가 뜨거워요."
+    },
+    {
+     "front": "차갑다",
+     "back": {
+      "ru": "холодный (chagapda)",
+      "en": "cold (chagapda)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "방이 차가워요."
+    },
+    {
+     "front": "아름답다",
+     "back": {
+      "ru": "красивый (areumdapda)",
+      "en": "beautiful (areumdapda)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "경치가 정말 아름다워요."
+    },
+    {
+     "front": "못생기다",
+     "back": {
+      "ru": "некрасивый (motsaenggida)",
+      "en": "ugly (motsaenggida)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "새 건물은 못생겼어요."
+    },
+    {
+     "front": "쉽다",
+     "back": {
+      "ru": "лёгкий (swipda)",
+      "en": "easy (swipda)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "연습은 쉬웠어요."
+    },
+    {
+     "front": "어렵다",
+     "back": {
+      "ru": "трудный (eoryeopda)",
+      "en": "difficult (eoryeopda)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "질문이 어려워요."
+    },
+    {
+     "front": "강하다",
+     "back": {
+      "ru": "сильный (ganghada)",
+      "en": "strong (ganghada)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "그는 아주 강해요."
+    },
+    {
+     "front": "약하다",
+     "back": {
+      "ru": "слабый (yakhada)",
+      "en": "weak (yakhada)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "신호가 약해요."
+    },
+    {
+     "front": "빠르다",
+     "back": {
+      "ru": "быстрый (ppareuda)",
+      "en": "fast (ppareuda)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "기차는 빨라요."
+    },
+    {
+     "front": "느리다",
+     "back": {
+      "ru": "медленный (neurida)",
+      "en": "slow (neurida)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "여기 서비스는 느려요."
+    },
+    {
+     "front": "비싸다",
+     "back": {
+      "ru": "дорогой (bissada)",
+      "en": "expensive (bissada)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "호텔이 비싸요."
+    },
+    {
+     "front": "싸다",
+     "back": {
+      "ru": "дешёвый (ssada)",
+      "en": "cheap (ssada)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "싼 표를 찾았어요."
+    },
+    {
+     "front": "깨끗하다",
+     "back": {
+      "ru": "чистый (kkaekkeutada)",
+      "en": "clean (kkaekkeutada)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "바닥이 깨끗해요."
+    },
+    {
+     "front": "더럽다",
+     "back": {
+      "ru": "грязный (deoreopda)",
+      "en": "dirty (deoreopda)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "차가 먼지로 더러워요."
+    },
+    {
+     "front": "가득하다",
+     "back": {
+      "ru": "полный (gadeukada)",
+      "en": "full (gadeukada)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "버스가 가득 찼어요."
+    },
+    {
+     "front": "비다",
+     "back": {
+      "ru": "пустой (bida)",
+      "en": "empty (bida)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "컵이 비었어요."
+    },
+    {
+     "front": "행복하다",
+     "back": {
+      "ru": "счастливый (haengbokada)",
+      "en": "happy (haengbokada)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "그 소식에 행복해했어요."
+    },
+    {
+     "front": "슬프다",
+     "back": {
+      "ru": "грустный (seulpeuda)",
+      "en": "sad (seulpeuda)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "일에서 슬픈 얼굴로 돌아왔어요."
+    },
+    {
+     "front": "피곤하다",
+     "back": {
+      "ru": "усталый (pigonhada)",
+      "en": "tired (pigonhada)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "하루가 끝나니 피곤해요."
+    },
+    {
+     "front": "아프다",
+     "back": {
+      "ru": "больной (apeuda)",
+      "en": "sick (apeuda)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "아들이 아파요."
+    },
+    {
+     "front": "맞다",
+     "back": {
+      "ru": "правильный (matda)",
+      "en": "right (matda)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "답이 맞아요."
+    },
+    {
+     "front": "틀리다",
+     "back": {
+      "ru": "неправильный (teullida)",
+      "en": "wrong (teullida)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "번호가 틀렸어요."
+    },
+    {
+     "front": "하얗다",
+     "back": {
+      "ru": "белый (hayata)",
+      "en": "white (hayata)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "벽이 하얘요."
+    },
+    {
+     "front": "검다",
+     "back": {
+      "ru": "чёрный (geomda)",
+      "en": "black (geomda)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "검은 고양이를 키워요."
+    },
+    {
+     "front": "빨갛다",
+     "back": {
+      "ru": "красный (ppalgata)",
+      "en": "red (ppalgata)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "신호등이 빨개요."
+    },
+    {
+     "front": "파랗다",
+     "back": {
+      "ru": "синий (parata)",
+      "en": "blue (parata)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "바다가 아주 파래요."
+    },
+    {
+     "front": "초록",
+     "back": {
+      "ru": "зелёный (chorok)",
+      "en": "green (chorok)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "봄에는 잎이 초록이 돼요."
+    },
+    {
+     "front": "노랗다",
+     "back": {
+      "ru": "жёлтый (norata)",
+      "en": "yellow (norata)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "집이 노래요."
+    },
+    {
+     "front": "여기",
+     "back": {
+      "ru": "здесь (yeogi)",
+      "en": "here (yeogi)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "여기서 잠깐 기다려요."
+    },
+    {
+     "front": "저기",
+     "back": {
+      "ru": "там (jeogi)",
+      "en": "there (jeogi)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "차는 저기 있어요."
+    },
+    {
+     "front": "많이",
+     "back": {
+      "ru": "много (mani)",
+      "en": "much (mani)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "차를 많이 마셔요."
+    },
+    {
+     "front": "조금",
+     "back": {
+      "ru": "мало (jogeum)",
+      "en": "little (jogeum)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "어젯밤에 조금밖에 못 잤어요."
+    },
+    {
+     "front": "더",
+     "back": {
+      "ru": "больше (deo)",
+      "en": "more (deo)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "시간이 더 필요해요."
+    },
+    {
+     "front": "덜",
+     "back": {
+      "ru": "меньше (deol)",
+      "en": "less (deol)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "오늘은 사람이 덜 많아요."
+    },
+    {
+     "front": "또한",
+     "back": {
+      "ru": "тоже (ttohan)",
+      "en": "also (ttohan)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "저도 또한 갑니다."
+    },
+    {
+     "front": "잘",
+     "back": {
+      "ru": "хорошо (jal)",
+      "en": "well (jal)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "그녀는 프랑스어를 잘해요."
+    },
+    {
+     "front": "나쁘게",
+     "back": {
+      "ru": "плохо (nappeuge)",
+      "en": "badly (nappeuge)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "어젯밤에 잠을 나쁘게 잤어요."
+    },
+    {
+     "front": "와 함께",
+     "back": {
+      "ru": "с (wa hamkke)",
+      "en": "with (wa hamkke)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "누나와 함께 가요."
+    },
+    {
+     "front": "없이",
+     "back": {
+      "ru": "без (eopsi)",
+      "en": "without (eopsi)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "커피는 설탕 없이 마셔요."
+    },
+    {
+     "front": "위해",
+     "back": {
+      "ru": "для (wihae)",
+      "en": "for (wihae)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "이 소포는 당신을 위해서예요."
+    },
+    {
+     "front": "그러나",
+     "back": {
+      "ru": "но (geureona)",
+      "en": "but (geureona)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "가고 싶지만 그러나 못 가요."
+    },
+    {
+     "front": "또는",
+     "back": {
+      "ru": "или (ttoneun)",
+      "en": "or (ttoneun)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "차 또는 커피 드릴까요?"
+    },
+    {
+     "front": "왜냐하면",
+     "back": {
+      "ru": "потому что (waenyahamyeon)",
+      "en": "because (waenyahamyeon)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "집에 있었어요, 왜냐하면 비가 왔거든요."
+    },
+    {
+     "front": "만약",
+     "back": {
+      "ru": "если (manyak)",
+      "en": "if (manyak)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "만약 비가 오면 집에 있어요."
+    },
+    {
+     "front": "아마",
+     "back": {
+      "ru": "может быть (ama)",
+      "en": "maybe (ama)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "아마 내일 올 거예요."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "이다",
+     "back": {
+      "ru": "быть (ida)",
+      "en": "to be (ida)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "그녀는 음악 선생님이다."
+    },
+    {
+     "front": "있다",
+     "back": {
+      "ru": "находиться (itda)",
+      "en": "to be (state) (itda)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "여섯 시부터 집에 있어요."
+    },
+    {
+     "front": "가지다",
+     "back": {
+      "ru": "иметь (gajida)",
+      "en": "to have (gajida)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "형제가 둘 있어요."
+    },
+    {
+     "front": "하다",
+     "back": {
+      "ru": "делать (hada)",
+      "en": "to do (hada)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "일요일에 뭐 해요?"
+    },
+    {
+     "front": "가다",
+     "back": {
+      "ru": "идти (gada)",
+      "en": "to go (gada)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "지금 시장에 가요."
+    },
+    {
+     "front": "오다",
+     "back": {
+      "ru": "приходить (oda)",
+      "en": "to come (oda)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "저녁 먹으러 올래요?"
+    },
+    {
+     "front": "말하다",
+     "back": {
+      "ru": "говорить (malhada)",
+      "en": "to say (malhada)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "사실대로 말해 주세요."
+    },
+    {
+     "front": "보다",
+     "back": {
+      "ru": "видеть (boda)",
+      "en": "to see (boda)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "거리에서 형을 봤어요."
+    },
+    {
+     "front": "주다",
+     "back": {
+      "ru": "давать (juda)",
+      "en": "to give (juda)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "열쇠 좀 주세요."
+    },
+    {
+     "front": "알다",
+     "back": {
+      "ru": "знать (alda)",
+      "en": "to know (alda)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "그가 어디 사는지 몰라요."
+    },
+    {
+     "front": "할 수 있다",
+     "back": {
+      "ru": "мочь (hal su itda)",
+      "en": "can (hal su itda)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "도와줄 수 있어요?"
+    },
+    {
+     "front": "원하다",
+     "back": {
+      "ru": "хотеть (wonhada)",
+      "en": "to want (wonhada)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "물 한 잔 원해요."
+    },
+    {
+     "front": "해야 하다",
+     "back": {
+      "ru": "быть должным (haeya hada)",
+      "en": "must (haeya hada)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "오늘은 일찍 나가야 해요."
+    },
+    {
+     "front": "머무르다",
+     "back": {
+      "ru": "оставаться (meomureuda)",
+      "en": "to stay (meomureuda)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "오늘 밤은 집에 머물러요."
+    },
+    {
+     "front": "지나가다",
+     "back": {
+      "ru": "проходить (jinagada)",
+      "en": "to pass (jinagada)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "버스는 아홉 시에 지나가요."
+    },
+    {
+     "front": "도착하다",
+     "back": {
+      "ru": "прибывать (dochakada)",
+      "en": "to arrive (dochakada)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "기차가 늦게 도착했어요."
+    },
+    {
+     "front": "나가다",
+     "back": {
+      "ru": "выходить (nagada)",
+      "en": "to leave (nagada)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "여섯 시에 퇴근해서 나가요."
+    },
+    {
+     "front": "들어가다",
+     "back": {
+      "ru": "входить (deureogada)",
+      "en": "to enter (deureogada)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "들어오세요, 문이 열려 있어요."
+    },
+    {
+     "front": "돌아오다",
+     "back": {
+      "ru": "возвращаться (doraoda)",
+      "en": "to return (doraoda)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "삼십 분 뒤에 돌아와요."
+    },
+    {
+     "front": "시작하다",
+     "back": {
+      "ru": "начинать (sijakada)",
+      "en": "to begin (sijakada)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "수업은 여덟 시에 시작해요."
+    },
+    {
+     "front": "끝내다",
+     "back": {
+      "ru": "заканчивать (kkeutnaeda)",
+      "en": "to finish (kkeutnaeda)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "어제 책을 다 끝냈어요."
+    },
+    {
+     "front": "계속하다",
+     "back": {
+      "ru": "продолжать (gyesokada)",
+      "en": "to continue (gyesokada)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "비가 계속 와요."
+    },
+    {
+     "front": "멈추다",
+     "back": {
+      "ru": "останавливаться (meomchuda)",
+      "en": "to stop (meomchuda)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "차가 문 앞에 멈췄어요."
+    },
+    {
+     "front": "기다리다",
+     "back": {
+      "ru": "ждать (gidarida)",
+      "en": "to wait (gidarida)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "역에서 기다릴게요."
+    },
+    {
+     "front": "찾아내다",
+     "back": {
+      "ru": "находить (chajanaeda)",
+      "en": "to find (chajanaeda)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "탁자 위에서 열쇠를 찾아냈어요."
+    },
+    {
+     "front": "찾다",
+     "back": {
+      "ru": "искать (chatda)",
+      "en": "to look for (chatda)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "문법책을 찾고 있어요."
+    },
+    {
+     "front": "잃다",
+     "back": {
+      "ru": "терять (ilta)",
+      "en": "to lose (ilta)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "일곱 시 기차를 놓쳤어요."
+    },
+    {
+     "front": "이기다",
+     "back": {
+      "ru": "выигрывать (igida)",
+      "en": "to win (igida)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "우리 팀이 이겼어요."
+    },
+    {
+     "front": "사다",
+     "back": {
+      "ru": "покупать (sada)",
+      "en": "to buy (sada)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "저녁으로 빵을 샀어요."
+    },
+    {
+     "front": "팔다",
+     "back": {
+      "ru": "продавать (palda)",
+      "en": "to sell (palda)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "모퉁이에서 과일을 팔아요."
+    },
+    {
+     "front": "지불하다",
+     "back": {
+      "ru": "платить (jibulhada)",
+      "en": "to pay (jibulhada)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "커피는 제가 지불할게요."
+    },
+    {
+     "front": "값이 나가다",
+     "back": {
+      "ru": "стоить (gapsi nagada)",
+      "en": "to cost (gapsi nagada)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "표가 얼마나 값이 나가요?"
+    },
+    {
+     "front": "일하다",
+     "back": {
+      "ru": "работать (ilhada)",
+      "en": "to work (ilhada)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "병원에서 일해요."
+    },
+    {
+     "front": "공부하다",
+     "back": {
+      "ru": "учиться (gongbuhada)",
+      "en": "to study (gongbuhada)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "한국어를 일 년째 공부해요."
+    },
+    {
+     "front": "배우다",
+     "back": {
+      "ru": "изучать (baeuda)",
+      "en": "to learn (baeuda)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "어릴 때 수영을 배웠어요."
+    },
+    {
+     "front": "가르치다",
+     "back": {
+      "ru": "учить (gareuchida)",
+      "en": "to teach (gareuchida)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "시골 학교에서 가르쳐요."
+    },
+    {
+     "front": "읽다",
+     "back": {
+      "ru": "читать (iktta)",
+      "en": "to read (iktta)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "아침에 신문을 읽어요."
+    },
+    {
+     "front": "쓰다",
+     "back": {
+      "ru": "писать (sseuda)",
+      "en": "to write (sseuda)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "그녀에게 긴 편지를 썼어요."
+    },
+    {
+     "front": "이야기하다",
+     "back": {
+      "ru": "разговаривать (iyagihada)",
+      "en": "to speak (iyagihada)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "어제 전화로 이야기했어요."
+    },
+    {
+     "front": "들리다",
+     "back": {
+      "ru": "слышать (deullida)",
+      "en": "to hear (deullida)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "부엌에서 소리가 들렸어요."
+    },
+    {
+     "front": "듣다",
+     "back": {
+      "ru": "слушать (deutda)",
+      "en": "to listen (deutda)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "제 말을 잘 들으세요."
+    },
+    {
+     "front": "바라보다",
+     "back": {
+      "ru": "смотреть (baraboda)",
+      "en": "to look (baraboda)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "왼쪽을 바라보세요."
+    },
+    {
+     "front": "느끼다",
+     "back": {
+      "ru": "чувствовать (neukkida)",
+      "en": "to feel (neukkida)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "손이 차갑게 느껴져요."
+    },
+    {
+     "front": "생각하다",
+     "back": {
+      "ru": "думать (saenggakada)",
+      "en": "to think (saenggakada)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "어제부터 그걸 생각하고 있어요."
+    },
+    {
+     "front": "기억하다",
+     "back": {
+      "ru": "помнить (gieokada)",
+      "en": "to remember (gieokada)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "그날을 잘 기억해요."
+    },
+    {
+     "front": "잊다",
+     "back": {
+      "ru": "забывать (itda (mangak))",
+      "en": "to forget (itda (mangak))",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "이름을 잊었어요."
+    },
+    {
+     "front": "이해하다",
+     "back": {
+      "ru": "понимать (ihaehada)",
+      "en": "to understand (ihaehada)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "질문을 이해하지 못했어요."
+    },
+    {
+     "front": "설명하다",
+     "back": {
+      "ru": "объяснять (seolmyeonghada)",
+      "en": "to explain (seolmyeonghada)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "다시 한번 설명해 주세요."
+    },
+    {
+     "front": "묻다",
+     "back": {
+      "ru": "спрашивать (mutda)",
+      "en": "to ask (mutda)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "이웃에게 물었어요."
+    },
+    {
+     "front": "대답하다",
+     "back": {
+      "ru": "отвечать (daedapada)",
+      "en": "to answer (daedapada)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "그녀는 아직 대답하지 않았어요."
+    },
+    {
+     "front": "부르다",
+     "back": {
+      "ru": "звать (bureuda)",
+      "en": "to call (bureuda)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "빨리 의사를 불러요."
+    },
+    {
+     "front": "전화하다",
+     "back": {
+      "ru": "звонить (jeonhwahada)",
+      "en": "to phone (jeonhwahada)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "저녁에 전화할게요."
+    },
+    {
+     "front": "열다",
+     "back": {
+      "ru": "открывать (yeolda)",
+      "en": "to open (yeolda)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "창문 좀 열어 주세요."
+    },
+    {
+     "front": "닫다",
+     "back": {
+      "ru": "закрывать (datda)",
+      "en": "to close (datda)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "나갈 때 문을 닫아요."
+    },
+    {
+     "front": "놓다",
+     "back": {
+      "ru": "класть (nota)",
+      "en": "to put (nota)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "빵을 탁자에 놓으세요."
+    },
+    {
+     "front": "벗다",
+     "back": {
+      "ru": "убирать (beotda)",
+      "en": "to take off (beotda)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "입구에서 신발을 벗으세요."
+    },
+    {
+     "front": "가져가다",
+     "back": {
+      "ru": "нести (gyeojeogada)",
+      "en": "to take (gyeojeogada)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "우산을 가져가요."
+    },
+    {
+     "front": "가져오다",
+     "back": {
+      "ru": "приносить (gajyeooda)",
+      "en": "to bring (gajyeooda)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "모두에게 케이크를 가져왔어요."
+    },
+    {
+     "front": "보내다",
+     "back": {
+      "ru": "посылать (bonaeda)",
+      "en": "to send (bonaeda)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "편지를 월요일에 보냈어요."
+    },
+    {
+     "front": "받다",
+     "back": {
+      "ru": "получать (batda)",
+      "en": "to receive (batda)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "당신의 메시지를 받았어요."
+    },
+    {
+     "front": "보관하다",
+     "back": {
+      "ru": "хранить (bogwanhada)",
+      "en": "to keep (bogwanhada)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "사진은 상자에 보관해요."
+    },
+    {
+     "front": "두고 오다",
+     "back": {
+      "ru": "оставлять (dugo oda)",
+      "en": "to leave behind (dugo oda)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "외투를 차에 두고 왔어요."
+    },
+    {
+     "front": "쥐다",
+     "back": {
+      "ru": "держать (jwida)",
+      "en": "to hold (jwida)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "컵을 꼭 쥐세요."
+    },
+    {
+     "front": "밀다",
+     "back": {
+      "ru": "толкать (milda)",
+      "en": "to push (milda)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "당기지 말고 문을 미세요."
+    },
+    {
+     "front": "당기다",
+     "back": {
+      "ru": "тянуть (danggida)",
+      "en": "to pull (danggida)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "줄을 세게 당기세요."
+    },
+    {
+     "front": "잡다",
+     "back": {
+      "ru": "ловить (japda)",
+      "en": "to catch (japda)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "공을 공중에서 잡았어요."
+    },
+    {
+     "front": "보여주다",
+     "back": {
+      "ru": "показывать (boyeojuda)",
+      "en": "to show (boyeojuda)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "사진을 보여 주세요."
+    },
+    {
+     "front": "숨기다",
+     "back": {
+      "ru": "прятать (sumgida)",
+      "en": "to hide (sumgida)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "선물을 장 안에 숨겼어요."
+    },
+    {
+     "front": "바꾸다",
+     "back": {
+      "ru": "менять (bakkuda)",
+      "en": "to change (bakkuda)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "생각을 바꿨어요."
+    },
+    {
+     "front": "만들어내다",
+     "back": {
+      "ru": "создавать (mandeureonaeda)",
+      "en": "to create (mandeureonaeda)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "새 일자리를 만들어냈어요."
+    },
+    {
+     "front": "짓다",
+     "back": {
+      "ru": "строить (jitda)",
+      "en": "to build (jitda)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "옆에 건물을 짓고 있어요."
+    },
+    {
+     "front": "깨뜨리다",
+     "back": {
+      "ru": "ломать (kkaetteurida)",
+      "en": "to break (kkaetteurida)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "오늘 아침에 컵을 깨뜨렸어요."
+    },
+    {
+     "front": "자르다",
+     "back": {
+      "ru": "резать (jareuda)",
+      "en": "to cut (jareuda)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "빵을 얇게 자르세요."
+    },
+    {
+     "front": "청소하다",
+     "back": {
+      "ru": "убирать (cheongsohada)",
+      "en": "to clean (cheongsohada)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "부엌을 전부 청소했어요."
+    },
+    {
+     "front": "씻다",
+     "back": {
+      "ru": "мыть (ssitda)",
+      "en": "to wash (ssitda)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "먹기 전에 손을 씻으세요."
+    },
+    {
+     "front": "말리다",
+     "back": {
+      "ru": "сушить (mallida)",
+      "en": "to dry (mallida)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "머리를 잘 말리세요."
+    },
+    {
+     "front": "요리하다",
+     "back": {
+      "ru": "готовить (yorihada)",
+      "en": "to cook (yorihada)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "매일 요리해요."
+    },
+    {
+     "front": "먹다",
+     "back": {
+      "ru": "есть (meokda)",
+      "en": "to eat (meokda)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "여덟 시에 먹어요."
+    },
+    {
+     "front": "마시다",
+     "back": {
+      "ru": "пить (masida)",
+      "en": "to drink (masida)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "낮에는 물을 마셔요."
+    },
+    {
+     "front": "맛보다",
+     "back": {
+      "ru": "пробовать (matboda)",
+      "en": "to taste (matboda)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "국을 맛보세요, 맛있어요."
+    },
+    {
+     "front": "내다",
+     "back": {
+      "ru": "подавать (naeda)",
+      "en": "to serve (naeda)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "점심은 열두 시에 내요."
+    },
+    {
+     "front": "자다",
+     "back": {
+      "ru": "спать (jada)",
+      "en": "to sleep (jada)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "여덟 시간 내리 잤어요."
+    },
+    {
+     "front": "깨다",
+     "back": {
+      "ru": "просыпаться (kkaeda)",
+      "en": "to wake up (kkaeda)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "항상 여섯 시에 깨요."
+    },
+    {
+     "front": "일어나다",
+     "back": {
+      "ru": "вставать (ireonada)",
+      "en": "to get up (ireonada)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "일어나요, 늦었어요."
+    },
+    {
+     "front": "앉다",
+     "back": {
+      "ru": "садиться (anda)",
+      "en": "to sit (anda)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "여기 제 옆에 앉으세요."
+    },
+    {
+     "front": "눕다",
+     "back": {
+      "ru": "ложиться (nupda)",
+      "en": "to lie down (nupda)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "평일에는 일찍 누워요."
+    },
+    {
+     "front": "걷다",
+     "back": {
+      "ru": "ходить (geotda)",
+      "en": "to walk (geotda)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "하루에 삼십 분 걸어요."
+    },
+    {
+     "front": "달리다",
+     "back": {
+      "ru": "бегать (dallida)",
+      "en": "to run (dallida)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "아침에 공원에서 달려요."
+    },
+    {
+     "front": "뛰어오르다",
+     "back": {
+      "ru": "прыгать (ttwieoreuda)",
+      "en": "to jump (ttwieoreuda)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "고양이가 탁자에 뛰어올랐어요."
+    },
+    {
+     "front": "수영하다",
+     "back": {
+      "ru": "плавать (suyeonghada)",
+      "en": "to swim (suyeonghada)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "강에서 수영을 배웠어요."
+    },
+    {
+     "front": "날다",
+     "back": {
+      "ru": "летать (nalda)",
+      "en": "to fly (nalda)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "새들이 남쪽으로 날아가요."
+    },
+    {
+     "front": "여행하다",
+     "back": {
+      "ru": "путешествовать (yeohaenghada)",
+      "en": "to travel (yeohaenghada)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "기차로 여행했어요."
+    },
+    {
+     "front": "운전하다",
+     "back": {
+      "ru": "водить (unjeonhada)",
+      "en": "to drive (unjeonhada)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "그는 조심해서 운전해요."
+    },
+    {
+     "front": "올라가다",
+     "back": {
+      "ru": "подниматься (ollagada)",
+      "en": "to go up (ollagada)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "삼 층까지 올라갔어요."
+    },
+    {
+     "front": "내려가다",
+     "back": {
+      "ru": "спускаться (naeryeogada)",
+      "en": "to go down (naeryeogada)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "계단을 천천히 내려가세요."
+    },
+    {
+     "front": "떨어지다",
+     "back": {
+      "ru": "падать (tteoreojida)",
+      "en": "to fall (tteoreojida)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "컵이 탁자에서 떨어졌어요."
+    },
+    {
+     "front": "거주하다",
+     "back": {
+      "ru": "жить (geojuhada)",
+      "en": "to live (reside) (geojuhada)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "역 근처에 거주해요."
+    },
+    {
+     "front": "살다",
+     "back": {
+      "ru": "жить (salda)",
+      "en": "to live (salda)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "아흔 살까지 살았어요."
+    },
+    {
+     "front": "죽다",
+     "back": {
+      "ru": "умирать (jukda)",
+      "en": "to die (jukda)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "나무가 겨울에 죽었어요."
+    },
+    {
+     "front": "태어나다",
+     "back": {
+      "ru": "рождаться (taeeonada)",
+      "en": "to be born (taeeonada)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "삼월에 태어났어요."
+    },
+    {
+     "front": "자라다",
+     "back": {
+      "ru": "расти (jarada)",
+      "en": "to grow (jarada)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "아이들은 빨리 자라요."
+    },
+    {
+     "front": "결혼하다",
+     "back": {
+      "ru": "жениться (gyeolhonhada)",
+      "en": "to marry (gyeolhonhada)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "봄에 결혼했어요."
+    },
+    {
+     "front": "돕다",
+     "back": {
+      "ru": "помогать (dopda)",
+      "en": "to help (dopda)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "이 가방 좀 도와주세요."
+    },
+    {
+     "front": "좋아하다",
+     "back": {
+      "ru": "нравиться (joahada)",
+      "en": "to like (joahada)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "이 커피를 아주 좋아해요."
+    },
+    {
+     "front": "사랑하다",
+     "back": {
+      "ru": "любить (saranghada)",
+      "en": "to love (saranghada)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "무엇보다 가족을 사랑해요."
+    },
+    {
+     "front": "미워하다",
+     "back": {
+      "ru": "ненавидеть (miwohada)",
+      "en": "to hate (miwohada)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "일찍 일어나는 걸 미워해요."
+    },
+    {
+     "front": "웃다",
+     "back": {
+      "ru": "смеяться (utda)",
+      "en": "to laugh (utda)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "밤새 웃었어요."
+    },
+    {
+     "front": "울다",
+     "back": {
+      "ru": "плакать (ulda)",
+      "en": "to cry (ulda)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "아이가 졸려서 울었어요."
+    },
+    {
+     "front": "노래하다",
+     "back": {
+      "ru": "петь (noraehada)",
+      "en": "to sing (noraehada)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "교회 성가대에서 노래해요."
+    },
+    {
+     "front": "춤추다",
+     "back": {
+      "ru": "танцевать (chumchuda)",
+      "en": "to dance (chumchuda)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "늦게까지 춤췄어요."
+    },
+    {
+     "front": "놀다",
+     "back": {
+      "ru": "играть (nolda)",
+      "en": "to play (children) (nolda)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "아이들이 마당에서 놀아요."
+    },
+    {
+     "front": "경기하다",
+     "back": {
+      "ru": "играть (gyeonggihada)",
+      "en": "to play (a game) (gyeonggihada)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "토요일에 경기해요."
+    },
+    {
+     "front": "만지다",
+     "back": {
+      "ru": "трогать (manjida)",
+      "en": "to touch (manjida)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "칠한 데를 만지지 마세요."
+    },
+    {
+     "front": "쉬다",
+     "back": {
+      "ru": "отдыхать (swida)",
+      "en": "to rest (swida)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "조금 쉬세요."
+    },
+    {
+     "front": "시도하다",
+     "back": {
+      "ru": "пытаться (sidohada)",
+      "en": "to try (sidohada)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "세 번 전화를 시도했어요."
+    },
+    {
+     "front": "해내다",
+     "back": {
+      "ru": "удаваться (haenaeda)",
+      "en": "to manage (haenaeda)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "오늘 표를 구해냈어요."
+    },
+    {
+     "front": "필요하다",
+     "back": {
+      "ru": "нуждаться (piryohada)",
+      "en": "to need (piryohada)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "지금 도움이 필요해요."
+    },
+    {
+     "front": "사용하다",
+     "back": {
+      "ru": "использовать (sayonghada)",
+      "en": "to use (sayonghada)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "전화를 모든 일에 사용해요."
+    },
+    {
+     "front": "고르다",
+     "back": {
+      "ru": "выбирать (goreuda)",
+      "en": "to choose (goreuda)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "식당은 당신이 고르세요."
+    },
+    {
+     "front": "결정하다",
+     "back": {
+      "ru": "решать (gyeoljeonghada)",
+      "en": "to decide (gyeoljeonghada)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "하루 더 있기로 결정했어요."
+    },
+    {
+     "front": "받아들이다",
+     "back": {
+      "ru": "принимать (badadeurida)",
+      "en": "to accept (badadeurida)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "초대를 받아들였어요."
+    },
+    {
+     "front": "거절하다",
+     "back": {
+      "ru": "отказывать (geojeolhada)",
+      "en": "to refuse (geojeolhada)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "이웃의 도움을 거절했어요."
+    },
+    {
+     "front": "약속하다",
+     "back": {
+      "ru": "обещать (yaksokada)",
+      "en": "to promise (yaksokada)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "일찍 돌아온다고 약속했어요."
+    },
+    {
+     "front": "감사하다",
+     "back": {
+      "ru": "благодарить (gamsahada)",
+      "en": "to thank (gamsahada)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "참아 주셔서 감사합니다."
+    },
+    {
+     "front": "부탁하다",
+     "back": {
+      "ru": "просить (butakada)",
+      "en": "to ask for (butakada)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "물 한 잔 부탁했어요."
+    },
+    {
+     "front": "발생하다",
+     "back": {
+      "ru": "случаться (balsaenghada)",
+      "en": "to happen (balsaenghada)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "어제 무슨 일이 발생했어요?"
+    },
+    {
+     "front": "보이다",
+     "back": {
+      "ru": "казаться (boida)",
+      "en": "to seem (boida)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "피곤해 보여요."
+    },
+    {
+     "front": "켜다",
+     "back": {
+      "ru": "включать (kyeoda)",
+      "en": "to turn on (kyeoda)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "부엌 불을 켜세요."
+    },
+    {
+     "front": "끄다",
+     "back": {
+      "ru": "выключать (kkeuda)",
+      "en": "to turn off (kkeuda)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "나가기 전에 컴퓨터를 끄세요."
+    },
+    {
+     "front": "비가 오다",
+     "back": {
+      "ru": "идти (о дожде) (biga oda)",
+      "en": "to rain (biga oda)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "밤새 비가 왔어요."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "물",
+     "back": {
+      "ru": "вода (mul)",
+      "en": "water (mul)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "물 한 잔 주세요."
+    },
+    {
+     "front": "빵",
+     "back": {
+      "ru": "хлеб (ppang)",
+      "en": "bread (ppang)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "빵이 아직 따뜻해요."
+    },
+    {
+     "front": "우유",
+     "back": {
+      "ru": "молоко (uyu)",
+      "en": "milk (uyu)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "아침에 우유를 마셔요."
+    },
+    {
+     "front": "커피",
+     "back": {
+      "ru": "кофе (keopi)",
+      "en": "coffee (keopi)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "커피 한 잔 주세요."
+    },
+    {
+     "front": "차",
+     "back": {
+      "ru": "чай (cha)",
+      "en": "tea (cha)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "오후에 차를 우려요."
+    },
+    {
+     "front": "주스",
+     "back": {
+      "ru": "сок (juseu)",
+      "en": "juice (juseu)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "갓 짠 오렌지 주스."
+    },
+    {
+     "front": "포도주",
+     "back": {
+      "ru": "вино (podoju)",
+      "en": "wine (podoju)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "붉은 포도주 한 잔."
+    },
+    {
+     "front": "맥주",
+     "back": {
+      "ru": "пиво (maekju)",
+      "en": "beer (maekju)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "맥주가 시원해요."
+    },
+    {
+     "front": "얼음",
+     "back": {
+      "ru": "лёд (eoreum)",
+      "en": "ice (eoreum)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "음료에 얼음 넣을까요?"
+    },
+    {
+     "front": "설탕",
+     "back": {
+      "ru": "сахар (seoltang)",
+      "en": "sugar (seoltang)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "커피는 설탕 없이 마셔요."
+    },
+    {
+     "front": "소금",
+     "back": {
+      "ru": "соль (sogeum)",
+      "en": "salt (sogeum)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "국에 소금이 부족해요."
+    },
+    {
+     "front": "후추",
+     "back": {
+      "ru": "перец (huchu)",
+      "en": "pepper (huchu)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "후추를 조금 넣으세요."
+    },
+    {
+     "front": "올리브유",
+     "back": {
+      "ru": "оливковое масло (ollibeuyu)",
+      "en": "olive oil (ollibeuyu)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "샐러드에 올리브유를 뿌리세요."
+    },
+    {
+     "front": "버터",
+     "back": {
+      "ru": "масло (beoteo)",
+      "en": "butter (beoteo)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "빵에 버터를 바르세요."
+    },
+    {
+     "front": "치즈",
+     "back": {
+      "ru": "сыр (chijeu)",
+      "en": "cheese (chijeu)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "이 치즈는 아주 향이 좋아요."
+    },
+    {
+     "front": "달걀",
+     "back": {
+      "ru": "яйцо (dalgyal)",
+      "en": "egg (dalgyal)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "삶은 달걀을 하나 먹었어요."
+    },
+    {
+     "front": "고기",
+     "back": {
+      "ru": "мясо (gogi)",
+      "en": "meat (gogi)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "저녁에는 고기를 안 먹어요."
+    },
+    {
+     "front": "닭고기",
+     "back": {
+      "ru": "курица (dakgogi)",
+      "en": "chicken (dakgogi)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "닭고기와 감자 구이."
+    },
+    {
+     "front": "생선",
+     "back": {
+      "ru": "рыба (saengseon)",
+      "en": "fish (saengseon)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "오늘 생선이 신선해요."
+    },
+    {
+     "front": "대구",
+     "back": {
+      "ru": "треска (daegu)",
+      "en": "cod (daegu)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "대구는 소금에 절여 보관해요."
+    },
+    {
+     "front": "정어리",
+     "back": {
+      "ru": "сардина (jeongeori)",
+      "en": "sardine (jeongeori)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "숯불에 구운 정어리."
+    },
+    {
+     "front": "참치",
+     "back": {
+      "ru": "тунец (chamchi)",
+      "en": "tuna (chamchi)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "참치 샌드위치."
+    },
+    {
+     "front": "새우",
+     "back": {
+      "ru": "креветка (saeu)",
+      "en": "shrimp (saeu)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "마늘 새우 요리."
+    },
+    {
+     "front": "해산물",
+     "back": {
+      "ru": "морепродукты (haesanmul)",
+      "en": "seafood (haesanmul)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "바닷가에서 해산물을 먹었어요."
+    },
+    {
+     "front": "햄",
+     "back": {
+      "ru": "ветчина (haem)",
+      "en": "ham (haem)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "햄과 멜론."
+    },
+    {
+     "front": "소시지",
+     "back": {
+      "ru": "сосиска (sosiji)",
+      "en": "sausage (sosiji)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "아이들을 위해 소시지를 샀어요."
+    },
+    {
+     "front": "쌀",
+     "back": {
+      "ru": "рис (ssal)",
+      "en": "rice (ssal)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "일요일에는 쌀로 밥을 지어요."
+    },
+    {
+     "front": "감자",
+     "back": {
+      "ru": "картофель (gamja)",
+      "en": "potato (gamja)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "삶은 감자에 올리브유를 뿌려요."
+    },
+    {
+     "front": "국수",
+     "back": {
+      "ru": "макароны (guksu)",
+      "en": "pasta (guksu)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "바쁠 때는 국수를 만들어요."
+    },
+    {
+     "front": "밀가루",
+     "back": {
+      "ru": "мука (milgaru)",
+      "en": "flour (milgaru)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "케이크에 넣을 밀가루가 없어요."
+    },
+    {
+     "front": "수프",
+     "back": {
+      "ru": "суп (supeu)",
+      "en": "soup (supeu)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "수프가 식어요."
+    },
+    {
+     "front": "샐러드",
+     "back": {
+      "ru": "салат (saelleodeu)",
+      "en": "salad (saelleodeu)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "토마토 샐러드."
+    },
+    {
+     "front": "채소",
+     "back": {
+      "ru": "овощи (chaeso)",
+      "en": "vegetables (chaeso)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "매일 채소를 먹어요."
+    },
+    {
+     "front": "과일",
+     "back": {
+      "ru": "фрукты (gwail)",
+      "en": "fruit (gwail)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "부엌에 과일이 있어요."
+    },
+    {
+     "front": "사과",
+     "back": {
+      "ru": "яблоко (sagwa)",
+      "en": "apple (sagwa)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "직장에 사과를 하나 가져가요."
+    },
+    {
+     "front": "배",
+     "back": {
+      "ru": "груша (bae)",
+      "en": "pear (bae)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "이 배는 잘 익었어요."
+    },
+    {
+     "front": "오렌지",
+     "back": {
+      "ru": "апельсин (orenji)",
+      "en": "orange (orenji)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "오렌지를 하나 깠어요."
+    },
+    {
+     "front": "레몬",
+     "back": {
+      "ru": "лимон (remon)",
+      "en": "lemon (remon)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "레몬을 넣은 차."
+    },
+    {
+     "front": "바나나",
+     "back": {
+      "ru": "банан (banana)",
+      "en": "banana (banana)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "운동 전에 바나나를 먹었어요."
+    },
+    {
+     "front": "포도",
+     "back": {
+      "ru": "виноград (podo)",
+      "en": "grape (podo)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "포도가 달아요."
+    },
+    {
+     "front": "딸기",
+     "back": {
+      "ru": "клубника (ttalgi)",
+      "en": "strawberry (ttalgi)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "딸기에 생크림."
+    },
+    {
+     "front": "체리",
+     "back": {
+      "ru": "вишня (cheri)",
+      "en": "cherry (cheri)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "체리는 제철에 싸요."
+    },
+    {
+     "front": "복숭아",
+     "back": {
+      "ru": "персик (boksunga)",
+      "en": "peach (boksunga)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "잘 익은 복숭아."
+    },
+    {
+     "front": "멜론",
+     "back": {
+      "ru": "дыня (mellon)",
+      "en": "melon (mellon)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "멜론과 햄."
+    },
+    {
+     "front": "수박",
+     "back": {
+      "ru": "арбуз (subak)",
+      "en": "watermelon (subak)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "여름에는 시원한 수박."
+    },
+    {
+     "front": "파인애플",
+     "back": {
+      "ru": "ананас (painaepeul)",
+      "en": "pineapple (painaepeul)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "파인애플 주스."
+    },
+    {
+     "front": "무화과",
+     "back": {
+      "ru": "инжир (muhwagwa)",
+      "en": "fig (muhwagwa)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "겨울에는 말린 무화과."
+    },
+    {
+     "front": "토마토",
+     "back": {
+      "ru": "помидор (tomato)",
+      "en": "tomato (tomato)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "허브를 넣은 토마토 샐러드."
+    },
+    {
+     "front": "양파",
+     "back": {
+      "ru": "лук (yangpa)",
+      "en": "onion (yangpa)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "먼저 양파를 볶으세요."
+    },
+    {
+     "front": "마늘",
+     "back": {
+      "ru": "чеснок (maneul)",
+      "en": "garlic (maneul)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "마늘 두 쪽이면 충분해요."
+    },
+    {
+     "front": "당근",
+     "back": {
+      "ru": "морковь (danggeun)",
+      "en": "carrot (danggeun)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "당근 수프."
+    },
+    {
+     "front": "상추",
+     "back": {
+      "ru": "салат-латук (sangchu)",
+      "en": "lettuce (sangchu)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "상추를 잘 씻으세요."
+    },
+    {
+     "front": "오이",
+     "back": {
+      "ru": "огурец (oi)",
+      "en": "cucumber (oi)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "오이를 얇게 썰어요."
+    },
+    {
+     "front": "콩",
+     "back": {
+      "ru": "фасоль (kong)",
+      "en": "beans (kong)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "콩과 밥."
+    },
+    {
+     "front": "완두콩",
+     "back": {
+      "ru": "горох (wandukong)",
+      "en": "pea (wandukong)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "완두콩과 수란."
+    },
+    {
+     "front": "양배추",
+     "back": {
+      "ru": "капуста (yangbaechu)",
+      "en": "cabbage (yangbaechu)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "양배추 수프는 겨울 음식이에요."
+    },
+    {
+     "front": "호박",
+     "back": {
+      "ru": "тыква (hobak)",
+      "en": "pumpkin (hobak)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "가을에는 호박 수프."
+    },
+    {
+     "front": "버섯",
+     "back": {
+      "ru": "гриб (beoseot)",
+      "en": "mushroom (beoseot)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "버섯 볶음."
+    },
+    {
+     "front": "올리브",
+     "back": {
+      "ru": "оливка (ollibeu)",
+      "en": "olive (ollibeu)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "식사 전에 올리브를 먹어요."
+    },
+    {
+     "front": "케이크",
+     "back": {
+      "ru": "торт (keikeu)",
+      "en": "cake (keikeu)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "오렌지 케이크를 만들었어요."
+    },
+    {
+     "front": "비스킷",
+     "back": {
+      "ru": "печенье (biseukit)",
+      "en": "biscuit (biseukit)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "차에 비스킷을 곁들여요."
+    },
+    {
+     "front": "잼",
+     "back": {
+      "ru": "варенье (jaem)",
+      "en": "jam (jaem)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "빵에 딸기잼을 발랐어요."
+    },
+    {
+     "front": "초콜릿",
+     "back": {
+      "ru": "шоколад (chokollit)",
+      "en": "chocolate (chokollit)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "다크 초콜릿 한 판."
+    },
+    {
+     "front": "아이스크림",
+     "back": {
+      "ru": "мороженое (aiseukeurim)",
+      "en": "ice cream (aiseukeurim)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "바닐라 아이스크림."
+    },
+    {
+     "front": "꿀",
+     "back": {
+      "ru": "мёд (kkul)",
+      "en": "honey (kkul)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "목에는 꿀을 넣은 차."
+    },
+    {
+     "front": "사탕",
+     "back": {
+      "ru": "сладость (satang)",
+      "en": "sweet (satang)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "밤에는 사탕을 안 먹어요."
+    },
+    {
+     "front": "후식",
+     "back": {
+      "ru": "десерт (husik)",
+      "en": "dessert (husik)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "후식으로 과일 주세요."
+    },
+    {
+     "front": "요구르트",
+     "back": {
+      "ru": "йогурт (yogureuteu)",
+      "en": "yoghurt (yogureuteu)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "설탕 없는 플레인 요구르트."
+    },
+    {
+     "front": "생크림",
+     "back": {
+      "ru": "сливки (saengkeurim)",
+      "en": "cream (saengkeurim)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "딸기에 생크림을 얹어요."
+    },
+    {
+     "front": "토스트",
+     "back": {
+      "ru": "тост (toseuteu)",
+      "en": "toast (toseuteu)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "버터를 바른 토스트."
+    },
+    {
+     "front": "샌드위치",
+     "back": {
+      "ru": "бутерброд (saendeuwichi)",
+      "en": "sandwich (saendeuwichi)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "햄치즈 샌드위치 하나."
+    },
+    {
+     "front": "아침 식사",
+     "back": {
+      "ru": "завтрак (achim siksa)",
+      "en": "breakfast (achim siksa)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "아침 식사는 일곱 시에 해요."
+    },
+    {
+     "front": "점심",
+     "back": {
+      "ru": "обед (jeomsim)",
+      "en": "lunch (jeomsim)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "점심은 한 시예요."
+    },
+    {
+     "front": "저녁",
+     "back": {
+      "ru": "ужин (jeonyeok)",
+      "en": "dinner (jeonyeok)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "저녁은 여덟 시쯤 먹어요."
+    },
+    {
+     "front": "간식",
+     "back": {
+      "ru": "полдник (gansik)",
+      "en": "snack (gansik)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "아이들이 간식을 가져가요."
+    },
+    {
+     "front": "식사",
+     "back": {
+      "ru": "приём пищи (siksa)",
+      "en": "meal (siksa)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "하루에 세 끼 식사를 해요."
+    },
+    {
+     "front": "음식",
+     "back": {
+      "ru": "еда (eumsik)",
+      "en": "food (eumsik)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "음식이 상에 있어요."
+    },
+    {
+     "front": "음료",
+     "back": {
+      "ru": "напиток (eumnyo)",
+      "en": "drink (eumnyo)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "어떤 음료를 드릴까요?"
+    },
+    {
+     "front": "접시",
+     "back": {
+      "ru": "тарелка (jeopsi)",
+      "en": "plate (jeopsi)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "접시를 조리대에 놓으세요."
+    },
+    {
+     "front": "컵",
+     "back": {
+      "ru": "стакан (keop)",
+      "en": "glass (keop)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "컵에 반만 채우세요."
+    },
+    {
+     "front": "찻잔",
+     "back": {
+      "ru": "чашка (chatjan)",
+      "en": "cup (chatjan)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "커피 한 찻잔."
+    },
+    {
+     "front": "병",
+     "back": {
+      "ru": "бутылка (byeong)",
+      "en": "bottle (byeong)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "물 한 병."
+    },
+    {
+     "front": "숟가락",
+     "back": {
+      "ru": "ложка (sutgarak)",
+      "en": "spoon (sutgarak)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "숟가락이 하나 부족해요."
+    },
+    {
+     "front": "포크",
+     "back": {
+      "ru": "вилка (pokeu)",
+      "en": "fork (pokeu)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "포크가 바닥에 떨어졌어요."
+    },
+    {
+     "front": "칼",
+     "back": {
+      "ru": "нож (kal)",
+      "en": "knife (kal)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "이 칼은 전혀 안 들어요."
+    },
+    {
+     "front": "냅킨",
+     "back": {
+      "ru": "салфетка (naepkin)",
+      "en": "napkin (naepkin)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "냅킨 좀 주세요."
+    },
+    {
+     "front": "냄비",
+     "back": {
+      "ru": "кастрюля (naembi)",
+      "en": "pot (naembi)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "냄비가 불 위에 있어요."
+    },
+    {
+     "front": "프라이팬",
+     "back": {
+      "ru": "сковорода (peuraipaen)",
+      "en": "frying pan (peuraipaen)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "프라이팬을 달구세요."
+    },
+    {
+     "front": "식당",
+     "back": {
+      "ru": "ресторан (sikdang)",
+      "en": "restaurant (sikdang)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "식당에 자리를 예약했어요."
+    },
+    {
+     "front": "메뉴",
+     "back": {
+      "ru": "меню (menyu)",
+      "en": "menu (menyu)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "종업원에게 메뉴를 부탁하세요."
+    },
+    {
+     "front": "계산서",
+     "back": {
+      "ru": "счёт (gyesanseo)",
+      "en": "bill (gyesanseo)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "계산서 주세요."
+    },
+    {
+     "front": "종업원",
+     "back": {
+      "ru": "официант (jongeobwon)",
+      "en": "waiter (jongeobwon)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "종업원이 빵을 가져왔어요."
+    },
+    {
+     "front": "배고픔",
+     "back": {
+      "ru": "голод (baegopeum)",
+      "en": "hunger (baegopeum)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "배고픔에 속이 아파요."
+    },
+    {
+     "front": "목마름",
+     "back": {
+      "ru": "жажда (mongmareum)",
+      "en": "thirst (mongmareum)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "이 더위에 목마름이 심해요."
+    },
+    {
+     "front": "맛",
+     "back": {
+      "ru": "вкус (mat)",
+      "en": "taste (mat)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "이 국은 맛이 싱거워요."
+    },
+    {
+     "front": "조리법",
+     "back": {
+      "ru": "рецепт (joribeop)",
+      "en": "recipe (joribeop)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "이건 할머니의 조리법이에요."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "옷",
+     "back": {
+      "ru": "одежда (ot)",
+      "en": "clothes (ot)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "가방에 옷을 조금만 넣어요."
+    },
+    {
+     "front": "셔츠",
+     "back": {
+      "ru": "рубашка (syeocheu)",
+      "en": "shirt (syeocheu)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "셔츠를 아직 다리지 않았어요."
+    },
+    {
+     "front": "스웨터",
+     "back": {
+      "ru": "свитер (seuweteo)",
+      "en": "jumper (seuweteo)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "추우니 스웨터를 입어요."
+    },
+    {
+     "front": "티셔츠",
+     "back": {
+      "ru": "футболка (tisyeocheu)",
+      "en": "T-shirt (tisyeocheu)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "무늬 없는 흰 티셔츠."
+    },
+    {
+     "front": "외투",
+     "back": {
+      "ru": "пальто (oetu)",
+      "en": "coat (oetu)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "외투를 차에 두고 왔어요."
+    },
+    {
+     "front": "재킷",
+     "back": {
+      "ru": "куртка (jaekit)",
+      "en": "jacket (jaekit)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "비 올 때 입는 재킷."
+    },
+    {
+     "front": "조끼",
+     "back": {
+      "ru": "жилет (jokki)",
+      "en": "waistcoat (jokki)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "셔츠 위에 조끼를 입어요."
+    },
+    {
+     "front": "바지",
+     "back": {
+      "ru": "брюки (baji)",
+      "en": "trousers (baji)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "이 바지는 헐렁해요."
+    },
+    {
+     "front": "반바지",
+     "back": {
+      "ru": "шорты (banbaji)",
+      "en": "shorts (banbaji)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "여름에는 반바지."
+    },
+    {
+     "front": "치마",
+     "back": {
+      "ru": "юбка (chima)",
+      "en": "skirt (chima)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "무릎까지 오는 치마."
+    },
+    {
+     "front": "원피스",
+     "back": {
+      "ru": "платье (wonpiseu)",
+      "en": "dress (wonpiseu)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "원피스는 마 소재예요."
+    },
+    {
+     "front": "정장",
+     "back": {
+      "ru": "костюм (jeongjang)",
+      "en": "suit (jeongjang)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "결혼식에는 정장을 입고 가요."
+    },
+    {
+     "front": "넥타이",
+     "back": {
+      "ru": "галстук (nektai)",
+      "en": "tie (nektai)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "넥타이 매는 법을 몰라요."
+    },
+    {
+     "front": "허리띠",
+     "back": {
+      "ru": "ремень (heoritti)",
+      "en": "belt (heoritti)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "허리띠를 더 조이세요."
+    },
+    {
+     "front": "양말",
+     "back": {
+      "ru": "носки (yangmal)",
+      "en": "socks (yangmal)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "이 양말은 구멍이 났어요."
+    },
+    {
+     "front": "스타킹",
+     "back": {
+      "ru": "колготки (seutaking)",
+      "en": "tights (seutaking)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "검은 스타킹."
+    },
+    {
+     "front": "구두",
+     "back": {
+      "ru": "туфли (gudu)",
+      "en": "shoes (gudu)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "검은 가죽 구두."
+    },
+    {
+     "front": "운동화",
+     "back": {
+      "ru": "кроссовки (undonghwa)",
+      "en": "trainers (undonghwa)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "하루 종일 운동화를 신어요."
+    },
+    {
+     "front": "장화",
+     "back": {
+      "ru": "сапоги (janghwa)",
+      "en": "boots (janghwa)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "겨울 장화."
+    },
+    {
+     "front": "샌들",
+     "back": {
+      "ru": "сандалии (saendeul)",
+      "en": "sandals (saendeul)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "해변에는 샌들."
+    },
+    {
+     "front": "슬리퍼",
+     "back": {
+      "ru": "тапочки (seullipeo)",
+      "en": "slippers (seullipeo)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "침실 문 앞에 슬리퍼가 있어요."
+    },
+    {
+     "front": "모자",
+     "back": {
+      "ru": "шляпа (moja)",
+      "en": "hat (moja)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "밀짚모자."
+    },
+    {
+     "front": "캡모자",
+     "back": {
+      "ru": "кепка (kaemmoja)",
+      "en": "cap (kaemmoja)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "햇빛 가리는 캡모자."
+    },
+    {
+     "front": "털모자",
+     "back": {
+      "ru": "шапка (teolmoja)",
+      "en": "woolly hat (teolmoja)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "눈에는 털모자와 목도리."
+    },
+    {
+     "front": "장갑",
+     "back": {
+      "ru": "перчатки (janggap)",
+      "en": "gloves (janggap)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "안감을 댄 가죽 장갑."
+    },
+    {
+     "front": "목도리",
+     "back": {
+      "ru": "шарф (mokdori)",
+      "en": "scarf (mokdori)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "목도리를 두 번 감으세요."
+    },
+    {
+     "front": "손수건",
+     "back": {
+      "ru": "платок (sonsugeon)",
+      "en": "handkerchief (sonsugeon)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "면 손수건."
+    },
+    {
+     "front": "안경",
+     "back": {
+      "ru": "очки (angyeong)",
+      "en": "glasses (angyeong)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "어제 안경을 깨뜨렸어요."
+    },
+    {
+     "front": "가방",
+     "back": {
+      "ru": "сумка (gabang)",
+      "en": "bag (gabang)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "가방이 너무 무거워요."
+    },
+    {
+     "front": "지갑",
+     "back": {
+      "ru": "кошелёк (jigap)",
+      "en": "wallet (jigap)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "지갑을 집에 두고 왔어요."
+    },
+    {
+     "front": "배낭",
+     "back": {
+      "ru": "рюкзак (baenang)",
+      "en": "backpack (baenang)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "학교 배낭이 무거워요."
+    },
+    {
+     "front": "우산",
+     "back": {
+      "ru": "зонт (usan)",
+      "en": "umbrella (usan)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "우산을 가져가세요."
+    },
+    {
+     "front": "잠옷",
+     "back": {
+      "ru": "пижама (jamot)",
+      "en": "pyjamas (jamot)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "기모 잠옷."
+    },
+    {
+     "front": "가운",
+     "back": {
+      "ru": "халат (gaun)",
+      "en": "dressing gown (gaun)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "가운은 문 뒤에 있어요."
+    },
+    {
+     "front": "수건",
+     "back": {
+      "ru": "полотенце (sugeon)",
+      "en": "towel (sugeon)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "목욕에 쓸 깨끗한 수건."
+    },
+    {
+     "front": "주머니",
+     "back": {
+      "ru": "карман (jumeoni)",
+      "en": "pocket (jumeoni)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "열쇠는 주머니에 있어요."
+    },
+    {
+     "front": "단추",
+     "back": {
+      "ru": "пуговица (danchu)",
+      "en": "button (danchu)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "셔츠 단추가 떨어졌어요."
+    },
+    {
+     "front": "지퍼",
+     "back": {
+      "ru": "молния (jipeo)",
+      "en": "zip (jipeo)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "가방 지퍼가 고장 났어요."
+    },
+    {
+     "front": "소매",
+     "back": {
+      "ru": "рукав (somae)",
+      "en": "sleeve (somae)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "소매를 걷어 올리세요."
+    },
+    {
+     "front": "깃",
+     "back": {
+      "ru": "воротник (git)",
+      "en": "collar (git)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "깃에 얼룩이 있어요."
+    },
+    {
+     "front": "치수",
+     "back": {
+      "ru": "размер (chisu)",
+      "en": "size (chisu)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "이 셔츠 다른 치수 있어요?"
+    },
+    {
+     "front": "옷감",
+     "back": {
+      "ru": "ткань (otgam)",
+      "en": "fabric (otgam)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "여름에는 가벼운 옷감."
+    },
+    {
+     "front": "면",
+     "back": {
+      "ru": "хлопок (myeon)",
+      "en": "cotton (myeon)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "면 셔츠."
+    },
+    {
+     "front": "양털",
+     "back": {
+      "ru": "шерсть (yangteol)",
+      "en": "wool (yangteol)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "두꺼운 양털 양말."
+    },
+    {
+     "front": "비단",
+     "back": {
+      "ru": "шёлк (bidan)",
+      "en": "silk (bidan)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "비단 스카프."
+    },
+    {
+     "front": "가죽",
+     "back": {
+      "ru": "кожа (gajuk)",
+      "en": "leather (gajuk)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "갈색 가죽 장화."
+    },
+    {
+     "front": "옷걸이",
+     "back": {
+      "ru": "вешалка (otgeori)",
+      "en": "hanger (otgeori)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "외투를 옷걸이에 거세요."
+    },
+    {
+     "front": "옷장",
+     "back": {
+      "ru": "шкаф (otjang)",
+      "en": "wardrobe (otjang)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "옷장이 가득 찼어요."
+    },
+    {
+     "front": "반지",
+     "back": {
+      "ru": "кольцо (banji)",
+      "en": "ring (banji)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "은반지."
+    }
+   ]
+  }
+ ]
+}

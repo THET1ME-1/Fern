@@ -1,0 +1,6533 @@
+{
+ "lang": "el",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "γεια σου",
+     "back": {
+      "ru": "привет (ya su)",
+      "en": "hello (ya su)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Γεια σου, τι κάνεις;"
+    },
+    {
+     "front": "αντίο",
+     "back": {
+      "ru": "до свидания (andío)",
+      "en": "goodbye (andío)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Αντίο, τα λέμε αύριο."
+    },
+    {
+     "front": "ναι",
+     "back": {
+      "ru": "да (ne)",
+      "en": "yes (ne)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Ναι, φυσικά θα έρθω."
+    },
+    {
+     "front": "όχι",
+     "back": {
+      "ru": "нет (óchi)",
+      "en": "no (óchi)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "Όχι, ευχαριστώ."
+    },
+    {
+     "front": "παρακαλώ",
+     "back": {
+      "ru": "пожалуйста (parakaló)",
+      "en": "please (parakaló)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Έναν καφέ, παρακαλώ."
+    },
+    {
+     "front": "ευχαριστώ",
+     "back": {
+      "ru": "спасибо (efcharistó)",
+      "en": "thank you (efcharistó)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Ευχαριστώ για τη βοήθεια."
+    },
+    {
+     "front": "συγγνώμη",
+     "back": {
+      "ru": "извини (signómi)",
+      "en": "sorry (signómi)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Συγγνώμη, άργησα."
+    },
+    {
+     "front": "καλημέρα",
+     "back": {
+      "ru": "доброе утро (kaliméra)",
+      "en": "good morning (kaliméra)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Καλημέρα, κοιμήθηκες καλά;"
+    },
+    {
+     "front": "καληνύχτα",
+     "back": {
+      "ru": "спокойной ночи (kaliníchta)",
+      "en": "good night (kaliníchta)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Καληνύχτα, τα λέμε αύριο."
+    },
+    {
+     "front": "όλα καλά",
+     "back": {
+      "ru": "всё хорошо (óla kalá)",
+      "en": "all right (óla kalá)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "Μην ανησυχείς, όλα καλά."
+    },
+    {
+     "front": "άντρας",
+     "back": {
+      "ru": "мужчина (ándras)",
+      "en": "man (ándras)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "Εκείνος ο άντρας είναι γείτονάς μας."
+    },
+    {
+     "front": "γυναίκα",
+     "back": {
+      "ru": "женщина (yinéka)",
+      "en": "woman (yinéka)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "Η γυναίκα με το μπλε παλτό είναι γιατρός."
+    },
+    {
+     "front": "παιδί",
+     "back": {
+      "ru": "ребёнок (pedí)",
+      "en": "child (pedí)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "Το παιδί παίζει στον κήπο."
+    },
+    {
+     "front": "αγόρι",
+     "back": {
+      "ru": "мальчик (agóri)",
+      "en": "boy (agóri)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "Το αγόρι τρέχει στο σχολείο."
+    },
+    {
+     "front": "κορίτσι",
+     "back": {
+      "ru": "девочка (korítsi)",
+      "en": "girl (korítsi)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "Το κορίτσι ζωγραφίζει ένα λουλούδι."
+    },
+    {
+     "front": "φίλος",
+     "back": {
+      "ru": "друг (fílos)",
+      "en": "friend (fílos)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Ο φίλος μου μένει στη Θεσσαλονίκη."
+    },
+    {
+     "front": "οικογένεια",
+     "back": {
+      "ru": "семья (ikoyénia)",
+      "en": "family (ikoyénia)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Ήρθε όλη η οικογένεια για δείπνο."
+    },
+    {
+     "front": "μητέρα",
+     "back": {
+      "ru": "мама (mitéra)",
+      "en": "mother (mitéra)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "Η μητέρα μου τραγουδάει πολύ ωραία."
+    },
+    {
+     "front": "πατέρας",
+     "back": {
+      "ru": "папа (patéras)",
+      "en": "father (patéras)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "Ο πατέρας μου δουλεύει τη νύχτα."
+    },
+    {
+     "front": "γιος",
+     "back": {
+      "ru": "сын (yos)",
+      "en": "son (yos)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "Ο γιος τους είναι πέντε χρονών."
+    },
+    {
+     "front": "κόρη",
+     "back": {
+      "ru": "дочь (kóri)",
+      "en": "daughter (kóri)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "Η μεγάλη κόρη σπουδάζει ιατρική."
+    },
+    {
+     "front": "αδελφός",
+     "back": {
+      "ru": "брат (adelfós)",
+      "en": "brother (adelfós)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "Ο αδελφός μου παίζει ποδόσφαιρο."
+    },
+    {
+     "front": "αδελφή",
+     "back": {
+      "ru": "сестра (adelfí)",
+      "en": "sister (adelfí)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "Η αδελφή μου μένει στην Πάτρα."
+    },
+    {
+     "front": "γιαγιά",
+     "back": {
+      "ru": "бабушка (yayá)",
+      "en": "grandmother (yayá)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "Η γιαγιά φτιάχνει το καλύτερο κέικ."
+    },
+    {
+     "front": "παππούς",
+     "back": {
+      "ru": "дедушка (papús)",
+      "en": "grandfather (papús)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "Ο παππούς λέει παλιές ιστορίες."
+    },
+    {
+     "front": "άνθρωπος",
+     "back": {
+      "ru": "человек (ánthropos)",
+      "en": "person (ánthropos)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Αυτόν τον άνθρωπο δεν τον ξέρω."
+    },
+    {
+     "front": "κόσμος",
+     "back": {
+      "ru": "люди (kósmos)",
+      "en": "people (kósmos)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "Ο κόσμος στην πλατεία διαλύθηκε."
+    },
+    {
+     "front": "όνομα",
+     "back": {
+      "ru": "имя (ónoma)",
+      "en": "name (ónoma)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Πώς σε λένε;"
+    },
+    {
+     "front": "κύριος",
+     "back": {
+      "ru": "господин (kírios)",
+      "en": "sir (kírios)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Καλημέρα, κύριε Παπαδόπουλε."
+    },
+    {
+     "front": "κυρία",
+     "back": {
+      "ru": "госпожа (kiría)",
+      "en": "madam (kiría)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "Χρειάζεται βοήθεια η κυρία;"
+    },
+    {
+     "front": "εγώ",
+     "back": {
+      "ru": "я (egó)",
+      "en": "I (egó)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Εγώ μένω εδώ κοντά."
+    },
+    {
+     "front": "εσύ",
+     "back": {
+      "ru": "ты (esí)",
+      "en": "you (esí)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "Εσύ μιλάς ελληνικά;"
+    },
+    {
+     "front": "εσείς",
+     "back": {
+      "ru": "вы (esís)",
+      "en": "you (esís)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Θέλετε να καθίσετε;"
+    },
+    {
+     "front": "αυτός",
+     "back": {
+      "ru": "он (aftós)",
+      "en": "he (aftós)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "Αυτός φτάνει στις οκτώ."
+    },
+    {
+     "front": "αυτή",
+     "back": {
+      "ru": "она (aftí)",
+      "en": "she (aftí)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "Αυτή δουλεύει σε νοσοκομείο."
+    },
+    {
+     "front": "εμείς",
+     "back": {
+      "ru": "мы (emís)",
+      "en": "we (emís)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Εμείς πάμε με το τρένο."
+    },
+    {
+     "front": "αυτοί",
+     "back": {
+      "ru": "они (aftí (pl.))",
+      "en": "they (aftí (pl.))",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Αυτοί μένουν στην ίδια πολυκατοικία."
+    },
+    {
+     "front": "δικός μου",
+     "back": {
+      "ru": "мой (dikós mu)",
+      "en": "my (dikós mu)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Αυτή είναι η θέση μου."
+    },
+    {
+     "front": "δικός σου",
+     "back": {
+      "ru": "твой (dikós su)",
+      "en": "your (dikós su)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "Το παλτό σου έμεινε στην καρέκλα."
+    },
+    {
+     "front": "δικός μας",
+     "back": {
+      "ru": "наш (dikós mas)",
+      "en": "our (dikós mas)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "Το αυτοκίνητό μας είναι μικρό."
+    },
+    {
+     "front": "αυτό εδώ",
+     "back": {
+      "ru": "этот (aftó edó)",
+      "en": "this (aftó edó)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Αυτό το βιβλίο είναι πολύ ενδιαφέρον."
+    },
+    {
+     "front": "εκείνο",
+     "back": {
+      "ru": "тот (ekíno)",
+      "en": "that (ekíno)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "Εκείνο το κτίριο είναι πολύ παλιό."
+    },
+    {
+     "front": "ποιος",
+     "back": {
+      "ru": "кто (pios)",
+      "en": "who (pios)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Ποιος είναι στην πόρτα;"
+    },
+    {
+     "front": "τι",
+     "back": {
+      "ru": "что (ti)",
+      "en": "what (ti)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Τι λες;"
+    },
+    {
+     "front": "πού",
+     "back": {
+      "ru": "где (pu)",
+      "en": "where (pu)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "Πού είναι ο σταθμός;"
+    },
+    {
+     "front": "πότε",
+     "back": {
+      "ru": "когда (póte)",
+      "en": "when (póte)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Πότε αρχίζει η ταινία;"
+    },
+    {
+     "front": "πώς",
+     "back": {
+      "ru": "как (pos)",
+      "en": "how (pos)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Πώς το λένε αυτό;"
+    },
+    {
+     "front": "γιατί",
+     "back": {
+      "ru": "почему (yatí)",
+      "en": "why (yatí)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Γιατί τόση βιασύνη;"
+    },
+    {
+     "front": "ποιο",
+     "back": {
+      "ru": "который (pio)",
+      "en": "which (pio)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Ποιο προτιμάς;"
+    },
+    {
+     "front": "μηδέν",
+     "back": {
+      "ru": "ноль (midén)",
+      "en": "zero (midén)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "Η θερμοκρασία είναι μηδέν βαθμοί."
+    },
+    {
+     "front": "ένα",
+     "back": {
+      "ru": "один (éna)",
+      "en": "one (éna)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Έμεινε μόνο μία θέση."
+    },
+    {
+     "front": "δύο",
+     "back": {
+      "ru": "два (dío)",
+      "en": "two (dío)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "Έχω δύο αδέλφια."
+    },
+    {
+     "front": "τρία",
+     "back": {
+      "ru": "три (tría)",
+      "en": "three (tría)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Επιστρέφω σε τρεις μέρες."
+    },
+    {
+     "front": "τέσσερα",
+     "back": {
+      "ru": "четыре (téssera)",
+      "en": "four (téssera)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "Το τραπέζι έχει τέσσερις καρέκλες."
+    },
+    {
+     "front": "πέντε",
+     "back": {
+      "ru": "пять (pénde)",
+      "en": "five (pénde)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "Η ταινία διαρκεί πέντε ώρες."
+    },
+    {
+     "front": "έξι",
+     "back": {
+      "ru": "шесть (éxi)",
+      "en": "six (éxi)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Ξυπνάω στις έξι."
+    },
+    {
+     "front": "επτά",
+     "back": {
+      "ru": "семь (eptá)",
+      "en": "seven (eptá)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "Η εβδομάδα έχει επτά μέρες."
+    },
+    {
+     "front": "οκτώ",
+     "back": {
+      "ru": "восемь (októ)",
+      "en": "eight (októ)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "Το τρένο φεύγει στις οκτώ."
+    },
+    {
+     "front": "εννέα",
+     "back": {
+      "ru": "девять (ennéa)",
+      "en": "nine (ennéa)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "Είναι εννέα χρονών."
+    },
+    {
+     "front": "δέκα",
+     "back": {
+      "ru": "десять (déka)",
+      "en": "ten (déka)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "Μένουν δέκα λεπτά."
+    },
+    {
+     "front": "έντεκα",
+     "back": {
+      "ru": "одиннадцать (éndeka)",
+      "en": "eleven (éndeka)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "Το μάθημα τελειώνει στις έντεκα."
+    },
+    {
+     "front": "δώδεκα",
+     "back": {
+      "ru": "двенадцать (dódeka)",
+      "en": "twelve (dódeka)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "Ο χρόνος έχει δώδεκα μήνες."
+    },
+    {
+     "front": "είκοσι",
+     "back": {
+      "ru": "двадцать (íkosi)",
+      "en": "twenty (íkosi)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "Το εισιτήριο κοστίζει είκοσι ευρώ."
+    },
+    {
+     "front": "τριάντα",
+     "back": {
+      "ru": "тридцать (triánda)",
+      "en": "thirty (triánda)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Αυτός ο μήνας έχει τριάντα μέρες."
+    },
+    {
+     "front": "εκατό",
+     "back": {
+      "ru": "сто (ekató)",
+      "en": "hundred (ekató)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Μένουν εκατό μέτρα."
+    },
+    {
+     "front": "χίλια",
+     "back": {
+      "ru": "тысяча (chília)",
+      "en": "thousand (chília)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "Στο χωριό ζουν χίλιοι άνθρωποι."
+    },
+    {
+     "front": "πρώτος",
+     "back": {
+      "ru": "первый (prótos)",
+      "en": "first (prótos)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Σήμερα είναι η πρώτη μέρα στο σχολείο."
+    },
+    {
+     "front": "τελευταίος",
+     "back": {
+      "ru": "последний (teleftéos)",
+      "en": "last (teleftéos)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "Πρόλαβα το τελευταίο λεωφορείο."
+    },
+    {
+     "front": "αριθμός",
+     "back": {
+      "ru": "номер (arithmós)",
+      "en": "number (arithmós)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Ποιος είναι ο αριθμός του σπιτιού σας;"
+    },
+    {
+     "front": "μισό",
+     "back": {
+      "ru": "половина (misó)",
+      "en": "half (misó)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "Έφαγα το μισό κέικ."
+    },
+    {
+     "front": "μέρα",
+     "back": {
+      "ru": "день (méra)",
+      "en": "day (méra)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Ήταν μια μεγάλη μέρα."
+    },
+    {
+     "front": "νύχτα",
+     "back": {
+      "ru": "ночь (níchta)",
+      "en": "night (níchta)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Η νύχτα είναι κρύα."
+    },
+    {
+     "front": "πρωί",
+     "back": {
+      "ru": "утро (proí)",
+      "en": "morning (proí)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Το πρωί πίνω τσάι."
+    },
+    {
+     "front": "απόγευμα",
+     "back": {
+      "ru": "вечер (apóyevma)",
+      "en": "afternoon (apóyevma)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "Το απόγευμα πάω στη λαϊκή."
+    },
+    {
+     "front": "σήμερα",
+     "back": {
+      "ru": "сегодня (símera)",
+      "en": "today (símera)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Σήμερα δεν δουλεύω."
+    },
+    {
+     "front": "αύριο",
+     "back": {
+      "ru": "завтра (ávrio)",
+      "en": "tomorrow (ávrio)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Αύριο πάμε στην παραλία."
+    },
+    {
+     "front": "χθες",
+     "back": {
+      "ru": "вчера (chthes)",
+      "en": "yesterday (chthes)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Χθες έβρεχε όλη μέρα."
+    },
+    {
+     "front": "εβδομάδα",
+     "back": {
+      "ru": "неделя (evdomáda)",
+      "en": "week (evdomáda)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Επιστρέφω την επόμενη εβδομάδα."
+    },
+    {
+     "front": "μήνας",
+     "back": {
+      "ru": "месяц (mínas)",
+      "en": "month (mínas)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Αυτός ο μήνας πάει καλά."
+    },
+    {
+     "front": "χρόνος",
+     "back": {
+      "ru": "год (chrónos)",
+      "en": "year (chrónos)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "Η περσινή χρονιά ήταν δύσκολη."
+    },
+    {
+     "front": "ώρα",
+     "back": {
+      "ru": "час (óra)",
+      "en": "hour (óra)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "Το ταξίδι διαρκεί μία ώρα."
+    },
+    {
+     "front": "λεπτό",
+     "back": {
+      "ru": "минута (leptó)",
+      "en": "minute (leptó)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Περίμενε ένα λεπτό, παρακαλώ."
+    },
+    {
+     "front": "καιρός (χρόνος)",
+     "back": {
+      "ru": "время (kerós)",
+      "en": "time (kerós)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "Δεν έχω καιρό τώρα."
+    },
+    {
+     "front": "τώρα",
+     "back": {
+      "ru": "сейчас (tóra)",
+      "en": "now (tóra)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "Τώρα είμαι απασχολημένος."
+    },
+    {
+     "front": "πάντα",
+     "back": {
+      "ru": "всегда (pánda)",
+      "en": "always (pánda)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "Έρχεται πάντα νωρίς."
+    },
+    {
+     "front": "ποτέ",
+     "back": {
+      "ru": "никогда (poté)",
+      "en": "never (poté)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Δεν έχω πάει ποτέ στη Ρώμη."
+    },
+    {
+     "front": "νωρίς",
+     "back": {
+      "ru": "рано (norís)",
+      "en": "early (norís)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "Σηκώθηκα πολύ νωρίς."
+    },
+    {
+     "front": "Δευτέρα",
+     "back": {
+      "ru": "понедельник (deftéra)",
+      "en": "Monday (deftéra)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "Τη Δευτέρα έχω ραντεβού στον γιατρό."
+    },
+    {
+     "front": "Σάββατο",
+     "back": {
+      "ru": "суббота (sávato)",
+      "en": "Saturday (sávato)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Το Σάββατο κοιμάμαι μέχρι αργά."
+    },
+    {
+     "front": "Κυριακή",
+     "back": {
+      "ru": "воскресенье (kiriakí)",
+      "en": "Sunday (kiriakí)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Την Κυριακή τρώμε με την οικογένεια."
+    },
+    {
+     "front": "σπίτι",
+     "back": {
+      "ru": "дом (spíti)",
+      "en": "house (spíti)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Πίσω από το σπίτι υπάρχει κήπος."
+    },
+    {
+     "front": "πόλη",
+     "back": {
+      "ru": "город (póli)",
+      "en": "city (póli)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Η Αθήνα είναι μεγάλη πόλη."
+    },
+    {
+     "front": "χωριό",
+     "back": {
+      "ru": "деревня (chorió)",
+      "en": "village (chorió)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "Το χωριό είναι στους πρόποδες του βουνού."
+    },
+    {
+     "front": "δρόμος (οδός)",
+     "back": {
+      "ru": "улица (drómos)",
+      "en": "street (drómos)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "Ο δρόμος είναι γεμάτος κόσμο."
+    },
+    {
+     "front": "σχολείο",
+     "back": {
+      "ru": "школа (scholío)",
+      "en": "school (scholío)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "Το σχολείο ανοίγει στις οκτώ."
+    },
+    {
+     "front": "δουλειά",
+     "back": {
+      "ru": "работа (duliá)",
+      "en": "work (duliá)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "Η δουλειά τελειώνει στις έξι."
+    },
+    {
+     "front": "μαγαζί",
+     "back": {
+      "ru": "магазин (magazí)",
+      "en": "shop (magazí)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "Το μαγαζί είναι κλειστό την Κυριακή."
+    },
+    {
+     "front": "λαϊκή αγορά",
+     "back": {
+      "ru": "рынок (laikí agorá)",
+      "en": "market (laikí agorá)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Αγοράζω φρούτα από τη λαϊκή αγορά."
+    },
+    {
+     "front": "νοσοκομείο",
+     "back": {
+      "ru": "больница (nosokomío)",
+      "en": "hospital (nosokomío)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "Το νοσοκομείο είναι κοντά."
+    },
+    {
+     "front": "φαρμακείο",
+     "back": {
+      "ru": "аптека (farmakío)",
+      "en": "pharmacy (farmakío)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "Το φαρμακείο είναι ανοιχτό τη νύχτα."
+    },
+    {
+     "front": "τράπεζα",
+     "back": {
+      "ru": "банк (trápeza)",
+      "en": "bank (trápeza)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Το πρωί πάω στην τράπεζα."
+    },
+    {
+     "front": "ξενοδοχείο",
+     "back": {
+      "ru": "гостиница (xenodochío)",
+      "en": "hotel (xenodochío)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "Το ξενοδοχείο είναι δίπλα στη θάλασσα."
+    },
+    {
+     "front": "εκκλησία",
+     "back": {
+      "ru": "церковь (eklisía)",
+      "en": "church (eklisía)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Η εκκλησία είναι πολύ παλιά."
+    },
+    {
+     "front": "κήπος",
+     "back": {
+      "ru": "сад (kípos)",
+      "en": "garden (kípos)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "Ο κήπος είναι γεμάτος λουλούδια."
+    },
+    {
+     "front": "παραλία",
+     "back": {
+      "ru": "пляж (paralía)",
+      "en": "beach (paralía)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "Η παραλία είναι δέκα λεπτά μακριά."
+    },
+    {
+     "front": "θάλασσα",
+     "back": {
+      "ru": "море (thálassa)",
+      "en": "sea (thálassa)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "Η θάλασσα είναι ήρεμη σήμερα."
+    },
+    {
+     "front": "ποτάμι",
+     "back": {
+      "ru": "река (potámi)",
+      "en": "river (potámi)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "Το ποτάμι διασχίζει την πόλη."
+    },
+    {
+     "front": "βουνό",
+     "back": {
+      "ru": "гора (vunó)",
+      "en": "mountain (vunó)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Στην κορυφή του βουνού έχει χιόνι."
+    },
+    {
+     "front": "χωράφι",
+     "back": {
+      "ru": "поле (choráfi)",
+      "en": "field (choráfi)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Στο χωράφι μεγαλώνει στάρι."
+    },
+    {
+     "front": "δάσος",
+     "back": {
+      "ru": "лес (dásos)",
+      "en": "forest (dásos)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "Το δάσος αρχίζει μετά τη γέφυρα."
+    },
+    {
+     "front": "χώρα",
+     "back": {
+      "ru": "страна (chóra)",
+      "en": "country (chóra)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Η Πορτογαλία είναι μικρή χώρα."
+    },
+    {
+     "front": "κόσμος (υφήλιος)",
+     "back": {
+      "ru": "мир (kósmos (ifílios))",
+      "en": "world (kósmos (ifílios))",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "Ταξίδεψε μισό τον κόσμο."
+    },
+    {
+     "front": "δρόμος",
+     "back": {
+      "ru": "дорога (drómos (odós))",
+      "en": "road (drómos (odós))",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "Ο δρόμος είναι στενός."
+    },
+    {
+     "front": "γέφυρα",
+     "back": {
+      "ru": "мост (yéfira)",
+      "en": "bridge (yéfira)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "Η γέφυρα είναι κλειστή για έργα."
+    },
+    {
+     "front": "σταθμός",
+     "back": {
+      "ru": "вокзал (stathmós)",
+      "en": "station (stathmós)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Θα συναντηθούμε στον σταθμό."
+    },
+    {
+     "front": "αεροδρόμιο",
+     "back": {
+      "ru": "аэропорт (aerodrómio)",
+      "en": "airport (aerodrómio)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "Το αεροδρόμιο είναι μακριά από το κέντρο."
+    },
+    {
+     "front": "δωμάτιο",
+     "back": {
+      "ru": "комната (domátio)",
+      "en": "room (domátio)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "Το δωμάτιο έχει μεγάλο παράθυρο."
+    },
+    {
+     "front": "κουζίνα",
+     "back": {
+      "ru": "кухня (kuzína)",
+      "en": "kitchen (kuzína)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "Η κουζίνα μυρίζει καφέ."
+    },
+    {
+     "front": "πόρτα",
+     "back": {
+      "ru": "дверь (pórta)",
+      "en": "door (pórta)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Κλείσε την πόρτα, κάνει κρύο."
+    },
+    {
+     "front": "παράθυρο",
+     "back": {
+      "ru": "окно (paráthiro)",
+      "en": "window (paráthiro)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Άνοιξε το παράθυρο, έχει αποπνικτική ζέστη."
+    },
+    {
+     "front": "τραπέζι",
+     "back": {
+      "ru": "стол (trapézi)",
+      "en": "table (trapézi)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Βάλε τα πιάτα στο τραπέζι."
+    },
+    {
+     "front": "καρέκλα",
+     "back": {
+      "ru": "стул (karékla)",
+      "en": "chair (karékla)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Λείπει μια καρέκλα από το τραπέζι."
+    },
+    {
+     "front": "κρεβάτι",
+     "back": {
+      "ru": "кровать (kreváti)",
+      "en": "bed (kreváti)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Αυτό το κρεβάτι είναι πολύ σκληρό."
+    },
+    {
+     "front": "αυτοκίνητο",
+     "back": {
+      "ru": "машина (aftokínito)",
+      "en": "car (aftokínito)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "Το αυτοκίνητο δεν παίρνει μπροστά το πρωί."
+    },
+    {
+     "front": "λεωφορείο",
+     "back": {
+      "ru": "автобус (leoforío)",
+      "en": "bus (leoforío)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "Το λεωφορείο περνάει κάθε μισή ώρα."
+    },
+    {
+     "front": "τρένο",
+     "back": {
+      "ru": "поезд (tréno)",
+      "en": "train (tréno)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "Το τρένο έφτασε με καθυστέρηση."
+    },
+    {
+     "front": "αεροπλάνο",
+     "back": {
+      "ru": "самолёт (aeropláno)",
+      "en": "plane (aeropláno)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "Το αεροπλάνο απογειώνεται στις επτά."
+    },
+    {
+     "front": "ποδήλατο",
+     "back": {
+      "ru": "велосипед (podílato)",
+      "en": "bicycle (podílato)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "Πηγαίνω στη δουλειά με ποδήλατο."
+    },
+    {
+     "front": "ήλιος",
+     "back": {
+      "ru": "солнце (ílios)",
+      "en": "sun (ílios)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "Ο ήλιος ανατέλλει στις έξι και μισή."
+    },
+    {
+     "front": "φεγγάρι",
+     "back": {
+      "ru": "луна (fengári)",
+      "en": "moon (fengári)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "Το φεγγάρι είναι γεμάτο απόψε."
+    },
+    {
+     "front": "αστέρι",
+     "back": {
+      "ru": "звезда (astéri)",
+      "en": "star (astéri)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Φαίνεται ένα λαμπερό αστέρι στον ουρανό."
+    },
+    {
+     "front": "ουρανός",
+     "back": {
+      "ru": "небо (uranós)",
+      "en": "sky (uranós)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "Ο ουρανός είναι καθαρός."
+    },
+    {
+     "front": "βροχή",
+     "back": {
+      "ru": "дождь (vrochí)",
+      "en": "rain (vrochí)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "Η βροχή δεν σταματά από χθες."
+    },
+    {
+     "front": "άνεμος",
+     "back": {
+      "ru": "ветер (ánemos)",
+      "en": "wind (ánemos)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "Ο άνεμος αναποδογύρισε τις καρέκλες."
+    },
+    {
+     "front": "χιόνι",
+     "back": {
+      "ru": "снег (chióni)",
+      "en": "snow (chióni)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Το χιόνι είναι σπάνιο εδώ."
+    },
+    {
+     "front": "φωτιά",
+     "back": {
+      "ru": "огонь (fotiá)",
+      "en": "fire (fotiá)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Ανάψαμε φωτιά στο τζάκι."
+    },
+    {
+     "front": "χώμα",
+     "back": {
+      "ru": "земля (chóma)",
+      "en": "earth (chóma)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "Το χώμα είναι ακόμα βρεγμένο."
+    },
+    {
+     "front": "δέντρο",
+     "back": {
+      "ru": "дерево (déndro)",
+      "en": "tree (déndro)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "Το δέντρο ρίχνει σκιά στην αυλή."
+    },
+    {
+     "front": "λουλούδι",
+     "back": {
+      "ru": "цветок (lulúdi)",
+      "en": "flower (lulúdi)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "Έφερα ένα λουλούδι από τον δρόμο."
+    },
+    {
+     "front": "ζώο",
+     "back": {
+      "ru": "животное (zóo)",
+      "en": "animal (zóo)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "Τι ζώο είναι εκείνο;"
+    },
+    {
+     "front": "σκύλος",
+     "back": {
+      "ru": "собака (skílos)",
+      "en": "dog (skílos)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "Ο σκύλος κοιμάται στην πόρτα."
+    },
+    {
+     "front": "γάτα",
+     "back": {
+      "ru": "кошка (gáta)",
+      "en": "cat (gáta)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "Η γάτα ανέβηκε στη στέγη."
+    },
+    {
+     "front": "πουλί",
+     "back": {
+      "ru": "птица (pulí)",
+      "en": "bird (pulí)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Το πρωί τραγούδησε ένα πουλί."
+    },
+    {
+     "front": "άλογο",
+     "back": {
+      "ru": "лошадь (álogo)",
+      "en": "horse (álogo)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "Το άλογο τρέχει στο χωράφι."
+    },
+    {
+     "front": "βιβλίο",
+     "back": {
+      "ru": "книга (vivlío)",
+      "en": "book (vivlío)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Αυτό το βιβλίο έχει τριακόσιες σελίδες."
+    },
+    {
+     "front": "χαρτί",
+     "back": {
+      "ru": "бумага (chartí)",
+      "en": "paper (chartí)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Δώσε μου ένα φύλλο χαρτί."
+    },
+    {
+     "front": "στυλό",
+     "back": {
+      "ru": "ручка (stiló)",
+      "en": "pen (stiló)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "Το στυλό έμεινε από μελάνι."
+    },
+    {
+     "front": "τηλέφωνο",
+     "back": {
+      "ru": "телефон (tiléfono)",
+      "en": "phone (tiléfono)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "Το τηλέφωνο χτύπησε δύο φορές."
+    },
+    {
+     "front": "υπολογιστής",
+     "back": {
+      "ru": "компьютер (ipoloyistís)",
+      "en": "computer (ipoloyistís)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "Ο υπολογιστής είναι αργός."
+    },
+    {
+     "front": "χρήματα",
+     "back": {
+      "ru": "деньги (chrímata)",
+      "en": "money (chrímata)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "Δεν έχω χρήματα μαζί μου."
+    },
+    {
+     "front": "κλειδί",
+     "back": {
+      "ru": "ключ (klidí)",
+      "en": "key (klidí)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "Έχασα το κλειδί του σπιτιού."
+    },
+    {
+     "front": "ρολόι χειρός",
+     "back": {
+      "ru": "часы (rolói chirós)",
+      "en": "watch (rolói chirós)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "Το ρολόι χειρός μου πάει μπροστά."
+    },
+    {
+     "front": "φως",
+     "back": {
+      "ru": "свет (fos)",
+      "en": "light (fos)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "Άναψε το φως, παρακαλώ."
+    },
+    {
+     "front": "μουσική",
+     "back": {
+      "ru": "музыка (musikí)",
+      "en": "music (musikí)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "Η μουσική έρχεται από το διπλανό καφέ."
+    },
+    {
+     "front": "ταινία",
+     "back": {
+      "ru": "фильм (tenía)",
+      "en": "film (tenía)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "Η ταινία αρχίζει στις εννέα."
+    },
+    {
+     "front": "φωτογραφία",
+     "back": {
+      "ru": "фотография (fotografía)",
+      "en": "photo (fotografía)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "Έβγαλα μια φωτογραφία της πλατείας."
+    },
+    {
+     "front": "γράμμα",
+     "back": {
+      "ru": "письмо (grámma)",
+      "en": "letter (grámma)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "Πήρα ένα γράμμα από τη γιαγιά μου."
+    },
+    {
+     "front": "εφημερίδα",
+     "back": {
+      "ru": "газета (efimerída)",
+      "en": "newspaper (efimerída)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Διαβάζω την εφημερίδα στο πρωινό."
+    },
+    {
+     "front": "χρώμα",
+     "back": {
+      "ru": "цвет (chróma)",
+      "en": "colour (chróma)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "Τι χρώμα είναι το αυτοκίνητό σου;"
+    },
+    {
+     "front": "λέξη",
+     "back": {
+      "ru": "слово (léxi)",
+      "en": "word (léxi)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "Δεν κατάλαβα την τελευταία λέξη."
+    },
+    {
+     "front": "γλώσσα",
+     "back": {
+      "ru": "язык (glóssa)",
+      "en": "language (glóssa)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "Τα ελληνικά είναι η μητρική μου γλώσσα."
+    },
+    {
+     "front": "κεφάλι",
+     "back": {
+      "ru": "голова (kefáli)",
+      "en": "head (kefáli)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Με πονάει το κεφάλι από χθες."
+    },
+    {
+     "front": "χέρι",
+     "back": {
+      "ru": "рука (chéri)",
+      "en": "hand (chéri)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Δώσε μου το χέρι σου."
+    },
+    {
+     "front": "πόδι",
+     "back": {
+      "ru": "нога (pódi)",
+      "en": "foot (pódi)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Το πόδι μου έχει πρηστεί."
+    },
+    {
+     "front": "μάτι",
+     "back": {
+      "ru": "глаз (máti)",
+      "en": "eye (máti)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "Μου μπήκε σκόνη στο μάτι."
+    },
+    {
+     "front": "στόμα",
+     "back": {
+      "ru": "рот (stóma)",
+      "en": "mouth (stóma)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Άνοιξε το στόμα, είπε ο γιατρός."
+    },
+    {
+     "front": "καρδιά",
+     "back": {
+      "ru": "сердце (kardiá)",
+      "en": "heart (kardiá)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "Η καρδιά χτυπάει γρήγορα."
+    },
+    {
+     "front": "μαλλιά",
+     "back": {
+      "ru": "волосы (maliá)",
+      "en": "hair (maliá)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Έκοψα τα μαλλιά μου χθες."
+    },
+    {
+     "front": "σώμα",
+     "back": {
+      "ru": "тело (sóma)",
+      "en": "body (sóma)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "Το σώμα ζητάει ξεκούραση."
+    },
+    {
+     "front": "καλός",
+     "back": {
+      "ru": "хороший (kalós)",
+      "en": "good (kalós)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Ήταν μια καλή μέρα δουλειάς."
+    },
+    {
+     "front": "κακός",
+     "back": {
+      "ru": "плохой (kakós)",
+      "en": "bad (kakós)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "Ο καιρός είναι κακός."
+    },
+    {
+     "front": "μεγάλος",
+     "back": {
+      "ru": "большой (megálos)",
+      "en": "big (megálos)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Χρειαζόμαστε μεγάλο τραπέζι."
+    },
+    {
+     "front": "μικρός",
+     "back": {
+      "ru": "маленький (mikrós)",
+      "en": "small (mikrós)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Το δωμάτιο είναι μικρό αλλά φωτεινό."
+    },
+    {
+     "front": "καινούριος",
+     "back": {
+      "ru": "новый (kenúrios)",
+      "en": "new (kenúrios)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "Αγόρασα καινούριο τηλέφωνο."
+    },
+    {
+     "front": "παλιός",
+     "back": {
+      "ru": "старый (paliós)",
+      "en": "old (paliós)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Αυτό το κτίριο είναι παλιό."
+    },
+    {
+     "front": "νέος",
+     "back": {
+      "ru": "молодой (néos)",
+      "en": "young (néos)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "Είναι νέος δάσκαλος."
+    },
+    {
+     "front": "ψηλός",
+     "back": {
+      "ru": "высокий (psilós)",
+      "en": "tall (psilós)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "Το κτίριο είναι πολύ ψηλό."
+    },
+    {
+     "front": "χαμηλός",
+     "back": {
+      "ru": "низкий (chamilós)",
+      "en": "short (chamilós)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "Το ταβάνι είναι χαμηλό."
+    },
+    {
+     "front": "μακρύς",
+     "back": {
+      "ru": "длинный (makrís)",
+      "en": "long (makrís)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "Ο δρόμος είναι μακρύς."
+    },
+    {
+     "front": "κοντός",
+     "back": {
+      "ru": "короткий (kondós)",
+      "en": "short (kondós)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "Η ταινία ήταν σύντομη."
+    },
+    {
+     "front": "ζεστός",
+     "back": {
+      "ru": "горячий (zestós)",
+      "en": "hot (zestós)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "Το τσάι είναι ζεστό."
+    },
+    {
+     "front": "κρύος",
+     "back": {
+      "ru": "холодный (kríos)",
+      "en": "cold (kríos)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "Το δωμάτιο είναι κρύο."
+    },
+    {
+     "front": "όμορφος",
+     "back": {
+      "ru": "красивый (ómorfos)",
+      "en": "beautiful (ómorfos)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Τι όμορφη θέα!"
+    },
+    {
+     "front": "άσχημος",
+     "back": {
+      "ru": "некрасивый (áschimos)",
+      "en": "ugly (áschimos)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "Το νέο κτίριο είναι άσχημο."
+    },
+    {
+     "front": "εύκολος",
+     "back": {
+      "ru": "лёгкий (éfkolos)",
+      "en": "easy (éfkolos)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "Η άσκηση ήταν εύκολη."
+    },
+    {
+     "front": "δύσκολος",
+     "back": {
+      "ru": "трудный (dískolos)",
+      "en": "difficult (dískolos)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "Η ερώτηση είναι δύσκολη."
+    },
+    {
+     "front": "δυνατός",
+     "back": {
+      "ru": "сильный (dinatós)",
+      "en": "strong (dinatós)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "Ο καφές είναι δυνατός."
+    },
+    {
+     "front": "αδύναμος",
+     "back": {
+      "ru": "слабый (adínamos)",
+      "en": "weak (adínamos)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "Το σήμα είναι αδύναμο."
+    },
+    {
+     "front": "γρήγορος",
+     "back": {
+      "ru": "быстрый (grígoros)",
+      "en": "fast (grígoros)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "Το τρένο είναι γρήγορο."
+    },
+    {
+     "front": "αργός",
+     "back": {
+      "ru": "медленный (argós)",
+      "en": "slow (argós)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "Η εξυπηρέτηση εδώ είναι αργή."
+    },
+    {
+     "front": "ακριβός",
+     "back": {
+      "ru": "дорогой (akrivós)",
+      "en": "expensive (akrivós)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "Το ξενοδοχείο είναι ακριβό."
+    },
+    {
+     "front": "φθηνός",
+     "back": {
+      "ru": "дешёвый (fthinós)",
+      "en": "cheap (fthinós)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "Βρήκα φθηνό εισιτήριο."
+    },
+    {
+     "front": "καθαρός",
+     "back": {
+      "ru": "чистый (katharós)",
+      "en": "clean (katharós)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "Το πάτωμα είναι καθαρό."
+    },
+    {
+     "front": "βρόμικος",
+     "back": {
+      "ru": "грязный (vrómikos)",
+      "en": "dirty (vrómikos)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "Το αυτοκίνητο είναι βρόμικο από τη σκόνη."
+    },
+    {
+     "front": "γεμάτος",
+     "back": {
+      "ru": "полный (yemátos)",
+      "en": "full (yemátos)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "Το λεωφορείο ήρθε γεμάτο."
+    },
+    {
+     "front": "άδειος",
+     "back": {
+      "ru": "пустой (ádios)",
+      "en": "empty (ádios)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "Το ποτήρι είναι άδειο."
+    },
+    {
+     "front": "ευτυχισμένος",
+     "back": {
+      "ru": "счастливый (eftichisménos)",
+      "en": "happy (eftichisménos)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "Ήταν ευτυχισμένη με τα νέα."
+    },
+    {
+     "front": "λυπημένος",
+     "back": {
+      "ru": "грустный (lipiménos)",
+      "en": "sad (lipiménos)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "Γύρισε λυπημένος από τη δουλειά."
+    },
+    {
+     "front": "κουρασμένος",
+     "back": {
+      "ru": "усталый (kurasménos)",
+      "en": "tired (kurasménos)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Είμαι κουρασμένος από τη μέρα."
+    },
+    {
+     "front": "άρρωστος",
+     "back": {
+      "ru": "больной (árostos)",
+      "en": "sick (árostos)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "Ο γιος μου είναι άρρωστος."
+    },
+    {
+     "front": "σωστός",
+     "back": {
+      "ru": "правильный (sostós)",
+      "en": "right (sostós)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "Η απάντηση είναι σωστή."
+    },
+    {
+     "front": "λάθος",
+     "back": {
+      "ru": "неправильный (láthos)",
+      "en": "wrong (láthos)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "Ο αριθμός είναι λάθος."
+    },
+    {
+     "front": "άσπρος",
+     "back": {
+      "ru": "белый (áspros)",
+      "en": "white (áspros)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "Ο τοίχος είναι άσπρος."
+    },
+    {
+     "front": "μαύρος",
+     "back": {
+      "ru": "чёрный (mávros)",
+      "en": "black (mávros)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Έχω μια μαύρη γάτα."
+    },
+    {
+     "front": "κόκκινος",
+     "back": {
+      "ru": "красный (kókkinos)",
+      "en": "red (kókkinos)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "Το φανάρι είναι κόκκινο."
+    },
+    {
+     "front": "μπλε",
+     "back": {
+      "ru": "синий (ble)",
+      "en": "blue (ble)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "Η θάλασσα είναι πολύ μπλε."
+    },
+    {
+     "front": "πράσινος",
+     "back": {
+      "ru": "зелёный (prásinos)",
+      "en": "green (prásinos)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "Την άνοιξη τα φύλλα γίνονται πράσινα."
+    },
+    {
+     "front": "κίτρινος",
+     "back": {
+      "ru": "жёлтый (kítrinos)",
+      "en": "yellow (kítrinos)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "Το σπίτι είναι κίτρινο."
+    },
+    {
+     "front": "εδώ",
+     "back": {
+      "ru": "здесь (edó)",
+      "en": "here (edó)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Περίμενε εδώ μια στιγμή."
+    },
+    {
+     "front": "εκεί",
+     "back": {
+      "ru": "там (ekí)",
+      "en": "there (ekí)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "Το αυτοκίνητο είναι εκεί."
+    },
+    {
+     "front": "πολύ",
+     "back": {
+      "ru": "много (polí)",
+      "en": "much (polí)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Πίνω πολύ τσάι."
+    },
+    {
+     "front": "λίγο",
+     "back": {
+      "ru": "мало (lígo)",
+      "en": "little (lígo)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "Κοιμήθηκα λίγο απόψε."
+    },
+    {
+     "front": "περισσότερο",
+     "back": {
+      "ru": "больше (perissótero)",
+      "en": "more (perissótero)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Θέλω περισσότερο χρόνο."
+    },
+    {
+     "front": "λιγότερο",
+     "back": {
+      "ru": "меньше (ligótero)",
+      "en": "less (ligótero)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Σήμερα έχει λιγότερο κόσμο."
+    },
+    {
+     "front": "επίσης",
+     "back": {
+      "ru": "тоже (epísis)",
+      "en": "also (epísis)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "Πάω κι εγώ επίσης."
+    },
+    {
+     "front": "καλά",
+     "back": {
+      "ru": "хорошо (kalá)",
+      "en": "well (kalá)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "Μιλάει καλά γαλλικά."
+    },
+    {
+     "front": "άσχημα",
+     "back": {
+      "ru": "плохо (áschima)",
+      "en": "badly (áschima)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "Κοιμήθηκα άσχημα απόψε."
+    },
+    {
+     "front": "με",
+     "back": {
+      "ru": "с (me)",
+      "en": "with (me)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Πάω με την αδελφή μου."
+    },
+    {
+     "front": "χωρίς",
+     "back": {
+      "ru": "без (chorís)",
+      "en": "without (chorís)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Πίνω τον καφέ χωρίς ζάχαρη."
+    },
+    {
+     "front": "για",
+     "back": {
+      "ru": "для (ya)",
+      "en": "for (ya)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Αυτό το δέμα είναι για σένα."
+    },
+    {
+     "front": "αλλά",
+     "back": {
+      "ru": "но (allá)",
+      "en": "but (allá)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Ήθελα να πάω, αλλά δεν γίνεται."
+    },
+    {
+     "front": "ή",
+     "back": {
+      "ru": "или (i)",
+      "en": "or (i)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Τσάι ή καφέ;"
+    },
+    {
+     "front": "επειδή",
+     "back": {
+      "ru": "потому что (epidí)",
+      "en": "because (epidí)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "Έμεινα σπίτι επειδή έβρεχε."
+    },
+    {
+     "front": "αν",
+     "back": {
+      "ru": "если (an)",
+      "en": "if (an)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Αν βρέξει, θα μείνουμε."
+    },
+    {
+     "front": "ίσως",
+     "back": {
+      "ru": "может быть (ísos)",
+      "en": "maybe (ísos)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "Ίσως έρθει αύριο."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "είμαι",
+     "back": {
+      "ru": "быть (íme)",
+      "en": "to be (íme)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "Είναι δασκάλα μουσικής."
+    },
+    {
+     "front": "βρίσκομαι",
+     "back": {
+      "ru": "находиться (vrískome)",
+      "en": "to be (state) (vrískome)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "Το βιβλίο βρίσκεται στο τραπέζι."
+    },
+    {
+     "front": "έχω",
+     "back": {
+      "ru": "иметь (écho)",
+      "en": "to have (écho)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "Έχω δύο μικρότερα αδέλφια."
+    },
+    {
+     "front": "κάνω",
+     "back": {
+      "ru": "делать (káno)",
+      "en": "to do (káno)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Τι κάνεις την Κυριακή;"
+    },
+    {
+     "front": "πηγαίνω",
+     "back": {
+      "ru": "идти (piyéno)",
+      "en": "to go (piyéno)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "Πηγαίνω τώρα στη λαϊκή."
+    },
+    {
+     "front": "έρχομαι",
+     "back": {
+      "ru": "приходить (érchome)",
+      "en": "to come (érchome)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "Έρχεσαι για δείπνο;"
+    },
+    {
+     "front": "λέω",
+     "back": {
+      "ru": "говорить (léo)",
+      "en": "to say (léo)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Πες μου την αλήθεια."
+    },
+    {
+     "front": "βλέπω",
+     "back": {
+      "ru": "видеть (vlépo)",
+      "en": "to see (vlépo)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "Είδα τον αδελφό σου στον δρόμο."
+    },
+    {
+     "front": "δίνω",
+     "back": {
+      "ru": "давать (díno)",
+      "en": "to give (díno)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Δώσε μου το κλειδί, παρακαλώ."
+    },
+    {
+     "front": "ξέρω",
+     "back": {
+      "ru": "знать (xéro)",
+      "en": "to know (xéro)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "Δεν ξέρω πού μένει."
+    },
+    {
+     "front": "μπορώ",
+     "back": {
+      "ru": "мочь (boró)",
+      "en": "can (boró)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "Μπορείς να με βοηθήσεις;"
+    },
+    {
+     "front": "θέλω",
+     "back": {
+      "ru": "хотеть (thélo)",
+      "en": "to want (thélo)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Θέλω ένα ποτήρι νερό."
+    },
+    {
+     "front": "πρέπει",
+     "back": {
+      "ru": "быть должным (prépi)",
+      "en": "must (prépi)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Πρέπει να φύγω νωρίτερα σήμερα."
+    },
+    {
+     "front": "μένω",
+     "back": {
+      "ru": "оставаться (méno)",
+      "en": "to stay (méno)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Απόψε μένω σπίτι."
+    },
+    {
+     "front": "περνάω",
+     "back": {
+      "ru": "проходить (pernáo)",
+      "en": "to pass (pernáo)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "Το λεωφορείο περνάει στις εννέα."
+    },
+    {
+     "front": "φτάνω",
+     "back": {
+      "ru": "прибывать (ftáno)",
+      "en": "to arrive (ftáno)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "Το τρένο έφτασε με καθυστέρηση."
+    },
+    {
+     "front": "βγαίνω",
+     "back": {
+      "ru": "выходить (vyéno)",
+      "en": "to leave (vyéno)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "Βγαίνω από τη δουλειά στις έξι."
+    },
+    {
+     "front": "μπαίνω",
+     "back": {
+      "ru": "входить (béno)",
+      "en": "to enter (béno)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Μπες, η πόρτα είναι ανοιχτή."
+    },
+    {
+     "front": "επιστρέφω",
+     "back": {
+      "ru": "возвращаться (epistréfo)",
+      "en": "to return (epistréfo)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Επιστρέφω σε μισή ώρα."
+    },
+    {
+     "front": "αρχίζω",
+     "back": {
+      "ru": "начинать (archízo)",
+      "en": "to begin (archízo)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "Το μάθημα αρχίζει στις οκτώ."
+    },
+    {
+     "front": "τελειώνω",
+     "back": {
+      "ru": "заканчивать (teliόno)",
+      "en": "to finish (teliόno)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Τελείωσα το βιβλίο χθες."
+    },
+    {
+     "front": "συνεχίζω",
+     "back": {
+      "ru": "продолжать (sinechízo)",
+      "en": "to continue (sinechízo)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "Η βροχή συνεχίζει."
+    },
+    {
+     "front": "σταματάω",
+     "back": {
+      "ru": "останавливаться (stamatáo)",
+      "en": "to stop (stamatáo)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "Το αυτοκίνητο σταμάτησε μπροστά στην πόρτα."
+    },
+    {
+     "front": "περιμένω",
+     "back": {
+      "ru": "ждать (periméno)",
+      "en": "to wait (periméno)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "Σε περιμένω στον σταθμό."
+    },
+    {
+     "front": "βρίσκω",
+     "back": {
+      "ru": "находить (vrísko)",
+      "en": "to find (vrísko)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "Βρήκα τα κλειδιά στο τραπέζι."
+    },
+    {
+     "front": "ψάχνω",
+     "back": {
+      "ru": "искать (psáchno)",
+      "en": "to look for (psáchno)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Ψάχνω ένα βιβλίο γραμματικής."
+    },
+    {
+     "front": "χάνω",
+     "back": {
+      "ru": "терять (cháno)",
+      "en": "to lose (cháno)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "Έχασα το τρένο των επτά."
+    },
+    {
+     "front": "κερδίζω",
+     "back": {
+      "ru": "выигрывать (kerdízo)",
+      "en": "to win (kerdízo)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "Η ομάδα μας κέρδισε."
+    },
+    {
+     "front": "αγοράζω",
+     "back": {
+      "ru": "покупать (agorázo)",
+      "en": "to buy (agorázo)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "Αγόρασα ψωμί για το δείπνο."
+    },
+    {
+     "front": "πουλάω",
+     "back": {
+      "ru": "продавать (puláo)",
+      "en": "to sell (puláo)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "Πουλάνε φρούτα στη γωνία."
+    },
+    {
+     "front": "πληρώνω",
+     "back": {
+      "ru": "платить (pliróno)",
+      "en": "to pay (pliróno)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "Τον καφέ τον πληρώνω εγώ."
+    },
+    {
+     "front": "κοστίζω",
+     "back": {
+      "ru": "стоить (kostízo)",
+      "en": "to cost (kostízo)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Πόσο κοστίζει το εισιτήριο;"
+    },
+    {
+     "front": "δουλεύω",
+     "back": {
+      "ru": "работать (dulévo)",
+      "en": "to work (dulévo)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Δουλεύω σε νοσοκομείο."
+    },
+    {
+     "front": "σπουδάζω",
+     "back": {
+      "ru": "учиться (spudázo)",
+      "en": "to study (spudázo)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Σπουδάζω ελληνικά έναν χρόνο."
+    },
+    {
+     "front": "μαθαίνω",
+     "back": {
+      "ru": "изучать (mathéno)",
+      "en": "to learn (mathéno)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "Έμαθα κολύμπι μικρός."
+    },
+    {
+     "front": "διδάσκω",
+     "back": {
+      "ru": "учить (didásko)",
+      "en": "to teach (didásko)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "Διδάσκει σε σχολείο του χωριού."
+    },
+    {
+     "front": "διαβάζω",
+     "back": {
+      "ru": "читать (diavázo)",
+      "en": "to read (diavázo)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Το πρωί διαβάζω την εφημερίδα."
+    },
+    {
+     "front": "γράφω",
+     "back": {
+      "ru": "писать (gráfo)",
+      "en": "to write (gráfo)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Της έγραψα ένα μεγάλο γράμμα."
+    },
+    {
+     "front": "μιλάω",
+     "back": {
+      "ru": "разговаривать (miláo)",
+      "en": "to speak (miláo)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Μιλήσαμε χθες στο τηλέφωνο."
+    },
+    {
+     "front": "ακούω",
+     "back": {
+      "ru": "слышать (akúo)",
+      "en": "to hear (akúo)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "Άκουσα έναν θόρυβο στην κουζίνα."
+    },
+    {
+     "front": "προσέχω",
+     "back": {
+      "ru": "слушать (prosécho)",
+      "en": "to listen (prosécho)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Πρόσεχε καλά τι λέω."
+    },
+    {
+     "front": "κοιτάζω",
+     "back": {
+      "ru": "смотреть (kitázo)",
+      "en": "to look (kitázo)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Κοίταξε αριστερά."
+    },
+    {
+     "front": "νιώθω",
+     "back": {
+      "ru": "чувствовать (niótho)",
+      "en": "to feel (niótho)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Νιώθω κρύο στα χέρια."
+    },
+    {
+     "front": "σκέφτομαι",
+     "back": {
+      "ru": "думать (skéftome)",
+      "en": "to think (skéftome)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Το σκέφτομαι από χθες."
+    },
+    {
+     "front": "θυμάμαι",
+     "back": {
+      "ru": "помнить (thimáme)",
+      "en": "to remember (thimáme)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "Θυμάμαι καλά εκείνη τη μέρα."
+    },
+    {
+     "front": "ξεχνάω",
+     "back": {
+      "ru": "забывать (xechnáo)",
+      "en": "to forget (xechnáo)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "Ξέχασα το όνομά σου."
+    },
+    {
+     "front": "καταλαβαίνω",
+     "back": {
+      "ru": "понимать (katalavéno)",
+      "en": "to understand (katalavéno)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "Δεν κατάλαβα την ερώτηση."
+    },
+    {
+     "front": "εξηγώ",
+     "back": {
+      "ru": "объяснять (exigó)",
+      "en": "to explain (exigó)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Εξήγησέ το άλλη μια φορά."
+    },
+    {
+     "front": "ρωτάω",
+     "back": {
+      "ru": "спрашивать (rotáo)",
+      "en": "to ask (rotáo)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "Ρώτησα τον γείτονα."
+    },
+    {
+     "front": "απαντάω",
+     "back": {
+      "ru": "отвечать (apandáo)",
+      "en": "to answer (apandáo)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "Δεν έχει απαντήσει ακόμα."
+    },
+    {
+     "front": "φωνάζω",
+     "back": {
+      "ru": "звать (fonázo)",
+      "en": "to call (fonázo)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Φώναξε γρήγορα τον γιατρό."
+    },
+    {
+     "front": "τηλεφωνώ",
+     "back": {
+      "ru": "звонить (tilefonó)",
+      "en": "to phone (tilefonó)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Θα σου τηλεφωνήσω το βράδυ."
+    },
+    {
+     "front": "ανοίγω",
+     "back": {
+      "ru": "открывать (anígo)",
+      "en": "to open (anígo)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Άνοιξε το παράθυρο, παρακαλώ."
+    },
+    {
+     "front": "κλείνω",
+     "back": {
+      "ru": "закрывать (klíno)",
+      "en": "to close (klíno)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Κλείσε την πόρτα φεύγοντας."
+    },
+    {
+     "front": "βάζω",
+     "back": {
+      "ru": "класть (vázo)",
+      "en": "to put (vázo)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Βάλε το ψωμί στο τραπέζι."
+    },
+    {
+     "front": "βγάζω",
+     "back": {
+      "ru": "убирать (vgázo)",
+      "en": "to take off (vgázo)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Βγάλε τα παπούτσια στην είσοδο."
+    },
+    {
+     "front": "παίρνω μαζί",
+     "back": {
+      "ru": "нести (pérno mazí)",
+      "en": "to take (pérno mazí)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "Παίρνω μαζί μου την ομπρέλα."
+    },
+    {
+     "front": "φέρνω",
+     "back": {
+      "ru": "приносить (férno)",
+      "en": "to bring (férno)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "Έφερα κέικ για όλους."
+    },
+    {
+     "front": "στέλνω",
+     "back": {
+      "ru": "посылать (stélno)",
+      "en": "to send (stélno)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Έστειλα το γράμμα τη Δευτέρα."
+    },
+    {
+     "front": "λαμβάνω",
+     "back": {
+      "ru": "получать (lamváno)",
+      "en": "to receive (lamváno)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "Έλαβα το μήνυμά σου."
+    },
+    {
+     "front": "φυλάω",
+     "back": {
+      "ru": "хранить (filáo)",
+      "en": "to keep (filáo)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Φυλάω τις φωτογραφίες σε ένα κουτί."
+    },
+    {
+     "front": "αφήνω",
+     "back": {
+      "ru": "оставлять (afíno)",
+      "en": "to leave behind (afíno)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "Άφησα το παλτό στο αυτοκίνητο."
+    },
+    {
+     "front": "κρατάω",
+     "back": {
+      "ru": "держать (kratáo)",
+      "en": "to hold (kratáo)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Κράτα καλά το ποτήρι."
+    },
+    {
+     "front": "σπρώχνω",
+     "back": {
+      "ru": "толкать (spróchno)",
+      "en": "to push (spróchno)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Σπρώξε την πόρτα, μην τραβάς."
+    },
+    {
+     "front": "τραβάω",
+     "back": {
+      "ru": "тянуть (traváo)",
+      "en": "to pull (traváo)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Τράβα το σκοινί δυνατά."
+    },
+    {
+     "front": "πιάνω",
+     "back": {
+      "ru": "ловить (piáno)",
+      "en": "to catch (piáno)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "Έπιασα τη μπάλα στον αέρα."
+    },
+    {
+     "front": "δείχνω",
+     "back": {
+      "ru": "показывать (díchno)",
+      "en": "to show (díchno)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Δείξε μου τη φωτογραφία."
+    },
+    {
+     "front": "κρύβω",
+     "back": {
+      "ru": "прятать (krívo)",
+      "en": "to hide (krívo)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "Έκρυψε το δώρο στην ντουλάπα."
+    },
+    {
+     "front": "αλλάζω",
+     "back": {
+      "ru": "менять (allázo)",
+      "en": "to change (allázo)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "Άλλαξα γνώμη."
+    },
+    {
+     "front": "δημιουργώ",
+     "back": {
+      "ru": "создавать (dimiurgó)",
+      "en": "to create (dimiurgó)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Δημιούργησαν μια νέα θέση εργασίας."
+    },
+    {
+     "front": "χτίζω",
+     "back": {
+      "ru": "строить (chtízo)",
+      "en": "to build (chtízo)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Χτίζουν ένα κτίριο δίπλα."
+    },
+    {
+     "front": "σπάω",
+     "back": {
+      "ru": "ломать (spáo)",
+      "en": "to break (spáo)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Έσπασα ένα ποτήρι το πρωί."
+    },
+    {
+     "front": "κόβω",
+     "back": {
+      "ru": "резать (kóvo)",
+      "en": "to cut (kóvo)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Κόψε το ψωμί σε φέτες."
+    },
+    {
+     "front": "καθαρίζω",
+     "back": {
+      "ru": "убирать (katharízo)",
+      "en": "to clean (katharízo)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "Καθάρισα όλη την κουζίνα."
+    },
+    {
+     "front": "πλένω",
+     "back": {
+      "ru": "мыть (pléno)",
+      "en": "to wash (pléno)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Πλύνε τα χέρια πριν το φαγητό."
+    },
+    {
+     "front": "στεγνώνω",
+     "back": {
+      "ru": "сушить (stegnóno)",
+      "en": "to dry (stegnóno)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Στέγνωσε καλά τα μαλλιά."
+    },
+    {
+     "front": "μαγειρεύω",
+     "back": {
+      "ru": "готовить (mayirévo)",
+      "en": "to cook (mayirévo)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Μαγειρεύω κάθε μέρα."
+    },
+    {
+     "front": "τρώω",
+     "back": {
+      "ru": "есть (tróo)",
+      "en": "to eat (tróo)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Τρώμε στις οκτώ."
+    },
+    {
+     "front": "πίνω",
+     "back": {
+      "ru": "пить (píno)",
+      "en": "to drink (píno)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Πίνω νερό όλη μέρα."
+    },
+    {
+     "front": "δοκιμάζω",
+     "back": {
+      "ru": "пробовать (dokimázo)",
+      "en": "to taste (dokimázo)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Δοκίμασε τη σούπα, είναι ωραία."
+    },
+    {
+     "front": "σερβίρω",
+     "back": {
+      "ru": "подавать (servíro)",
+      "en": "to serve (servíro)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Σερβίρουν το μεσημεριανό στις δώδεκα."
+    },
+    {
+     "front": "κοιμάμαι",
+     "back": {
+      "ru": "спать (kimáme)",
+      "en": "to sleep (kimáme)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "Κοιμήθηκα οκτώ ώρες συνεχόμενα."
+    },
+    {
+     "front": "ξυπνάω",
+     "back": {
+      "ru": "просыпаться (xipnáo)",
+      "en": "to wake up (xipnáo)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Ξυπνάω πάντα στις έξι."
+    },
+    {
+     "front": "σηκώνομαι",
+     "back": {
+      "ru": "вставать (sikónome)",
+      "en": "to get up (sikónome)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Σήκω, είναι αργά."
+    },
+    {
+     "front": "κάθομαι",
+     "back": {
+      "ru": "садиться (káthome)",
+      "en": "to sit (káthome)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Κάθισε εδώ δίπλα μου."
+    },
+    {
+     "front": "ξαπλώνω",
+     "back": {
+      "ru": "ложиться (xaplóno)",
+      "en": "to lie down (xaplóno)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "Τις καθημερινές ξαπλώνω νωρίς."
+    },
+    {
+     "front": "περπατάω",
+     "back": {
+      "ru": "ходить (perpatáo)",
+      "en": "to walk (perpatáo)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Περπατάω μισή ώρα τη μέρα."
+    },
+    {
+     "front": "τρέχω",
+     "back": {
+      "ru": "бегать (trécho)",
+      "en": "to run (trécho)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Τρέχω το πρωί στο πάρκο."
+    },
+    {
+     "front": "πηδάω",
+     "back": {
+      "ru": "прыгать (pidáo)",
+      "en": "to jump (pidáo)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "Η γάτα πήδηξε στο τραπέζι."
+    },
+    {
+     "front": "κολυμπάω",
+     "back": {
+      "ru": "плавать (kolimbáo)",
+      "en": "to swim (kolimbáo)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "Έμαθα κολύμπι στο ποτάμι."
+    },
+    {
+     "front": "πετάω",
+     "back": {
+      "ru": "летать (petáo)",
+      "en": "to fly (petáo)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Τα πουλιά πετούν νότια."
+    },
+    {
+     "front": "ταξιδεύω",
+     "back": {
+      "ru": "путешествовать (taxidévo)",
+      "en": "to travel (taxidévo)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Ταξιδέψαμε με το τρένο."
+    },
+    {
+     "front": "οδηγώ",
+     "back": {
+      "ru": "водить (odigó)",
+      "en": "to drive (odigó)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "Οδηγεί προσεκτικά."
+    },
+    {
+     "front": "ανεβαίνω",
+     "back": {
+      "ru": "подниматься (anevéno)",
+      "en": "to go up (anevéno)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Ανεβήκαμε στον τρίτο όροφο."
+    },
+    {
+     "front": "κατεβαίνω",
+     "back": {
+      "ru": "спускаться (katevéno)",
+      "en": "to go down (katevéno)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Κατέβα τις σκάλες αργά."
+    },
+    {
+     "front": "πέφτω",
+     "back": {
+      "ru": "падать (péfto)",
+      "en": "to fall (péfto)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "Το φλιτζάνι έπεσε από το τραπέζι."
+    },
+    {
+     "front": "κατοικώ",
+     "back": {
+      "ru": "жить (katikó)",
+      "en": "to live (reside) (katikó)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Κατοικώ κοντά στον σταθμό."
+    },
+    {
+     "front": "ζω",
+     "back": {
+      "ru": "жить (zo)",
+      "en": "to live (zo)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "Έζησε ενενήντα χρόνια."
+    },
+    {
+     "front": "πεθαίνω",
+     "back": {
+      "ru": "умирать (petheno)",
+      "en": "to die (petheno)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "Το δέντρο πέθανε τον χειμώνα."
+    },
+    {
+     "front": "γεννιέμαι",
+     "back": {
+      "ru": "рождаться (yenniéme)",
+      "en": "to be born (yenniéme)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Γεννήθηκα τον Μάρτιο."
+    },
+    {
+     "front": "μεγαλώνω",
+     "back": {
+      "ru": "расти (megalóno)",
+      "en": "to grow (megalóno)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Τα παιδιά μεγαλώνουν γρήγορα."
+    },
+    {
+     "front": "παντρεύομαι",
+     "back": {
+      "ru": "жениться (pandrévome)",
+      "en": "to marry (pandrévome)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Παντρεύτηκαν την άνοιξη."
+    },
+    {
+     "front": "βοηθάω",
+     "back": {
+      "ru": "помогать (voitháo)",
+      "en": "to help (voitháo)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Βοήθησέ με με αυτές τις τσάντες."
+    },
+    {
+     "front": "μου αρέσει",
+     "back": {
+      "ru": "нравиться (mu arési)",
+      "en": "to like (mu arési)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "Μου αρέσει πολύ αυτός ο καφές."
+    },
+    {
+     "front": "αγαπάω",
+     "back": {
+      "ru": "любить (agapáo)",
+      "en": "to love (agapáo)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "Αγαπάει την οικογένειά του πάνω απ' όλα."
+    },
+    {
+     "front": "μισώ",
+     "back": {
+      "ru": "ненавидеть (misó)",
+      "en": "to hate (misó)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Μισώ να ξυπνάω νωρίς."
+    },
+    {
+     "front": "γελάω",
+     "back": {
+      "ru": "смеяться (yeláo)",
+      "en": "to laugh (yeláo)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Γελάσαμε όλο το βράδυ."
+    },
+    {
+     "front": "κλαίω",
+     "back": {
+      "ru": "плакать (kléo)",
+      "en": "to cry (kléo)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "Το παιδί έκλαψε από την κούραση."
+    },
+    {
+     "front": "τραγουδάω",
+     "back": {
+      "ru": "петь (tragudáo)",
+      "en": "to sing (tragudáo)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Τραγουδούν στη χορωδία της εκκλησίας."
+    },
+    {
+     "front": "χορεύω",
+     "back": {
+      "ru": "танцевать (chorévo)",
+      "en": "to dance (chorévo)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Χορέψαμε μέχρι αργά."
+    },
+    {
+     "front": "παίζω",
+     "back": {
+      "ru": "играть (pézo)",
+      "en": "to play (children) (pézo)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Τα παιδιά παίζουν στον κήπο."
+    },
+    {
+     "front": "παίζω αγώνα",
+     "back": {
+      "ru": "играть (pézo agóna)",
+      "en": "to play (a game) (pézo agóna)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "Το Σάββατο παίζουμε αγώνα."
+    },
+    {
+     "front": "αγγίζω",
+     "back": {
+      "ru": "трогать (angízo)",
+      "en": "to touch (angízo)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "Μην αγγίζεις τη φρέσκια μπογιά."
+    },
+    {
+     "front": "ξεκουράζομαι",
+     "back": {
+      "ru": "отдыхать (xekurázome)",
+      "en": "to rest (xekurázome)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Ξεκουράσου λίγο."
+    },
+    {
+     "front": "προσπαθώ",
+     "back": {
+      "ru": "пытаться (prospathó)",
+      "en": "to try (prospathó)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "Προσπάθησα να σου τηλεφωνήσω τρεις φορές."
+    },
+    {
+     "front": "καταφέρνω",
+     "back": {
+      "ru": "удаваться (kataférno)",
+      "en": "to manage (kataférno)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "Κατάφερα να βρω εισιτήρια για σήμερα."
+    },
+    {
+     "front": "χρειάζομαι",
+     "back": {
+      "ru": "нуждаться (chriázome)",
+      "en": "to need (chriázome)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "Χρειάζομαι βοήθεια τώρα."
+    },
+    {
+     "front": "χρησιμοποιώ",
+     "back": {
+      "ru": "использовать (chrisimopió)",
+      "en": "to use (chrisimopió)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Χρησιμοποιώ το τηλέφωνο για τα πάντα."
+    },
+    {
+     "front": "διαλέγω",
+     "back": {
+      "ru": "выбирать (dialégo)",
+      "en": "to choose (dialégo)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Διάλεξε εσύ το εστιατόριο."
+    },
+    {
+     "front": "αποφασίζω",
+     "back": {
+      "ru": "решать (apofasízo)",
+      "en": "to decide (apofasízo)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Αποφασίσαμε να μείνουμε άλλη μια μέρα."
+    },
+    {
+     "front": "δέχομαι",
+     "back": {
+      "ru": "принимать (déchome)",
+      "en": "to accept (déchome)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "Δέχτηκε την πρόσκληση."
+    },
+    {
+     "front": "αρνούμαι",
+     "back": {
+      "ru": "отказывать (arnúme)",
+      "en": "to refuse (arnúme)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "Αρνήθηκε τη βοήθεια των γειτόνων."
+    },
+    {
+     "front": "υπόσχομαι",
+     "back": {
+      "ru": "обещать (ipóschome)",
+      "en": "to promise (ipóschome)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "Υποσχέθηκε να γυρίσει νωρίς."
+    },
+    {
+     "front": "ευχαριστώ (ρήμα)",
+     "back": {
+      "ru": "благодарить (efcharistó (rima))",
+      "en": "to thank (efcharistó (rima))",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "Σε ευχαριστώ για την υπομονή σου."
+    },
+    {
+     "front": "ζητάω",
+     "back": {
+      "ru": "просить (zitáo)",
+      "en": "to ask for (zitáo)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "Ζήτησα ένα ποτήρι νερό."
+    },
+    {
+     "front": "συμβαίνει",
+     "back": {
+      "ru": "случаться (simvéni)",
+      "en": "to happen (simvéni)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Τι συνέβη χθες;"
+    },
+    {
+     "front": "φαίνομαι",
+     "back": {
+      "ru": "казаться (fénome)",
+      "en": "to seem (fénome)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Φαίνεσαι κουρασμένος."
+    },
+    {
+     "front": "ανάβω",
+     "back": {
+      "ru": "включать (anávo)",
+      "en": "to turn on (anávo)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Άναψε το φως στην κουζίνα."
+    },
+    {
+     "front": "σβήνω",
+     "back": {
+      "ru": "выключать (svíno)",
+      "en": "to turn off (svíno)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Σβήσε τον υπολογιστή πριν φύγεις."
+    },
+    {
+     "front": "βρέχει",
+     "back": {
+      "ru": "идти (о дожде) (vréchi)",
+      "en": "to rain (vréchi)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Έβρεχε όλη τη νύχτα."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "νερό",
+     "back": {
+      "ru": "вода (neró)",
+      "en": "water (neró)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Φέρε μου ένα ποτήρι νερό."
+    },
+    {
+     "front": "ψωμί",
+     "back": {
+      "ru": "хлеб (psomí)",
+      "en": "bread (psomí)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "Το ψωμί είναι ακόμα ζεστό."
+    },
+    {
+     "front": "γάλα",
+     "back": {
+      "ru": "молоко (gála)",
+      "en": "milk (gála)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "Στο πρωινό πίνω γάλα."
+    },
+    {
+     "front": "καφές",
+     "back": {
+      "ru": "кофе (kafés)",
+      "en": "coffee (kafés)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Έναν καφέ, παρακαλώ."
+    },
+    {
+     "front": "τσάι",
+     "back": {
+      "ru": "чай (tsái)",
+      "en": "tea (tsái)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "Το απόγευμα φτιάχνω τσάι."
+    },
+    {
+     "front": "χυμός",
+     "back": {
+      "ru": "сок (chimós)",
+      "en": "juice (chimós)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Φρεσκοστυμμένος χυμός πορτοκαλιού."
+    },
+    {
+     "front": "κρασί",
+     "back": {
+      "ru": "вино (krasí)",
+      "en": "wine (krasí)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Ένα ποτήρι κόκκινο κρασί."
+    },
+    {
+     "front": "μπίρα",
+     "back": {
+      "ru": "пиво (bíra)",
+      "en": "beer (bíra)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "Η μπίρα είναι καλά παγωμένη."
+    },
+    {
+     "front": "πάγος",
+     "back": {
+      "ru": "лёд (págos)",
+      "en": "ice (págos)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "Θέλεις πάγο στο ποτό;"
+    },
+    {
+     "front": "ζάχαρη",
+     "back": {
+      "ru": "сахар (záchari)",
+      "en": "sugar (záchari)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Πίνω τον καφέ χωρίς ζάχαρη."
+    },
+    {
+     "front": "αλάτι",
+     "back": {
+      "ru": "соль (aláti)",
+      "en": "salt (aláti)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "Λείπει αλάτι από τη σούπα."
+    },
+    {
+     "front": "πιπέρι",
+     "back": {
+      "ru": "перец (pipéri)",
+      "en": "pepper (pipéri)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Βάλε λίγο πιπέρι."
+    },
+    {
+     "front": "ελαιόλαδο",
+     "back": {
+      "ru": "оливковое масло (eleólado)",
+      "en": "olive oil (eleólado)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Ρίξε ελαιόλαδο στη σαλάτα."
+    },
+    {
+     "front": "βούτυρο",
+     "back": {
+      "ru": "масло (vútiro)",
+      "en": "butter (vútiro)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Άλειψε βούτυρο στο ψωμί."
+    },
+    {
+     "front": "τυρί",
+     "back": {
+      "ru": "сыр (tirí)",
+      "en": "cheese (tirí)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Αυτό το τυρί είναι από το βουνό."
+    },
+    {
+     "front": "αυγό",
+     "back": {
+      "ru": "яйцо (avgó)",
+      "en": "egg (avgó)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "Έφαγα ένα βραστό αυγό."
+    },
+    {
+     "front": "κρέας",
+     "back": {
+      "ru": "мясо (kréas)",
+      "en": "meat (kréas)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Το βράδυ δεν τρώω κρέας."
+    },
+    {
+     "front": "κοτόπουλο",
+     "back": {
+      "ru": "курица (kotópulo)",
+      "en": "chicken (kotópulo)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Κοτόπουλο στον φούρνο με πατάτες."
+    },
+    {
+     "front": "ψάρι",
+     "back": {
+      "ru": "рыба (psári)",
+      "en": "fish (psári)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "Το ψάρι είναι φρέσκο σήμερα."
+    },
+    {
+     "front": "μπακαλιάρος",
+     "back": {
+      "ru": "треска (bakaliáros)",
+      "en": "cod (bakaliáros)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "Ο μπακαλιάρος διατηρείται παστός."
+    },
+    {
+     "front": "σαρδέλα",
+     "back": {
+      "ru": "сардина (sardéla)",
+      "en": "sardine (sardéla)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Σαρδέλες στα κάρβουνα."
+    },
+    {
+     "front": "τόνος",
+     "back": {
+      "ru": "тунец (tónos)",
+      "en": "tuna (tónos)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Ένα σάντουιτς με τόνο."
+    },
+    {
+     "front": "γαρίδα",
+     "back": {
+      "ru": "креветка (garída)",
+      "en": "shrimp (garída)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Γαρίδες με σκόρδο."
+    },
+    {
+     "front": "θαλασσινά",
+     "back": {
+      "ru": "морепродукты (thalassiná)",
+      "en": "seafood (thalassiná)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "Φάγαμε θαλασσινά δίπλα στη θάλασσα."
+    },
+    {
+     "front": "ζαμπόν",
+     "back": {
+      "ru": "ветчина (zambón)",
+      "en": "ham (zambón)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Ζαμπόν με πεπόνι."
+    },
+    {
+     "front": "λουκάνικο",
+     "back": {
+      "ru": "сосиска (lukániko)",
+      "en": "sausage (lukániko)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "Αγόρασα λουκάνικα για τα παιδιά."
+    },
+    {
+     "front": "ρύζι",
+     "back": {
+      "ru": "рис (rízi)",
+      "en": "rice (rízi)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Την Κυριακή μαγειρεύουμε ρύζι."
+    },
+    {
+     "front": "πατάτα",
+     "back": {
+      "ru": "картофель (patáta)",
+      "en": "potato (patáta)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Βραστές πατάτες με ελαιόλαδο."
+    },
+    {
+     "front": "ζυμαρικά",
+     "back": {
+      "ru": "макароны (zimariká)",
+      "en": "pasta (zimariká)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Όταν βιάζομαι φτιάχνω ζυμαρικά."
+    },
+    {
+     "front": "αλεύρι",
+     "back": {
+      "ru": "мука (alévri)",
+      "en": "flour (alévri)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "Δεν έχει αλεύρι για το κέικ."
+    },
+    {
+     "front": "σούπα",
+     "back": {
+      "ru": "суп (súpa)",
+      "en": "soup (súpa)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "Η σούπα κρυώνει."
+    },
+    {
+     "front": "σαλάτα",
+     "back": {
+      "ru": "салат (saláta)",
+      "en": "salad (saláta)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Σαλάτα με ντομάτα."
+    },
+    {
+     "front": "λαχανικά",
+     "back": {
+      "ru": "овощи (lachaniká)",
+      "en": "vegetables (lachaniká)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Τρώω λαχανικά κάθε μέρα."
+    },
+    {
+     "front": "φρούτα",
+     "back": {
+      "ru": "фрукты (frúta)",
+      "en": "fruit (frúta)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "Υπάρχουν φρούτα στην κουζίνα."
+    },
+    {
+     "front": "μήλο",
+     "back": {
+      "ru": "яблоко (mílo)",
+      "en": "apple (mílo)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "Παίρνω ένα μήλο στη δουλειά."
+    },
+    {
+     "front": "αχλάδι",
+     "back": {
+      "ru": "груша (achládi)",
+      "en": "pear (achládi)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Αυτό το αχλάδι είναι ώριμο."
+    },
+    {
+     "front": "πορτοκάλι",
+     "back": {
+      "ru": "апельсин (portokáli)",
+      "en": "orange (portokáli)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "Καθάρισα ένα πορτοκάλι."
+    },
+    {
+     "front": "λεμόνι",
+     "back": {
+      "ru": "лимон (lemóni)",
+      "en": "lemon (lemóni)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Τσάι με λεμόνι."
+    },
+    {
+     "front": "μπανάνα",
+     "back": {
+      "ru": "банан (banána)",
+      "en": "banana (banána)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "Έφαγα μια μπανάνα πριν την προπόνηση."
+    },
+    {
+     "front": "σταφύλι",
+     "back": {
+      "ru": "виноград (stafíli)",
+      "en": "grape (stafíli)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "Τα σταφύλια είναι γλυκά."
+    },
+    {
+     "front": "φράουλα",
+     "back": {
+      "ru": "клубника (fráula)",
+      "en": "strawberry (fráula)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Φράουλες με κρέμα."
+    },
+    {
+     "front": "κεράσι",
+     "back": {
+      "ru": "вишня (kerási)",
+      "en": "cherry (kerási)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Τα κεράσια είναι φθηνά στην εποχή τους."
+    },
+    {
+     "front": "ροδάκινο",
+     "back": {
+      "ru": "персик (rodákino)",
+      "en": "peach (rodákino)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Ένα καλά ώριμο ροδάκινο."
+    },
+    {
+     "front": "πεπόνι",
+     "back": {
+      "ru": "дыня (pepóni)",
+      "en": "melon (pepóni)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Πεπόνι με ζαμπόν."
+    },
+    {
+     "front": "καρπούζι",
+     "back": {
+      "ru": "арбуз (karpúzi)",
+      "en": "watermelon (karpúzi)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "Κρύο καρπούζι το καλοκαίρι."
+    },
+    {
+     "front": "ανανάς",
+     "back": {
+      "ru": "ананас (ananás)",
+      "en": "pineapple (ananás)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Χυμός ανανά."
+    },
+    {
+     "front": "σύκο",
+     "back": {
+      "ru": "инжир (síko)",
+      "en": "fig (síko)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "Τον χειμώνα ξερά σύκα."
+    },
+    {
+     "front": "ντομάτα",
+     "back": {
+      "ru": "помидор (domáta)",
+      "en": "tomato (domáta)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Σαλάτα ντομάτας με μυρωδικά."
+    },
+    {
+     "front": "κρεμμύδι",
+     "back": {
+      "ru": "лук (kremídi)",
+      "en": "onion (kremídi)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Πρώτα σοτάρισε το κρεμμύδι."
+    },
+    {
+     "front": "σκόρδο",
+     "back": {
+      "ru": "чеснок (skórdo)",
+      "en": "garlic (skórdo)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "Δύο σκελίδες σκόρδο αρκούν."
+    },
+    {
+     "front": "καρότο",
+     "back": {
+      "ru": "морковь (karóto)",
+      "en": "carrot (karóto)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Σούπα καρότου."
+    },
+    {
+     "front": "μαρούλι",
+     "back": {
+      "ru": "салат-латук (marúli)",
+      "en": "lettuce (marúli)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Πλύνε καλά το μαρούλι."
+    },
+    {
+     "front": "αγγούρι",
+     "back": {
+      "ru": "огурец (angúri)",
+      "en": "cucumber (angúri)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Αγγούρι σε ροδέλες."
+    },
+    {
+     "front": "φασόλια",
+     "back": {
+      "ru": "фасоль (fasólia)",
+      "en": "beans (fasólia)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Φασόλια με ρύζι."
+    },
+    {
+     "front": "αρακάς",
+     "back": {
+      "ru": "горох (arakás)",
+      "en": "pea (arakás)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Αρακάς με αυγό ποσέ."
+    },
+    {
+     "front": "λάχανο",
+     "back": {
+      "ru": "капуста (láchano)",
+      "en": "cabbage (láchano)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "Η λαχανόσουπα είναι χειμωνιάτικο πιάτο."
+    },
+    {
+     "front": "κολοκύθα",
+     "back": {
+      "ru": "тыква (kolokítha)",
+      "en": "pumpkin (kolokítha)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "Το φθινόπωρο φτιάχνουμε σούπα κολοκύθας."
+    },
+    {
+     "front": "μανιτάρι",
+     "back": {
+      "ru": "гриб (manitári)",
+      "en": "mushroom (manitári)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Σοταρισμένα μανιτάρια."
+    },
+    {
+     "front": "ελιά",
+     "back": {
+      "ru": "оливка (eliá)",
+      "en": "olive (eliá)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Ελιές πριν το φαγητό."
+    },
+    {
+     "front": "τούρτα",
+     "back": {
+      "ru": "торт (túrta)",
+      "en": "cake (túrta)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "Έφτιαξα τούρτα πορτοκαλιού."
+    },
+    {
+     "front": "μπισκότο",
+     "back": {
+      "ru": "печенье (biskóto)",
+      "en": "biscuit (biskóto)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Μπισκότα με το τσάι."
+    },
+    {
+     "front": "μαρμελάδα",
+     "back": {
+      "ru": "варенье (marmeláda)",
+      "en": "jam (marmeláda)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "Άλειψα μαρμελάδα φράουλα στο ψωμί."
+    },
+    {
+     "front": "σοκολάτα",
+     "back": {
+      "ru": "шоколад (sokoláta)",
+      "en": "chocolate (sokoláta)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Μια πλάκα μαύρη σοκολάτα."
+    },
+    {
+     "front": "παγωτό",
+     "back": {
+      "ru": "мороженое (pagotó)",
+      "en": "ice cream (pagotó)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Παγωτό βανίλια."
+    },
+    {
+     "front": "μέλι",
+     "back": {
+      "ru": "мёд (méli)",
+      "en": "honey (méli)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Τσάι με μέλι για τον λαιμό."
+    },
+    {
+     "front": "γλυκό",
+     "back": {
+      "ru": "сладость (glikó)",
+      "en": "sweet (glikó)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Το βράδυ δεν τρώω γλυκά."
+    },
+    {
+     "front": "επιδόρπιο",
+     "back": {
+      "ru": "десерт (epidórpio)",
+      "en": "dessert (epidórpio)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "Για επιδόρπιο, φρούτα."
+    },
+    {
+     "front": "γιαούρτι",
+     "back": {
+      "ru": "йогурт (yaúrti)",
+      "en": "yoghurt (yaúrti)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Γιαούρτι απλό χωρίς ζάχαρη."
+    },
+    {
+     "front": "κρέμα γάλακτος",
+     "back": {
+      "ru": "сливки (kréma gálaktos)",
+      "en": "cream (kréma gálaktos)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Φράουλες με κρέμα γάλακτος."
+    },
+    {
+     "front": "φρυγανιά",
+     "back": {
+      "ru": "тост (friganiá)",
+      "en": "toast (friganiá)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Φρυγανιά με βούτυρο."
+    },
+    {
+     "front": "σάντουιτς",
+     "back": {
+      "ru": "бутерброд (sánduits)",
+      "en": "sandwich (sánduits)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Ένα σάντουιτς με τυρί και ζαμπόν."
+    },
+    {
+     "front": "πρωινό",
+     "back": {
+      "ru": "завтрак (proinó)",
+      "en": "breakfast (proinó)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Παίρνω πρωινό στις επτά."
+    },
+    {
+     "front": "μεσημεριανό",
+     "back": {
+      "ru": "обед (mesimerianó)",
+      "en": "lunch (mesimerianó)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "Το μεσημεριανό είναι στη μία."
+    },
+    {
+     "front": "βραδινό",
+     "back": {
+      "ru": "ужин (vradinó)",
+      "en": "dinner (vradinó)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Τρώμε βραδινό γύρω στις οκτώ."
+    },
+    {
+     "front": "κολατσιό",
+     "back": {
+      "ru": "полдник (kolatsió)",
+      "en": "snack (kolatsió)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Τα παιδιά παίρνουν κολατσιό."
+    },
+    {
+     "front": "γεύμα",
+     "back": {
+      "ru": "приём пищи (yévma)",
+      "en": "meal (yévma)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Τρώω τρία γεύματα τη μέρα."
+    },
+    {
+     "front": "φαγητό",
+     "back": {
+      "ru": "еда (fayitó)",
+      "en": "food (fayitó)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "Το φαγητό είναι στο τραπέζι."
+    },
+    {
+     "front": "ποτό",
+     "back": {
+      "ru": "напиток (potó)",
+      "en": "drink (potó)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Τι ποτό θέλεις;"
+    },
+    {
+     "front": "πιάτο",
+     "back": {
+      "ru": "тарелка (piáto)",
+      "en": "plate (piáto)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Βάλε τα πιάτα στον πάγκο."
+    },
+    {
+     "front": "ποτήρι",
+     "back": {
+      "ru": "стакан (potíri)",
+      "en": "glass (potíri)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Γέμισε το ποτήρι μέχρι τη μέση."
+    },
+    {
+     "front": "φλιτζάνι",
+     "back": {
+      "ru": "чашка (flitzáni)",
+      "en": "cup (flitzáni)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Ένα φλιτζάνι καφέ."
+    },
+    {
+     "front": "μπουκάλι",
+     "back": {
+      "ru": "бутылка (bukáli)",
+      "en": "bottle (bukáli)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Ένα μπουκάλι νερό."
+    },
+    {
+     "front": "κουτάλι",
+     "back": {
+      "ru": "ложка (kutáli)",
+      "en": "spoon (kutáli)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Λείπει ένα κουτάλι σούπας."
+    },
+    {
+     "front": "πιρούνι",
+     "back": {
+      "ru": "вилка (pirúni)",
+      "en": "fork (pirúni)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "Το πιρούνι έπεσε στο πάτωμα."
+    },
+    {
+     "front": "μαχαίρι",
+     "back": {
+      "ru": "нож (machéri)",
+      "en": "knife (machéri)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Αυτό το μαχαίρι δεν κόβει καθόλου."
+    },
+    {
+     "front": "χαρτοπετσέτα",
+     "back": {
+      "ru": "салфетка (chartopetséta)",
+      "en": "napkin (chartopetséta)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Δώσε μου μια χαρτοπετσέτα."
+    },
+    {
+     "front": "κατσαρόλα",
+     "back": {
+      "ru": "кастрюля (katsaróla)",
+      "en": "pot (katsaróla)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "Η κατσαρόλα είναι στη φωτιά."
+    },
+    {
+     "front": "τηγάνι",
+     "back": {
+      "ru": "сковорода (tigáni)",
+      "en": "frying pan (tigáni)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Ζέστανε το τηγάνι."
+    },
+    {
+     "front": "εστιατόριο",
+     "back": {
+      "ru": "ресторан (estiatório)",
+      "en": "restaurant (estiatório)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "Έκλεισα τραπέζι στο εστιατόριο."
+    },
+    {
+     "front": "κατάλογος",
+     "back": {
+      "ru": "меню (katálogos)",
+      "en": "menu (katálogos)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Ζήτα τον κατάλογο από τον σερβιτόρο."
+    },
+    {
+     "front": "λογαριασμός",
+     "back": {
+      "ru": "счёт (logariasmós)",
+      "en": "bill (logariasmós)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "Τον λογαριασμό, παρακαλώ."
+    },
+    {
+     "front": "σερβιτόρος",
+     "back": {
+      "ru": "официант (servitóros)",
+      "en": "waiter (servitóros)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "Ο σερβιτόρος έφερε το ψωμί."
+    },
+    {
+     "front": "πείνα",
+     "back": {
+      "ru": "голод (pína)",
+      "en": "hunger (pína)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Έχω μεγάλη πείνα."
+    },
+    {
+     "front": "δίψα",
+     "back": {
+      "ru": "жажда (dípsa)",
+      "en": "thirst (dípsa)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Με αυτή τη ζέστη έρχεται δίψα."
+    },
+    {
+     "front": "γεύση",
+     "back": {
+      "ru": "вкус (yéfsi)",
+      "en": "taste (yéfsi)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Αυτή η σούπα έχει λίγη γεύση."
+    },
+    {
+     "front": "συνταγή",
+     "back": {
+      "ru": "рецепт (sindayí)",
+      "en": "recipe (sindayí)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Αυτή είναι η συνταγή της γιαγιάς μου."
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "ρούχα",
+     "back": {
+      "ru": "одежда (rúcha)",
+      "en": "clothes (rúcha)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Παίρνω λίγα ρούχα στη βαλίτσα."
+    },
+    {
+     "front": "πουκάμισο",
+     "back": {
+      "ru": "рубашка (pukámiso)",
+      "en": "shirt (pukámiso)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "Το πουκάμισο δεν έχει σιδερωθεί."
+    },
+    {
+     "front": "πουλόβερ",
+     "back": {
+      "ru": "свитер (pulóver)",
+      "en": "jumper (pulóver)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Φόρα το πουλόβερ, κάνει κρύο."
+    },
+    {
+     "front": "μπλουζάκι",
+     "back": {
+      "ru": "футболка (bluzáki)",
+      "en": "T-shirt (bluzáki)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "Ένα λευκό μονόχρωμο μπλουζάκι."
+    },
+    {
+     "front": "παλτό",
+     "back": {
+      "ru": "пальто (paltó)",
+      "en": "coat (paltó)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "Ξέχασα το παλτό στο αυτοκίνητο."
+    },
+    {
+     "front": "μπουφάν",
+     "back": {
+      "ru": "куртка (bufán)",
+      "en": "jacket (bufán)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Ένα μπουφάν για τη βροχή."
+    },
+    {
+     "front": "γιλέκο",
+     "back": {
+      "ru": "жилет (yiléko)",
+      "en": "waistcoat (yiléko)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Ένα γιλέκο πάνω από το πουκάμισο."
+    },
+    {
+     "front": "παντελόνι",
+     "back": {
+      "ru": "брюки (pandelóni)",
+      "en": "trousers (pandelóni)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Αυτό το παντελόνι μου είναι φαρδύ."
+    },
+    {
+     "front": "σορτς",
+     "back": {
+      "ru": "шорты (sorts)",
+      "en": "shorts (sorts)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Σορτς για το καλοκαίρι."
+    },
+    {
+     "front": "φούστα",
+     "back": {
+      "ru": "юбка (fústa)",
+      "en": "skirt (fústa)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Μια φούστα ως το γόνατο."
+    },
+    {
+     "front": "φόρεμα",
+     "back": {
+      "ru": "платье (fórema)",
+      "en": "dress (fórema)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "Το φόρεμα είναι λινό."
+    },
+    {
+     "front": "κουστούμι",
+     "back": {
+      "ru": "костюм (kustúmi)",
+      "en": "suit (kustúmi)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Πάει στον γάμο με κουστούμι."
+    },
+    {
+     "front": "γραβάτα",
+     "back": {
+      "ru": "галстук (graváta)",
+      "en": "tie (graváta)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "Δεν ξέρω να δένω γραβάτα."
+    },
+    {
+     "front": "ζώνη",
+     "back": {
+      "ru": "ремень (zóni)",
+      "en": "belt (zóni)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Σφίξε λίγο τη ζώνη."
+    },
+    {
+     "front": "κάλτσες",
+     "back": {
+      "ru": "носки (káltses)",
+      "en": "socks (káltses)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Αυτές οι κάλτσες είναι τρύπιες."
+    },
+    {
+     "front": "καλσόν",
+     "back": {
+      "ru": "колготки (kalsón)",
+      "en": "tights (kalsón)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Μαύρο καλσόν."
+    },
+    {
+     "front": "παπούτσια",
+     "back": {
+      "ru": "туфли (papútsia)",
+      "en": "shoes (papútsia)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Μαύρα δερμάτινα παπούτσια."
+    },
+    {
+     "front": "αθλητικά",
+     "back": {
+      "ru": "кроссовки (athlitiká)",
+      "en": "trainers (athlitiká)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Φοράω αθλητικά όλη μέρα."
+    },
+    {
+     "front": "μπότες",
+     "back": {
+      "ru": "сапоги (bótes)",
+      "en": "boots (bótes)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Μπότες για τον χειμώνα."
+    },
+    {
+     "front": "σανδάλια",
+     "back": {
+      "ru": "сандалии (sandália)",
+      "en": "sandals (sandália)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Σανδάλια για την παραλία."
+    },
+    {
+     "front": "παντόφλες",
+     "back": {
+      "ru": "тапочки (pandófles)",
+      "en": "slippers (pandófles)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Οι παντόφλες είναι στην πόρτα του δωματίου."
+    },
+    {
+     "front": "καπέλο",
+     "back": {
+      "ru": "шляпа (kapélo)",
+      "en": "hat (kapélo)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Ένα ψάθινο καπέλο."
+    },
+    {
+     "front": "τζόκεϊ",
+     "back": {
+      "ru": "кепка (tzókei)",
+      "en": "cap (tzókei)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Τζόκεϊ για τον ήλιο."
+    },
+    {
+     "front": "σκούφος",
+     "back": {
+      "ru": "шапка (skúfos)",
+      "en": "woolly hat (skúfos)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Σκούφος και κασκόλ για το χιόνι."
+    },
+    {
+     "front": "γάντια",
+     "back": {
+      "ru": "перчатки (gándia)",
+      "en": "gloves (gándia)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Δερμάτινα γάντια με φόδρα."
+    },
+    {
+     "front": "κασκόλ",
+     "back": {
+      "ru": "шарф (kaskól)",
+      "en": "scarf (kaskól)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Τύλιξε το κασκόλ δύο φορές."
+    },
+    {
+     "front": "μαντήλι",
+     "back": {
+      "ru": "платок (mandíli)",
+      "en": "handkerchief (mandíli)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Ένα βαμβακερό μαντήλι."
+    },
+    {
+     "front": "γυαλιά",
+     "back": {
+      "ru": "очки (yaliá)",
+      "en": "glasses (yaliá)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Έσπασα τα γυαλιά μου χθες."
+    },
+    {
+     "front": "τσάντα",
+     "back": {
+      "ru": "сумка (tsánda)",
+      "en": "bag (tsánda)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "Η τσάντα είναι πολύ βαριά."
+    },
+    {
+     "front": "πορτοφόλι",
+     "back": {
+      "ru": "кошелёк (portofóli)",
+      "en": "wallet (portofóli)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "Ξέχασα το πορτοφόλι στο σπίτι."
+    },
+    {
+     "front": "σακίδιο",
+     "back": {
+      "ru": "рюкзак (sakídio)",
+      "en": "backpack (sakídio)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "Το σχολικό σακίδιο είναι βαρύ."
+    },
+    {
+     "front": "ομπρέλα",
+     "back": {
+      "ru": "зонт (ombréla)",
+      "en": "umbrella (ombréla)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Πάρε την ομπρέλα."
+    },
+    {
+     "front": "πιτζάμα",
+     "back": {
+      "ru": "пижама (pitzáma)",
+      "en": "pyjamas (pitzáma)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Μια φανελένια πιτζάμα."
+    },
+    {
+     "front": "ρόμπα",
+     "back": {
+      "ru": "халат (róba)",
+      "en": "dressing gown (róba)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "Η ρόμπα κρέμεται πίσω από την πόρτα."
+    },
+    {
+     "front": "πετσέτα",
+     "back": {
+      "ru": "полотенце (petséta)",
+      "en": "towel (petséta)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Μια καθαρή πετσέτα για το μπάνιο."
+    },
+    {
+     "front": "τσέπη",
+     "back": {
+      "ru": "карман (tsépi)",
+      "en": "pocket (tsépi)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Το κλειδί είναι στην τσέπη μου."
+    },
+    {
+     "front": "κουμπί",
+     "back": {
+      "ru": "пуговица (kumbí)",
+      "en": "button (kumbí)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "Έπεσε ένα κουμπί από το πουκάμισο."
+    },
+    {
+     "front": "φερμουάρ",
+     "back": {
+      "ru": "молния (fermuár)",
+      "en": "zip (fermuár)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "Χάλασε το φερμουάρ της τσάντας."
+    },
+    {
+     "front": "μανίκι",
+     "back": {
+      "ru": "рукав (maníki)",
+      "en": "sleeve (maníki)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Ανασήκωσε τα μανίκια."
+    },
+    {
+     "front": "γιακάς",
+     "back": {
+      "ru": "воротник (yakás)",
+      "en": "collar (yakás)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "Ο γιακάς έχει λερωθεί."
+    },
+    {
+     "front": "μέγεθος",
+     "back": {
+      "ru": "размер (méyethos)",
+      "en": "size (méyethos)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "Έχετε αυτό το πουκάμισο σε άλλο μέγεθος;"
+    },
+    {
+     "front": "ύφασμα",
+     "back": {
+      "ru": "ткань (ífasma)",
+      "en": "fabric (ífasma)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Ελαφρύ ύφασμα για το καλοκαίρι."
+    },
+    {
+     "front": "βαμβάκι",
+     "back": {
+      "ru": "хлопок (vamváki)",
+      "en": "cotton (vamváki)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Πουκάμισο από βαμβάκι."
+    },
+    {
+     "front": "μαλλί",
+     "back": {
+      "ru": "шерсть (mallí)",
+      "en": "wool (mallí)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Χοντρές μάλλινες κάλτσες."
+    },
+    {
+     "front": "μετάξι",
+     "back": {
+      "ru": "шёлк (metáxi)",
+      "en": "silk (metáxi)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "Ένα μεταξωτό μαντήλι."
+    },
+    {
+     "front": "δέρμα",
+     "back": {
+      "ru": "кожа (dérma)",
+      "en": "leather (dérma)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Καφέ δερμάτινες μπότες."
+    },
+    {
+     "front": "κρεμάστρα",
+     "back": {
+      "ru": "вешалка (kremástra)",
+      "en": "hanger (kremástra)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Κρέμασε το παλτό στην κρεμάστρα."
+    },
+    {
+     "front": "ντουλάπα",
+     "back": {
+      "ru": "шкаф (dulápa)",
+      "en": "wardrobe (dulápa)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "Η ντουλάπα είναι γεμάτη."
+    },
+    {
+     "front": "δαχτυλίδι",
+     "back": {
+      "ru": "кольцо (dachtilídi)",
+      "en": "ring (dachtilídi)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Ένα ασημένιο δαχτυλίδι."
+    }
+   ]
+  }
+ ]
+}

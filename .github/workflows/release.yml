@@ -9,8 +9,6 @@ name: Release
 #
 #   Вручную (без тега): вкладка Actions → Release → Run workflow.
 #   Тег и version: в pubspec ДОЛЖНЫ совпадать — иначе сборка падает намеренно.
-#
-#   (публикация идёт в ДРУГОЙ репозиторий, встроенного GITHUB_TOKEN не хватает).
 on:
   push:
     tags:
@@ -18,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read           # релиз уходит в другой репо, здесь нужен только checkout
+  contents: write          # релиз публикуется в этом же репозитории
 
 defaults:
   run:

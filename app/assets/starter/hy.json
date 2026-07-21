@@ -1,0 +1,6533 @@
+{
+ "lang": "hy",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "բարև",
+     "back": {
+      "ru": "привет (barev)",
+      "en": "hello (barev)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "Բարև, ինչպե՞ս ես։"
+    },
+    {
+     "front": "ցտեսություն",
+     "back": {
+      "ru": "до свидания (tstesutyun)",
+      "en": "goodbye (tstesutyun)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "Ցտեսություն, մինչև վաղը։"
+    },
+    {
+     "front": "այո",
+     "back": {
+      "ru": "да (ayo)",
+      "en": "yes (ayo)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "Այո, իհարկե կգամ։"
+    },
+    {
+     "front": "ոչ",
+     "back": {
+      "ru": "нет (voch)",
+      "en": "no (voch)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "Ոչ, շնորհակալություն։"
+    },
+    {
+     "front": "խնդրում եմ",
+     "back": {
+      "ru": "пожалуйста (khndrum em)",
+      "en": "please (khndrum em)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "Մեկ սուրճ, խնդրում եմ։"
+    },
+    {
+     "front": "շնորհակալություն",
+     "back": {
+      "ru": "спасибо (shnorhakalutyun)",
+      "en": "thank you (shnorhakalutyun)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "Շնորհակալություն օգնության համար։"
+    },
+    {
+     "front": "ներողություն",
+     "back": {
+      "ru": "извини (neroghutyun)",
+      "en": "sorry (neroghutyun)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "Ներողություն, ուշացա։"
+    },
+    {
+     "front": "բարի լույս",
+     "back": {
+      "ru": "доброе утро (bari luys)",
+      "en": "good morning (bari luys)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "Բարի լույս, լավ քնեցի՞ր։"
+    },
+    {
+     "front": "բարի գիշեր",
+     "back": {
+      "ru": "спокойной ночи (bari gisher)",
+      "en": "good night (bari gisher)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "Բարի գիշեր, մինչև վաղը։"
+    },
+    {
+     "front": "ամեն ինչ լավ է",
+     "back": {
+      "ru": "всё хорошо (amen inch lav e)",
+      "en": "all right (amen inch lav e)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "Մի անհանգստացիր, ամեն ինչ լավ է։"
+    },
+    {
+     "front": "տղամարդ",
+     "back": {
+      "ru": "мужчина (tghamard)",
+      "en": "man (tghamard)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "Այդ տղամարդը մեր հարևանն է։"
+    },
+    {
+     "front": "կին",
+     "back": {
+      "ru": "женщина (kin)",
+      "en": "woman (kin)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "Կապույտ վերարկուով կինը բժիշկ է։"
+    },
+    {
+     "front": "երեխա",
+     "back": {
+      "ru": "ребёнок (yerekha)",
+      "en": "child (yerekha)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "Երեխան խաղում է այգում։"
+    },
+    {
+     "front": "տղա",
+     "back": {
+      "ru": "мальчик (tgha)",
+      "en": "boy (tgha)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "Տղան վազում է դեպի դպրոց։"
+    },
+    {
+     "front": "աղջիկ",
+     "back": {
+      "ru": "девочка (aghjik)",
+      "en": "girl (aghjik)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "Աղջիկը ծաղիկ է նկարում։"
+    },
+    {
+     "front": "ընկեր",
+     "back": {
+      "ru": "друг (ynker)",
+      "en": "friend (ynker)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "Իմ ընկերը ապրում է Գյումրիում։"
+    },
+    {
+     "front": "ընտանիք",
+     "back": {
+      "ru": "семья (yntanik)",
+      "en": "family (yntanik)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "Ամբողջ ընտանիքը եկավ ընթրիքի։"
+    },
+    {
+     "front": "մայր",
+     "back": {
+      "ru": "мама (mayr)",
+      "en": "mother (mayr)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "Իմ մայրը շատ գեղեցիկ է երգում։"
+    },
+    {
+     "front": "հայր",
+     "back": {
+      "ru": "папа (hayr)",
+      "en": "father (hayr)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "Իմ հայրը գիշերն է աշխատում։"
+    },
+    {
+     "front": "որդի",
+     "back": {
+      "ru": "сын (vordi)",
+      "en": "son (vordi)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "Նրանց որդին հինգ տարեկան է։"
+    },
+    {
+     "front": "դուստր",
+     "back": {
+      "ru": "дочь (dustr)",
+      "en": "daughter (dustr)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "Ավագ դուստրը բժշկություն է սովորում։"
+    },
+    {
+     "front": "եղբայր",
+     "back": {
+      "ru": "брат (yeghbayr)",
+      "en": "brother (yeghbayr)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "Իմ եղբայրը ֆուտբոլ է խաղում։"
+    },
+    {
+     "front": "քույր",
+     "back": {
+      "ru": "сестра (kuyr)",
+      "en": "sister (kuyr)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "Իմ քույրը ապրում է Վանաձորում։"
+    },
+    {
+     "front": "տատիկ",
+     "back": {
+      "ru": "бабушка (tatik)",
+      "en": "grandmother (tatik)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "Տատիկը ամենալավ տորթն է թխում։"
+    },
+    {
+     "front": "պապիկ",
+     "back": {
+      "ru": "дедушка (papik)",
+      "en": "grandfather (papik)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "Պապիկը հին պատմություններ է պատմում։"
+    },
+    {
+     "front": "մարդ",
+     "back": {
+      "ru": "человек (mard)",
+      "en": "person (mard)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "Այս մարդուն չեմ ճանաչում։"
+    },
+    {
+     "front": "մարդիկ",
+     "back": {
+      "ru": "люди (mardik)",
+      "en": "people (mardik)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "Հրապարակի մարդիկ ցրվեցին։"
+    },
+    {
+     "front": "անուն",
+     "back": {
+      "ru": "имя (anun)",
+      "en": "name (anun)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "Ի՞նչ է քո անունը։"
+    },
+    {
+     "front": "պարոն",
+     "back": {
+      "ru": "господин (paron)",
+      "en": "sir (paron)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "Բարի լույս, պարոն Պետրոսյան։"
+    },
+    {
+     "front": "տիկին",
+     "back": {
+      "ru": "госпожа (tikin)",
+      "en": "madam (tikin)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "Տիկինը օգնության կարիք ունի՞։"
+    },
+    {
+     "front": "ես",
+     "back": {
+      "ru": "я (yes)",
+      "en": "I (yes)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "Ես ապրում եմ այստեղ մոտակայքում։"
+    },
+    {
+     "front": "դու",
+     "back": {
+      "ru": "ты (du)",
+      "en": "you (du)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "Դու հայերեն խոսու՞մ ես։"
+    },
+    {
+     "front": "դուք",
+     "back": {
+      "ru": "вы (duk)",
+      "en": "you (duk)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "Ցանկանու՞մ եք նստել։"
+    },
+    {
+     "front": "նա (տղամարդ)",
+     "back": {
+      "ru": "он (na (tghamard))",
+      "en": "he (na (tghamard))",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "Նա ժամը ութին է հասնում։"
+    },
+    {
+     "front": "նա (կին)",
+     "back": {
+      "ru": "она (na (kin))",
+      "en": "she (na (kin))",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "Նա աշխատում է հիվանդանոցում։"
+    },
+    {
+     "front": "մենք",
+     "back": {
+      "ru": "мы (menk)",
+      "en": "we (menk)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "Մենք գնում ենք գնացքով։"
+    },
+    {
+     "front": "նրանք",
+     "back": {
+      "ru": "они (nrank)",
+      "en": "they (nrank)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "Նրանք ապրում են նույն շենքում։"
+    },
+    {
+     "front": "իմ",
+     "back": {
+      "ru": "мой (im)",
+      "en": "my (im)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "Սա իմ տեղն է։"
+    },
+    {
+     "front": "քո",
+     "back": {
+      "ru": "твой (ko)",
+      "en": "your (ko)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "Քո վերարկուն մնաց աթոռին։"
+    },
+    {
+     "front": "մեր",
+     "back": {
+      "ru": "наш (mer)",
+      "en": "our (mer)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "Մեր մեքենան փոքր է։"
+    },
+    {
+     "front": "այս",
+     "back": {
+      "ru": "этот (ays)",
+      "en": "this (ays)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "Այս գիրքը շատ հետաքրքիր է։"
+    },
+    {
+     "front": "այն",
+     "back": {
+      "ru": "тот (ayn)",
+      "en": "that (ayn)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "Այն շենքը շատ հին է։"
+    },
+    {
+     "front": "ով",
+     "back": {
+      "ru": "кто (ov)",
+      "en": "who (ov)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "Ո՞վ է դռան մոտ։"
+    },
+    {
+     "front": "ինչ",
+     "back": {
+      "ru": "что (inch)",
+      "en": "what (inch)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "Ի՞նչ ես ասում։"
+    },
+    {
+     "front": "որտեղ",
+     "back": {
+      "ru": "где (vortegh)",
+      "en": "where (vortegh)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "Որտե՞ղ է կայարանը։"
+    },
+    {
+     "front": "երբ",
+     "back": {
+      "ru": "когда (yerb)",
+      "en": "when (yerb)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "Ե՞րբ է սկսվում ֆիլմը։"
+    },
+    {
+     "front": "ինչպես",
+     "back": {
+      "ru": "как (inchpes)",
+      "en": "how (inchpes)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "Ինչպե՞ս է սա ասվում։"
+    },
+    {
+     "front": "ինչու",
+     "back": {
+      "ru": "почему (inchu)",
+      "en": "why (inchu)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "Ինչու՞ այս շտապողականությունը։"
+    },
+    {
+     "front": "որը",
+     "back": {
+      "ru": "который (vory)",
+      "en": "which (vory)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "Ո՞րն ես նախընտրում։"
+    },
+    {
+     "front": "զրո",
+     "back": {
+      "ru": "ноль (zro)",
+      "en": "zero (zro)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "Ջերմաստիճանը զրո աստիճան է։"
+    },
+    {
+     "front": "մեկ",
+     "back": {
+      "ru": "один (mek)",
+      "en": "one (mek)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "Մնացել է միայն մեկ տեղ։"
+    },
+    {
+     "front": "երկու",
+     "back": {
+      "ru": "два (yerku)",
+      "en": "two (yerku)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "Ես երկու եղբայր ունեմ։"
+    },
+    {
+     "front": "երեք",
+     "back": {
+      "ru": "три (yerek)",
+      "en": "three (yerek)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "Կվերադառնամ երեք օրից։"
+    },
+    {
+     "front": "չորս",
+     "back": {
+      "ru": "четыре (chors)",
+      "en": "four (chors)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "Սեղանն ունի չորս աթոռ։"
+    },
+    {
+     "front": "հինգ",
+     "back": {
+      "ru": "пять (hing)",
+      "en": "five (hing)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "Ֆիլմը տևում է հինգ ժամ։"
+    },
+    {
+     "front": "վեց",
+     "back": {
+      "ru": "шесть (vets)",
+      "en": "six (vets)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "Արթնանում եմ ժամը վեցին։"
+    },
+    {
+     "front": "յոթ",
+     "back": {
+      "ru": "семь (yot)",
+      "en": "seven (yot)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "Շաբաթն ունի յոթ օր։"
+    },
+    {
+     "front": "ութ",
+     "back": {
+      "ru": "восемь (ut)",
+      "en": "eight (ut)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "Գնացքը մեկնում է ժամը ութին։"
+    },
+    {
+     "front": "ինը",
+     "back": {
+      "ru": "девять (iny)",
+      "en": "nine (iny)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "Նա ինը տարեկան է։"
+    },
+    {
+     "front": "տասը",
+     "back": {
+      "ru": "десять (tasy)",
+      "en": "ten (tasy)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "Մնացել է տասը րոպե։"
+    },
+    {
+     "front": "տասնմեկ",
+     "back": {
+      "ru": "одиннадцать (tasnmek)",
+      "en": "eleven (tasnmek)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "Դասը ավարտվում է տասնմեկին։"
+    },
+    {
+     "front": "տասներկու",
+     "back": {
+      "ru": "двенадцать (tasnerku)",
+      "en": "twelve (tasnerku)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "Տարին ունի տասներկու ամիս։"
+    },
+    {
+     "front": "քսան",
+     "back": {
+      "ru": "двадцать (ksan)",
+      "en": "twenty (ksan)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "Տոմսն արժե քսան եվրո։"
+    },
+    {
+     "front": "երեսուն",
+     "back": {
+      "ru": "тридцать (yeresun)",
+      "en": "thirty (yeresun)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "Այս ամիսն ունի երեսուն օր։"
+    },
+    {
+     "front": "հարյուր",
+     "back": {
+      "ru": "сто (haryur)",
+      "en": "hundred (haryur)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "Մնացել է հարյուր մետր։"
+    },
+    {
+     "front": "հազար",
+     "back": {
+      "ru": "тысяча (hazar)",
+      "en": "thousand (hazar)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "Գյուղում ապրում է հազար մարդ։"
+    },
+    {
+     "front": "առաջին",
+     "back": {
+      "ru": "первый (arajin)",
+      "en": "first (arajin)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "Այսօր դպրոցի առաջին օրն է։"
+    },
+    {
+     "front": "վերջին",
+     "back": {
+      "ru": "последний (verjin)",
+      "en": "last (verjin)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "Հասցրի վերջին ավտոբուսին։"
+    },
+    {
+     "front": "համար",
+     "back": {
+      "ru": "номер (hamar)",
+      "en": "number (hamar)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "Ի՞նչ համար ունի ձեր տունը։"
+    },
+    {
+     "front": "կես",
+     "back": {
+      "ru": "половина (kes)",
+      "en": "half (kes)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "Կերա տորթի կեսը։"
+    },
+    {
+     "front": "օր",
+     "back": {
+      "ru": "день (or)",
+      "en": "day (or)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "Երկար օր էր։"
+    },
+    {
+     "front": "գիշեր",
+     "back": {
+      "ru": "ночь (gisher)",
+      "en": "night (gisher)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "Գիշերը ցուրտ է։"
+    },
+    {
+     "front": "առավոտ",
+     "back": {
+      "ru": "утро (aravot)",
+      "en": "morning (aravot)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "Առավոտյան թեյ եմ խմում։"
+    },
+    {
+     "front": "կեսօրից հետո",
+     "back": {
+      "ru": "вечер (kesorits heto)",
+      "en": "afternoon (kesorits heto)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "Կեսօրից հետո գնում եմ շուկա։"
+    },
+    {
+     "front": "այսօր",
+     "back": {
+      "ru": "сегодня (aysor)",
+      "en": "today (aysor)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "Այսօր չեմ աշխատում։"
+    },
+    {
+     "front": "վաղը",
+     "back": {
+      "ru": "завтра (vaghy)",
+      "en": "tomorrow (vaghy)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "Վաղը գնում ենք ծովափ։"
+    },
+    {
+     "front": "երեկ",
+     "back": {
+      "ru": "вчера (yerek)",
+      "en": "yesterday (yerek)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "Երեկ ամբողջ օրը անձրև էր։"
+    },
+    {
+     "front": "շաբաթ",
+     "back": {
+      "ru": "неделя (shabat)",
+      "en": "week (shabat)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "Կվերադառնամ հաջորդ շաբաթ։"
+    },
+    {
+     "front": "ամիս",
+     "back": {
+      "ru": "месяц (amis)",
+      "en": "month (amis)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "Այս ամիսը լավ է անցնում։"
+    },
+    {
+     "front": "տարի",
+     "back": {
+      "ru": "год (tari)",
+      "en": "year (tari)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "Անցած տարին ծանր էր։"
+    },
+    {
+     "front": "ժամ",
+     "back": {
+      "ru": "час (zham)",
+      "en": "hour (zham)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "Ճանապարհը տևում է մեկ ժամ։"
+    },
+    {
+     "front": "րոպե",
+     "back": {
+      "ru": "минута (rope)",
+      "en": "minute (rope)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "Սպասիր մեկ րոպե։"
+    },
+    {
+     "front": "ժամանակ",
+     "back": {
+      "ru": "время (zhamanak)",
+      "en": "time (zhamanak)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "Հիմա ժամանակ չունեմ։"
+    },
+    {
+     "front": "հիմա",
+     "back": {
+      "ru": "сейчас (hima)",
+      "en": "now (hima)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "Հիմա զբաղված եմ։"
+    },
+    {
+     "front": "միշտ",
+     "back": {
+      "ru": "всегда (misht)",
+      "en": "always (misht)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "Նա միշտ շուտ է գալիս։"
+    },
+    {
+     "front": "երբեք",
+     "back": {
+      "ru": "никогда (yerbek)",
+      "en": "never (yerbek)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "Երբեք Հռոմում չեմ եղել։"
+    },
+    {
+     "front": "շուտ",
+     "back": {
+      "ru": "рано (shut)",
+      "en": "early (shut)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "Շատ շուտ արթնացա։"
+    },
+    {
+     "front": "երկուշաբթի",
+     "back": {
+      "ru": "понедельник (yerkushabti)",
+      "en": "Monday (yerkushabti)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "Երկուշաբթի բժշկի հերթ ունեմ։"
+    },
+    {
+     "front": "շաբաթ օր",
+     "back": {
+      "ru": "суббота (shabat or)",
+      "en": "Saturday (shabat or)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "Շաբաթ օրերին ուշ եմ քնում։"
+    },
+    {
+     "front": "կիրակի",
+     "back": {
+      "ru": "воскресенье (kiraki)",
+      "en": "Sunday (kiraki)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "Կիրակի օրերին ընտանիքով ճաշում ենք։"
+    },
+    {
+     "front": "տուն",
+     "back": {
+      "ru": "дом (tun)",
+      "en": "house (tun)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "Տան հետևում այգի կա։"
+    },
+    {
+     "front": "քաղաք",
+     "back": {
+      "ru": "город (kaghak)",
+      "en": "city (kaghak)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "Երևանը մեծ քաղաք է։"
+    },
+    {
+     "front": "գյուղ",
+     "back": {
+      "ru": "деревня (gyugh)",
+      "en": "village (gyugh)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "Գյուղը լեռան ստորոտում է։"
+    },
+    {
+     "front": "փողոց",
+     "back": {
+      "ru": "улица (poghots)",
+      "en": "street (poghots)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "Փողոցը լի է մարդկանցով։"
+    },
+    {
+     "front": "դպրոց",
+     "back": {
+      "ru": "школа (dprots)",
+      "en": "school (dprots)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "Դպրոցը բացվում է ժամը ութին։"
+    },
+    {
+     "front": "աշխատանք",
+     "back": {
+      "ru": "работа (ashkhatank)",
+      "en": "work (ashkhatank)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "Աշխատանքն ավարտվում է վեցին։"
+    },
+    {
+     "front": "խանութ",
+     "back": {
+      "ru": "магазин (khanut)",
+      "en": "shop (khanut)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "Խանութը կիրակի փակ է։"
+    },
+    {
+     "front": "շուկա",
+     "back": {
+      "ru": "рынок (shuka)",
+      "en": "market (shuka)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "Մրգերը գնում եմ շուկայից։"
+    },
+    {
+     "front": "հիվանդանոց",
+     "back": {
+      "ru": "больница (hivandanots)",
+      "en": "hospital (hivandanots)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "Հիվանդանոցը մոտ է այստեղից։"
+    },
+    {
+     "front": "դեղատուն",
+     "back": {
+      "ru": "аптека (deghatun)",
+      "en": "pharmacy (deghatun)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "Դեղատունը գիշերն էլ բաց է։"
+    },
+    {
+     "front": "բանկ",
+     "back": {
+      "ru": "банк (bank)",
+      "en": "bank (bank)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "Առավոտյան գնում եմ բանկ։"
+    },
+    {
+     "front": "հյուրանոց",
+     "back": {
+      "ru": "гостиница (hyuranots)",
+      "en": "hotel (hyuranots)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "Հյուրանոցը հենց ծովի մոտ է։"
+    },
+    {
+     "front": "եկեղեցի",
+     "back": {
+      "ru": "церковь (yekeghetsi)",
+      "en": "church (yekeghetsi)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "Այս եկեղեցին շատ հին է։"
+    },
+    {
+     "front": "այգի",
+     "back": {
+      "ru": "сад (aygi)",
+      "en": "garden (aygi)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "Այգին լի է ծաղիկներով։"
+    },
+    {
+     "front": "ծովափ",
+     "back": {
+      "ru": "пляж (tsovap)",
+      "en": "beach (tsovap)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "Ծովափը տասը րոպեի հեռավորության վրա է։"
+    },
+    {
+     "front": "ծով",
+     "back": {
+      "ru": "море (tsov)",
+      "en": "sea (tsov)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "Ծովը այսօր հանգիստ է։"
+    },
+    {
+     "front": "գետ",
+     "back": {
+      "ru": "река (get)",
+      "en": "river (get)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "Գետը հատում է քաղաքը։"
+    },
+    {
+     "front": "լեռ",
+     "back": {
+      "ru": "гора (ler)",
+      "en": "mountain (ler)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "Լեռան գագաթին ձյուն կա։"
+    },
+    {
+     "front": "դաշտ",
+     "back": {
+      "ru": "поле (dasht)",
+      "en": "field (dasht)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "Դաշտում ցորեն է աճում։"
+    },
+    {
+     "front": "անտառ",
+     "back": {
+      "ru": "лес (antar)",
+      "en": "forest (antar)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "Անտառը սկսվում է կամրջից հետո։"
+    },
+    {
+     "front": "երկիր",
+     "back": {
+      "ru": "страна (yerkir)",
+      "en": "country (yerkir)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "Պորտուգալիան փոքր երկիր է։"
+    },
+    {
+     "front": "աշխարհ",
+     "back": {
+      "ru": "мир (ashkharh)",
+      "en": "world (ashkharh)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "Նա շրջել է կես աշխարհ։"
+    },
+    {
+     "front": "ճանապարհ",
+     "back": {
+      "ru": "дорога (chanaparh)",
+      "en": "road (chanaparh)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "Ճանապարհը նեղ է։"
+    },
+    {
+     "front": "կամուրջ",
+     "back": {
+      "ru": "мост (kamurj)",
+      "en": "bridge (kamurj)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "Կամուրջը փակ է վերանորոգման պատճառով։"
+    },
+    {
+     "front": "կայարան",
+     "back": {
+      "ru": "вокзал (kayaran)",
+      "en": "station (kayaran)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "Կհանդիպենք կայարանում։"
+    },
+    {
+     "front": "օդանավակայան",
+     "back": {
+      "ru": "аэропорт (odanavakayan)",
+      "en": "airport (odanavakayan)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "Օդանավակայանը հեռու է կենտրոնից։"
+    },
+    {
+     "front": "սենյակ",
+     "back": {
+      "ru": "комната (senyak)",
+      "en": "room (senyak)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "Սենյակն ունի մեծ պատուհան։"
+    },
+    {
+     "front": "խոհանոց",
+     "back": {
+      "ru": "кухня (khohanots)",
+      "en": "kitchen (khohanots)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "Խոհանոցում սուրճի հոտ է։"
+    },
+    {
+     "front": "դուռ",
+     "back": {
+      "ru": "дверь (dur)",
+      "en": "door (dur)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "Փակիր դուռը, ցուրտ է։"
+    },
+    {
+     "front": "պատուհան",
+     "back": {
+      "ru": "окно (patuhan)",
+      "en": "window (patuhan)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "Բացիր պատուհանը, խեղդում է։"
+    },
+    {
+     "front": "սեղան",
+     "back": {
+      "ru": "стол (seghan)",
+      "en": "table (seghan)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "Դիր ափսեները սեղանին։"
+    },
+    {
+     "front": "աթոռ",
+     "back": {
+      "ru": "стул (ator)",
+      "en": "chair (ator)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "Սեղանի մոտ մեկ աթոռ պակասում է։"
+    },
+    {
+     "front": "մահճակալ",
+     "back": {
+      "ru": "кровать (mahchakal)",
+      "en": "bed (mahchakal)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "Այս մահճակալը շատ կոշտ է։"
+    },
+    {
+     "front": "մեքենա",
+     "back": {
+      "ru": "машина (mekena)",
+      "en": "car (mekena)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "Մեքենան առավոտյան չի միանում։"
+    },
+    {
+     "front": "ավտոբուս",
+     "back": {
+      "ru": "автобус (avtobus)",
+      "en": "bus (avtobus)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "Ավտոբուսը անցնում է կես ժամը մեկ։"
+    },
+    {
+     "front": "գնացք",
+     "back": {
+      "ru": "поезд (gnatsk)",
+      "en": "train (gnatsk)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "Գնացքը ուշացումով եկավ։"
+    },
+    {
+     "front": "ինքնաթիռ",
+     "back": {
+      "ru": "самолёт (inknatir)",
+      "en": "plane (inknatir)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "Ինքնաթիռը թռչում է ժամը յոթին։"
+    },
+    {
+     "front": "հեծանիվ",
+     "back": {
+      "ru": "велосипед (hetsaniv)",
+      "en": "bicycle (hetsaniv)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "Աշխատանքի գնում եմ հեծանիվով։"
+    },
+    {
+     "front": "արև",
+     "back": {
+      "ru": "солнце (arev)",
+      "en": "sun (arev)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "Արևը ծագում է վեցն անց կեսին։"
+    },
+    {
+     "front": "լուսին",
+     "back": {
+      "ru": "луна (lusin)",
+      "en": "moon (lusin)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "Լուսինը այս գիշեր լիալուսին է։"
+    },
+    {
+     "front": "աստղ",
+     "back": {
+      "ru": "звезда (astgh)",
+      "en": "star (astgh)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "Երկնքում պայծառ աստղ է երևում։"
+    },
+    {
+     "front": "երկինք",
+     "back": {
+      "ru": "небо (yerkink)",
+      "en": "sky (yerkink)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "Երկինքը մաքուր է։"
+    },
+    {
+     "front": "անձրև",
+     "back": {
+      "ru": "дождь (andzrev)",
+      "en": "rain (andzrev)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "Անձրևը երեկվանից չի դադարում։"
+    },
+    {
+     "front": "քամի",
+     "back": {
+      "ru": "ветер (kami)",
+      "en": "wind (kami)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "Քամին շուռ տվեց աթոռները։"
+    },
+    {
+     "front": "ձյուն",
+     "back": {
+      "ru": "снег (dzyun)",
+      "en": "snow (dzyun)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "Այստեղ ձյունը հազվադեպ է։"
+    },
+    {
+     "front": "կրակ",
+     "back": {
+      "ru": "огонь (krak)",
+      "en": "fire (krak)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "Բուխարիում կրակ վառեցինք։"
+    },
+    {
+     "front": "հող",
+     "back": {
+      "ru": "земля (hogh)",
+      "en": "earth (hogh)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "Հողը դեռ թաց է։"
+    },
+    {
+     "front": "ծառ",
+     "back": {
+      "ru": "дерево (tsar)",
+      "en": "tree (tsar)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "Ծառը ստվեր է տալիս բակում։"
+    },
+    {
+     "front": "ծաղիկ",
+     "back": {
+      "ru": "цветок (tsaghik)",
+      "en": "flower (tsaghik)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "Փողոցից ծաղիկ բերեցի։"
+    },
+    {
+     "front": "կենդանի",
+     "back": {
+      "ru": "животное (kendani)",
+      "en": "animal (kendani)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "Այն ի՞նչ կենդանի է։"
+    },
+    {
+     "front": "շուն",
+     "back": {
+      "ru": "собака (shun)",
+      "en": "dog (shun)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "Շունը քնած է դռան մոտ։"
+    },
+    {
+     "front": "կատու",
+     "back": {
+      "ru": "кошка (katu)",
+      "en": "cat (katu)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "Կատուն բարձրացավ տանիք։"
+    },
+    {
+     "front": "թռչուն",
+     "back": {
+      "ru": "птица (trchun)",
+      "en": "bird (trchun)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "Առավոտյան թռչուն երգեց։"
+    },
+    {
+     "front": "ձի",
+     "back": {
+      "ru": "лошадь (dzi)",
+      "en": "horse (dzi)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "Ձին վազում է դաշտում։"
+    },
+    {
+     "front": "գիրք",
+     "back": {
+      "ru": "книга (girk)",
+      "en": "book (girk)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "Այս գիրքն ունի երեք հարյուր էջ։"
+    },
+    {
+     "front": "թուղթ",
+     "back": {
+      "ru": "бумага (tught)",
+      "en": "paper (tught)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "Տուր ինձ մի թերթ թուղթ։"
+    },
+    {
+     "front": "գրիչ",
+     "back": {
+      "ru": "ручка (grich)",
+      "en": "pen (grich)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "Գրիչի թանաքը վերջացավ։"
+    },
+    {
+     "front": "հեռախոս",
+     "back": {
+      "ru": "телефон (herakhos)",
+      "en": "phone (herakhos)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "Հեռախոսը երկու անգամ զանգեց։"
+    },
+    {
+     "front": "համակարգիչ",
+     "back": {
+      "ru": "компьютер (hamakargich)",
+      "en": "computer (hamakargich)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "Համակարգիչը դանդաղ է աշխատում։"
+    },
+    {
+     "front": "փող",
+     "back": {
+      "ru": "деньги (pogh)",
+      "en": "money (pogh)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "Ինձ մոտ փող չկա։"
+    },
+    {
+     "front": "բանալի",
+     "back": {
+      "ru": "ключ (banali)",
+      "en": "key (banali)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "Կորցրի տան բանալին։"
+    },
+    {
+     "front": "ձեռքի ժամացույց",
+     "back": {
+      "ru": "часы (dzerki zhamatsuyts)",
+      "en": "watch (dzerki zhamatsuyts)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "Իմ ձեռքի ժամացույցը շտապում է։"
+    },
+    {
+     "front": "լույս",
+     "back": {
+      "ru": "свет (luys)",
+      "en": "light (luys)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "Վառիր լույսը, խնդրում եմ։"
+    },
+    {
+     "front": "երաժշտություն",
+     "back": {
+      "ru": "музыка (yerazhshtutyun)",
+      "en": "music (yerazhshtutyun)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "Երաժշտությունը գալիս է կողքի սրճարանից։"
+    },
+    {
+     "front": "ֆիլմ",
+     "back": {
+      "ru": "фильм (film)",
+      "en": "film (film)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "Ֆիլմը սկսվում է ժամը իննին։"
+    },
+    {
+     "front": "լուսանկար",
+     "back": {
+      "ru": "фотография (lusankar)",
+      "en": "photo (lusankar)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "Հրապարակի լուսանկար արեցի։"
+    },
+    {
+     "front": "նամակ",
+     "back": {
+      "ru": "письмо (namak)",
+      "en": "letter (namak)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "Տատիկիցս նամակ ստացա։"
+    },
+    {
+     "front": "թերթ",
+     "back": {
+      "ru": "газета (tert)",
+      "en": "newspaper (tert)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "Նախաճաշին թերթ եմ կարդում։"
+    },
+    {
+     "front": "գույն",
+     "back": {
+      "ru": "цвет (guyn)",
+      "en": "colour (guyn)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "Ի՞նչ գույնի է քո մեքենան։"
+    },
+    {
+     "front": "բառ",
+     "back": {
+      "ru": "слово (bar)",
+      "en": "word (bar)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "Վերջին բառը չհասկացա։"
+    },
+    {
+     "front": "լեզու",
+     "back": {
+      "ru": "язык (lezu)",
+      "en": "language (lezu)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "Հայերենը իմ մայրենի լեզուն է։"
+    },
+    {
+     "front": "գլուխ",
+     "back": {
+      "ru": "голова (glukh)",
+      "en": "head (glukh)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "Երեկվանից գլուխս ցավում է։"
+    },
+    {
+     "front": "ձեռք",
+     "back": {
+      "ru": "рука (dzerk)",
+      "en": "hand (dzerk)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "Տուր ինձ ձեռքդ։"
+    },
+    {
+     "front": "ոտք",
+     "back": {
+      "ru": "нога (votk)",
+      "en": "foot (votk)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "Ոտքս ուռել է։"
+    },
+    {
+     "front": "աչք",
+     "back": {
+      "ru": "глаз (achk)",
+      "en": "eye (achk)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "Աչքիս փոշի ընկավ։"
+    },
+    {
+     "front": "բերան",
+     "back": {
+      "ru": "рот (beran)",
+      "en": "mouth (beran)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "Բացեք բերանը, ասաց բժիշկը։"
+    },
+    {
+     "front": "սիրտ",
+     "back": {
+      "ru": "сердце (sirt)",
+      "en": "heart (sirt)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "Սիրտը արագ է բաբախում։"
+    },
+    {
+     "front": "մազեր",
+     "back": {
+      "ru": "волосы (mazer)",
+      "en": "hair (mazer)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "Երեկ մազերս կտրեցի։"
+    },
+    {
+     "front": "մարմին",
+     "back": {
+      "ru": "тело (marmin)",
+      "en": "body (marmin)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "Մարմինը հանգիստ է ուզում։"
+    },
+    {
+     "front": "լավ",
+     "back": {
+      "ru": "хороший (lav)",
+      "en": "good (lav)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "Լավ աշխատանքային օր էր։"
+    },
+    {
+     "front": "վատ",
+     "back": {
+      "ru": "плохой (vat)",
+      "en": "bad (vat)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "Եղանակը վատ է։"
+    },
+    {
+     "front": "մեծ",
+     "back": {
+      "ru": "большой (mets)",
+      "en": "big (mets)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "Մեզ մեծ սեղան է պետք։"
+    },
+    {
+     "front": "փոքր",
+     "back": {
+      "ru": "маленький (pokr)",
+      "en": "small (pokr)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "Սենյակը փոքր է, բայց լուսավոր։"
+    },
+    {
+     "front": "նոր",
+     "back": {
+      "ru": "новый (nor)",
+      "en": "new (nor)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "Նոր հեռախոս գնեցի։"
+    },
+    {
+     "front": "հին",
+     "back": {
+      "ru": "старый (hin)",
+      "en": "old (hin)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "Այս շենքը հին է։"
+    },
+    {
+     "front": "երիտասարդ",
+     "back": {
+      "ru": "молодой (yeritasard)",
+      "en": "young (yeritasard)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "Նա երիտասարդ ուսուցիչ է։"
+    },
+    {
+     "front": "բարձր",
+     "back": {
+      "ru": "высокий (bardzr)",
+      "en": "tall (bardzr)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "Շենքը շատ բարձր է։"
+    },
+    {
+     "front": "ցածր",
+     "back": {
+      "ru": "низкий (tsatsr)",
+      "en": "short (tsatsr)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "Առաստաղը ցածր է։"
+    },
+    {
+     "front": "երկար",
+     "back": {
+      "ru": "длинный (yerkar)",
+      "en": "long (yerkar)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "Ճանապարհը երկար է։"
+    },
+    {
+     "front": "կարճ",
+     "back": {
+      "ru": "короткий (karch)",
+      "en": "short (karch)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "Ֆիլմը կարճ էր։"
+    },
+    {
+     "front": "տաք",
+     "back": {
+      "ru": "горячий (tak)",
+      "en": "hot (tak)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "Թեյը տաք է։"
+    },
+    {
+     "front": "սառը",
+     "back": {
+      "ru": "холодный (sary)",
+      "en": "cold (sary)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "Սենյակում ցուրտ է։"
+    },
+    {
+     "front": "գեղեցիկ",
+     "back": {
+      "ru": "красивый (geghetsik)",
+      "en": "beautiful (geghetsik)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "Ինչ գեղեցիկ տեսարան է։"
+    },
+    {
+     "front": "տգեղ",
+     "back": {
+      "ru": "некрасивый (tgegh)",
+      "en": "ugly (tgegh)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "Նոր շենքը տգեղ է։"
+    },
+    {
+     "front": "հեշտ",
+     "back": {
+      "ru": "лёгкий (hesht)",
+      "en": "easy (hesht)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "Վարժությունը հեշտ էր։"
+    },
+    {
+     "front": "դժվար",
+     "back": {
+      "ru": "трудный (dzhvar)",
+      "en": "difficult (dzhvar)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "Հարցը դժվար է։"
+    },
+    {
+     "front": "ուժեղ",
+     "back": {
+      "ru": "сильный (uzhegh)",
+      "en": "strong (uzhegh)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "Սուրճը թունդ է։"
+    },
+    {
+     "front": "թույլ",
+     "back": {
+      "ru": "слабый (tuyl)",
+      "en": "weak (tuyl)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "Ազդանշանը թույլ է։"
+    },
+    {
+     "front": "արագ",
+     "back": {
+      "ru": "быстрый (arag)",
+      "en": "fast (arag)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "Գնացքը արագ է։"
+    },
+    {
+     "front": "դանդաղ",
+     "back": {
+      "ru": "медленный (dandagh)",
+      "en": "slow (dandagh)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "Այստեղ սպասարկումը դանդաղ է։"
+    },
+    {
+     "front": "թանկ",
+     "back": {
+      "ru": "дорогой (tank)",
+      "en": "expensive (tank)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "Հյուրանոցը թանկ է։"
+    },
+    {
+     "front": "էժան",
+     "back": {
+      "ru": "дешёвый (ezhan)",
+      "en": "cheap (ezhan)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "Էժան տոմս գտա։"
+    },
+    {
+     "front": "մաքուր",
+     "back": {
+      "ru": "чистый (makur)",
+      "en": "clean (makur)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "Հատակը մաքուր է։"
+    },
+    {
+     "front": "կեղտոտ",
+     "back": {
+      "ru": "грязный (keghtot)",
+      "en": "dirty (keghtot)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "Մեքենան փոշուց կեղտոտ է։"
+    },
+    {
+     "front": "լիքը",
+     "back": {
+      "ru": "полный (liky)",
+      "en": "full (liky)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "Ավտոբուսը լիքը եկավ։"
+    },
+    {
+     "front": "դատարկ",
+     "back": {
+      "ru": "пустой (datark)",
+      "en": "empty (datark)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "Բաժակը դատարկ է։"
+    },
+    {
+     "front": "երջանիկ",
+     "back": {
+      "ru": "счастливый (yerjanik)",
+      "en": "happy (yerjanik)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "Նա երջանիկ էր լուրից։"
+    },
+    {
+     "front": "տխուր",
+     "back": {
+      "ru": "грустный (tkhur)",
+      "en": "sad (tkhur)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "Աշխատանքից տխուր վերադարձավ։"
+    },
+    {
+     "front": "հոգնած",
+     "back": {
+      "ru": "усталый (hognats)",
+      "en": "tired (hognats)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "Այս օրվանից հետո հոգնած եմ։"
+    },
+    {
+     "front": "հիվանդ",
+     "back": {
+      "ru": "больной (hivand)",
+      "en": "sick (hivand)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "Իմ որդին հիվանդ է։"
+    },
+    {
+     "front": "ճիշտ",
+     "back": {
+      "ru": "правильный (chisht)",
+      "en": "right (chisht)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "Պատասխանը ճիշտ է։"
+    },
+    {
+     "front": "սխալ",
+     "back": {
+      "ru": "неправильный (skhal)",
+      "en": "wrong (skhal)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "Համարը սխալ է։"
+    },
+    {
+     "front": "սպիտակ",
+     "back": {
+      "ru": "белый (spitak)",
+      "en": "white (spitak)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "Պատը սպիտակ է։"
+    },
+    {
+     "front": "սև",
+     "back": {
+      "ru": "чёрный (sev)",
+      "en": "black (sev)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "Սև կատու ունեմ։"
+    },
+    {
+     "front": "կարմիր",
+     "back": {
+      "ru": "красный (karmir)",
+      "en": "red (karmir)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "Լուսացույցը կարմիր է։"
+    },
+    {
+     "front": "կապույտ",
+     "back": {
+      "ru": "синий (kapuyt)",
+      "en": "blue (kapuyt)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "Ծովը շատ կապույտ է։"
+    },
+    {
+     "front": "կանաչ",
+     "back": {
+      "ru": "зелёный (kanach)",
+      "en": "green (kanach)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "Գարնանը տերևները կանաչում են։"
+    },
+    {
+     "front": "դեղին",
+     "back": {
+      "ru": "жёлтый (deghin)",
+      "en": "yellow (deghin)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "Տունը դեղին է։"
+    },
+    {
+     "front": "այստեղ",
+     "back": {
+      "ru": "здесь (aystegh)",
+      "en": "here (aystegh)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "Սպասիր այստեղ մի պահ։"
+    },
+    {
+     "front": "այնտեղ",
+     "back": {
+      "ru": "там (ayntegh)",
+      "en": "there (ayntegh)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "Մեքենան այնտեղ է։"
+    },
+    {
+     "front": "շատ",
+     "back": {
+      "ru": "много (shat)",
+      "en": "much (shat)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "Շատ թեյ եմ խմում։"
+    },
+    {
+     "front": "քիչ",
+     "back": {
+      "ru": "мало (kich)",
+      "en": "little (kich)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "Գիշերը քիչ քնեցի։"
+    },
+    {
+     "front": "ավելի շատ",
+     "back": {
+      "ru": "больше (aveli shat)",
+      "en": "more (aveli shat)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "Ավելի շատ ժամանակ եմ ուզում։"
+    },
+    {
+     "front": "ավելի քիչ",
+     "back": {
+      "ru": "меньше (aveli kich)",
+      "en": "less (aveli kich)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "Այսօր ավելի քիչ մարդ կա։"
+    },
+    {
+     "front": "նույնպես",
+     "back": {
+      "ru": "тоже (nuynpes)",
+      "en": "also (nuynpes)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "Ես նույնպես գնում եմ։"
+    },
+    {
+     "front": "լավ (ձև)",
+     "back": {
+      "ru": "хорошо (lav (dzev))",
+      "en": "well (lav (dzev))",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "Նա լավ է խոսում ֆրանսերեն։"
+    },
+    {
+     "front": "վատ (ձև)",
+     "back": {
+      "ru": "плохо (vat (dzev))",
+      "en": "badly (vat (dzev))",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "Գիշերը վատ քնեցի։"
+    },
+    {
+     "front": "հետ",
+     "back": {
+      "ru": "с (het)",
+      "en": "with (het)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "Գնում եմ քրոջս հետ։"
+    },
+    {
+     "front": "առանց",
+     "back": {
+      "ru": "без (arants)",
+      "en": "without (arants)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "Սուրճը խմում եմ առանց շաքարի։"
+    },
+    {
+     "front": "համար (նպատակ)",
+     "back": {
+      "ru": "для (hamar (npatak))",
+      "en": "for (hamar (npatak))",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "Այս ծանրոցը քեզ համար է։"
+    },
+    {
+     "front": "բայց",
+     "back": {
+      "ru": "но (bayts)",
+      "en": "but (bayts)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "Ուզում էի գնալ, բայց չեմ կարող։"
+    },
+    {
+     "front": "կամ",
+     "back": {
+      "ru": "или (kam)",
+      "en": "or (kam)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "Թեյ, թե՞ սուրճ։"
+    },
+    {
+     "front": "որովհետև",
+     "back": {
+      "ru": "потому что (vorovhetev)",
+      "en": "because (vorovhetev)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "Տանը մնացի, որովհետև անձրև էր։"
+    },
+    {
+     "front": "եթե",
+     "back": {
+      "ru": "если (yete)",
+      "en": "if (yete)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "Եթե անձրև գա, տանը կմնանք։"
+    },
+    {
+     "front": "գուցե",
+     "back": {
+      "ru": "может быть (gutse)",
+      "en": "maybe (gutse)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "Գուցե վաղը գա։"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "լինել",
+     "back": {
+      "ru": "быть (linel)",
+      "en": "to be (linel)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "Նա երաժշտության ուսուցչուհի է։"
+    },
+    {
+     "front": "գտնվել",
+     "back": {
+      "ru": "находиться (gtnvel)",
+      "en": "to be (state) (gtnvel)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "Գիրքը գտնվում է սեղանին։"
+    },
+    {
+     "front": "ունենալ",
+     "back": {
+      "ru": "иметь (unenal)",
+      "en": "to have (unenal)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "Երկու փոքր եղբայր ունեմ։"
+    },
+    {
+     "front": "անել",
+     "back": {
+      "ru": "делать (anel)",
+      "en": "to do (anel)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "Կիրակի օրերին ի՞նչ ես անում։"
+    },
+    {
+     "front": "գնալ",
+     "back": {
+      "ru": "идти (gnal)",
+      "en": "to go (gnal)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "Հիմա գնում եմ շուկա։"
+    },
+    {
+     "front": "գալ",
+     "back": {
+      "ru": "приходить (gal)",
+      "en": "to come (gal)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "Ընթրիքի կգա՞ս։"
+    },
+    {
+     "front": "ասել",
+     "back": {
+      "ru": "говорить (asel)",
+      "en": "to say (asel)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "Ասա ինձ ճշմարտությունը։"
+    },
+    {
+     "front": "տեսնել",
+     "back": {
+      "ru": "видеть (tesnel)",
+      "en": "to see (tesnel)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "Եղբորդ տեսա փողոցում։"
+    },
+    {
+     "front": "տալ",
+     "back": {
+      "ru": "давать (tal)",
+      "en": "to give (tal)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "Տուր ինձ բանալին։"
+    },
+    {
+     "front": "իմանալ",
+     "back": {
+      "ru": "знать (imanal)",
+      "en": "to know (imanal)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "Չգիտեմ, թե որտեղ է ապրում։"
+    },
+    {
+     "front": "կարողանալ",
+     "back": {
+      "ru": "мочь (karoghanal)",
+      "en": "can (karoghanal)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "Կարո՞ղ ես ինձ օգնել։"
+    },
+    {
+     "front": "ուզենալ",
+     "back": {
+      "ru": "хотеть (uzenal)",
+      "en": "to want (uzenal)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "Մեկ բաժակ ջուր եմ ուզում։"
+    },
+    {
+     "front": "պետք է",
+     "back": {
+      "ru": "быть должным (petk e)",
+      "en": "must (petk e)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "Այսօր պետք է շուտ դուրս գամ։"
+    },
+    {
+     "front": "մնալ",
+     "back": {
+      "ru": "оставаться (mnal)",
+      "en": "to stay (mnal)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "Այս երեկո տանն եմ մնում։"
+    },
+    {
+     "front": "անցնել",
+     "back": {
+      "ru": "проходить (antsnel)",
+      "en": "to pass (antsnel)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "Ավտոբուսը անցնում է ժամը իննին։"
+    },
+    {
+     "front": "ժամանել",
+     "back": {
+      "ru": "прибывать (zhamanel)",
+      "en": "to arrive (zhamanel)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "Գնացքը ուշացումով ժամանեց։"
+    },
+    {
+     "front": "դուրս գալ",
+     "back": {
+      "ru": "выходить (durs gal)",
+      "en": "to leave (durs gal)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "Աշխատանքից դուրս եմ գալիս վեցին։"
+    },
+    {
+     "front": "ներս մտնել",
+     "back": {
+      "ru": "входить (ners mtnel)",
+      "en": "to enter (ners mtnel)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "Ներս մտիր, դուռը բաց է։"
+    },
+    {
+     "front": "վերադառնալ",
+     "back": {
+      "ru": "возвращаться (veradarnal)",
+      "en": "to return (veradarnal)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "Կվերադառնամ կես ժամից։"
+    },
+    {
+     "front": "սկսել",
+     "back": {
+      "ru": "начинать (sksel)",
+      "en": "to begin (sksel)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "Դասը սկսվում է ժամը ութին։"
+    },
+    {
+     "front": "ավարտել",
+     "back": {
+      "ru": "заканчивать (avartel)",
+      "en": "to finish (avartel)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "Գիրքը երեկ ավարտեցի։"
+    },
+    {
+     "front": "շարունակել",
+     "back": {
+      "ru": "продолжать (sharunakel)",
+      "en": "to continue (sharunakel)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "Անձրևը շարունակվում է։"
+    },
+    {
+     "front": "կանգնել",
+     "back": {
+      "ru": "останавливаться (kangnel)",
+      "en": "to stop (kangnel)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "Մեքենան կանգնեց դռան առջև։"
+    },
+    {
+     "front": "սպասել",
+     "back": {
+      "ru": "ждать (spasel)",
+      "en": "to wait (spasel)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "Քեզ սպասում եմ կայարանում։"
+    },
+    {
+     "front": "գտնել",
+     "back": {
+      "ru": "находить (gtnel)",
+      "en": "to find (gtnel)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "Բանալիները գտա սեղանին։"
+    },
+    {
+     "front": "փնտրել",
+     "back": {
+      "ru": "искать (pntrel)",
+      "en": "to look for (pntrel)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "Քերականության գիրք եմ փնտրում։"
+    },
+    {
+     "front": "կորցնել",
+     "back": {
+      "ru": "терять (kortsnel)",
+      "en": "to lose (kortsnel)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "Ուշացա յոթի գնացքից։"
+    },
+    {
+     "front": "հաղթել",
+     "back": {
+      "ru": "выигрывать (haghtel)",
+      "en": "to win (haghtel)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "Մեր թիմը հաղթեց։"
+    },
+    {
+     "front": "գնել",
+     "back": {
+      "ru": "покупать (gnel)",
+      "en": "to buy (gnel)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "Ընթրիքի համար հաց գնեցի։"
+    },
+    {
+     "front": "վաճառել",
+     "back": {
+      "ru": "продавать (vacharel)",
+      "en": "to sell (vacharel)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "Անկյունում միրգ են վաճառում։"
+    },
+    {
+     "front": "վճարել",
+     "back": {
+      "ru": "платить (vcharel)",
+      "en": "to pay (vcharel)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "Սուրճի համար ես կվճարեմ։"
+    },
+    {
+     "front": "արժենալ",
+     "back": {
+      "ru": "стоить (arzhenal)",
+      "en": "to cost (arzhenal)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "Որքա՞ն արժե տոմսը։"
+    },
+    {
+     "front": "աշխատել",
+     "back": {
+      "ru": "работать (ashkhatel)",
+      "en": "to work (ashkhatel)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "Աշխատում եմ հիվանդանոցում։"
+    },
+    {
+     "front": "սովորել",
+     "back": {
+      "ru": "учиться (sovorel)",
+      "en": "to study (sovorel)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "Հայերեն սովորում եմ մեկ տարի։"
+    },
+    {
+     "front": "սովորել (հմտություն)",
+     "back": {
+      "ru": "изучать (sovorel (hmtutyun))",
+      "en": "to learn (sovorel (hmtutyun))",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "Լողալ սովորեցի մանկության մեջ։"
+    },
+    {
+     "front": "սովորեցնել",
+     "back": {
+      "ru": "учить (sovoretsnel)",
+      "en": "to teach (sovoretsnel)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "Նա դասավանդում է գյուղական դպրոցում։"
+    },
+    {
+     "front": "կարդալ",
+     "back": {
+      "ru": "читать (kardal)",
+      "en": "to read (kardal)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "Առավոտյան թերթ եմ կարդում։"
+    },
+    {
+     "front": "գրել",
+     "back": {
+      "ru": "писать (grel)",
+      "en": "to write (grel)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "Նրան երկար նամակ գրեցի։"
+    },
+    {
+     "front": "խոսել",
+     "back": {
+      "ru": "разговаривать (khosel)",
+      "en": "to speak (khosel)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "Երեկ հեռախոսով խոսեցինք։"
+    },
+    {
+     "front": "լսել",
+     "back": {
+      "ru": "слышать (lsel)",
+      "en": "to hear (lsel)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "Խոհանոցում աղմուկ լսեցի։"
+    },
+    {
+     "front": "ունկնդրել",
+     "back": {
+      "ru": "слушать (unkndrel)",
+      "en": "to listen (unkndrel)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "Ուշադիր լսիր, ինչ ասում եմ։"
+    },
+    {
+     "front": "նայել",
+     "back": {
+      "ru": "смотреть (nayel)",
+      "en": "to look (nayel)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "Նայիր ձախ։"
+    },
+    {
+     "front": "զգալ",
+     "back": {
+      "ru": "чувствовать (zgal)",
+      "en": "to feel (zgal)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "Ձեռքերիս ցուրտ եմ զգում։"
+    },
+    {
+     "front": "մտածել",
+     "back": {
+      "ru": "думать (mtatsel)",
+      "en": "to think (mtatsel)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "Երեկվանից այդ մասին եմ մտածում։"
+    },
+    {
+     "front": "հիշել",
+     "back": {
+      "ru": "помнить (hishel)",
+      "en": "to remember (hishel)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "Այն օրը լավ եմ հիշում։"
+    },
+    {
+     "front": "մոռանալ",
+     "back": {
+      "ru": "забывать (moranal)",
+      "en": "to forget (moranal)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "Մոռացա քո անունը։"
+    },
+    {
+     "front": "հասկանալ",
+     "back": {
+      "ru": "понимать (haskanal)",
+      "en": "to understand (haskanal)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "Հարցը չհասկացա։"
+    },
+    {
+     "front": "բացատրել",
+     "back": {
+      "ru": "объяснять (batsatrel)",
+      "en": "to explain (batsatrel)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "Բացատրիր դա ևս մեկ անգամ։"
+    },
+    {
+     "front": "հարցնել",
+     "back": {
+      "ru": "спрашивать (hartsnel)",
+      "en": "to ask (hartsnel)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "Հարցրի հարևանին։"
+    },
+    {
+     "front": "պատասխանել",
+     "back": {
+      "ru": "отвечать (pataskhanel)",
+      "en": "to answer (pataskhanel)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "Նա դեռ չի պատասխանել։"
+    },
+    {
+     "front": "կանչել",
+     "back": {
+      "ru": "звать (kanchel)",
+      "en": "to call (kanchel)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "Արագ բժիշկ կանչիր։"
+    },
+    {
+     "front": "զանգել",
+     "back": {
+      "ru": "звонить (zangel)",
+      "en": "to phone (zangel)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "Երեկոյան քեզ կզանգեմ։"
+    },
+    {
+     "front": "բացել",
+     "back": {
+      "ru": "открывать (batsel)",
+      "en": "to open (batsel)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "Բացիր պատուհանը։"
+    },
+    {
+     "front": "փակել",
+     "back": {
+      "ru": "закрывать (pakel)",
+      "en": "to close (pakel)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "Դուրս գալիս փակիր դուռը։"
+    },
+    {
+     "front": "դնել",
+     "back": {
+      "ru": "класть (dnel)",
+      "en": "to put (dnel)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "Դիր հացը սեղանին։"
+    },
+    {
+     "front": "հանել",
+     "back": {
+      "ru": "убирать (hanel)",
+      "en": "to take off (hanel)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "Մուտքի մոտ հանիր կոշիկները։"
+    },
+    {
+     "front": "հետը վերցնել",
+     "back": {
+      "ru": "нести (hety vertsnel)",
+      "en": "to take (hety vertsnel)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "Հովանոցը հետս եմ վերցնում։"
+    },
+    {
+     "front": "բերել",
+     "back": {
+      "ru": "приносить (berel)",
+      "en": "to bring (berel)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "Բոլորի համար տորթ բերեցի։"
+    },
+    {
+     "front": "ուղարկել",
+     "back": {
+      "ru": "посылать (ugharkel)",
+      "en": "to send (ugharkel)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "Նամակը ուղարկեցի երկուշաբթի։"
+    },
+    {
+     "front": "ստանալ",
+     "back": {
+      "ru": "получать (stanal)",
+      "en": "to receive (stanal)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "Ստացա քո հաղորդագրությունը։"
+    },
+    {
+     "front": "պահել",
+     "back": {
+      "ru": "хранить (pahel)",
+      "en": "to keep (pahel)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "Լուսանկարները պահում եմ տուփի մեջ։"
+    },
+    {
+     "front": "թողնել",
+     "back": {
+      "ru": "оставлять (toghnel)",
+      "en": "to leave behind (toghnel)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "Վերարկուն թողեցի մեքենայում։"
+    },
+    {
+     "front": "բռնել",
+     "back": {
+      "ru": "держать (brnel)",
+      "en": "to hold (brnel)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "Բաժակը ամուր բռնիր։"
+    },
+    {
+     "front": "հրել",
+     "back": {
+      "ru": "толкать (hrel)",
+      "en": "to push (hrel)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "Դուռը հրիր, մի քաշիր։"
+    },
+    {
+     "front": "քաշել",
+     "back": {
+      "ru": "тянуть (kashel)",
+      "en": "to pull (kashel)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "Պարանը ուժեղ քաշիր։"
+    },
+    {
+     "front": "որսալ",
+     "back": {
+      "ru": "ловить (vorsal)",
+      "en": "to catch (vorsal)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "Գնդակը օդում որսացի։"
+    },
+    {
+     "front": "ցույց տալ",
+     "back": {
+      "ru": "показывать (tsuyts tal)",
+      "en": "to show (tsuyts tal)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "Ցույց տուր ինձ լուսանկարը։"
+    },
+    {
+     "front": "թաքցնել",
+     "back": {
+      "ru": "прятать (takktsnel)",
+      "en": "to hide (takktsnel)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "Նվերը թաքցրեց պահարանում։"
+    },
+    {
+     "front": "փոխել",
+     "back": {
+      "ru": "менять (pokhel)",
+      "en": "to change (pokhel)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "Կարծիքս փոխեցի։"
+    },
+    {
+     "front": "ստեղծել",
+     "back": {
+      "ru": "создавать (steghtsel)",
+      "en": "to create (steghtsel)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "Նրանք նոր աշխատատեղ ստեղծեցին։"
+    },
+    {
+     "front": "կառուցել",
+     "back": {
+      "ru": "строить (karutsel)",
+      "en": "to build (karutsel)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "Կողքին շենք են կառուցում։"
+    },
+    {
+     "front": "կոտրել",
+     "back": {
+      "ru": "ломать (kotrel)",
+      "en": "to break (kotrel)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "Առավոտյան բաժակ կոտրեցի։"
+    },
+    {
+     "front": "կտրել",
+     "back": {
+      "ru": "резать (ktrel)",
+      "en": "to cut (ktrel)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "Հացը կտրիր շերտերով։"
+    },
+    {
+     "front": "մաքրել",
+     "back": {
+      "ru": "убирать (makrel)",
+      "en": "to clean (makrel)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "Ամբողջ խոհանոցը մաքրեցի։"
+    },
+    {
+     "front": "լվանալ",
+     "back": {
+      "ru": "мыть (lvanal)",
+      "en": "to wash (lvanal)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "Ուտելուց առաջ ձեռքերդ լվա։"
+    },
+    {
+     "front": "չորացնել",
+     "back": {
+      "ru": "сушить (choratsnel)",
+      "en": "to dry (choratsnel)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "Մազերդ լավ չորացրու։"
+    },
+    {
+     "front": "եփել",
+     "back": {
+      "ru": "готовить (yepel)",
+      "en": "to cook (yepel)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "Ամեն օր եփում եմ։"
+    },
+    {
+     "front": "ուտել",
+     "back": {
+      "ru": "есть (utel)",
+      "en": "to eat (utel)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "Ուտում ենք ժամը ութին։"
+    },
+    {
+     "front": "խմել",
+     "back": {
+      "ru": "пить (khmel)",
+      "en": "to drink (khmel)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "Ամբողջ օրը ջուր եմ խմում։"
+    },
+    {
+     "front": "համտեսել",
+     "back": {
+      "ru": "пробовать (hamtesel)",
+      "en": "to taste (hamtesel)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "Համտեսիր ապուրը, համեղ է։"
+    },
+    {
+     "front": "մատուցել",
+     "back": {
+      "ru": "подавать (matutsel)",
+      "en": "to serve (matutsel)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "Ճաշը մատուցում են ժամը տասներկուսին։"
+    },
+    {
+     "front": "քնել",
+     "back": {
+      "ru": "спать (knel)",
+      "en": "to sleep (knel)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "Ութ ժամ անընդմեջ քնեցի։"
+    },
+    {
+     "front": "արթնանալ",
+     "back": {
+      "ru": "просыпаться (artnanal)",
+      "en": "to wake up (artnanal)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "Միշտ արթնանում եմ ժամը վեցին։"
+    },
+    {
+     "front": "վեր կենալ",
+     "back": {
+      "ru": "вставать (ver kenal)",
+      "en": "to get up (ver kenal)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "Վեր կաց, ուշ է։"
+    },
+    {
+     "front": "նստել",
+     "back": {
+      "ru": "садиться (nstel)",
+      "en": "to sit (nstel)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "Նստիր այստեղ իմ կողքին։"
+    },
+    {
+     "front": "պառկել",
+     "back": {
+      "ru": "ложиться (parkel)",
+      "en": "to lie down (parkel)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "Աշխատանքային օրերին շուտ եմ պառկում։"
+    },
+    {
+     "front": "քայլել",
+     "back": {
+      "ru": "ходить (kaylel)",
+      "en": "to walk (kaylel)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "Օրական կես ժամ քայլում եմ։"
+    },
+    {
+     "front": "վազել",
+     "back": {
+      "ru": "бегать (vazel)",
+      "en": "to run (vazel)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "Առավոտյան վազում եմ այգում։"
+    },
+    {
+     "front": "ցատկել",
+     "back": {
+      "ru": "прыгать (tsatkel)",
+      "en": "to jump (tsatkel)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "Կատուն ցատկեց սեղանին։"
+    },
+    {
+     "front": "լողալ",
+     "back": {
+      "ru": "плавать (loghal)",
+      "en": "to swim (loghal)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "Լողալ սովորեցի գետում։"
+    },
+    {
+     "front": "թռչել",
+     "back": {
+      "ru": "летать (trchel)",
+      "en": "to fly (trchel)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "Թռչունները թռչում են դեպի հարավ։"
+    },
+    {
+     "front": "ճամփորդել",
+     "back": {
+      "ru": "путешествовать (champordel)",
+      "en": "to travel (champordel)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "Ճամփորդեցինք գնացքով։"
+    },
+    {
+     "front": "վարել",
+     "back": {
+      "ru": "водить (varel)",
+      "en": "to drive (varel)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "Նա զգույշ է վարում։"
+    },
+    {
+     "front": "բարձրանալ",
+     "back": {
+      "ru": "подниматься (bardzranal)",
+      "en": "to go up (bardzranal)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "Բարձրացանք երրորդ հարկ։"
+    },
+    {
+     "front": "իջնել",
+     "back": {
+      "ru": "спускаться (ijnel)",
+      "en": "to go down (ijnel)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "Աստիճաններով դանդաղ իջիր։"
+    },
+    {
+     "front": "ընկնել",
+     "back": {
+      "ru": "падать (ynknel)",
+      "en": "to fall (ynknel)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "Բաժակը ընկավ սեղանից։"
+    },
+    {
+     "front": "բնակվել",
+     "back": {
+      "ru": "жить (bnakvel)",
+      "en": "to live (reside) (bnakvel)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "Բնակվում եմ կայարանի մոտ։"
+    },
+    {
+     "front": "ապրել",
+     "back": {
+      "ru": "жить (aprel)",
+      "en": "to live (aprel)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "Նա ապրեց իննսուն տարի։"
+    },
+    {
+     "front": "մահանալ",
+     "back": {
+      "ru": "умирать (mahanal)",
+      "en": "to die (mahanal)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "Ծառը ձմռանը չորացավ։"
+    },
+    {
+     "front": "ծնվել",
+     "back": {
+      "ru": "рождаться (tsnvel)",
+      "en": "to be born (tsnvel)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "Ծնվել եմ մարտին։"
+    },
+    {
+     "front": "աճել",
+     "back": {
+      "ru": "расти (achel)",
+      "en": "to grow (achel)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "Երեխաները արագ են աճում։"
+    },
+    {
+     "front": "ամուսնանալ",
+     "back": {
+      "ru": "жениться (amusnanal)",
+      "en": "to marry (amusnanal)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "Նրանք գարնանը ամուսնացան։"
+    },
+    {
+     "front": "օգնել",
+     "back": {
+      "ru": "помогать (ognel)",
+      "en": "to help (ognel)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "Օգնիր ինձ այս պայուսակների հետ։"
+    },
+    {
+     "front": "դուր գալ",
+     "back": {
+      "ru": "нравиться (dur gal)",
+      "en": "to like (dur gal)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "Այս սուրճը շատ է դուրս գալիս։"
+    },
+    {
+     "front": "սիրել",
+     "back": {
+      "ru": "любить (sirel)",
+      "en": "to love (sirel)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "Նա ամենից շատ սիրում է իր ընտանիքը։"
+    },
+    {
+     "front": "ատել",
+     "back": {
+      "ru": "ненавидеть (atel)",
+      "en": "to hate (atel)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "Ատում եմ շուտ արթնանալը։"
+    },
+    {
+     "front": "ծիծաղել",
+     "back": {
+      "ru": "смеяться (tsitsaghel)",
+      "en": "to laugh (tsitsaghel)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "Ամբողջ երեկո ծիծաղեցինք։"
+    },
+    {
+     "front": "լաց լինել",
+     "back": {
+      "ru": "плакать (lats linel)",
+      "en": "to cry (lats linel)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "Երեխան հոգնածությունից լաց էր լինում։"
+    },
+    {
+     "front": "երգել",
+     "back": {
+      "ru": "петь (yergel)",
+      "en": "to sing (yergel)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "Նրանք երգում են եկեղեցու երգչախմբում։"
+    },
+    {
+     "front": "պարել",
+     "back": {
+      "ru": "танцевать (parel)",
+      "en": "to dance (parel)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "Պարեցինք մինչև ուշ։"
+    },
+    {
+     "front": "խաղալ",
+     "back": {
+      "ru": "играть (khaghal)",
+      "en": "to play (children) (khaghal)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "Երեխաները խաղում են այգում։"
+    },
+    {
+     "front": "հանդիպում խաղալ",
+     "back": {
+      "ru": "играть (handipum khaghal)",
+      "en": "to play (a game) (handipum khaghal)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "Շաբաթ օրը հանդիպում ենք խաղում։"
+    },
+    {
+     "front": "դիպչել",
+     "back": {
+      "ru": "трогать (dipchel)",
+      "en": "to touch (dipchel)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "Թարմ ներկին մի դիպչիր։"
+    },
+    {
+     "front": "հանգստանալ",
+     "back": {
+      "ru": "отдыхать (hangstanal)",
+      "en": "to rest (hangstanal)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "Մի քիչ հանգստացիր։"
+    },
+    {
+     "front": "փորձել",
+     "back": {
+      "ru": "пытаться (pordzel)",
+      "en": "to try (pordzel)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "Երեք անգամ փորձեցի քեզ զանգել։"
+    },
+    {
+     "front": "հաջողվել",
+     "back": {
+      "ru": "удаваться (hajoghvel)",
+      "en": "to manage (hajoghvel)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "Հաջողվեց այսօրվա տոմսեր գտնել։"
+    },
+    {
+     "front": "կարիք ունենալ",
+     "back": {
+      "ru": "нуждаться (karik unenal)",
+      "en": "to need (karik unenal)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "Հիմա օգնության կարիք ունեմ։"
+    },
+    {
+     "front": "օգտագործել",
+     "back": {
+      "ru": "использовать (ogtagortsel)",
+      "en": "to use (ogtagortsel)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "Հեռախոսը ամեն ինչի համար եմ օգտագործում։"
+    },
+    {
+     "front": "ընտրել",
+     "back": {
+      "ru": "выбирать (yntrel)",
+      "en": "to choose (yntrel)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "Ռեստորանը դու ընտրիր։"
+    },
+    {
+     "front": "որոշել",
+     "back": {
+      "ru": "решать (voroshel)",
+      "en": "to decide (voroshel)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "Որոշեցինք ևս մեկ օր մնալ։"
+    },
+    {
+     "front": "ընդունել",
+     "back": {
+      "ru": "принимать (yndunel)",
+      "en": "to accept (yndunel)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "Նա ընդունեց հրավերը։"
+    },
+    {
+     "front": "մերժել",
+     "back": {
+      "ru": "отказывать (merzhel)",
+      "en": "to refuse (merzhel)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "Նա մերժեց հարևանների օգնությունը։"
+    },
+    {
+     "front": "խոստանալ",
+     "back": {
+      "ru": "обещать (khostanal)",
+      "en": "to promise (khostanal)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "Նա խոստացավ շուտ վերադառնալ։"
+    },
+    {
+     "front": "շնորհակալություն հայտնել",
+     "back": {
+      "ru": "благодарить (shnorhakalutyun haytnel)",
+      "en": "to thank (shnorhakalutyun haytnel)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "Շնորհակալ եմ համբերությանդ համար։"
+    },
+    {
+     "front": "խնդրել",
+     "back": {
+      "ru": "просить (khndrel)",
+      "en": "to ask for (khndrel)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "Խնդրեցի մեկ բաժակ ջուր։"
+    },
+    {
+     "front": "պատահել",
+     "back": {
+      "ru": "случаться (patahel)",
+      "en": "to happen (patahel)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "Ի՞նչ պատահեց երեկ։"
+    },
+    {
+     "front": "թվալ",
+     "back": {
+      "ru": "казаться (tval)",
+      "en": "to seem (tval)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "Հոգնած ես թվում։"
+    },
+    {
+     "front": "վառել",
+     "back": {
+      "ru": "включать (varel)",
+      "en": "to turn on (varel)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "Վառիր խոհանոցի լույսը։"
+    },
+    {
+     "front": "հանգցնել",
+     "back": {
+      "ru": "выключать (hangtsnel)",
+      "en": "to turn off (hangtsnel)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "Գնալուց առաջ անջատիր համակարգիչը։"
+    },
+    {
+     "front": "անձրև գալ",
+     "back": {
+      "ru": "идти (о дожде) (andzrev gal)",
+      "en": "to rain (andzrev gal)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "Ամբողջ գիշեր անձրև էր գալիս։"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "ջուր",
+     "back": {
+      "ru": "вода (jur)",
+      "en": "water (jur)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "Բեր ինձ մեկ բաժակ ջուր։"
+    },
+    {
+     "front": "հաց",
+     "back": {
+      "ru": "хлеб (hats)",
+      "en": "bread (hats)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "Հացը դեռ տաք է։"
+    },
+    {
+     "front": "կաթ",
+     "back": {
+      "ru": "молоко (kat)",
+      "en": "milk (kat)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "Նախաճաշին կաթ եմ խմում։"
+    },
+    {
+     "front": "սուրճ",
+     "back": {
+      "ru": "кофе (surch)",
+      "en": "coffee (surch)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "Մեկ սուրճ, խնդրում եմ։"
+    },
+    {
+     "front": "թեյ",
+     "back": {
+      "ru": "чай (tey)",
+      "en": "tea (tey)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "Կեսօրից հետո թեյ եմ պատրաստում։"
+    },
+    {
+     "front": "հյութ",
+     "back": {
+      "ru": "сок (hyut)",
+      "en": "juice (hyut)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "Թարմ քամած նարնջի հյութ։"
+    },
+    {
+     "front": "գինի",
+     "back": {
+      "ru": "вино (gini)",
+      "en": "wine (gini)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "Մեկ բաժակ կարմիր գինի։"
+    },
+    {
+     "front": "գարեջուր",
+     "back": {
+      "ru": "пиво (garejur)",
+      "en": "beer (garejur)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "Գարեջուրը լավ սառեցված է։"
+    },
+    {
+     "front": "սառույց",
+     "back": {
+      "ru": "лёд (saruyts)",
+      "en": "ice (saruyts)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "Ըմպելիքի մեջ սառույց ուզու՞մ ես։"
+    },
+    {
+     "front": "շաքար",
+     "back": {
+      "ru": "сахар (shakar)",
+      "en": "sugar (shakar)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "Սուրճը խմում եմ առանց շաքարի։"
+    },
+    {
+     "front": "աղ",
+     "back": {
+      "ru": "соль (agh)",
+      "en": "salt (agh)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "Ապուրում աղ է պակասում։"
+    },
+    {
+     "front": "պղպեղ",
+     "back": {
+      "ru": "перец (pghpegh)",
+      "en": "pepper (pghpegh)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "Մի քիչ պղպեղ ավելացրու։"
+    },
+    {
+     "front": "ձիթապտղի յուղ",
+     "back": {
+      "ru": "оливковое масло (dzitaptghi yugh)",
+      "en": "olive oil (dzitaptghi yugh)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "Աղցանին ձիթապտղի յուղ լցրու։"
+    },
+    {
+     "front": "կարագ",
+     "back": {
+      "ru": "масло (karag)",
+      "en": "butter (karag)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "Հացին կարագ քսիր։"
+    },
+    {
+     "front": "պանիր",
+     "back": {
+      "ru": "сыр (panir)",
+      "en": "cheese (panir)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "Այս պանիրը լեռներից է։"
+    },
+    {
+     "front": "ձու",
+     "back": {
+      "ru": "яйцо (dzu)",
+      "en": "egg (dzu)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "Խաշած ձու կերա։"
+    },
+    {
+     "front": "միս",
+     "back": {
+      "ru": "мясо (mis)",
+      "en": "meat (mis)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "Երեկոյան միս չեմ ուտում։"
+    },
+    {
+     "front": "հավ",
+     "back": {
+      "ru": "курица (hav)",
+      "en": "chicken (hav)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "Ջեռոցում թխած հավ կարտոֆիլով։"
+    },
+    {
+     "front": "ձուկ",
+     "back": {
+      "ru": "рыба (dzuk)",
+      "en": "fish (dzuk)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "Ձուկը այսօր թարմ է։"
+    },
+    {
+     "front": "ձողաձուկ",
+     "back": {
+      "ru": "треска (dzoghadzuk)",
+      "en": "cod (dzoghadzuk)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "Ձողաձուկը պահում են աղ դրած։"
+    },
+    {
+     "front": "սարդինա",
+     "back": {
+      "ru": "сардина (sardina)",
+      "en": "sardine (sardina)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "Ածուխի վրա խորոված սարդինա։"
+    },
+    {
+     "front": "թունա",
+     "back": {
+      "ru": "тунец (tuna)",
+      "en": "tuna (tuna)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "Թունայով սենդվիչ։"
+    },
+    {
+     "front": "ծովախեցգետին",
+     "back": {
+      "ru": "креветка (tsovakhetsgetin)",
+      "en": "shrimp (tsovakhetsgetin)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "Ծովախեցգետին սխտորով։"
+    },
+    {
+     "front": "ծովամթերք",
+     "back": {
+      "ru": "морепродукты (tsovamterk)",
+      "en": "seafood (tsovamterk)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "Ծովի ափին ծովամթերք կերանք։"
+    },
+    {
+     "front": "խոզապուխտ",
+     "back": {
+      "ru": "ветчина (khozapukht)",
+      "en": "ham (khozapukht)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "Խոզապուխտ սեխով։"
+    },
+    {
+     "front": "երշիկ",
+     "back": {
+      "ru": "сосиска (yershik)",
+      "en": "sausage (yershik)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "Երեխաների համար երշիկ գնեցի։"
+    },
+    {
+     "front": "բրինձ",
+     "back": {
+      "ru": "рис (brindz)",
+      "en": "rice (brindz)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "Կիրակի օրերին բրինձ ենք եփում։"
+    },
+    {
+     "front": "կարտոֆիլ",
+     "back": {
+      "ru": "картофель (kartofil)",
+      "en": "potato (kartofil)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "Խաշած կարտոֆիլ ձիթապտղի յուղով։"
+    },
+    {
+     "front": "մակարոն",
+     "back": {
+      "ru": "макароны (makaron)",
+      "en": "pasta (makaron)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "Երբ շտապում եմ, մակարոն եմ եփում։"
+    },
+    {
+     "front": "ալյուր",
+     "back": {
+      "ru": "мука (alyur)",
+      "en": "flour (alyur)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "Տորթի համար ալյուր չկա։"
+    },
+    {
+     "front": "ապուր",
+     "back": {
+      "ru": "суп (apur)",
+      "en": "soup (apur)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "Ապուրը սառչում է։"
+    },
+    {
+     "front": "աղցան",
+     "back": {
+      "ru": "салат (aghtsan)",
+      "en": "salad (aghtsan)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "Լոլիկի աղցան։"
+    },
+    {
+     "front": "բանջարեղեն",
+     "back": {
+      "ru": "овощи (banjaregen)",
+      "en": "vegetables (banjaregen)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "Ամեն օր բանջարեղեն եմ ուտում։"
+    },
+    {
+     "front": "միրգ",
+     "back": {
+      "ru": "фрукты (mirg)",
+      "en": "fruit (mirg)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "Խոհանոցում միրգ կա։"
+    },
+    {
+     "front": "խնձոր",
+     "back": {
+      "ru": "яблоко (khndzor)",
+      "en": "apple (khndzor)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "Աշխատանքի խնձոր եմ տանում։"
+    },
+    {
+     "front": "տանձ",
+     "back": {
+      "ru": "груша (tandz)",
+      "en": "pear (tandz)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "Այս տանձը հասունացած է։"
+    },
+    {
+     "front": "նարինջ",
+     "back": {
+      "ru": "апельсин (narinj)",
+      "en": "orange (narinj)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "Նարինջ մաքրեցի։"
+    },
+    {
+     "front": "կիտրոն",
+     "back": {
+      "ru": "лимон (kitron)",
+      "en": "lemon (kitron)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "Թեյ կիտրոնով։"
+    },
+    {
+     "front": "բանան",
+     "back": {
+      "ru": "банан (banan)",
+      "en": "banana (banan)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "Մարզումից առաջ բանան կերա։"
+    },
+    {
+     "front": "խաղող",
+     "back": {
+      "ru": "виноград (khaghogh)",
+      "en": "grape (khaghogh)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "Խաղողը քաղցր է։"
+    },
+    {
+     "front": "ելակ",
+     "back": {
+      "ru": "клубника (yelak)",
+      "en": "strawberry (yelak)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "Ելակ սերուցքով։"
+    },
+    {
+     "front": "բալ",
+     "back": {
+      "ru": "вишня (bal)",
+      "en": "cherry (bal)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "Բալը սեզոնին էժան է։"
+    },
+    {
+     "front": "դեղձ",
+     "back": {
+      "ru": "персик (deghdz)",
+      "en": "peach (deghdz)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "Լավ հասունացած դեղձ։"
+    },
+    {
+     "front": "սեխ",
+     "back": {
+      "ru": "дыня (sekh)",
+      "en": "melon (sekh)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "Սեխ խոզապուխտով։"
+    },
+    {
+     "front": "ձմերուկ",
+     "back": {
+      "ru": "арбуз (dzmeruk)",
+      "en": "watermelon (dzmeruk)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "Ամռանը սառը ձմերուկ։"
+    },
+    {
+     "front": "արքայախնձոր",
+     "back": {
+      "ru": "ананас (arkayakhndzor)",
+      "en": "pineapple (arkayakhndzor)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "Արքայախնձորի հյութ։"
+    },
+    {
+     "front": "թուզ",
+     "back": {
+      "ru": "инжир (tuz)",
+      "en": "fig (tuz)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "Ձմռանը չորացրած թուզ։"
+    },
+    {
+     "front": "լոլիկ",
+     "back": {
+      "ru": "помидор (lolik)",
+      "en": "tomato (lolik)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "Լոլիկի աղցան կանաչիով։"
+    },
+    {
+     "front": "սոխ",
+     "back": {
+      "ru": "лук (sokh)",
+      "en": "onion (sokh)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "Նախ սոխը տապակիր։"
+    },
+    {
+     "front": "սխտոր",
+     "back": {
+      "ru": "чеснок (skhtor)",
+      "en": "garlic (skhtor)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "Երկու պատիճ սխտոր բավական է։"
+    },
+    {
+     "front": "գազար",
+     "back": {
+      "ru": "морковь (gazar)",
+      "en": "carrot (gazar)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "Գազարի ապուր։"
+    },
+    {
+     "front": "հազար (բանջար)",
+     "back": {
+      "ru": "салат-латук (hazar (banjar))",
+      "en": "lettuce (hazar (banjar))",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "Հազարը լավ լվա։"
+    },
+    {
+     "front": "վարունգ",
+     "back": {
+      "ru": "огурец (varung)",
+      "en": "cucumber (varung)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "Վարունգը շերտերով։"
+    },
+    {
+     "front": "լոբի",
+     "back": {
+      "ru": "фасоль (lobi)",
+      "en": "beans (lobi)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "Լոբի բրնձով։"
+    },
+    {
+     "front": "ոլոռ",
+     "back": {
+      "ru": "горох (volor)",
+      "en": "pea (volor)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "Ոլոռ ձվով։"
+    },
+    {
+     "front": "կաղամբ",
+     "back": {
+      "ru": "капуста (kaghamb)",
+      "en": "cabbage (kaghamb)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "Կաղամբի ապուրը ձմեռային ուտեստ է։"
+    },
+    {
+     "front": "դդում",
+     "back": {
+      "ru": "тыква (ddum)",
+      "en": "pumpkin (ddum)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "Աշնանը դդումի ապուր ենք եփում։"
+    },
+    {
+     "front": "սունկ",
+     "back": {
+      "ru": "гриб (sunk)",
+      "en": "mushroom (sunk)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "Տապակած սունկ։"
+    },
+    {
+     "front": "ձիթապտուղ",
+     "back": {
+      "ru": "оливка (dzitaptugh)",
+      "en": "olive (dzitaptugh)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "Ուտելուց առաջ ձիթապտուղ։"
+    },
+    {
+     "front": "տորթ",
+     "back": {
+      "ru": "торт (tort)",
+      "en": "cake (tort)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "Նարնջի տորթ թխեցի։"
+    },
+    {
+     "front": "թխվածքաբլիթ",
+     "back": {
+      "ru": "печенье (tkhvatskablit)",
+      "en": "biscuit (tkhvatskablit)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "Թեյի հետ թխվածքաբլիթ։"
+    },
+    {
+     "front": "մուրաբա",
+     "back": {
+      "ru": "варенье (muraba)",
+      "en": "jam (muraba)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "Հացին ելակի մուրաբա քսեցի։"
+    },
+    {
+     "front": "շոկոլադ",
+     "back": {
+      "ru": "шоколад (shokolad)",
+      "en": "chocolate (shokolad)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "Մուգ շոկոլադի սալիկ։"
+    },
+    {
+     "front": "պաղպաղակ",
+     "back": {
+      "ru": "мороженое (paghpaghak)",
+      "en": "ice cream (paghpaghak)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "Վանիլային պաղպաղակ։"
+    },
+    {
+     "front": "մեղր",
+     "back": {
+      "ru": "мёд (meghr)",
+      "en": "honey (meghr)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "Կոկորդի համար թեյ մեղրով։"
+    },
+    {
+     "front": "քաղցրավենիք",
+     "back": {
+      "ru": "сладость (kaghtsravenik)",
+      "en": "sweet (kaghtsravenik)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "Երեկոյան քաղցրավենիք չեմ ուտում։"
+    },
+    {
+     "front": "աղանդեր",
+     "back": {
+      "ru": "десерт (aghander)",
+      "en": "dessert (aghander)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "Աղանդերի համար միրգ։"
+    },
+    {
+     "front": "մածուն",
+     "back": {
+      "ru": "йогурт (matsun)",
+      "en": "yoghurt (matsun)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "Բնական մածուն առանց շաքարի։"
+    },
+    {
+     "front": "սերուցք",
+     "back": {
+      "ru": "сливки (seruts'k)",
+      "en": "cream (seruts'k)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "Ելակ սերուցքով։"
+    },
+    {
+     "front": "բոված հաց",
+     "back": {
+      "ru": "тост (bovats hats)",
+      "en": "toast (bovats hats)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "Բոված հաց կարագով։"
+    },
+    {
+     "front": "սենդվիչ",
+     "back": {
+      "ru": "бутерброд (sendvich)",
+      "en": "sandwich (sendvich)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "Պանրով և խոզապուխտով սենդվիչ։"
+    },
+    {
+     "front": "նախաճաշ",
+     "back": {
+      "ru": "завтрак (nakhachash)",
+      "en": "breakfast (nakhachash)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "Նախաճաշում եմ ժամը յոթին։"
+    },
+    {
+     "front": "ճաշ",
+     "back": {
+      "ru": "обед (chash)",
+      "en": "lunch (chash)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "Ճաշը ժամը մեկին է։"
+    },
+    {
+     "front": "ընթրիք",
+     "back": {
+      "ru": "ужин (yntrik)",
+      "en": "dinner (yntrik)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "Ընթրում ենք ժամը ութի մոտ։"
+    },
+    {
+     "front": "թեթև ուտելիք",
+     "back": {
+      "ru": "полдник (tetev utelik)",
+      "en": "snack (tetev utelik)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "Երեխաները թեթև ուտելիք են տանում։"
+    },
+    {
+     "front": "կերակուր",
+     "back": {
+      "ru": "приём пищи (kerakur)",
+      "en": "meal (kerakur)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "Օրական երեք անգամ եմ ուտում։"
+    },
+    {
+     "front": "սնունդ",
+     "back": {
+      "ru": "еда (snund)",
+      "en": "food (snund)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "Սնունդը սեղանին է։"
+    },
+    {
+     "front": "ըմպելիք",
+     "back": {
+      "ru": "напиток (ympelik)",
+      "en": "drink (ympelik)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "Ի՞նչ ըմպելիք ես ուզում։"
+    },
+    {
+     "front": "ափսե",
+     "back": {
+      "ru": "тарелка (apse)",
+      "en": "plate (apse)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "Ափսեները դիր պահարանին։"
+    },
+    {
+     "front": "բաժակ",
+     "back": {
+      "ru": "стакан (bazhak)",
+      "en": "glass (bazhak)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "Բաժակը լցրու կիսով չափ։"
+    },
+    {
+     "front": "գավաթ",
+     "back": {
+      "ru": "чашка (gavat)",
+      "en": "cup (gavat)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "Մեկ գավաթ սուրճ։"
+    },
+    {
+     "front": "շիշ",
+     "back": {
+      "ru": "бутылка (shish)",
+      "en": "bottle (shish)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "Մեկ շիշ ջուր։"
+    },
+    {
+     "front": "գդալ",
+     "back": {
+      "ru": "ложка (gdal)",
+      "en": "spoon (gdal)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "Ապուրի գդալ է պակասում։"
+    },
+    {
+     "front": "պատառաքաղ",
+     "back": {
+      "ru": "вилка (patarakagh)",
+      "en": "fork (patarakagh)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "Պատառաքաղը ընկավ հատակին։"
+    },
+    {
+     "front": "դանակ",
+     "back": {
+      "ru": "нож (danak)",
+      "en": "knife (danak)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "Այս դանակը ընդհանրապես չի կտրում։"
+    },
+    {
+     "front": "անձեռոցիկ",
+     "back": {
+      "ru": "салфетка (andzerotsik)",
+      "en": "napkin (andzerotsik)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "Տուր ինձ անձեռոցիկ։"
+    },
+    {
+     "front": "կաթսա",
+     "back": {
+      "ru": "кастрюля (katsa)",
+      "en": "pot (katsa)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "Կաթսան կրակի վրա է։"
+    },
+    {
+     "front": "թավա",
+     "back": {
+      "ru": "сковорода (tava)",
+      "en": "frying pan (tava)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "Թավան տաքացրու։"
+    },
+    {
+     "front": "ռեստորան",
+     "back": {
+      "ru": "ресторан (restoran)",
+      "en": "restaurant (restoran)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "Ռեստորանում սեղան ամրագրեցի։"
+    },
+    {
+     "front": "ճաշացանկ",
+     "back": {
+      "ru": "меню (chashatsank)",
+      "en": "menu (chashatsank)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "Մատուցողից ճաշացանկ խնդրիր։"
+    },
+    {
+     "front": "հաշիվ",
+     "back": {
+      "ru": "счёт (hashiv)",
+      "en": "bill (hashiv)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "Հաշիվը, խնդրում եմ։"
+    },
+    {
+     "front": "մատուցող",
+     "back": {
+      "ru": "официант (matutsogh)",
+      "en": "waiter (matutsogh)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "Մատուցողը հաց բերեց։"
+    },
+    {
+     "front": "քաղց",
+     "back": {
+      "ru": "голод (kaghts)",
+      "en": "hunger (kaghts)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "Շատ քաղցած եմ։"
+    },
+    {
+     "front": "ծարավ",
+     "back": {
+      "ru": "жажда (tsarav)",
+      "en": "thirst (tsarav)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "Այս շոգին ծարավ է առաջանում։"
+    },
+    {
+     "front": "համ",
+     "back": {
+      "ru": "вкус (ham)",
+      "en": "taste (ham)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "Այս ապուրը քիչ համ ունի։"
+    },
+    {
+     "front": "բաղադրատոմս",
+     "back": {
+      "ru": "рецепт (baghadratoms)",
+      "en": "recipe (baghadratoms)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "Սա իմ տատիկի բաղադրատոմսն է։"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "հագուստ",
+     "back": {
+      "ru": "одежда (hagust)",
+      "en": "clothes (hagust)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "Ճամպրուկում քիչ հագուստ եմ վերցնում։"
+    },
+    {
+     "front": "վերնաշապիկ",
+     "back": {
+      "ru": "рубашка (vernashapik)",
+      "en": "shirt (vernashapik)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "Վերնաշապիկը դեռ արդուկած չէ։"
+    },
+    {
+     "front": "սվիտեր",
+     "back": {
+      "ru": "свитер (sviter)",
+      "en": "jumper (sviter)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "Հագիր սվիտերը, ցուրտ է։"
+    },
+    {
+     "front": "շապիկ",
+     "back": {
+      "ru": "футболка (shapik)",
+      "en": "T-shirt (shapik)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "Միագույն սպիտակ շապիկ։"
+    },
+    {
+     "front": "վերարկու",
+     "back": {
+      "ru": "пальто (verarku)",
+      "en": "coat (verarku)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "Վերարկուն մոռացա մեքենայում։"
+    },
+    {
+     "front": "բաճկոն",
+     "back": {
+      "ru": "куртка (bachkon)",
+      "en": "jacket (bachkon)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "Անձրևի համար բաճկոն։"
+    },
+    {
+     "front": "ժիլետ",
+     "back": {
+      "ru": "жилет (zhilet)",
+      "en": "waistcoat (zhilet)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "Վերնաշապիկի վրայից ժիլետ։"
+    },
+    {
+     "front": "տաբատ",
+     "back": {
+      "ru": "брюки (tabat)",
+      "en": "trousers (tabat)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "Այս տաբատը լայն է ինձ։"
+    },
+    {
+     "front": "կարճ տաբատ",
+     "back": {
+      "ru": "шорты (karch tabat)",
+      "en": "shorts (karch tabat)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "Ամռան համար կարճ տաբատ։"
+    },
+    {
+     "front": "կիսաշրջազգեստ",
+     "back": {
+      "ru": "юбка (kisashrjazgest)",
+      "en": "skirt (kisashrjazgest)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "Ծնկից մինչև կիսաշրջազգեստ։"
+    },
+    {
+     "front": "զգեստ",
+     "back": {
+      "ru": "платье (zgest)",
+      "en": "dress (zgest)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "Զգեստը կտավից է։"
+    },
+    {
+     "front": "կոստյում",
+     "back": {
+      "ru": "костюм (kostyum)",
+      "en": "suit (kostyum)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "Հարսանիքին կոստյումով է գնում։"
+    },
+    {
+     "front": "փողկապ",
+     "back": {
+      "ru": "галстук (poghkap)",
+      "en": "tie (poghkap)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "Չգիտեմ փողկապ կապել։"
+    },
+    {
+     "front": "գոտի",
+     "back": {
+      "ru": "ремень (goti)",
+      "en": "belt (goti)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "Գոտին մի քիչ ձգիր։"
+    },
+    {
+     "front": "գուլպաներ",
+     "back": {
+      "ru": "носки (gulpaner)",
+      "en": "socks (gulpaner)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "Այս գուլպաները ծակ են։"
+    },
+    {
+     "front": "զուգագուլպա",
+     "back": {
+      "ru": "колготки (zugagulpa)",
+      "en": "tights (zugagulpa)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "Սև զուգագուլպա։"
+    },
+    {
+     "front": "կոշիկներ",
+     "back": {
+      "ru": "туфли (koshikner)",
+      "en": "shoes (koshikner)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "Սև կաշվե կոշիկներ։"
+    },
+    {
+     "front": "սպորտային կոշիկ",
+     "back": {
+      "ru": "кроссовки (sportayin koshik)",
+      "en": "trainers (sportayin koshik)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "Ամբողջ օրը սպորտային կոշիկ եմ հագնում։"
+    },
+    {
+     "front": "երկարաճիտ կոշիկ",
+     "back": {
+      "ru": "сапоги (yerkarachit koshik)",
+      "en": "boots (yerkarachit koshik)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "Ձմռան համար երկարաճիտ կոշիկ։"
+    },
+    {
+     "front": "սանդալներ",
+     "back": {
+      "ru": "сандалии (sandalner)",
+      "en": "sandals (sandalner)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "Ծովափի համար սանդալներ։"
+    },
+    {
+     "front": "հողաթափ",
+     "back": {
+      "ru": "тапочки (hoghatap)",
+      "en": "slippers (hoghatap)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "Հողաթափերը ննջասենյակի դռան մոտ են։"
+    },
+    {
+     "front": "գլխարկ",
+     "back": {
+      "ru": "шляпа (glkhark)",
+      "en": "hat (glkhark)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "Ծղոտե գլխարկ։"
+    },
+    {
+     "front": "քարտուզ",
+     "back": {
+      "ru": "кепка (kartuz)",
+      "en": "cap (kartuz)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "Արևից քարտուզ։"
+    },
+    {
+     "front": "բրդե գլխարկ",
+     "back": {
+      "ru": "шапка (brde glkhark)",
+      "en": "woolly hat (brde glkhark)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "Ձյան համար բրդե գլխարկ և շարֆ։"
+    },
+    {
+     "front": "ձեռնոցներ",
+     "back": {
+      "ru": "перчатки (dzernotsner)",
+      "en": "gloves (dzernotsner)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "Աստառով կաշվե ձեռնոցներ։"
+    },
+    {
+     "front": "շարֆ",
+     "back": {
+      "ru": "шарф (sharf)",
+      "en": "scarf (sharf)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "Շարֆը երկու անգամ փաթաթիր։"
+    },
+    {
+     "front": "թաշկինակ",
+     "back": {
+      "ru": "платок (tashkinak)",
+      "en": "handkerchief (tashkinak)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "Բամբակե թաշկինակ։"
+    },
+    {
+     "front": "ակնոց",
+     "back": {
+      "ru": "очки (aknots)",
+      "en": "glasses (aknots)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "Երեկ ակնոցս կոտրեցի։"
+    },
+    {
+     "front": "պայուսակ",
+     "back": {
+      "ru": "сумка (payusak)",
+      "en": "bag (payusak)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "Պայուսակը շատ ծանր է։"
+    },
+    {
+     "front": "դրամապանակ",
+     "back": {
+      "ru": "кошелёк (dramapanak)",
+      "en": "wallet (dramapanak)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "Դրամապանակը տանը մոռացա։"
+    },
+    {
+     "front": "ուսապարկ",
+     "back": {
+      "ru": "рюкзак (usapark)",
+      "en": "backpack (usapark)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "Դպրոցական ուսապարկը ծանր է։"
+    },
+    {
+     "front": "հովանոց",
+     "back": {
+      "ru": "зонт (hovanots)",
+      "en": "umbrella (hovanots)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "Հովանոցը հետդ վերցրու։"
+    },
+    {
+     "front": "գիշերազգեստ",
+     "back": {
+      "ru": "пижама (gisherazgest)",
+      "en": "pyjamas (gisherazgest)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "Ֆլանելե գիշերազգեստ։"
+    },
+    {
+     "front": "խալաթ",
+     "back": {
+      "ru": "халат (khalat)",
+      "en": "dressing gown (khalat)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "Խալաթը կախված է դռան հետևում։"
+    },
+    {
+     "front": "սրբիչ",
+     "back": {
+      "ru": "полотенце (srbich)",
+      "en": "towel (srbich)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "Լոգարանի համար մաքուր սրբիչ։"
+    },
+    {
+     "front": "գրպան",
+     "back": {
+      "ru": "карман (grpan)",
+      "en": "pocket (grpan)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "Բանալին գրպանումս է։"
+    },
+    {
+     "front": "կոճակ",
+     "back": {
+      "ru": "пуговица (kochak)",
+      "en": "button (kochak)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "Վերնաշապիկից կոճակ ընկավ։"
+    },
+    {
+     "front": "կայծակաճարմանդ",
+     "back": {
+      "ru": "молния (kaytsakacharmand)",
+      "en": "zip (kaytsakacharmand)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "Պայուսակի կայծակաճարմանդը փչացավ։"
+    },
+    {
+     "front": "թև",
+     "back": {
+      "ru": "рукав (tev)",
+      "en": "sleeve (tev)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "Թևքերդ վեր քաշիր։"
+    },
+    {
+     "front": "օձիք",
+     "back": {
+      "ru": "воротник (odzik)",
+      "en": "collar (odzik)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "Օձիքը կեղտոտված է։"
+    },
+    {
+     "front": "չափս",
+     "back": {
+      "ru": "размер (chaps)",
+      "en": "size (chaps)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "Այս վերնաշապիկը այլ չափսով ունե՞ք։"
+    },
+    {
+     "front": "գործվածք",
+     "back": {
+      "ru": "ткань (gortsvatsk)",
+      "en": "fabric (gortsvatsk)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "Ամռան համար թեթև գործվածք։"
+    },
+    {
+     "front": "բամբակ",
+     "back": {
+      "ru": "хлопок (bambak)",
+      "en": "cotton (bambak)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "Բամբակե վերնաշապիկ։"
+    },
+    {
+     "front": "բուրդ",
+     "back": {
+      "ru": "шерсть (burd)",
+      "en": "wool (burd)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "Հաստ բրդե գուլպաներ։"
+    },
+    {
+     "front": "մետաքս",
+     "back": {
+      "ru": "шёлк (metaks)",
+      "en": "silk (metaks)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "Մետաքսե շարֆ։"
+    },
+    {
+     "front": "կաշի",
+     "back": {
+      "ru": "кожа (kashi)",
+      "en": "leather (kashi)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "Շագանակագույն կաշվե կոշիկներ։"
+    },
+    {
+     "front": "կախիչ",
+     "back": {
+      "ru": "вешалка (kakhich)",
+      "en": "hanger (kakhich)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "Վերարկուն կախիչին կախիր։"
+    },
+    {
+     "front": "պահարան",
+     "back": {
+      "ru": "шкаф (paharan)",
+      "en": "wardrobe (paharan)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "Պահարանը լիքն է։"
+    },
+    {
+     "front": "մատանի",
+     "back": {
+      "ru": "кольцо (matani)",
+      "en": "ring (matani)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "Արծաթե մատանի։"
+    }
+   ]
+  }
+ ]
+}

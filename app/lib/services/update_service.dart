@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:ffi' show Abi;
+
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
@@ -80,7 +82,7 @@ class UpdateService {
       }
 
       final assets = json['assets'];
-      final apkUrl = assets is List ? _pickApkUrl(assets) : null;
+      final apkUrl = assets is List ? pickApkUrl(assets) : null;
 
       return UpdateCheck.available(
         UpdateInfo(
@@ -158,11 +160,25 @@ class UpdateService {
     'x86',
   ];
 
+  /// ABI-метка в имени файла, либо '' — универсальный APK.
+  ///
+  /// Берётся самая ДЛИННАЯ подходящая метка: `x86` — подстрока `x86_64`, и по
+  /// простому `contains` тридцатидвухбитному устройству доставался
+  /// шестидесятичетырёхбитный файл, который не встаёт.
+  static String _assetAbi(String name) {
+    var found = '';
+    for (final token in _abiTokens) {
+      if (name.contains(token) && token.length > found.length) found = token;
+    }
+    return found;
+  }
+
   /// Выбирает APK-ассет под архитектуру устройства. Порядок предпочтения:
   /// точное совпадение ABI → универсальный (без ABI-метки) → первый попавшийся.
   /// Работает и со сплит-релизом (несколько APK), и со старым единым.
-  static String? _pickApkUrl(List assets) {
-    final abi = _deviceAbi();
+  @visibleForTesting
+  static String? pickApkUrl(List assets, {String? deviceAbi}) {
+    final abi = deviceAbi ?? _deviceAbi();
     String? abiMatch, universal, firstApk;
     for (final a in assets) {
       final name = (a['name'] ?? '').toString().toLowerCase();
@@ -170,9 +186,10 @@ class UpdateService {
       final url = (a['browser_download_url'] ?? '').toString();
       if (url.isEmpty) continue;
       firstApk ??= url;
-      if (abi.isNotEmpty && name.contains(abi)) {
+      final assetAbi = _assetAbi(name);
+      if (abi.isNotEmpty && assetAbi == abi) {
         abiMatch ??= url;
-      } else if (!_abiTokens.any(name.contains)) {
+      } else if (assetAbi.isEmpty) {
         universal ??= url;
       }
     }

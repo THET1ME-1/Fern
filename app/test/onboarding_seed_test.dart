@@ -48,9 +48,11 @@ void main() {
     expect(decks.every((d) => d.languageCode == 'en'), isTrue);
   });
 
+  // Наборы есть у всех языков встроенного списка, поэтому «языка без набора»
+  // приходится брать за его пределами: код вроде 'xx' человек заводит сам.
   test('язык без готового набора — пусто, но без ошибок', () async {
     await DeckRepository.instance.setOnboarded(true);
-    await StarterDecks.seedFor('ja');
+    await StarterDecks.seedFor('xx');
     expect(await DeckRepository.instance.loadDecks(), isEmpty);
   });
 

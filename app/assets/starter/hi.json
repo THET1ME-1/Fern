@@ -1,0 +1,6533 @@
+{
+ "lang": "hi",
+ "decks": [
+  {
+   "nameKey": "seed_deck_first_words",
+   "name": "First words",
+   "shape": 0,
+   "cards": [
+    {
+     "front": "नमस्ते",
+     "back": {
+      "ru": "привет (namaste)",
+      "en": "hello (namaste)",
+      "de": "hallo",
+      "fr": "bonjour",
+      "es": "hola",
+      "it": "ciao",
+      "pt": "olá"
+     },
+     "example": "नमस्ते, आप कैसे हैं?"
+    },
+    {
+     "front": "अलविदा",
+     "back": {
+      "ru": "до свидания (alvidā)",
+      "en": "goodbye (alvidā)",
+      "de": "auf Wiedersehen",
+      "fr": "au revoir",
+      "es": "adiós",
+      "it": "arrivederci",
+      "pt": "adeus"
+     },
+     "example": "अब मैं चलता हूँ, अलविदा।"
+    },
+    {
+     "front": "हाँ",
+     "back": {
+      "ru": "да (hā̃)",
+      "en": "yes (hā̃)",
+      "de": "ja",
+      "fr": "oui",
+      "es": "sí",
+      "it": "sì",
+      "pt": "sim"
+     },
+     "example": "हाँ, मैं तैयार हूँ।"
+    },
+    {
+     "front": "नहीं",
+     "back": {
+      "ru": "нет (nahī̃)",
+      "en": "no (nahī̃)",
+      "de": "nein",
+      "fr": "non",
+      "es": "no",
+      "it": "no",
+      "pt": "não"
+     },
+     "example": "नहीं, मुझे यह नहीं चाहिए।"
+    },
+    {
+     "front": "कृपया",
+     "back": {
+      "ru": "пожалуйста (kṛpayā)",
+      "en": "please (kṛpayā)",
+      "de": "bitte",
+      "fr": "s'il vous plaît",
+      "es": "por favor",
+      "it": "per favore",
+      "pt": "por favor"
+     },
+     "example": "कृपया दरवाज़ा बंद कीजिए।"
+    },
+    {
+     "front": "धन्यवाद",
+     "back": {
+      "ru": "спасибо (dhanyavād)",
+      "en": "thank you (dhanyavād)",
+      "de": "danke",
+      "fr": "merci",
+      "es": "gracias",
+      "it": "grazie",
+      "pt": "obrigado"
+     },
+     "example": "आपकी मदद के लिए धन्यवाद।"
+    },
+    {
+     "front": "माफ़ कीजिए",
+     "back": {
+      "ru": "извини (māf kījie)",
+      "en": "sorry (māf kījie)",
+      "de": "Entschuldigung",
+      "fr": "pardon",
+      "es": "perdón",
+      "it": "scusa",
+      "pt": "desculpa"
+     },
+     "example": "माफ़ कीजिए, मुझे देर हो गई।"
+    },
+    {
+     "front": "सुप्रभात",
+     "back": {
+      "ru": "доброе утро (suprabhāt)",
+      "en": "good morning (suprabhāt)",
+      "de": "guten Morgen",
+      "fr": "bonjour",
+      "es": "buenos días",
+      "it": "buongiorno",
+      "pt": "bom dia"
+     },
+     "example": "सुप्रभात, चाय तैयार है।"
+    },
+    {
+     "front": "शुभ रात्रि",
+     "back": {
+      "ru": "спокойной ночи (śubh rātri)",
+      "en": "good night (śubh rātri)",
+      "de": "gute Nacht",
+      "fr": "bonne nuit",
+      "es": "buenas noches",
+      "it": "buonanotte",
+      "pt": "boa noite"
+     },
+     "example": "शुभ रात्रि, अच्छे सपने देखो।"
+    },
+    {
+     "front": "सब ठीक है",
+     "back": {
+      "ru": "всё хорошо (sab ṭhīk hai)",
+      "en": "all right (sab ṭhīk hai)",
+      "de": "alles gut",
+      "fr": "ça va",
+      "es": "todo bien",
+      "it": "tutto bene",
+      "pt": "tudo bem"
+     },
+     "example": "चिंता मत करो, सब ठीक है।"
+    },
+    {
+     "front": "आदमी",
+     "back": {
+      "ru": "мужчина (ādmī)",
+      "en": "man (ādmī)",
+      "de": "Mann",
+      "fr": "homme",
+      "es": "hombre",
+      "it": "uomo",
+      "pt": "homem"
+     },
+     "example": "वह आदमी मेरा पड़ोसी है।"
+    },
+    {
+     "front": "औरत",
+     "back": {
+      "ru": "женщина (aurat)",
+      "en": "woman (aurat)",
+      "de": "Frau",
+      "fr": "femme",
+      "es": "mujer",
+      "it": "donna",
+      "pt": "mulher"
+     },
+     "example": "वह औरत डॉक्टर है।"
+    },
+    {
+     "front": "बच्चा",
+     "back": {
+      "ru": "ребёнок (bachchā)",
+      "en": "child (bachchā)",
+      "de": "Kind",
+      "fr": "enfant",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "criança"
+     },
+     "example": "बच्चा बग़ीचे में खेल रहा है।"
+    },
+    {
+     "front": "लड़का",
+     "back": {
+      "ru": "мальчик (laṛkā)",
+      "en": "boy (laṛkā)",
+      "de": "Junge",
+      "fr": "garçon",
+      "es": "niño",
+      "it": "bambino",
+      "pt": "menino"
+     },
+     "example": "लड़का स्कूल जा रहा है।"
+    },
+    {
+     "front": "लड़की",
+     "back": {
+      "ru": "девочка (laṛkī)",
+      "en": "girl (laṛkī)",
+      "de": "Mädchen",
+      "fr": "fille",
+      "es": "niña",
+      "it": "bambina",
+      "pt": "menina"
+     },
+     "example": "लड़की गाना गा रही है।"
+    },
+    {
+     "front": "दोस्त",
+     "back": {
+      "ru": "друг (dost)",
+      "en": "friend (dost)",
+      "de": "Freund",
+      "fr": "ami",
+      "es": "amigo",
+      "it": "amico",
+      "pt": "amigo"
+     },
+     "example": "मेरा दोस्त कल आएगा।"
+    },
+    {
+     "front": "परिवार",
+     "back": {
+      "ru": "семья (parivār)",
+      "en": "family (parivār)",
+      "de": "Familie",
+      "fr": "famille",
+      "es": "familia",
+      "it": "famiglia",
+      "pt": "família"
+     },
+     "example": "मेरा परिवार बहुत बड़ा है।"
+    },
+    {
+     "front": "माँ",
+     "back": {
+      "ru": "мама (mā̃)",
+      "en": "mother (mā̃)",
+      "de": "Mutter",
+      "fr": "mère",
+      "es": "madre",
+      "it": "madre",
+      "pt": "mãe"
+     },
+     "example": "मेरी माँ खाना बना रही हैं।"
+    },
+    {
+     "front": "पिता",
+     "back": {
+      "ru": "папа (pitā)",
+      "en": "father (pitā)",
+      "de": "Vater",
+      "fr": "père",
+      "es": "padre",
+      "it": "padre",
+      "pt": "pai"
+     },
+     "example": "मेरे पिता दफ़्तर में हैं।"
+    },
+    {
+     "front": "बेटा",
+     "back": {
+      "ru": "сын (beṭā)",
+      "en": "son (beṭā)",
+      "de": "Sohn",
+      "fr": "fils",
+      "es": "hijo",
+      "it": "figlio",
+      "pt": "filho"
+     },
+     "example": "उनका बेटा दस साल का है।"
+    },
+    {
+     "front": "बेटी",
+     "back": {
+      "ru": "дочь (beṭī)",
+      "en": "daughter (beṭī)",
+      "de": "Tochter",
+      "fr": "fille",
+      "es": "hija",
+      "it": "figlia",
+      "pt": "filha"
+     },
+     "example": "उनकी बेटी बहुत होशियार है।"
+    },
+    {
+     "front": "भाई",
+     "back": {
+      "ru": "брат (bhāī)",
+      "en": "brother (bhāī)",
+      "de": "Bruder",
+      "fr": "frère",
+      "es": "hermano",
+      "it": "fratello",
+      "pt": "irmão"
+     },
+     "example": "मेरा भाई मुझसे बड़ा है।"
+    },
+    {
+     "front": "बहन",
+     "back": {
+      "ru": "сестра (bahan)",
+      "en": "sister (bahan)",
+      "de": "Schwester",
+      "fr": "sœur",
+      "es": "hermana",
+      "it": "sorella",
+      "pt": "irmã"
+     },
+     "example": "मेरी बहन दिल्ली में रहती है।"
+    },
+    {
+     "front": "दादी",
+     "back": {
+      "ru": "бабушка (dādī)",
+      "en": "grandmother (dādī)",
+      "de": "Großmutter",
+      "fr": "grand-mère",
+      "es": "abuela",
+      "it": "nonna",
+      "pt": "avó"
+     },
+     "example": "दादी हमें कहानी सुनाती हैं।"
+    },
+    {
+     "front": "दादा",
+     "back": {
+      "ru": "дедушка (dādā)",
+      "en": "grandfather (dādā)",
+      "de": "Großvater",
+      "fr": "grand-père",
+      "es": "abuelo",
+      "it": "nonno",
+      "pt": "avô"
+     },
+     "example": "दादा बग़ीचे में बैठे हैं।"
+    },
+    {
+     "front": "इंसान",
+     "back": {
+      "ru": "человек (insān)",
+      "en": "person (insān)",
+      "de": "Person",
+      "fr": "personne",
+      "es": "persona",
+      "it": "persona",
+      "pt": "pessoa"
+     },
+     "example": "हर इंसान अलग होता है।"
+    },
+    {
+     "front": "लोग",
+     "back": {
+      "ru": "люди (log)",
+      "en": "people (log)",
+      "de": "Leute",
+      "fr": "gens",
+      "es": "gente",
+      "it": "gente",
+      "pt": "gente"
+     },
+     "example": "बाज़ार में बहुत लोग थे।"
+    },
+    {
+     "front": "नाम",
+     "back": {
+      "ru": "имя (nām)",
+      "en": "name (nām)",
+      "de": "Name",
+      "fr": "nom",
+      "es": "nombre",
+      "it": "nome",
+      "pt": "nome"
+     },
+     "example": "आपका नाम क्या है?"
+    },
+    {
+     "front": "श्रीमान",
+     "back": {
+      "ru": "господин (śrīmān)",
+      "en": "sir (śrīmān)",
+      "de": "Herr",
+      "fr": "monsieur",
+      "es": "señor",
+      "it": "signore",
+      "pt": "senhor"
+     },
+     "example": "श्रीमान शर्मा, अंदर आइए।"
+    },
+    {
+     "front": "श्रीमती",
+     "back": {
+      "ru": "госпожа (śrīmatī)",
+      "en": "madam (śrīmatī)",
+      "de": "Frau",
+      "fr": "madame",
+      "es": "señora",
+      "it": "signora",
+      "pt": "senhora"
+     },
+     "example": "श्रीमती गुप्ता हमारी शिक्षिका हैं।"
+    },
+    {
+     "front": "मैं",
+     "back": {
+      "ru": "я (maiṃ)",
+      "en": "I (maiṃ)",
+      "de": "ich",
+      "fr": "je",
+      "es": "yo",
+      "it": "io",
+      "pt": "eu"
+     },
+     "example": "मैं भारत से हूँ।"
+    },
+    {
+     "front": "तुम",
+     "back": {
+      "ru": "ты (tum)",
+      "en": "you (tum)",
+      "de": "du",
+      "fr": "tu",
+      "es": "tú",
+      "it": "tu",
+      "pt": "tu"
+     },
+     "example": "तुम कहाँ जा रहे हो?"
+    },
+    {
+     "front": "आप",
+     "back": {
+      "ru": "вы (āp)",
+      "en": "you (āp)",
+      "de": "Sie",
+      "fr": "vous",
+      "es": "usted",
+      "it": "lei",
+      "pt": "você"
+     },
+     "example": "आप कहाँ रहते हैं?"
+    },
+    {
+     "front": "वह",
+     "back": {
+      "ru": "он (vah)",
+      "en": "he (vah)",
+      "de": "er",
+      "fr": "il",
+      "es": "él",
+      "it": "lui",
+      "pt": "ele"
+     },
+     "example": "वह मेरा भाई है।"
+    },
+    {
+     "front": "वो",
+     "back": {
+      "ru": "она (vo)",
+      "en": "she (vo)",
+      "de": "sie",
+      "fr": "elle",
+      "es": "ella",
+      "it": "lei",
+      "pt": "ela"
+     },
+     "example": "वो मेरी बहन है।"
+    },
+    {
+     "front": "हम",
+     "back": {
+      "ru": "мы (ham)",
+      "en": "we (ham)",
+      "de": "wir",
+      "fr": "nous",
+      "es": "nosotros",
+      "it": "noi",
+      "pt": "nós"
+     },
+     "example": "हम साथ में पढ़ते हैं।"
+    },
+    {
+     "front": "वे",
+     "back": {
+      "ru": "они (ve)",
+      "en": "they (ve)",
+      "de": "sie",
+      "fr": "ils",
+      "es": "ellos",
+      "it": "loro",
+      "pt": "eles"
+     },
+     "example": "वे कल शाम को आएँगे।"
+    },
+    {
+     "front": "मेरा",
+     "back": {
+      "ru": "мой (merā)",
+      "en": "my (merā)",
+      "de": "mein",
+      "fr": "mon",
+      "es": "mi",
+      "it": "mio",
+      "pt": "meu"
+     },
+     "example": "यह मेरा घर है।"
+    },
+    {
+     "front": "तुम्हारा",
+     "back": {
+      "ru": "твой (tumhārā)",
+      "en": "your (tumhārā)",
+      "de": "dein",
+      "fr": "ton",
+      "es": "tu",
+      "it": "tuo",
+      "pt": "teu"
+     },
+     "example": "यह तुम्हारा बस्ता है।"
+    },
+    {
+     "front": "हमारा",
+     "back": {
+      "ru": "наш (hamārā)",
+      "en": "our (hamārā)",
+      "de": "unser",
+      "fr": "notre",
+      "es": "nuestro",
+      "it": "nostro",
+      "pt": "nosso"
+     },
+     "example": "हमारा स्कूल पास में है।"
+    },
+    {
+     "front": "यह",
+     "back": {
+      "ru": "этот (yah)",
+      "en": "this (yah)",
+      "de": "dieser",
+      "fr": "ce",
+      "es": "este",
+      "it": "questo",
+      "pt": "este"
+     },
+     "example": "यह किताब नई है।"
+    },
+    {
+     "front": "वह वाला",
+     "back": {
+      "ru": "тот (vah vālā)",
+      "en": "that (vah vālā)",
+      "de": "jener",
+      "fr": "celui-là",
+      "es": "aquel",
+      "it": "quello",
+      "pt": "aquele"
+     },
+     "example": "मुझे वह वाला कमरा पसंद है।"
+    },
+    {
+     "front": "कौन",
+     "back": {
+      "ru": "кто (kaun)",
+      "en": "who (kaun)",
+      "de": "wer",
+      "fr": "qui",
+      "es": "quién",
+      "it": "chi",
+      "pt": "quem"
+     },
+     "example": "दरवाज़े पर कौन है?"
+    },
+    {
+     "front": "क्या",
+     "back": {
+      "ru": "что (kyā)",
+      "en": "what (kyā)",
+      "de": "was",
+      "fr": "que",
+      "es": "qué",
+      "it": "che",
+      "pt": "que"
+     },
+     "example": "तुम क्या कर रहे हो?"
+    },
+    {
+     "front": "कहाँ",
+     "back": {
+      "ru": "где (kahā̃)",
+      "en": "where (kahā̃)",
+      "de": "wo",
+      "fr": "où",
+      "es": "dónde",
+      "it": "dove",
+      "pt": "onde"
+     },
+     "example": "स्टेशन कहाँ है?"
+    },
+    {
+     "front": "कब",
+     "back": {
+      "ru": "когда (kab)",
+      "en": "when (kab)",
+      "de": "wann",
+      "fr": "quand",
+      "es": "cuándo",
+      "it": "quando",
+      "pt": "quando"
+     },
+     "example": "तुम्हारी छुट्टी कब है?"
+    },
+    {
+     "front": "कैसे",
+     "back": {
+      "ru": "как (kaise)",
+      "en": "how (kaise)",
+      "de": "wie",
+      "fr": "comment",
+      "es": "cómo",
+      "it": "come",
+      "pt": "como"
+     },
+     "example": "यह काम कैसे होता है?"
+    },
+    {
+     "front": "क्यों",
+     "back": {
+      "ru": "почему (kyoṃ)",
+      "en": "why (kyoṃ)",
+      "de": "warum",
+      "fr": "pourquoi",
+      "es": "por qué",
+      "it": "perché",
+      "pt": "porquê"
+     },
+     "example": "तुम आज क्यों उदास हो?"
+    },
+    {
+     "front": "कौन सा",
+     "back": {
+      "ru": "который (kaun sā)",
+      "en": "which (kaun sā)",
+      "de": "welcher",
+      "fr": "quel",
+      "es": "cuál",
+      "it": "quale",
+      "pt": "qual"
+     },
+     "example": "तुम्हें कौन सा रंग पसंद है?"
+    },
+    {
+     "front": "शून्य",
+     "back": {
+      "ru": "ноль (śūnya)",
+      "en": "zero (śūnya)",
+      "de": "null",
+      "fr": "zéro",
+      "es": "cero",
+      "it": "zero",
+      "pt": "zero"
+     },
+     "example": "शून्य के बाद एक आता है।"
+    },
+    {
+     "front": "एक",
+     "back": {
+      "ru": "один (ek)",
+      "en": "one (ek)",
+      "de": "eins",
+      "fr": "un",
+      "es": "uno",
+      "it": "uno",
+      "pt": "um"
+     },
+     "example": "मुझे एक कप चाय दीजिए।"
+    },
+    {
+     "front": "दो",
+     "back": {
+      "ru": "два (do)",
+      "en": "two (do)",
+      "de": "zwei",
+      "fr": "deux",
+      "es": "dos",
+      "it": "due",
+      "pt": "dois"
+     },
+     "example": "मेरे पास दो किताबें हैं।"
+    },
+    {
+     "front": "तीन",
+     "back": {
+      "ru": "три (tīn)",
+      "en": "three (tīn)",
+      "de": "drei",
+      "fr": "trois",
+      "es": "tres",
+      "it": "tre",
+      "pt": "três"
+     },
+     "example": "वह तीन बजे आएगा।"
+    },
+    {
+     "front": "चार",
+     "back": {
+      "ru": "четыре (chār)",
+      "en": "four (chār)",
+      "de": "vier",
+      "fr": "quatre",
+      "es": "cuatro",
+      "it": "quattro",
+      "pt": "quatro"
+     },
+     "example": "इस मेज़ के चार पैर हैं।"
+    },
+    {
+     "front": "पाँच",
+     "back": {
+      "ru": "пять (pā̃ch)",
+      "en": "five (pā̃ch)",
+      "de": "fünf",
+      "fr": "cinq",
+      "es": "cinco",
+      "it": "cinque",
+      "pt": "cinco"
+     },
+     "example": "मेरे पाँच दोस्त हैं।"
+    },
+    {
+     "front": "छह",
+     "back": {
+      "ru": "шесть (chhah)",
+      "en": "six (chhah)",
+      "de": "sechs",
+      "fr": "six",
+      "es": "seis",
+      "it": "sei",
+      "pt": "seis"
+     },
+     "example": "यहाँ छह कुर्सियाँ हैं।"
+    },
+    {
+     "front": "सात",
+     "back": {
+      "ru": "семь (sāt)",
+      "en": "seven (sāt)",
+      "de": "sieben",
+      "fr": "sept",
+      "es": "siete",
+      "it": "sette",
+      "pt": "sete"
+     },
+     "example": "हफ़्ते में सात दिन होते हैं।"
+    },
+    {
+     "front": "आठ",
+     "back": {
+      "ru": "восемь (āṭh)",
+      "en": "eight (āṭh)",
+      "de": "acht",
+      "fr": "huit",
+      "es": "ocho",
+      "it": "otto",
+      "pt": "oito"
+     },
+     "example": "वह रोज़ आठ बजे सोता है।"
+    },
+    {
+     "front": "नौ",
+     "back": {
+      "ru": "девять (nau)",
+      "en": "nine (nau)",
+      "de": "neun",
+      "fr": "neuf",
+      "es": "nueve",
+      "it": "nove",
+      "pt": "nove"
+     },
+     "example": "मेरी कक्षा में नौ बच्चे हैं।"
+    },
+    {
+     "front": "दस",
+     "back": {
+      "ru": "десять (das)",
+      "en": "ten (das)",
+      "de": "zehn",
+      "fr": "dix",
+      "es": "diez",
+      "it": "dieci",
+      "pt": "dez"
+     },
+     "example": "मुझे दस रुपये दे दो।"
+    },
+    {
+     "front": "ग्यारह",
+     "back": {
+      "ru": "одиннадцать (gyārah)",
+      "en": "eleven (gyārah)",
+      "de": "elf",
+      "fr": "onze",
+      "es": "once",
+      "it": "undici",
+      "pt": "onze"
+     },
+     "example": "बस में ग्यारह लोग बैठे हैं।"
+    },
+    {
+     "front": "बारह",
+     "back": {
+      "ru": "двенадцать (bārah)",
+      "en": "twelve (bārah)",
+      "de": "zwölf",
+      "fr": "douze",
+      "es": "doce",
+      "it": "dodici",
+      "pt": "doze"
+     },
+     "example": "साल में बारह महीने होते हैं।"
+    },
+    {
+     "front": "बीस",
+     "back": {
+      "ru": "двадцать (bīs)",
+      "en": "twenty (bīs)",
+      "de": "zwanzig",
+      "fr": "vingt",
+      "es": "veinte",
+      "it": "venti",
+      "pt": "vinte"
+     },
+     "example": "मेरे पास बीस रुपये हैं।"
+    },
+    {
+     "front": "तीस",
+     "back": {
+      "ru": "тридцать (tīs)",
+      "en": "thirty (tīs)",
+      "de": "dreißig",
+      "fr": "trente",
+      "es": "treinta",
+      "it": "trenta",
+      "pt": "trinta"
+     },
+     "example": "इस महीने में तीस दिन हैं।"
+    },
+    {
+     "front": "सौ",
+     "back": {
+      "ru": "сто (sau)",
+      "en": "hundred (sau)",
+      "de": "hundert",
+      "fr": "cent",
+      "es": "cien",
+      "it": "cento",
+      "pt": "cem"
+     },
+     "example": "यह क़मीज़ सौ रुपये की है।"
+    },
+    {
+     "front": "हज़ार",
+     "back": {
+      "ru": "тысяча (hazār)",
+      "en": "thousand (hazār)",
+      "de": "tausend",
+      "fr": "mille",
+      "es": "mil",
+      "it": "mille",
+      "pt": "mil"
+     },
+     "example": "मुझे हज़ार रुपये चाहिए।"
+    },
+    {
+     "front": "पहला",
+     "back": {
+      "ru": "первый (pahlā)",
+      "en": "first (pahlā)",
+      "de": "erster",
+      "fr": "premier",
+      "es": "primero",
+      "it": "primo",
+      "pt": "primeiro"
+     },
+     "example": "यह मेरा पहला दिन है।"
+    },
+    {
+     "front": "आख़िरी",
+     "back": {
+      "ru": "последний (āḳhirī)",
+      "en": "last (āḳhirī)",
+      "de": "letzter",
+      "fr": "dernier",
+      "es": "último",
+      "it": "ultimo",
+      "pt": "último"
+     },
+     "example": "यह आज की आख़िरी बस है।"
+    },
+    {
+     "front": "नंबर",
+     "back": {
+      "ru": "номер (nambar)",
+      "en": "number (nambar)",
+      "de": "Nummer",
+      "fr": "numéro",
+      "es": "número",
+      "it": "numero",
+      "pt": "número"
+     },
+     "example": "मुझे अपना नंबर दे दो।"
+    },
+    {
+     "front": "आधा",
+     "back": {
+      "ru": "половина (ādhā)",
+      "en": "half (ādhā)",
+      "de": "Hälfte",
+      "fr": "moitié",
+      "es": "mitad",
+      "it": "metà",
+      "pt": "metade"
+     },
+     "example": "मुझे आधा गिलास दूध चाहिए।"
+    },
+    {
+     "front": "दिन",
+     "back": {
+      "ru": "день (din)",
+      "en": "day (din)",
+      "de": "Tag",
+      "fr": "jour",
+      "es": "día",
+      "it": "giorno",
+      "pt": "dia"
+     },
+     "example": "आज का दिन बहुत अच्छा था।"
+    },
+    {
+     "front": "रात",
+     "back": {
+      "ru": "ночь (rāt)",
+      "en": "night (rāt)",
+      "de": "Nacht",
+      "fr": "nuit",
+      "es": "noche",
+      "it": "notte",
+      "pt": "noite"
+     },
+     "example": "आज रात बहुत ठंडी है।"
+    },
+    {
+     "front": "सुबह",
+     "back": {
+      "ru": "утро (subah)",
+      "en": "morning (subah)",
+      "de": "Morgen",
+      "fr": "matin",
+      "es": "mañana",
+      "it": "mattina",
+      "pt": "manhã"
+     },
+     "example": "सुबह मैं जल्दी उठता हूँ।"
+    },
+    {
+     "front": "शाम",
+     "back": {
+      "ru": "вечер (śām)",
+      "en": "afternoon (śām)",
+      "de": "Nachmittag",
+      "fr": "après-midi",
+      "es": "tarde",
+      "it": "pomeriggio",
+      "pt": "tarde"
+     },
+     "example": "शाम को हम घूमने जाते हैं।"
+    },
+    {
+     "front": "आज",
+     "back": {
+      "ru": "сегодня (āj)",
+      "en": "today (āj)",
+      "de": "heute",
+      "fr": "aujourd'hui",
+      "es": "hoy",
+      "it": "oggi",
+      "pt": "hoje"
+     },
+     "example": "आज मेरी छुट्टी है।"
+    },
+    {
+     "front": "कल",
+     "back": {
+      "ru": "завтра (kal)",
+      "en": "tomorrow (kal)",
+      "de": "morgen",
+      "fr": "demain",
+      "es": "mañana",
+      "it": "domani",
+      "pt": "amanhã"
+     },
+     "example": "कल हम बाज़ार जाएँगे।"
+    },
+    {
+     "front": "बीता कल",
+     "back": {
+      "ru": "вчера (bītā kal)",
+      "en": "yesterday (bītā kal)",
+      "de": "gestern",
+      "fr": "hier",
+      "es": "ayer",
+      "it": "ieri",
+      "pt": "ontem"
+     },
+     "example": "बीता कल बहुत व्यस्त था।"
+    },
+    {
+     "front": "हफ़्ता",
+     "back": {
+      "ru": "неделя (haftā)",
+      "en": "week (haftā)",
+      "de": "Woche",
+      "fr": "semaine",
+      "es": "semana",
+      "it": "settimana",
+      "pt": "semana"
+     },
+     "example": "अगला हफ़्ता मुश्किल होगा।"
+    },
+    {
+     "front": "महीना",
+     "back": {
+      "ru": "месяц (mahīnā)",
+      "en": "month (mahīnā)",
+      "de": "Monat",
+      "fr": "mois",
+      "es": "mes",
+      "it": "mese",
+      "pt": "mês"
+     },
+     "example": "यह महीना जल्दी बीत गया।"
+    },
+    {
+     "front": "साल",
+     "back": {
+      "ru": "год (sāl)",
+      "en": "year (sāl)",
+      "de": "Jahr",
+      "fr": "année",
+      "es": "año",
+      "it": "anno",
+      "pt": "ano"
+     },
+     "example": "यह साल बहुत अच्छा रहा।"
+    },
+    {
+     "front": "घंटा",
+     "back": {
+      "ru": "час (ghaṇṭā)",
+      "en": "hour (ghaṇṭā)",
+      "de": "Stunde",
+      "fr": "heure",
+      "es": "hora",
+      "it": "ora",
+      "pt": "hora"
+     },
+     "example": "मैंने एक घंटा इंतज़ार किया।"
+    },
+    {
+     "front": "मिनट",
+     "back": {
+      "ru": "минута (minaṭ)",
+      "en": "minute (minaṭ)",
+      "de": "Minute",
+      "fr": "minute",
+      "es": "minuto",
+      "it": "minuto",
+      "pt": "minuto"
+     },
+     "example": "बस दो मिनट रुक जाओ।"
+    },
+    {
+     "front": "समय",
+     "back": {
+      "ru": "время (samay)",
+      "en": "time (samay)",
+      "de": "Zeit",
+      "fr": "temps",
+      "es": "tiempo",
+      "it": "tempo",
+      "pt": "tempo"
+     },
+     "example": "मेरे पास समय नहीं है।"
+    },
+    {
+     "front": "अभी",
+     "back": {
+      "ru": "сейчас (abhī)",
+      "en": "now (abhī)",
+      "de": "jetzt",
+      "fr": "maintenant",
+      "es": "ahora",
+      "it": "adesso",
+      "pt": "agora"
+     },
+     "example": "मैं अभी आ रहा हूँ।"
+    },
+    {
+     "front": "हमेशा",
+     "back": {
+      "ru": "всегда (hameśā)",
+      "en": "always (hameśā)",
+      "de": "immer",
+      "fr": "toujours",
+      "es": "siempre",
+      "it": "sempre",
+      "pt": "sempre"
+     },
+     "example": "वह हमेशा सच बोलता है।"
+    },
+    {
+     "front": "कभी नहीं",
+     "back": {
+      "ru": "никогда (kabhī nahī̃)",
+      "en": "never (kabhī nahī̃)",
+      "de": "nie",
+      "fr": "jamais",
+      "es": "nunca",
+      "it": "mai",
+      "pt": "nunca"
+     },
+     "example": "मैं यह बात कभी नहीं भूलूँगा।"
+    },
+    {
+     "front": "जल्दी",
+     "back": {
+      "ru": "рано (jaldī)",
+      "en": "early (jaldī)",
+      "de": "früh",
+      "fr": "tôt",
+      "es": "temprano",
+      "it": "presto",
+      "pt": "cedo"
+     },
+     "example": "आज मैं जल्दी उठा।"
+    },
+    {
+     "front": "सोमवार",
+     "back": {
+      "ru": "понедельник (somvār)",
+      "en": "Monday (somvār)",
+      "de": "Montag",
+      "fr": "lundi",
+      "es": "lunes",
+      "it": "lunedì",
+      "pt": "segunda-feira"
+     },
+     "example": "सोमवार को स्कूल खुलता है।"
+    },
+    {
+     "front": "शनिवार",
+     "back": {
+      "ru": "суббота (śanivār)",
+      "en": "Saturday (śanivār)",
+      "de": "Samstag",
+      "fr": "samedi",
+      "es": "sábado",
+      "it": "sabato",
+      "pt": "sábado"
+     },
+     "example": "शनिवार को हम आराम करते हैं।"
+    },
+    {
+     "front": "रविवार",
+     "back": {
+      "ru": "воскресенье (ravivār)",
+      "en": "Sunday (ravivār)",
+      "de": "Sonntag",
+      "fr": "dimanche",
+      "es": "domingo",
+      "it": "domenica",
+      "pt": "domingo"
+     },
+     "example": "रविवार को दुकान बंद रहती है।"
+    },
+    {
+     "front": "घर",
+     "back": {
+      "ru": "дом (ghar)",
+      "en": "house (ghar)",
+      "de": "Haus",
+      "fr": "maison",
+      "es": "casa",
+      "it": "casa",
+      "pt": "casa"
+     },
+     "example": "मेरा घर स्टेशन के पास है।"
+    },
+    {
+     "front": "शहर",
+     "back": {
+      "ru": "город (śahar)",
+      "en": "city (śahar)",
+      "de": "Stadt",
+      "fr": "ville",
+      "es": "ciudad",
+      "it": "città",
+      "pt": "cidade"
+     },
+     "example": "यह शहर बहुत बड़ा है।"
+    },
+    {
+     "front": "गाँव",
+     "back": {
+      "ru": "деревня (gā̃v)",
+      "en": "village (gā̃v)",
+      "de": "Dorf",
+      "fr": "village",
+      "es": "pueblo",
+      "it": "villaggio",
+      "pt": "aldeia"
+     },
+     "example": "मेरा गाँव नदी के किनारे है।"
+    },
+    {
+     "front": "सड़क",
+     "back": {
+      "ru": "улица (saṛak)",
+      "en": "street (saṛak)",
+      "de": "Straße",
+      "fr": "rue",
+      "es": "calle",
+      "it": "strada",
+      "pt": "rua"
+     },
+     "example": "यह सड़क बाज़ार तक जाती है।"
+    },
+    {
+     "front": "स्कूल",
+     "back": {
+      "ru": "школа (skūl)",
+      "en": "school (skūl)",
+      "de": "Schule",
+      "fr": "école",
+      "es": "escuela",
+      "it": "scuola",
+      "pt": "escola"
+     },
+     "example": "बच्चे स्कूल जा रहे हैं।"
+    },
+    {
+     "front": "काम",
+     "back": {
+      "ru": "работа (kām)",
+      "en": "work (kām)",
+      "de": "Arbeit",
+      "fr": "travail",
+      "es": "trabajo",
+      "it": "lavoro",
+      "pt": "trabalho"
+     },
+     "example": "मेरा काम ख़त्म हो गया।"
+    },
+    {
+     "front": "दुकान",
+     "back": {
+      "ru": "магазин (dukān)",
+      "en": "shop (dukān)",
+      "de": "Laden",
+      "fr": "magasin",
+      "es": "tienda",
+      "it": "negozio",
+      "pt": "loja"
+     },
+     "example": "यह दुकान सुबह नौ बजे खुलती है।"
+    },
+    {
+     "front": "बाज़ार",
+     "back": {
+      "ru": "рынок (bāzār)",
+      "en": "market (bāzār)",
+      "de": "Markt",
+      "fr": "marché",
+      "es": "mercado",
+      "it": "mercato",
+      "pt": "mercado"
+     },
+     "example": "बाज़ार में बहुत भीड़ है।"
+    },
+    {
+     "front": "अस्पताल",
+     "back": {
+      "ru": "больница (aspatāl)",
+      "en": "hospital (aspatāl)",
+      "de": "Krankenhaus",
+      "fr": "hôpital",
+      "es": "hospital",
+      "it": "ospedale",
+      "pt": "hospital"
+     },
+     "example": "अस्पताल यहाँ से दूर है।"
+    },
+    {
+     "front": "दवाख़ाना",
+     "back": {
+      "ru": "аптека (davāḳhānā)",
+      "en": "pharmacy (davāḳhānā)",
+      "de": "Apotheke",
+      "fr": "pharmacie",
+      "es": "farmacia",
+      "it": "farmacia",
+      "pt": "farmácia"
+     },
+     "example": "दवाख़ाना गली के कोने पर है।"
+    },
+    {
+     "front": "बैंक",
+     "back": {
+      "ru": "банк (baiṅk)",
+      "en": "bank (baiṅk)",
+      "de": "Bank",
+      "fr": "banque",
+      "es": "banco",
+      "it": "banca",
+      "pt": "banco"
+     },
+     "example": "बैंक दस बजे खुलता है।"
+    },
+    {
+     "front": "होटल",
+     "back": {
+      "ru": "гостиница (hoṭal)",
+      "en": "hotel (hoṭal)",
+      "de": "Hotel",
+      "fr": "hôtel",
+      "es": "hotel",
+      "it": "albergo",
+      "pt": "hotel"
+     },
+     "example": "हम एक सस्ते होटल में रुके।"
+    },
+    {
+     "front": "गिरजाघर",
+     "back": {
+      "ru": "церковь (girjāghar)",
+      "en": "church (girjāghar)",
+      "de": "Kirche",
+      "fr": "église",
+      "es": "iglesia",
+      "it": "chiesa",
+      "pt": "igreja"
+     },
+     "example": "यह गिरजाघर बहुत पुराना है।"
+    },
+    {
+     "front": "बग़ीचा",
+     "back": {
+      "ru": "сад (baġīchā)",
+      "en": "garden (baġīchā)",
+      "de": "Garten",
+      "fr": "jardin",
+      "es": "jardín",
+      "it": "giardino",
+      "pt": "jardim"
+     },
+     "example": "बग़ीचा फूलों से भरा है।"
+    },
+    {
+     "front": "समुद्र तट",
+     "back": {
+      "ru": "пляж (samudra taṭ)",
+      "en": "beach (samudra taṭ)",
+      "de": "Strand",
+      "fr": "plage",
+      "es": "playa",
+      "it": "spiaggia",
+      "pt": "praia"
+     },
+     "example": "हम समुद्र तट पर घूमने गए।"
+    },
+    {
+     "front": "समुद्र",
+     "back": {
+      "ru": "море (samudra)",
+      "en": "sea (samudra)",
+      "de": "Meer",
+      "fr": "mer",
+      "es": "mar",
+      "it": "mare",
+      "pt": "mar"
+     },
+     "example": "आज समुद्र शांत है।"
+    },
+    {
+     "front": "नदी",
+     "back": {
+      "ru": "река (nadī)",
+      "en": "river (nadī)",
+      "de": "Fluss",
+      "fr": "fleuve",
+      "es": "río",
+      "it": "fiume",
+      "pt": "rio"
+     },
+     "example": "नदी का पानी ठंडा है।"
+    },
+    {
+     "front": "पहाड़",
+     "back": {
+      "ru": "гора (pahāṛ)",
+      "en": "mountain (pahāṛ)",
+      "de": "Berg",
+      "fr": "montagne",
+      "es": "montaña",
+      "it": "montagna",
+      "pt": "montanha"
+     },
+     "example": "वह पहाड़ बहुत ऊँचा है।"
+    },
+    {
+     "front": "खेत",
+     "back": {
+      "ru": "поле (khet)",
+      "en": "field (khet)",
+      "de": "Feld",
+      "fr": "champ",
+      "es": "campo",
+      "it": "campo",
+      "pt": "campo"
+     },
+     "example": "खेत में गेहूँ उगता है।"
+    },
+    {
+     "front": "जंगल",
+     "back": {
+      "ru": "лес (jaṅgal)",
+      "en": "forest (jaṅgal)",
+      "de": "Wald",
+      "fr": "forêt",
+      "es": "bosque",
+      "it": "foresta",
+      "pt": "floresta"
+     },
+     "example": "जंगल में बहुत जानवर हैं।"
+    },
+    {
+     "front": "देश",
+     "back": {
+      "ru": "страна (deś)",
+      "en": "country (deś)",
+      "de": "Land",
+      "fr": "pays",
+      "es": "país",
+      "it": "paese",
+      "pt": "país"
+     },
+     "example": "यह देश बहुत सुंदर है।"
+    },
+    {
+     "front": "दुनिया",
+     "back": {
+      "ru": "мир (duniyā)",
+      "en": "world (duniyā)",
+      "de": "Welt",
+      "fr": "monde",
+      "es": "mundo",
+      "it": "mondo",
+      "pt": "mundo"
+     },
+     "example": "दुनिया बहुत बड़ी है।"
+    },
+    {
+     "front": "रास्ता",
+     "back": {
+      "ru": "дорога (rāstā)",
+      "en": "road (rāstā)",
+      "de": "Weg",
+      "fr": "chemin",
+      "es": "camino",
+      "it": "strada",
+      "pt": "caminho"
+     },
+     "example": "यह रास्ता गाँव तक जाता है।"
+    },
+    {
+     "front": "पुल",
+     "back": {
+      "ru": "мост (pul)",
+      "en": "bridge (pul)",
+      "de": "Brücke",
+      "fr": "pont",
+      "es": "puente",
+      "it": "ponte",
+      "pt": "ponte"
+     },
+     "example": "पुल नदी के ऊपर बना है।"
+    },
+    {
+     "front": "स्टेशन",
+     "back": {
+      "ru": "вокзал (sṭeśan)",
+      "en": "station (sṭeśan)",
+      "de": "Bahnhof",
+      "fr": "gare",
+      "es": "estación",
+      "it": "stazione",
+      "pt": "estação"
+     },
+     "example": "स्टेशन पर बहुत भीड़ थी।"
+    },
+    {
+     "front": "हवाई अड्डा",
+     "back": {
+      "ru": "аэропорт (havāī aḍḍā)",
+      "en": "airport (havāī aḍḍā)",
+      "de": "Flughafen",
+      "fr": "aéroport",
+      "es": "aeropuerto",
+      "it": "aeroporto",
+      "pt": "aeroporto"
+     },
+     "example": "हवाई अड्डा शहर से दूर है।"
+    },
+    {
+     "front": "कमरा",
+     "back": {
+      "ru": "комната (kamrā)",
+      "en": "room (kamrā)",
+      "de": "Zimmer",
+      "fr": "chambre",
+      "es": "habitación",
+      "it": "stanza",
+      "pt": "quarto"
+     },
+     "example": "मेरा कमरा साफ़ है।"
+    },
+    {
+     "front": "रसोई",
+     "back": {
+      "ru": "кухня (rasoī)",
+      "en": "kitchen (rasoī)",
+      "de": "Küche",
+      "fr": "cuisine",
+      "es": "cocina",
+      "it": "cucina",
+      "pt": "cozinha"
+     },
+     "example": "माँ रसोई में हैं।"
+    },
+    {
+     "front": "दरवाज़ा",
+     "back": {
+      "ru": "дверь (darvāzā)",
+      "en": "door (darvāzā)",
+      "de": "Tür",
+      "fr": "porte",
+      "es": "puerta",
+      "it": "porta",
+      "pt": "porta"
+     },
+     "example": "दरवाज़ा खुला है।"
+    },
+    {
+     "front": "खिड़की",
+     "back": {
+      "ru": "окно (khiṛkī)",
+      "en": "window (khiṛkī)",
+      "de": "Fenster",
+      "fr": "fenêtre",
+      "es": "ventana",
+      "it": "finestra",
+      "pt": "janela"
+     },
+     "example": "खिड़की से ठंडी हवा आ रही है।"
+    },
+    {
+     "front": "मेज़",
+     "back": {
+      "ru": "стол (mez)",
+      "en": "table (mez)",
+      "de": "Tisch",
+      "fr": "table",
+      "es": "mesa",
+      "it": "tavolo",
+      "pt": "mesa"
+     },
+     "example": "किताब मेज़ पर रखी है।"
+    },
+    {
+     "front": "कुर्सी",
+     "back": {
+      "ru": "стул (kursī)",
+      "en": "chair (kursī)",
+      "de": "Stuhl",
+      "fr": "chaise",
+      "es": "silla",
+      "it": "sedia",
+      "pt": "cadeira"
+     },
+     "example": "यह कुर्सी टूटी हुई है।"
+    },
+    {
+     "front": "बिस्तर",
+     "back": {
+      "ru": "кровать (bistar)",
+      "en": "bed (bistar)",
+      "de": "Bett",
+      "fr": "lit",
+      "es": "cama",
+      "it": "letto",
+      "pt": "cama"
+     },
+     "example": "बच्चा बिस्तर पर सो रहा है।"
+    },
+    {
+     "front": "गाड़ी",
+     "back": {
+      "ru": "машина (gāṛī)",
+      "en": "car (gāṛī)",
+      "de": "Auto",
+      "fr": "voiture",
+      "es": "coche",
+      "it": "macchina",
+      "pt": "carro"
+     },
+     "example": "मेरी गाड़ी बाहर खड़ी है।"
+    },
+    {
+     "front": "बस",
+     "back": {
+      "ru": "автобус (bas)",
+      "en": "bus (bas)",
+      "de": "Bus",
+      "fr": "bus",
+      "es": "autobús",
+      "it": "autobus",
+      "pt": "autocarro"
+     },
+     "example": "बस दस मिनट में आएगी।"
+    },
+    {
+     "front": "रेलगाड़ी",
+     "back": {
+      "ru": "поезд (relgāṛī)",
+      "en": "train (relgāṛī)",
+      "de": "Zug",
+      "fr": "train",
+      "es": "tren",
+      "it": "treno",
+      "pt": "comboio"
+     },
+     "example": "रेलगाड़ी समय पर आई।"
+    },
+    {
+     "front": "हवाई जहाज़",
+     "back": {
+      "ru": "самолёт (havāī jahāz)",
+      "en": "plane (havāī jahāz)",
+      "de": "Flugzeug",
+      "fr": "avion",
+      "es": "avión",
+      "it": "aereo",
+      "pt": "avião"
+     },
+     "example": "हवाई जहाज़ आसमान में उड़ रहा है।"
+    },
+    {
+     "front": "साइकिल",
+     "back": {
+      "ru": "велосипед (sāikil)",
+      "en": "bicycle (sāikil)",
+      "de": "Fahrrad",
+      "fr": "vélo",
+      "es": "bicicleta",
+      "it": "bicicletta",
+      "pt": "bicicleta"
+     },
+     "example": "मैं साइकिल से स्कूल जाता हूँ।"
+    },
+    {
+     "front": "सूरज",
+     "back": {
+      "ru": "солнце (sūraj)",
+      "en": "sun (sūraj)",
+      "de": "Sonne",
+      "fr": "soleil",
+      "es": "sol",
+      "it": "sole",
+      "pt": "sol"
+     },
+     "example": "सूरज पूरब से निकलता है।"
+    },
+    {
+     "front": "चाँद",
+     "back": {
+      "ru": "луна (chā̃d)",
+      "en": "moon (chā̃d)",
+      "de": "Mond",
+      "fr": "lune",
+      "es": "luna",
+      "it": "luna",
+      "pt": "lua"
+     },
+     "example": "आज चाँद बहुत सुंदर है।"
+    },
+    {
+     "front": "तारा",
+     "back": {
+      "ru": "звезда (tārā)",
+      "en": "star (tārā)",
+      "de": "Stern",
+      "fr": "étoile",
+      "es": "estrella",
+      "it": "stella",
+      "pt": "estrela"
+     },
+     "example": "आसमान में एक तारा चमक रहा है।"
+    },
+    {
+     "front": "आसमान",
+     "back": {
+      "ru": "небо (āsmān)",
+      "en": "sky (āsmān)",
+      "de": "Himmel",
+      "fr": "ciel",
+      "es": "cielo",
+      "it": "cielo",
+      "pt": "céu"
+     },
+     "example": "आज आसमान बिलकुल साफ़ है।"
+    },
+    {
+     "front": "बारिश",
+     "back": {
+      "ru": "дождь (bāriś)",
+      "en": "rain (bāriś)",
+      "de": "Regen",
+      "fr": "pluie",
+      "es": "lluvia",
+      "it": "pioggia",
+      "pt": "chuva"
+     },
+     "example": "कल से बारिश हो रही है।"
+    },
+    {
+     "front": "हवा",
+     "back": {
+      "ru": "ветер (havā)",
+      "en": "wind (havā)",
+      "de": "Wind",
+      "fr": "vent",
+      "es": "viento",
+      "it": "vento",
+      "pt": "vento"
+     },
+     "example": "आज ठंडी हवा चल रही है।"
+    },
+    {
+     "front": "बर्फ़",
+     "back": {
+      "ru": "снег (barf)",
+      "en": "snow (barf)",
+      "de": "Schnee",
+      "fr": "neige",
+      "es": "nieve",
+      "it": "neve",
+      "pt": "neve"
+     },
+     "example": "पहाड़ों पर बर्फ़ गिरी है।"
+    },
+    {
+     "front": "आग",
+     "back": {
+      "ru": "огонь (āg)",
+      "en": "fire (āg)",
+      "de": "Feuer",
+      "fr": "feu",
+      "es": "fuego",
+      "it": "fuoco",
+      "pt": "fogo"
+     },
+     "example": "चूल्हे में आग जल रही है।"
+    },
+    {
+     "front": "ज़मीन",
+     "back": {
+      "ru": "земля (zamīn)",
+      "en": "earth (zamīn)",
+      "de": "Erde",
+      "fr": "terre",
+      "es": "tierra",
+      "it": "terra",
+      "pt": "terra"
+     },
+     "example": "बारिश के बाद ज़मीन गीली है।"
+    },
+    {
+     "front": "पेड़",
+     "back": {
+      "ru": "дерево (peṛ)",
+      "en": "tree (peṛ)",
+      "de": "Baum",
+      "fr": "arbre",
+      "es": "árbol",
+      "it": "albero",
+      "pt": "árvore"
+     },
+     "example": "घर के सामने एक पेड़ है।"
+    },
+    {
+     "front": "फूल",
+     "back": {
+      "ru": "цветок (phūl)",
+      "en": "flower (phūl)",
+      "de": "Blume",
+      "fr": "fleur",
+      "es": "flor",
+      "it": "fiore",
+      "pt": "flor"
+     },
+     "example": "यह फूल बहुत सुंदर है।"
+    },
+    {
+     "front": "जानवर",
+     "back": {
+      "ru": "животное (jānvar)",
+      "en": "animal (jānvar)",
+      "de": "Tier",
+      "fr": "animal",
+      "es": "animal",
+      "it": "animale",
+      "pt": "animal"
+     },
+     "example": "यह जानवर जंगल में रहता है।"
+    },
+    {
+     "front": "कुत्ता",
+     "back": {
+      "ru": "собака (kuttā)",
+      "en": "dog (kuttā)",
+      "de": "Hund",
+      "fr": "chien",
+      "es": "perro",
+      "it": "cane",
+      "pt": "cão"
+     },
+     "example": "कुत्ता घर के बाहर बैठा है।"
+    },
+    {
+     "front": "बिल्ली",
+     "back": {
+      "ru": "кошка (billī)",
+      "en": "cat (billī)",
+      "de": "Katze",
+      "fr": "chat",
+      "es": "gato",
+      "it": "gatto",
+      "pt": "gato"
+     },
+     "example": "बिल्ली दूध पी रही है।"
+    },
+    {
+     "front": "पक्षी",
+     "back": {
+      "ru": "птица (pakṣī)",
+      "en": "bird (pakṣī)",
+      "de": "Vogel",
+      "fr": "oiseau",
+      "es": "pájaro",
+      "it": "uccello",
+      "pt": "pássaro"
+     },
+     "example": "पक्षी पेड़ की डाल पर बैठा है।"
+    },
+    {
+     "front": "घोड़ा",
+     "back": {
+      "ru": "лошадь (ghoṛā)",
+      "en": "horse (ghoṛā)",
+      "de": "Pferd",
+      "fr": "cheval",
+      "es": "caballo",
+      "it": "cavallo",
+      "pt": "cavalo"
+     },
+     "example": "घोड़ा बहुत तेज़ दौड़ता है।"
+    },
+    {
+     "front": "किताब",
+     "back": {
+      "ru": "книга (kitāb)",
+      "en": "book (kitāb)",
+      "de": "Buch",
+      "fr": "livre",
+      "es": "libro",
+      "it": "libro",
+      "pt": "livro"
+     },
+     "example": "यह किताब बहुत रोचक है।"
+    },
+    {
+     "front": "काग़ज़",
+     "back": {
+      "ru": "бумага (kāġaz)",
+      "en": "paper (kāġaz)",
+      "de": "Papier",
+      "fr": "papier",
+      "es": "papel",
+      "it": "carta",
+      "pt": "papel"
+     },
+     "example": "मुझे एक काग़ज़ चाहिए।"
+    },
+    {
+     "front": "क़लम",
+     "back": {
+      "ru": "ручка (qalam)",
+      "en": "pen (qalam)",
+      "de": "Kugelschreiber",
+      "fr": "stylo",
+      "es": "bolígrafo",
+      "it": "penna",
+      "pt": "caneta"
+     },
+     "example": "मेरी क़लम खो गई।"
+    },
+    {
+     "front": "फ़ोन",
+     "back": {
+      "ru": "телефон (fon)",
+      "en": "phone (fon)",
+      "de": "Telefon",
+      "fr": "téléphone",
+      "es": "teléfono",
+      "it": "telefono",
+      "pt": "telefone"
+     },
+     "example": "मेरा फ़ोन बज रहा है।"
+    },
+    {
+     "front": "कंप्यूटर",
+     "back": {
+      "ru": "компьютер (kampyūṭar)",
+      "en": "computer (kampyūṭar)",
+      "de": "Computer",
+      "fr": "ordinateur",
+      "es": "ordenador",
+      "it": "computer",
+      "pt": "computador"
+     },
+     "example": "मैं कंप्यूटर पर काम करता हूँ।"
+    },
+    {
+     "front": "पैसा",
+     "back": {
+      "ru": "деньги (paisā)",
+      "en": "money (paisā)",
+      "de": "Geld",
+      "fr": "argent",
+      "es": "dinero",
+      "it": "denaro",
+      "pt": "dinheiro"
+     },
+     "example": "मेरे पास अभी पैसा नहीं है।"
+    },
+    {
+     "front": "चाबी",
+     "back": {
+      "ru": "ключ (chābī)",
+      "en": "key (chābī)",
+      "de": "Schlüssel",
+      "fr": "clé",
+      "es": "llave",
+      "it": "chiave",
+      "pt": "chave"
+     },
+     "example": "दरवाज़े की चाबी कहाँ है?"
+    },
+    {
+     "front": "घड़ी",
+     "back": {
+      "ru": "часы (ghaṛī)",
+      "en": "watch (ghaṛī)",
+      "de": "Uhr",
+      "fr": "montre",
+      "es": "reloj",
+      "it": "orologio",
+      "pt": "relógio"
+     },
+     "example": "मेरी घड़ी बंद हो गई।"
+    },
+    {
+     "front": "रोशनी",
+     "back": {
+      "ru": "свет (rośnī)",
+      "en": "light (rośnī)",
+      "de": "Licht",
+      "fr": "lumière",
+      "es": "luz",
+      "it": "luce",
+      "pt": "luz"
+     },
+     "example": "कमरे में रोशनी कम है।"
+    },
+    {
+     "front": "संगीत",
+     "back": {
+      "ru": "музыка (saṅgīt)",
+      "en": "music (saṅgīt)",
+      "de": "Musik",
+      "fr": "musique",
+      "es": "música",
+      "it": "musica",
+      "pt": "música"
+     },
+     "example": "मुझे संगीत सुनना पसंद है।"
+    },
+    {
+     "front": "फ़िल्म",
+     "back": {
+      "ru": "фильм (film)",
+      "en": "film (film)",
+      "de": "Film",
+      "fr": "film",
+      "es": "película",
+      "it": "film",
+      "pt": "filme"
+     },
+     "example": "यह फ़िल्म बहुत अच्छी थी।"
+    },
+    {
+     "front": "तस्वीर",
+     "back": {
+      "ru": "фотография (tasvīr)",
+      "en": "photo (tasvīr)",
+      "de": "Foto",
+      "fr": "photo",
+      "es": "foto",
+      "it": "foto",
+      "pt": "foto"
+     },
+     "example": "यह तस्वीर मेरे भाई की है।"
+    },
+    {
+     "front": "चिट्ठी",
+     "back": {
+      "ru": "письмо (chiṭṭhī)",
+      "en": "letter (chiṭṭhī)",
+      "de": "Brief",
+      "fr": "lettre",
+      "es": "carta",
+      "it": "lettera",
+      "pt": "carta"
+     },
+     "example": "मैंने उसे एक चिट्ठी लिखी।"
+    },
+    {
+     "front": "अख़बार",
+     "back": {
+      "ru": "газета (aḳhbār)",
+      "en": "newspaper (aḳhbār)",
+      "de": "Zeitung",
+      "fr": "journal",
+      "es": "periódico",
+      "it": "giornale",
+      "pt": "jornal"
+     },
+     "example": "पिता जी अख़बार पढ़ रहे हैं।"
+    },
+    {
+     "front": "रंग",
+     "back": {
+      "ru": "цвет (raṅg)",
+      "en": "colour (raṅg)",
+      "de": "Farbe",
+      "fr": "couleur",
+      "es": "color",
+      "it": "colore",
+      "pt": "cor"
+     },
+     "example": "इस दीवार का रंग हरा है।"
+    },
+    {
+     "front": "शब्द",
+     "back": {
+      "ru": "слово (śabd)",
+      "en": "word (śabd)",
+      "de": "Wort",
+      "fr": "mot",
+      "es": "palabra",
+      "it": "parola",
+      "pt": "palavra"
+     },
+     "example": "यह शब्द बहुत मुश्किल है।"
+    },
+    {
+     "front": "भाषा",
+     "back": {
+      "ru": "язык (bhāṣā)",
+      "en": "language (bhāṣā)",
+      "de": "Sprache",
+      "fr": "langue",
+      "es": "lengua",
+      "it": "lingua",
+      "pt": "língua"
+     },
+     "example": "हिंदी मेरी पहली भाषा है।"
+    },
+    {
+     "front": "सिर",
+     "back": {
+      "ru": "голова (sir)",
+      "en": "head (sir)",
+      "de": "Kopf",
+      "fr": "tête",
+      "es": "cabeza",
+      "it": "testa",
+      "pt": "cabeça"
+     },
+     "example": "मेरे सिर में दर्द है।"
+    },
+    {
+     "front": "हाथ",
+     "back": {
+      "ru": "рука (hāth)",
+      "en": "hand (hāth)",
+      "de": "Hand",
+      "fr": "main",
+      "es": "mano",
+      "it": "mano",
+      "pt": "mão"
+     },
+     "example": "खाने से पहले हाथ धो लो।"
+    },
+    {
+     "front": "पैर",
+     "back": {
+      "ru": "нога (pair)",
+      "en": "foot (pair)",
+      "de": "Fuß",
+      "fr": "pied",
+      "es": "pie",
+      "it": "piede",
+      "pt": "pé"
+     },
+     "example": "चलते-चलते मेरा पैर दुखने लगा।"
+    },
+    {
+     "front": "आँख",
+     "back": {
+      "ru": "глаз (ā̃kh)",
+      "en": "eye (ā̃kh)",
+      "de": "Auge",
+      "fr": "œil",
+      "es": "ojo",
+      "it": "occhio",
+      "pt": "olho"
+     },
+     "example": "उसकी एक आँख लाल है।"
+    },
+    {
+     "front": "मुँह",
+     "back": {
+      "ru": "рот (mũh)",
+      "en": "mouth (mũh)",
+      "de": "Mund",
+      "fr": "bouche",
+      "es": "boca",
+      "it": "bocca",
+      "pt": "boca"
+     },
+     "example": "डॉक्टर के सामने मुँह खोलो।"
+    },
+    {
+     "front": "दिल",
+     "back": {
+      "ru": "сердце (dil)",
+      "en": "heart (dil)",
+      "de": "Herz",
+      "fr": "cœur",
+      "es": "corazón",
+      "it": "cuore",
+      "pt": "coração"
+     },
+     "example": "मेरा दिल तेज़ धड़क रहा है।"
+    },
+    {
+     "front": "बाल",
+     "back": {
+      "ru": "волосы (bāl)",
+      "en": "hair (bāl)",
+      "de": "Haar",
+      "fr": "cheveux",
+      "es": "pelo",
+      "it": "capelli",
+      "pt": "cabelo"
+     },
+     "example": "उसके बाल बहुत लंबे हैं।"
+    },
+    {
+     "front": "शरीर",
+     "back": {
+      "ru": "тело (śarīr)",
+      "en": "body (śarīr)",
+      "de": "Körper",
+      "fr": "corps",
+      "es": "cuerpo",
+      "it": "corpo",
+      "pt": "corpo"
+     },
+     "example": "व्यायाम से शरीर मज़बूत होता है।"
+    },
+    {
+     "front": "अच्छा",
+     "back": {
+      "ru": "хороший (achchhā)",
+      "en": "good (achchhā)",
+      "de": "gut",
+      "fr": "bon",
+      "es": "bueno",
+      "it": "buono",
+      "pt": "bom"
+     },
+     "example": "यह खाना बहुत अच्छा है।"
+    },
+    {
+     "front": "बुरा",
+     "back": {
+      "ru": "плохой (burā)",
+      "en": "bad (burā)",
+      "de": "schlecht",
+      "fr": "mauvais",
+      "es": "malo",
+      "it": "cattivo",
+      "pt": "mau"
+     },
+     "example": "आज मौसम बहुत बुरा है।"
+    },
+    {
+     "front": "बड़ा",
+     "back": {
+      "ru": "большой (baṛā)",
+      "en": "big (baṛā)",
+      "de": "groß",
+      "fr": "grand",
+      "es": "grande",
+      "it": "grande",
+      "pt": "grande"
+     },
+     "example": "यह कमरा बहुत बड़ा है।"
+    },
+    {
+     "front": "छोटा",
+     "back": {
+      "ru": "маленький (chhoṭā)",
+      "en": "small (chhoṭā)",
+      "de": "klein",
+      "fr": "petit",
+      "es": "pequeño",
+      "it": "piccolo",
+      "pt": "pequeno"
+     },
+     "example": "मेरा घर छोटा है।"
+    },
+    {
+     "front": "नया",
+     "back": {
+      "ru": "новый (nayā)",
+      "en": "new (nayā)",
+      "de": "neu",
+      "fr": "nouveau",
+      "es": "nuevo",
+      "it": "nuovo",
+      "pt": "novo"
+     },
+     "example": "यह मेरा नया फ़ोन है।"
+    },
+    {
+     "front": "पुराना",
+     "back": {
+      "ru": "старый (purānā)",
+      "en": "old (purānā)",
+      "de": "alt",
+      "fr": "vieux",
+      "es": "viejo",
+      "it": "vecchio",
+      "pt": "velho"
+     },
+     "example": "यह मकान बहुत पुराना है।"
+    },
+    {
+     "front": "जवान",
+     "back": {
+      "ru": "молодой (javān)",
+      "en": "young (javān)",
+      "de": "jung",
+      "fr": "jeune",
+      "es": "joven",
+      "it": "giovane",
+      "pt": "jovem"
+     },
+     "example": "वह अभी बहुत जवान है।"
+    },
+    {
+     "front": "ऊँचा",
+     "back": {
+      "ru": "высокий (ū̃chā)",
+      "en": "tall (ū̃chā)",
+      "de": "hoch",
+      "fr": "grand",
+      "es": "alto",
+      "it": "alto",
+      "pt": "alto"
+     },
+     "example": "यह पेड़ बहुत ऊँचा है।"
+    },
+    {
+     "front": "नीचा",
+     "back": {
+      "ru": "низкий (nīchā)",
+      "en": "short (nīchā)",
+      "de": "niedrig",
+      "fr": "bas",
+      "es": "bajo",
+      "it": "basso",
+      "pt": "baixo"
+     },
+     "example": "यह मेज़ थोड़ी नीची है।"
+    },
+    {
+     "front": "लंबा",
+     "back": {
+      "ru": "длинный (lambā)",
+      "en": "long (lambā)",
+      "de": "lang",
+      "fr": "long",
+      "es": "largo",
+      "it": "lungo",
+      "pt": "longo"
+     },
+     "example": "यह रास्ता बहुत लंबा है।"
+    },
+    {
+     "front": "संक्षिप्त",
+     "back": {
+      "ru": "короткий (saṅkṣipt)",
+      "en": "short (saṅkṣipt)",
+      "de": "kurz",
+      "fr": "court",
+      "es": "corto",
+      "it": "corto",
+      "pt": "curto"
+     },
+     "example": "उसने बहुत संक्षिप्त उत्तर दिया।"
+    },
+    {
+     "front": "गरम",
+     "back": {
+      "ru": "горячий (garam)",
+      "en": "hot (garam)",
+      "de": "heiß",
+      "fr": "chaud",
+      "es": "caliente",
+      "it": "caldo",
+      "pt": "quente"
+     },
+     "example": "चाय अभी बहुत गरम है।"
+    },
+    {
+     "front": "ठंडा",
+     "back": {
+      "ru": "холодный (ṭhaṇḍā)",
+      "en": "cold (ṭhaṇḍā)",
+      "de": "kalt",
+      "fr": "froid",
+      "es": "frío",
+      "it": "freddo",
+      "pt": "frio"
+     },
+     "example": "पानी बहुत ठंडा है।"
+    },
+    {
+     "front": "सुंदर",
+     "back": {
+      "ru": "красивый (sundar)",
+      "en": "beautiful (sundar)",
+      "de": "schön",
+      "fr": "beau",
+      "es": "bonito",
+      "it": "bello",
+      "pt": "bonito"
+     },
+     "example": "यह जगह बहुत सुंदर है।"
+    },
+    {
+     "front": "बदसूरत",
+     "back": {
+      "ru": "некрасивый (badsūrat)",
+      "en": "ugly (badsūrat)",
+      "de": "hässlich",
+      "fr": "laid",
+      "es": "feo",
+      "it": "brutto",
+      "pt": "feio"
+     },
+     "example": "यह इमारत बदसूरत लगती है।"
+    },
+    {
+     "front": "आसान",
+     "back": {
+      "ru": "лёгкий (āsān)",
+      "en": "easy (āsān)",
+      "de": "leicht",
+      "fr": "facile",
+      "es": "fácil",
+      "it": "facile",
+      "pt": "fácil"
+     },
+     "example": "यह सवाल बहुत आसान है।"
+    },
+    {
+     "front": "मुश्किल",
+     "back": {
+      "ru": "трудный (muśkil)",
+      "en": "difficult (muśkil)",
+      "de": "schwierig",
+      "fr": "difficile",
+      "es": "difícil",
+      "it": "difficile",
+      "pt": "difícil"
+     },
+     "example": "यह काम बहुत मुश्किल है।"
+    },
+    {
+     "front": "मज़बूत",
+     "back": {
+      "ru": "сильный (mazbūt)",
+      "en": "strong (mazbūt)",
+      "de": "stark",
+      "fr": "fort",
+      "es": "fuerte",
+      "it": "forte",
+      "pt": "forte"
+     },
+     "example": "यह रस्सी बहुत मज़बूत है।"
+    },
+    {
+     "front": "कमज़ोर",
+     "back": {
+      "ru": "слабый (kamzor)",
+      "en": "weak (kamzor)",
+      "de": "schwach",
+      "fr": "faible",
+      "es": "débil",
+      "it": "debole",
+      "pt": "fraco"
+     },
+     "example": "बीमारी के बाद वह कमज़ोर है।"
+    },
+    {
+     "front": "तेज़",
+     "back": {
+      "ru": "быстрый (tez)",
+      "en": "fast (tez)",
+      "de": "schnell",
+      "fr": "rapide",
+      "es": "rápido",
+      "it": "veloce",
+      "pt": "rápido"
+     },
+     "example": "यह गाड़ी बहुत तेज़ है।"
+    },
+    {
+     "front": "धीमा",
+     "back": {
+      "ru": "медленный (dhīmā)",
+      "en": "slow (dhīmā)",
+      "de": "langsam",
+      "fr": "lent",
+      "es": "lento",
+      "it": "lento",
+      "pt": "lento"
+     },
+     "example": "यह बस बहुत धीमी चलती है।"
+    },
+    {
+     "front": "महँगा",
+     "back": {
+      "ru": "дорогой (mahaṅgā)",
+      "en": "expensive (mahaṅgā)",
+      "de": "teuer",
+      "fr": "cher",
+      "es": "caro",
+      "it": "caro",
+      "pt": "caro"
+     },
+     "example": "यह कोट बहुत महँगा है।"
+    },
+    {
+     "front": "सस्ता",
+     "back": {
+      "ru": "дешёвый (sastā)",
+      "en": "cheap (sastā)",
+      "de": "billig",
+      "fr": "bon marché",
+      "es": "barato",
+      "it": "economico",
+      "pt": "barato"
+     },
+     "example": "यह होटल काफ़ी सस्ता है।"
+    },
+    {
+     "front": "साफ़",
+     "back": {
+      "ru": "чистый (sāf)",
+      "en": "clean (sāf)",
+      "de": "sauber",
+      "fr": "propre",
+      "es": "limpio",
+      "it": "pulito",
+      "pt": "limpo"
+     },
+     "example": "इस नदी का पानी साफ़ है।"
+    },
+    {
+     "front": "गंदा",
+     "back": {
+      "ru": "грязный (gandā)",
+      "en": "dirty (gandā)",
+      "de": "schmutzig",
+      "fr": "sale",
+      "es": "sucio",
+      "it": "sporco",
+      "pt": "sujo"
+     },
+     "example": "तुम्हारे कपड़े गंदे हैं।"
+    },
+    {
+     "front": "भरा",
+     "back": {
+      "ru": "полный (bharā)",
+      "en": "full (bharā)",
+      "de": "voll",
+      "fr": "plein",
+      "es": "lleno",
+      "it": "pieno",
+      "pt": "cheio"
+     },
+     "example": "गिलास पानी से भरा है।"
+    },
+    {
+     "front": "ख़ाली",
+     "back": {
+      "ru": "пустой (ḳhālī)",
+      "en": "empty (ḳhālī)",
+      "de": "leer",
+      "fr": "vide",
+      "es": "vacío",
+      "it": "vuoto",
+      "pt": "vazio"
+     },
+     "example": "यह बोतल ख़ाली है।"
+    },
+    {
+     "front": "ख़ुश",
+     "back": {
+      "ru": "счастливый (ḳhuś)",
+      "en": "happy (ḳhuś)",
+      "de": "glücklich",
+      "fr": "heureux",
+      "es": "feliz",
+      "it": "felice",
+      "pt": "feliz"
+     },
+     "example": "मैं आज बहुत ख़ुश हूँ।"
+    },
+    {
+     "front": "उदास",
+     "back": {
+      "ru": "грустный (udās)",
+      "en": "sad (udās)",
+      "de": "traurig",
+      "fr": "triste",
+      "es": "triste",
+      "it": "triste",
+      "pt": "triste"
+     },
+     "example": "वह आज उदास लग रहा है।"
+    },
+    {
+     "front": "थका",
+     "back": {
+      "ru": "усталый (thakā)",
+      "en": "tired (thakā)",
+      "de": "müde",
+      "fr": "fatigué",
+      "es": "cansado",
+      "it": "stanco",
+      "pt": "cansado"
+     },
+     "example": "मैं दिन भर का थका हूँ।"
+    },
+    {
+     "front": "बीमार",
+     "back": {
+      "ru": "больной (bīmār)",
+      "en": "sick (bīmār)",
+      "de": "krank",
+      "fr": "malade",
+      "es": "enfermo",
+      "it": "malato",
+      "pt": "doente"
+     },
+     "example": "मेरी माँ कल से बीमार हैं।"
+    },
+    {
+     "front": "सही",
+     "back": {
+      "ru": "правильный (sahī)",
+      "en": "right (sahī)",
+      "de": "richtig",
+      "fr": "juste",
+      "es": "correcto",
+      "it": "giusto",
+      "pt": "certo"
+     },
+     "example": "तुम्हारा जवाब सही है।"
+    },
+    {
+     "front": "ग़लत",
+     "back": {
+      "ru": "неправильный (ġalat)",
+      "en": "wrong (ġalat)",
+      "de": "falsch",
+      "fr": "faux",
+      "es": "equivocado",
+      "it": "sbagliato",
+      "pt": "errado"
+     },
+     "example": "यह पता ग़लत है।"
+    },
+    {
+     "front": "सफ़ेद",
+     "back": {
+      "ru": "белый (safed)",
+      "en": "white (safed)",
+      "de": "weiß",
+      "fr": "blanc",
+      "es": "blanco",
+      "it": "bianco",
+      "pt": "branco"
+     },
+     "example": "उसकी क़मीज़ सफ़ेद है।"
+    },
+    {
+     "front": "काला",
+     "back": {
+      "ru": "чёрный (kālā)",
+      "en": "black (kālā)",
+      "de": "schwarz",
+      "fr": "noir",
+      "es": "negro",
+      "it": "nero",
+      "pt": "preto"
+     },
+     "example": "मेरा बस्ता काला है।"
+    },
+    {
+     "front": "लाल",
+     "back": {
+      "ru": "красный (lāl)",
+      "en": "red (lāl)",
+      "de": "rot",
+      "fr": "rouge",
+      "es": "rojo",
+      "it": "rosso",
+      "pt": "vermelho"
+     },
+     "example": "यह फूल लाल है।"
+    },
+    {
+     "front": "नीला",
+     "back": {
+      "ru": "синий (nīlā)",
+      "en": "blue (nīlā)",
+      "de": "blau",
+      "fr": "bleu",
+      "es": "azul",
+      "it": "blu",
+      "pt": "azul"
+     },
+     "example": "मुझे नीला रंग पसंद है।"
+    },
+    {
+     "front": "हरा",
+     "back": {
+      "ru": "зелёный (harā)",
+      "en": "green (harā)",
+      "de": "grün",
+      "fr": "vert",
+      "es": "verde",
+      "it": "verde",
+      "pt": "verde"
+     },
+     "example": "पेड़ के पत्ते हरे हैं।"
+    },
+    {
+     "front": "पीला",
+     "back": {
+      "ru": "жёлтый (pīlā)",
+      "en": "yellow (pīlā)",
+      "de": "gelb",
+      "fr": "jaune",
+      "es": "amarillo",
+      "it": "giallo",
+      "pt": "amarelo"
+     },
+     "example": "यह आम अभी पीला नहीं हुआ।"
+    },
+    {
+     "front": "यहाँ",
+     "back": {
+      "ru": "здесь (yahā̃)",
+      "en": "here (yahā̃)",
+      "de": "hier",
+      "fr": "ici",
+      "es": "aquí",
+      "it": "qui",
+      "pt": "aqui"
+     },
+     "example": "तुम यहाँ आकर बैठो।"
+    },
+    {
+     "front": "वहाँ",
+     "back": {
+      "ru": "там (vahā̃)",
+      "en": "there (vahā̃)",
+      "de": "dort",
+      "fr": "là-bas",
+      "es": "allí",
+      "it": "lì",
+      "pt": "ali"
+     },
+     "example": "अकेले वहाँ मत जाओ।"
+    },
+    {
+     "front": "बहुत",
+     "back": {
+      "ru": "много (bahut)",
+      "en": "much (bahut)",
+      "de": "viel",
+      "fr": "beaucoup",
+      "es": "mucho",
+      "it": "molto",
+      "pt": "muito"
+     },
+     "example": "आज बहुत गर्मी है।"
+    },
+    {
+     "front": "थोड़ा",
+     "back": {
+      "ru": "мало (thoṛā)",
+      "en": "little (thoṛā)",
+      "de": "wenig",
+      "fr": "peu",
+      "es": "poco",
+      "it": "poco",
+      "pt": "pouco"
+     },
+     "example": "मुझे थोड़ा पानी दो।"
+    },
+    {
+     "front": "ज़्यादा",
+     "back": {
+      "ru": "больше (zyādā)",
+      "en": "more (zyādā)",
+      "de": "mehr",
+      "fr": "plus",
+      "es": "más",
+      "it": "più",
+      "pt": "mais"
+     },
+     "example": "आज काम ज़्यादा है।"
+    },
+    {
+     "front": "कम",
+     "back": {
+      "ru": "меньше (kam)",
+      "en": "less (kam)",
+      "de": "weniger",
+      "fr": "moins",
+      "es": "menos",
+      "it": "meno",
+      "pt": "menos"
+     },
+     "example": "आज बाज़ार में भीड़ कम है।"
+    },
+    {
+     "front": "भी",
+     "back": {
+      "ru": "тоже (bhī)",
+      "en": "also (bhī)",
+      "de": "auch",
+      "fr": "aussi",
+      "es": "también",
+      "it": "anche",
+      "pt": "também"
+     },
+     "example": "मैं भी तुम्हारे साथ चलूँगा।"
+    },
+    {
+     "front": "अच्छी तरह",
+     "back": {
+      "ru": "хорошо (achchhī tarah)",
+      "en": "well (achchhī tarah)",
+      "de": "gut",
+      "fr": "bien",
+      "es": "bien",
+      "it": "bene",
+      "pt": "bem"
+     },
+     "example": "उसने अपना काम अच्छी तरह किया।"
+    },
+    {
+     "front": "बुरी तरह",
+     "back": {
+      "ru": "плохо (burī tarah)",
+      "en": "badly (burī tarah)",
+      "de": "schlecht",
+      "fr": "mal",
+      "es": "mal",
+      "it": "male",
+      "pt": "mal"
+     },
+     "example": "हमारी टीम बुरी तरह हारी।"
+    },
+    {
+     "front": "के साथ",
+     "back": {
+      "ru": "с (ke sāth)",
+      "en": "with (ke sāth)",
+      "de": "mit",
+      "fr": "avec",
+      "es": "con",
+      "it": "con",
+      "pt": "com"
+     },
+     "example": "मैं दोस्त के साथ जाऊँगा।"
+    },
+    {
+     "front": "के बिना",
+     "back": {
+      "ru": "без (ke binā)",
+      "en": "without (ke binā)",
+      "de": "ohne",
+      "fr": "sans",
+      "es": "sin",
+      "it": "senza",
+      "pt": "sem"
+     },
+     "example": "चाबी के बिना दरवाज़ा नहीं खुलेगा।"
+    },
+    {
+     "front": "के लिए",
+     "back": {
+      "ru": "для (ke lie)",
+      "en": "for (ke lie)",
+      "de": "für",
+      "fr": "pour",
+      "es": "para",
+      "it": "per",
+      "pt": "para"
+     },
+     "example": "यह तोहफ़ा माँ के लिए है।"
+    },
+    {
+     "front": "लेकिन",
+     "back": {
+      "ru": "но (lekin)",
+      "en": "but (lekin)",
+      "de": "aber",
+      "fr": "mais",
+      "es": "pero",
+      "it": "ma",
+      "pt": "mas"
+     },
+     "example": "मैं आना चाहता था, लेकिन समय नहीं था।"
+    },
+    {
+     "front": "या",
+     "back": {
+      "ru": "или (yā)",
+      "en": "or (yā)",
+      "de": "oder",
+      "fr": "ou",
+      "es": "o",
+      "it": "o",
+      "pt": "ou"
+     },
+     "example": "आपको चाय चाहिए या कॉफ़ी?"
+    },
+    {
+     "front": "क्योंकि",
+     "back": {
+      "ru": "потому что (kyoṃki)",
+      "en": "because (kyoṃki)",
+      "de": "weil",
+      "fr": "parce que",
+      "es": "porque",
+      "it": "perché",
+      "pt": "porque"
+     },
+     "example": "मैं नहीं आया क्योंकि बारिश थी।"
+    },
+    {
+     "front": "अगर",
+     "back": {
+      "ru": "если (agar)",
+      "en": "if (agar)",
+      "de": "wenn",
+      "fr": "si",
+      "es": "si",
+      "it": "se",
+      "pt": "se"
+     },
+     "example": "अगर तुम चलोगे, तो मैं भी चलूँगा।"
+    },
+    {
+     "front": "शायद",
+     "back": {
+      "ru": "может быть (śāyad)",
+      "en": "maybe (śāyad)",
+      "de": "vielleicht",
+      "fr": "peut-être",
+      "es": "quizá",
+      "it": "forse",
+      "pt": "talvez"
+     },
+     "example": "शायद कल बारिश हो।"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_verbs",
+   "name": "Verbs",
+   "shape": 2,
+   "cards": [
+    {
+     "front": "होना",
+     "back": {
+      "ru": "быть (honā)",
+      "en": "to be (honā)",
+      "de": "sein",
+      "fr": "être",
+      "es": "ser",
+      "it": "essere",
+      "pt": "ser"
+     },
+     "example": "मुझे कल घर पर होना है।"
+    },
+    {
+     "front": "मौजूद होना",
+     "back": {
+      "ru": "находиться (maujūd honā)",
+      "en": "to be (state) (maujūd honā)",
+      "de": "sich befinden",
+      "fr": "être (état)",
+      "es": "estar",
+      "it": "stare",
+      "pt": "estar"
+     },
+     "example": "बैठक में सबका मौजूद होना ज़रूरी है।"
+    },
+    {
+     "front": "के पास होना",
+     "back": {
+      "ru": "иметь (ke pās honā)",
+      "en": "to have (ke pās honā)",
+      "de": "haben",
+      "fr": "avoir",
+      "es": "tener",
+      "it": "avere",
+      "pt": "ter"
+     },
+     "example": "हर छात्र के पास किताब होनी चाहिए।"
+    },
+    {
+     "front": "करना",
+     "back": {
+      "ru": "делать (karnā)",
+      "en": "to do (karnā)",
+      "de": "machen",
+      "fr": "faire",
+      "es": "hacer",
+      "it": "fare",
+      "pt": "fazer"
+     },
+     "example": "मुझे यह काम आज करना है।"
+    },
+    {
+     "front": "जाना",
+     "back": {
+      "ru": "идти (jānā)",
+      "en": "to go (jānā)",
+      "de": "gehen",
+      "fr": "aller",
+      "es": "ir",
+      "it": "andare",
+      "pt": "ir"
+     },
+     "example": "मुझे अभी बाज़ार जाना है।"
+    },
+    {
+     "front": "आना",
+     "back": {
+      "ru": "приходить (ānā)",
+      "en": "to come (ānā)",
+      "de": "kommen",
+      "fr": "venir",
+      "es": "venir",
+      "it": "venire",
+      "pt": "vir"
+     },
+     "example": "वह कल शाम को आना चाहता है।"
+    },
+    {
+     "front": "कहना",
+     "back": {
+      "ru": "говорить (kahnā)",
+      "en": "to say (kahnā)",
+      "de": "sagen",
+      "fr": "dire",
+      "es": "decir",
+      "it": "dire",
+      "pt": "dizer"
+     },
+     "example": "मुझे तुमसे कुछ कहना है।"
+    },
+    {
+     "front": "दिखाई देना",
+     "back": {
+      "ru": "видеть (dikhāī denā)",
+      "en": "to see (dikhāī denā)",
+      "de": "sehen",
+      "fr": "voir",
+      "es": "ver",
+      "it": "vedere",
+      "pt": "ver"
+     },
+     "example": "यहाँ से पहाड़ दिखाई देता है।"
+    },
+    {
+     "front": "देना",
+     "back": {
+      "ru": "давать (denā)",
+      "en": "to give (denā)",
+      "de": "geben",
+      "fr": "donner",
+      "es": "dar",
+      "it": "dare",
+      "pt": "dar"
+     },
+     "example": "मुझे एक गिलास पानी देना।"
+    },
+    {
+     "front": "जानना",
+     "back": {
+      "ru": "знать (jānnā)",
+      "en": "to know (jānnā)",
+      "de": "wissen",
+      "fr": "savoir",
+      "es": "saber",
+      "it": "sapere",
+      "pt": "saber"
+     },
+     "example": "मुझे पूरा सच जानना है।"
+    },
+    {
+     "front": "सकना",
+     "back": {
+      "ru": "мочь (saknā)",
+      "en": "can (saknā)",
+      "de": "können",
+      "fr": "pouvoir",
+      "es": "poder",
+      "it": "potere",
+      "pt": "poder"
+     },
+     "example": "मैं नदी में तैर सकता हूँ।"
+    },
+    {
+     "front": "चाहना",
+     "back": {
+      "ru": "хотеть (chāhnā)",
+      "en": "to want (chāhnā)",
+      "de": "wollen",
+      "fr": "vouloir",
+      "es": "querer",
+      "it": "volere",
+      "pt": "querer"
+     },
+     "example": "वह घर जल्दी जाना चाहता है।"
+    },
+    {
+     "front": "पड़ना",
+     "back": {
+      "ru": "быть должным (paṛnā)",
+      "en": "must (paṛnā)",
+      "de": "müssen",
+      "fr": "devoir",
+      "es": "deber",
+      "it": "dovere",
+      "pt": "dever"
+     },
+     "example": "मुझे अभी निकलना पड़ेगा।"
+    },
+    {
+     "front": "ठहरना",
+     "back": {
+      "ru": "оставаться (ṭhaharnā)",
+      "en": "to stay (ṭhaharnā)",
+      "de": "bleiben",
+      "fr": "rester",
+      "es": "quedarse",
+      "it": "restare",
+      "pt": "ficar"
+     },
+     "example": "हम दो दिन यहाँ ठहरेंगे।"
+    },
+    {
+     "front": "गुज़रना",
+     "back": {
+      "ru": "проходить (guzarnā)",
+      "en": "to pass (guzarnā)",
+      "de": "vorbeigehen",
+      "fr": "passer",
+      "es": "pasar",
+      "it": "passare",
+      "pt": "passar"
+     },
+     "example": "यह साल बहुत जल्दी गुज़र गया।"
+    },
+    {
+     "front": "पहुँचना",
+     "back": {
+      "ru": "прибывать (pahũchnā)",
+      "en": "to arrive (pahũchnā)",
+      "de": "ankommen",
+      "fr": "arriver",
+      "es": "llegar",
+      "it": "arrivare",
+      "pt": "chegar"
+     },
+     "example": "हम समय पर स्टेशन पहुँचे।"
+    },
+    {
+     "front": "निकलना",
+     "back": {
+      "ru": "выходить (nikalnā)",
+      "en": "to leave (nikalnā)",
+      "de": "hinausgehen",
+      "fr": "sortir",
+      "es": "salir",
+      "it": "uscire",
+      "pt": "sair"
+     },
+     "example": "वह सुबह जल्दी घर से निकला।"
+    },
+    {
+     "front": "प्रवेश करना",
+     "back": {
+      "ru": "входить (praveś karnā)",
+      "en": "to enter (praveś karnā)",
+      "de": "hineingehen",
+      "fr": "entrer",
+      "es": "entrar",
+      "it": "entrare",
+      "pt": "entrar"
+     },
+     "example": "कृपया चुपचाप कमरे में प्रवेश करें।"
+    },
+    {
+     "front": "लौटना",
+     "back": {
+      "ru": "возвращаться (lauṭnā)",
+      "en": "to return (lauṭnā)",
+      "de": "zurückkommen",
+      "fr": "revenir",
+      "es": "volver",
+      "it": "tornare",
+      "pt": "voltar"
+     },
+     "example": "पिता जी शाम को लौटेंगे।"
+    },
+    {
+     "front": "शुरू करना",
+     "back": {
+      "ru": "начинать (śurū karnā)",
+      "en": "to begin (śurū karnā)",
+      "de": "anfangen",
+      "fr": "commencer",
+      "es": "empezar",
+      "it": "cominciare",
+      "pt": "começar"
+     },
+     "example": "हमें काम अभी शुरू करना चाहिए।"
+    },
+    {
+     "front": "ख़त्म करना",
+     "back": {
+      "ru": "заканчивать (ḳhatm karnā)",
+      "en": "to finish (ḳhatm karnā)",
+      "de": "beenden",
+      "fr": "finir",
+      "es": "terminar",
+      "it": "finire",
+      "pt": "acabar"
+     },
+     "example": "मुझे यह किताब आज ख़त्म करनी है।"
+    },
+    {
+     "front": "जारी रखना",
+     "back": {
+      "ru": "продолжать (jārī rakhnā)",
+      "en": "to continue (jārī rakhnā)",
+      "de": "fortsetzen",
+      "fr": "continuer",
+      "es": "continuar",
+      "it": "continuare",
+      "pt": "continuar"
+     },
+     "example": "तुम अपनी पढ़ाई जारी रखो।"
+    },
+    {
+     "front": "रुकना",
+     "back": {
+      "ru": "останавливаться (ruknā)",
+      "en": "to stop (ruknā)",
+      "de": "anhalten",
+      "fr": "arrêter",
+      "es": "parar",
+      "it": "fermare",
+      "pt": "parar"
+     },
+     "example": "यह बस यहाँ नहीं रुकती।"
+    },
+    {
+     "front": "इंतज़ार करना",
+     "back": {
+      "ru": "ждать (intazār karnā)",
+      "en": "to wait (intazār karnā)",
+      "de": "warten",
+      "fr": "attendre",
+      "es": "esperar",
+      "it": "aspettare",
+      "pt": "esperar"
+     },
+     "example": "मुझे यहाँ इंतज़ार करना पड़ेगा।"
+    },
+    {
+     "front": "मिलना",
+     "back": {
+      "ru": "находить (milnā)",
+      "en": "to find (milnā)",
+      "de": "finden",
+      "fr": "trouver",
+      "es": "encontrar",
+      "it": "trovare",
+      "pt": "encontrar"
+     },
+     "example": "मुझे मेरी चाबी मिल गई।"
+    },
+    {
+     "front": "ढूँढ़ना",
+     "back": {
+      "ru": "искать (ḍhū̃ṛhnā)",
+      "en": "to look for (ḍhū̃ṛhnā)",
+      "de": "suchen",
+      "fr": "chercher",
+      "es": "buscar",
+      "it": "cercare",
+      "pt": "procurar"
+     },
+     "example": "मैं अपना बस्ता ढूँढ़ रहा हूँ।"
+    },
+    {
+     "front": "खोना",
+     "back": {
+      "ru": "терять (khonā)",
+      "en": "to lose (khonā)",
+      "de": "verlieren",
+      "fr": "perdre",
+      "es": "perder",
+      "it": "perdere",
+      "pt": "perder"
+     },
+     "example": "मैंने रास्ते में अपना पैसा खो दिया।"
+    },
+    {
+     "front": "जीतना",
+     "back": {
+      "ru": "выигрывать (jītnā)",
+      "en": "to win (jītnā)",
+      "de": "gewinnen",
+      "fr": "gagner",
+      "es": "ganar",
+      "it": "vincere",
+      "pt": "ganhar"
+     },
+     "example": "हमारी टीम मैच जीत गई।"
+    },
+    {
+     "front": "ख़रीदना",
+     "back": {
+      "ru": "покупать (ḳharīdnā)",
+      "en": "to buy (ḳharīdnā)",
+      "de": "kaufen",
+      "fr": "acheter",
+      "es": "comprar",
+      "it": "comprare",
+      "pt": "comprar"
+     },
+     "example": "मुझे नई क़मीज़ ख़रीदनी है।"
+    },
+    {
+     "front": "बेचना",
+     "back": {
+      "ru": "продавать (bechnā)",
+      "en": "to sell (bechnā)",
+      "de": "verkaufen",
+      "fr": "vendre",
+      "es": "vender",
+      "it": "vendere",
+      "pt": "vender"
+     },
+     "example": "वह अपनी पुरानी गाड़ी बेच रहा है।"
+    },
+    {
+     "front": "चुकाना",
+     "back": {
+      "ru": "платить (chukānā)",
+      "en": "to pay (chukānā)",
+      "de": "bezahlen",
+      "fr": "payer",
+      "es": "pagar",
+      "it": "pagare",
+      "pt": "pagar"
+     },
+     "example": "मुझे आज होटल का बिल चुकाना है।"
+    },
+    {
+     "front": "क़ीमत होना",
+     "back": {
+      "ru": "стоить (qīmat honā)",
+      "en": "to cost (qīmat honā)",
+      "de": "kosten",
+      "fr": "coûter",
+      "es": "costar",
+      "it": "costare",
+      "pt": "custar"
+     },
+     "example": "इस किताब की क़ीमत सौ रुपये है।"
+    },
+    {
+     "front": "काम करना",
+     "back": {
+      "ru": "работать (kām karnā)",
+      "en": "to work (kām karnā)",
+      "de": "arbeiten",
+      "fr": "travailler",
+      "es": "trabajar",
+      "it": "lavorare",
+      "pt": "trabalhar"
+     },
+     "example": "वह एक बैंक में काम करता है।"
+    },
+    {
+     "front": "पढ़ाई करना",
+     "back": {
+      "ru": "учиться (paṛhāī karnā)",
+      "en": "to study (paṛhāī karnā)",
+      "de": "lernen",
+      "fr": "étudier",
+      "es": "estudiar",
+      "it": "studiare",
+      "pt": "estudar"
+     },
+     "example": "मैं रोज़ शाम को पढ़ाई करता हूँ।"
+    },
+    {
+     "front": "सीखना",
+     "back": {
+      "ru": "изучать (sīkhnā)",
+      "en": "to learn (sīkhnā)",
+      "de": "lernen",
+      "fr": "apprendre",
+      "es": "aprender",
+      "it": "imparare",
+      "pt": "aprender"
+     },
+     "example": "मुझे हिंदी सीखनी है।"
+    },
+    {
+     "front": "सिखाना",
+     "back": {
+      "ru": "учить (sikhānā)",
+      "en": "to teach (sikhānā)",
+      "de": "unterrichten",
+      "fr": "enseigner",
+      "es": "enseñar",
+      "it": "insegnare",
+      "pt": "ensinar"
+     },
+     "example": "वह बच्चों को गणित सिखाती है।"
+    },
+    {
+     "front": "पढ़ना",
+     "back": {
+      "ru": "читать (paṛhnā)",
+      "en": "to read (paṛhnā)",
+      "de": "lesen",
+      "fr": "lire",
+      "es": "leer",
+      "it": "leggere",
+      "pt": "ler"
+     },
+     "example": "मुझे रोज़ अख़बार पढ़ना पसंद है।"
+    },
+    {
+     "front": "लिखना",
+     "back": {
+      "ru": "писать (likhnā)",
+      "en": "to write (likhnā)",
+      "de": "schreiben",
+      "fr": "écrire",
+      "es": "escribir",
+      "it": "scrivere",
+      "pt": "escrever"
+     },
+     "example": "मुझे आज एक चिट्ठी लिखनी है।"
+    },
+    {
+     "front": "बोलना",
+     "back": {
+      "ru": "разговаривать (bolnā)",
+      "en": "to speak (bolnā)",
+      "de": "sprechen",
+      "fr": "parler",
+      "es": "hablar",
+      "it": "parlare",
+      "pt": "falar"
+     },
+     "example": "वह बहुत धीरे बोलता है।"
+    },
+    {
+     "front": "सुनाई देना",
+     "back": {
+      "ru": "слышать (sunāī denā)",
+      "en": "to hear (sunāī denā)",
+      "de": "hören",
+      "fr": "entendre",
+      "es": "oír",
+      "it": "sentire",
+      "pt": "ouvir"
+     },
+     "example": "मुझे तुम्हारी आवाज़ सुनाई नहीं दी।"
+    },
+    {
+     "front": "सुनना",
+     "back": {
+      "ru": "слушать (sunnā)",
+      "en": "to listen (sunnā)",
+      "de": "zuhören",
+      "fr": "écouter",
+      "es": "escuchar",
+      "it": "ascoltare",
+      "pt": "escutar"
+     },
+     "example": "मुझे संगीत सुनना अच्छा लगता है।"
+    },
+    {
+     "front": "देखना",
+     "back": {
+      "ru": "смотреть (dekhnā)",
+      "en": "to look (dekhnā)",
+      "de": "schauen",
+      "fr": "regarder",
+      "es": "mirar",
+      "it": "guardare",
+      "pt": "olhar"
+     },
+     "example": "मुझे यह फ़िल्म देखनी है।"
+    },
+    {
+     "front": "महसूस करना",
+     "back": {
+      "ru": "чувствовать (mahsūs karnā)",
+      "en": "to feel (mahsūs karnā)",
+      "de": "fühlen",
+      "fr": "sentir",
+      "es": "sentir",
+      "it": "sentire",
+      "pt": "sentir"
+     },
+     "example": "मैं बहुत ठंड महसूस कर रहा हूँ।"
+    },
+    {
+     "front": "सोचना",
+     "back": {
+      "ru": "думать (sochnā)",
+      "en": "to think (sochnā)",
+      "de": "denken",
+      "fr": "penser",
+      "es": "pensar",
+      "it": "pensare",
+      "pt": "pensar"
+     },
+     "example": "मुझे इस बारे में सोचना है।"
+    },
+    {
+     "front": "याद रखना",
+     "back": {
+      "ru": "помнить (yād rakhnā)",
+      "en": "to remember (yād rakhnā)",
+      "de": "sich erinnern",
+      "fr": "se souvenir",
+      "es": "recordar",
+      "it": "ricordare",
+      "pt": "lembrar"
+     },
+     "example": "यह बात हमेशा याद रखना।"
+    },
+    {
+     "front": "भूलना",
+     "back": {
+      "ru": "забывать (bhūlnā)",
+      "en": "to forget (bhūlnā)",
+      "de": "vergessen",
+      "fr": "oublier",
+      "es": "olvidar",
+      "it": "dimenticare",
+      "pt": "esquecer"
+     },
+     "example": "मैं तुम्हारा नाम भूल गया।"
+    },
+    {
+     "front": "समझना",
+     "back": {
+      "ru": "понимать (samajhnā)",
+      "en": "to understand (samajhnā)",
+      "de": "verstehen",
+      "fr": "comprendre",
+      "es": "entender",
+      "it": "capire",
+      "pt": "entender"
+     },
+     "example": "मुझे यह सवाल समझना है।"
+    },
+    {
+     "front": "समझाना",
+     "back": {
+      "ru": "объяснять (samjhānā)",
+      "en": "to explain (samjhānā)",
+      "de": "erklären",
+      "fr": "expliquer",
+      "es": "explicar",
+      "it": "spiegare",
+      "pt": "explicar"
+     },
+     "example": "वह बच्चों को पाठ समझाता है।"
+    },
+    {
+     "front": "पूछना",
+     "back": {
+      "ru": "спрашивать (pūchhnā)",
+      "en": "to ask (pūchhnā)",
+      "de": "fragen",
+      "fr": "demander",
+      "es": "preguntar",
+      "it": "chiedere",
+      "pt": "perguntar"
+     },
+     "example": "मुझे आपसे एक बात पूछनी है।"
+    },
+    {
+     "front": "जवाब देना",
+     "back": {
+      "ru": "отвечать (javāb denā)",
+      "en": "to answer (javāb denā)",
+      "de": "antworten",
+      "fr": "répondre",
+      "es": "responder",
+      "it": "rispondere",
+      "pt": "responder"
+     },
+     "example": "उसने मेरे सवाल का जवाब दिया।"
+    },
+    {
+     "front": "बुलाना",
+     "back": {
+      "ru": "звать (bulānā)",
+      "en": "to call (bulānā)",
+      "de": "rufen",
+      "fr": "appeler",
+      "es": "llamar",
+      "it": "chiamare",
+      "pt": "chamar"
+     },
+     "example": "जल्दी डॉक्टर को बुलाओ।"
+    },
+    {
+     "front": "फ़ोन करना",
+     "back": {
+      "ru": "звонить (fon karnā)",
+      "en": "to phone (fon karnā)",
+      "de": "anrufen",
+      "fr": "téléphoner",
+      "es": "telefonear",
+      "it": "telefonare",
+      "pt": "telefonar"
+     },
+     "example": "मुझे माँ को फ़ोन करना है।"
+    },
+    {
+     "front": "खोलना",
+     "back": {
+      "ru": "открывать (kholnā)",
+      "en": "to open (kholnā)",
+      "de": "öffnen",
+      "fr": "ouvrir",
+      "es": "abrir",
+      "it": "aprire",
+      "pt": "abrir"
+     },
+     "example": "कृपया खिड़की खोलिए।"
+    },
+    {
+     "front": "बंद करना",
+     "back": {
+      "ru": "закрывать (band karnā)",
+      "en": "to close (band karnā)",
+      "de": "schließen",
+      "fr": "fermer",
+      "es": "cerrar",
+      "it": "chiudere",
+      "pt": "fechar"
+     },
+     "example": "जाते समय दरवाज़ा बंद करना।"
+    },
+    {
+     "front": "रखना",
+     "back": {
+      "ru": "класть (rakhnā)",
+      "en": "to put (rakhnā)",
+      "de": "stellen",
+      "fr": "mettre",
+      "es": "poner",
+      "it": "mettere",
+      "pt": "pôr"
+     },
+     "example": "यह किताब मेज़ पर रख दो।"
+    },
+    {
+     "front": "हटाना",
+     "back": {
+      "ru": "убирать (haṭānā)",
+      "en": "to take off (haṭānā)",
+      "de": "wegnehmen",
+      "fr": "enlever",
+      "es": "quitar",
+      "it": "togliere",
+      "pt": "tirar"
+     },
+     "example": "यह कुर्सी यहाँ से हटाओ।"
+    },
+    {
+     "front": "ले जाना",
+     "back": {
+      "ru": "нести (le jānā)",
+      "en": "to take (le jānā)",
+      "de": "mitnehmen",
+      "fr": "emporter",
+      "es": "llevar",
+      "it": "portare",
+      "pt": "levar"
+     },
+     "example": "यह थैला अंदर ले जाओ।"
+    },
+    {
+     "front": "लाना",
+     "back": {
+      "ru": "приносить (lānā)",
+      "en": "to bring (lānā)",
+      "de": "bringen",
+      "fr": "apporter",
+      "es": "traer",
+      "it": "portare qui",
+      "pt": "trazer"
+     },
+     "example": "मेरे लिए थोड़ा पानी लाना।"
+    },
+    {
+     "front": "भेजना",
+     "back": {
+      "ru": "посылать (bhejnā)",
+      "en": "to send (bhejnā)",
+      "de": "schicken",
+      "fr": "envoyer",
+      "es": "enviar",
+      "it": "mandare",
+      "pt": "mandar"
+     },
+     "example": "मुझे यह चिट्ठी आज भेजनी है।"
+    },
+    {
+     "front": "पाना",
+     "back": {
+      "ru": "получать (pānā)",
+      "en": "to receive (pānā)",
+      "de": "bekommen",
+      "fr": "recevoir",
+      "es": "recibir",
+      "it": "ricevere",
+      "pt": "receber"
+     },
+     "example": "उसने परीक्षा में पहला स्थान पाया।"
+    },
+    {
+     "front": "संभालना",
+     "back": {
+      "ru": "хранить (sambhālnā)",
+      "en": "to keep (sambhālnā)",
+      "de": "aufbewahren",
+      "fr": "garder",
+      "es": "guardar",
+      "it": "conservare",
+      "pt": "guardar"
+     },
+     "example": "यह पैसा संभालकर रखना।"
+    },
+    {
+     "front": "छोड़ना",
+     "back": {
+      "ru": "оставлять (chhoṛnā)",
+      "en": "to leave behind (chhoṛnā)",
+      "de": "lassen",
+      "fr": "laisser",
+      "es": "dejar",
+      "it": "lasciare",
+      "pt": "deixar"
+     },
+     "example": "वह अपना बस्ता घर पर छोड़ आया।"
+    },
+    {
+     "front": "थामना",
+     "back": {
+      "ru": "держать (thāmnā)",
+      "en": "to hold (thāmnā)",
+      "de": "halten",
+      "fr": "tenir",
+      "es": "sujetar",
+      "it": "tenere",
+      "pt": "segurar"
+     },
+     "example": "भीड़ में बच्चे का हाथ थामे रहो।"
+    },
+    {
+     "front": "धकेलना",
+     "back": {
+      "ru": "толкать (dhakelnā)",
+      "en": "to push (dhakelnā)",
+      "de": "schieben",
+      "fr": "pousser",
+      "es": "empujar",
+      "it": "spingere",
+      "pt": "empurrar"
+     },
+     "example": "दरवाज़े को धीरे से धकेलो।"
+    },
+    {
+     "front": "खींचना",
+     "back": {
+      "ru": "тянуть (khī̃chnā)",
+      "en": "to pull (khī̃chnā)",
+      "de": "ziehen",
+      "fr": "tirer",
+      "es": "tirar",
+      "it": "tirare",
+      "pt": "puxar"
+     },
+     "example": "रस्सी को ज़ोर से खींचो।"
+    },
+    {
+     "front": "पकड़ना",
+     "back": {
+      "ru": "ловить (pakaṛnā)",
+      "en": "to catch (pakaṛnā)",
+      "de": "fangen",
+      "fr": "attraper",
+      "es": "coger",
+      "it": "prendere",
+      "pt": "apanhar"
+     },
+     "example": "बिल्ली ने चूहा पकड़ लिया।"
+    },
+    {
+     "front": "दिखाना",
+     "back": {
+      "ru": "показывать (dikhānā)",
+      "en": "to show (dikhānā)",
+      "de": "zeigen",
+      "fr": "montrer",
+      "es": "mostrar",
+      "it": "mostrare",
+      "pt": "mostrar"
+     },
+     "example": "मुझे अपनी तस्वीरें दिखाओ।"
+    },
+    {
+     "front": "छिपाना",
+     "back": {
+      "ru": "прятать (chhipānā)",
+      "en": "to hide (chhipānā)",
+      "de": "verstecken",
+      "fr": "cacher",
+      "es": "esconder",
+      "it": "nascondere",
+      "pt": "esconder"
+     },
+     "example": "उसने पैसे बक्से में छिपाए।"
+    },
+    {
+     "front": "बदलना",
+     "back": {
+      "ru": "менять (badalnā)",
+      "en": "to change (badalnā)",
+      "de": "ändern",
+      "fr": "changer",
+      "es": "cambiar",
+      "it": "cambiare",
+      "pt": "mudar"
+     },
+     "example": "मुझे अभी कपड़े बदलने हैं।"
+    },
+    {
+     "front": "रचना",
+     "back": {
+      "ru": "создавать (rachnā)",
+      "en": "to create (rachnā)",
+      "de": "schaffen",
+      "fr": "créer",
+      "es": "crear",
+      "it": "creare",
+      "pt": "criar"
+     },
+     "example": "उसने एक सुंदर कविता रची।"
+    },
+    {
+     "front": "बनाना",
+     "back": {
+      "ru": "строить (banānā)",
+      "en": "to build (banānā)",
+      "de": "bauen",
+      "fr": "construire",
+      "es": "construir",
+      "it": "costruire",
+      "pt": "construir"
+     },
+     "example": "वे यहाँ नया घर बना रहे हैं।"
+    },
+    {
+     "front": "तोड़ना",
+     "back": {
+      "ru": "ломать (toṛnā)",
+      "en": "to break (toṛnā)",
+      "de": "brechen",
+      "fr": "casser",
+      "es": "romper",
+      "it": "rompere",
+      "pt": "partir"
+     },
+     "example": "बच्चे ने गिलास तोड़ दिया।"
+    },
+    {
+     "front": "काटना",
+     "back": {
+      "ru": "резать (kāṭnā)",
+      "en": "to cut (kāṭnā)",
+      "de": "schneiden",
+      "fr": "couper",
+      "es": "cortar",
+      "it": "tagliare",
+      "pt": "cortar"
+     },
+     "example": "प्याज़ को छोटे टुकड़ों में काटो।"
+    },
+    {
+     "front": "साफ़ करना",
+     "back": {
+      "ru": "убирать (sāf karnā)",
+      "en": "to clean (sāf karnā)",
+      "de": "putzen",
+      "fr": "nettoyer",
+      "es": "limpiar",
+      "it": "pulire",
+      "pt": "limpar"
+     },
+     "example": "मुझे आज अपना कमरा साफ़ करना है।"
+    },
+    {
+     "front": "धोना",
+     "back": {
+      "ru": "мыть (dhonā)",
+      "en": "to wash (dhonā)",
+      "de": "waschen",
+      "fr": "laver",
+      "es": "lavar",
+      "it": "lavare",
+      "pt": "lavar"
+     },
+     "example": "मुझे कपड़े धोने हैं।"
+    },
+    {
+     "front": "सुखाना",
+     "back": {
+      "ru": "сушить (sukhānā)",
+      "en": "to dry (sukhānā)",
+      "de": "trocknen",
+      "fr": "sécher",
+      "es": "secar",
+      "it": "asciugare",
+      "pt": "secar"
+     },
+     "example": "धूप में कपड़े सुखाओ।"
+    },
+    {
+     "front": "पकाना",
+     "back": {
+      "ru": "готовить (pakānā)",
+      "en": "to cook (pakānā)",
+      "de": "kochen",
+      "fr": "cuisiner",
+      "es": "cocinar",
+      "it": "cucinare",
+      "pt": "cozinhar"
+     },
+     "example": "माँ रसोई में दाल पका रही हैं।"
+    },
+    {
+     "front": "खाना",
+     "back": {
+      "ru": "есть (khānā)",
+      "en": "to eat (khānā)",
+      "de": "essen",
+      "fr": "manger",
+      "es": "comer",
+      "it": "mangiare",
+      "pt": "comer"
+     },
+     "example": "मुझे अभी कुछ खाना है।"
+    },
+    {
+     "front": "पीना",
+     "back": {
+      "ru": "пить (pīnā)",
+      "en": "to drink (pīnā)",
+      "de": "trinken",
+      "fr": "boire",
+      "es": "beber",
+      "it": "bere",
+      "pt": "beber"
+     },
+     "example": "मुझे ठंडा पानी पीना है।"
+    },
+    {
+     "front": "चखना",
+     "back": {
+      "ru": "пробовать (chakhnā)",
+      "en": "to taste (chakhnā)",
+      "de": "probieren",
+      "fr": "goûter",
+      "es": "probar",
+      "it": "assaggiare",
+      "pt": "provar"
+     },
+     "example": "ज़रा यह मिठाई चखो।"
+    },
+    {
+     "front": "परोसना",
+     "back": {
+      "ru": "подавать (parosnā)",
+      "en": "to serve (parosnā)",
+      "de": "servieren",
+      "fr": "servir",
+      "es": "servir",
+      "it": "servire",
+      "pt": "servir"
+     },
+     "example": "खाना गरम-गरम परोसो।"
+    },
+    {
+     "front": "सोना",
+     "back": {
+      "ru": "спать (sonā)",
+      "en": "to sleep (sonā)",
+      "de": "schlafen",
+      "fr": "dormir",
+      "es": "dormir",
+      "it": "dormire",
+      "pt": "dormir"
+     },
+     "example": "मुझे अब सोना है।"
+    },
+    {
+     "front": "जागना",
+     "back": {
+      "ru": "просыпаться (jāgnā)",
+      "en": "to wake up (jāgnā)",
+      "de": "aufwachen",
+      "fr": "se réveiller",
+      "es": "despertar",
+      "it": "svegliarsi",
+      "pt": "acordar"
+     },
+     "example": "मैं रोज़ छह बजे जागता हूँ।"
+    },
+    {
+     "front": "उठना",
+     "back": {
+      "ru": "вставать (uṭhnā)",
+      "en": "to get up (uṭhnā)",
+      "de": "aufstehen",
+      "fr": "se lever",
+      "es": "levantarse",
+      "it": "alzarsi",
+      "pt": "levantar"
+     },
+     "example": "मुझे कल जल्दी उठना है।"
+    },
+    {
+     "front": "बैठना",
+     "back": {
+      "ru": "садиться (baiṭhnā)",
+      "en": "to sit (baiṭhnā)",
+      "de": "sich setzen",
+      "fr": "s'asseoir",
+      "es": "sentarse",
+      "it": "sedersi",
+      "pt": "sentar"
+     },
+     "example": "तुम मेरे पास बैठना।"
+    },
+    {
+     "front": "लेटना",
+     "back": {
+      "ru": "ложиться (leṭnā)",
+      "en": "to lie down (leṭnā)",
+      "de": "sich hinlegen",
+      "fr": "se coucher",
+      "es": "acostarse",
+      "it": "sdraiarsi",
+      "pt": "deitar"
+     },
+     "example": "वह बिस्तर पर लेट गया।"
+    },
+    {
+     "front": "चलना",
+     "back": {
+      "ru": "ходить (chalnā)",
+      "en": "to walk (chalnā)",
+      "de": "gehen",
+      "fr": "marcher",
+      "es": "caminar",
+      "it": "camminare",
+      "pt": "andar"
+     },
+     "example": "मुझे रोज़ पैदल चलना पसंद है।"
+    },
+    {
+     "front": "दौड़ना",
+     "back": {
+      "ru": "бегать (dauṛnā)",
+      "en": "to run (dauṛnā)",
+      "de": "laufen",
+      "fr": "courir",
+      "es": "correr",
+      "it": "correre",
+      "pt": "correr"
+     },
+     "example": "बच्चे मैदान में दौड़ रहे हैं।"
+    },
+    {
+     "front": "कूदना",
+     "back": {
+      "ru": "прыгать (kūdnā)",
+      "en": "to jump (kūdnā)",
+      "de": "springen",
+      "fr": "sauter",
+      "es": "saltar",
+      "it": "saltare",
+      "pt": "saltar"
+     },
+     "example": "बच्चा ख़ुशी से कूद रहा है।"
+    },
+    {
+     "front": "तैरना",
+     "back": {
+      "ru": "плавать (tairnā)",
+      "en": "to swim (tairnā)",
+      "de": "schwimmen",
+      "fr": "nager",
+      "es": "nadar",
+      "it": "nuotare",
+      "pt": "nadar"
+     },
+     "example": "मुझे नदी में तैरना पसंद है।"
+    },
+    {
+     "front": "उड़ना",
+     "back": {
+      "ru": "летать (uṛnā)",
+      "en": "to fly (uṛnā)",
+      "de": "fliegen",
+      "fr": "voler",
+      "es": "volar",
+      "it": "volare",
+      "pt": "voar"
+     },
+     "example": "पक्षी आसमान में उड़ रहे हैं।"
+    },
+    {
+     "front": "सफ़र करना",
+     "back": {
+      "ru": "путешествовать (safar karnā)",
+      "en": "to travel (safar karnā)",
+      "de": "reisen",
+      "fr": "voyager",
+      "es": "viajar",
+      "it": "viaggiare",
+      "pt": "viajar"
+     },
+     "example": "मुझे रेलगाड़ी से सफ़र करना पसंद है।"
+    },
+    {
+     "front": "चलाना",
+     "back": {
+      "ru": "водить (chalānā)",
+      "en": "to drive (chalānā)",
+      "de": "fahren",
+      "fr": "conduire",
+      "es": "conducir",
+      "it": "guidare",
+      "pt": "conduzir"
+     },
+     "example": "वह गाड़ी बहुत अच्छी चलाता है।"
+    },
+    {
+     "front": "चढ़ना",
+     "back": {
+      "ru": "подниматься (chaṛhnā)",
+      "en": "to go up (chaṛhnā)",
+      "de": "hinaufgehen",
+      "fr": "monter",
+      "es": "subir",
+      "it": "salire",
+      "pt": "subir"
+     },
+     "example": "वे धीरे-धीरे पहाड़ पर चढ़ रहे हैं।"
+    },
+    {
+     "front": "उतरना",
+     "back": {
+      "ru": "спускаться (utarnā)",
+      "en": "to go down (utarnā)",
+      "de": "hinuntergehen",
+      "fr": "descendre",
+      "es": "bajar",
+      "it": "scendere",
+      "pt": "descer"
+     },
+     "example": "वह अगले स्टेशन पर बस से उतरा।"
+    },
+    {
+     "front": "गिरना",
+     "back": {
+      "ru": "падать (girnā)",
+      "en": "to fall (girnā)",
+      "de": "fallen",
+      "fr": "tomber",
+      "es": "caer",
+      "it": "cadere",
+      "pt": "cair"
+     },
+     "example": "गिलास मेज़ से गिर गया।"
+    },
+    {
+     "front": "रहना",
+     "back": {
+      "ru": "жить (rahnā)",
+      "en": "to live (reside) (rahnā)",
+      "de": "wohnen",
+      "fr": "habiter",
+      "es": "vivir",
+      "it": "abitare",
+      "pt": "morar"
+     },
+     "example": "मैं दिल्ली में रहता हूँ।"
+    },
+    {
+     "front": "जीना",
+     "back": {
+      "ru": "жить (jīnā)",
+      "en": "to live (jīnā)",
+      "de": "leben",
+      "fr": "vivre",
+      "es": "vivir",
+      "it": "vivere",
+      "pt": "viver"
+     },
+     "example": "वह ख़ुशी से जीना चाहता है।"
+    },
+    {
+     "front": "मरना",
+     "back": {
+      "ru": "умирать (marnā)",
+      "en": "to die (marnā)",
+      "de": "sterben",
+      "fr": "mourir",
+      "es": "morir",
+      "it": "morire",
+      "pt": "morrer"
+     },
+     "example": "वह पेड़ पानी बिना मर गया।"
+    },
+    {
+     "front": "जन्म लेना",
+     "back": {
+      "ru": "рождаться (janm lenā)",
+      "en": "to be born (janm lenā)",
+      "de": "geboren werden",
+      "fr": "naître",
+      "es": "nacer",
+      "it": "nascere",
+      "pt": "nascer"
+     },
+     "example": "उसने एक छोटे गाँव में जन्म लिया।"
+    },
+    {
+     "front": "बढ़ना",
+     "back": {
+      "ru": "расти (baṛhnā)",
+      "en": "to grow (baṛhnā)",
+      "de": "wachsen",
+      "fr": "grandir",
+      "es": "crecer",
+      "it": "crescere",
+      "pt": "crescer"
+     },
+     "example": "बच्चे बहुत जल्दी बढ़ते हैं।"
+    },
+    {
+     "front": "शादी करना",
+     "back": {
+      "ru": "жениться (śādī karnā)",
+      "en": "to marry (śādī karnā)",
+      "de": "heiraten",
+      "fr": "se marier",
+      "es": "casarse",
+      "it": "sposarsi",
+      "pt": "casar"
+     },
+     "example": "वे अगले साल शादी करेंगे।"
+    },
+    {
+     "front": "मदद करना",
+     "back": {
+      "ru": "помогать (madad karnā)",
+      "en": "to help (madad karnā)",
+      "de": "helfen",
+      "fr": "aider",
+      "es": "ayudar",
+      "it": "aiutare",
+      "pt": "ajudar"
+     },
+     "example": "क्या तुम मेरी मदद करोगे?"
+    },
+    {
+     "front": "पसंद करना",
+     "back": {
+      "ru": "нравиться (pasand karnā)",
+      "en": "to like (pasand karnā)",
+      "de": "mögen",
+      "fr": "aimer bien",
+      "es": "gustar",
+      "it": "piacere",
+      "pt": "gostar"
+     },
+     "example": "मैं मीठा बहुत पसंद करता हूँ।"
+    },
+    {
+     "front": "प्यार करना",
+     "back": {
+      "ru": "любить (pyār karnā)",
+      "en": "to love (pyār karnā)",
+      "de": "lieben",
+      "fr": "aimer",
+      "es": "amar",
+      "it": "amare",
+      "pt": "amar"
+     },
+     "example": "वह अपने बच्चों से प्यार करती है।"
+    },
+    {
+     "front": "नफ़रत करना",
+     "back": {
+      "ru": "ненавидеть (nafrat karnā)",
+      "en": "to hate (nafrat karnā)",
+      "de": "hassen",
+      "fr": "détester",
+      "es": "odiar",
+      "it": "odiare",
+      "pt": "odiar"
+     },
+     "example": "मैं झूठ से नफ़रत करता हूँ।"
+    },
+    {
+     "front": "हँसना",
+     "back": {
+      "ru": "смеяться (hã̄snā)",
+      "en": "to laugh (hã̄snā)",
+      "de": "lachen",
+      "fr": "rire",
+      "es": "reír",
+      "it": "ridere",
+      "pt": "rir"
+     },
+     "example": "सब लोग ज़ोर से हँस रहे थे।"
+    },
+    {
+     "front": "रोना",
+     "back": {
+      "ru": "плакать (ronā)",
+      "en": "to cry (ronā)",
+      "de": "weinen",
+      "fr": "pleurer",
+      "es": "llorar",
+      "it": "piangere",
+      "pt": "chorar"
+     },
+     "example": "बच्चा भूख से रो रहा है।"
+    },
+    {
+     "front": "गाना",
+     "back": {
+      "ru": "петь (gānā)",
+      "en": "to sing (gānā)",
+      "de": "singen",
+      "fr": "chanter",
+      "es": "cantar",
+      "it": "cantare",
+      "pt": "cantar"
+     },
+     "example": "वह नहाते समय गाना गाता है।"
+    },
+    {
+     "front": "नाचना",
+     "back": {
+      "ru": "танцевать (nāchnā)",
+      "en": "to dance (nāchnā)",
+      "de": "tanzen",
+      "fr": "danser",
+      "es": "bailar",
+      "it": "ballare",
+      "pt": "dançar"
+     },
+     "example": "सब लोग संगीत पर नाच रहे हैं।"
+    },
+    {
+     "front": "खेलना-कूदना",
+     "back": {
+      "ru": "играть (khelnā-kūdnā)",
+      "en": "to play (children) (khelnā-kūdnā)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "brincar"
+     },
+     "example": "बच्चों को खेलना-कूदना बहुत पसंद है।"
+    },
+    {
+     "front": "खेलना",
+     "back": {
+      "ru": "играть (khelnā)",
+      "en": "to play (a game) (khelnā)",
+      "de": "spielen",
+      "fr": "jouer",
+      "es": "jugar",
+      "it": "giocare",
+      "pt": "jogar"
+     },
+     "example": "हम शाम को क्रिकेट खेलते हैं।"
+    },
+    {
+     "front": "छूना",
+     "back": {
+      "ru": "трогать (chhūnā)",
+      "en": "to touch (chhūnā)",
+      "de": "berühren",
+      "fr": "toucher",
+      "es": "tocar",
+      "it": "toccare",
+      "pt": "tocar"
+     },
+     "example": "इस गरम बर्तन को मत छूना।"
+    },
+    {
+     "front": "आराम करना",
+     "back": {
+      "ru": "отдыхать (ārām karnā)",
+      "en": "to rest (ārām karnā)",
+      "de": "sich ausruhen",
+      "fr": "se reposer",
+      "es": "descansar",
+      "it": "riposare",
+      "pt": "descansar"
+     },
+     "example": "मुझे थोड़ा आराम करना है।"
+    },
+    {
+     "front": "कोशिश करना",
+     "back": {
+      "ru": "пытаться (kośiś karnā)",
+      "en": "to try (kośiś karnā)",
+      "de": "versuchen",
+      "fr": "essayer",
+      "es": "intentar",
+      "it": "provare",
+      "pt": "tentar"
+     },
+     "example": "मैं कल फिर कोशिश करूँगा।"
+    },
+    {
+     "front": "सफल होना",
+     "back": {
+      "ru": "удаваться (safal honā)",
+      "en": "to manage (safal honā)",
+      "de": "schaffen",
+      "fr": "réussir",
+      "es": "lograr",
+      "it": "riuscire",
+      "pt": "conseguir"
+     },
+     "example": "वह अपने काम में सफल हुआ।"
+    },
+    {
+     "front": "ज़रूरत होना",
+     "back": {
+      "ru": "нуждаться (zarūrat honā)",
+      "en": "to need (zarūrat honā)",
+      "de": "brauchen",
+      "fr": "avoir besoin",
+      "es": "necesitar",
+      "it": "avere bisogno",
+      "pt": "precisar"
+     },
+     "example": "मुझे तुम्हारी मदद की ज़रूरत है।"
+    },
+    {
+     "front": "इस्तेमाल करना",
+     "back": {
+      "ru": "использовать (istemāl karnā)",
+      "en": "to use (istemāl karnā)",
+      "de": "benutzen",
+      "fr": "utiliser",
+      "es": "usar",
+      "it": "usare",
+      "pt": "usar"
+     },
+     "example": "मैं यह क़लम रोज़ इस्तेमाल करता हूँ।"
+    },
+    {
+     "front": "चुनना",
+     "back": {
+      "ru": "выбирать (chunnā)",
+      "en": "to choose (chunnā)",
+      "de": "wählen",
+      "fr": "choisir",
+      "es": "elegir",
+      "it": "scegliere",
+      "pt": "escolher"
+     },
+     "example": "तुम्हें इनमें से एक रंग चुनना है।"
+    },
+    {
+     "front": "तय करना",
+     "back": {
+      "ru": "решать (tay karnā)",
+      "en": "to decide (tay karnā)",
+      "de": "entscheiden",
+      "fr": "décider",
+      "es": "decidir",
+      "it": "decidere",
+      "pt": "decidir"
+     },
+     "example": "हमें कल तक तय करना है।"
+    },
+    {
+     "front": "स्वीकार करना",
+     "back": {
+      "ru": "принимать (svīkār karnā)",
+      "en": "to accept (svīkār karnā)",
+      "de": "annehmen",
+      "fr": "accepter",
+      "es": "aceptar",
+      "it": "accettare",
+      "pt": "aceitar"
+     },
+     "example": "उसने मेरा तोहफ़ा स्वीकार किया।"
+    },
+    {
+     "front": "मना करना",
+     "back": {
+      "ru": "отказывать (manā karnā)",
+      "en": "to refuse (manā karnā)",
+      "de": "ablehnen",
+      "fr": "refuser",
+      "es": "rechazar",
+      "it": "rifiutare",
+      "pt": "recusar"
+     },
+     "example": "उसने आने से मना कर दिया।"
+    },
+    {
+     "front": "वादा करना",
+     "back": {
+      "ru": "обещать (vādā karnā)",
+      "en": "to promise (vādā karnā)",
+      "de": "versprechen",
+      "fr": "promettre",
+      "es": "prometer",
+      "it": "promettere",
+      "pt": "prometer"
+     },
+     "example": "मुझसे वादा करो कि तुम आओगे।"
+    },
+    {
+     "front": "धन्यवाद देना",
+     "back": {
+      "ru": "благодарить (dhanyavād denā)",
+      "en": "to thank (dhanyavād denā)",
+      "de": "danken",
+      "fr": "remercier",
+      "es": "agradecer",
+      "it": "ringraziare",
+      "pt": "agradecer"
+     },
+     "example": "मुझे उन्हें धन्यवाद देना है।"
+    },
+    {
+     "front": "माँगना",
+     "back": {
+      "ru": "просить (mā̃gnā)",
+      "en": "to ask for (mā̃gnā)",
+      "de": "bitten",
+      "fr": "demander",
+      "es": "pedir",
+      "it": "chiedere",
+      "pt": "pedir"
+     },
+     "example": "उसने मुझसे मदद माँगी।"
+    },
+    {
+     "front": "घटना",
+     "back": {
+      "ru": "случаться (ghaṭnā)",
+      "en": "to happen (ghaṭnā)",
+      "de": "geschehen",
+      "fr": "arriver",
+      "es": "ocurrir",
+      "it": "succedere",
+      "pt": "acontecer"
+     },
+     "example": "यह हादसा कल रात घटा।"
+    },
+    {
+     "front": "लगना",
+     "back": {
+      "ru": "казаться (lagnā)",
+      "en": "to seem (lagnā)",
+      "de": "scheinen",
+      "fr": "sembler",
+      "es": "parecer",
+      "it": "sembrare",
+      "pt": "parecer"
+     },
+     "example": "मुझे यह किताब अच्छी लगती है।"
+    },
+    {
+     "front": "चालू करना",
+     "back": {
+      "ru": "включать (chālū karnā)",
+      "en": "to turn on (chālū karnā)",
+      "de": "einschalten",
+      "fr": "allumer",
+      "es": "encender",
+      "it": "accendere",
+      "pt": "ligar"
+     },
+     "example": "कृपया पंखा चालू कीजिए।"
+    },
+    {
+     "front": "बुझाना",
+     "back": {
+      "ru": "выключать (bujhānā)",
+      "en": "to turn off (bujhānā)",
+      "de": "ausschalten",
+      "fr": "éteindre",
+      "es": "apagar",
+      "it": "spegnere",
+      "pt": "desligar"
+     },
+     "example": "सोने से पहले बत्ती बुझा दो।"
+    },
+    {
+     "front": "बरसना",
+     "back": {
+      "ru": "идти (о дожде) (barasnā)",
+      "en": "to rain (barasnā)",
+      "de": "regnen",
+      "fr": "pleuvoir",
+      "es": "llover",
+      "it": "piovere",
+      "pt": "chover"
+     },
+     "example": "सुबह से पानी बरस रहा है।"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_food",
+   "name": "Food & drinks",
+   "shape": 3,
+   "cards": [
+    {
+     "front": "पानी",
+     "back": {
+      "ru": "вода (pānī)",
+      "en": "water (pānī)",
+      "de": "Wasser",
+      "fr": "eau",
+      "es": "agua",
+      "it": "acqua",
+      "pt": "água"
+     },
+     "example": "मुझे ठंडा पानी चाहिए।"
+    },
+    {
+     "front": "रोटी",
+     "back": {
+      "ru": "хлеб (roṭī)",
+      "en": "bread (roṭī)",
+      "de": "Brot",
+      "fr": "pain",
+      "es": "pan",
+      "it": "pane",
+      "pt": "pão"
+     },
+     "example": "माँ गरम रोटी बना रही हैं।"
+    },
+    {
+     "front": "दूध",
+     "back": {
+      "ru": "молоко (dūdh)",
+      "en": "milk (dūdh)",
+      "de": "Milch",
+      "fr": "lait",
+      "es": "leche",
+      "it": "latte",
+      "pt": "leite"
+     },
+     "example": "बच्चा दूध पी रहा है।"
+    },
+    {
+     "front": "कॉफ़ी",
+     "back": {
+      "ru": "кофе (kofī)",
+      "en": "coffee (kofī)",
+      "de": "Kaffee",
+      "fr": "café",
+      "es": "café",
+      "it": "caffè",
+      "pt": "café"
+     },
+     "example": "मुझे सुबह कॉफ़ी पसंद है।"
+    },
+    {
+     "front": "चाय",
+     "back": {
+      "ru": "чай (chāy)",
+      "en": "tea (chāy)",
+      "de": "Tee",
+      "fr": "thé",
+      "es": "té",
+      "it": "tè",
+      "pt": "chá"
+     },
+     "example": "चलो, एक कप चाय पीते हैं।"
+    },
+    {
+     "front": "रस",
+     "back": {
+      "ru": "сок (ras)",
+      "en": "juice (ras)",
+      "de": "Saft",
+      "fr": "jus",
+      "es": "zumo",
+      "it": "succo",
+      "pt": "sumo"
+     },
+     "example": "मुझे संतरे का रस चाहिए।"
+    },
+    {
+     "front": "शराब",
+     "back": {
+      "ru": "вино (śarāb)",
+      "en": "wine (śarāb)",
+      "de": "Wein",
+      "fr": "vin",
+      "es": "vino",
+      "it": "vino",
+      "pt": "vinho"
+     },
+     "example": "वह शराब बिलकुल नहीं पीता।"
+    },
+    {
+     "front": "बियर",
+     "back": {
+      "ru": "пиво (biyar)",
+      "en": "beer (biyar)",
+      "de": "Bier",
+      "fr": "bière",
+      "es": "cerveza",
+      "it": "birra",
+      "pt": "cerveja"
+     },
+     "example": "गर्मी में ठंडी बियर अच्छी लगती है।"
+    },
+    {
+     "front": "बर्फ़ का टुकड़ा",
+     "back": {
+      "ru": "лёд (barf kā ṭukṛā)",
+      "en": "ice (barf kā ṭukṛā)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "hielo",
+      "it": "ghiaccio",
+      "pt": "gelo"
+     },
+     "example": "मेरे गिलास में बर्फ़ का टुकड़ा डालो।"
+    },
+    {
+     "front": "चीनी",
+     "back": {
+      "ru": "сахар (chīnī)",
+      "en": "sugar (chīnī)",
+      "de": "Zucker",
+      "fr": "sucre",
+      "es": "azúcar",
+      "it": "zucchero",
+      "pt": "açúcar"
+     },
+     "example": "इस चाय में चीनी कम है।"
+    },
+    {
+     "front": "नमक",
+     "back": {
+      "ru": "соль (namak)",
+      "en": "salt (namak)",
+      "de": "Salz",
+      "fr": "sel",
+      "es": "sal",
+      "it": "sale",
+      "pt": "sal"
+     },
+     "example": "सब्ज़ी में नमक थोड़ा कम है।"
+    },
+    {
+     "front": "काली मिर्च",
+     "back": {
+      "ru": "перец (kālī mirch)",
+      "en": "pepper (kālī mirch)",
+      "de": "Pfeffer",
+      "fr": "poivre",
+      "es": "pimienta",
+      "it": "pepe",
+      "pt": "pimenta"
+     },
+     "example": "सूप में थोड़ी काली मिर्च डालो।"
+    },
+    {
+     "front": "जैतून का तेल",
+     "back": {
+      "ru": "оливковое масло (jaitūn kā tel)",
+      "en": "olive oil (jaitūn kā tel)",
+      "de": "Olivenöl",
+      "fr": "huile d'olive",
+      "es": "aceite",
+      "it": "olio d'oliva",
+      "pt": "azeite"
+     },
+     "example": "सलाद पर जैतून का तेल डालो।"
+    },
+    {
+     "front": "मक्खन",
+     "back": {
+      "ru": "масло (makkhan)",
+      "en": "butter (makkhan)",
+      "de": "Butter",
+      "fr": "beurre",
+      "es": "mantequilla",
+      "it": "burro",
+      "pt": "manteiga"
+     },
+     "example": "रोटी पर मक्खन लगाओ।"
+    },
+    {
+     "front": "पनीर",
+     "back": {
+      "ru": "сыр (panīr)",
+      "en": "cheese (panīr)",
+      "de": "Käse",
+      "fr": "fromage",
+      "es": "queso",
+      "it": "formaggio",
+      "pt": "queijo"
+     },
+     "example": "मुझे पनीर की सब्ज़ी पसंद है।"
+    },
+    {
+     "front": "अंडा",
+     "back": {
+      "ru": "яйцо (aṇḍā)",
+      "en": "egg (aṇḍā)",
+      "de": "Ei",
+      "fr": "œuf",
+      "es": "huevo",
+      "it": "uovo",
+      "pt": "ovo"
+     },
+     "example": "नाश्ते में एक अंडा खाओ।"
+    },
+    {
+     "front": "माँस",
+     "back": {
+      "ru": "мясо (mā̃s)",
+      "en": "meat (mā̃s)",
+      "de": "Fleisch",
+      "fr": "viande",
+      "es": "carne",
+      "it": "carne",
+      "pt": "carne"
+     },
+     "example": "वह माँस बिलकुल नहीं खाता।"
+    },
+    {
+     "front": "मुर्ग़ी",
+     "back": {
+      "ru": "курица (murġī)",
+      "en": "chicken (murġī)",
+      "de": "Hähnchen",
+      "fr": "poulet",
+      "es": "pollo",
+      "it": "pollo",
+      "pt": "frango"
+     },
+     "example": "आज रात के खाने में मुर्ग़ी बनेगी।"
+    },
+    {
+     "front": "मछली",
+     "back": {
+      "ru": "рыба (machhlī)",
+      "en": "fish (machhlī)",
+      "de": "Fisch",
+      "fr": "poisson",
+      "es": "pescado",
+      "it": "pesce",
+      "pt": "peixe"
+     },
+     "example": "मछली पानी में तैर रही है।"
+    },
+    {
+     "front": "कॉड",
+     "back": {
+      "ru": "треска (koḍ)",
+      "en": "cod (koḍ)",
+      "de": "Kabeljau",
+      "fr": "morue",
+      "es": "bacalao",
+      "it": "baccalà",
+      "pt": "bacalhau"
+     },
+     "example": "कॉड एक समुद्री मछली है।"
+    },
+    {
+     "front": "सार्डिन",
+     "back": {
+      "ru": "сардина (sārḍin)",
+      "en": "sardine (sārḍin)",
+      "de": "Sardine",
+      "fr": "sardine",
+      "es": "sardina",
+      "it": "sardina",
+      "pt": "sardinha"
+     },
+     "example": "सार्डिन बहुत छोटी मछली होती है।"
+    },
+    {
+     "front": "टूना",
+     "back": {
+      "ru": "тунец (ṭūnā)",
+      "en": "tuna (ṭūnā)",
+      "de": "Thunfisch",
+      "fr": "thon",
+      "es": "atún",
+      "it": "tonno",
+      "pt": "atum"
+     },
+     "example": "मुझे टूना का सैंडविच पसंद है।"
+    },
+    {
+     "front": "झींगा",
+     "back": {
+      "ru": "креветка (jhī̃gā)",
+      "en": "shrimp (jhī̃gā)",
+      "de": "Garnele",
+      "fr": "crevette",
+      "es": "gamba",
+      "it": "gambero",
+      "pt": "camarão"
+     },
+     "example": "झींगा बहुत स्वादिष्ट होता है।"
+    },
+    {
+     "front": "समुद्री भोजन",
+     "back": {
+      "ru": "морепродукты (samudrī bhojan)",
+      "en": "seafood (samudrī bhojan)",
+      "de": "Meeresfrüchte",
+      "fr": "fruits de mer",
+      "es": "marisco",
+      "it": "frutti di mare",
+      "pt": "marisco"
+     },
+     "example": "इस होटल में समुद्री भोजन अच्छा मिलता है।"
+    },
+    {
+     "front": "हैम",
+     "back": {
+      "ru": "ветчина (haim)",
+      "en": "ham (haim)",
+      "de": "Schinken",
+      "fr": "jambon",
+      "es": "jamón",
+      "it": "prosciutto",
+      "pt": "presunto"
+     },
+     "example": "नाश्ते में हैम और अंडा था।"
+    },
+    {
+     "front": "सॉसेज",
+     "back": {
+      "ru": "сосиска (sosej)",
+      "en": "sausage (sosej)",
+      "de": "Wurst",
+      "fr": "saucisse",
+      "es": "salchicha",
+      "it": "salsiccia",
+      "pt": "salsicha"
+     },
+     "example": "वह सॉसेज भूनकर खाता है।"
+    },
+    {
+     "front": "चावल",
+     "back": {
+      "ru": "рис (chāval)",
+      "en": "rice (chāval)",
+      "de": "Reis",
+      "fr": "riz",
+      "es": "arroz",
+      "it": "riso",
+      "pt": "arroz"
+     },
+     "example": "मुझे दाल और चावल पसंद हैं।"
+    },
+    {
+     "front": "आलू",
+     "back": {
+      "ru": "картофель (ālū)",
+      "en": "potato (ālū)",
+      "de": "Kartoffel",
+      "fr": "pomme de terre",
+      "es": "patata",
+      "it": "patata",
+      "pt": "batata"
+     },
+     "example": "पहले आलू उबाल लो।"
+    },
+    {
+     "front": "पास्ता",
+     "back": {
+      "ru": "макароны (pāstā)",
+      "en": "pasta (pāstā)",
+      "de": "Nudeln",
+      "fr": "pâtes",
+      "es": "pasta",
+      "it": "pasta",
+      "pt": "massa"
+     },
+     "example": "बच्चों को पास्ता बहुत पसंद है।"
+    },
+    {
+     "front": "आटा",
+     "back": {
+      "ru": "мука (āṭā)",
+      "en": "flour (āṭā)",
+      "de": "Mehl",
+      "fr": "farine",
+      "es": "harina",
+      "it": "farina",
+      "pt": "farinha"
+     },
+     "example": "रोटी के लिए आटा गूँधो।"
+    },
+    {
+     "front": "सूप",
+     "back": {
+      "ru": "суп (sūp)",
+      "en": "soup (sūp)",
+      "de": "Suppe",
+      "fr": "soupe",
+      "es": "sopa",
+      "it": "zuppa",
+      "pt": "sopa"
+     },
+     "example": "मुझे टमाटर का सूप पसंद है।"
+    },
+    {
+     "front": "सलाद",
+     "back": {
+      "ru": "салат (salād)",
+      "en": "salad (salād)",
+      "de": "Salat",
+      "fr": "salade",
+      "es": "ensalada",
+      "it": "insalata",
+      "pt": "salada"
+     },
+     "example": "खाने के साथ सलाद लीजिए।"
+    },
+    {
+     "front": "सब्ज़ी",
+     "back": {
+      "ru": "овощи (sabzī)",
+      "en": "vegetables (sabzī)",
+      "de": "Gemüse",
+      "fr": "légumes",
+      "es": "verduras",
+      "it": "verdure",
+      "pt": "legumes"
+     },
+     "example": "मैं रोज़ हरी सब्ज़ी खाता हूँ।"
+    },
+    {
+     "front": "फल",
+     "back": {
+      "ru": "фрукты (phal)",
+      "en": "fruit (phal)",
+      "de": "Obst",
+      "fr": "fruits",
+      "es": "fruta",
+      "it": "frutta",
+      "pt": "fruta"
+     },
+     "example": "फल सेहत के लिए अच्छे हैं।"
+    },
+    {
+     "front": "सेब",
+     "back": {
+      "ru": "яблоко (seb)",
+      "en": "apple (seb)",
+      "de": "Apfel",
+      "fr": "pomme",
+      "es": "manzana",
+      "it": "mela",
+      "pt": "maçã"
+     },
+     "example": "रोज़ एक सेब खाओ।"
+    },
+    {
+     "front": "नाशपाती",
+     "back": {
+      "ru": "груша (nāśpātī)",
+      "en": "pear (nāśpātī)",
+      "de": "Birne",
+      "fr": "poire",
+      "es": "pera",
+      "it": "pera",
+      "pt": "pera"
+     },
+     "example": "यह नाशपाती बहुत मीठी है।"
+    },
+    {
+     "front": "संतरा",
+     "back": {
+      "ru": "апельсин (santarā)",
+      "en": "orange (santarā)",
+      "de": "Orange",
+      "fr": "orange",
+      "es": "naranja",
+      "it": "arancia",
+      "pt": "laranja"
+     },
+     "example": "यह संतरा थोड़ा खट्टा है।"
+    },
+    {
+     "front": "नींबू",
+     "back": {
+      "ru": "лимон (nīmbū)",
+      "en": "lemon (nīmbū)",
+      "de": "Zitrone",
+      "fr": "citron",
+      "es": "limón",
+      "it": "limone",
+      "pt": "limão"
+     },
+     "example": "पानी में नींबू निचोड़ो।"
+    },
+    {
+     "front": "केला",
+     "back": {
+      "ru": "банан (kelā)",
+      "en": "banana (kelā)",
+      "de": "Banane",
+      "fr": "banane",
+      "es": "plátano",
+      "it": "banana",
+      "pt": "banana"
+     },
+     "example": "मैंने नाश्ते में केला खाया।"
+    },
+    {
+     "front": "अंगूर",
+     "back": {
+      "ru": "виноград (aṅgūr)",
+      "en": "grape (aṅgūr)",
+      "de": "Traube",
+      "fr": "raisin",
+      "es": "uva",
+      "it": "uva",
+      "pt": "uva"
+     },
+     "example": "ये अंगूर बहुत मीठे हैं।"
+    },
+    {
+     "front": "स्ट्रॉबेरी",
+     "back": {
+      "ru": "клубника (sṭroberī)",
+      "en": "strawberry (sṭroberī)",
+      "de": "Erdbeere",
+      "fr": "fraise",
+      "es": "fresa",
+      "it": "fragola",
+      "pt": "morango"
+     },
+     "example": "स्ट्रॉबेरी लाल और मीठी होती है।"
+    },
+    {
+     "front": "चेरी",
+     "back": {
+      "ru": "вишня (cherī)",
+      "en": "cherry (cherī)",
+      "de": "Kirsche",
+      "fr": "cerise",
+      "es": "cereza",
+      "it": "ciliegia",
+      "pt": "cereja"
+     },
+     "example": "केक के ऊपर एक चेरी रखी है।"
+    },
+    {
+     "front": "आड़ू",
+     "back": {
+      "ru": "персик (āṛū)",
+      "en": "peach (āṛū)",
+      "de": "Pfirsich",
+      "fr": "pêche",
+      "es": "melocotón",
+      "it": "pesca",
+      "pt": "pêssego"
+     },
+     "example": "यह आड़ू बहुत रसीला है।"
+    },
+    {
+     "front": "ख़रबूज़ा",
+     "back": {
+      "ru": "дыня (ḳharbūzā)",
+      "en": "melon (ḳharbūzā)",
+      "de": "Melone",
+      "fr": "melon",
+      "es": "melón",
+      "it": "melone",
+      "pt": "melão"
+     },
+     "example": "गर्मी में ख़रबूज़ा अच्छा लगता है।"
+    },
+    {
+     "front": "तरबूज़",
+     "back": {
+      "ru": "арбуз (tarbūz)",
+      "en": "watermelon (tarbūz)",
+      "de": "Wassermelone",
+      "fr": "pastèque",
+      "es": "sandía",
+      "it": "anguria",
+      "pt": "melancia"
+     },
+     "example": "तरबूज़ में बहुत पानी होता है।"
+    },
+    {
+     "front": "अनानास",
+     "back": {
+      "ru": "ананас (anānās)",
+      "en": "pineapple (anānās)",
+      "de": "Ananas",
+      "fr": "ananas",
+      "es": "piña",
+      "it": "ananas",
+      "pt": "ananás"
+     },
+     "example": "अनानास खट्टा-मीठा होता है।"
+    },
+    {
+     "front": "अंजीर",
+     "back": {
+      "ru": "инжир (anjīr)",
+      "en": "fig (anjīr)",
+      "de": "Feige",
+      "fr": "figue",
+      "es": "higo",
+      "it": "fico",
+      "pt": "figo"
+     },
+     "example": "अंजीर एक सूखा मेवा है।"
+    },
+    {
+     "front": "टमाटर",
+     "back": {
+      "ru": "помидор (ṭamāṭar)",
+      "en": "tomato (ṭamāṭar)",
+      "de": "Tomate",
+      "fr": "tomate",
+      "es": "tomate",
+      "it": "pomodoro",
+      "pt": "tomate"
+     },
+     "example": "सलाद के लिए टमाटर काटो।"
+    },
+    {
+     "front": "प्याज़",
+     "back": {
+      "ru": "лук (pyāz)",
+      "en": "onion (pyāz)",
+      "de": "Zwiebel",
+      "fr": "oignon",
+      "es": "cebolla",
+      "it": "cipolla",
+      "pt": "cebola"
+     },
+     "example": "प्याज़ काटते समय आँखों में पानी आता है।"
+    },
+    {
+     "front": "लहसुन",
+     "back": {
+      "ru": "чеснок (lahsun)",
+      "en": "garlic (lahsun)",
+      "de": "Knoblauch",
+      "fr": "ail",
+      "es": "ajo",
+      "it": "aglio",
+      "pt": "alho"
+     },
+     "example": "दाल में थोड़ा लहसुन डालो।"
+    },
+    {
+     "front": "गाजर",
+     "back": {
+      "ru": "морковь (gājar)",
+      "en": "carrot (gājar)",
+      "de": "Karotte",
+      "fr": "carotte",
+      "es": "zanahoria",
+      "it": "carota",
+      "pt": "cenoura"
+     },
+     "example": "गाजर आँखों के लिए अच्छी है।"
+    },
+    {
+     "front": "सलाद पत्ता",
+     "back": {
+      "ru": "салат-латук (salād pattā)",
+      "en": "lettuce (salād pattā)",
+      "de": "Salat",
+      "fr": "laitue",
+      "es": "lechuga",
+      "it": "lattuga",
+      "pt": "alface"
+     },
+     "example": "सैंडविच में सलाद पत्ता लगाओ।"
+    },
+    {
+     "front": "खीरा",
+     "back": {
+      "ru": "огурец (khīrā)",
+      "en": "cucumber (khīrā)",
+      "de": "Gurke",
+      "fr": "concombre",
+      "es": "pepino",
+      "it": "cetriolo",
+      "pt": "pepino"
+     },
+     "example": "गर्मी में खीरा ठंडक देता है।"
+    },
+    {
+     "front": "राजमा",
+     "back": {
+      "ru": "фасоль (rājmā)",
+      "en": "beans (rājmā)",
+      "de": "Bohnen",
+      "fr": "haricots",
+      "es": "frijoles",
+      "it": "fagioli",
+      "pt": "feijão"
+     },
+     "example": "आज खाने में राजमा बना है।"
+    },
+    {
+     "front": "मटर",
+     "back": {
+      "ru": "горох (maṭar)",
+      "en": "pea (maṭar)",
+      "de": "Erbse",
+      "fr": "petit pois",
+      "es": "guisante",
+      "it": "pisello",
+      "pt": "ervilha"
+     },
+     "example": "सर्दियों में मटर मीठे होते हैं।"
+    },
+    {
+     "front": "पत्तागोभी",
+     "back": {
+      "ru": "капуста (pattāgobhī)",
+      "en": "cabbage (pattāgobhī)",
+      "de": "Kohl",
+      "fr": "chou",
+      "es": "col",
+      "it": "cavolo",
+      "pt": "couve"
+     },
+     "example": "मैंने पत्तागोभी की सब्ज़ी बनाई।"
+    },
+    {
+     "front": "कद्दू",
+     "back": {
+      "ru": "тыква (kaddū)",
+      "en": "pumpkin (kaddū)",
+      "de": "Kürbis",
+      "fr": "citrouille",
+      "es": "calabaza",
+      "it": "zucca",
+      "pt": "abóbora"
+     },
+     "example": "कद्दू की सब्ज़ी मीठी होती है।"
+    },
+    {
+     "front": "मशरूम",
+     "back": {
+      "ru": "гриб (maśrūm)",
+      "en": "mushroom (maśrūm)",
+      "de": "Pilz",
+      "fr": "champignon",
+      "es": "seta",
+      "it": "fungo",
+      "pt": "cogumelo"
+     },
+     "example": "मुझे मशरूम बहुत पसंद हैं।"
+    },
+    {
+     "front": "जैतून",
+     "back": {
+      "ru": "оливка (jaitūn)",
+      "en": "olive (jaitūn)",
+      "de": "Olive",
+      "fr": "olive",
+      "es": "aceituna",
+      "it": "oliva",
+      "pt": "azeitona"
+     },
+     "example": "सलाद में कुछ जैतून डालो।"
+    },
+    {
+     "front": "केक",
+     "back": {
+      "ru": "торт (kek)",
+      "en": "cake (kek)",
+      "de": "Kuchen",
+      "fr": "gâteau",
+      "es": "pastel",
+      "it": "torta",
+      "pt": "bolo"
+     },
+     "example": "जन्मदिन पर हमने केक काटा।"
+    },
+    {
+     "front": "बिस्किट",
+     "back": {
+      "ru": "печенье (biskiṭ)",
+      "en": "biscuit (biskiṭ)",
+      "de": "Keks",
+      "fr": "biscuit",
+      "es": "galleta",
+      "it": "biscotto",
+      "pt": "bolacha"
+     },
+     "example": "चाय के साथ बिस्किट लो।"
+    },
+    {
+     "front": "मुरब्बा",
+     "back": {
+      "ru": "варенье (murabbā)",
+      "en": "jam (murabbā)",
+      "de": "Marmelade",
+      "fr": "confiture",
+      "es": "mermelada",
+      "it": "marmellata",
+      "pt": "compota"
+     },
+     "example": "रोटी पर आम का मुरब्बा लगाओ।"
+    },
+    {
+     "front": "चॉकलेट",
+     "back": {
+      "ru": "шоколад (chokleṭ)",
+      "en": "chocolate (chokleṭ)",
+      "de": "Schokolade",
+      "fr": "chocolat",
+      "es": "chocolate",
+      "it": "cioccolato",
+      "pt": "chocolate"
+     },
+     "example": "बच्चों को चॉकलेट बहुत पसंद है।"
+    },
+    {
+     "front": "आइसक्रीम",
+     "back": {
+      "ru": "мороженое (āiskrīm)",
+      "en": "ice cream (āiskrīm)",
+      "de": "Eis",
+      "fr": "glace",
+      "es": "helado",
+      "it": "gelato",
+      "pt": "gelado"
+     },
+     "example": "गर्मी में आइसक्रीम अच्छी लगती है।"
+    },
+    {
+     "front": "शहद",
+     "back": {
+      "ru": "мёд (śahad)",
+      "en": "honey (śahad)",
+      "de": "Honig",
+      "fr": "miel",
+      "es": "miel",
+      "it": "miele",
+      "pt": "mel"
+     },
+     "example": "गरम दूध में शहद मिलाओ।"
+    },
+    {
+     "front": "मिठाई",
+     "back": {
+      "ru": "сладость (miṭhāī)",
+      "en": "sweet (miṭhāī)",
+      "de": "Süßigkeit",
+      "fr": "sucrerie",
+      "es": "dulce",
+      "it": "dolce",
+      "pt": "doce"
+     },
+     "example": "त्योहार पर मिठाई बाँटी जाती है।"
+    },
+    {
+     "front": "मीठा",
+     "back": {
+      "ru": "десерт (mīṭhā)",
+      "en": "dessert (mīṭhā)",
+      "de": "Nachtisch",
+      "fr": "dessert",
+      "es": "postre",
+      "it": "dolce",
+      "pt": "sobremesa"
+     },
+     "example": "खाने के बाद मीठा ज़रूर लीजिए।"
+    },
+    {
+     "front": "दही",
+     "back": {
+      "ru": "йогурт (dahī)",
+      "en": "yoghurt (dahī)",
+      "de": "Joghurt",
+      "fr": "yaourt",
+      "es": "yogur",
+      "it": "yogurt",
+      "pt": "iogurte"
+     },
+     "example": "गर्मी में दही ठंडक देता है।"
+    },
+    {
+     "front": "मलाई",
+     "back": {
+      "ru": "сливки (malāī)",
+      "en": "cream (malāī)",
+      "de": "Sahne",
+      "fr": "crème",
+      "es": "nata",
+      "it": "panna",
+      "pt": "natas"
+     },
+     "example": "दूध पर मलाई जमी है।"
+    },
+    {
+     "front": "टोस्ट",
+     "back": {
+      "ru": "тост (tosṭ)",
+      "en": "toast (tosṭ)",
+      "de": "Toast",
+      "fr": "pain grillé",
+      "es": "tostada",
+      "it": "toast",
+      "pt": "torrada"
+     },
+     "example": "नाश्ते में टोस्ट और चाय थी।"
+    },
+    {
+     "front": "सैंडविच",
+     "back": {
+      "ru": "бутерброд (saiṇḍvich)",
+      "en": "sandwich (saiṇḍvich)",
+      "de": "Sandwich",
+      "fr": "sandwich",
+      "es": "bocadillo",
+      "it": "panino",
+      "pt": "sanduíche"
+     },
+     "example": "मैंने दोपहर में सैंडविच खाया।"
+    },
+    {
+     "front": "नाश्ता",
+     "back": {
+      "ru": "завтрак (nāśtā)",
+      "en": "breakfast (nāśtā)",
+      "de": "Frühstück",
+      "fr": "petit-déjeuner",
+      "es": "desayuno",
+      "it": "colazione",
+      "pt": "pequeno-almoço"
+     },
+     "example": "मैं रोज़ आठ बजे नाश्ता करता हूँ।"
+    },
+    {
+     "front": "दोपहर का खाना",
+     "back": {
+      "ru": "обед (dopahar kā khānā)",
+      "en": "lunch (dopahar kā khānā)",
+      "de": "Mittagessen",
+      "fr": "déjeuner",
+      "es": "almuerzo",
+      "it": "pranzo",
+      "pt": "almoço"
+     },
+     "example": "दोपहर का खाना एक बजे मिलता है।"
+    },
+    {
+     "front": "रात का खाना",
+     "back": {
+      "ru": "ужин (rāt kā khānā)",
+      "en": "dinner (rāt kā khānā)",
+      "de": "Abendessen",
+      "fr": "dîner",
+      "es": "cena",
+      "it": "cena",
+      "pt": "jantar"
+     },
+     "example": "रात का खाना नौ बजे तैयार होगा।"
+    },
+    {
+     "front": "शाम का नाश्ता",
+     "back": {
+      "ru": "полдник (śām kā nāśtā)",
+      "en": "snack (śām kā nāśtā)",
+      "de": "Zwischenmahlzeit",
+      "fr": "goûter",
+      "es": "merienda",
+      "it": "merenda",
+      "pt": "lanche"
+     },
+     "example": "बच्चे शाम का नाश्ता कर रहे हैं।"
+    },
+    {
+     "front": "भोजन",
+     "back": {
+      "ru": "приём пищи (bhojan)",
+      "en": "meal (bhojan)",
+      "de": "Mahlzeit",
+      "fr": "repas",
+      "es": "comida",
+      "it": "pasto",
+      "pt": "refeição"
+     },
+     "example": "दिन का पहला भोजन ज़रूरी है।"
+    },
+    {
+     "front": "आहार",
+     "back": {
+      "ru": "еда (āhār)",
+      "en": "food (āhār)",
+      "de": "Essen",
+      "fr": "nourriture",
+      "es": "comida",
+      "it": "cibo",
+      "pt": "comida"
+     },
+     "example": "संतुलित आहार सेहत के लिए ज़रूरी है।"
+    },
+    {
+     "front": "पेय",
+     "back": {
+      "ru": "напиток (pey)",
+      "en": "drink (pey)",
+      "de": "Getränk",
+      "fr": "boisson",
+      "es": "bebida",
+      "it": "bevanda",
+      "pt": "bebida"
+     },
+     "example": "यहाँ ठंडे पेय मिलते हैं।"
+    },
+    {
+     "front": "थाली",
+     "back": {
+      "ru": "тарелка (thālī)",
+      "en": "plate (thālī)",
+      "de": "Teller",
+      "fr": "assiette",
+      "es": "plato",
+      "it": "piatto",
+      "pt": "prato"
+     },
+     "example": "थाली में खाना परोसो।"
+    },
+    {
+     "front": "गिलास",
+     "back": {
+      "ru": "стакан (gilās)",
+      "en": "glass (gilās)",
+      "de": "Glas",
+      "fr": "verre",
+      "es": "vaso",
+      "it": "bicchiere",
+      "pt": "copo"
+     },
+     "example": "मुझे एक गिलास पानी दो।"
+    },
+    {
+     "front": "कप",
+     "back": {
+      "ru": "чашка (kap)",
+      "en": "cup (kap)",
+      "de": "Tasse",
+      "fr": "tasse",
+      "es": "taza",
+      "it": "tazza",
+      "pt": "chávena"
+     },
+     "example": "मेज़ पर चाय का कप रखा है।"
+    },
+    {
+     "front": "बोतल",
+     "back": {
+      "ru": "бутылка (botal)",
+      "en": "bottle (botal)",
+      "de": "Flasche",
+      "fr": "bouteille",
+      "es": "botella",
+      "it": "bottiglia",
+      "pt": "garrafa"
+     },
+     "example": "बोतल में पानी भर दो।"
+    },
+    {
+     "front": "चम्मच",
+     "back": {
+      "ru": "ложка (chammach)",
+      "en": "spoon (chammach)",
+      "de": "Löffel",
+      "fr": "cuillère",
+      "es": "cuchara",
+      "it": "cucchiaio",
+      "pt": "colher"
+     },
+     "example": "चाय में एक चम्मच चीनी डालो।"
+    },
+    {
+     "front": "काँटा",
+     "back": {
+      "ru": "вилка (kā̃ṭā)",
+      "en": "fork (kā̃ṭā)",
+      "de": "Gabel",
+      "fr": "fourchette",
+      "es": "tenedor",
+      "it": "forchetta",
+      "pt": "garfo"
+     },
+     "example": "खाने के लिए काँटा चाहिए।"
+    },
+    {
+     "front": "चाकू",
+     "back": {
+      "ru": "нож (chākū)",
+      "en": "knife (chākū)",
+      "de": "Messer",
+      "fr": "couteau",
+      "es": "cuchillo",
+      "it": "coltello",
+      "pt": "faca"
+     },
+     "example": "इस चाकू से सब्ज़ी काटो।"
+    },
+    {
+     "front": "नैपकिन",
+     "back": {
+      "ru": "салфетка (naipkin)",
+      "en": "napkin (naipkin)",
+      "de": "Serviette",
+      "fr": "serviette",
+      "es": "servilleta",
+      "it": "tovagliolo",
+      "pt": "guardanapo"
+     },
+     "example": "मेज़ पर नैपकिन रख दो।"
+    },
+    {
+     "front": "पतीला",
+     "back": {
+      "ru": "кастрюля (patīlā)",
+      "en": "pot (patīlā)",
+      "de": "Topf",
+      "fr": "casserole",
+      "es": "olla",
+      "it": "pentola",
+      "pt": "panela"
+     },
+     "example": "पतीले में दाल पक रही है।"
+    },
+    {
+     "front": "कड़ाही",
+     "back": {
+      "ru": "сковорода (kaṛāhī)",
+      "en": "frying pan (kaṛāhī)",
+      "de": "Pfanne",
+      "fr": "poêle",
+      "es": "sartén",
+      "it": "padella",
+      "pt": "frigideira"
+     },
+     "example": "कड़ाही में तेल गरम करो।"
+    },
+    {
+     "front": "रेस्तराँ",
+     "back": {
+      "ru": "ресторан (restarā̃)",
+      "en": "restaurant (restarā̃)",
+      "de": "Restaurant",
+      "fr": "restaurant",
+      "es": "restaurante",
+      "it": "ristorante",
+      "pt": "restaurante"
+     },
+     "example": "कल रात हम रेस्तराँ गए थे।"
+    },
+    {
+     "front": "मेन्यू",
+     "back": {
+      "ru": "меню (menyū)",
+      "en": "menu (menyū)",
+      "de": "Speisekarte",
+      "fr": "menu",
+      "es": "carta",
+      "it": "menù",
+      "pt": "ementa"
+     },
+     "example": "वेटर ने हमें मेन्यू दिया।"
+    },
+    {
+     "front": "बिल",
+     "back": {
+      "ru": "счёт (bil)",
+      "en": "bill (bil)",
+      "de": "Rechnung",
+      "fr": "addition",
+      "es": "cuenta",
+      "it": "conto",
+      "pt": "conta"
+     },
+     "example": "कृपया बिल ले आइए।"
+    },
+    {
+     "front": "वेटर",
+     "back": {
+      "ru": "официант (veṭar)",
+      "en": "waiter (veṭar)",
+      "de": "Kellner",
+      "fr": "serveur",
+      "es": "camarero",
+      "it": "cameriere",
+      "pt": "empregado"
+     },
+     "example": "यहाँ का वेटर बहुत विनम्र है।"
+    },
+    {
+     "front": "भूख",
+     "back": {
+      "ru": "голод (bhūkh)",
+      "en": "hunger (bhūkh)",
+      "de": "Hunger",
+      "fr": "faim",
+      "es": "hambre",
+      "it": "fame",
+      "pt": "fome"
+     },
+     "example": "मुझे बहुत भूख लगी है।"
+    },
+    {
+     "front": "प्यास",
+     "back": {
+      "ru": "жажда (pyās)",
+      "en": "thirst (pyās)",
+      "de": "Durst",
+      "fr": "soif",
+      "es": "sed",
+      "it": "sete",
+      "pt": "sede"
+     },
+     "example": "गर्मी में जल्दी प्यास लगती है।"
+    },
+    {
+     "front": "स्वाद",
+     "back": {
+      "ru": "вкус (svād)",
+      "en": "taste (svād)",
+      "de": "Geschmack",
+      "fr": "goût",
+      "es": "sabor",
+      "it": "sapore",
+      "pt": "sabor"
+     },
+     "example": "इस खाने का स्वाद बढ़िया है।"
+    },
+    {
+     "front": "रेसिपी",
+     "back": {
+      "ru": "рецепт (resipī)",
+      "en": "recipe (resipī)",
+      "de": "Rezept",
+      "fr": "recette",
+      "es": "receta",
+      "it": "ricetta",
+      "pt": "receita"
+     },
+     "example": "मुझे इस मिठाई की रेसिपी बताओ।"
+    }
+   ]
+  },
+  {
+   "nameKey": "seed_deck_clothes",
+   "name": "Clothes",
+   "shape": 4,
+   "cards": [
+    {
+     "front": "कपड़े",
+     "back": {
+      "ru": "одежда (kapṛe)",
+      "en": "clothes (kapṛe)",
+      "de": "Kleidung",
+      "fr": "vêtements",
+      "es": "ropa",
+      "it": "vestiti",
+      "pt": "roupa"
+     },
+     "example": "मुझे नए कपड़े ख़रीदने हैं।"
+    },
+    {
+     "front": "क़मीज़",
+     "back": {
+      "ru": "рубашка (qamīz)",
+      "en": "shirt (qamīz)",
+      "de": "Hemd",
+      "fr": "chemise",
+      "es": "camisa",
+      "it": "camicia",
+      "pt": "camisa"
+     },
+     "example": "यह क़मीज़ मुझे छोटी है।"
+    },
+    {
+     "front": "स्वेटर",
+     "back": {
+      "ru": "свитер (sveṭar)",
+      "en": "jumper (sveṭar)",
+      "de": "Pullover",
+      "fr": "pull",
+      "es": "jersey",
+      "it": "maglione",
+      "pt": "camisola"
+     },
+     "example": "सर्दी में स्वेटर पहनकर निकलो।"
+    },
+    {
+     "front": "टी-शर्ट",
+     "back": {
+      "ru": "футболка (ṭī-śarṭ)",
+      "en": "T-shirt (ṭī-śarṭ)",
+      "de": "T-Shirt",
+      "fr": "tee-shirt",
+      "es": "camiseta",
+      "it": "maglietta",
+      "pt": "t-shirt"
+     },
+     "example": "वह नीली टी-शर्ट पहनता है।"
+    },
+    {
+     "front": "कोट",
+     "back": {
+      "ru": "пальто (koṭ)",
+      "en": "coat (koṭ)",
+      "de": "Mantel",
+      "fr": "manteau",
+      "es": "abrigo",
+      "it": "cappotto",
+      "pt": "casaco"
+     },
+     "example": "बाहर ठंड है, कोट पहन लो।"
+    },
+    {
+     "front": "जैकेट",
+     "back": {
+      "ru": "куртка (jaikeṭ)",
+      "en": "jacket (jaikeṭ)",
+      "de": "Jacke",
+      "fr": "blouson",
+      "es": "cazadora",
+      "it": "giubbotto",
+      "pt": "blusão"
+     },
+     "example": "उसकी जैकेट चमड़े की है।"
+    },
+    {
+     "front": "बंडी",
+     "back": {
+      "ru": "жилет (baṇḍī)",
+      "en": "waistcoat (baṇḍī)",
+      "de": "Weste",
+      "fr": "gilet",
+      "es": "chaleco",
+      "it": "gilet",
+      "pt": "colete"
+     },
+     "example": "उसने कुर्ते के ऊपर बंडी पहनी है।"
+    },
+    {
+     "front": "पतलून",
+     "back": {
+      "ru": "брюки (patlūn)",
+      "en": "trousers (patlūn)",
+      "de": "Hose",
+      "fr": "pantalon",
+      "es": "pantalones",
+      "it": "pantaloni",
+      "pt": "calças"
+     },
+     "example": "यह पतलून मेरे लिए लंबी है।"
+    },
+    {
+     "front": "शॉर्ट्स",
+     "back": {
+      "ru": "шорты (śorṭs)",
+      "en": "shorts (śorṭs)",
+      "de": "Shorts",
+      "fr": "short",
+      "es": "pantalones cortos",
+      "it": "pantaloncini",
+      "pt": "calções"
+     },
+     "example": "गर्मी में वह शॉर्ट्स पहनता है।"
+    },
+    {
+     "front": "स्कर्ट",
+     "back": {
+      "ru": "юбка (skarṭ)",
+      "en": "skirt (skarṭ)",
+      "de": "Rock",
+      "fr": "jupe",
+      "es": "falda",
+      "it": "gonna",
+      "pt": "saia"
+     },
+     "example": "उसने आज लाल स्कर्ट पहनी है।"
+    },
+    {
+     "front": "फ़्रॉक",
+     "back": {
+      "ru": "платье (frok)",
+      "en": "dress (frok)",
+      "de": "Kleid",
+      "fr": "robe",
+      "es": "vestido",
+      "it": "vestito",
+      "pt": "vestido"
+     },
+     "example": "बच्ची नई फ़्रॉक में सुंदर लग रही है।"
+    },
+    {
+     "front": "सूट",
+     "back": {
+      "ru": "костюм (sūṭ)",
+      "en": "suit (sūṭ)",
+      "de": "Anzug",
+      "fr": "costume",
+      "es": "traje",
+      "it": "completo",
+      "pt": "fato"
+     },
+     "example": "वह दफ़्तर में सूट पहनता है।"
+    },
+    {
+     "front": "टाई",
+     "back": {
+      "ru": "галстук (ṭāī)",
+      "en": "tie (ṭāī)",
+      "de": "Krawatte",
+      "fr": "cravate",
+      "es": "corbata",
+      "it": "cravatta",
+      "pt": "gravata"
+     },
+     "example": "उसकी टाई गहरी नीली है।"
+    },
+    {
+     "front": "बेल्ट",
+     "back": {
+      "ru": "ремень (belṭ)",
+      "en": "belt (belṭ)",
+      "de": "Gürtel",
+      "fr": "ceinture",
+      "es": "cinturón",
+      "it": "cintura",
+      "pt": "cinto"
+     },
+     "example": "पतलून में बेल्ट लगा लो।"
+    },
+    {
+     "front": "मोज़े",
+     "back": {
+      "ru": "носки (moze)",
+      "en": "socks (moze)",
+      "de": "Socken",
+      "fr": "chaussettes",
+      "es": "calcetines",
+      "it": "calzini",
+      "pt": "meias"
+     },
+     "example": "सर्दी में मोज़े पहनकर सोओ।"
+    },
+    {
+     "front": "टाइट्स",
+     "back": {
+      "ru": "колготки (ṭāiṭs)",
+      "en": "tights (ṭāiṭs)",
+      "de": "Strumpfhose",
+      "fr": "collants",
+      "es": "medias",
+      "it": "collant",
+      "pt": "collants"
+     },
+     "example": "उसने स्कर्ट के साथ टाइट्स पहनी हैं।"
+    },
+    {
+     "front": "जूते",
+     "back": {
+      "ru": "туфли (jūte)",
+      "en": "shoes (jūte)",
+      "de": "Schuhe",
+      "fr": "chaussures",
+      "es": "zapatos",
+      "it": "scarpe",
+      "pt": "sapatos"
+     },
+     "example": "अंदर आने से पहले जूते उतारो।"
+    },
+    {
+     "front": "खेल के जूते",
+     "back": {
+      "ru": "кроссовки (khel ke jūte)",
+      "en": "trainers (khel ke jūte)",
+      "de": "Turnschuhe",
+      "fr": "baskets",
+      "es": "zapatillas",
+      "it": "scarpe da ginnastica",
+      "pt": "ténis"
+     },
+     "example": "मैं खेल के जूते पहनकर दौड़ता हूँ।"
+    },
+    {
+     "front": "बूट",
+     "back": {
+      "ru": "сапоги (būṭ)",
+      "en": "boots (būṭ)",
+      "de": "Stiefel",
+      "fr": "bottes",
+      "es": "botas",
+      "it": "stivali",
+      "pt": "botas"
+     },
+     "example": "बारिश में बूट पहनकर जाओ।"
+    },
+    {
+     "front": "सैंडल",
+     "back": {
+      "ru": "сандалии (saiṇḍal)",
+      "en": "sandals (saiṇḍal)",
+      "de": "Sandalen",
+      "fr": "sandales",
+      "es": "sandalias",
+      "it": "sandali",
+      "pt": "sandálias"
+     },
+     "example": "गर्मी में सैंडल आरामदेह लगते हैं।"
+    },
+    {
+     "front": "चप्पल",
+     "back": {
+      "ru": "тапочки (chappal)",
+      "en": "slippers (chappal)",
+      "de": "Hausschuhe",
+      "fr": "chaussons",
+      "es": "zapatillas de casa",
+      "it": "ciabatte",
+      "pt": "chinelos"
+     },
+     "example": "घर के अंदर चप्पल पहनो।"
+    },
+    {
+     "front": "टोपी",
+     "back": {
+      "ru": "шляпа (ṭopī)",
+      "en": "hat (ṭopī)",
+      "de": "Hut",
+      "fr": "chapeau",
+      "es": "sombrero",
+      "it": "cappello",
+      "pt": "chapéu"
+     },
+     "example": "धूप में टोपी पहनकर निकलो।"
+    },
+    {
+     "front": "कैप",
+     "back": {
+      "ru": "кепка (kaip)",
+      "en": "cap (kaip)",
+      "de": "Mütze",
+      "fr": "casquette",
+      "es": "gorra",
+      "it": "berretto",
+      "pt": "boné"
+     },
+     "example": "उसने उल्टी कैप पहनी है।"
+    },
+    {
+     "front": "ऊनी टोपी",
+     "back": {
+      "ru": "шапка (ūnī ṭopī)",
+      "en": "woolly hat (ūnī ṭopī)",
+      "de": "Wollmütze",
+      "fr": "bonnet",
+      "es": "gorro",
+      "it": "berretto di lana",
+      "pt": "gorro"
+     },
+     "example": "सर्दी में ऊनी टोपी ज़रूरी है।"
+    },
+    {
+     "front": "दस्ताने",
+     "back": {
+      "ru": "перчатки (dastāne)",
+      "en": "gloves (dastāne)",
+      "de": "Handschuhe",
+      "fr": "gants",
+      "es": "guantes",
+      "it": "guanti",
+      "pt": "luvas"
+     },
+     "example": "ठंड में दस्ताने पहन लो।"
+    },
+    {
+     "front": "मफ़लर",
+     "back": {
+      "ru": "шарф (maflar)",
+      "en": "scarf (maflar)",
+      "de": "Schal",
+      "fr": "écharpe",
+      "es": "bufanda",
+      "it": "sciarpa",
+      "pt": "cachecol"
+     },
+     "example": "गले में मफ़लर लपेट लो।"
+    },
+    {
+     "front": "रूमाल",
+     "back": {
+      "ru": "платок (rūmāl)",
+      "en": "handkerchief (rūmāl)",
+      "de": "Taschentuch",
+      "fr": "mouchoir",
+      "es": "pañuelo",
+      "it": "fazzoletto",
+      "pt": "lenço"
+     },
+     "example": "उसने जेब से रूमाल निकाला।"
+    },
+    {
+     "front": "चश्मा",
+     "back": {
+      "ru": "очки (chaśmā)",
+      "en": "glasses (chaśmā)",
+      "de": "Brille",
+      "fr": "lunettes",
+      "es": "gafas",
+      "it": "occhiali",
+      "pt": "óculos"
+     },
+     "example": "पढ़ते समय मैं चश्मा लगाता हूँ।"
+    },
+    {
+     "front": "थैला",
+     "back": {
+      "ru": "сумка (thailā)",
+      "en": "bag (thailā)",
+      "de": "Tasche",
+      "fr": "sac",
+      "es": "bolso",
+      "it": "borsa",
+      "pt": "mala"
+     },
+     "example": "बाज़ार जाते समय थैला ले जाओ।"
+    },
+    {
+     "front": "बटुआ",
+     "back": {
+      "ru": "кошелёк (baṭuā)",
+      "en": "wallet (baṭuā)",
+      "de": "Geldbörse",
+      "fr": "portefeuille",
+      "es": "cartera",
+      "it": "portafoglio",
+      "pt": "carteira"
+     },
+     "example": "मेरा बटुआ जेब में है।"
+    },
+    {
+     "front": "बस्ता",
+     "back": {
+      "ru": "рюкзак (bastā)",
+      "en": "backpack (bastā)",
+      "de": "Rucksack",
+      "fr": "sac à dos",
+      "es": "mochila",
+      "it": "zaino",
+      "pt": "mochila"
+     },
+     "example": "बच्चे का बस्ता बहुत भारी है।"
+    },
+    {
+     "front": "छाता",
+     "back": {
+      "ru": "зонт (chhātā)",
+      "en": "umbrella (chhātā)",
+      "de": "Regenschirm",
+      "fr": "parapluie",
+      "es": "paraguas",
+      "it": "ombrello",
+      "pt": "guarda-chuva"
+     },
+     "example": "बारिश में छाता ले जाओ।"
+    },
+    {
+     "front": "पजामा",
+     "back": {
+      "ru": "пижама (pajāmā)",
+      "en": "pyjamas (pajāmā)",
+      "de": "Schlafanzug",
+      "fr": "pyjama",
+      "es": "pijama",
+      "it": "pigiama",
+      "pt": "pijama"
+     },
+     "example": "रात में वह पजामा पहनता है।"
+    },
+    {
+     "front": "गाउन",
+     "back": {
+      "ru": "халат (gāun)",
+      "en": "dressing gown (gāun)",
+      "de": "Bademantel",
+      "fr": "peignoir",
+      "es": "albornoz",
+      "it": "accappatoio",
+      "pt": "roupão"
+     },
+     "example": "नहाने के बाद उसने गाउन पहना।"
+    },
+    {
+     "front": "तौलिया",
+     "back": {
+      "ru": "полотенце (tauliyā)",
+      "en": "towel (tauliyā)",
+      "de": "Handtuch",
+      "fr": "serviette",
+      "es": "toalla",
+      "it": "asciugamano",
+      "pt": "toalha"
+     },
+     "example": "गीला तौलिया धूप में सुखाओ।"
+    },
+    {
+     "front": "जेब",
+     "back": {
+      "ru": "карман (jeb)",
+      "en": "pocket (jeb)",
+      "de": "Tasche",
+      "fr": "poche",
+      "es": "bolsillo",
+      "it": "tasca",
+      "pt": "bolso"
+     },
+     "example": "मेरी जेब में चाबी है।"
+    },
+    {
+     "front": "बटन",
+     "back": {
+      "ru": "пуговица (baṭan)",
+      "en": "button (baṭan)",
+      "de": "Knopf",
+      "fr": "bouton",
+      "es": "botón",
+      "it": "bottone",
+      "pt": "botão"
+     },
+     "example": "क़मीज़ का एक बटन टूट गया।"
+    },
+    {
+     "front": "ज़िप",
+     "back": {
+      "ru": "молния (zip)",
+      "en": "zip (zip)",
+      "de": "Reißverschluss",
+      "fr": "fermeture éclair",
+      "es": "cremallera",
+      "it": "cerniera",
+      "pt": "fecho"
+     },
+     "example": "बस्ते की ज़िप ख़राब है।"
+    },
+    {
+     "front": "आस्तीन",
+     "back": {
+      "ru": "рукав (āstīn)",
+      "en": "sleeve (āstīn)",
+      "de": "Ärmel",
+      "fr": "manche",
+      "es": "manga",
+      "it": "manica",
+      "pt": "manga"
+     },
+     "example": "इस क़मीज़ की आस्तीन लंबी है।"
+    },
+    {
+     "front": "कॉलर",
+     "back": {
+      "ru": "воротник (kolar)",
+      "en": "collar (kolar)",
+      "de": "Kragen",
+      "fr": "col",
+      "es": "cuello",
+      "it": "colletto",
+      "pt": "gola"
+     },
+     "example": "उसकी क़मीज़ का कॉलर गंदा है।"
+    },
+    {
+     "front": "नाप",
+     "back": {
+      "ru": "размер (nāp)",
+      "en": "size (nāp)",
+      "de": "Größe",
+      "fr": "taille",
+      "es": "talla",
+      "it": "taglia",
+      "pt": "tamanho"
+     },
+     "example": "यह क़मीज़ मेरी नाप की नहीं है।"
+    },
+    {
+     "front": "कपड़ा",
+     "back": {
+      "ru": "ткань (kapṛā)",
+      "en": "fabric (kapṛā)",
+      "de": "Stoff",
+      "fr": "tissu",
+      "es": "tela",
+      "it": "tessuto",
+      "pt": "tecido"
+     },
+     "example": "यह कपड़ा बहुत नरम है।"
+    },
+    {
+     "front": "कपास",
+     "back": {
+      "ru": "хлопок (kapās)",
+      "en": "cotton (kapās)",
+      "de": "Baumwolle",
+      "fr": "coton",
+      "es": "algodón",
+      "it": "cotone",
+      "pt": "algodão"
+     },
+     "example": "कपास से धागा बनता है।"
+    },
+    {
+     "front": "ऊन",
+     "back": {
+      "ru": "шерсть (ūn)",
+      "en": "wool (ūn)",
+      "de": "Wolle",
+      "fr": "laine",
+      "es": "lana",
+      "it": "lana",
+      "pt": "lã"
+     },
+     "example": "यह स्वेटर ऊन का है।"
+    },
+    {
+     "front": "रेशम",
+     "back": {
+      "ru": "шёлк (reśam)",
+      "en": "silk (reśam)",
+      "de": "Seide",
+      "fr": "soie",
+      "es": "seda",
+      "it": "seta",
+      "pt": "seda"
+     },
+     "example": "रेशम की साड़ी महँगी होती है।"
+    },
+    {
+     "front": "चमड़ा",
+     "back": {
+      "ru": "кожа (chamṛā)",
+      "en": "leather (chamṛā)",
+      "de": "Leder",
+      "fr": "cuir",
+      "es": "cuero",
+      "it": "cuoio",
+      "pt": "couro"
+     },
+     "example": "यह बटुआ चमड़े का बना है।"
+    },
+    {
+     "front": "हैंगर",
+     "back": {
+      "ru": "вешалка (haiṅgar)",
+      "en": "hanger (haiṅgar)",
+      "de": "Kleiderbügel",
+      "fr": "cintre",
+      "es": "percha",
+      "it": "gruccia",
+      "pt": "cabide"
+     },
+     "example": "कोट हैंगर पर टाँग दो।"
+    },
+    {
+     "front": "अलमारी",
+     "back": {
+      "ru": "шкаф (almārī)",
+      "en": "wardrobe (almārī)",
+      "de": "Schrank",
+      "fr": "armoire",
+      "es": "armario",
+      "it": "armadio",
+      "pt": "armário"
+     },
+     "example": "सारे कपड़े अलमारी में रखो।"
+    },
+    {
+     "front": "अँगूठी",
+     "back": {
+      "ru": "кольцо (aṅgūṭhī)",
+      "en": "ring (aṅgūṭhī)",
+      "de": "Ring",
+      "fr": "bague",
+      "es": "anillo",
+      "it": "anello",
+      "pt": "anel"
+     },
+     "example": "उसकी अँगूठी सोने की है।"
+    }
+   ]
+  }
+ ]
+}
