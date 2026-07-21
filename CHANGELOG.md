@@ -3,6 +3,30 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.18.1] — 2026-07-21
+
+Прежний знак вернулся.
+
+### Изменено
+- **Иконка приложения снова папоротник, растущий из угла.** Веточка с крупными
+  листьями продержалась несколько дней и уступила: папоротник узнаётся с
+  первого взгляда и читается даже размером с ноготь. Знак обновлён везде —
+  Android, iOS, веб и витрина магазина.
+
+---
+
+## Fern 1.18.1 — in English
+
+The old mark is back.
+
+### Changed
+- **The app icon is a fern frond growing out of the corner again.** The
+  three-leaf sprig lasted a few days and lost: the frond reads at a glance and
+  survives being shrunk to a thumbnail. Updated everywhere — Android, iOS, web
+  and the store listing.
+
+---
+
 ## [1.18.0] — 2026-07-21
 
 Сборка под iOS и защита ключей от раздачи.
