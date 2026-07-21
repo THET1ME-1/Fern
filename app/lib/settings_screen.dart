@@ -617,16 +617,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onPressed:
                     value > min ? () => onChanged((value - step).clamp(min, max)) : null,
               ),
+              // Ширины в 40 логических точек хватало на две цифры: «100» и
+              // «500» ломались на строку «10» и строку «0».
               SizedBox(
-                width: 40,
-                child: Text(
-                  value == 0 ? '∞' : '$value',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: AppTheme.displayFont,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 18,
-                    color: scheme.onSurface,
+                width: 58,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    value == 0 ? '∞' : '$value',
+                    maxLines: 1,
+                    softWrap: false,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: AppTheme.displayFont,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                      color: scheme.onSurface,
+                    ),
                   ),
                 ),
               ),

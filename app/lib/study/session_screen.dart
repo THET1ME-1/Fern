@@ -357,6 +357,74 @@ class _SessionScreenState extends State<SessionScreen>
     );
   }
 
+  /// Спрашивает про выход листом снизу. Кнопки во всю ширину и в столбик:
+  /// в узком ряду «Выйти» и «Отмена» стоят вплотную, а промах здесь стоит
+  /// незасчитанной сессии.
+  Future<bool?> _askLeave() {
+    final scheme = Theme.of(context).colorScheme;
+    return showModalBottomSheet<bool>(
+      context: context,
+      backgroundColor: scheme.surfaceContainerHigh,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: Container(
+                  width: 36,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: scheme.onSurfaceVariant.withValues(alpha: 0.4),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                tr('exit_session_title'),
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 22,
+                  color: scheme.onSurface,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                tr('exit_session_sub'),
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 15,
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+              const SizedBox(height: 24),
+              FilledButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                child: Text(tr('leave')),
+              ),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(0, 52),
+                  shape: const StadiumBorder(),
+                ),
+                child: Text(tr('cancel')),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Future<void> _confirmExit() async {
     if (_exitAsked) return;
     // Пока висит диалог, экран сессии живёт: отсчёт «Быстрого повтора»
@@ -369,23 +437,9 @@ class _SessionScreenState extends State<SessionScreen>
     // сыплются до конца очереди по карточкам, которых никто не видел.
     _exitAsked = true;
     _freezeSpeed();
-    final leave = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(tr('exit_session_title')),
-        content: Text(tr('exit_session_sub')),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text(tr('cancel')),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: Text(tr('leave')),
-          ),
-        ],
-      ),
-    );
+    // Лист снизу, а не диалог по центру: рука уже у нижнего края экрана —
+    // там кнопки оценки, — и тянуться к середине ради ответа незачем.
+    final leave = await _askLeave();
     if (leave == true && mounted) {
       _logProgress(); // засчитываем то, что успели пройти
       Navigator.of(context).pop();
@@ -1702,15 +1756,30 @@ class _TypeExerciseState extends State<_TypeExercise> {
         if (!answered)
           Row(
             children: [
-              Expanded(
+              // Ширина по надписи, а не доля строки: в трети экрана «Не знаю»
+              // ломалось на две строки, а немецкое «Ich weiß nicht» и подавно.
+              // Потолок в 42% держит главную кнопку широкой.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.42,
+                ),
                 child: FilledButton.tonal(
                   onPressed: _skip,
-                  child: Text(tr('dont_know')),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      tr('dont_know'),
+                      maxLines: 1,
+                      softWrap: false,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                flex: 2,
                 child: FilledButton(
                   onPressed: _check,
                   child: Text(tr('check')),
@@ -1884,15 +1953,30 @@ class _ClozeExerciseState extends State<_ClozeExercise> {
         if (!answered)
           Row(
             children: [
-              Expanded(
+              // Ширина по надписи, а не доля строки: в трети экрана «Не знаю»
+              // ломалось на две строки, а немецкое «Ich weiß nicht» и подавно.
+              // Потолок в 42% держит главную кнопку широкой.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.42,
+                ),
                 child: FilledButton.tonal(
                   onPressed: _skip,
-                  child: Text(tr('dont_know')),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      tr('dont_know'),
+                      maxLines: 1,
+                      softWrap: false,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                flex: 2,
                 child: FilledButton(
                   onPressed: _check,
                   child: Text(tr('check')),
@@ -2253,15 +2337,30 @@ class _SpellExerciseState extends State<_SpellExercise> {
         if (!answered)
           Row(
             children: [
-              Expanded(
+              // Ширина по надписи, а не доля строки: в трети экрана «Не знаю»
+              // ломалось на две строки, а немецкое «Ich weiß nicht» и подавно.
+              // Потолок в 42% держит главную кнопку широкой.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.42,
+                ),
                 child: FilledButton.tonal(
                   onPressed: _skip,
-                  child: Text(tr('dont_know')),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      tr('dont_know'),
+                      maxLines: 1,
+                      softWrap: false,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                flex: 2,
                 child: FilledButton(
                   onPressed: _check,
                   child: Text(tr('check')),
@@ -2620,15 +2719,30 @@ class _AssembleExerciseState extends State<_AssembleExercise> {
         if (!answered)
           Row(
             children: [
-              Expanded(
+              // Ширина по надписи, а не доля строки: в трети экрана «Не знаю»
+              // ломалось на две строки, а немецкое «Ich weiß nicht» и подавно.
+              // Потолок в 42% держит главную кнопку широкой.
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.42,
+                ),
                 child: FilledButton.tonal(
                   onPressed: _skip,
-                  child: Text(tr('dont_know')),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                  ),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      tr('dont_know'),
+                      maxLines: 1,
+                      softWrap: false,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                flex: 2,
                 child: FilledButton(
                   onPressed: _pool.isEmpty ? _check : null,
                   child: Text(tr('check')),

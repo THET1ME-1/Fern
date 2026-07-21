@@ -12,6 +12,7 @@ import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'theme/app_theme.dart';
 import 'widgets/card_image_field.dart';
+import 'widgets/action_sheet.dart';
 import 'widgets/deck_editor_sheet.dart';
 import 'widgets/deck_shapes.dart';
 import 'widgets/grammar_card.dart';
@@ -116,19 +117,6 @@ class _DeckScreenState extends State<DeckScreen> {
         });
     }
     return list;
-  }
-
-  PopupMenuItem<String> _menuItem(String value, IconData icon, String label) {
-    return PopupMenuItem<String>(
-      value: value,
-      child: Row(
-        children: [
-          Icon(icon, size: 20),
-          const SizedBox(width: 10),
-          Text(label),
-        ],
-      ),
-    );
   }
 
   Future<void> _editDeck() async {
@@ -323,22 +311,32 @@ class _DeckScreenState extends State<DeckScreen> {
             icon: const Icon(Icons.playlist_add_rounded),
             onPressed: _quickAdd,
           ),
-          PopupMenuButton<String>(
-            onSelected: (v) {
-              if (v == 'split') {
-                _splitByPos();
-              } else if (v == 'edit') {
-                _editDeck();
-              } else if (v == 'delete') {
-                _deleteDeck();
-              }
-            },
-            itemBuilder: (_) => [
-              _menuItem('edit', Icons.edit_rounded, tr('edit_deck')),
-              _menuItem('split', Icons.category_outlined, tr('split_by_pos')),
-              _menuItem('delete', Icons.delete_outline_rounded,
-                  tr('delete_deck')),
-            ],
+          // Лист снизу вместо всплывающего меню у самого края: его нижние
+          // пункты приходилось доставать второй рукой.
+          IconButton(
+            tooltip: tr('menu'),
+            icon: const Icon(Icons.more_vert_rounded),
+            onPressed: () => ActionSheet.show(
+              context,
+              actions: [
+                SheetAction(
+                  icon: Icons.edit_rounded,
+                  label: tr('edit_deck'),
+                  onTap: _editDeck,
+                ),
+                SheetAction(
+                  icon: Icons.category_outlined,
+                  label: tr('split_by_pos'),
+                  onTap: _splitByPos,
+                ),
+                SheetAction(
+                  icon: Icons.delete_outline_rounded,
+                  label: tr('delete_deck'),
+                  onTap: _deleteDeck,
+                  destructive: true,
+                ),
+              ],
+            ),
           ),
         ],
       ),
