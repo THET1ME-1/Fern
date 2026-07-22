@@ -394,6 +394,8 @@ async def cb_menu(query: CallbackQuery) -> None:
 
 @dp.callback_query(F.data.startswith("app:"))
 async def cb_app(query: CallbackQuery) -> None:
+    # Без answer() часики на кнопке крутятся, пока телеграм не устанет ждать.
+    await query.answer()
     app_id = query.data.split(":", 1)[1]
     if not catalog.app(app_id):
         await show(query, texts.WELCOME, menu())
@@ -451,10 +453,11 @@ async def send_keys(message: Message, user_id: int) -> None:
     tg_rows = []
     try:
         token = tg_coins.auth()
+        # Фильтр собираем заранее: кавычки внутри f-строки роняли парсер.
+        flt = urllib.parse.quote('given_to="%s"' % user_id)
         st, data = tg_coins._api(
             "GET",
-            "/api/collections/redeem_codes/records"
-            f"?filter={urllib.parse.quote(f'given_to=\"{user_id}\"')}"
+            f"/api/collections/redeem_codes/records?filter={flt}"
             "&sort=-given_at&perPage=20",
             token,
         )
