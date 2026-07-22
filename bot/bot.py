@@ -50,6 +50,7 @@ from aiogram.types import (
 from aiohttp import web
 
 import texts
+import coins as tg_coins
 from lava import EMAIL_RE, parse as parse_webhook
 from license import SKU_PRO, issue
 from store import Store
@@ -160,6 +161,29 @@ async def process_event(payload) -> str:
         # Не оплата, отказ или событие без почты. Повторы делу не помогут,
         # поэтому это не ошибка: событие остаётся в логе.
         return "ignored"
+
+    # Монеты Togetherly: у них свой сервер, ключ офлайн не нужен — код
+    # создаётся прямо в PocketBase и ждёт, пока покупатель придёт за ним.
+    if tg_coins.coins_for(order["product_id"]) is not None:
+        if order["kind"] == "refund":
+            log.info("возврат монет %s (%s) — код остаётся, гасить вручную",
+                     order["order_id"], order["email"])
+            await notify_owner(
+                f"↩️ Возврат по монетам Togetherly: {order['email']}")
+            return "ok"
+        try:
+            made = tg_coins.create_code(
+                order["product_id"], order["email"], order["order_id"])
+        except Exception as err:      # noqa: BLE001 — покупка важнее стектрейса
+            log.exception("код монет не создан: %s", err)
+            await notify_owner(
+                f"⚠️ Оплата пришла, а код НЕ создан: {order['email']}\n{err}")
+            return "error"
+        code, amount = made
+        log.info("монеты %s: код для %s", amount, order["email"])
+        await notify_owner(
+            f"🪙 Togetherly: {amount} монет, {order['email']}\nКод {code}")
+        return "ok"
 
     product = resolve_product(order["product_id"])
     if not product:
@@ -470,7 +494,14 @@ async def by_email(message: Message) -> None:
         await message.answer(texts.ASK_EMAIL, reply_markup=menu())
         return
 
-    rows = store.claim(found.group(0), user_id)
+    email = found.group(0)
+
+    # Сначала монеты Togetherly: их коды живут в PocketBase, а не в журнале.
+    tg_sent = await send_coin_codes(message, email, user_id)
+
+    rows = store.claim(email, user_id)
+    if not rows and tg_sent:
+        return
     if not rows:
         # Промах засчитывается: почта — единственное доказательство покупки,
         # и перебирать чужие адреса, надеясь опередить покупателя, нельзя.
@@ -487,6 +518,57 @@ async def by_email(message: Message) -> None:
                 row["email"], row["license_id"], user_id,
                 message.from_user.username))
         await message.answer(key_message(row))
+
+
+async def send_coin_codes(message: Message, email: str, user_id: int) -> bool:
+    """Отдаёт коды монет Togetherly по почте покупателя.
+
+    Код выдаётся один раз: запись помечается `given_to`. Повторное обращение
+    честно говорит, что код уже забрали и когда — если это сделал не покупатель,
+    он придёт с этим к владельцу, а не будет гадать.
+    """
+    try:
+        token = tg_coins.auth()
+        rows = tg_coins.codes_for_email(email, token)
+    except Exception as err:                      # noqa: BLE001
+        log.exception("PocketBase недоступен: %s", err)
+        return False
+    if not rows:
+        return False
+
+    fresh = [r for r in rows if not (r.get("given_to") or "")]
+    if not fresh:
+        last = rows[0]
+        when = last.get("created", "")[:16].replace("T", " ")
+        await message.answer(
+            f"По вашим покупкам коды уже выданы: {len(rows)}. "
+            f"Последний — {when}.\n\n"
+            "Если это были не вы, напишите сюда же — разберёмся."
+        )
+        return True
+
+    import time
+    for row in fresh:
+        pretty = row["code"]
+        if len(pretty) == 10:                     # TGXXXXXXXX → TG-XXXX-XXXX
+            pretty = f"{pretty[:2]}-{pretty[2:6]}-{pretty[6:]}"
+        try:
+            tg_coins._api(
+                "PATCH",
+                f"/api/collections/redeem_codes/records/{row['id']}",
+                token,
+                {"given_to": str(user_id), "given_at": int(time.time() * 1000)},
+            )
+        except Exception as err:                  # noqa: BLE001
+            log.exception("не пометил выдачу: %s", err)
+        await message.answer(
+            f"🪙 <b>{row['coins']} монет в Togetherly</b>\n\n"
+            f"Код: <code>{pretty}</code>\n\n"
+            "Введите его в приложении: Профиль → Монеты → «У меня есть код»."
+        )
+        await notify_owner(
+            f"🪙 Код на {row['coins']} монет выдан: {email} → tg {user_id}")
+    return True
 
 
 # ----------------------------- Запуск -----------------------------
