@@ -50,6 +50,9 @@ from aiogram.types import (
 from aiohttp import web
 
 import texts
+import urllib.parse
+
+import catalog
 import coins as tg_coins
 from lava import EMAIL_RE, parse as parse_webhook
 from license import SKU_PRO, issue
@@ -296,16 +299,27 @@ dp = Dispatcher()
 
 
 def menu() -> InlineKeyboardMarkup:
-    """Витрина магазина."""
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🛒 Купить", url=BUY_URL)],
-        [InlineKeyboardButton(text="🔑 Получить ключ", callback_data="claim")],
-        [
-            InlineKeyboardButton(text="📦 Мои ключи", callback_data="mykeys"),
-            InlineKeyboardButton(text="❓ Помощь", callback_data="help"),
-        ],
-        [InlineKeyboardButton(text="🌿 Что даёт Fern Pro", callback_data="about")],
+    """Витрина: сперва приложение, товары — внутри него.
+
+    Плоский список товаров рос бы с каждым приложением и превращался в кашу.
+    """
+    rows = [[InlineKeyboardButton(text=catalog.title(app_id),
+                                  callback_data=f"app:{app_id}")]
+            for app_id in catalog.app_ids()]
+    rows.append([
+        InlineKeyboardButton(text="📦 Мои покупки", callback_data="mykeys"),
+        InlineKeyboardButton(text="❓ Помощь", callback_data="help"),
     ])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def app_menu(app_id: str) -> InlineKeyboardMarkup:
+    """Экран приложения: его товары ссылками на оплату."""
+    rows = [[InlineKeyboardButton(text=f"🛒 {item['title']}", url=item["url"])]
+            for item in catalog.items(app_id)]
+    rows.append([InlineKeyboardButton(text="✅ Уже оплатил", callback_data="claim")])
+    rows.append([InlineKeyboardButton(text="⬅️ К приложениям", callback_data="menu")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
 def back(buy: bool = False) -> InlineKeyboardMarkup:
@@ -364,7 +378,7 @@ async def start(message: Message) -> None:
 
 @dp.message(Command("buy"))
 async def cmd_buy(message: Message) -> None:
-    await message.answer(texts.PRODUCT_CARD, reply_markup=back(buy=True))
+    await message.answer(texts.WELCOME, reply_markup=menu())
 
 
 # Часики на кнопке крутятся, пока бот не ответит на callback, поэтому
@@ -376,6 +390,15 @@ async def cmd_buy(message: Message) -> None:
 async def cb_menu(query: CallbackQuery) -> None:
     await query.answer()
     await show(query, texts.WELCOME, menu())
+
+
+@dp.callback_query(F.data.startswith("app:"))
+async def cb_app(query: CallbackQuery) -> None:
+    app_id = query.data.split(":", 1)[1]
+    if not catalog.app(app_id):
+        await show(query, texts.WELCOME, menu())
+        return
+    await show(query, catalog.card(app_id), app_menu(app_id))
 
 
 @dp.callback_query(F.data == "about")
@@ -407,18 +430,49 @@ async def cmd_help(message: Message) -> None:
     await message.answer(HELP)
 
 
+@dp.message(Command("my"))
+async def cmd_my(message: Message) -> None:
+    """Покупки телеграм-аккаунта: ключи Fern и коды монет Togetherly."""
+    await send_keys(message, message.from_user.id)
+
+
 @dp.message(Command("key"))
 async def cmd_key(message: Message) -> None:
     await send_keys(message, message.from_user.id)
 
 
 async def send_keys(message: Message, user_id: int) -> None:
+    """Всё, что человек уже забрал: ключи Fern и коды монет Togetherly."""
     rows = store.orders_of(user_id)
-    if not rows:
-        await message.answer(texts.NO_KEYS, reply_markup=menu())
-        return
     for row in rows:
         await message.answer(key_message(row))
+
+    # Коды монет живут не в журнале бота, а в PocketBase Togetherly.
+    tg_rows = []
+    try:
+        token = tg_coins.auth()
+        st, data = tg_coins._api(
+            "GET",
+            "/api/collections/redeem_codes/records"
+            f"?filter={urllib.parse.quote(f'given_to=\"{user_id}\"')}"
+            "&sort=-given_at&perPage=20",
+            token,
+        )
+        tg_rows = data.get("items", []) if st == 200 else []
+    except Exception:                              # noqa: BLE001
+        log.exception("не смог прочитать коды монет")
+
+    for row in tg_rows:
+        code = row.get("code", "")
+        pretty = f"{code[:2]}-{code[2:6]}-{code[6:]}" if len(code) == 10 else code
+        used = " · уже применён" if row.get("used_by") else ""
+        await message.answer(
+            f"🪙 <b>{row.get('coins')} монет в Togetherly</b>{used}\n\n"
+            f"Код: <code>{pretty}</code>"
+        )
+
+    if not rows and not tg_rows:
+        await message.answer(texts.NO_KEYS, reply_markup=menu())
 
 
 @dp.message(Command("stats"))
@@ -576,9 +630,9 @@ async def send_coin_codes(message: Message, email: str, user_id: int) -> bool:
 # Синяя кнопка «Меню» в телеграме. Владельцу видны ещё три команды: список для
 # него ставится отдельной областью, покупателям служебное показывать незачем.
 COMMANDS = [
-    BotCommand(command="start", description="🌿 Магазин"),
-    BotCommand(command="buy", description="🛒 Что даёт Fern Pro"),
-    BotCommand(command="key", description="📦 Мои ключи"),
+    BotCommand(command="start", description="🛍 Магазин"),
+    BotCommand(command="buy", description="🛒 Что продаётся"),
+    BotCommand(command="my", description="📦 Мои покупки"),
     BotCommand(command="help", description="❓ Помощь"),
 ]
 
