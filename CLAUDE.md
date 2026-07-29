@@ -14,6 +14,7 @@ flutter test             # весь набор
 flutter test test/x.dart # один файл
 ./tool/build_release.sh  # релиз для GitHub: analyze + тесты + сплит-APK в dist/
 ./tool/build_play.sh     # AAB для Google Play (другой flavor)
+./tool/build_rustore.sh  # универсальный APK для RuStore (третий flavor)
 ```
 
 `build_release.sh` останавливается сам, если нет релизного ключа, и печатает
@@ -42,6 +43,8 @@ Material в тестовой среде рисуются квадратами �
 | `lib/services/deck_repository.dart` | единая точка доступа к данным, `ChangeNotifier`; экраны слушают его |
 | `lib/services/local_db.dart` | SQLite: колоды/паки/карты/журнал повторов |
 | `lib/study/` | сессия (`session_screen.dart`), билдер очереди (`study_models.dart`), читалка, результаты |
+| `lib/theme/fern_shapes.dart` | роли форм M3: обложки, кольца, вехи, ожидание |
+| `lib/widgets/morph_shapes.dart` | перетекание силуэтов (`MorphShape`, `MorphPulse`, `Waiting`) |
 | `lib/l10n/` | `strings.dart` — ru + en, `translations.dart` — остальные пять языков |
 | `lib/services/` прочее | подача и подсказки: `auto_grade`, `interference`, `link_propagation`, `reading_horizon`, `exposure_service`, `schedule_lab`, `word_links` |
 
@@ -50,6 +53,15 @@ Material в тестовой среде рисуются квадратами �
 **FSRS свой, а не пакет `fsrs`.** Взято ради контроля над API: планировщик
 дорабатывается почти каждый заход (fuzz, `passiveExposure`, `weakenByNeighbour`,
 `forSimulation`). Замена на пакет сломает всё это разом.
+
+**Формы M3 — второй язык после цвета** (с 2026-07-29, пакет
+`material_new_shapes`). Роли лежат в `theme/fern_shapes.dart`, силуэты рисует
+`widgets/morph_shapes.dart` (перенесён из Wickly вместе с кэшем морфов).
+Порядок `FernShapes.deckCovers` менять нельзя: индекс записан в `Deck.shape`,
+и перестановка сменит обложки у существующих колод. Цвет в приложении занят
+частями речи, поэтому форма отвечает за другое: обложку колоды, взятую цель,
+веху серии, покрытие книги, ожидание. Колючие `sunny`, `burst`, `boom` не
+берём — они читаются тревогой, как и красная плашка.
 
 **Хранение — «документ + проекция».** Полный `toJson` сущности лежит в колонке
 `data`, а `deck_id`/`due`/`state`/`updated_at` продублированы отдельными
@@ -205,6 +217,17 @@ TZ=Europe/Berlin flutter test test/dst_days_test.dart
 
 **Код**
 
+- `dart format` НЕ запускать на весь `lib`: Dart 3.11 сменил стиль, и форматтер
+  переписывает все 112 файлов (5700 строк диффа) вместо одного. Правки вносить
+  точечно, в стиле соседнего кода.
+- `Cubic` из `material_new_shapes` сталкивается с `Cubic` из `flutter/animation`
+  — пакет импортируется только с префиксом (`as ms`).
+- `CustomPaint` без ребёнка схлопывается в нулевой размер: силуэту нужен либо
+  `size`, либо `Size.infinite`. Иначе форма молча не рисуется.
+- Вечная анимация (`MorphPulse`, `Waiting`) не даёт `pumpAndSettle` сойтись:
+  экран с ожиданием ждать через `pump(duration)`.
+- Морф-силуэт не растягивать под полосу: «печенька» в ленте превращается в
+  линзу. Засечки прогресса — квадратные ячейки по центру сегмента.
 - `ReviewState` и `FsrsState` живут в `models/word_card.dart`, не в `fsrs.dart`.
 - `switch` по `StudyMode`/`ExerciseKind`/`SelectionReason` исчерпывающие — новая
   ветка ломает сборку в нескольких местах сразу, компилятор их перечислит.
@@ -227,6 +250,59 @@ TZ=Europe/Berlin flutter test test/dst_days_test.dart
 - `receive_sharing_intent` держать в диапазоне `>=1.8.0 <1.9.0`: 1.9.0 требует
   compileSdk 37 и ломает gradle.
 - ML Kit OCR кириллицу не умеет в принципе. Для русского нужен другой движок.
+- Версию `com.android.billingclient:billing` в gradle руками не прописывать: хардкод
+  перебивает версию плагина, а Play с 31 августа 2026 отклоняет обновления на
+  библиотеке ниже 8. Тянет её `in_app_purchase_android` (0.5.x = billing 8.0.0),
+  проверка: `cd app/android && ./gradlew :app:dependencies --configuration playReleaseRuntimeClasspath | grep billingclient`.
+
+## Четыре канала выпуска (с 2026-07-22)
+
+Тег `vX.Y.Z` запускает `release.yml`, и один прогон раскладывает Fern по всем
+каналам. Общая подготовка вынесена в composite-действие
+`.github/actions/flutter-release-setup` — JDK, Flutter, кэш, ключ подписи и
+версия из pubspec. Расходиться каналам в подписи нельзя.
+
+| Канал | Job | Формат | Подпись | Обновления | Pro |
+|---|---|---|---|---|---|
+| GitHub / Obtainium | `release` | 3 split-APK | `fern-release.jks` | свой апдейтер | ключ от бота |
+| Google Play | `play` | AAB | ключ Google | Play In-App Update | покупка в Play |
+| RuStore | `rustore` | универсальный APK | `fern-release.jks` | магазин | ключ от бота |
+| iOS | `ios` | неподписанный `.ipa` | ставит владелец устройства | вручную | ключ от бота |
+
+**Магазинные job'ы пропускаются сами**, если их секретов нет: пока консоль не
+готова, тег всё равно даёт GitHub-релиз. Сторожат шагом с `outputs.skip`, а не
+условием на job: контекст `secrets` в job-level `if` не читается.
+
+**RuStore получает APK, а не AAB, намеренно.** Бандл магазин переподписал бы
+своим ключом, и версия оттуда перестала бы вставать поверх версии с GitHub.
+С одинаковой подписью человек переходит между каналами без удаления
+приложения. Плата — вес: 96 МБ против 56 у сплита под arm64.
+
+**`x86_64` из RuStore-сборки выброшен через `androidComponents`** (селектор по
+флейвору, исключение `lib/x86*/**` в `build.gradle.kts`), и другие способы там
+не работают: `ndk.abiFilters` во флейворе плагин Flutter перетирает своими
+значениями, а `--target-platform` управляет только библиотеками Flutter и
+оставляет нативные части плагинов. Проверено на трёх сборках: 148, 125 и 96 МБ.
+
+**Развилка каналов в коде — `lib/utils/build_config.dart`.** `kSelfUpdate` это
+`kStore == 'github'`, а НЕ `!kPlayBuild`: у RuStore-сборки своего апдейтера
+тоже нет. Ветки `kPlayBuild` остались только там, где речь про Google (биллинг,
+In-App Update, «Восстановить покупки»).
+
+**Первую версию в оба магазина заливают руками.** Google Publisher API не
+создаёт приложение и не принимает первую сборку, карточку RuStore тоже
+заполняют в консоли. Дальше job'ы работают сами.
+
+**Публикация в RuStore после модерации — ручная** (`publishType=MANUAL`).
+Черновик на приложение может быть только один: если предыдущий висит
+неопубликованным, API откажет.
+
+Заливку в RuStore делает свой `app/tool/rustore_upload.py` без зависимостей
+(подпись считает `openssl`). Чужой Action не берём: он получил бы приватный
+ключ, открывающий публикацию. Проверка без сети — `--selftest`.
+
+Подробности: [`docs/rustore-checklist.md`](docs/rustore-checklist.md) и
+[`docs/play-store-checklist.md`](docs/play-store-checklist.md).
 
 ## iOS (с 1.17.2)
 
