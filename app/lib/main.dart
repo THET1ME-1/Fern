@@ -31,6 +31,8 @@ import 'settings_screen.dart';
 import 'startup.dart';
 import 'study/reader_settings.dart';
 import 'theme/app_theme.dart';
+import 'widgets/morph_shapes.dart';
+import 'theme/fern_shapes.dart';
 import 'theme/theme_controller.dart';
 
 Future<void> main() async {
@@ -382,14 +384,29 @@ class _CircleNavButton extends StatelessWidget {
       containedInkWell: true,
       customBorder: const CircleBorder(),
       child: Center(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 280),
-          curve: Curves.easeOutCubic,
-          width: d,
-          height: d,
-          decoration: BoxDecoration(
-            color: selected ? scheme.primaryContainer : Colors.transparent,
-            shape: BoxShape.circle,
+        // Подложка активного пункта перетекает из круга в «печеньку»: тот же
+        // язык форм, что у обложек колод и кольца цели.
+        child: TweenAnimationBuilder<double>(
+          tween: Tween(end: selected ? 1.0 : 0.0),
+          duration: const Duration(milliseconds: 340),
+          curve: AppTheme.emphasized,
+          builder: (context, t, child) => SizedBox(
+            width: d,
+            height: d,
+            child: CustomPaint(
+              painter: MorphPainter(
+                morph: morphBetween(FernShapes.navIdle, FernShapes.navActive),
+                t: t,
+                fill: Color.lerp(
+                  Colors.transparent,
+                  scheme.primaryContainer,
+                  t,
+                ),
+                border: null,
+                borderWidth: 0,
+              ),
+              child: Center(child: child),
+            ),
           ),
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 220),

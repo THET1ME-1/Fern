@@ -20,6 +20,7 @@ import 'widgets/reveal.dart';
 import 'widgets/speaker_button.dart';
 import 'widgets/study_modes.dart';
 import 'widgets/word_links_section.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Порядок сортировки списка карточек в колоде.
 enum _CardSort { added, alpha, status, due }
@@ -358,7 +359,7 @@ class _DeckScreenState extends State<DeckScreen> {
         highlightElevation: 0,
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 96),
               children: [
@@ -505,7 +506,7 @@ class _DeckScreenState extends State<DeckScreen> {
             color: deck.color,
             imagePath: null,
             size: 72,
-            shape: deckShape(deck.shapeIndex),
+            shapeIndex: deck.shapeIndex,
           ),
           const SizedBox(width: 20),
           Expanded(
@@ -1206,9 +1207,7 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
                               ? const SizedBox(
                                   width: 20,
                                   height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
+                                  child: Waiting(size: 20),
                                 )
                               : const Icon(Icons.translate_rounded),
                           onPressed: _translating ? null : _translate,

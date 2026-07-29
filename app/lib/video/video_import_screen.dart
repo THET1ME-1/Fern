@@ -10,6 +10,7 @@ import '../widgets/reveal.dart';
 import 'subtitle.dart';
 import 'video_screen.dart';
 import 'video_study_screen.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Экран импорта видео: вставь ссылку на YouTube → тянем субтитры с таймкодами →
 /// открываем разбор. Пословный тайминг (авто-субтитры) даёт живой голос слова.
@@ -206,7 +207,7 @@ class _VideoImportScreenState extends State<VideoImportScreen> {
                       ? const SizedBox(
                           width: 18,
                           height: 18,
-                          child: CircularProgressIndicator(strokeWidth: 2),
+                          child: Waiting(size: 20),
                         )
                       : const Icon(Icons.auto_awesome_rounded),
                   label: Text(

@@ -7,6 +7,7 @@ import 'services/deck_repository.dart';
 import 'services/starter_decks.dart';
 import 'theme/app_theme.dart';
 import 'widgets/reveal.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Экран первого запуска: приветствие + выбор изучаемого языка.
 class OnboardingScreen extends StatefulWidget {
@@ -127,7 +128,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ? const SizedBox(
                         width: 20,
                         height: 20,
-                        child: CircularProgressIndicator(strokeWidth: 2.5),
+                        child: Waiting(size: 24),
                       )
                     : Text(tr('onb_start')),
               ),

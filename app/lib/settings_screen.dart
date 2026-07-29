@@ -34,6 +34,7 @@ import 'theme/app_theme.dart';
 import 'theme/theme_controller.dart';
 import 'widgets/color_picker_sheet.dart';
 import 'widgets/seed_swatch.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Готовые seed-цвета для быстрых цветовых схем (первый — фирменный зелёный Fern).
 const List<Color> _kSeedPalettes = [
@@ -752,7 +753,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: SizedBox(
                           width: 20,
                           height: 20,
-                          child: CircularProgressIndicator(strokeWidth: 2)),
+                          child: Waiting(size: 20)),
                     )
                   : FilledButton.tonal(
                       onPressed: ready ? _optimizeFsrs : null,

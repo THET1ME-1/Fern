@@ -19,7 +19,7 @@ const List<Color> kDeckPalette = [
 
 /// Плитка колоды на сетке: обложка-фигура, название, число карт и бейдж «к
 /// повтору». Переиспользуется на главном экране и внутри пака.
-class DeckCoverCard extends StatelessWidget {
+class DeckCoverCard extends StatefulWidget {
   final String name;
   final Color color;
   final int shapeIndex;
@@ -46,10 +46,43 @@ class DeckCoverCard extends StatelessWidget {
   });
 
   @override
+  State<DeckCoverCard> createState() => _DeckCoverCardState();
+}
+
+class _DeckCoverCardState extends State<DeckCoverCard> {
+  /// Обложка собирается в круг занятия. Переход НЕ ждёт анимацию: задержка
+  /// перед навигацией читается как тормоз, а морф успевает показать себя под
+  /// проявляющимся экраном и на возврате.
+  static const Duration _launch = Duration(milliseconds: 420);
+  bool _launching = false;
+
+  void _open() {
+    if (widget.selectable) {
+      widget.onTap();
+      return;
+    }
+    if (!_launching) {
+      setState(() => _launching = true);
+      Future<void>.delayed(_launch, () {
+        if (mounted) setState(() => _launching = false);
+      });
+    }
+    widget.onTap();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final name = widget.name;
+    final color = widget.color;
+    final shapeIndex = widget.shapeIndex;
+    final total = widget.total;
+    final due = widget.due;
+    final selectable = widget.selectable;
+    final selected = widget.selected;
+    final onLongPress = widget.onLongPress;
     final scheme = Theme.of(context).colorScheme;
     return GestureDetector(
-      onTap: onTap,
+      onTap: _open,
       onLongPress: onLongPress,
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -74,7 +107,8 @@ class DeckCoverCard extends StatelessWidget {
                     color: color,
                     imagePath: null,
                     size: 84,
-                    shape: deckShape(shapeIndex),
+                    shapeIndex: shapeIndex,
+                    toSession: _launching ? 1 : 0,
                   ),
                   const SizedBox(height: 12),
                   Text(

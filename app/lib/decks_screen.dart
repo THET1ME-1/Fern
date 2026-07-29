@@ -23,6 +23,7 @@ import 'widgets/deck_tiles.dart';
 import 'widgets/goal_ring.dart';
 import 'widgets/pack_editor_sheet.dart';
 import 'widgets/reveal.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Главный экран: сверху баннер выбора изучаемого языка, ниже — сетка паков и
 /// колод этого языка. ДНК ScoreMaster (меню выбора игроков).
@@ -241,7 +242,7 @@ class _DecksScreenState extends State<DecksScreen> {
       child: Scaffold(
         appBar: _selecting ? _selectionBar(scheme) : _normalBar(scheme),
         body: _loading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: Waiting(size: 34))
             : Column(
                 children: [
                   // Дневная сводка / баннеры прячем в режиме выбора.
@@ -933,7 +934,7 @@ class _StarterDecksSheetState extends State<_StarterDecksSheet> {
             color: color,
             imagePath: null,
             size: 48,
-            shape: deckShape(pack.shapeIndex),
+            shapeIndex: pack.shapeIndex,
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -995,7 +996,7 @@ class _StarterDecksSheetState extends State<_StarterDecksSheet> {
                   ? const SizedBox(
                       width: 18,
                       height: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                      child: Waiting(size: 20),
                     )
                   : Text(tr('add')),
             ),

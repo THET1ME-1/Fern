@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_theme.dart';
+import '../theme/fern_shapes.dart';
+import 'morph_shapes.dart';
+
 /// Кружок-превью цветовой схемы: 4 квадранта из тонов, сгенерированных из
 /// seed-цвета (как в пикере Material You), вместо скучной одноцветной точки.
 class SeedSwatch extends StatelessWidget {
@@ -27,20 +31,29 @@ class SeedSwatch extends StatelessWidget {
       s.tertiaryContainer, //↙ светлый, другой оттенок
       s.tertiary, //         ↘ насыщенный, другой оттенок
     ];
+    // Выбранная схема распускается из круга: тот же жест, что у цели и
+    // навигации, только здесь он отмечает выбор.
+    final morph = morphBetween(FernShapes.swatchIdle, FernShapes.swatchPicked);
     return GestureDetector(
       onTap: onTap,
-      child: Container(
+      child: TweenAnimationBuilder<double>(
+        tween: Tween(end: selected ? 1.0 : 0.0),
+        duration: const Duration(milliseconds: 420),
+        curve: AppTheme.emphasized,
+        builder: (context, t, _) => SizedBox(
         width: size,
         height: size,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: selected ? scheme.onSurface : scheme.outlineVariant,
-            width: selected ? 3 : 1,
+        child: CustomPaint(
+          painter: MorphPainter(
+            morph: morph,
+            t: t,
+            fill: null,
+            border: Color.lerp(scheme.outlineVariant, scheme.onSurface, t),
+            borderWidth: 1 + 2 * t,
           ),
-        ),
-        child: ClipOval(
-          child: CustomPaint(
+          child: ClipPath(
+            clipper: MorphClipper(morph, t),
+            child: CustomPaint(
             painter: _QuadrantPainter(quads),
             child: selected
                 ? Center(
@@ -56,6 +69,8 @@ class SeedSwatch extends StatelessWidget {
                   )
                 : null,
           ),
+          ),
+        ),
         ),
       ),
     );

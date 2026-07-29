@@ -19,6 +19,9 @@ import '../theme/app_theme.dart';
 import '../widgets/speaker_button.dart';
 import 'results_screen.dart';
 import 'study_models.dart';
+import '../widgets/morph_shapes.dart';
+import '../widgets/session_progress.dart';
+import '../widgets/pressable.dart';
 
 /// Экран сессии: прогоняет очередь упражнений (флип / выбор / ввод / верно-
 /// неверно), обновляет FSRS и показывает результаты.
@@ -456,7 +459,7 @@ class _SessionScreenState extends State<SessionScreen>
     final scheme = Theme.of(context).colorScheme;
 
     if (!_ready) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: Center(child: Waiting(size: 34)));
     }
     if (_queue.isEmpty) return _emptyState(scheme);
 
@@ -473,7 +476,6 @@ class _SessionScreenState extends State<SessionScreen>
     // работа не убывает, а прибывает.
     final total = _totalCards;
     final done = _doneCards;
-    final progress = total == 0 ? 0.0 : done / total;
 
     return PopScope(
       canPop: false,
@@ -488,17 +490,10 @@ class _SessionScreenState extends State<SessionScreen>
           ),
           title: Text('${(done + 1).clamp(1, total)} / $total'),
           bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(6),
+            preferredSize: const Size.fromHeight(16),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: LinearProgressIndicator(
-                  value: progress,
-                  minHeight: 6,
-                  backgroundColor: scheme.surfaceContainerHighest,
-                ),
-              ),
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+              child: SessionProgress(done: done, total: total),
             ),
           ),
         ),
@@ -509,17 +504,48 @@ class _SessionScreenState extends State<SessionScreen>
                 ? Column(
                     children: [
                       _speedHeader(scheme),
-                      Expanded(child: _exerciseWidget(ex, scheme)),
+                      Expanded(child: _switcher(ex, scheme)),
                     ],
                   )
                 : Column(
                     children: [
                       _reasonChip(scheme, ex.reason),
-                      Expanded(child: _exerciseWidget(ex, scheme)),
+                      Expanded(child: _switcher(ex, scheme)),
                     ],
                   ),
           ),
         ),
+      ),
+    );
+  }
+
+  /// Смена вопроса: уходящая карточка гаснет со сдвигом вверх, следующая
+  /// приходит снизу. Подмена кадром читается как рывок, а человек проводит
+  /// в этом экране почти всё время в приложении.
+  ///
+  /// Ключ — номер в очереди: переспрос той же карточки тоже считается новым
+  /// показом, иначе повтор появлялся бы без перехода.
+  Widget _switcher(Exercise ex, ColorScheme scheme) {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 260),
+      switchInCurve: AppTheme.emphasizedDecelerate,
+      switchOutCurve: Curves.easeInCubic,
+      // Уходящая и приходящая карточки не должны толкать друг друга по layout.
+      layoutBuilder: (current, previous) =>
+          Stack(alignment: Alignment.topCenter, children: [...previous, ?current]),
+      transitionBuilder: (child, anim) => FadeTransition(
+        opacity: anim,
+        child: SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 0.045),
+            end: Offset.zero,
+          ).animate(anim),
+          child: child,
+        ),
+      ),
+      child: KeyedSubtree(
+        key: ValueKey(_index),
+        child: _exerciseWidget(ex, scheme),
       ),
     );
   }
@@ -1226,9 +1252,12 @@ class _FlipExerciseState extends State<_FlipExercise> {
     // заняты смыслом, менять их значило бы сбить привычку.
     final picked = !widget.twoButtons && _suggested == r;
     return Expanded(
-      child: Material(
-        color: bg,
-        clipBehavior: Clip.antiAlias,
+      // Кнопка вдавливается под пальцем: экран занятия был единственным
+      // местом без физического отклика на нажатие.
+      child: PressableScale(
+        child: Material(
+          color: bg,
+          clipBehavior: Clip.antiAlias,
         // borderRadius и shape вместе Material не принимает — форма задаётся
         // одним shape, обводка появляется только у рекомендованной ступени.
         shape: RoundedRectangleBorder(
@@ -1267,6 +1296,7 @@ class _FlipExerciseState extends State<_FlipExercise> {
               ],
             ),
           ),
+        ),
         ),
       ),
     );

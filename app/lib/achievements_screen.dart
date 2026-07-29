@@ -7,6 +7,7 @@ import 'models/word_card.dart';
 import 'services/deck_repository.dart';
 import 'theme/app_theme.dart';
 import 'widgets/reveal.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Экран достижений (вех). Данные — из журнала занятий и карточек.
 class AchievementsScreen extends StatefulWidget {
@@ -55,7 +56,7 @@ class _AchievementsScreenState extends State<AchievementsScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(tr('achievements'))),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [

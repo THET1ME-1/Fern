@@ -24,6 +24,7 @@ import '../widgets/reveal.dart';
 import 'add_target.dart';
 import 'subtitle.dart';
 import 'video_study_screen.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Страница видео (аналог страницы книги): превью и метаданные, проверка языка,
 /// умный анализ словаря субтитров (сколько слов зритель помнит / учит / не знает
@@ -259,7 +260,7 @@ class _VideoScreenState extends State<VideoScreen> {
           if (_loading)
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 48),
-              child: Center(child: CircularProgressIndicator()),
+              child: Center(child: Waiting(size: 34)),
             )
           else if (_text == null)
             _unavailable(scheme)
@@ -428,7 +429,7 @@ class _VideoScreenState extends State<VideoScreen> {
                 const SizedBox(
                   width: 16,
                   height: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+                  child: Waiting(size: 20),
                 ),
             ],
           ),

@@ -8,6 +8,7 @@ import '../services/deck_repository.dart';
 import '../theme/app_theme.dart';
 import 'color_picker_sheet.dart';
 import 'deck_shapes.dart';
+import 'morph_shapes.dart';
 import 'deck_tiles.dart';
 import 'pack_editor_sheet.dart';
 
@@ -145,7 +146,7 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
                 color: Color(_color),
                 imagePath: null,
                 size: 80,
-                shape: deckShape(_shape),
+                shapeIndex: _shape,
               ),
               const SizedBox(height: 16),
               TextField(
@@ -175,7 +176,7 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  for (var i = 0; i < kDeckShapes.length; i++)
+                  for (var i = 0; i < deckShapeCount; i++)
                     _shapeChoice(i, scheme),
                 ],
               ),
@@ -312,13 +313,12 @@ class _DeckEditorSheetState extends State<_DeckEditorSheet> {
               ? Border.all(color: scheme.primary, width: 2)
               : Border.all(color: Colors.transparent, width: 2),
         ),
-        child: Container(
-          width: 34,
-          height: 34,
-          decoration: ShapeDecoration(
-            color: selected ? Color(_color) : scheme.surfaceContainerHighest,
-            shape: deckShape(i),
-          ),
+        child: MorphShape(
+          from: deckShape(i),
+          to: deckShape(i),
+          progress: 0,
+          size: 34,
+          fill: selected ? Color(_color) : scheme.surfaceContainerHighest,
         ),
       ),
     );

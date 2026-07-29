@@ -4,6 +4,7 @@ import 'main.dart' show startFern;
 import 'startup.dart';
 import 'services/backup_service.dart';
 import 'services/deck_repository.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Аварийный экран: показывается, когда приложение не смогло запуститься
 /// (обычно — повреждённый файл БД или нет места на диске).
@@ -142,7 +143,7 @@ class _RecoveryScreenState extends State<_RecoveryScreen> {
                 if (_busy)
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 12),
-                    child: Center(child: CircularProgressIndicator()),
+                    child: Center(child: Waiting(size: 34)),
                   )
                 // Кнопки, уводящие базу в карантин, показываем только когда
                 // сломана именно база. В остальных случаях предлагаем повтор:
