@@ -81,4 +81,4 @@ Fern не предназначен специально для детей и н�
 
 ## Контакт
 
-Вопросы: badzoff@gmail.com
+Вопросы: stgroup.dev@gmail.com
