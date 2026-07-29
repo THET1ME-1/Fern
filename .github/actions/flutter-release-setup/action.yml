@@ -1,0 +1,120 @@
+name: Flutter release setup
+description: >
+  Общая подготовка релизных сборок: JDK, Flutter, кэш, релизный ключ подписи и
+  версия из pubspec. Четыре канала (GitHub, Play, RuStore, iOS) делают это
+  одинаково, и расходиться им нельзя: разная подпись означает, что версии не
+  встанут друг поверх друга.
+
+inputs:
+  keystore-base64:
+    description: keystore в base64; без него шаг подписи пропускается
+    required: false
+    default: ''
+  keystore-password:
+    required: false
+    default: ''
+  key-alias:
+    required: false
+    default: ''
+  key-password:
+    required: false
+    default: ''
+  with-keystore:
+    description: нужен ли ключ подписи (для iOS-сборки не нужен)
+    required: false
+    default: 'true'
+
+outputs:
+  name:
+    description: версия из pubspec, например 1.18.1
+    value: ${{ steps.ver.outputs.name }}
+  code:
+    description: versionCode, число после плюса
+    value: ${{ steps.ver.outputs.code }}
+  tag:
+    description: тег релиза, например v1.18.1
+    value: ${{ steps.ver.outputs.tag }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 3.41.9
+        channel: stable
+        cache: true
+
+    - name: Cache pub & Gradle
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.pub-cache
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-fern-${{ hashFiles('app/pubspec.lock', 'app/android/**/*.gradle*', 'app/android/gradle/wrapper/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-fern-
+
+    - name: Restore signing keystore
+      if: inputs.with-keystore == 'true'
+      shell: bash
+      working-directory: app
+      env:
+        KEYSTORE_BASE64: ${{ inputs.keystore-base64 }}
+      run: |
+        if [ -z "$KEYSTORE_BASE64" ]; then
+          echo "::error::Секрет KEYSTORE_BASE64 не задан — сборка будет подписана debug-ключом и не встанет поверх установленного."
+          exit 1
+        fi
+        echo "$KEYSTORE_BASE64" | base64 -d > android/keystore.jks
+
+    - name: Write key.properties
+      if: inputs.with-keystore == 'true'
+      shell: bash
+      working-directory: app
+      env:
+        STORE_PASSWORD: ${{ inputs.keystore-password }}
+        KEY_ALIAS: ${{ inputs.key-alias }}
+        KEY_PASSWORD: ${{ inputs.key-password }}
+      run: |
+        # storeFile резолвится от app/android/ (rootProject.file в build.gradle.kts)
+        cat > android/key.properties <<EOF
+        storeFile=keystore.jks
+        storePassword=$STORE_PASSWORD
+        keyAlias=$KEY_ALIAS
+        keyPassword=$KEY_PASSWORD
+        EOF
+
+    - name: Read version & check tag
+      id: ver
+      shell: bash
+      working-directory: app
+      run: |
+        LINE=$(grep '^version:' pubspec.yaml | awk '{print $2}')   # 1.18.1+30
+        NAME=${LINE%%+*}
+        CODE=${LINE##*+}
+        if [ "${{ github.ref_type }}" = "tag" ]; then
+          TAG="${{ github.ref_name }}"
+          if [ "$TAG" != "v$NAME" ]; then
+            echo "::error::Тег $TAG не совпадает с версией в app/pubspec.yaml ($NAME). Поправь pubspec или перевесь тег."
+            exit 1
+          fi
+        else
+          TAG="v$NAME"
+        fi
+        echo "name=$NAME" >> "$GITHUB_OUTPUT"
+        echo "code=$CODE" >> "$GITHUB_OUTPUT"
+        echo "tag=$TAG"   >> "$GITHUB_OUTPUT"
+        echo "Fern $NAME (versionCode $CODE), тег $TAG"
+
+    - name: Flutter pub get
+      shell: bash
+      working-directory: app
+      run: flutter pub get

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Сборка для RuStore. Обновления приносит магазин, поэтому разрешение на
+  установку пакетов приложению не нужно: оно осталось бы лишним пунктом на
+  модерации и лишней строкой в карточке разрешений.
+
+  Отличие от play-сборки: подпись остаётся нашей (fern-release.jks), магазин
+  APK не переподписывает. Поэтому версия из RuStore встаёт поверх версии с
+  GitHub и наоборот, без удаления приложения.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission
+        android:name="android.permission.REQUEST_INSTALL_PACKAGES"
+        tools:node="remove" />
+
+    <!--
+      Биллинг Google приезжает транзитивно из плагина in_app_purchase, но в
+      этом канале Pro открывается ключом, и разрешение только мозолит глаза
+      модератору RuStore. Плагин при этом остаётся: код развилки общий, а
+      BillingService выходит сразу, когда сборка не Play.
+    -->
+    <uses-permission
+        android:name="com.android.vending.BILLING"
+        tools:node="remove" />
+
+</manifest>

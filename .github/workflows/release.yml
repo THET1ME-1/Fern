@@ -1,11 +1,18 @@
 name: Release
 
 # ── Как выпустить релиз ────────────────────────────────────────────────────
-#   1. Поднять version: в app/pubspec.yaml (напр. 1.15.1+25) и описать версию
-#      в CHANGELOG.md разделом «## [1.15.1] — дата». Закоммитить, запушить.
-#   2. git tag v1.15.1 && git push origin v1.15.1
-#   Сборка соберёт 3 APK и опубликует релиз в этом же репозитории
-#   (исходники Fern приватные) — оттуда их берёт апдейтер приложения.
+#   1. Поднять version: в app/pubspec.yaml (напр. 1.18.2+31) и описать версию
+#      в CHANGELOG.md разделом «## [1.18.2] — дата». Закоммитить, запушить.
+#   2. git tag v1.18.2 && git push origin v1.18.2
+#
+#   Один тег раскладывает Fern по четырём каналам:
+#     * release  — 3 split-APK в GitHub Release (оттуда их берёт апдейтер);
+#     * play     — AAB в Google Play, трек internal;
+#     * rustore  — универсальный APK в RuStore, черновик до ручной публикации;
+#     * ios      — неподписанный .ipa в тот же GitHub Release.
+#
+#   Магазинные job'ы пропускаются, если их секретов в репозитории нет: пока
+#   консоль не готова, релиз всё равно выходит.
 #
 #   Вручную (без тега): вкладка Actions → Release → Run workflow.
 #   Тег и version: в pubspec ДОЛЖНЫ совпадать — иначе сборка падает намеренно.
@@ -23,91 +30,33 @@ defaults:
     working-directory: app   # проект Flutter лежит в подкаталоге app/
 
 jobs:
+  # ── GitHub / Obtainium ─────────────────────────────────────────────────────
   release:
     runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.setup.outputs.name }}
+      code: ${{ steps.setup.outputs.code }}
+      tag: ${{ steps.setup.outputs.tag }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Setup
+        id: setup
+        uses: ./.github/actions/flutter-release-setup
         with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: 3.41.9
-          channel: stable
-          cache: true
-
-      - name: Cache pub & Gradle
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pub-cache
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-fern-${{ hashFiles('app/pubspec.lock', 'app/android/**/*.gradle*', 'app/android/gradle/wrapper/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-fern-
-
-      - name: Restore signing keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-        run: |
-          if [ -z "$KEYSTORE_BASE64" ]; then
-            echo "::error::Секрет KEYSTORE_BASE64 не задан — APK будет подписан debug-ключом и не встанет поверх установленного."
-            exit 1
-          fi
-          echo "$KEYSTORE_BASE64" | base64 -d > android/keystore.jks
-
-      - name: Write key.properties
-        env:
-          STORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: |
-          # storeFile резолвится от app/android/ (rootProject.file в build.gradle.kts)
-          cat > android/key.properties <<EOF
-          storeFile=keystore.jks
-          storePassword=$STORE_PASSWORD
-          keyAlias=$KEY_ALIAS
-          keyPassword=$KEY_PASSWORD
-          EOF
-
-      - name: Read version & check tag
-        id: ver
-        run: |
-          LINE=$(grep '^version:' pubspec.yaml | awk '{print $2}')   # 1.15.0+24
-          NAME=${LINE%%+*}
-          CODE=${LINE##*+}
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            TAG="${{ github.ref_name }}"
-            if [ "$TAG" != "v$NAME" ]; then
-              echo "::error::Тег $TAG не совпадает с версией в app/pubspec.yaml ($NAME). Поправь pubspec или перевесь тег."
-              exit 1
-            fi
-          else
-            TAG="v$NAME"
-          fi
-          echo "name=$NAME" >> "$GITHUB_OUTPUT"
-          echo "code=$CODE" >> "$GITHUB_OUTPUT"
-          echo "tag=$TAG"   >> "$GITHUB_OUTPUT"
-          echo "Собираем Fern $NAME (versionCode $CODE), тег $TAG"
-
-      - name: Flutter pub get
-        run: flutter pub get
+          keystore-base64: ${{ secrets.KEYSTORE_BASE64 }}
+          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
+          key-alias: ${{ secrets.KEY_ALIAS }}
+          key-password: ${{ secrets.KEY_PASSWORD }}
 
       - name: Analyze
         run: flutter analyze --no-fatal-infos || true
 
       # Флейвор обязателен: без него Gradle собирает вариант, которого у проекта
       # нет, и flutter не находит APK («failed to produce an .apk file»).
-      # github-сборка обновляется сама, play-сборка — через магазин.
       - name: Build release APK
         run: flutter build apk --release --flavor github --split-per-abi
 
@@ -115,7 +64,7 @@ jobs:
         run: |
           mkdir -p dist
           # Имена АССЕТОВ трогать нельзя: апдейтер ищет в них токен архитектуры.
-          BASE="Fern-${{ steps.ver.outputs.name }}"
+          BASE="Fern-${{ steps.setup.outputs.name }}"
           OUT=build/app/outputs/flutter-apk
           for abi in arm64-v8a armeabi-v7a x86_64; do
             cp "$OUT/app-$abi-github-release.apk" "dist/${BASE}-${abi}.apk"
@@ -128,7 +77,7 @@ jobs:
         run: |
           APKSIGNER=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | tail -1)
           FP=$("$APKSIGNER" verify --print-certs \
-            "dist/Fern-${{ steps.ver.outputs.name }}-arm64-v8a.apk" \
+            "dist/Fern-${{ steps.setup.outputs.name }}-arm64-v8a.apk" \
             | grep -m1 'SHA-256 digest' | awk '{print $NF}')
           echo "Отпечаток ключа: $FP"
           if [ "$FP" != "516efd44e8af672ba7a9b101090db54698f5bb42e109c1b00ad4aaa52a2ce3a1" ]; then
@@ -138,21 +87,17 @@ jobs:
 
       - name: Generate changelog
         run: |
-          # Тело релиза — раздел этой версии из CHANGELOG.md (в корне репо,
-          # на уровень выше app/). Фолбэк на список коммитов, если раздела нет.
-          NAME="${{ steps.ver.outputs.name }}"
+          # Тело релиза — раздел этой версии из CHANGELOG.md, фолбэк на коммиты.
+          NAME="${{ steps.setup.outputs.name }}"
+          mkdir -p dist
           {
-            echo "## Fern $NAME (build ${{ steps.ver.outputs.code }})"
+            echo "## Fern $NAME (build ${{ steps.setup.outputs.code }})"
             echo ""
-            SECTION=$(awk -v v="$NAME" '
-              $0 ~ "^## \\[" v "\\]" { found=1; next }
-              found && /^## \[/       { exit }
-              found                   { print }
-            ' ../CHANGELOG.md)
+            SECTION=$(./tool/changelog_section.sh "$NAME")
             if [ -n "$(echo "$SECTION" | tr -d '[:space:]')" ]; then
               echo "$SECTION"
             else
-              PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${{ steps.ver.outputs.tag }}$" | head -1)
+              PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${{ steps.setup.outputs.tag }}$" | head -1)
               if [ -n "$PREV_TAG" ]; then
                 git log --no-merges --pretty=format:'- %s' "$PREV_TAG"..HEAD
               else
@@ -165,20 +110,183 @@ jobs:
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.ver.outputs.tag }}
-          name: Fern ${{ steps.ver.outputs.name }}
+          tag_name: ${{ steps.setup.outputs.tag }}
+          name: Fern ${{ steps.setup.outputs.name }}
           body_path: app/dist/notes.md
           make_latest: true
           files: |
-            app/dist/Fern-${{ steps.ver.outputs.name }}-arm64-v8a.apk
-            app/dist/Fern-${{ steps.ver.outputs.name }}-armeabi-v7a.apk
-            app/dist/Fern-${{ steps.ver.outputs.name }}-x86_64.apk
+            app/dist/Fern-${{ steps.setup.outputs.name }}-arm64-v8a.apk
+            app/dist/Fern-${{ steps.setup.outputs.name }}-armeabi-v7a.apk
+            app/dist/Fern-${{ steps.setup.outputs.name }}-x86_64.apk
+
+  # ── Google Play ────────────────────────────────────────────────────────────
+  # AAB на трек internal. Промоушен до production жмётся руками: там раскатка,
+  # проценты и заметки для магазина, которые тегом не выражаются.
+  #
+  # ВАЖНО: самую первую сборку приложения Publisher API не принимает — её
+  # заливают через консоль. Дальше job работает сам.
+  play:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Проверить секреты
+        id: guard
+        env:
+          SA_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          # secrets в job-level if не читаются, поэтому сторожим шагом.
+          if [ -z "$SA_JSON" ]; then
+            echo "::notice::PLAY_SERVICE_ACCOUNT_JSON не задан — загрузка в Google Play пропущена."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup
+        id: setup
+        if: steps.guard.outputs.skip == 'false'
+        uses: ./.github/actions/flutter-release-setup
+        with:
+          keystore-base64: ${{ secrets.KEYSTORE_BASE64 }}
+          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
+          key-alias: ${{ secrets.KEY_ALIAS }}
+          key-password: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Build AAB
+        if: steps.guard.outputs.skip == 'false'
+        run: flutter build appbundle --release --flavor play --dart-define=STORE=play
+
+      # Play отклоняет сборки, умеющие ставить APK мимо магазина. Дешевле
+      # поймать это здесь, чем ждать отказа модерации.
+      - name: Проверить отсутствие REQUEST_INSTALL_PACKAGES
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          AAB=build/app/outputs/bundle/playRelease/app-play-release.aab
+          if unzip -p "$AAB" base/manifest/AndroidManifest.xml | strings | grep -q 'REQUEST_INSTALL_PACKAGES'; then
+            echo "::error::В play-сборке осталось REQUEST_INSTALL_PACKAGES — проверь flavor."
+            exit 1
+          fi
+          echo "чисто"
+
+      - name: Заметки для магазина
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          # Лимит Play — 500 символов, и резать надо по символам: `head -c`
+          # разорвал бы кириллицу посреди буквы.
+          mkdir -p dist/whatsnew
+          NAME="${{ steps.setup.outputs.name }}"
+          ./tool/changelog_section.sh "$NAME" > dist/section.txt
+          python3 - "$NAME" <<'PY'
+          import sys
+          text = open('dist/section.txt', encoding='utf-8').read().strip()
+          if not text:
+              text = f'Fern {sys.argv[1]}: обновление приложения.'
+          text = text[:497] + '…' if len(text) > 500 else text
+          for locale in ('ru-RU', 'en-US'):
+              with open(f'dist/whatsnew/whatsnew-{locale}', 'w', encoding='utf-8') as f:
+                  f.write(text)
+          print(text)
+          PY
+
+      - name: Upload to Google Play
+        if: steps.guard.outputs.skip == 'false'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.fern.app
+          releaseFiles: app/build/app/outputs/bundle/playRelease/app-play-release.aab
+          track: internal
+          status: completed
+          whatsNewDirectory: app/dist/whatsnew
+
+  # ── RuStore ────────────────────────────────────────────────────────────────
+  # Один универсальный APK нашей подписью. AAB не годится: RuStore переподписал
+  # бы его своим ключом, и версия из магазина перестала бы вставать поверх
+  # версии с GitHub.
+  rustore:
+    runs-on: ubuntu-latest
+    needs: release
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Проверить секреты
+        id: guard
+        env:
+          KEY_ID: ${{ secrets.RUSTORE_KEY_ID }}
+          PRIVATE_KEY: ${{ secrets.RUSTORE_PRIVATE_KEY }}
+        run: |
+          if [ -z "$KEY_ID" ] || [ -z "$PRIVATE_KEY" ]; then
+            echo "::notice::RUSTORE_KEY_ID или RUSTORE_PRIVATE_KEY не задан — загрузка в RuStore пропущена."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup
+        id: setup
+        if: steps.guard.outputs.skip == 'false'
+        uses: ./.github/actions/flutter-release-setup
+        with:
+          keystore-base64: ${{ secrets.KEYSTORE_BASE64 }}
+          keystore-password: ${{ secrets.KEYSTORE_PASSWORD }}
+          key-alias: ${{ secrets.KEY_ALIAS }}
+          key-password: ${{ secrets.KEY_PASSWORD }}
+
+      # Только ARM: x86_64 добавлял 52 МБ ради устройств, которых у людей нет.
+      # Флагом Flutter, а не abiFilters: ndk-фильтр библиотеки Flutter не трогает.
+      - name: Build universal APK
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          flutter build apk --release --flavor rustore \
+            --dart-define=STORE=rustore \
+            --target-platform android-arm,android-arm64
+
+      - name: Проверить сборку
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          mkdir -p dist
+          APK="dist/Fern-${{ steps.setup.outputs.name }}-rustore.apk"
+          cp build/app/outputs/flutter-apk/app-rustore-release.apk "$APK"
+
+          if unzip -p "$APK" AndroidManifest.xml | strings | grep -q 'REQUEST_INSTALL_PACKAGES'; then
+            echo "::error::В rustore-сборке осталось REQUEST_INSTALL_PACKAGES — проверь flavor."
+            exit 1
+          fi
+
+          APKSIGNER=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | tail -1)
+          FP=$("$APKSIGNER" verify --print-certs "$APK" | grep -m1 'SHA-256 digest' | awk '{print $NF}')
+          if [ "$FP" != "516efd44e8af672ba7a9b101090db54698f5bb42e109c1b00ad4aaa52a2ce3a1" ]; then
+            echo "::error::APK подписан НЕ тем ключом ($FP) — переход между RuStore и GitHub сломается."
+            exit 1
+          fi
+          ls -lh "$APK"
+
+      - name: Upload to RuStore
+        if: steps.guard.outputs.skip == 'false'
+        env:
+          RUSTORE_KEY_ID: ${{ secrets.RUSTORE_KEY_ID }}
+          RUSTORE_PRIVATE_KEY: ${{ secrets.RUSTORE_PRIVATE_KEY }}
+        run: |
+          ./tool/changelog_section.sh "${{ steps.setup.outputs.name }}" > dist/whatsnew.txt
+          python3 tool/rustore_upload.py \
+            --apk "dist/Fern-${{ steps.setup.outputs.name }}-rustore.apk" \
+            --whats-new dist/whatsnew.txt
 
   # ── iOS ────────────────────────────────────────────────────────────────────
   # Собирается НЕПОДПИСАННЫЙ .ipa: сертификата Apple у проекта нет, а без него
   # приложение всё равно ставится — Sideloadly, AltStore и TrollStore
   # подписывают файл ключом самого человека. Отдельным job'ом и после релиза:
   # macOS-раннер медленный, и его падение не должно задерживать APK.
+  #
+  # App Store сюда добавится отдельным job'ом, когда приложение появится в App
+  # Store Connect. Понадобятся: Apple Developer Program, сертификат
+  # распространения, provisioning-профиль и ключ App Store Connect API
+  # (секреты APPSTORE_ISSUER_ID, APPSTORE_KEY_ID, APPSTORE_PRIVATE_KEY),
+  # сборка `flutter build ipa --export-options-plist` и заливка через altool.
   ios:
     runs-on: macos-latest
     needs: release
@@ -186,28 +294,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - name: Setup
+        id: setup
+        uses: ./.github/actions/flutter-release-setup
         with:
-          flutter-version: 3.41.9
-          channel: stable
-          cache: true
-
-      - name: Read version
-        id: ver
-        run: |
-          LINE=$(grep '^version:' pubspec.yaml | awk '{print $2}')
-          NAME=${LINE%%+*}
-          if [ "${{ github.ref_type }}" = "tag" ]; then
-            TAG="${{ github.ref_name }}"
-          else
-            TAG="v$NAME"
-          fi
-          echo "name=$NAME" >> "$GITHUB_OUTPUT"
-          echo "tag=$TAG"   >> "$GITHUB_OUTPUT"
-
-      - name: Flutter pub get
-        run: flutter pub get
+          with-keystore: 'false'
 
       - name: Build unsigned app
         run: flutter build ios --release --no-codesign
@@ -218,12 +309,12 @@ jobs:
           mkdir -p dist/Payload
           cp -R build/ios/iphoneos/Runner.app dist/Payload/
           cd dist
-          zip -qry "Fern-${{ steps.ver.outputs.name }}-unsigned.ipa" Payload
+          zip -qry "Fern-${{ steps.setup.outputs.name }}-unsigned.ipa" Payload
           rm -rf Payload
           ls -la
 
       - name: Attach to release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ steps.ver.outputs.tag }}
-          files: app/dist/Fern-${{ steps.ver.outputs.name }}-unsigned.ipa
+          tag_name: ${{ steps.setup.outputs.tag }}
+          files: app/dist/Fern-${{ steps.setup.outputs.name }}-unsigned.ipa

@@ -51,11 +51,14 @@ android {
         }
     }
 
-    // Два канала распространения. Отличаются ровно одним: способом обновляться.
-    //  * github — свой апдейтер качает APK с GitHub (нужно REQUEST_INSTALL_PACKAGES);
-    //  * play   — обновляет сам магазин (Play запрещает самообновление, и
-    //             разрешение на установку пакетов из этой сборки вырезано,
-    //             см. src/play/AndroidManifest.xml).
+    // Три канала распространения. Отличаются способом обновляться.
+    //  * github  — свой апдейтер качает APK с GitHub (нужно REQUEST_INSTALL_PACKAGES);
+    //  * play    — обновляет сам магазин (Play запрещает самообновление, и
+    //              разрешение на установку пакетов из этой сборки вырезано,
+    //              см. src/play/AndroidManifest.xml);
+    //  * rustore — обновляет магазин, разрешение вырезано так же. Подпись при
+    //              этом наша, а не магазина, поэтому версии из RuStore и с
+    //              GitHub встают друг поверх друга.
     flavorDimensions += "store"
     productFlavors {
         create("github") {
@@ -64,6 +67,12 @@ android {
         }
         create("play") {
             dimension = "store"
+        }
+        create("rustore") {
+            dimension = "store"
+            // ABI режутся ниже, в androidComponents: ndk.abiFilters здесь
+            // бесполезен — плагин Flutter выставляет свои фильтры из
+            // --target-platform и перетирает флейворные.
         }
     }
 
@@ -80,6 +89,21 @@ android {
                 "proguard-rules.pro",
             )
         }
+    }
+}
+
+// Из RuStore-сборки выбрасываем x86_64: телефонов на Intel не бывает, а
+// libtranslate_jni и распознаватель ML Kit под эту архитектуру весят 29 МБ,
+// которые каждый человек скачал бы впустую (магазин отдаёт APK целиком, без
+// раздачи по устройствам, как в Play).
+//
+// Именно так, а не `ndk.abiFilters` во флейворе: плагин Flutter выставляет
+// abiFilters сам, из `--target-platform`, и флейворные значения перетирает.
+// Флаг `--target-platform` в одиночку тоже не спасает: он управляет только
+// библиотеками Flutter, а нативные части плагинов пакует Gradle.
+androidComponents {
+    onVariants(selector().withFlavor("store" to "rustore")) { variant ->
+        variant.packaging.jniLibs.excludes.add("lib/x86*/**")
     }
 }
 
