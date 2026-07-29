@@ -10,5 +10,11 @@ const String kStore = String.fromEnvironment('STORE', defaultValue: 'github');
 /// Сборка для Google Play: без самообновления из GitHub.
 const bool kPlayBuild = kStore == 'play';
 
+/// Сборка для RuStore: обновления доставляет магазин.
+const bool kRuStoreBuild = kStore == 'rustore';
+
 /// Сборка для sideload (GitHub / Obtainium): апдейтер внутри приложения.
-const bool kSelfUpdate = !kPlayBuild;
+///
+/// Именно `kStore == 'github'`, а НЕ `!kPlayBuild`: у RuStore-сборки своего
+/// апдейтера тоже нет, и разрешение на установку пакетов ей не выдаётся.
+const bool kSelfUpdate = kStore == 'github';

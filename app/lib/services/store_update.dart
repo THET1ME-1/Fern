@@ -48,6 +48,9 @@ class StoreUpdate {
       return;
     }
 
+    // RuStore обновляет приложение сам: своего апдейтера у этой сборки нет.
+    if (!kSelfUpdate) return;
+
     final current = await appVersionName();
     if (current.isEmpty) return;
     final info = (await UpdateService.checkForUpdate(current)).info;
@@ -73,6 +76,8 @@ class StoreUpdate {
         return tr('update_check_failed');
       }
     }
+
+    if (!kSelfUpdate) return tr('update_via_store');
 
     final current = await appVersionName();
     final check = current.isEmpty
