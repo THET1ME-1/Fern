@@ -44,6 +44,14 @@ export default {
   },
 };
 
+// Маркер «в очереди что-то есть». Нужен из-за лимита KV: `list()` на бесплатном
+// плане отпущено 1000 раз в сутки, а бот заходит за заказами каждые 15 секунд —
+// это 5760 обращений, и к обеду воркер начинал отвечать 500 «list() limit
+// exceeded», бот молчал. Теперь `list()` зовётся, только когда заказ реально
+// пришёл: лёгкий `get()` лимитом не ограничен так жёстко.
+const MARKER = 'meta:queue';
+const MARKER_EMPTY = 'empty';
+
 /** Вебхук lava.top: сохранить событие целиком и ответить 200. */
 async function takeOrder(request, env) {
   if (env.WEBHOOK_KEY && request.headers.get('X-Api-Key') !== env.WEBHOOK_KEY) {
@@ -56,6 +64,9 @@ async function takeOrder(request, env) {
   // Ключ упорядочен по времени: бот разбирает очередь в порядке покупок.
   const key = `order:${Date.now()}:${crypto.randomUUID()}`;
   await env.ORDERS.put(key, body, { expirationTtl: TTL_SECONDS });
+  // Поднимаем маркер: без него бот не станет заглядывать в очередь и заказ
+  // пролежит незамеченным.
+  await env.ORDERS.put(MARKER, String(Date.now()));
   // 200 даже на непонятное событие: lava.top повторяет вебхук до двадцати раз,
   // а разбирается с ним всё равно бот.
   return new Response('ok');
@@ -66,6 +77,12 @@ async function pullOrders(request, env) {
   if (!authorized(request, env)) {
     return new Response('forbidden', { status: 403 });
   }
+  // Пустая очередь — самый частый случай: отвечаем сразу, не тратя list().
+  const marker = await env.ORDERS.get(MARKER);
+  if (!marker || marker === MARKER_EMPTY) {
+    return Response.json({ events: [] });
+  }
+
   const listed = await env.ORDERS.list({ prefix: 'order:', limit: BATCH });
   const events = [];
   for (const item of listed.keys) {
@@ -73,6 +90,10 @@ async function pullOrders(request, env) {
     if (payload !== null) {
       events.push({ key: item.name, payload });
     }
+  }
+  // Разобрали всё — гасим маркер, следующий заход обойдётся без list().
+  if (events.length === 0) {
+    await env.ORDERS.put(MARKER, MARKER_EMPTY);
   }
   return Response.json({ events });
 }
