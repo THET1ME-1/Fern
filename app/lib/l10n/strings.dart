@@ -551,6 +551,10 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Не удалось проверить обновления',
     'en': 'Could not check for updates'
   },
+  'update_via_store': {
+    'ru': 'Обновления приходят из магазина',
+    'en': 'Updates arrive from the store',
+  },
   'open_link_failed': {
     'ru': 'Не удалось открыть ссылку',
     'en': 'Could not open the link'
@@ -779,6 +783,7 @@ const Map<String, Map<String, String>> _strings = {
   'stat_mature': {'ru': 'Выучено', 'en': 'Mature'},
   'stat_due': {'ru': 'К повтору', 'en': 'Due'},
   'best_streak': {'ru': 'Рекорд серии', 'en': 'Best streak'},
+  'streak_milestones': {'ru': 'Вехи серии', 'en': 'Streak milestones'},
   'days_studied': {'ru': 'Дней занятий', 'en': 'Days studied'},
   'reviews_per_day': {'ru': 'Повторов/день', 'en': 'Reviews/day'},
   'mastered_pct': {'ru': 'Выучено', 'en': 'Mastered'},

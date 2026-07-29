@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
+import '../theme/fern_shapes.dart';
+import 'morph_shapes.dart';
 import 'reveal.dart';
 
 /// Крупная выразительная «заглушка» для пустых/будущих разделов в духе
@@ -30,14 +32,15 @@ class EmptyState extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Reveal(
-              child: Container(
-                width: 140,
-                height: 140,
-                decoration: BoxDecoration(
-                  color: scheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(44),
-                ),
-                child: Icon(icon, size: 68, color: scheme.onPrimaryContainer),
+              // Плашка под иконкой — не скруглённый квадрат, а силуэт из того
+              // же набора форм, что обложки колод и кольцо цели.
+              child: MorphShape(
+                from: FernShapes.empty,
+                to: FernShapes.empty,
+                progress: 0,
+                size: 140,
+                fill: scheme.primaryContainer,
+                child: Icon(icon, size: 62, color: scheme.onPrimaryContainer),
               ),
             ),
             const SizedBox(height: 28),

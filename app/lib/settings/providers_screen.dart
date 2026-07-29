@@ -9,6 +9,7 @@ import '../services/translation/translation_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Экран «Перевод и модели»: выбор активного провайдера перевода и управление
 /// своими серверами (Ollama / OpenAI-совм. / LibreTranslate / DeepL).
@@ -525,7 +526,7 @@ class _ServerFormSheetState extends State<_ServerFormSheet> {
                           ? const SizedBox(
                               width: 16,
                               height: 16,
-                              child: CircularProgressIndicator(strokeWidth: 2),
+                              child: Waiting(size: 20),
                             )
                           : const Icon(Icons.wifi_tethering_rounded),
                       label: Text(tr('server_test')),

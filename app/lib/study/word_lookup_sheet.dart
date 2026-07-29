@@ -9,6 +9,7 @@ import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/grammar_card.dart';
 import '../widgets/pressable.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Результат добавления слова в колоду.
 enum LookupAddResult { added, duplicate, cancelled }
@@ -225,7 +226,7 @@ class _WordLookupState extends State<_WordLookup> {
                     const SizedBox(
                       width: 18,
                       height: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                      child: Waiting(size: 20),
                     ),
                     const SizedBox(width: 12),
                     Text(

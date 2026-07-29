@@ -18,10 +18,12 @@ import 'services/study_insights.dart';
 import 'study/session_screen.dart';
 import 'study/study_models.dart';
 import 'theme/app_theme.dart';
+import 'theme/fern_shapes.dart';
 import 'widgets/hook_editor_sheet.dart';
 import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
 import 'widgets/weekly_recap.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Экран «Прогресс»: обзор по всем карточкам, нагрузка на неделю, трудные слова.
 class ProgressScreen extends StatefulWidget {
@@ -118,7 +120,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : _cards.isEmpty
           ? _empty(scheme)
           : ListView(
@@ -177,6 +179,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     streak: streak,
                   ),
                 ),
+                ..._streakMilestones(scheme, streak),
                 ..._atRiskSection(scheme, now),
                 ..._bestTimeSection(scheme, now),
                 ..._extraStats(scheme),
@@ -340,6 +343,74 @@ class _ProgressScreenState extends State<ProgressScreen> {
       }
     }
     return (fresh: f, learning: l, young: y, mature: m);
+  }
+
+  /// Вехи серии: неделя, месяц, сто дней.
+  ///
+  /// Пока веха не взята — тусклый круг, взятая распускается в свою фигуру.
+  /// Форма работает наградой: она меняется несколько раз за всю жизнь серии.
+  List<Widget> _streakMilestones(ColorScheme scheme, int streak) {
+    return [
+      const SizedBox(height: 16),
+      _sectionTitle(tr('streak_milestones'), scheme),
+      const SizedBox(height: 12),
+      Reveal(
+        delay: const Duration(milliseconds: 170),
+        child: Row(
+          children: [
+            for (var i = 0; i < FernShapes.streakMilestones.length; i++) ...[
+              if (i > 0) const SizedBox(width: 10),
+              Expanded(
+                child: _milestoneTile(
+                  scheme,
+                  days: FernShapes.streakMilestones[i],
+                  step: i + 1,
+                  reached: streak >= FernShapes.streakMilestones[i],
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    ];
+  }
+
+  Widget _milestoneTile(
+    ColorScheme scheme, {
+    required int days,
+    required int step,
+    required bool reached,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainer,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: [
+          MorphShape(
+            from: FernShapes.streakShape(0),
+            to: FernShapes.streakShape(step),
+            progress: reached ? 1 : 0,
+            size: 40,
+            duration: const Duration(milliseconds: 760),
+            curve: Curves.elasticOut,
+            fill: reached ? scheme.primary : scheme.outlineVariant,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            trn('n_days', days),
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 11.5,
+              fontWeight: reached ? FontWeight.w600 : FontWeight.w500,
+              color: reached ? scheme.primary : scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   // Доп. статистика: рекорд серии, дней занятий, повторов/день, % выучено.

@@ -29,12 +29,14 @@ import 'theme/app_theme.dart';
 import 'video/add_target.dart';
 import 'widgets/batch_progress_dialog.dart';
 import 'widgets/book_meta_editor.dart';
+import 'widgets/coverage_ring.dart';
 import 'widgets/goal_ring.dart';
 import 'widgets/language_check_card.dart';
 import 'widgets/pressable.dart';
 import 'widgets/pro_sheet.dart';
 import 'widgets/reading_goal_card.dart';
 import 'widgets/reveal.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Страница книги: обложка и метаданные, прогресс чтения, умный анализ словаря
 /// (сколько слов читатель помнит / учит / не знает + покрытие текста), список
@@ -417,7 +419,7 @@ class _BookScreenState extends State<BookScreen> {
           if (_loading)
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 48),
-              child: Center(child: CircularProgressIndicator()),
+              child: Center(child: Waiting(size: 34)),
             )
           else if (_text == null)
             _unavailable(scheme)
@@ -717,7 +719,7 @@ class _BookScreenState extends State<BookScreen> {
                 const SizedBox(
                   width: 16,
                   height: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+                  child: Waiting(size: 20),
                 ),
             ],
           ),
@@ -754,8 +756,8 @@ class _BookScreenState extends State<BookScreen> {
     final cov = (a.coverage * 100).round();
     return Row(
       children: [
-        GoalRing(
-          progress: a.coverage,
+        CoverageRing(
+          known: a.coverage,
           size: 72,
           strokeWidth: 8,
           color: _knownColor,

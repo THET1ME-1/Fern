@@ -22,6 +22,7 @@ import '../widgets/batch_progress_dialog.dart';
 import '../widgets/language_check_card.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
+import '../widgets/morph_shapes.dart';
 
 /// «Текст с фото»: снимаем/выбираем фото → офлайн-OCR → частые незнакомые слова
 /// уходят в колоду одним тапом (или пакетно). Язык распознавания = изучаемый,
@@ -261,7 +262,7 @@ class _OcrScreenState extends State<OcrScreen> {
             Center(
               child: Column(
                 children: [
-                  const CircularProgressIndicator(),
+                  const Waiting(size: 34),
                   const SizedBox(height: 12),
                   Text(tr('ocr_recognizing'),
                       style: TextStyle(color: scheme.onSurfaceVariant)),

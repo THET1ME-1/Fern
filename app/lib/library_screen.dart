@@ -20,6 +20,7 @@ import 'video/video_import_screen.dart';
 import 'video/video_screen.dart';
 import 'widgets/pressable.dart';
 import 'widgets/reveal.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Сортировка библиотеки.
 enum LibrarySort { recent, progress, known }
@@ -280,7 +281,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               children: [
@@ -645,8 +646,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                   child: busy
                       ? Padding(
                           padding: const EdgeInsets.all(12),
-                          child: CircularProgressIndicator(
-                              strokeWidth: 2.4, color: fg),
+                          child: Waiting(size: 22, color: fg),
                         )
                       : Icon(icon, color: fg),
                 ),

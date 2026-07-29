@@ -7,6 +7,7 @@ import '../l10n/strings.dart';
 import '../services/update_service.dart';
 import '../theme/app_theme.dart';
 import 'markdown_lite.dart';
+import 'morph_shapes.dart';
 
 /// Нижнее M3-меню «Доступно обновление»: показывает новую версию и описание,
 /// по кнопке «Обновить» скачивает APK с GitHub (с прогрессом) и запускает
@@ -229,7 +230,7 @@ class _UpdateSheetState extends State<UpdateSheet> {
                   const SizedBox(
                     width: 18,
                     height: 18,
-                    child: CircularProgressIndicator(strokeWidth: 2.5),
+                    child: Waiting(size: 24),
                   ),
                   const SizedBox(width: 12),
                   Text(

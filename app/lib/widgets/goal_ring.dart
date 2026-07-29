@@ -3,11 +3,17 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
+import '../theme/fern_shapes.dart';
+import 'morph_shapes.dart';
 
 /// Кольцо прогресса дневной цели в духе Material 3: дуга с круглым концом
 /// плавно заполняется от 0 до [progress] при появлении/изменении.
 ///
 /// В центре — произвольный [child] (обычно число повторов за сегодня).
+///
+/// Когда цель взята, за кольцом распускается силуэт: круг перетекает в
+/// «печеньку» с пружиной. Это единственное место, где приложение празднует
+/// формой, и работает оно ровно потому, что случается раз в день.
 class GoalRing extends StatelessWidget {
   final double progress; // 0..1
   final double size;
@@ -15,6 +21,9 @@ class GoalRing extends StatelessWidget {
   final Color color;
   final Color trackColor;
   final Widget? child;
+
+  /// Праздновать ли достижение. По умолчанию — когда кольцо заполнено.
+  final bool? celebrate;
 
   const GoalRing({
     super.key,
@@ -24,26 +33,64 @@ class GoalRing extends StatelessWidget {
     this.size = 72,
     this.strokeWidth = 8,
     this.child,
+    this.celebrate,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: 0, end: progress.clamp(0, 1)),
-      duration: const Duration(milliseconds: 900),
-      curve: AppTheme.emphasizedDecelerate,
-      builder: (_, value, _) => SizedBox(
-        width: size,
-        height: size,
-        child: CustomPaint(
-          painter: _RingPainter(
-            progress: value,
-            color: color,
-            trackColor: trackColor,
-            strokeWidth: strokeWidth,
+    final done = celebrate ?? progress >= 1;
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          if (done)
+            TweenAnimationBuilder<double>(
+              key: const ValueKey('goal-bloom'),
+              tween: Tween(begin: 0, end: 1),
+              duration: const Duration(milliseconds: 760),
+              curve: Curves.elasticOut,
+              builder: (_, t, _) {
+                final v = t.clamp(0.0, 1.0);
+                return SizedBox(
+                  width: size,
+                  height: size,
+                  child: CustomPaint(
+                    painter: MorphPainter(
+                      morph: morphBetween(
+                        FernShapes.goalIdle,
+                        FernShapes.goalDone,
+                      ),
+                      t: v,
+                      // Подложка тише дуги: она фон, а не второй индикатор.
+                      fill: color.withValues(alpha: 0.16 * v),
+                      border: null,
+                      borderWidth: 0,
+                    ),
+                  ),
+                );
+              },
+            ),
+          TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: progress.clamp(0, 1)),
+            duration: const Duration(milliseconds: 900),
+            curve: AppTheme.emphasizedDecelerate,
+            builder: (_, value, _) => SizedBox(
+              width: size,
+              height: size,
+              child: CustomPaint(
+                painter: _RingPainter(
+                  progress: value,
+                  color: color,
+                  trackColor: trackColor,
+                  strokeWidth: strokeWidth,
+                ),
+                child: Center(child: child),
+              ),
+            ),
           ),
-          child: Center(child: child),
-        ),
+        ],
       ),
     );
   }

@@ -10,6 +10,7 @@ import '../services/translation/translation_manager.dart';
 import '../services/tts_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/pressable.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Результат добавления слова в колоду (для сообщения пользователю).
 enum AddResult { added, duplicate, cancelled }
@@ -264,7 +265,7 @@ class _WordBubbleState extends State<_WordBubble> {
                     const SizedBox(
                       width: 18,
                       height: 18,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+                      child: Waiting(size: 20),
                     ),
                     const SizedBox(width: 12),
                     Text(

@@ -23,6 +23,7 @@ import '../widgets/pressable.dart';
 import 'reader_settings.dart';
 import 'tappable_text.dart';
 import 'word_lookup_sheet.dart';
+import '../widgets/morph_shapes.dart';
 
 /// Читалка книги в духе Linga: непрерывный текст, тап по слову → перевод и
 /// добавление в колоду, подсветка уже известных слов, сохранение позиции,
@@ -547,7 +548,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
         ),
       ),
       body: !_ready
-          ? Center(child: CircularProgressIndicator(color: t.accent))
+          ? Center(child: Waiting(size: 34, color: t.accent))
           : _reader(t),
     );
   }

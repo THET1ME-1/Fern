@@ -3,6 +3,64 @@
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/).
 Версии — [семантические](https://semver.org/lang/ru/).
 
+## [1.19.0] — 2026-07-29
+
+Формы заговорили.
+
+### Добавлено
+- **Обложки колод живут на настоящих формах Material 3.** Пятиугольник,
+  ракушка, цветок, арка — силуэт перетекает, когда меняешь форму в редакторе, и
+  собирается в круг занятия, когда с колоды стартует сессия.
+- **Кольцо дневной цели распускается**, когда цель взята: круг превращается в
+  «печеньку» с пружиной. Раз в день, поэтому не приедается.
+- **Вехи серии** в «Прогрессе»: неделя, месяц, сто дней. Пока веха не взята —
+  тусклый круг, взятая расцветает в свою фигуру.
+- **Кольцо покрытия книги набирает вершины** вместе с процентом понятного
+  текста: круг на половине, двенадцатигранник у комфортных 95%.
+
+### Изменено
+- **Смена вопроса в занятии идёт переходом**, а не подменой кадра: ответ
+  гаснет со сдвигом, следующая карточка приходит снизу.
+- **Короткая сессия показывается засечками.** Видно, что осталось три
+  карточки, а не «где-то семьдесят процентов»; длинная сессия идёт полосой,
+  которая догоняет значение пружиной.
+- **Кнопки оценки вдавливаются под пальцем.**
+- **Ожидание перестало быть системным кружком.** Перевод слова, разбор книги,
+  распознавание с фотографии, загрузка видео — везде перетекающая фигура.
+- Круг активного пункта навигации распускается на прилёте; пустые экраны и
+  образцы цветовой схемы получили те же силуэты.
+
+---
+
+## Fern 1.19.0 — in English
+
+Shapes found their voice.
+
+### Added
+- **Deck covers now use real Material 3 shapes.** Pentagon, clam shell, flower,
+  arch — the silhouette morphs when you pick a different shape in the editor,
+  and folds into the study circle when a session starts from that deck.
+- **The daily goal ring blooms** when you hit the goal: a circle turns into a
+  cookie with a spring. Once a day, so it never gets old.
+- **Streak milestones** in Progress: a week, a month, a hundred days. Until a
+  milestone is reached it stays a dim circle; reaching it opens the shape up.
+- **The book coverage ring grows corners** along with the share of text you
+  understand: a circle at half, a twelve-sided shape at a comfortable 95%.
+
+### Changed
+- **Questions now transition instead of snapping.** The answered card fades out
+  and up, the next one arrives from below.
+- **Short sessions show notches.** You can see three cards are left instead of
+  "roughly seventy percent"; longer sessions use a bar that springs to the new
+  value.
+- **Grade buttons press in under your finger.**
+- **Waiting is no longer a system spinner.** Word translation, book parsing,
+  photo recognition, video loading — a morphing shape everywhere.
+- The navigation circle blooms on arrival; empty screens and colour scheme
+  swatches got the same silhouettes.
+
+---
+
 ## [1.18.1] — 2026-07-21
 
 Прежний знак вернулся.

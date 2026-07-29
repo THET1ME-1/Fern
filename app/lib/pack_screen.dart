@@ -12,6 +12,7 @@ import 'widgets/deck_tiles.dart';
 import 'widgets/pack_editor_sheet.dart';
 import 'widgets/reveal.dart';
 import 'widgets/study_modes.dart';
+import 'widgets/morph_shapes.dart';
 
 /// Экран пака: колоды внутри одной «папки». Открывается тапом по плитке пака на
 /// главном экране. Вложенности пак-в-пак нет — только колоды.
@@ -344,7 +345,7 @@ class _PackScreenState extends State<PackScreen> {
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : ListView(
               padding: const EdgeInsets.only(bottom: 24),
               children: [

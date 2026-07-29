@@ -7,6 +7,7 @@ import '../services/schedule_lab.dart';
 import '../widgets/empty_state.dart';
 import '../widgets/reveal.dart';
 import '../theme/app_theme.dart';
+import '../widgets/morph_shapes.dart';
 
 /// «Как Fern решает» — что планировщик обещал и что вышло на самом деле.
 ///
@@ -60,7 +61,7 @@ class _ScheduleExplainScreenState extends State<ScheduleExplainScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(tr('how_fern_decides'))),
       body: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: Waiting(size: 34))
           : _default.hasData
               ? ListView(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),

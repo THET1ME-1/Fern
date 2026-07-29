@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../l10n/strings.dart';
 import '../services/clip_audio_service.dart';
 import '../services/tts_service.dart';
+import 'morph_shapes.dart';
 
 /// Небольшая кнопка-динамик: озвучивает слово на изучаемом языке.
 ///
@@ -88,8 +89,7 @@ class _SpeakerButtonState extends State<SpeakerButton> {
           ? SizedBox(
               width: widget.size,
               height: widget.size,
-              child: CircularProgressIndicator(
-                  strokeWidth: 2, color: tint),
+              child: Waiting(size: widget.size, color: tint),
             )
           : Icon(
               _hasLive
