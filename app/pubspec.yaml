@@ -83,8 +83,12 @@ flutter:
       fonts:
         - asset: assets/fonts/Onest.ttf
 
-# Иконка приложения (папоротник на зелёном). Генерация:
+# Иконка приложения (папоротник на тёмном). Генерация:
 #   dart run flutter_launcher_icons
+# Слои адаптивной иконки обязаны быть ПРОЗРАЧНЫМИ: foreground со своим фоном
+# лаунчер рисует квадратом внутри плашки (так было до 1.19.1), а без monochrome
+# ломается темизация иконок Android 13+. Полная картинка с фоном — только
+# image_path (legacy-mipmap и iOS).
 flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
@@ -93,3 +97,7 @@ flutter_launcher_icons:
   remove_alpha_ios: true
   adaptive_icon_background: "#242925"
   adaptive_icon_foreground: "assets/icon/foreground.png"
+  adaptive_icon_monochrome: "assets/icon/monochrome.png"
+  # Папоротник растёт из угла и намеренно уходит за край: отступ по умолчанию
+  # (16%) отодвигал его от края маски, и обрез холста читался обрубком стебля.
+  adaptive_icon_foreground_inset: 0
