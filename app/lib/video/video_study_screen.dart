@@ -9,6 +9,7 @@ import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../services/deck_repository.dart';
 import '../services/source_library.dart';
+import '../study/tappable_text.dart';
 import '../theme/app_theme.dart';
 import '../widgets/count_up_number.dart';
 import 'add_target.dart';
@@ -168,8 +169,8 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
     return AddResult.added;
   }
 
-  void _onWordTap(SubLine line, String token) {
-    final clean = _clean(token);
+  void _onWordTap(SubLine line, String word) {
+    final clean = _clean(word);
     if (clean.isEmpty) return;
     _pendingWord = clean;
     final sub = _findWord(line, clean);
@@ -190,6 +191,30 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
       sentEnd: line.end,
       wordStart: ws,
       wordEnd: we,
+      onAdd: _onAdd,
+    );
+  }
+
+  /// Выделение фразы удержанием и протяжкой — то же, что в читалке книг.
+  /// Целая реплика в карточке полезнее отдельного слова: `give up`, `по мере
+  /// того как` по словам не собираются.
+  void _onPhrase(SubLine line, String selected) {
+    var phrase = selected.trim().replaceAll(RegExp(r'\s+'), ' ');
+    if (phrase.isEmpty) return;
+    if (phrase.length > 120) phrase = phrase.substring(0, 120);
+    _pendingWord = phrase;
+    final span = line.phraseSpan(phrase);
+    showWordBubble(
+      context,
+      word: phrase,
+      sentence: line.text,
+      sourceLang: _srcLang,
+      targetLang: _tgtLang,
+      controller: _controller,
+      sentStart: line.start,
+      sentEnd: line.end,
+      wordStart: span?.$1,
+      wordEnd: span?.$2,
       onAdd: _onAdd,
     );
   }
@@ -281,74 +306,35 @@ class _VideoStudyScreenState extends State<VideoStudyScreen> {
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 220),
             opacity: active ? 1 : 0.55,
-            child: Wrap(
-              spacing: 2,
-              runSpacing: 2,
-              children: [
-                for (final token in line.text.split(RegExp(r'\s+')))
-                  if (token.isNotEmpty)
-                    _WordChip(
-                      token: token,
-                      active: active,
-                      added: _addedWords.contains(_clean(token).toLowerCase()) ||
-                          _known.contains(_clean(token).toLowerCase()),
-                      onTap: () => _onWordTap(line, token),
-                    ),
-              ],
+            // Реплика — один TappableText, а не Wrap из чипов-слов: так
+            // работает удержание с протяжкой (фраза целиком), и заодно на
+            // строку приходится один распознаватель жестов вместо десятка.
+            // Тем же путём читалка книг избавилась от лагов.
+            child: TweenAnimationBuilder<double>(
+              duration: const Duration(milliseconds: 220),
+              curve: AppTheme.emphasizedDecelerate,
+              tween: Tween(end: active ? 20 : 16),
+              builder: (context, size, _) => TappableText(
+                text: line.text,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: size,
+                  height: 1.35,
+                  fontWeight: active ? FontWeight.w600 : FontWeight.w400,
+                  color: active ? scheme.onSurface : scheme.onSurfaceVariant,
+                ),
+                known: _known,
+                sessionAdded: _addedWords,
+                highlightVersion: _added,
+                knownColor: scheme.tertiary,
+                addedColor: scheme.tertiary,
+                onWord: (word) => _onWordTap(line, word),
+                onPhrase: (phrase) => _onPhrase(line, phrase),
+              ),
             ),
           ),
         );
       },
-    );
-  }
-}
-
-/// Одно тап-слово субтитра. Активная реплика — крупнее; добавленные слова
-/// подчёркнуты цветом.
-class _WordChip extends StatelessWidget {
-  final String token;
-  final bool active;
-  final bool added;
-  final VoidCallback onTap;
-
-  const _WordChip({
-    required this.token,
-    required this.active,
-    required this.added,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 1),
-        decoration: added
-            ? BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: scheme.tertiary, width: 2),
-                ),
-              )
-            : null,
-        child: AnimatedDefaultTextStyle(
-          duration: const Duration(milliseconds: 220),
-          curve: AppTheme.emphasizedDecelerate,
-          style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
-            fontSize: active ? 20 : 16,
-            height: 1.35,
-            fontWeight: active ? FontWeight.w600 : FontWeight.w400,
-            color: added
-                ? scheme.tertiary
-                : active
-                    ? scheme.onSurface
-                    : scheme.onSurfaceVariant,
-          ),
-          child: Text(token),
-        ),
-      ),
     );
   }
 }

@@ -44,6 +44,39 @@ class SubLine {
     return (w.start, end);
   }
 
+  /// Границы выделенной фразы: от начала её первого слова до конца последнего.
+  ///
+  /// Нужны разбору видео, где слово можно зажать и протянуть, как в читалке
+  /// книг: пузырь должен играть ровно выделенный кусок. `null` — у реплики нет
+  /// пословной разметки или слов из фразы в ней не нашлось; тогда вызывающий
+  /// играет реплику целиком.
+  (Duration, Duration)? phraseSpan(String phrase) {
+    if (words.isEmpty) return null;
+    final parts = [
+      for (final p in phrase.split(RegExp(r'\s+')))
+        if (_clean(p).isNotEmpty) _clean(p),
+    ];
+    if (parts.isEmpty) return null;
+    final first = _find(parts.first);
+    final last = _find(parts.last);
+    if (first == null || last == null) return null;
+    return (wordSpan(first).$1, wordSpan(last).$2);
+  }
+
+  SubWord? _find(String clean) {
+    for (final w in words) {
+      if (_clean(w.text) == clean) return w;
+    }
+    return null;
+  }
+
+  static final RegExp _edge = RegExp(
+    r'^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$',
+    unicode: true,
+  );
+
+  static String _clean(String s) => s.replaceAll(_edge, '').toLowerCase();
+
   Map<String, dynamic> toJson() => {
         'a': start.inMilliseconds,
         'b': end.inMilliseconds,

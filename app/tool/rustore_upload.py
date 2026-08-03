@@ -172,13 +172,35 @@ def authenticate(key_id: str, key_b64: str) -> str:
     return token
 
 
+def contacts_payload(raw: str) -> dict[str, str] | None:
+    """Контакты разработчика в том виде, в каком их ждёт API.
+
+    Это ОБЪЕКТ с ключами `email`/`website`/`vkCommunity`, а не строка: строкой
+    RuStore отвечает «Invalid request format. Unexpected value» и HTTP 400 —
+    так упала первая же загрузка 1.20.0. Ключ выбираем по самому значению,
+    чтобы вызывающему не приходилось помнить три флага.
+    """
+    value = raw.strip()
+    if not value:
+        return None
+    if "vk.com" in value:
+        return {"vkCommunity": value}
+    if "@" in value and "://" not in value:
+        return {"email": value}
+    return {"website": value}
+
+
 def create_draft(token: str, whats_new: str, contacts: str) -> int:
     """Черновик версии. На приложение он может быть только один."""
     payload = {
         "publishType": "MANUAL",
         "whatsNew": whats_new[:WHATS_NEW_LIMIT],
-        "developerContacts": contacts,
     }
+    # Поле обязательно, только пока контакты не заданы в Консоли; пустое
+    # значение лучше не слать вовсе, чем слать пустым объектом.
+    contact = contacts_payload(contacts)
+    if contact is not None:
+        payload["developerContacts"] = contact
     try:
         data = request(
             "POST", f"{API}/public/v1/application/{PACKAGE}/version",
@@ -246,7 +268,26 @@ def selftest() -> int:
         ok = proc.returncode == 0
         print("подпись RSA-SHA512:", "✓ проверена" if ok else "✖ не сошлась")
         print("timestamp:", timestamp_now())
-        return 0 if ok else 1
+
+    # Контакты разработчика: API ждёт объект, и строкой он возвращает
+    # «Invalid request format. Unexpected value» — HTTP 400 на первой же
+    # загрузке. Проверяем форму, а не сеть.
+    cases = [
+        ("https://t.me/SnTAppsBot", {"website": "https://t.me/SnTAppsBot"}),
+        ("mail@example.com", {"email": "mail@example.com"}),
+        ("https://vk.com/club1", {"vkCommunity": "https://vk.com/club1"}),
+        ("", None),
+    ]
+    contacts_ok = True
+    for raw, want in cases:
+        got = contacts_payload(raw)
+        if got != want:
+            print(f"контакты: ✖ {raw!r} → {got!r}, ждали {want!r}")
+            contacts_ok = False
+    if contacts_ok:
+        print("контакты разработчика: ✓ объект нужной формы")
+
+    return 0 if ok and contacts_ok else 1
 
 
 # ──────────────────────────────── запуск ──────────────────────────────────
