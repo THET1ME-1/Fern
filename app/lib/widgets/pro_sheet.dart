@@ -104,6 +104,14 @@ class _ProSheetState extends State<ProSheet> {
     );
   }
 
+  /// Почему покупка не пошла — своими словами для каждого случая. Общее
+  /// «магазин недоступен» одинаково описывало и телефон без Play, и забытое
+  /// предложение в консоли.
+  String _troubleText() => switch (BillingService.instance.trouble) {
+        BillingTrouble.noProduct => tr('pro_product_unavailable'),
+        _ => tr('pro_store_unavailable'),
+      };
+
   Future<void> _buy() async {
     HapticFeedback.mediumImpact();
     setState(() => _busy = true);
@@ -111,7 +119,7 @@ class _ProSheetState extends State<ProSheet> {
     if (!mounted) return;
     setState(() {
       _busy = false;
-      _error = started ? null : tr('pro_store_unavailable');
+      _error = started ? null : _troubleText();
     });
     // Магазин закрывает лист сам, когда покупка дошла: слушаем состояние.
     if (started && Pro.active) Navigator.of(context).maybePop();

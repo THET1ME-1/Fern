@@ -1347,6 +1347,7 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'This key has expired. Get a fresh one from the bot — it is free and instant',
   },
   'pro_store_unavailable': {'ru': 'Магазин сейчас недоступен', 'en': 'The store is unavailable right now'},
+  'pro_product_unavailable': {'ru': 'Магазин отвечает, но товара в нём нет', 'en': 'The store answers, but the product is not there'},
   'pro_active': {'ru': 'Куплено', 'en': 'Purchased'},
   'pro_license_num': {'ru': 'Лицензия №{id}', 'en': 'License #{id}'},
   'pro_remove_key': {'ru': 'Убрать ключ', 'en': 'Remove key'},

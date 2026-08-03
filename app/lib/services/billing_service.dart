@@ -18,6 +18,20 @@ import '../utils/build_config.dart';
 /// Чек не проверяется на сервере, потому что сервера нет. Для приложения за
 /// пять долларов серверная проверка стоит дороже потерь от тех, кто умеет
 /// подделывать ответы биллинга.
+/// Что именно мешает покупке.
+enum BillingTrouble {
+  /// Всё в порядке (или магазин в этой сборке не предусмотрен).
+  none,
+
+  /// Биллинг не поднялся: приложение поставлено мимо Play, устройство без
+  /// сервисов Google или аккаунт не тот.
+  noStore,
+
+  /// Магазин отвечает, но товара в ответе нет: предложение в консоли не
+  /// активно, цена не задана для страны, либо товар ещё не разошёлся по Play.
+  noProduct,
+}
+
 class BillingService extends ChangeNotifier {
   BillingService._();
 
@@ -32,6 +46,7 @@ class BillingService extends ChangeNotifier {
   bool _available = false;
   ProductDetails? _product;
   StreamSubscription<List<PurchaseDetails>>? _sub;
+  BillingTrouble _trouble = BillingTrouble.none;
 
   /// Куплено ли Pro через магазин. Флаг живёт на устройстве, поэтому Pro
   /// остаётся при выключенном интернете.
@@ -39,6 +54,11 @@ class BillingService extends ChangeNotifier {
 
   /// Доступен ли магазин: в GitHub-сборке и на десктопе — нет.
   bool get available => _available;
+
+  /// Почему покупка не идёт. Раньше оба случая — «магазин не поднялся» и
+  /// «товара нет в ответе Play» — давали одну надпись, и отличить установку
+  /// мимо магазина от неактивного предложения в консоли было нечем.
+  BillingTrouble get trouble => _trouble;
 
   /// Цена строкой из магазина («$4.99», «399,00 ₽») — Play сам считает валюту
   /// и налоги страны, поэтому своей таблицы цен в приложении нет.
@@ -58,22 +78,41 @@ class BillingService extends ChangeNotifier {
   Future<void> _connect() async {
     try {
       _available = await InAppPurchase.instance.isAvailable();
-      if (!_available) return;
+      if (!_available) {
+        _trouble = BillingTrouble.noStore;
+        debugPrint('[billing] магазин недоступен: isAvailable() = false');
+        notifyListeners();
+        return;
+      }
       _sub = InAppPurchase.instance.purchaseStream.listen(
         _onPurchases,
-        onError: (_) {},
+        onError: (e) => debugPrint('[billing] поток покупок: $e'),
       );
       final response = await InAppPurchase.instance
           .queryProductDetails({productId});
       _product = response.productDetails
           .where((p) => p.id == productId)
           .firstOrNull;
+      // Ответ Play пишем в лог целиком: `notFoundIDs` — единственное, что
+      // отличает «приложение поставлено мимо магазина» от «предложение в
+      // консоли не активно», а искать это вслепую по консоли можно днями.
+      debugPrint('[billing] товаров: ${response.productDetails.length}, '
+          'не найдено: ${response.notFoundIDs}, '
+          'ошибка: ${response.error?.code} ${response.error?.message}');
+      if (_product == null) {
+        _trouble = BillingTrouble.noProduct;
+      } else {
+        _trouble = BillingTrouble.none;
+      }
       notifyListeners();
       // Тихое восстановление: человек, переставивший приложение, не должен
       // искать кнопку «я уже покупал».
       await InAppPurchase.instance.restorePurchases();
-    } catch (_) {
+    } catch (e) {
+      debugPrint('[billing] подключение не удалось: $e');
       _available = false;
+      _trouble = BillingTrouble.noStore;
+      notifyListeners();
     }
   }
 
