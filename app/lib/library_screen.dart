@@ -161,6 +161,22 @@ class _LibraryScreenState extends State<LibraryScreen> {
     final path = result?.files.single.path;
     if (path == null) return;
 
+    // Проверяем формат ДО разбора и до платного счётчика: выбор файла на
+    // Android срывается в «показать всё», и `.mobi` доходил сюда, разворачивался
+    // в кашу из букв и тратил единственный бесплатный разбор.
+    final refusal = await BookImport.refuse(path);
+    if (!mounted) return;
+    if (refusal != null) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+          content: Text(refusal.name == null
+              ? tr('book_not_text')
+              : trf('book_format_foreign', {'f': refusal.name!})),
+        ));
+      return;
+    }
+
     setState(() => _importing = true);
     final book = await BookImport.extract(path);
     if (!mounted) return;

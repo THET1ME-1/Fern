@@ -135,6 +135,12 @@ class WordCard {
   /// conj/num/particle/interj), либо '' — неизвестно. Для разбивки по типам.
   String pos;
 
+  /// Ответы, засчитанные вдобавок к [back]: второе значение слова («назад» для
+  /// `back`), синоним, своя формулировка. Копятся по ходу занятий — сам человек
+  /// или переводчик решают, что ответ верный, а карточка это запоминает и
+  /// больше не спорит.
+  List<String> accepted;
+
   /// Мнемоника-«крючок»: своя фраза-ассоциация, за которую цепляется память
   /// («под подушкой спрятана пила» для pillow). Пишется руками, показывается
   /// на обороте по кнопке и после срыва — там, где подсказка нужнее всего.
@@ -174,11 +180,24 @@ class WordCard {
     this.clipStartMs,
     this.clipEndMs,
     this.pos = '',
+    List<String>? accepted,
   })  : review = review ?? ReviewState(),
-        links = links ?? <String, String>{};
+        links = links ?? <String, String>{},
+        accepted = accepted ?? <String>[];
 
   /// Карта «к повтору сейчас»: новая или наступил срок.
   bool isDue(DateTime now) => review.due == null || !review.due!.isAfter(now);
+
+  /// Запоминает ответ как верный. Регистр и пробелы не создают нового варианта,
+  /// сам перевод карточки в списке не нужен.
+  void accept(String answer) {
+    final t = answer.trim();
+    if (t.isEmpty) return;
+    final key = t.toLowerCase();
+    if (key == back.trim().toLowerCase()) return;
+    if (accepted.any((a) => a.toLowerCase() == key)) return;
+    accepted.add(t);
+  }
 
   Map<String, dynamic> toJson() => {
         'id': id,
@@ -197,6 +216,7 @@ class WordCard {
         if (clipStartMs != null) 'cs': clipStartMs,
         if (clipEndMs != null) 'ce': clipEndMs,
         if (pos.isNotEmpty) 'pos': pos,
+        if (accepted.isNotEmpty) 'acc': accepted,
       };
 
   factory WordCard.fromJson(Map<String, dynamic> j) => WordCard(
@@ -220,6 +240,7 @@ class WordCard {
         clipStartMs: (j['cs'] as num?)?.toInt(),
         clipEndMs: (j['ce'] as num?)?.toInt(),
         pos: j['pos'] as String? ?? '',
+        accepted: (j['acc'] as List?)?.map((e) => e as String).toList(),
       );
 }
 

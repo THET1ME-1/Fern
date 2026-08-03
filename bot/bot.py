@@ -25,6 +25,7 @@
 from __future__ import annotations
 
 import asyncio
+import hmac
 import json
 import logging
 import os
@@ -217,7 +218,17 @@ async def process_event(payload) -> str:
 
 
 async def lava_webhook(request: web.Request) -> web.Response:
-    if WEBHOOK_KEY and request.headers.get("X-Api-Key") != WEBHOOK_KEY:
+    # Без ключа вебхук закрыт наглухо: «предупредили и пустили» означало бы,
+    # что забытая переменная окружения раздаёт ключи Pro любому, кто нашёл
+    # эндпоинт и слепил похожий JSON о покупке.
+    if not WEBHOOK_KEY:
+        log.warning("вебхук отклонён: SNT_WEBHOOK_KEY не задан")
+        return web.Response(status=503, text="webhook key not configured")
+    got = request.headers.get("X-Api-Key", "")
+    # Сравнение постоянное по времени: обычное != позволяет подбирать ключ
+    # посимвольно по задержке ответа. Через байты: строковый compare_digest
+    # не принимает не-ASCII ключи.
+    if not hmac.compare_digest(got.encode(), WEBHOOK_KEY.encode()):
         log.warning("вебхук с чужим ключом от %s", request.remote)
         return web.Response(status=401, text="bad key")
 
@@ -678,7 +689,7 @@ async def main() -> None:
     if not TOKEN:
         raise SystemExit("SNT_BOT_TOKEN не задан")
     if not WEBHOOK_KEY:
-        log.warning("SNT_WEBHOOK_KEY пуст — вебхук примет кого угодно")
+        log.warning("SNT_WEBHOOK_KEY пуст — вебхук будет отвечать 503")
 
     # Бот поднимается первым: вебхук с первой же секунды умеет писать владельцу.
     session = None

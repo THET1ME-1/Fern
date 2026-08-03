@@ -25,11 +25,20 @@ import 'test_helpers.dart';
 /// Linux-сборка на этой машине упирается в snap-тулчейн. Помечен тегом `visual`,
 /// в обычный прогон не входит.
 Future<void> _loadFonts() async {
-  for (final family in const ['Unbounded', 'Onest']) {
-    final loader = FontLoader(family)
-      ..addFont(File('assets/fonts/$family.ttf')
-          .readAsBytes()
-          .then((b) => ByteData.view(b.buffer)));
+  const files = {
+    'Unbounded': ['assets/fonts/Unbounded.ttf'],
+    'Onest': ['assets/fonts/Onest.ttf'],
+    'IBMPlexSans': [
+      'assets/fonts/IBMPlexSans-SemiBold.ttf',
+      'assets/fonts/IBMPlexSans-Bold.ttf',
+    ],
+  };
+  for (final e in files.entries) {
+    final loader = FontLoader(e.key);
+    for (final path in e.value) {
+      loader.addFont(
+          File(path).readAsBytes().then((b) => ByteData.view(b.buffer)));
+    }
     await loader.load();
   }
 }

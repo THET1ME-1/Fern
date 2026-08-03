@@ -20,7 +20,14 @@ enum TypedMatch {
 /// Прежний `answerMatches` отвечал только «да/нет», и описка засчитывалась как
 /// полный успех. Для автооценки разница важна: описка — это «трудно», а не
 /// «хорошо».
-TypedMatch typedQuality(String input, String expected) {
+/// [also] — ответы, засчитанные этой карточке раньше (`WordCard.accepted`):
+/// второе значение слова, синоним, своя формулировка. Однажды признанный ответ
+/// принимается мгновенно и без переводчика.
+TypedMatch typedQuality(
+  String input,
+  String expected, {
+  Iterable<String> also = const [],
+}) {
   final a = normalizeAnswer(input);
   final b = normalizeAnswer(expected);
   if (a.isEmpty) return TypedMatch.wrong;
@@ -28,11 +35,13 @@ TypedMatch typedQuality(String input, String expected) {
 
   // В переводе часто несколько вариантов через запятую — годится любой.
   var typo = false;
-  for (final part in b.split(RegExp(r'[,;/]'))) {
-    final p = part.trim();
-    if (p.isEmpty) continue;
-    if (a == p) return TypedMatch.exact;
-    if (p.length > 3 && levenshtein(a, p) <= 1) typo = true;
+  for (final variant in [b, ...also.map(normalizeAnswer)]) {
+    for (final part in variant.split(RegExp(r'[,;/]'))) {
+      final p = part.trim();
+      if (p.isEmpty) continue;
+      if (a == p) return TypedMatch.exact;
+      if (p.length > 3 && levenshtein(a, p) <= 1) typo = true;
+    }
   }
   if (typo) return TypedMatch.typo;
   if (b.length > 3 && levenshtein(a, b) <= 1) return TypedMatch.typo;

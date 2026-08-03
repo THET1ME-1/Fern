@@ -99,6 +99,14 @@ class Exercise {
 
   String get prompt => reversed ? card.back : card.front;
   String get answer => reversed ? card.front : card.back;
+
+  /// Засчитанные варианты карточки, применимые к ЭТОМУ упражнению.
+  ///
+  /// `WordCard.accepted` хранит альтернативные ПЕРЕВОДЫ (сторону back).
+  /// В обратном упражнении ждут термин, и «назад» из списка не должен
+  /// засчитывать русский ответ там, где спрашивают английское слово.
+  List<String> get acceptedVariants =>
+      reversed ? const [] : card.accepted;
 }
 
 /// Билдер очереди упражнений под конкретный режим.

@@ -4,10 +4,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
 import '../models/deck.dart';
 import '../models/fsrs.dart';
 import '../models/word_card.dart';
+import '../services/answer_check.dart';
 import '../services/auto_grade.dart';
 import '../services/card_images.dart';
 import '../services/deck_repository.dart';
@@ -21,6 +23,7 @@ import 'results_screen.dart';
 import 'study_models.dart';
 import '../widgets/morph_shapes.dart';
 import '../widgets/session_progress.dart';
+import '../widgets/pos_badge.dart';
 import '../widgets/pressable.dart';
 
 /// Экран сессии: прогоняет очередь упражнений (флип / выбор / ввод / верно-
@@ -204,6 +207,16 @@ class _SessionScreenState extends State<SessionScreen>
       case ExerciseKind.assemble:
         return const _ExData();
     }
+  }
+
+  /// Запоминает ответ, признанный верным вопреки переводу на карточке.
+  ///
+  /// Пишем `updateCards`, а НЕ `saveCards`: последний заменяет весь словарь
+  /// целиком и уже однажды схлопнул базу до нескольких строк.
+  void _rememberAnswer(WordCard card, String answer) {
+    final before = card.accepted.length;
+    card.accept(answer);
+    if (card.accepted.length != before) _repo.updateCards([card]);
   }
 
   Future<void> _onGraded(
@@ -671,8 +684,10 @@ class _SessionScreenState extends State<SessionScreen>
           key: key,
           ex: ex,
           autoGrade: _autoGrade,
+          languageCode: widget.deck.languageCode,
           onGraded: (r, ms) =>
               _onGraded(ex, r != Rating.again, r, answerMs: ms),
+          onAccepted: (answer) => _rememberAnswer(ex.card, answer),
         );
       case ExerciseKind.cloze:
         return _ClozeExercise(
@@ -1181,8 +1196,8 @@ class _FlipExerciseState extends State<_FlipExercise> {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.displayFont,
-              fontWeight: FontWeight.w800,
+              fontFamily: AppTheme.wordFont,
+              fontWeight: FontWeight.w700,
               fontSize: 34,
               color: isFront ? scheme.onSurface : scheme.onPrimaryContainer,
             ),
@@ -1435,8 +1450,8 @@ class _ChooseExerciseState extends State<_ChooseExercise> {
             ex.prompt,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.displayFont,
-              fontWeight: FontWeight.w800,
+              fontFamily: AppTheme.wordFont,
+              fontWeight: FontWeight.w700,
               fontSize: 30,
               color: scheme.onSurface,
             ),
@@ -1475,7 +1490,9 @@ class _ChooseExerciseState extends State<_ChooseExercise> {
                     child: Text(
                       opt,
                       style: TextStyle(
-                        fontFamily: AppTheme.bodyFont,
+                        // Шрифт слова: в обратном выборе варианты — изучаемые
+                        // слова, и «I» среди них обязана читаться.
+                        fontFamily: AppTheme.wordFont,
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         color: fg,
@@ -1618,7 +1635,9 @@ class _ListenExerciseState extends State<_ListenExercise> {
                     child: Text(
                       opt,
                       style: TextStyle(
-                        fontFamily: AppTheme.bodyFont,
+                        // Шрифт слова: в обратном выборе варианты — изучаемые
+                        // слова, и «I» среди них обязана читаться.
+                        fontFamily: AppTheme.wordFont,
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
                         color: fg,
@@ -1641,15 +1660,24 @@ class _TypeExercise extends StatefulWidget {
   final Exercise ex;
   final AutoGrade autoGrade;
 
+  /// Язык колоды: на нём написано изучаемое слово.
+  final String languageCode;
+
   /// Ввод оценивает себя сам: сверка с эталоном и время набора говорят больше,
   /// чем самооценка после подглядывания в ответ.
   final void Function(Rating rating, int answerMs) onGraded;
+
+  /// Ответ признан верным, хотя с переводом карточки не совпал. Карточка его
+  /// запоминает, и спорить об этом слове больше не придётся.
+  final void Function(String answer) onAccepted;
 
   const _TypeExercise({
     super.key,
     required this.ex,
     required this.autoGrade,
+    required this.languageCode,
     required this.onGraded,
+    required this.onAccepted,
   });
 
   @override
@@ -1662,7 +1690,21 @@ class _TypeExerciseState extends State<_TypeExercise> {
   TypedMatch? _match;
   int _answerMs = 0;
 
+  /// Идёт сверка ответа переводчиком.
+  bool _checking = false;
+
+  /// Ответ засчитан человеком вручную. Оценивать такой ответ по времени нельзя:
+  /// в него вошло чтение правильного ответа и раздумье над кнопкой.
+  bool _acceptedByHand = false;
+
   bool get _correct => _match != TypedMatch.wrong;
+
+  /// Язык набранного ответа и язык слова, о котором спросили. В обратном
+  /// упражнении стороны меняются местами.
+  String get _typedLang =>
+      widget.ex.reversed ? widget.languageCode : LocaleController.instance.code;
+  String get _promptLang =>
+      widget.ex.reversed ? LocaleController.instance.code : widget.languageCode;
 
   @override
   void dispose() {
@@ -1670,17 +1712,73 @@ class _TypeExerciseState extends State<_TypeExercise> {
     super.dispose();
   }
 
-  void _resolve(TypedMatch match) {
+  int get _elapsedMs =>
+      DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
+
+  void _resolve(TypedMatch match, [int? answerMs]) {
     if (_match != null) return;
     setState(() {
-      _answerMs =
-          DateTime.now().difference(_shownAt).inMilliseconds.clamp(0, 600000);
+      _answerMs = answerMs ?? _elapsedMs;
       _match = match;
     });
     HapticFeedback.mediumImpact();
   }
 
-  void _check() => _resolve(typedQuality(_controller.text, widget.ex.answer));
+  /// Сверка в три захода: точное совпадение, ранее засчитанные варианты
+  /// карточки и — если ответ всё ещё «мимо» — переводчик.
+  ///
+  /// Время ответа снимается ДО переводчика: секунды ожидания движка к памяти
+  /// человека отношения не имеют, а автооценка судит именно по ним.
+  Future<void> _check() async {
+    if (_match != null || _checking) return;
+    final typed = _controller.text;
+    final elapsed = _elapsedMs;
+    final local =
+        typedQuality(typed, widget.ex.answer, also: widget.ex.acceptedVariants);
+    if (local != TypedMatch.wrong) {
+      _resolve(local, elapsed);
+      return;
+    }
+    // Пустой ввод — это Enter на пустом поле, сверять переводчиком нечего.
+    if (typed.trim().isEmpty) {
+      _resolve(TypedMatch.wrong, elapsed);
+      return;
+    }
+
+    setState(() => _checking = true);
+    final same = await AnswerCheck.meansTheSame(
+      typed: typed,
+      typedLang: _typedLang,
+      source: widget.ex.prompt,
+      sourceLang: _promptLang,
+    );
+    if (!mounted) return;
+    setState(() => _checking = false);
+    // Запоминаем только перевод (прямое направление): в обратном человек ввёл
+    // синоним ТЕРМИНА, и класть его в список переводов значит заражать прямую
+    // проверку чужим языком.
+    if (same && !widget.ex.reversed) widget.onAccepted(typed);
+    _resolve(same ? TypedMatch.exact : TypedMatch.wrong, elapsed);
+  }
+
+  /// «Всё равно засчитать»: у слова оказалось другое значение, и человек прав.
+  /// Зачёт работает в обе стороны, а запоминается только перевод — список
+  /// `accepted` хранит сторону back, и термин в нём был бы миной.
+  void _acceptAnyway() {
+    if (_match != TypedMatch.wrong) return;
+    if (!widget.ex.reversed) widget.onAccepted(_controller.text);
+    setState(() {
+      _acceptedByHand = true;
+      _match = TypedMatch.exact;
+    });
+    HapticFeedback.selectionClick();
+  }
+
+  /// Ручной зачёт — «хорошо»: слово человек знал, но время замера уже испорчено
+  /// чтением ответа.
+  Rating get _rating => _acceptedByHand
+      ? Rating.good
+      : widget.autoGrade.typed(_match!, _answerMs);
 
   /// Описка — своё состояние: ответ засчитан, но оценка будет «трудно».
   /// Зелёная галочка рядом с «одна буква мимо» противоречила бы сама себе.
@@ -1729,23 +1827,31 @@ class _TypeExerciseState extends State<_TypeExercise> {
             ex.prompt,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.displayFont,
+              fontFamily: AppTheme.wordFont,
               fontWeight: FontWeight.w800,
               fontSize: 30,
               color: scheme.onSurface,
             ),
           ),
         ),
+        // Часть речи снимает половину споров ещё до ответа: у `back` спрашивают
+        // «спину», а не «назад», и метка «сущ.» это говорит.
+        if (ex.card.pos.isNotEmpty && !ex.reversed) ...[
+          const SizedBox(height: 10),
+          Center(child: PosBadge(code: ex.card.pos)),
+        ],
         const SizedBox(height: 20),
         TextField(
           controller: _controller,
           autofocus: true,
-          enabled: !answered,
+          enabled: !answered && !_checking,
           textAlign: TextAlign.center,
           textInputAction: TextInputAction.done,
           onSubmitted: (_) => _check(),
           style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
+            // Шрифт слова: в обратном направлении здесь набирают изучаемое
+            // слово, и своя «I» обязана выглядеть как на карточке.
+            fontFamily: AppTheme.wordFont,
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: answered ? _verdictColor(scheme) : scheme.onSurface,
@@ -1775,7 +1881,7 @@ class _TypeExerciseState extends State<_TypeExercise> {
             trf('answer_was', {'a': ex.answer}),
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
+              fontFamily: AppTheme.wordFont,
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: scheme.primary,
@@ -1783,7 +1889,23 @@ class _TypeExerciseState extends State<_TypeExercise> {
           ),
         ],
         const Spacer(),
-        if (!answered)
+        if (_checking)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Waiting(size: 22),
+              const SizedBox(width: 12),
+              Text(
+                tr('checking_answer'),
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 14,
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+          )
+        else if (!answered)
           Row(
             children: [
               // Ширина по надписи, а не доля строки: в трети экрана «Не знаю»
@@ -1818,14 +1940,28 @@ class _TypeExerciseState extends State<_TypeExercise> {
             ],
           )
         else
-          SizedBox(
-            width: double.infinity,
-            child: FilledButton(
-              onPressed: () =>
-                  widget.onGraded(widget.autoGrade.typed(_match!, _answerMs),
-                      _answerMs),
-              child: Text(tr('continue_btn')),
-            ),
+          Column(
+            children: [
+              // Ответ мимо перевода — но у слова бывает второе значение.
+              // Кнопка отдаёт последнее слово человеку и учит этому карточку.
+              if (!_correct && _controller.text.trim().isNotEmpty) ...[
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.tonal(
+                    onPressed: _acceptAnyway,
+                    child: Text(tr('count_anyway')),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () => widget.onGraded(_rating, _answerMs),
+                  child: Text(tr('continue_btn')),
+                ),
+              ),
+            ],
           ),
       ],
     );
@@ -1972,7 +2108,7 @@ class _ClozeExerciseState extends State<_ClozeExercise> {
             trf('answer_was', {'a': answer}),
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
+              fontFamily: AppTheme.wordFont,
               fontSize: 16,
               fontWeight: FontWeight.w600,
               color: scheme.primary,
@@ -2097,8 +2233,8 @@ class _TrueFalseExerciseState extends State<_TrueFalseExercise> {
                   ex.prompt,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: AppTheme.displayFont,
-                    fontWeight: FontWeight.w800,
+                    fontFamily: AppTheme.wordFont,
+                    fontWeight: FontWeight.w700,
                     fontSize: 30,
                     color: scheme.onSurface,
                   ),
@@ -2110,7 +2246,7 @@ class _TrueFalseExerciseState extends State<_TrueFalseExercise> {
                   widget.shown,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: AppTheme.displayFont,
+                    fontFamily: AppTheme.wordFont,
                     fontWeight: FontWeight.w700,
                     fontSize: 26,
                     color: scheme.primary,
@@ -2326,7 +2462,9 @@ class _SpellExerciseState extends State<_SpellExercise> {
           enableSuggestions: false,
           onSubmitted: (_) => _check(),
           style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
+            // Шрифт слова: здесь набирают изучаемое слово по звуку, и своя
+            // «I» в поле обязана выглядеть как на карточке.
+            fontFamily: AppTheme.wordFont,
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: answered ? _verdictColor(scheme) : scheme.onSurface,
@@ -2356,7 +2494,7 @@ class _SpellExerciseState extends State<_SpellExercise> {
             trf('answer_was', {'a': ex.card.front}),
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
+              fontFamily: AppTheme.wordFont,
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: scheme.primary,
@@ -2681,7 +2819,7 @@ class _AssembleExerciseState extends State<_AssembleExercise> {
           '${widget.ex.card.front}  ·  ${widget.ex.card.back}',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: AppTheme.displayFont,
+            fontFamily: AppTheme.wordFont,
             fontWeight: FontWeight.w700,
             fontSize: 17,
             color: scheme.onSurface,

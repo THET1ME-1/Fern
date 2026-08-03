@@ -24,6 +24,16 @@ class BookText {
   bool get isEmpty => text.trim().isEmpty;
 }
 
+/// Отказ разбирать файл: формат чужой.
+///
+/// [name] — как формат называют люди («MOBI», «PDF»), чтобы сообщение было о
+/// деле, а не «не удалось открыть файл». Пусто, когда формат не опознан, а
+/// внутри всё равно не текст.
+class ForeignBook {
+  final String? name;
+  const ForeignBook(this.name);
+}
+
 /// Накопитель абзацев и глав: тексты добавляются кусками, главы отмечают
 /// индекс абзаца, с которого начинаются (в том же разбиении, что и читалка).
 class _Assembler {
@@ -89,6 +99,147 @@ class BookImport {
     return dot > 0 ? name.substring(0, dot) : name;
   }
 
+  // ------------------------------- Заслон -------------------------------
+
+  /// Форматы книг, которые Fern не читает. Значение — как формат называют
+  /// люди: оно попадает прямо в сообщение, поэтому `azw3` здесь `AZW3`, а не
+  /// «неизвестный формат».
+  static const Map<String, String> _foreignByExtension = {
+    'mobi': 'MOBI',
+    'azw': 'AZW',
+    'azw3': 'AZW3',
+    'kfx': 'KFX',
+    'prc': 'PRC',
+    'lit': 'LIT',
+    'chm': 'CHM',
+    'pdf': 'PDF',
+    'djvu': 'DjVu',
+    'djv': 'DjVu',
+    'doc': 'DOC',
+    'docx': 'DOCX',
+    'odt': 'ODT',
+    'rtf': 'RTF',
+    'fb3': 'FB3',
+    'ibooks': 'iBooks',
+  };
+
+  /// Сигнатуры в начале файла. Расширение врёт чаще, чем заголовок: книгу
+  /// переименовывают в `.txt`, чтобы «прошла».
+  static const List<({int offset, String magic, String name})> _signatures = [
+    (offset: 60, magic: 'BOOKMOBI', name: 'MOBI'),
+    (offset: 60, magic: 'TEXtREAd', name: 'PalmDOC'),
+    (offset: 0, magic: '%PDF', name: 'PDF'),
+    (offset: 0, magic: 'AT&TFORM', name: 'DjVu'),
+    (offset: 0, magic: '{\\rtf', name: 'RTF'),
+    (offset: 0, magic: 'ITSF', name: 'CHM'),
+  ];
+
+  /// Байты OLE-контейнера (старые .doc от Word).
+  static const List<int> _oleMagic = [
+    0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1
+  ];
+
+  /// Сколько байт достаточно, чтобы узнать формат и понять, текст ли это.
+  static const int _headBytes = 4096;
+
+  /// Потолок РАЗВЁРНУТОГО содержимого архива. Zip-бомба на мегабайт
+  /// разворачивается в гигабайты и кладёт приложение по памяти; заявленные в
+  /// заголовке размеры видны ДО распаковки — по ним и отсекаем. Самая толстая
+  /// настоящая книга с картинками — десятки мегабайт.
+  static const int defaultMaxUncompressedBytes = 200 * 1024 * 1024;
+
+  /// Изменяемо только ради тестов: бюджет по-настоящему большой, и гонять в
+  /// тесте двухсотмегабайтный архив дороже, чем ужать лимит.
+  @visibleForTesting
+  static int maxUncompressedBytes = defaultMaxUncompressedBytes;
+
+  /// Имя формата по сигнатуре, либо null.
+  static String? sniffFormat(List<int> head) {
+    for (final s in _signatures) {
+      if (_matchesAt(head, s.offset, s.magic.codeUnits)) return s.name;
+    }
+    if (_matchesAt(head, 0, _oleMagic)) return 'DOC';
+    return null;
+  }
+
+  static bool _matchesAt(List<int> bytes, int offset, List<int> magic) {
+    if (bytes.length < offset + magic.length) return false;
+    for (var i = 0; i < magic.length; i++) {
+      if (bytes[offset + i] != magic[i]) return false;
+    }
+    return true;
+  }
+
+  static bool _isZip(List<int> head) =>
+      _matchesAt(head, 0, const [0x50, 0x4B, 0x03, 0x04]) ||
+      _matchesAt(head, 0, const [0x50, 0x4B, 0x05, 0x06]);
+
+  /// BOM UTF-16: FF FE (LE) или FE FF (BE). Виндовый блокнот так сохраняет
+  /// «Юникод», и половина байтов такого текста — нули.
+  static bool _hasUtf16Bom(List<int> b) =>
+      b.length >= 2 &&
+      ((b[0] == 0xFF && b[1] == 0xFE) || (b[0] == 0xFE && b[1] == 0xFF));
+
+  /// Текст это или бинарник.
+  ///
+  /// Смотрим на БАЙТЫ, а не на разобранную строку: cp1251-декодер разворачивает
+  /// любой байт в букву, и мусор из `.mobi` неотличим от русского текста уже
+  /// после декодирования. Нулевой байт в первых килобайтах — верный признак
+  /// бинарного файла, в тексте его не бывает. Исключение — UTF-16 с BOM.
+  static bool _looksBinary(List<int> head) {
+    if (head.isEmpty) return false;
+    if (_hasUtf16Bom(head)) return false;
+    var control = 0;
+    for (final b in head) {
+      if (b == 0x00) return true;
+      final isPlainWhitespace = b == 0x09 || b == 0x0A || b == 0x0D;
+      if (b < 0x20 && !isPlainWhitespace) control++;
+    }
+    return control * 50 > head.length; // больше 2% управляющих байтов
+  }
+
+  /// Проверяет файл ДО разбора: читается ли он вообще.
+  ///
+  /// Возвращает null, если книгу можно пробовать разбирать. Иначе — отказ с
+  /// именем формата для сообщения человеку.
+  static Future<ForeignBook?> refuse(String path) async {
+    try {
+      final file = File(path);
+      final length = await file.length();
+      final head = await file
+          .openRead(0, length < _headBytes ? length : _headBytes)
+          .expand((chunk) => chunk)
+          .toList();
+      return refuseHead(path, head);
+    } catch (e) {
+      // Ошибка ЧТЕНИЯ — не повод говорить «это не текст»: пропускаем дальше,
+      // extract упадёт на том же файле и покажет честное «не удалось открыть».
+      debugPrint('BookImport.refuse failed: $e');
+      return null;
+    }
+  }
+
+  /// Тот же заслон по уже прочитанным первым байтам — чтобы `extract` не читал
+  /// файл дважды.
+  static ForeignBook? refuseHead(String path, List<int> head) {
+    final ext = extensionOf(path);
+    final byExtension = _foreignByExtension[ext];
+    if (byExtension != null) return ForeignBook(byExtension);
+
+    final sniffed = sniffFormat(head);
+    if (sniffed != null) return ForeignBook(sniffed);
+
+    // Контейнеры обязаны быть zip-архивом: `.epub`, внутри которого лежит не
+    // архив, разбору не поддастся, а сообщение «не удалось открыть» ничего не
+    // объясняет.
+    if (ext == 'epub' || ext == 'zip') {
+      return _isZip(head) ? null : const ForeignBook(null);
+    }
+
+    if (_looksBinary(head)) return const ForeignBook(null);
+    return null;
+  }
+
   /// Читает файл по пути и возвращает извлечённый текст (или null при ошибке /
   /// неподдерживаемом формате). Тяжёлое парсинг-действие — вызывать в await.
   static Future<BookText?> extract(String path) async {
@@ -97,6 +248,11 @@ class BookImport {
       final file = File(path);
       final bytes = await file.readAsBytes();
       final fallbackTitle = _baseName(path);
+
+      // Второй рубеж: разбор зовут не только из библиотеки, а чужой формат
+      // разворачивается в непустую кашу и выглядит как настоящая книга.
+      final head = bytes.length > _headBytes ? bytes.sublist(0, _headBytes) : bytes;
+      if (refuseHead(path, head) != null) return null;
 
       switch (ext) {
         case 'epub':
@@ -134,11 +290,40 @@ class BookImport {
   /// молча превращались в кашу из «?», потому что запасная ветка была
   /// недостижима (`allowMalformed: true` не бросает никогда).
   static String _decode(List<int> bytes) {
+    if (_hasUtf16Bom(bytes)) return _decodeUtf16(bytes);
     try {
       return utf8.decode(bytes, allowMalformed: false);
     } catch (_) {
       return _decodeCp1251(bytes);
     }
+  }
+
+  /// UTF-16 по BOM. До заслона такие файлы «читались» через cp1251 и
+  /// превращались в кашу с нулевыми байтами.
+  ///
+  /// Одинокие суррогаты заменяются на U+FFFD: строку с непарным суррогатом не
+  /// примут ни SQLite, ни jsonEncode — битый файл ронял бы сохранение книги.
+  static String _decodeUtf16(List<int> b) {
+    final little = b[0] == 0xFF;
+    final units = <int>[];
+    // Нечётный хвост отбрасываем: битому последнему байту соответствий нет.
+    for (var i = 2; i + 1 < b.length; i += 2) {
+      units.add(little ? b[i] | (b[i + 1] << 8) : (b[i] << 8) | b[i + 1]);
+    }
+    for (var i = 0; i < units.length; i++) {
+      final u = units[i];
+      final isHigh = u >= 0xD800 && u <= 0xDBFF;
+      final isLow = u >= 0xDC00 && u <= 0xDFFF;
+      if (isHigh &&
+          i + 1 < units.length &&
+          units[i + 1] >= 0xDC00 &&
+          units[i + 1] <= 0xDFFF) {
+        i++; // валидная пара
+        continue;
+      }
+      if (isHigh || isLow) units[i] = 0xFFFD;
+    }
+    return String.fromCharCodes(units);
   }
 
   /// Верхняя половина таблицы Windows-1251 (байты 0x80–0xFF). Нижняя совпадает
@@ -173,8 +358,14 @@ class BookImport {
   static BookText _fromZip(List<int> bytes, String fallbackTitle) {
     final archive = ZipDecoder().decodeBytes(bytes);
     final byName = <String, ArchiveFile>{};
+    var declared = 0;
     for (final f in archive.files) {
-      if (f.isFile) byName[f.name] = f;
+      if (!f.isFile) continue;
+      declared += f.size;
+      if (f.size > maxUncompressedBytes || declared > maxUncompressedBytes) {
+        throw const FormatException('zip expands beyond budget');
+      }
+      byName[f.name] = f;
     }
 
     // Ищем .opf (спайн = порядок чтения, манифест = id→href, dc:title).

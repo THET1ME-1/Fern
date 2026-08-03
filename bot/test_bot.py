@@ -26,12 +26,16 @@ logging.disable(logging.CRITICAL)
 
 
 class _Any:
-    """Магический объект: `F.data == "menu"`, `F.text` и прочее в декораторах."""
+    """Магический объект: `F.data == "menu"`, `F.data.startswith("app:")`
+    и прочее в декораторах."""
 
     def __getattr__(self, _):
         return _Any()
 
     def __eq__(self, _):
+        return _Any()
+
+    def __call__(self, *_, **__):
         return _Any()
 
     def __hash__(self):

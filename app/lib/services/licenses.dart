@@ -32,5 +32,16 @@ void registerAssetLicenses() {
       'речи для английского языка.\n'
       'https://en.wikipedia.org/wiki/Moby_Project',
     );
+
+    yield LicenseEntryWithLineBreaks(
+      const ['Octanove Vocabulary Profile C1/C2 (word list)'],
+      'Octanove Vocabulary Profile C1/C2 (ver 1.0), Octanove Labs LLC.\n\n'
+      'Licensed under CC BY-SA 4.0. Список слов уровней C1 и C2 взят как '
+      'основа готового набора для английского; переводы на семь языков, '
+      'определения и примеры написаны для Fern и распространяются на тех же '
+      'условиях.\n'
+      'https://github.com/openlanguageprofiles/olp-en-cefrj\n\n'
+      '${await rootBundle.loadString('assets/licenses/CC-BY-SA-4.0.txt')}',
+    );
   });
 }

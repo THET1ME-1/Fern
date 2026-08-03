@@ -16,8 +16,8 @@ void main() {
     await repo.init();
   });
 
-  // Английский теперь сеется по умолчанию, поэтому в «Готовых колодах» его нет;
-  // проверяем на испанском наборе (остаётся для не-дефолтных языков).
+  // Базовые 500 слов английскому кладутся сами, поэтому «Готовые колоды» для
+  // него — это набор B1 сверху; общий механизм проверяем на испанском.
   test('испанский набор загружается из ассетов', () async {
     final packs = await StarterDecks.forLanguage('es');
     expect(packs.isNotEmpty, true);
@@ -26,12 +26,28 @@ void main() {
     expect(packs.first.cards.first.back.isNotEmpty, true);
   });
 
-  test('несуществующий язык — пустой список; английского в стартерах нет', () async {
+  test('несуществующий язык — пустой список', () async {
     expect(await StarterDecks.forLanguage('xx'), isEmpty);
     expect(await StarterDecks.hasPacksFor('xx'), false);
     expect(await StarterDecks.hasPacksFor('es'), true);
-    // Английский — дефолтный, среди стартеров его быть не должно.
-    expect(await StarterDecks.hasPacksFor('en'), false);
+  });
+
+  test('английский набор берут руками, а не на онбординге', () async {
+    // Готовый набор у английского теперь есть — но это ПРОДОЛЖЕНИЕ поверх
+    // стартовых 500 слов: B1 и C1–C2.
+    expect(await StarterDecks.hasPacksFor('en'), true);
+    final packs = await StarterDecks.forLanguage('en');
+    expect(packs.map((p) => p.wordCount).reduce((a, b) => a + b), 2661);
+    expect(packs.length, 8);
+
+    // На онбординге кладутся только базовые колоды: 1278 карточек на первом
+    // запуске — это не «посложнее», это закрыть приложение навсегда.
+    await DeckRepository.instance.setOnboarded(true);
+    await StarterDecks.seedFor('en');
+    final decks = await DeckRepository.instance.loadDecks();
+    expect(decks.any((d) => d.nameKey?.startsWith('starter_deck_') ?? false),
+        isFalse);
+    expect(decks, isNotEmpty, reason: 'базовый набор всё же посеян');
   });
 
   test('название и перевод колоды локализуются под язык интерфейса', () async {

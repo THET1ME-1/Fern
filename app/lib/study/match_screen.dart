@@ -236,7 +236,8 @@ class _MatchScreenState extends State<MatchScreen> {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontFamily: AppTheme.bodyFont,
+                  // Шрифт слова: половина плиток — изучаемые слова.
+                  fontFamily: AppTheme.wordFont,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
                   color: fg,

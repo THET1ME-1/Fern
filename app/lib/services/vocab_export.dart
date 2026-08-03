@@ -51,12 +51,21 @@ class VocabExport {
   }
 
   // RFC 4180: оборачиваем в кавычки, если есть запятая/кавычка/перевод строки.
+  //
+  // Ячейку, начинающуюся с =, +, -, @, Excel и Sheets исполняют как ФОРМУЛУ:
+  // карточка `=HYPERLINK(...)` из чужого импортированного набора превратила бы
+  // экспорт словаря в инъекцию, а безобидное `-ing` — в `#NAME?`. Апостроф
+  // впереди — стандартная защита: таблицы его прячут и читают ячейку текстом.
+  // Anki-TSV не трогаем: его читает Anki, а не таблицы, и апостроф остался бы
+  // в карточке.
   static String _csvField(String s) {
-    if (s.contains(',') || s.contains('"') || s.contains('\n') ||
-        s.contains('\r')) {
-      return '"${s.replaceAll('"', '""')}"';
+    var t = s;
+    if (t.isNotEmpty && '=+-@\t\r'.contains(t[0])) t = "'$t";
+    if (t.contains(',') || t.contains('"') || t.contains('\n') ||
+        t.contains('\r')) {
+      return '"${t.replaceAll('"', '""')}"';
     }
-    return s;
+    return t;
   }
 
   static String _ankiTsv(List<WordCard> cards) {

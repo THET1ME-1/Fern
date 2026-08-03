@@ -82,6 +82,14 @@ flutter:
     - family: Onest
       fonts:
         - asset: assets/fonts/Onest.ttf
+    # Шрифт изучаемого слова: I, l и 1 обязаны различаться (в Unbounded это
+    # три одинаковые палки, и карточка со словом «I» не читалась вовсе).
+    - family: IBMPlexSans
+      fonts:
+        - asset: assets/fonts/IBMPlexSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSans-Bold.ttf
+          weight: 700
 
 # Иконка приложения (папоротник на тёмном). Генерация:
 #   dart run flutter_launcher_icons

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,20 +23,43 @@ class ArticleImport {
   /// Первая ссылка в тексте (или null).
   static String? firstUrl(String text) => _urlRe.firstMatch(text)?.group(0);
 
-  static Future<Article?> fetch(String url) async {
+  /// Потолок скачивания. Статья — это сотни килобайт HTML; ссылка на видеофайл
+  /// или дамп без потолка утащила бы в память гигабайты и уронила приложение.
+  static const int maxBytes = 5 * 1024 * 1024;
+
+  static Future<Article?> fetch(String url, {http.Client? client}) async {
+    final own = client == null;
+    final c = client ?? http.Client();
     try {
-      final res = await http.get(
-        Uri.parse(url.trim()),
-        headers: const {
-          'User-Agent':
-              'Mozilla/5.0 (Android) AppleWebKit/537.36 Fern/1.0',
-        },
-      ).timeout(const Duration(seconds: 20));
+      final req = http.Request('GET', Uri.parse(url.trim()))
+        ..headers['User-Agent'] =
+            'Mozilla/5.0 (Android) AppleWebKit/537.36 Fern/1.0';
+      final res = await c.send(req).timeout(const Duration(seconds: 20));
       if (res.statusCode != 200) return null;
-      return _extract(res.body, url);
+      // Читаем ПОТОКОМ и останавливаемся на потолке: Content-Length у живых
+      // серверов бывает пустым или враньём, верить ему нельзя.
+      final buf = BytesBuilder(copy: false);
+      await for (final chunk
+          in res.stream.timeout(const Duration(seconds: 20))) {
+        buf.add(chunk);
+        if (buf.length > maxBytes) {
+          debugPrint('ArticleImport.fetch: body over $maxBytes bytes');
+          return null;
+        }
+      }
+      // Через Response.bytes, чтобы кодировка бралась из заголовков ответа —
+      // как делал прежний `res.body`.
+      final body = http.Response.bytes(
+        buf.takeBytes(),
+        res.statusCode,
+        headers: res.headers,
+      ).body;
+      return _extract(body, url);
     } catch (e) {
       debugPrint('ArticleImport.fetch failed: $e');
       return null;
+    } finally {
+      if (own) c.close();
     }
   }
 

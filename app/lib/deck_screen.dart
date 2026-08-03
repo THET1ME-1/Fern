@@ -11,6 +11,7 @@ import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
 import 'theme/app_theme.dart';
+import 'widgets/pos_badge.dart';
 import 'widgets/card_image_field.dart';
 import 'widgets/action_sheet.dart';
 import 'widgets/deck_editor_sheet.dart';
@@ -655,26 +656,7 @@ class _DeckScreenState extends State<DeckScreen> {
   }
 
   /// Цветной тег части речи рядом со словом (гл./сущ./арт.…).
-  Widget _posBadge(String code, ColorScheme scheme) {
-    final color = Color(PosDetect.colorOf(code));
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2.5),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.18),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: color.withValues(alpha: 0.5)),
-      ),
-      child: Text(
-        tr('pos_short_$code'),
-        style: TextStyle(
-          fontFamily: AppTheme.bodyFont,
-          fontWeight: FontWeight.w700,
-          fontSize: 11,
-          color: color,
-        ),
-      ),
-    );
-  }
+  Widget _posBadge(String code) => PosBadge(code: code);
 
   Widget _cardTile(WordCard card, ColorScheme scheme) {
     final now = DateTime.now();
@@ -741,7 +723,7 @@ class _DeckScreenState extends State<DeckScreen> {
                             ),
                             if (card.pos.isNotEmpty) ...[
                               const SizedBox(width: 8),
-                              _posBadge(card.pos, scheme),
+                              _posBadge(card.pos),
                             ],
                             if (card.isLeech) ...[
                               const SizedBox(width: 6),

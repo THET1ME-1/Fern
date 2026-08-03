@@ -694,6 +694,11 @@ const Map<String, Map<String, String>> _strings = {
   'correct': {'ru': 'Верно!', 'en': 'Correct!'},
   'incorrect': {'ru': 'Неверно', 'en': 'Incorrect'},
   'answer_was': {'ru': 'Ответ: {a}', 'en': 'Answer: {a}'},
+  'checking_answer': {
+    'ru': 'Сверяю с переводчиком',
+    'en': 'Checking with the translator'
+  },
+  'count_anyway': {'ru': 'Всё равно засчитать', 'en': 'Count it anyway'},
   'true_false_q': {'ru': 'Это верный перевод?', 'en': 'Is this the correct translation?'},
   'true_label': {'ru': 'Верно', 'en': 'True'},
   'false_label': {'ru': 'Неверно', 'en': 'False'},
@@ -922,6 +927,14 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Не удалось открыть файл',
     'en': 'Could not open the file'
   },
+  'book_format_foreign': {
+    'ru': 'Fern не читает {f}. Сконвертируйте книгу в EPUB, FB2 или TXT',
+    'en': 'Fern cannot read {f}. Convert the book to EPUB, FB2 or TXT'
+  },
+  'book_not_text': {
+    'ru': 'Это не текстовый файл. Подойдут EPUB, FB2, TXT и HTML',
+    'en': 'This is not a text file. EPUB, FB2, TXT and HTML will do'
+  },
   'source_open_failed': {
     'ru': 'Не удалось открыть источник',
     'en': 'Could not open this source'
@@ -1105,6 +1118,34 @@ const Map<String, Map<String, String>> _strings = {
   'seed_deck_verbs': {'ru': 'Глаголы', 'en': 'Verbs'},
   'seed_deck_food': {'ru': 'Еда и напитки', 'en': 'Food & drinks'},
   'seed_deck_clothes': {'ru': 'Одежда', 'en': 'Clothes'},
+  // Английский набор посложнее (B1): следующие 778 слов после стартовых 500.
+  'starter_deck_b1_nouns': {
+    'ru': 'Существительные · B1',
+    'en': 'Nouns · B1'
+  },
+  'starter_deck_b1_adjectives': {
+    'ru': 'Прилагательные · B1',
+    'en': 'Adjectives · B1'
+  },
+  'starter_deck_b1_verbs': {'ru': 'Глаголы · B1', 'en': 'Verbs · B1'},
+  'starter_deck_b1_other': {
+    'ru': 'Наречия и связки · B1',
+    'en': 'Adverbs & linkers · B1'
+  },
+  // Продвинутый набор: список Octanove C1/C2 из проекта CEFR-J.
+  'starter_deck_c1c2_nouns': {
+    'ru': 'Существительные · C1–C2',
+    'en': 'Nouns · C1–C2'
+  },
+  'starter_deck_c1c2_adjectives': {
+    'ru': 'Прилагательные · C1–C2',
+    'en': 'Adjectives · C1–C2'
+  },
+  'starter_deck_c1c2_verbs': {'ru': 'Глаголы · C1–C2', 'en': 'Verbs · C1–C2'},
+  'starter_deck_c1c2_adverbs': {
+    'ru': 'Наречия и связки · C1–C2',
+    'en': 'Adverbs & linkers · C1–C2'
+  },
 
   // ----------------------------- Прочие строки интерфейса -------------------------
   // Меню читалки: всё, что раньше стояло иконками в шапке.

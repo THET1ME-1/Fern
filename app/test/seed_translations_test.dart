@@ -37,6 +37,10 @@ const _secondWave = [
   'zh',
 ];
 
+/// Английский набор-продолжение: B1 плюс C1–C2. Своя раскладка и свой объём,
+/// поэтому в проверку «500 слов в четырёх колодах» он не входит.
+const _englishAdvanced = 'assets/starter/en.json';
+
 List<String> get _assets => [
       ..._firstWave,
       for (final code in _secondWave) 'assets/starter/$code.json',
@@ -147,6 +151,108 @@ void main() {
       expect(localizedBack(back), back[lang],
           reason: 'интерфейс $lang должен видеть свой перевод');
     }
+  });
+
+  group('английский набор-продолжение', () {
+    late Map<String, dynamic> data;
+
+    setUpAll(() async {
+      data = jsonDecode(await rootBundle.loadString(_englishAdvanced))
+          as Map<String, dynamic>;
+    });
+
+    test('перевод есть на каждом языке интерфейса', () {
+      final gaps = <String>[];
+      for (final deck in data['decks'] as List) {
+        for (final card in (deck['cards'] as List).cast<Map<String, dynamic>>()) {
+          final back = card['back'];
+          if (back is! Map) {
+            gaps.add('${card['front']}: оборот не карта языков');
+            continue;
+          }
+          for (final lang in _uiLangs) {
+            if (((back[lang] as String?)?.trim() ?? '').isEmpty) {
+              gaps.add('${card['front']} → $lang');
+            }
+          }
+          if (((card['example'] as String?)?.trim() ?? '').isEmpty) {
+            gaps.add('${card['front']}: нет примера');
+          }
+        }
+      }
+      expect(gaps, isEmpty,
+          reason: 'без перевода остались: ${gaps.take(10).join(', ')}');
+    });
+
+    test('слова не повторяют стартовые 500 и друг друга', () async {
+      final base = jsonDecode(await rootBundle.loadString('assets/seed/en.json'))
+          as Map<String, dynamic>;
+      final known = {
+        for (final d in base['decks'] as List)
+          for (final c in d['cards'] as List)
+            (c['front'] as String).toLowerCase(),
+      };
+
+      final fronts = <String>[];
+      for (final deck in data['decks'] as List) {
+        for (final c in deck['cards'] as List) {
+          fronts.add((c['front'] as String).toLowerCase());
+        }
+      }
+      final overlap = fronts.where(known.contains).toList();
+      expect(overlap, isEmpty,
+          reason: 'уже есть в стартовом наборе: ${overlap.take(10).join(', ')}');
+
+      final seen = <String>{};
+      final twice = fronts.where((f) => !seen.add(f)).toList();
+      expect(twice, isEmpty, reason: 'повторы: ${twice.take(10).join(', ')}');
+    });
+
+    test('колоды по частям речи и уровням, объём заявлен', () {
+      final sizes = {
+        for (final d in data['decks'] as List)
+          d['nameKey'] as String: (d['cards'] as List).length,
+      };
+      expect(sizes.keys.toSet(), {
+        'starter_deck_b1_nouns',
+        'starter_deck_b1_adjectives',
+        'starter_deck_b1_verbs',
+        'starter_deck_b1_other',
+        'starter_deck_c1c2_nouns',
+        'starter_deck_c1c2_adjectives',
+        'starter_deck_c1c2_verbs',
+        'starter_deck_c1c2_adverbs',
+      });
+      expect(sizes.values.reduce((a, b) => a + b), 2661);
+    });
+
+    test('у каждой карточки проставлен уровень', () {
+      final levels = <String>{};
+      final missing = <String>[];
+      for (final deck in data['decks'] as List) {
+        for (final c in deck['cards'] as List) {
+          final level = (c['level'] as String?)?.trim() ?? '';
+          if (level.isEmpty) {
+            missing.add(c['front'] as String);
+          } else {
+            levels.add(level);
+          }
+        }
+      }
+      expect(missing, isEmpty,
+          reason: 'без уровня: ${missing.take(10).join(', ')}');
+      expect(levels, {'b1', 'c1', 'c2'});
+    });
+
+    test('имя каждой колоды переводится на все семь языков', () async {
+      for (final lang in _uiLangs) {
+        await LocaleController.instance.setCode(lang);
+        for (final deck in data['decks'] as List) {
+          final key = deck['nameKey'] as String;
+          expect(tr(key), isNot(key), reason: 'ключ $key не переведён на $lang');
+        }
+      }
+    });
   });
 
   test('посев на немецком интерфейсе даёт немецкие обороты', () async {

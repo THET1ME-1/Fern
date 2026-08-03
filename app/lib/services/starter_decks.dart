@@ -44,9 +44,12 @@ class StarterDecks {
   ];
 
   /// Языки, для которых есть готовые наборы (файлы `assets/starter/<code>.json`).
-  /// Английский НЕ здесь — он сеется как набор по умолчанию.
+  ///
+  /// Английский тоже здесь, но его набор — ПРОДОЛЖЕНИЕ, а не начало: 778 слов
+  /// уровня B1 сверх стартовых пятисот. На онбординге он не сеется (см.
+  /// [seedFor]), его берут руками, когда базовый набор стал простым.
   static const Set<String> availableLanguages = {
-    'af', 'ar', 'az', 'bg', 'bn', 'ca', 'cs', 'da',
+    'af', 'ar', 'az', 'bg', 'bn', 'ca', 'cs', 'da', 'en',
     'de', 'el', 'eo', 'es', 'et', 'fa', 'fi', 'fr',
     'ga', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is',
     'it', 'ja', 'ka', 'kk', 'ko', 'lt', 'lv', 'ms',
@@ -62,6 +65,10 @@ class StarterDecks {
   /// экран колод честнее чужих слов.
   static Future<void> seedFor(String code) async {
     if (code == 'en') {
+      // Английскому кладём базовые 500 слов. Набор B1 из `starter/en.json`
+      // сюда НЕ идёт: он для тех, кому стартовые слова уже просты, и
+      // сваливать 1278 карточек на первый запуск — верный способ закрыть
+      // приложение навсегда.
       await DeckRepository.instance.seedDemoIfNeeded();
       return;
     }

@@ -6,6 +6,7 @@ import 'package:sqlite3/sqlite3.dart';
 
 import '../models/deck.dart';
 import '../models/word_card.dart';
+import 'book_import.dart';
 import 'deck_repository.dart';
 import 'pos.dart';
 import 'pos_dictionary.dart';
@@ -88,6 +89,12 @@ class DeckImport {
         }
       }
       if (dbFile != null) break;
+    }
+    // Заявленный размер базы — до распаковки: zip-бомба на мегабайт
+    // разворачивается в гигабайты и кладёт приложение по памяти.
+    if (dbFile != null &&
+        dbFile.size > BookImport.defaultMaxUncompressedBytes) {
+      throw Exception('apkg database is implausibly large: ${dbFile.size}');
     }
     if (dbFile == null) {
       final hasZstd = archive.files.any((f) => f.name == 'collection.anki21b');

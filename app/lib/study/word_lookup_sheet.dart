@@ -182,8 +182,8 @@ class _WordLookupState extends State<_WordLookup> {
                     child: Text(
                       widget.word,
                       style: TextStyle(
-                        fontFamily: AppTheme.displayFont,
-                        fontWeight: FontWeight.w800,
+                        fontFamily: AppTheme.wordFont,
+                        fontWeight: FontWeight.w700,
                         fontSize: 26,
                         color: scheme.onSurface,
                       ),
