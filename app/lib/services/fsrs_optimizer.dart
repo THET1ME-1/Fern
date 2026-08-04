@@ -30,6 +30,32 @@ class FsrsOptimizeResult {
   });
 }
 
+/// Насколько журнал повторов готов к подгонке.
+///
+/// Общее число событий — не то же самое, что пригодные данные: подгонка учится
+/// на словах, повторённых ЧЕРЕЗ СУТКИ после знакомства, а внутридневные шаги
+/// (минута, десять минут) в счёт не идут. Экран настроек показывает именно эти
+/// числа, иначе полный счётчик соседствует с отказом «мало данных».
+class FsrsReadiness {
+  /// Событий в журнале всего.
+  final int total;
+
+  /// Слов в самой крупной группе «оценка знакомства → повтор через сутки».
+  /// Подгонка идёт по каждой оценке отдельно, поэтому важен максимум, а не
+  /// сумма: девять слов на «Не помню» плюс девять на «Хорошо» не дают
+  /// восемнадцати наблюдений одной кривой.
+  final int pairs;
+
+  const FsrsReadiness({required this.total, required this.pairs});
+
+  int get needTotal => FsrsOptimizer.minTotal;
+
+  int get needPairs => FsrsOptimizer.minPerRating;
+
+  /// Данных хватает — можно запускать подгонку.
+  bool get enough => total >= needTotal && pairs >= needPairs;
+}
+
 /// Персональный оптимизатор FSRS.
 ///
 /// Полная оптимизация всех 19 весов — это градиентный спуск по FSRS-лоссу
@@ -62,14 +88,46 @@ class FsrsOptimizer {
     }
     final measured = revTotal == 0 ? 0.0 : revRecalled / revTotal;
 
-    // 2) Пары «первый рейтинг → исход второго повтора» (события уже
-    // отсортированы по карте и времени).
-    final byRating = <int, List<(double, bool)>>{
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-    };
+    // 2) Пары «первый рейтинг → исход первого межсуточного повтора».
+    final byRating = _firstIntervals(events);
+
+    final w = List<double>.of(Fsrs.defaultWeights);
+    var fitted = 0;
+    for (var g = 1; g <= 4; g++) {
+      final s = _fitStability(byRating[g]!);
+      if (s != null) {
+        w[g - 1] = s;
+        fitted++;
+      }
+    }
+
+    return FsrsOptimizeResult(
+      weights: w,
+      measuredRetention: measured,
+      reviewSamples: revTotal,
+      fittedRatings: fitted,
+      enough: events.length >= minTotal && fitted > 0,
+    );
+  }
+
+  /// Готовность журнала к подгонке — то же условие, что и гейт [optimize],
+  /// только выраженное числами для экрана настроек.
+  static FsrsReadiness readiness(List<ReviewEvent> events) {
+    final byRating = _firstIntervals(events);
+    var best = 0;
+    for (final list in byRating.values) {
+      final usable = list.where((p) => p.$1 > 0).length;
+      if (usable > best) best = usable;
+    }
+    return FsrsReadiness(total: events.length, pairs: best);
+  }
+
+  /// Пары «оценка знакомства → исход первого межсуточного повтора», по оценкам.
+  /// События приходят отсортированными по карте и времени (`ORDER BY card_id,
+  /// ts`), поэтому карта разбирается одним проходом.
+  static Map<int, List<(double, bool)>> _firstIntervals(
+      List<ReviewEvent> events) {
+    final byRating = <int, List<(double, bool)>>{1: [], 2: [], 3: [], 4: []};
     String? curCard;
     var firstGrade = 0;
     var captured = false;
@@ -95,24 +153,7 @@ class FsrsOptimizer {
       byRating[firstGrade]!.add((e.elapsedDays, e.recalled));
       captured = true;
     }
-
-    final w = List<double>.of(Fsrs.defaultWeights);
-    var fitted = 0;
-    for (var g = 1; g <= 4; g++) {
-      final s = _fitStability(byRating[g]!);
-      if (s != null) {
-        w[g - 1] = s;
-        fitted++;
-      }
-    }
-
-    return FsrsOptimizeResult(
-      weights: w,
-      measuredRetention: measured,
-      reviewSamples: revTotal,
-      fittedRatings: fitted,
-      enough: events.length >= minTotal && fitted > 0,
-    );
+    return byRating;
   }
 
   /// Подгоняет стабильность S, минимизируя лог-лосс кривой забывания

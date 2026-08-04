@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/models/deck.dart';
+import 'package:fern/models/fsrs.dart';
 import 'package:fern/models/word_card.dart';
 import 'package:fern/services/deck_repository.dart';
 import 'package:fern/settings_screen.dart';
@@ -16,7 +17,9 @@ import 'package:fern/study/results_screen.dart';
 import 'package:fern/study/schedule_explain_screen.dart';
 import 'package:fern/study/session_screen.dart';
 import 'package:fern/study/study_models.dart';
+import 'package:fern/services/fsrs_optimizer.dart';
 import 'package:fern/theme/app_theme.dart';
+import 'package:fern/widgets/optimize_info_sheet.dart';
 
 import 'test_helpers.dart';
 
@@ -175,5 +178,23 @@ void main() {
     await tester.pumpWidget(_app(const ScheduleExplainScreen()));
     await tester.pumpAndSettle();
     await _shoot(tester, 'explain_data');
+  });
+
+  testWidgets('что даёт оптимизация: свои сроки против общих', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2000);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final personal = List<double>.of(Fsrs.defaultWeights)..[2] = 6.4;
+    await tester.pumpWidget(_app(Scaffold(
+      body: OptimizeInfoSheet(
+        data: const FsrsReadiness(total: 900, pairs: 42),
+        personal: personal,
+        retention: 0.9,
+      ),
+    )));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'optimize_info');
   });
 }

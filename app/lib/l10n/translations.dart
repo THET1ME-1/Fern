@@ -401,12 +401,45 @@ const Map<String, Map<String, String>> kTranslations = {
     'optimize_run': 'Optimieren',
     'optimize_active': 'Deine persönlichen Gewichte werden verwendet',
     'optimize_progress': 'Gesammelte Wiederholungen: {n} / {need}',
+    'optimize_pairs': 'Wörter am Folgetag wiederholt: {n} / {need}',
+    'optimize_ready': 'Daten reichen — Optimierung möglich',
     'optimize_done': 'Fertig. Deine Retention ≈ {r} %',
     'optimize_done_gain': 'Fertig: {r}% Behalten, Vorhersage {g}% genauer',
     'optimize_no_gain':
         'Deine Gewichte sagen nichts besser voraus als die Standardwerte — alles bleibt',
-    'optimize_need_more': 'Noch nicht genug Daten — lern weiter',
+    'optimize_need_more':
+        'Erst {n} von {need} Wiederholungen. Lern weiter',
+    'optimize_need_pairs':
+        'Die Anpassung lernt aus Wörtern, die einen Tag nach dem Kennenlernen '
+            'wiederholt wurden: bisher {n} von {need}',
     'optimize_reset_done': 'Auf Standardgewichte zurückgesetzt',
+    'opt_info_title': 'Was die Optimierung bringt',
+    'opt_info_lead':
+        'Fern entscheidet selbst, wann ein Wort wiederkommt. Die Abstände '
+            'stammen aus einer gemeinsamen Statistik: So vergisst ein '
+            'durchschnittlicher Mensch.',
+    'opt_info_lead2':
+        'Die Optimierung ersetzt diese Durchschnitte durch deine. Sie liest '
+            'deine Antworten, ermittelt, wie lange ein Wort bei dir wirklich '
+            'hält, und berechnet die erste Wiederholung neu.',
+    'opt_info_hold': 'Wann ein neues Wort wiederkommt',
+    'opt_info_hold_sub':
+        'Am ersten Tag fragt Fern das Wort nach einer Minute und nach zehn — '
+            'diese Schritte zählen hier nicht.',
+    'opt_info_col_avg': 'Durchschnitt',
+    'opt_info_col_you': 'Bei dir',
+    'opt_info_effect': 'Was sich ändert',
+    'opt_info_effect_slow':
+        'Du behältst Wörter länger als der Durchschnitt — Fern fragt später, '
+            'und pro Tag gibt es weniger Wiederholungen.',
+    'opt_info_effect_fast':
+        'Du vergisst schneller — das Wort kommt früher zurück, solange du dich '
+            'noch erinnern kannst.',
+    'opt_info_note':
+        'Es ändert sich nur die erste Wiederholung eines neuen Wortes, danach '
+            'läuft der Plan nach den üblichen Regeln. Die neuen Abstände '
+            'übernimmt Fern nur, wenn sie deine eigene Historie genauer '
+            'vorhersagen als die alten.',
     'cards_total': 'Karten gesamt',
     'stat_new': 'Neu',
     'stat_learning': 'Lernen',
@@ -1178,12 +1211,44 @@ const Map<String, Map<String, String>> kTranslations = {
     'optimize_run': 'Optimiser',
     'optimize_active': 'Vos poids personnalisés sont utilisés',
     'optimize_progress': 'Révisions collectées : {n} / {need}',
+    'optimize_pairs': 'Mots revus le lendemain : {n} / {need}',
+    'optimize_ready': 'Assez de données — l\'optimisation est possible',
     'optimize_done': 'Terminé. Votre rétention ≈ {r} %',
     'optimize_done_gain': 'Terminé : {r}% de rétention, prédiction {g}% plus juste',
     'optimize_no_gain':
         'Vos poids ne prédisent pas mieux que ceux par défaut — rien n\'a changé',
-    'optimize_need_more': 'Pas encore assez de données — continuez à étudier',
+    'optimize_need_more':
+        'Seulement {n} révisions sur {need}. Continuez à étudier',
+    'optimize_need_pairs':
+        'L\'ajustement apprend des mots revus le lendemain de leur découverte : '
+            '{n} sur {need} pour l\'instant',
     'optimize_reset_done': 'Poids par défaut rétablis',
+    'opt_info_title': 'À quoi sert l\'optimisation',
+    'opt_info_lead':
+        'Fern décide lui-même quand un mot revient. Les délais viennent d\'une '
+            'statistique commune : c\'est ainsi qu\'oublie une personne moyenne.',
+    'opt_info_lead2':
+        'L\'optimisation remplace ces moyennes par les vôtres. Elle lit vos '
+            'réponses, calcule combien de temps un mot tient réellement chez '
+            'vous et recalcule la première révision.',
+    'opt_info_hold': 'Quand un mot nouveau revient',
+    'opt_info_hold_sub':
+        'Le premier jour, Fern redemande le mot après une minute puis après '
+            'dix — ces étapes ne comptent pas ici.',
+    'opt_info_col_avg': 'Moyenne',
+    'opt_info_col_you': 'Chez vous',
+    'opt_info_effect': 'Ce qui change',
+    'opt_info_effect_slow':
+        'Vous retenez plus longtemps que la moyenne — Fern demande plus tard, '
+            'et il y a moins de révisions par jour.',
+    'opt_info_effect_fast':
+        'Vous oubliez plus vite — le mot revient plus tôt, tant que vous pouvez '
+            'encore le retrouver.',
+    'opt_info_note':
+        'Seule la première révision d\'un mot nouveau change ; ensuite le '
+            'planning suit les règles habituelles. Fern ne garde les nouveaux '
+            'délais que s\'ils prédisent votre propre historique mieux que les '
+            'anciens.',
     'cards_total': 'Total des cartes',
     'stat_new': 'Nouvelles',
     'stat_learning': 'En cours',
@@ -1955,12 +2020,42 @@ const Map<String, Map<String, String>> kTranslations = {
     'optimize_run': 'Optimizar',
     'optimize_active': 'Usando tus pesos personales',
     'optimize_progress': 'Repasos recogidos: {n} / {need}',
+    'optimize_pairs': 'Palabras repasadas al día siguiente: {n} / {need}',
+    'optimize_ready': 'Hay datos suficientes: ya puedes optimizar',
     'optimize_done': 'Listo. Tu retención ≈ {r}%',
     'optimize_done_gain': 'Listo: {r}% de retención, predicción un {g}% más precisa',
     'optimize_no_gain':
         'Tus pesos no predicen mejor que los normales: se quedó como estaba',
-    'optimize_need_more': 'Aún no hay datos suficientes: sigue estudiando',
+    'optimize_need_more': 'Solo {n} repasos de {need}. Sigue estudiando',
+    'optimize_need_pairs':
+        'El ajuste aprende de palabras repasadas al día siguiente de conocerlas: '
+            'por ahora {n} de {need}',
     'optimize_reset_done': 'Restablecidos los pesos predeterminados',
+    'opt_info_title': 'Para qué sirve optimizar',
+    'opt_info_lead':
+        'Fern decide cuándo vuelve una palabra. Los plazos salen de una '
+            'estadística común: así olvida una persona media.',
+    'opt_info_lead2':
+        'La optimización cambia esos promedios por los tuyos. Lee tus '
+            'respuestas, calcula cuánto aguanta de verdad una palabra en tu '
+            'cabeza y recalcula el primer repaso.',
+    'opt_info_hold': 'Cuándo vuelve una palabra nueva',
+    'opt_info_hold_sub':
+        'El primer día Fern pregunta la palabra al minuto y a los diez: esos '
+            'pasos no cuentan aquí.',
+    'opt_info_col_avg': 'Media',
+    'opt_info_col_you': 'Tuyos',
+    'opt_info_effect': 'Qué cambia',
+    'opt_info_effect_slow':
+        'Retienes más que la media: Fern pregunta más tarde y hay menos repasos '
+            'al día.',
+    'opt_info_effect_fast':
+        'Olvidas más rápido: la palabra vuelve antes, mientras todavía puedes '
+            'recordarla.',
+    'opt_info_note':
+        'Solo cambia el primer repaso de una palabra nueva; después el plan '
+            'sigue las reglas habituales. Fern se queda con los nuevos plazos '
+            'solo si predicen tu propio historial mejor que los anteriores.',
     'cards_total': 'Tarjetas totales',
     'stat_new': 'Nuevas',
     'stat_learning': 'Aprendiendo',
@@ -2732,12 +2827,42 @@ const Map<String, Map<String, String>> kTranslations = {
     'optimize_run': 'Ottimizza',
     'optimize_active': 'In uso i tuoi pesi personali',
     'optimize_progress': 'Ripassi raccolti: {n} / {need}',
+    'optimize_pairs': 'Parole ripassate il giorno dopo: {n} / {need}',
+    'optimize_ready': 'Dati sufficienti: puoi ottimizzare',
     'optimize_done': 'Fatto. La tua ritenzione ≈ {r}%',
     'optimize_done_gain': 'Fatto: {r}% di ritenzione, previsione più precisa del {g}%',
     'optimize_no_gain':
         'I tuoi pesi non prevedono meglio di quelli predefiniti — lasciato com\'era',
-    'optimize_need_more': 'Dati insufficienti — continua a studiare',
+    'optimize_need_more': 'Solo {n} ripassi su {need}. Continua a studiare',
+    'optimize_need_pairs':
+        'La taratura impara dalle parole ripassate il giorno dopo averle '
+            'incontrate: per ora {n} su {need}',
     'optimize_reset_done': 'Ripristinati i pesi predefiniti',
+    'opt_info_title': 'A cosa serve ottimizzare',
+    'opt_info_lead':
+        'Fern decide da solo quando far tornare una parola. Gli intervalli '
+            'vengono da una statistica comune: così dimentica una persona media.',
+    'opt_info_lead2':
+        'L\'ottimizzazione sostituisce quelle medie con le tue. Legge le tue '
+            'risposte, calcola quanto regge davvero una parola nella tua testa '
+            'e ricalcola il primo ripasso.',
+    'opt_info_hold': 'Quando torna una parola nuova',
+    'opt_info_hold_sub':
+        'Il primo giorno Fern richiede la parola dopo un minuto e dopo dieci: '
+            'questi passaggi qui non contano.',
+    'opt_info_col_avg': 'Media',
+    'opt_info_col_you': 'Tuoi',
+    'opt_info_effect': 'Cosa cambia',
+    'opt_info_effect_slow':
+        'Ricordi più a lungo della media: Fern chiede più tardi e i ripassi '
+            'giornalieri diminuiscono.',
+    'opt_info_effect_fast':
+        'Dimentichi più in fretta: la parola torna prima, finché puoi ancora '
+            'richiamarla.',
+    'opt_info_note':
+        'Cambia solo il primo ripasso di una parola nuova; poi il piano segue '
+            'le regole consuete. Fern tiene i nuovi intervalli solo se '
+            'prevedono la tua storia meglio dei precedenti.',
     'cards_total': 'Carte totali',
     'stat_new': 'Nuove',
     'stat_learning': 'In apprendimento',
@@ -3509,12 +3634,42 @@ const Map<String, Map<String, String>> kTranslations = {
     'optimize_run': 'Otimizar',
     'optimize_active': 'Usando seus pesos personalizados',
     'optimize_progress': 'Revisões coletadas: {n} / {need}',
+    'optimize_pairs': 'Palavras revisadas no dia seguinte: {n} / {need}',
+    'optimize_ready': 'Dados suficientes: dá para otimizar',
     'optimize_done': 'Concluído. Sua retenção ≈ {r}%',
     'optimize_done_gain': 'Pronto: {r}% de retenção, previsão {g}% mais certeira',
     'optimize_no_gain':
         'Os teus pesos não preveem melhor que os normais — ficou como estava',
-    'optimize_need_more': 'Ainda não há dados suficientes — continue estudando',
+    'optimize_need_more': 'Apenas {n} revisões de {need}. Continue estudando',
+    'optimize_need_pairs':
+        'O ajuste aprende com palavras revisadas no dia seguinte ao primeiro '
+            'contato: por enquanto {n} de {need}',
     'optimize_reset_done': 'Pesos padrão restaurados',
+    'opt_info_title': 'Para que serve otimizar',
+    'opt_info_lead':
+        'O Fern decide sozinho quando uma palavra volta. Os prazos vêm de uma '
+            'estatística comum: é assim que esquece uma pessoa média.',
+    'opt_info_lead2':
+        'A otimização troca essas médias pelas suas. Ela lê as suas respostas, '
+            'calcula quanto tempo a palavra realmente fica na sua cabeça e '
+            'recalcula a primeira revisão.',
+    'opt_info_hold': 'Quando uma palavra nova volta',
+    'opt_info_hold_sub':
+        'No primeiro dia o Fern pergunta a palavra depois de um minuto e de '
+            'dez — esses passos não contam aqui.',
+    'opt_info_col_avg': 'Média',
+    'opt_info_col_you': 'Seus',
+    'opt_info_effect': 'O que muda',
+    'opt_info_effect_slow':
+        'Você retém mais do que a média: o Fern pergunta mais tarde e sobram '
+            'menos revisões por dia.',
+    'opt_info_effect_fast':
+        'Você esquece mais rápido: a palavra volta antes, enquanto ainda dá '
+            'para lembrar.',
+    'opt_info_note':
+        'Muda apenas a primeira revisão de uma palavra nova; depois o plano '
+            'segue as regras de sempre. O Fern fica com os novos prazos só se '
+            'eles previrem o seu histórico melhor que os anteriores.',
     'cards_total': 'Total de cartões',
     'stat_new': 'Novos',
     'stat_learning': 'Aprendendo',

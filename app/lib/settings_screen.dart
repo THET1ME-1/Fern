@@ -14,6 +14,7 @@ import 'services/billing_service.dart';
 import 'services/license_service.dart';
 import 'utils/build_config.dart';
 import 'services/pro.dart';
+import 'widgets/optimize_info_sheet.dart';
 import 'widgets/pro_sheet.dart';
 import 'settings/providers_screen.dart';
 import 'services/backup_service.dart';
@@ -75,7 +76,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   int _newPerDay = 12;
   int _maxReviews = 100;
   double _retention = 0.9;
-  int _reviewEvents = 0;
+  FsrsReadiness _fsrsData = const FsrsReadiness(total: 0, pairs: 0);
   bool _customWeights = false;
   bool _optimizing = false;
   bool _reminderOn = false;
@@ -105,7 +106,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final posSplitAsk = await _repo.posSplitAsk();
     final twoButtons = await _repo.twoButtonRating();
     final retention = await _repo.requestRetention();
-    final events = await _repo.reviewEventCount();
+    final fsrsData = FsrsOptimizer.readiness(await _repo.reviewEvents());
     final custom = (await _repo.fsrsWeights()) != null;
     try {
       final info = await PackageInfo.fromPlatform();
@@ -121,7 +122,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _newPerDay = newPerDay;
         _maxReviews = maxReviews;
         _retention = retention;
-        _reviewEvents = events;
+        _fsrsData = fsrsData;
         _customWeights = custom;
         _reminderOn = on;
         _showVideoBanner = showBanner;
@@ -713,62 +714,102 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   /// Оптимизация персональных весов FSRS по накопленным повторам.
   Widget _optimizeTile(ColorScheme scheme) {
-    final ready = _reviewEvents >= FsrsOptimizer.minTotal;
+    final data = _fsrsData;
+    final ready = data.enough;
+    // Подпись обязана называть то условие, которое сейчас не выполнено. Пока
+    // она считала все события журнала, полный счётчик «387 / 200» соседствовал
+    // с отказом «мало данных»: подгонка начальной прочности живёт на словах,
+    // повторённых через сутки после знакомства, а внутридневные шаги в неё не
+    // входят.
+    final String subtitle;
+    if (_customWeights) {
+      subtitle = tr('optimize_active');
+    } else if (data.total < data.needTotal) {
+      subtitle =
+          trf('optimize_progress', {'n': data.total, 'need': data.needTotal});
+    } else if (data.pairs < data.needPairs) {
+      subtitle =
+          trf('optimize_pairs', {'n': data.pairs, 'need': data.needPairs});
+    } else {
+      subtitle = tr('optimize_ready');
+    }
     return Padding(
       padding: EdgeInsets.zero,
       child: Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(18),
         clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Row(
-            children: [
-              Icon(Icons.tune_rounded, color: scheme.onSurfaceVariant),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(tr('optimize_fsrs')),
-                    Text(
-                      _customWeights
-                          ? tr('optimize_active')
-                          : trf('optimize_progress',
-                              {'n': _reviewEvents, 'need': FsrsOptimizer.minTotal}),
-                      style: TextStyle(
-                          fontSize: 12, color: scheme.onSurfaceVariant),
-                    ),
-                  ],
+        child: InkWell(
+          // Тап по строке объясняет, зачем эта кнопка: «оптимизация FSRS» не
+          // говорит человеку ничего, а меняется вполне понятная вещь — через
+          // сколько дней вернётся новое слово.
+          onTap: _showOptimizeInfo,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Row(
+              children: [
+                Icon(Icons.tune_rounded, color: scheme.onSurfaceVariant),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(child: Text(tr('optimize_fsrs'))),
+                          const SizedBox(width: 6),
+                          Icon(Icons.help_outline_rounded,
+                              size: 15, color: scheme.onSurfaceVariant),
+                        ],
+                      ),
+                      Text(
+                        subtitle,
+                        style: TextStyle(
+                            fontSize: 12, color: scheme.onSurfaceVariant),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              if (_customWeights)
-                TextButton(
-                  onPressed: _optimizing ? null : _resetFsrs,
-                  child: Text(tr('reset')),
-                ),
-              _optimizing
-                  ? const Padding(
-                      padding: EdgeInsets.all(8),
-                      child: SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: Waiting(size: 20)),
-                    )
-                  : FilledButton.tonal(
-                      onPressed: ready ? _optimizeFsrs : null,
-                      child: Text(tr('optimize_run')),
-                    ),
-            ],
+                if (_customWeights)
+                  TextButton(
+                    onPressed: _optimizing ? null : _resetFsrs,
+                    child: Text(tr('reset')),
+                  ),
+                _optimizing
+                    ? const Padding(
+                        padding: EdgeInsets.all(8),
+                        child: SizedBox(
+                            width: 20, height: 20, child: Waiting(size: 20)),
+                      )
+                    : FilledButton.tonal(
+                        onPressed: ready ? _optimizeFsrs : null,
+                        child: Text(tr('optimize_run')),
+                      ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
+  /// Лист «Что даёт оптимизация»: сроки первого повтора вместо разговора о
+  /// весах и лог-лоссе.
+  Future<void> _showOptimizeInfo() async {
+    final weights = await _repo.fsrsWeights();
+    if (!mounted) return;
+    await OptimizeInfoSheet.show(
+      context,
+      data: _fsrsData,
+      personal: weights,
+      retention: _retention,
+    );
+  }
+
   Future<void> _optimizeFsrs() async {
     setState(() => _optimizing = true);
     final events = await _repo.reviewEvents();
+    final data = FsrsOptimizer.readiness(events);
     final result = FsrsOptimizer.optimize(events);
 
     // Подогнанные веса применяем, только если на СОБСТВЕННОЙ истории они
@@ -791,6 +832,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     setState(() {
       _optimizing = false;
       _customWeights = applied || _customWeights;
+      _fsrsData = data;
     });
 
     final String msg;
@@ -801,8 +843,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       });
     } else if (result.enough) {
       msg = tr('optimize_no_gain');
+    } else if (data.total < data.needTotal) {
+      msg = trf('optimize_need_more',
+          {'n': data.total, 'need': data.needTotal});
     } else {
-      msg = tr('optimize_need_more');
+      msg = trf('optimize_need_pairs',
+          {'n': data.pairs, 'need': data.needPairs});
     }
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()

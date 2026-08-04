@@ -65,4 +65,15 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Создать резервную копию'), findsOneWidget);
   });
+
+  testWidgets('тап по строке оптимизации объясняет, зачем она',
+      (WidgetTester tester) async {
+    await open(tester);
+
+    await tester.tap(find.text('Оптимизация FSRS'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Что даёт оптимизация'), findsOneWidget);
+    expect(find.text('Когда слово вернётся после знакомства'), findsOneWidget);
+  });
 }

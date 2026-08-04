@@ -762,6 +762,14 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Повторов накоплено: {n} / {need}',
     'en': 'Reviews collected: {n} / {need}'
   },
+  'optimize_pairs': {
+    'ru': 'Слов, повторённых через сутки: {n} / {need}',
+    'en': 'Words reviewed a day later: {n} / {need}'
+  },
+  'optimize_ready': {
+    'ru': 'Данных достаточно — можно настраивать',
+    'en': 'Enough data — ready to optimize'
+  },
   'optimize_done': {
     'ru': 'Готово. Ваше удержание ≈ {r}%',
     'en': 'Done. Your retention ≈ {r}%'
@@ -775,12 +783,69 @@ const Map<String, Map<String, String>> _strings = {
     'en': 'Your own weights predict no better than the defaults — kept as is'
   },
   'optimize_need_more': {
-    'ru': 'Пока мало данных — позанимайтесь ещё',
-    'en': 'Not enough data yet — keep studying'
+    'ru': 'Пока мало повторов: {n} из {need}. Позанимайтесь ещё',
+    'en': 'Only {n} of {need} reviews so far. Keep studying'
+  },
+  'optimize_need_pairs': {
+    'ru': 'Настройка учится на словах, повторённых через сутки после '
+        'знакомства: пока {n} из {need}',
+    'en': 'The fit learns from words reviewed a day after you met them: '
+        '{n} of {need} so far'
   },
   'optimize_reset_done': {
     'ru': 'Вернули стандартные веса',
     'en': 'Reset to default weights'
+  },
+  'opt_info_title': {
+    'ru': 'Что даёт оптимизация',
+    'en': 'What optimizing does'
+  },
+  'opt_info_lead': {
+    'ru': 'Fern сам решает, когда вернуть слово. Сроки взяты из общей '
+        'статистики: так забывает средний человек.',
+    'en': 'Fern decides when a word comes back. The intervals come from shared '
+        'statistics — how an average person forgets.'
+  },
+  'opt_info_lead2': {
+    'ru': 'Оптимизация заменяет средние сроки вашими. Она смотрит по вашим '
+        'ответам, сколько слово держится в голове на самом деле, и пересчитывает '
+        'первый повтор.',
+    'en': 'Optimizing swaps those averages for yours. It reads your answers, '
+        'works out how long a word actually holds for you, and recalculates the '
+        'first review.'
+  },
+  'opt_info_hold': {
+    'ru': 'Когда слово вернётся после знакомства',
+    'en': 'When a new word comes back'
+  },
+  'opt_info_hold_sub': {
+    'ru': 'В первый день Fern спросит слово через минуту и через десять — эти '
+        'сроки в счёт не идут.',
+    'en': 'On day one Fern asks the word after a minute and after ten — those '
+        'steps don\'t count here.'
+  },
+  'opt_info_col_avg': {'ru': 'Средние', 'en': 'Average'},
+  'opt_info_col_you': {'ru': 'Ваши', 'en': 'Yours'},
+  'opt_info_effect': {'ru': 'Что изменится', 'en': 'What changes'},
+  'opt_info_effect_slow': {
+    'ru': 'Держите слова дольше среднего — Fern спросит позже, повторов в день '
+        'станет меньше.',
+    'en': 'You hold words longer than average — Fern asks later, and there are '
+        'fewer reviews a day.'
+  },
+  'opt_info_effect_fast': {
+    'ru': 'Забываете быстрее — слово вернётся раньше, пока его ещё можно '
+        'вспомнить.',
+    'en': 'You forget faster — the word comes back sooner, while you can still '
+        'recall it.'
+  },
+  'opt_info_note': {
+    'ru': 'Меняется только первый повтор нового слова, дальше расписание идёт '
+        'по общим правилам. Новые сроки Fern примет, только если на вашей '
+        'истории они угадывают ответы точнее прежних.',
+    'en': 'Only the first review of a new word changes; after that the schedule '
+        'follows the usual rules. Fern keeps the new intervals only if they '
+        'predict your own history better than the old ones.'
   },
   'cards_total': {'ru': 'Всего карточек', 'en': 'Total cards'},
   'stat_new': {'ru': 'Новые', 'en': 'New'},
