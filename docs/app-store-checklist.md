@@ -36,9 +36,13 @@ UserDefaults, FileTimestamp и DiskSpace. Job проверяет, что фай�
 активационное правило не включены: приложение разбирает текст, а книгу человек
 открывает через «Файлы».
 
-⬜ **App Group `group.com.fern.flashcards` завести в Apple Developer** и
-включить capability App Groups у ОБОИХ App ID: `com.fern.flashcards` и
-`com.fern.flashcards.ShareExtension`. Без этого подпись расширения не пройдёт.
+✅ **App Group `group.com.fern.flashcards`** заведена, capability включена и
+привязана к обоим App ID. Через App Store Connect API группы не создаются
+(`/v1/appGroups` отвечает 404) — только портал; API умеет включить саму
+capability, но без привязки группы профиль выпускается с пустым списком, и
+сборка падает на «doesn't support the group… App Group».
+
+✅ **Сборка 1.21.0 (34) залита в TestFlight** (2026-08-07), статус VALID.
 
 ⬜ **На живом устройстве не проверялось ничего.** Mac и iPhone в хозяйстве нет,
 сборка подтверждает только компиляцию. Первое, что смотреть в TestFlight: звук
@@ -57,6 +61,13 @@ UserDefaults, FileTimestamp и DiskSpace. Job проверяет, что фай�
 | `APPSTORE_CERT_KEY` | `openssl genrsa 2048` — ключ придумываешь сам и хранишь навсегда |
 | `APPSTORE_APP_ID` | числовой id приложения в App Store Connect (App Information → General → Apple ID). Не обязателен: без него номер сборки берётся из pubspec |
 
+Все пять секретов заведены 2026-08-07; ключ API — «Codemagic.» (`XU8YHQFQAX`,
+роль Администратор), копия `.p8` и ключ сертификата лежат в `~/keys`.
+
+**Заливка без выпуска остальных каналов:** Actions → Release → Run workflow →
+флажок `only_appstore`. Тег `vX.Y.Z` по-прежнему раскладывает Fern сразу по
+всем пяти каналам.
+
 ⬜ Ключ App Store Connect API создать с ролью **Admin** или **App Manager** —
 роль Developer отдаёт 401 на заливке.
 
@@ -70,11 +81,9 @@ UserDefaults, FileTimestamp и DiskSpace. Job проверяет, что фай�
 ⬜ Членство в Apple Developer Program действует (99 $ в год). Аккаунт общий с
 Togetherly, команда `Y2Z9V86248` — отдельный оплачивать не нужно.
 
-⬜ **Два App ID** в Certificates, Identifiers & Profiles: `com.fern.flashcards`
-и `com.fern.flashcards.ShareExtension`. У обоих включить **App Groups** и
-выбрать группу `group.com.fern.flashcards` (её тоже завести там же, раздел
-Identifiers → App Groups). Пушей и Sign in with Apple нет, In-App Purchase
-включён по умолчанию.
+✅ **Два App ID** заведены: `com.fern.flashcards` и
+`com.fern.flashcards.ShareExtension`, у обоих включены App Groups с группой
+`group.com.fern.flashcards` и In-App Purchase.
 
 ⬜ Bundle ID в Xcode-проекте уже `com.fern.flashcards` — в консоли завести
 ровно его, иначе подпись не найдёт профиль.
