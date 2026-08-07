@@ -7,6 +7,7 @@ import 'package:fern/services/deck_repository.dart';
 import 'package:fern/services/license_service.dart';
 import 'package:fern/services/pro.dart';
 import 'package:fern/services/reading_goal.dart';
+import 'package:fern/utils/build_config.dart';
 import 'package:fern/widgets/pro_sheet.dart';
 
 import 'test_helpers.dart';
@@ -153,7 +154,36 @@ void main() {
 
     expect(Pro.active, isTrue);
     expect(find.byType(ProSheet), findsNothing); // лист закрылся сам
-  });
+    // Ветка живёт в сборках без магазина; в магазинной её нет вовсе, поэтому
+    // прогон с `--dart-define=STORE=play|appstore` этот случай пропускает.
+  }, skip: kStoreBilling);
+
+  testWidgets('Магазинный лист покупки не знает ни ключа, ни бота',
+      (tester) async {
+    // Правило 3.1.1 App Store: платные возможности открывает только касса
+    // Apple. Ключ, купленный на стороне, и ссылка на бота — прямой повод для
+    // отказа, поэтому в магазинной сборке их не должно быть даже в разметке.
+    await tester.pumpWidget(MaterialApp(
+      home: Builder(
+        builder: (context) => Scaffold(
+          body: ElevatedButton(
+            onPressed: () => ProSheet.show(context),
+            child: const Text('открыть'),
+          ),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('открыть'));
+    await tester.pumpAndSettle();
+
+    expect(find.text(tr('pro_open_bot')), findsNothing);
+    expect(find.text(tr('pro_have_key')), findsNothing);
+    expect(find.byType(TextField), findsNothing);
+    expect(find.text(tr('pro_buy')), findsOneWidget);
+    // Восстановление обязательно: без него App Store отклоняет приложение с
+    // разовой покупкой.
+    expect(find.text(tr('pro_restore')), findsOneWidget);
+  }, skip: !kStoreBilling);
 
   testWidgets('Закрытый лист покупки объясняет, что осталось закрытым',
       (tester) async {
@@ -226,5 +256,5 @@ void main() {
 
     expect(find.text(tr('pro_key_bad')), findsOneWidget);
     expect(Pro.active, isFalse);
-  });
+  }, skip: kStoreBilling);
 }

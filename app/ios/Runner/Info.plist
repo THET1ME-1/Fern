@@ -89,6 +89,37 @@
 	     соответствие при каждой загрузке. -->
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<!-- Общий контейнер с расширением «Поделиться»: оттуда приложение забирает
+	     то, чем с ним поделились. Значение приходит из настройки
+	     CUSTOM_GROUP_ID, заданной обоим таргетам. -->
+	<key>AppGroupId</key>
+	<string>$(CUSTOM_GROUP_ID)</string>
+	<!-- По этой схеме расширение будит приложение после «Поделиться». -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ShareMedia-$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			</array>
+		</dict>
+	</array>
+	<!-- Свой сервер перевода (Ollama, LibreTranslate, LM Studio) человек
+	     держит в домашней сети и обращается к нему по обычному http. ATS
+	     такие запросы режет, поэтому послабление выдано ТОЛЬКО локальной
+	     сети: весь внешний трафик по-прежнему обязан идти по https. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<!-- С iOS 14 обращение к адресу в домашней сети требует разрешения, и
+	     система показывает эту строку. Без ключа запрос к своему серверу
+	     обрывается без объяснения. -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Fern обращается к вашему серверу перевода в домашней сети — например, к Ollama или LibreTranslate на компьютере.</string>
 	<!-- Колоды и книги видны в «Файлах»: можно закинуть EPUB прямо в папку
 	     приложения и забрать резервную копию без компьютера. -->
 	<key>UIFileSharingEnabled</key>

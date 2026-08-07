@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Общий контейнер с расширением «Поделиться»: через него приходят текст,
+	     ссылка и файл книги из других приложений. Группу надо завести в Apple
+	     Developer, иначе подпись не пройдёт. -->
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.fern.flashcards</string>
+	</array>
+</dict>
+</plist>

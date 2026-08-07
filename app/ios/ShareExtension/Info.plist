@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Fern</string>
+	<key>CFBundleName</key>
+	<string>ShareExtension</string>
+	<!-- Версии здесь заглушки: Apple требует, чтобы они совпадали с
+	     приложением, а настоящие цифры знает только Flutter. Их подставляет
+	     скрипт «Версия из Flutter» в фазах сборки расширения. -->
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<!-- Общий контейнер с приложением; значение подставляется из
+	     пользовательской настройки CUSTOM_GROUP_ID обоих таргетов. -->
+	<key>AppGroupId</key>
+	<string>$(CUSTOM_GROUP_ID)</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionAttributes</key>
+		<dict>
+			<!-- Только текст и ссылка: из первого Fern делает карточку, из
+			     второй — разбор видео или статьи. Файлы, картинки и видео сюда
+			     не пускаем, потому что `share_import.dart` разбирает именно
+			     текст; книгу человек открывает через «Файлы», фотографию —
+			     через экран распознавания. Пообещать в системном листе больше,
+			     чем приложение умеет, значит получить мёртвый пункт меню. -->
+			<key>NSExtensionActivationRule</key>
+			<dict>
+				<key>NSExtensionActivationSupportsText</key>
+				<true/>
+				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<key>NSExtensionMainStoryboard</key>
+		<string>MainInterface</string>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.share-services</string>
+	</dict>
+</dict>
+</plist>

@@ -6,11 +6,15 @@ import 'signed_store.dart';
 
 import '../utils/build_config.dart';
 
-/// Покупка Fern Pro в Google Play.
+/// Покупка Fern Pro в магазине: Google Play или App Store.
 ///
-/// Работает только в play-сборке: сборка с GitHub магазина не видит, там Pro
-/// открывается ключом (см. [LicenseService]). Развилка по [kPlayBuild] — та же,
-/// по которой в проекте уже разведены самообновление и Play In-App Update.
+/// Работает в магазинных сборках: сборка с GitHub магазина не видит, там Pro
+/// открывается ключом (см. [LicenseService]). Развилка по [kStoreBilling] —
+/// родня той, по которой в проекте разведены самообновление и In-App Update.
+///
+/// Товар в обеих консолях называется одинаково — `fern_pro`. У Apple это
+/// non-consumable, у Google — разовая покупка; `in_app_purchase` работает с
+/// ними одним и тем же `buyNonConsumable`.
 ///
 /// Покупка разовая и не расходуемая: заплатил один раз, дальше приложение
 /// восстанавливает её на любом устройстве с тем же аккаунтом Google.
@@ -70,7 +74,7 @@ class BillingService extends ChangeNotifier {
     // покупка вернётся сама при восстановлении из магазина.
     _owned = await SignedStore.getBool(_kOwned);
     notifyListeners();
-    if (!kPlayBuild) return;
+    if (!kStoreBilling) return;
     // Магазин отвечает по сети — дальше идём молча, интерфейс уже поднят.
     unawaited(_connect());
   }
@@ -119,7 +123,7 @@ class BillingService extends ChangeNotifier {
   /// Запускает покупку. `false` — магазин не готов, товар не подъехал.
   Future<bool> buy() async {
     final product = _product;
-    if (!kPlayBuild || !_available || product == null) return false;
+    if (!kStoreBilling || !_available || product == null) return false;
     try {
       return await InAppPurchase.instance
           .buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
@@ -129,8 +133,11 @@ class BillingService extends ChangeNotifier {
   }
 
   /// Явное восстановление — кнопкой в настройках, когда тихое не сработало.
+  ///
+  /// В App Store кнопка обязательна: без неё ревью отклоняет приложение с
+  /// разовой покупкой (человек должен вернуть Pro на новом устройстве сам).
   Future<void> restore() async {
-    if (!kPlayBuild || !_available) return;
+    if (!kStoreBilling || !_available) return;
     try {
       await InAppPurchase.instance.restorePurchases();
     } catch (_) {}

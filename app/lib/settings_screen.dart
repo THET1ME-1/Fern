@@ -13,6 +13,7 @@ import 'l10n/strings.dart';
 import 'services/billing_service.dart';
 import 'services/license_service.dart';
 import 'utils/build_config.dart';
+import 'utils/share_origin.dart';
 import 'services/pro.dart';
 import 'widgets/optimize_info_sheet.dart';
 import 'widgets/pro_sheet.dart';
@@ -378,7 +379,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             scheme: scheme,
             children: _proTiles(scheme),
           ),
-          _donationCard(scheme),
+          // В сборке для App Store доната нет: Apple считает поддержку автора
+          // такой же платой за приложение и требует проводить её через свою
+          // кассу, а кнопки на Boosty и DonationAlerts — прямой повод для
+          // отказа по 3.1.1. Остальные каналы карточку показывают.
+          if (!kAppStoreBuild) _donationCard(scheme),
           const SizedBox(height: 22),
           _section(
             id: 'about',
@@ -914,6 +919,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   // ------------------------------- Данные -------------------------------
 
   Future<void> _backup() async {
+    // Точка для popover на iPad считается до первого await: см. share_origin.
+    final origin = shareOriginFromContext(context);
     try {
       final json = await BackupService.exportJson();
       final dir = await getApplicationDocumentsDirectory();
@@ -924,7 +931,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context,
       ).showSnackBar(SnackBar(content: Text(tr('backup_done'))));
       try {
-        await Share.shareXFiles([XFile(file.path)]);
+        await Share.shareXFiles([XFile(file.path)],
+            sharePositionOrigin: origin);
       } catch (_) {
         /* share не поддержан на десктопе — файл уже сохранён */
       }
@@ -986,6 +994,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> _doExport(VocabFormat fmt) async {
+    final origin = shareOriginFromContext(context);
     try {
       final cards = await _repo.loadCards();
       if (cards.isEmpty) {
@@ -1008,7 +1017,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         SnackBar(content: Text(trf('export_done', {'n': cards.length}))),
       );
       try {
-        await Share.shareXFiles([XFile(file.path)]);
+        await Share.shareXFiles([XFile(file.path)],
+            sharePositionOrigin: origin);
       } catch (_) {
         /* share не поддержан на десктопе — файл уже сохранён */
       }
@@ -1161,7 +1171,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         },
         scheme: scheme,
       ),
-      if (kPlayBuild)
+      // Восстановление покупки нужно обоим магазинам, и App Store требует его
+      // отдельным пунктом: человек, сменивший телефон, обязан вернуть Pro сам.
+      if (kStoreBilling)
         _actionTile(
           icon: Icons.restore_rounded,
           title: tr('pro_restore'),

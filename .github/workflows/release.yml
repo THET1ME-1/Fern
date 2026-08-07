@@ -5,11 +5,12 @@ name: Release
 #      в CHANGELOG.md разделом «## [1.18.2] — дата». Закоммитить, запушить.
 #   2. git tag v1.18.2 && git push origin v1.18.2
 #
-#   Один тег раскладывает Fern по четырём каналам:
+#   Один тег раскладывает Fern по пяти каналам:
 #     * release  — 3 split-APK в GitHub Release (оттуда их берёт апдейтер);
 #     * play     — AAB в Google Play, трек internal;
 #     * rustore  — универсальный APK в RuStore, черновик до ручной публикации;
-#     * ios      — неподписанный .ipa в тот же GitHub Release.
+#     * ios      — неподписанный .ipa в тот же GitHub Release (sideload);
+#     * appstore — подписанная сборка в TestFlight.
 #
 #   Магазинные job'ы пропускаются, если их секретов в репозитории нет: пока
 #   консоль не готова, релиз всё равно выходит.
@@ -282,11 +283,7 @@ jobs:
   # подписывают файл ключом самого человека. Отдельным job'ом и после релиза:
   # macOS-раннер медленный, и его падение не должно задерживать APK.
   #
-  # App Store сюда добавится отдельным job'ом, когда приложение появится в App
-  # Store Connect. Понадобятся: Apple Developer Program, сертификат
-  # распространения, provisioning-профиль и ключ App Store Connect API
-  # (секреты APPSTORE_ISSUER_ID, APPSTORE_KEY_ID, APPSTORE_PRIVATE_KEY),
-  # сборка `flutter build ipa --export-options-plist` и заливка через altool.
+  # Сборка для App Store живёт ниже, отдельным job'ом `appstore`.
   ios:
     runs-on: macos-latest
     needs: release
@@ -318,3 +315,148 @@ jobs:
         with:
           tag_name: ${{ steps.setup.outputs.tag }}
           files: app/dist/Fern-${{ steps.setup.outputs.name }}-unsigned.ipa
+
+  # ── App Store ──────────────────────────────────────────────────────────────
+  # Подписанная сборка и заливка в TestFlight. Дальше человек в App Store
+  # Connect добавляет сборку к версии и отправляет на ревью: тегом это не
+  # выражается, а отправка на ревью необратима.
+  #
+  # Секреты (все обязательны, иначе job пропускается):
+  #   APPSTORE_ISSUER_ID   — Issuer ID ключа App Store Connect API;
+  #   APPSTORE_KEY_ID      — идентификатор того же ключа;
+  #   APPSTORE_PRIVATE_KEY — содержимое .p8 целиком, вместе со строками BEGIN/END;
+  #   APPSTORE_CERT_KEY    — приватный RSA-ключ, которым подписан сертификат
+  #                          распространения (`openssl genrsa 2048`).
+  #   APPSTORE_APP_ID      — числовой id приложения в ASC (не обязателен).
+  #
+  # ПОЧЕМУ ключ сертификата хранится, а не генерится каждый раз: с новым ключом
+  # `fetch-signing-files --create` выпускает НОВЫЙ сертификат распространения, и
+  # за десяток прогонов упирается в лимит Apple. Дальше сертификаты приходится
+  # отзывать руками в портале. Один постоянный ключ — один сертификат навсегда.
+  appstore:
+    runs-on: macos-latest
+    needs: release
+    env:
+      BUNDLE_ID: com.fern.flashcards
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Проверить секреты
+        id: guard
+        env:
+          ISSUER: ${{ secrets.APPSTORE_ISSUER_ID }}
+          KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+          CERT_KEY: ${{ secrets.APPSTORE_CERT_KEY }}
+        run: |
+          if [ -z "$ISSUER" ] || [ -z "$KEY_ID" ] || [ -z "$PRIVATE_KEY" ] || [ -z "$CERT_KEY" ]; then
+            echo "::notice::Ключи App Store Connect не заданы — заливка в TestFlight пропущена."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup
+        id: setup
+        if: steps.guard.outputs.skip == 'false'
+        uses: ./.github/actions/flutter-release-setup
+        with:
+          with-keystore: 'false'
+
+      - name: Установить codemagic-cli-tools
+        if: steps.guard.outputs.skip == 'false'
+        run: pipx install codemagic-cli-tools
+
+      # Прогон именно в режиме канала: тесты проверяют, что в сборке для App
+      # Store нет ввода ключа и ссылки на бота (правило 3.1.1) и что кнопка
+      # «Восстановить покупки» на месте. Обычный прогон эту ветку не видит.
+      - name: Тесты канала appstore
+        if: steps.guard.outputs.skip == 'false'
+        run: flutter test --dart-define=STORE=appstore
+
+      # Подпись: свой сертификат + профиль App Store, оба скачиваются по API.
+      # `set -euo pipefail` обязателен — без него провал шага проглатывается,
+      # проект остаётся в автоподписи и архив падает уже в Xcode с невнятным
+      # «No Accounts», хотя настоящая причина здесь.
+      - name: Подписать проект
+        if: steps.guard.outputs.skip == 'false'
+        env:
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_IDENTIFIER: ${{ secrets.APPSTORE_KEY_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+          CERTIFICATE_PRIVATE_KEY: ${{ secrets.APPSTORE_CERT_KEY }}
+        run: |
+          set -euo pipefail
+          keychain initialize
+          # Профиль нужен каждому таргету со своим bundle id: приложению и
+          # расширению «Поделиться». Пропустить второй — значит собрать .ipa,
+          # который не подпишется на этапе экспорта.
+          for id in "$BUNDLE_ID" "$BUNDLE_ID.ShareExtension"; do
+            app-store-connect fetch-signing-files "$id" \
+              --platform IOS \
+              --type IOS_APP_STORE \
+              --certificate-key "@env:CERTIFICATE_PRIVATE_KEY" \
+              --create
+          done
+          keychain add-certificates
+          xcode-project use-profiles --project ios/Runner.xcodeproj
+
+      # Номер сборки Apple требует уникальный и растущий, и он живёт своей
+      # жизнью: versionCode Android к нему отношения не имеет. Берём последний
+      # из TestFlight и прибавляем единицу, иначе заливка падает на 409
+      # «bundle version must be higher than previously uploaded».
+      - name: Номер сборки
+        id: build
+        if: steps.guard.outputs.skip == 'false'
+        env:
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_IDENTIFIER: ${{ secrets.APPSTORE_KEY_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+          APP_ID: ${{ secrets.APPSTORE_APP_ID }}
+          FALLBACK: ${{ steps.setup.outputs.code }}
+        run: |
+          NUMBER=""
+          if [ -n "$APP_ID" ]; then
+            LATEST=$(app-store-connect get-latest-testflight-build-number "$APP_ID" 2>/dev/null || true)
+            if [ -n "$LATEST" ]; then NUMBER=$((LATEST + 1)); fi
+          fi
+          # Приложения в ASC ещё нет или ключ не дал ответа — идём с номером из
+          # pubspec. Для самой первой сборки это верно, дальше номер подхватится.
+          if [ -z "$NUMBER" ]; then NUMBER="$FALLBACK"; fi
+          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+          echo "номер сборки: $NUMBER"
+
+      - name: Build IPA
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          flutter build ipa --release \
+            --dart-define=STORE=appstore \
+            --build-number "${{ steps.build.outputs.number }}" \
+            --export-options-plist "$HOME/export_options.plist"
+
+      # Манифест приватности обязан доехать до бандла. Если он выпал из
+      # проекта, Apple отклонит загрузку (ITMS-91053), и узнать об этом на
+      # раннере дешевле, чем письмом через полчаса.
+      - name: Проверить манифест приватности
+        if: steps.guard.outputs.skip == 'false'
+        run: |
+          IPA=$(ls build/ios/ipa/*.ipa | head -1)
+          if unzip -l "$IPA" | grep -q 'PrivacyInfo.xcprivacy'; then
+            echo "манифест на месте"
+          else
+            echo "::error::В сборке нет PrivacyInfo.xcprivacy — проверь Runner в Xcode-проекте."
+            exit 1
+          fi
+
+      - name: Залить в TestFlight
+        if: steps.guard.outputs.skip == 'false'
+        env:
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_IDENTIFIER: ${{ secrets.APPSTORE_KEY_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          app-store-connect publish \
+            --path "build/ios/ipa/*.ipa" \
+            --skip-package-validation

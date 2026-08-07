@@ -10,6 +10,7 @@ import 'package:share_plus/share_plus.dart';
 import '../l10n/strings.dart';
 import '../services/deck_repository.dart';
 import '../theme/app_theme.dart';
+import '../utils/share_origin.dart';
 
 /// Карточка «Твоя неделя»: сводка за 7 дней (повторы, активные дни, точность,
 /// серия, щиты) + кнопка поделиться (рендерит карточку в PNG). Мотивация +
@@ -47,6 +48,8 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
 
   Future<void> _share() async {
     if (_sharing) return;
+    // До первого await: на iPad системный лист прицепляется к этому месту.
+    final origin = shareOriginFromContext(context);
     setState(() => _sharing = true);
     HapticFeedback.selectionClick();
     try {
@@ -60,7 +63,8 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
       final dir = await getTemporaryDirectory();
       final file = File('${dir.path}/fern_week.png');
       await file.writeAsBytes(bytes);
-      await Share.shareXFiles([XFile(file.path)], text: 'Fern');
+      await Share.shareXFiles([XFile(file.path)],
+          text: 'Fern', sharePositionOrigin: origin);
     } catch (_) {
       // тихо — поделиться не критично
     } finally {

@@ -1,0 +1,90 @@
+name: iOS check
+
+# Проверка сборки под iOS без выпуска: ничего не публикует, никуда не заливает.
+#
+# Зачем отдельный workflow: Xcode есть только на macOS-раннере, а править
+# проект приходится на Linux вслепую — таргеты, entitlements и манифест
+# приватности вносятся в pbxproj текстом. Дешевле узнать о поломке здесь, чем
+# получить её вместе с релизным тегом.
+#
+# Запуск: вкладка Actions → iOS check → Run workflow.
+on:
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: app
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        id: setup
+        uses: ./.github/actions/flutter-release-setup
+        with:
+          with-keystore: 'false'
+
+      - name: Analyze
+        run: flutter analyze
+
+      # Канал App Store: в этом режиме прячется ключ от бота и карточка доната,
+      # а покупка идёт через StoreKit. Собираем именно его — остальные каналы
+      # проверяются обычным релизом.
+      - name: Build unsigned app
+        run: flutter build ios --release --no-codesign --dart-define=STORE=appstore
+
+      - name: Проверить содержимое сборки
+        run: |
+          APP=build/ios/iphoneos/Runner.app
+          fail=0
+
+          if [ -f "$APP/PrivacyInfo.xcprivacy" ]; then
+            echo "манифест приватности на месте"
+          else
+            echo "::error::В сборке нет PrivacyInfo.xcprivacy (ITMS-91053 при загрузке)."
+            fail=1
+          fi
+
+          if [ -d "$APP/PlugIns/ShareExtension.appex" ]; then
+            echo "расширение «Поделиться» встроено"
+            plutil -p "$APP/PlugIns/ShareExtension.appex/Info.plist" | \
+              grep -E 'CFBundleShortVersionString|CFBundleVersion|NSExtensionPointIdentifier'
+          else
+            echo "::error::Расширение ShareExtension не попало в приложение."
+            fail=1
+          fi
+
+          # Версии .appex обязаны совпадать с версиями приложения, иначе App
+          # Store отклоняет загрузку. Их подставляет фаза «Версия из Flutter».
+          APP_VER=$(plutil -extract CFBundleShortVersionString raw "$APP/Info.plist")
+          APP_BUILD=$(plutil -extract CFBundleVersion raw "$APP/Info.plist")
+          EXT_PLIST="$APP/PlugIns/ShareExtension.appex/Info.plist"
+          if [ -f "$EXT_PLIST" ]; then
+            EXT_VER=$(plutil -extract CFBundleShortVersionString raw "$EXT_PLIST")
+            EXT_BUILD=$(plutil -extract CFBundleVersion raw "$EXT_PLIST")
+            if [ "$APP_VER" != "$EXT_VER" ] || [ "$APP_BUILD" != "$EXT_BUILD" ]; then
+              echo "::error::Версии расходятся: приложение $APP_VER($APP_BUILD), расширение $EXT_VER($EXT_BUILD)."
+              fail=1
+            else
+              echo "версии совпадают: $APP_VER($APP_BUILD)"
+            fi
+          fi
+
+          exit $fail
+
+      # Автопроверка Apple читает строки бинарника и заворачивает сборки с
+      # приватными API (ITMS-90338). Togetherly ловил это дважды — дешевле
+      # посмотреть заранее.
+      - name: Поискать приватные API
+        run: |
+          BIN=build/ios/iphoneos/Runner.app/Runner
+          for name in PGHostedWindow RPSystemBroadcastPickerView _UIAlertControllerTextField; do
+            if strings "$BIN" | grep -q "$name"; then
+              echo "::warning::в бинарнике встретилось $name — при загрузке возможен ITMS-90338"
+            fi
+          done
+          echo "проверка закончена"
