@@ -19,6 +19,8 @@
 		FE200000000000000000B00C /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200000000000000000B00B /* ShareViewController.swift */; };
 		FE200000000000000000B011 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE200000000000000000B00F /* MainInterface.storyboard */; };
 		FE200000000000000000B013 /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FE200000000000000000B002 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FE200000000000000000B021 /* RSIShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200000000000000000B020 /* RSIShareViewController.swift */; };
+		FE200000000000000000B023 /* SharedMediaFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE200000000000000000B022 /* SharedMediaFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		FE200000000000000000B00D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE200000000000000000B00E /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
 		FE200000000000000000B010 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		FE200000000000000000B020 /* RSIShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSIShareViewController.swift; sourceTree = "<group>"; };
+		FE200000000000000000B022 /* SharedMediaFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMediaFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				FE200000000000000000B00B /* ShareViewController.swift */,
+				FE200000000000000000B020 /* RSIShareViewController.swift */,
+				FE200000000000000000B022 /* SharedMediaFile.swift */,
 				FE200000000000000000B00F /* MainInterface.storyboard */,
 				FE200000000000000000B00D /* Info.plist */,
 				FE200000000000000000B00E /* ShareExtension.entitlements */,
@@ -379,6 +385,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE200000000000000000B00C /* ShareViewController.swift in Sources */,
+				FE200000000000000000B021 /* RSIShareViewController.swift in Sources */,
+				FE200000000000000000B023 /* SharedMediaFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

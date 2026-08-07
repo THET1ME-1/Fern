@@ -30,10 +30,6 @@ flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks!
-  # Нужен расширению «Поделиться»: без модульных заголовков Swift не видит
-  # `import receive_sharing_intent` и сборка падает на первой же строке
-  # ShareViewController.
-  use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 
@@ -41,9 +37,10 @@ target 'Runner' do
     inherit! :search_paths
   end
 
-  # Расширению нужен только сам пакет приёма «Поделиться»; остальные поды оно
-  # наследует путями поиска, а не линковкой — иначе .appex распухает и Apple
-  # отклоняет бандл за вложенные Frameworks.
+  # Расширение подов не линкует вовсе: код приёма «Поделиться» лежит у него
+  # своей копией (см. ShareExtension/RSIShareViewController.swift). Линковка
+  # добавила бы во вложенный .appex каталог Frameworks, за который Apple
+  # отклоняет бандл.
   target 'ShareExtension' do
     inherit! :search_paths
   end
