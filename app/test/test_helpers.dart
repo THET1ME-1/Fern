@@ -15,10 +15,15 @@ bool _sqliteReady = false;
 
 /// На хосте нет unversioned `libsqlite3.so` (на Android его даёт
 /// sqlite3_flutter_libs) — в тестах открываем версионную `.so.0`. Один раз.
+///
+/// Имя библиотеки зависит от системы: на macOS-раннере (там гоняется прогон
+/// перед сборкой для App Store) `.so.0` не существует вовсе, и весь набор
+/// падает с «Failed to load dynamic library».
 void _ensureSqliteLoaded() {
   if (_sqliteReady) return;
   _sqliteReady = true;
-  open.overrideForAll(() => DynamicLibrary.open('libsqlite3.so.0'));
+  open.overrideForAll(() => DynamicLibrary.open(
+      Platform.isMacOS ? 'libsqlite3.dylib' : 'libsqlite3.so.0'));
 }
 
 /// Ставит чистое in-memory хранилище под ОБА prefs-API (legacy + async) и свежую
