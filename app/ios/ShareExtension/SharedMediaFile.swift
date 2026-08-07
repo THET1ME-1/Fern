@@ -13,6 +13,14 @@
 import Foundation
 import UniformTypeIdentifiers
 
+// Ключи общего контейнера. Их же читает плагин на стороне приложения:
+// разойтись значениям нельзя, иначе расширение сложит материал туда,
+// куда Fern не заглядывает.
+public let kSchemePrefix = "ShareMedia"
+public let kUserDefaultsKey = "ShareKey"
+public let kUserDefaultsMessageKey = "ShareMessageKey"
+public let kAppGroupIdKey = "AppGroupId"
+
 public class SharedMediaFile: Codable {
     var path: String
     var mimeType: String?
