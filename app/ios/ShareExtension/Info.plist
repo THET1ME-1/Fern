@@ -2,10 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Fern</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<!-- Без этого ключа расширение собирается с пустым идентификатором, и
+	     сборка падает на «Embedded binary's bundle identifier is not prefixed
+	     with the parent app's bundle identifier». Свой Info.plist ключи сам не
+	     дописывает — этим занимается GENERATE_INFOPLIST_FILE, который здесь
+	     выключен. -->
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>ShareExtension</string>
+	<key>CFBundlePackageType</key>
+	<string>XPC!</string>
 	<!-- Версии здесь заглушки: Apple требует, чтобы они совпадали с
 	     приложением, а настоящие цифры знает только Flutter. Их подставляет
 	     скрипт «Версия из Flutter» в фазах сборки расширения. -->
