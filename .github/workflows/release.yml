@@ -22,6 +22,11 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      only_appstore:
+        description: Только сборка для App Store в TestFlight, без выпуска в остальные каналы
+        type: boolean
+        default: false
 
 permissions:
   contents: write          # релиз публикуется в этом же репозитории
@@ -34,6 +39,7 @@ jobs:
   # ── GitHub / Obtainium ─────────────────────────────────────────────────────
   release:
     runs-on: ubuntu-latest
+    if: ${{ inputs.only_appstore != true }}
     outputs:
       name: ${{ steps.setup.outputs.name }}
       code: ${{ steps.setup.outputs.code }}
@@ -336,6 +342,9 @@ jobs:
   appstore:
     runs-on: macos-latest
     needs: release
+    # Ручной запуск с only_appstore идёт мимо остальных каналов, поэтому
+    # пропущенный `release` для этого job не помеха.
+    if: ${{ always() && (inputs.only_appstore == true || needs.release.result == 'success') }}
     env:
       BUNDLE_ID: com.fern.flashcards
     steps:
