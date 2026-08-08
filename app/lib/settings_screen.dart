@@ -751,45 +751,67 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _showOptimizeInfo,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Row(
+            // Кнопки стоят ПОД текстом, а не рядом с ним. В одной строке
+            // «Сбросить» и «Оптимизировать» съедали её целиком, гибкая
+            // колонка получала нулевую ширину, и заголовок сыпался столбиком
+            // по букве. Ширины кнопок задаёт перевод, поэтому на строку их
+            // не возвращать ни при каком языке.
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.tune_rounded, color: scheme.onSurfaceVariant),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(child: Text(tr('optimize_fsrs'))),
-                          const SizedBox(width: 6),
-                          Icon(Icons.help_outline_rounded,
-                              size: 15, color: scheme.onSurfaceVariant),
-                        ],
-                      ),
-                      Text(
-                        subtitle,
-                        style: TextStyle(
-                            fontSize: 12, color: scheme.onSurfaceVariant),
-                      ),
-                    ],
+                Row(
+                  children: [
+                    Icon(Icons.tune_rounded, color: scheme.onSurfaceVariant),
+                    const SizedBox(width: 16),
+                    Flexible(child: Text(tr('optimize_fsrs'))),
+                    const SizedBox(width: 6),
+                    Icon(Icons.help_outline_rounded,
+                        size: 15, color: scheme.onSurfaceVariant),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, top: 2),
+                  child: Text(
+                    subtitle,
+                    style:
+                        TextStyle(fontSize: 12, color: scheme.onSurfaceVariant),
                   ),
                 ),
-                if (_customWeights)
-                  TextButton(
-                    onPressed: _optimizing ? null : _resetFsrs,
-                    child: Text(tr('reset')),
+                Padding(
+                  // Кнопкам вся ширина строки: с отступом под иконку пара
+                  // «Сбросить» + «Оптимизировать» не помещается и рвётся
+                  // на две строки.
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    // Wrap, а не Row: длинная пара подписей переносится
+                    // строкой, а не обрезается.
+                    child: Wrap(
+                      alignment: WrapAlignment.end,
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: [
+                        if (_customWeights)
+                          TextButton(
+                            onPressed: _optimizing ? null : _resetFsrs,
+                            child: Text(tr('reset')),
+                          ),
+                        _optimizing
+                            ? const Padding(
+                                padding: EdgeInsets.all(8),
+                                child: SizedBox(
+                                    width: 20,
+                                    height: 20,
+                                    child: Waiting(size: 20)),
+                              )
+                            : FilledButton.tonal(
+                                onPressed: ready ? _optimizeFsrs : null,
+                                child: Text(tr('optimize_run')),
+                              ),
+                      ],
+                    ),
                   ),
-                _optimizing
-                    ? const Padding(
-                        padding: EdgeInsets.all(8),
-                        child: SizedBox(
-                            width: 20, height: 20, child: Waiting(size: 20)),
-                      )
-                    : FilledButton.tonal(
-                        onPressed: ready ? _optimizeFsrs : null,
-                        child: Text(tr('optimize_run')),
-                      ),
+                ),
               ],
             ),
           ),
