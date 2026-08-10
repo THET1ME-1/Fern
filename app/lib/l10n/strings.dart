@@ -718,6 +718,23 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Возвращайтесь позже или добавьте новые слова',
     'en': 'Come back later or add new words'
   },
+  'new_limit_title': {
+    'ru': 'Новые слова на сегодня кончились',
+    'en': 'No new words left for today'
+  },
+  'new_limit_sub': {
+    'ru': 'Сегодня взято {n} при дневном лимите {limit}. В колоде ждут ещё '
+        '{rest}. Fern растягивает новые слова по дням, иначе через неделю '
+        'повторы придут лавиной.',
+    'en': '{n} taken today, the daily limit is {limit}. The deck still holds '
+        '{rest}. Fern spreads new words over days, otherwise the reviews '
+        'pile up within a week.'
+  },
+  'new_limit_more': {'ru': 'Взять ещё {n}', 'en': 'Take {n} more'},
+  'new_limit_settings': {
+    'ru': 'Изменить дневной лимит',
+    'en': 'Change the daily limit'
+  },
   'res_reviewed': {'ru': 'Повторено', 'en': 'Reviewed'},
   'res_accuracy': {'ru': 'Точность', 'en': 'Accuracy'},
   'res_time': {'ru': 'Время', 'en': 'Time'},

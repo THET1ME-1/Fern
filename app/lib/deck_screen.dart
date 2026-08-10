@@ -55,6 +55,10 @@ class _DeckScreenState extends State<DeckScreen> {
   final TextEditingController _search = TextEditingController();
   List<WordCard> _cards = [];
   bool _loading = true;
+
+  /// Сколько новых слов разрешает взять дневной лимит прямо сейчас: от него
+  /// зависит, подсвечивать ли цифру «Новые» как доступную работу.
+  int _newAllowed = 0;
   String _query = '';
   _CardSort _sort = _CardSort.added;
   String _posFilter = ''; // '' = все части речи
@@ -214,20 +218,24 @@ class _DeckScreenState extends State<DeckScreen> {
 
   Future<void> _load() async {
     final cards = await _repo.cardsForDeck(widget.deck.id);
+    final newAllowed = await _repo.newAllowedNow();
     if (!mounted) return;
     setState(() {
       _cards = cards;
+      _newAllowed = newAllowed;
       _loading = false;
     });
   }
 
+  /// Состав колоды. «К повтору» — ТОЛЬКО просроченные повторы: новые слова
+  /// придерживает дневной лимит, и смешивать их в одну цифру значит обещать
+  /// сессию, которой не будет.
   ({int total, int due, int fresh, int mature}) get _counts {
     final now = DateTime.now();
     var due = 0, fresh = 0, mature = 0;
     for (final c in _cards) {
       if (c.review.isNew) {
         fresh++;
-        due++;
       } else {
         if (c.isDue(now)) due++;
         if (c.review.stability >= 21) mature++;
@@ -510,18 +518,41 @@ class _DeckScreenState extends State<DeckScreen> {
             shapeIndex: deck.shapeIndex,
           ),
           const SizedBox(width: 20),
+          // «Всего» ушло из ряда цифр в подпись: четыре колонки рядом с
+          // обложкой не помещались, а состав колоды (новые / к повтору /
+          // выучено) важнее суммы.
           Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _miniStat('${c.total}', tr('cards_total'), scheme),
-                _miniStat(
-                  '${c.due}',
-                  tr('stat_due'),
-                  scheme,
-                  highlight: c.due > 0,
+                Text(
+                  trf('cards_n', {'n': '${c.total}'}),
+                  style: TextStyle(
+                    fontFamily: AppTheme.bodyFont,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: scheme.onSurfaceVariant,
+                  ),
                 ),
-                _miniStat('${c.mature}', tr('stat_mature'), scheme),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _miniStat(
+                      '${c.fresh}',
+                      tr('stat_new'),
+                      scheme,
+                      highlight: c.fresh > 0 && _newAllowed > 0,
+                    ),
+                    _miniStat(
+                      '${c.due}',
+                      tr('stat_due'),
+                      scheme,
+                      highlight: c.due > 0,
+                    ),
+                    _miniStat('${c.mature}', tr('stat_mature'), scheme),
+                  ],
+                ),
               ],
             ),
           ),

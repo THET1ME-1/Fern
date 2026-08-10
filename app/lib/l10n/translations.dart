@@ -376,6 +376,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'session_done': 'Sitzung abgeschlossen',
     'nothing_due_title': 'Nichts zu wiederholen',
     'nothing_due_sub': 'Komm später wieder oder füge neue Wörter hinzu',
+    'new_limit_title': 'Für heute sind die neuen Wörter aufgebraucht',
+    'new_limit_sub': 'Heute genommen: {n}, das Tageslimit liegt bei {limit}. '
+        'Im Stapel warten noch {rest}. Fern verteilt neue Wörter über mehrere '
+        'Tage, sonst türmen sich die Wiederholungen in einer Woche.',
+    'new_limit_more': 'Noch {n} nehmen',
+    'new_limit_settings': 'Tageslimit ändern',
     'res_reviewed': 'Wiederholt',
     'res_accuracy': 'Genauigkeit',
     'res_time': 'Zeit',
@@ -1186,6 +1192,13 @@ const Map<String, Map<String, String>> kTranslations = {
     'session_done': 'Session terminée',
     'nothing_due_title': 'Rien à réviser',
     'nothing_due_sub': 'Revenez plus tard ou ajoutez de nouveaux mots',
+    'new_limit_title': 'Plus de nouveaux mots pour aujourd\'hui',
+    'new_limit_sub': '{n} pris aujourd\'hui, la limite quotidienne est de '
+        '{limit}. Le paquet en garde encore {rest}. Fern répartit les '
+        'nouveaux mots sur plusieurs jours, sinon les révisions s\'accumulent '
+        'en une semaine.',
+    'new_limit_more': 'En prendre {n} de plus',
+    'new_limit_settings': 'Modifier la limite quotidienne',
     'res_reviewed': 'Révisé',
     'res_accuracy': 'Précision',
     'res_time': 'Temps',
@@ -1995,6 +2008,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'session_done': 'Sesión completada',
     'nothing_due_title': 'Nada que repasar',
     'nothing_due_sub': 'Vuelve más tarde o añade palabras nuevas',
+    'new_limit_title': 'No quedan palabras nuevas para hoy',
+    'new_limit_sub': 'Hoy has tomado {n} y el límite diario es de {limit}. '
+        'En el mazo esperan {rest} más: Fern reparte las palabras nuevas por '
+        'días, si no los repasos se acumulan en una semana.',
+    'new_limit_more': 'Tomar {n} más',
+    'new_limit_settings': 'Cambiar el límite diario',
     'res_reviewed': 'Repasadas',
     'res_accuracy': 'Precisión',
     'res_time': 'Tiempo',
@@ -2802,6 +2821,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'session_done': 'Sessione completata',
     'nothing_due_title': 'Niente da ripassare',
     'nothing_due_sub': 'Torna più tardi o aggiungi nuove parole',
+    'new_limit_title': 'Le parole nuove di oggi sono finite',
+    'new_limit_sub': 'Oggi ne hai prese {n}, il limite giornaliero è {limit}. '
+        'Nel mazzo aspettano ancora {rest}. Fern distribuisce le parole nuove '
+        'nei giorni, altrimenti i ripassi si accumulano in una settimana.',
+    'new_limit_more': 'Prendine altre {n}',
+    'new_limit_settings': 'Cambiare il limite giornaliero',
     'res_reviewed': 'Ripassate',
     'res_accuracy': 'Precisione',
     'res_time': 'Tempo',
@@ -3609,6 +3634,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'session_done': 'Sessão concluída',
     'nothing_due_title': 'Nada para revisar',
     'nothing_due_sub': 'Volte mais tarde ou adicione novas palavras',
+    'new_limit_title': 'As palavras novas de hoje acabaram',
+    'new_limit_sub': 'Hoje você pegou {n} e o limite diário é {limit}. '
+        'O baralho ainda guarda {rest}. O Fern distribui as palavras novas '
+        'pelos dias, senão as revisões se acumulam em uma semana.',
+    'new_limit_more': 'Pegar mais {n}',
+    'new_limit_settings': 'Alterar o limite diário',
     'res_reviewed': 'Revisados',
     'res_accuracy': 'Precisão',
     'res_time': 'Tempo',

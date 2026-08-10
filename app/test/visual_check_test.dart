@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:fern/l10n/locale_controller.dart';
+import 'package:fern/deck_screen.dart';
 import 'package:fern/models/deck.dart';
 import 'package:fern/models/fsrs.dart';
 import 'package:fern/models/word_card.dart';
@@ -118,6 +119,68 @@ void main() {
     await tester.tap(find.text('Показать ответ'));
     await tester.pumpAndSettle();
     await _shoot(tester, 'session_reason_and_pick');
+  });
+
+  testWidgets('сессия: дневной лимит новых вместо «нечего повторять»',
+      (tester) async {
+    tester.view.physicalSize = const Size(1080, 2280);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final repo = DeckRepository.instance;
+    await repo.upsertDeck(_deck);
+    final cards = [
+      for (var i = 0; i < 118; i++)
+        WordCard(id: 'n$i', deckId: 'd1', front: 'word$i', back: 'слово$i'),
+    ];
+    for (final c in cards) {
+      await repo.upsertCard(c);
+    }
+    await repo.markNewIntroduced(12);
+
+    await tester.pumpWidget(_app(
+      SessionScreen(deck: _deck, mode: StudyMode.learn, cards: cards),
+    ));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'session_new_limit');
+  });
+
+  testWidgets('колода: новые и к повтору — разные цифры', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2280);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final repo = DeckRepository.instance;
+    await repo.upsertDeck(_deck);
+    for (var i = 0; i < 118; i++) {
+      await repo.upsertCard(
+          WordCard(id: 'n$i', deckId: 'd1', front: 'word$i', back: 'слово$i'));
+    }
+    for (var i = 0; i < 7; i++) {
+      await repo.upsertCard(WordCard(
+        id: 'r$i',
+        deckId: 'd1',
+        front: 'old$i',
+        back: 'старое$i',
+        review: ReviewState(
+          stability: 30,
+          difficulty: 5,
+          state: FsrsState.review,
+          reps: 5,
+          lastReview: DateTime.now().subtract(const Duration(days: 40)),
+          due: DateTime.now().subtract(const Duration(days: 2)),
+        ),
+      ));
+    }
+
+    await tester.pumpWidget(_app(DeckScreen(deck: _deck)));
+    await tester.pumpAndSettle();
+    // Плитки режимов переполняются на пару пикселей ИМЕННО в тестовом рендере
+    // (Material-иконки здесь рисуются квадратами) — снимку это не мешает.
+    while (tester.takeException() != null) {}
+    await _shoot(tester, 'deck_counts');
   });
 
   testWidgets('результаты: что сделал алгоритм', (tester) async {

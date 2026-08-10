@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'deck_screen.dart';
@@ -32,6 +34,10 @@ class _PackScreenState extends State<PackScreen> {
   List<WordCard> _cards = [];
   bool _loading = true;
 
+  /// Остаток дневного лимита новых слов — в цифру «к повтору» новые входят
+  /// только в его пределах.
+  int _newAllowed = 0;
+
   @override
   void initState() {
     super.initState();
@@ -48,6 +54,7 @@ class _PackScreenState extends State<PackScreen> {
   Future<void> _load() async {
     final decks = await _repo.loadDecks();
     final cards = await _repo.loadCards();
+    final newAllowed = await _repo.newAllowedNow();
     final pack = _repo.packs.where((p) => p.id == widget.pack.id).firstOrNull;
     if (!mounted) return;
     // Пак удалили извне — закрываем экран.
@@ -57,6 +64,7 @@ class _PackScreenState extends State<PackScreen> {
     }
     setState(() {
       _pack = pack;
+      _newAllowed = newAllowed;
       _decks = decks.where((d) => d.packId == _pack.id).toList()
         ..sort((a, b) => a.createdAt.compareTo(b.createdAt));
       _cards = cards;
@@ -64,20 +72,42 @@ class _PackScreenState extends State<PackScreen> {
     });
   }
 
+  /// Цифра «к повтору» = что сессия отдаст сейчас: просроченные повторы плюс
+  /// новые в пределах дневного лимита (все новые разом их лимит не пустит).
   ({int total, int due}) _counts(String deckId) {
     final now = DateTime.now();
-    var total = 0, due = 0;
+    var total = 0, due = 0, fresh = 0;
     for (final c in _cards) {
       if (c.deckId != deckId) continue;
       total++;
-      if (c.review.isNew || c.isDue(now)) due++;
+      if (c.review.isNew) {
+        fresh++;
+      } else if (c.isDue(now)) {
+        due++;
+      }
     }
-    return (total: total, due: due);
+    return (total: total, due: due + min(fresh, _newAllowed));
   }
 
   int get _totalCards =>
       _decks.fold(0, (s, d) => s + _counts(d.id).total);
-  int get _totalDue => _decks.fold(0, (s, d) => s + _counts(d.id).due);
+
+  /// По всему паку лимит новых применяется ОДИН раз, а не к каждой колоде:
+  /// сумма поколодных цифр обещала бы столько сессий, сколько колод.
+  int get _totalDue {
+    final now = DateTime.now();
+    final ids = {for (final d in _decks) d.id};
+    var due = 0, fresh = 0;
+    for (final c in _cards) {
+      if (!ids.contains(c.deckId)) continue;
+      if (c.review.isNew) {
+        fresh++;
+      } else if (c.isDue(now)) {
+        due++;
+      }
+    }
+    return due + min(fresh, _newAllowed);
+  }
 
   Future<void> _createDeckInPack() async {
     final deck = await showDeckEditor(

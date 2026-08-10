@@ -1034,6 +1034,8 @@ class DeckRepository extends ChangeNotifier {
   static const String _kMaxReviews = 'maxReviewsPerSession';
   static const String _kNewIntroDate = 'newIntroDate';
   static const String _kNewIntroCount = 'newIntroCount';
+  static const String _kExtraNewDate = 'extraNewDate';
+  static const String _kExtraNewCount = 'extraNewCount';
 
   /// Сколько НОВЫХ карт вводить в день (по умолч. 12). 0 — не ограничивать.
   Future<int> newPerDay() async => await _prefs.getInt(_kNewPerDay) ?? 12;
@@ -1121,6 +1123,44 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setString(_kNewIntroDate, today);
     await _prefs.setInt(_kNewIntroCount, base + delta);
   }
+
+  /// Разовая добавка к дневному лимиту («Учить ещё» на пустом экране сессии).
+  /// Живёт один день: завтра лимит снова обычный, поэтому кнопка не превращает
+  /// настройку в фикцию.
+  Future<int> extraNewToday([DateTime? now]) async {
+    final today = ReviewLog.keyFor(now ?? DateTime.now());
+    final date = await _prefs.getString(_kExtraNewDate);
+    if (date != today) return 0;
+    return await _prefs.getInt(_kExtraNewCount) ?? 0;
+  }
+
+  Future<void> addExtraNewToday(int count, [DateTime? now]) async {
+    if (count <= 0) return;
+    final today = ReviewLog.keyFor(now ?? DateTime.now());
+    final date = await _prefs.getString(_kExtraNewDate);
+    final base =
+        date == today ? (await _prefs.getInt(_kExtraNewCount) ?? 0) : 0;
+    await _prefs.setString(_kExtraNewDate, today);
+    await _prefs.setInt(_kExtraNewCount, base + count);
+    notifyListeners();
+  }
+
+  /// Сколько новых слов сессия отдаст ПРЯМО СЕЙЧАС: дневной лимит плюс разовая
+  /// добавка минус введённое сегодня. Считать это должны все, кто показывает
+  /// цифру «сколько ждёт»: иначе счётчик на колоде снова разойдётся с тем,
+  /// сколько карточек человек реально получит.
+  Future<int> newAllowedNow([DateTime? now]) async {
+    final perDay = await newPerDay();
+    if (perDay <= 0) return _noNewLimit;
+    final introduced = await newIntroducedToday(now);
+    final extra = await extraNewToday(now);
+    final left = perDay + extra - introduced;
+    return left > 0 ? left : 0;
+  }
+
+  /// Значение «лимита нет» — с ним билдер сессии берёт все новые карты.
+  static const int _noNewLimit = 1 << 20;
+  static int get noNewLimit => _noNewLimit;
 
   // Ежедневное напоминание.
   Future<bool> reminderEnabled() async =>

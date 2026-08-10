@@ -17,6 +17,7 @@ import '../services/pro.dart';
 import '../services/reading_horizon.dart';
 import '../services/word_links.dart';
 import '../services/tts_service.dart';
+import '../settings_screen.dart';
 import '../theme/app_theme.dart';
 import '../widgets/speaker_button.dart';
 import 'results_screen.dart';
@@ -87,6 +88,12 @@ class _SessionScreenState extends State<SessionScreen>
   AutoGrade _autoGrade = const AutoGrade.fallback();
   bool _twoButtons = false;
 
+  // Дневная подача новых слов: нужна пустому экрану, чтобы назвать причину
+  // («лимит на сегодня»), а не отговариваться «нечего повторять».
+  int _newPerDay = 0;
+  int _introducedToday = 0;
+  int _newAllowed = 0;
+
   /// Висит ли диалог выхода. Пока висит, вопросы не видны — значит и отсчёт
   /// «Быстрого повтора» заводить не с чего.
   bool _exitAsked = false;
@@ -135,8 +142,7 @@ class _SessionScreenState extends State<SessionScreen>
     final introduced = await _repo.newIntroducedToday(_start);
     final maxReviews = await _repo.maxReviews();
     // newPerDay == 0 → без лимита новых.
-    final newAllowed =
-        newPerDay <= 0 ? 1 << 20 : max(0, newPerDay - introduced);
+    final newAllowed = await _repo.newAllowedNow(_start);
     final queue = _builder.build(
       widget.mode,
       widget.cards,
@@ -161,9 +167,60 @@ class _SessionScreenState extends State<SessionScreen>
       _queue = queue;
       _autoGrade = autoGrade;
       _twoButtons = twoButtons;
+      _newPerDay = newPerDay;
+      _introducedToday = introduced;
+      _newAllowed = newAllowed;
       _shownAt = DateTime.now();
       _ready = true;
     });
+  }
+
+  /// Новых слов, которые этот режим вообще может показать. Клоуз и «Собери
+  /// фразу» живут на карточках с предложением-контекстом: без фильтра пустая
+  /// сессия по ним объяснялась бы дневным лимитом, хотя дело не в нём.
+  int get _newInDeck => widget.cards.where((c) {
+        if (!c.review.isNew) return false;
+        return switch (widget.mode) {
+          StudyMode.cloze => buildCloze(c) != null,
+          StudyMode.assemble => buildAssemble(c) != null,
+          StudyMode.associations =>
+            buildOddOne(c, widget.cards, widget.deck.languageCode) != null,
+          _ => true,
+        };
+      }).length;
+
+  /// Просроченных повторов в колоде — тех, что лимит новых не касается.
+  int get _dueInDeck => widget.cards
+      .where((c) => !c.review.isNew && c.isDue(DateTime.now()))
+      .length;
+
+  /// Пустая очередь упёрлась в дневной лимит новых слов, а не в исчерпанную
+  /// колоду. Ровно этот случай выглядел как «слова кончились»: экран колоды
+  /// считает новые вместе с просроченными и обещает сотню карточек.
+  bool get _blockedByNewLimit =>
+      _newPerDay > 0 && _newAllowed <= 0 && _newInDeck > 0 && _dueInDeck == 0;
+
+  /// Сколько новых слов даст кнопка «Учить ещё»: дневную порцию, но не больше,
+  /// чем осталось в колоде.
+  int get _extraOffer => min(_newPerDay > 0 ? _newPerDay : 12, _newInDeck);
+
+  /// Разово поднимает лимит на сегодня и пересобирает очередь на месте.
+  Future<void> _studyMoreNew() async {
+    await _repo.addExtraNewToday(_extraOffer, _start);
+    if (!mounted) return;
+    setState(() => _ready = false);
+    await _prepare();
+  }
+
+  /// Открывает настройки и пересобирает очередь на возврате: человек ушёл
+  /// туда менять лимит, и возвращаться к прежнему «слов нет» бессмысленно.
+  Future<void> _openLimitSettings() async {
+    await Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const SettingsScreen()),
+    );
+    if (!mounted) return;
+    setState(() => _ready = false);
+    await _prepare();
   }
 
   @override
@@ -790,19 +847,32 @@ class _SessionScreenState extends State<SessionScreen>
   }
 
   Widget _emptyState(ColorScheme scheme) {
+    final limited = _blockedByNewLimit;
+    final title = limited ? tr('new_limit_title') : tr('nothing_due_title');
+    final sub = limited
+        ? trf('new_limit_sub', {
+            'n': trn('n_words', _introducedToday),
+            'limit': '$_newPerDay',
+            'rest': trn('n_words', _newInDeck),
+          })
+        : tr('nothing_due_sub');
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(32),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.task_alt_rounded, size: 72, color: scheme.primary),
+                Icon(
+                  limited ? Icons.hourglass_bottom_rounded : Icons.task_alt_rounded,
+                  size: 72,
+                  color: scheme.primary,
+                ),
                 const SizedBox(height: 20),
                 Text(
-                  tr('nothing_due_title'),
+                  title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: AppTheme.displayFont,
@@ -813,7 +883,7 @@ class _SessionScreenState extends State<SessionScreen>
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  tr('nothing_due_sub'),
+                  sub,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: AppTheme.bodyFont,
@@ -821,10 +891,29 @@ class _SessionScreenState extends State<SessionScreen>
                   ),
                 ),
                 const SizedBox(height: 24),
-                FilledButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: Text(tr('back_to_deck')),
-                ),
+                if (limited) ...[
+                  FilledButton.icon(
+                    onPressed: _studyMoreNew,
+                    icon: const Icon(Icons.add_rounded),
+                    label: Text(trf('new_limit_more', {
+                      'n': trn('n_words', _extraOffer),
+                    })),
+                  ),
+                  const SizedBox(height: 8),
+                  TextButton(
+                    onPressed: _openLimitSettings,
+                    child: Text(tr('new_limit_settings')),
+                  ),
+                  const SizedBox(height: 4),
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(tr('back_to_deck')),
+                  ),
+                ] else
+                  FilledButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text(tr('back_to_deck')),
+                  ),
               ],
             ),
           ),

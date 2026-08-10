@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -47,6 +49,11 @@ class _DecksScreenState extends State<DecksScreen> {
   bool _hasStarter = false;
   bool _showVideoBanner = true;
 
+  /// Сколько новых слов дневной лимит разрешает взять прямо сейчас. Счётчики
+  /// «к повтору» упираются в него: колода с сотней новых карточек отдаст
+  /// сегодня ровно столько, и обещать сотню нечестно.
+  int _newAllowed = 0;
+
   // Множественный выбор колод (по удержанию) для удаления.
   bool _selecting = false;
   final Set<String> _selectedDecks = {};
@@ -82,8 +89,10 @@ class _DecksScreenState extends State<DecksScreen> {
     var lang = await _repo.selectedLanguageCode();
     lang ??= decks.isNotEmpty ? decks.first.languageCode : 'en';
     final hasStarter = await StarterDecks.hasPacksFor(lang);
+    final newAllowed = await _repo.newAllowedNow();
     if (!mounted) return;
     setState(() {
+      _newAllowed = newAllowed;
       _decks = decks;
       _packs = packs;
       _cards = cards;
@@ -116,14 +125,19 @@ class _DecksScreenState extends State<DecksScreen> {
     );
   }
 
-  /// Сколько карточек ждут повтора прямо сейчас во всех колодах.
+  /// Сколько карточек Fern отдаст прямо сейчас во всех колодах: просроченные
+  /// повторы плюс новые в пределах дневного лимита.
   int get _dueTotalAll {
     final now = DateTime.now();
-    var due = 0;
+    var due = 0, fresh = 0;
     for (final c in _cards) {
-      if (c.review.isNew || c.isDue(now)) due++;
+      if (c.review.isNew) {
+        fresh++;
+      } else if (c.isDue(now)) {
+        due++;
+      }
     }
-    return due;
+    return due + min(fresh, _newAllowed);
   }
 
   /// Верхнеуровневые колоды текущего языка (не вложенные в пак).
@@ -159,12 +173,14 @@ class _DecksScreenState extends State<DecksScreen> {
       total++;
       if (c.review.isNew) {
         fresh++;
-        due++;
       } else if (c.isDue(now)) {
         due++;
       }
     }
-    return (total: total, due: due, fresh: fresh);
+    // Новые входят в цифру только в пределах дневного лимита: сессия больше
+    // не даст, а бейдж «118» на колоде с исчерпанным лимитом читался как
+    // обещание и заканчивался пустым экраном.
+    return (total: total, due: due + min(fresh, _newAllowed), fresh: fresh);
   }
 
   Future<void> _pickLanguage() async {
