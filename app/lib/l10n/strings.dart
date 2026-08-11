@@ -1463,4 +1463,52 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Какая это конструкция?',
     'en': 'Which construction is this?',
   },
+
+  // ----------------------------- Разбор текста -----------------------------
+  'analyze_title': {'ru': 'Разбор', 'en': 'Analyze'},
+  'analyze_hint': {
+    'ru': 'Вставьте сообщение или предложение на изучаемом языке',
+    'en': 'Paste a message or a sentence in the language you are learning',
+  },
+  'analyze_paste': {'ru': 'Вставить', 'en': 'Paste'},
+  'analyze_run': {'ru': 'Разобрать', 'en': 'Analyze'},
+  'analyze_empty_title': {
+    'ru': 'Текст ещё не разобран',
+    'en': 'Nothing analyzed yet',
+  },
+  'analyze_empty_sub': {
+    'ru': 'Вставьте сообщение, которое вам написали, и посмотрите его по словам и по грамматике',
+    'en': 'Paste a message someone sent you and see it word by word and rule by rule',
+  },
+  'analyze_unknown': {'ru': 'Незнакомые слова', 'en': 'New words'},
+  'analyze_add_all': {'ru': 'Добавить все ({n})', 'en': 'Add all ({n})'},
+  'analyze_rules': {
+    'ru': 'Грамматика этого текста',
+    'en': 'Grammar in this text',
+  },
+  'analyze_words': {'ru': 'всего', 'en': 'total'},
+  'analyze_coverage': {
+    'ru': 'Знакомо {p}% текста',
+    'en': 'You know {p}% of this text',
+  },
+  'analyze_source_pack': {'ru': 'Разбор', 'en': 'Analysis'},
+  'analyze_saved': {
+    'ru': 'Сохранено в Библиотеку',
+    'en': 'Saved to the Library',
+  },
+  'save_failed': {'ru': 'Не удалось сохранить', 'en': 'Could not save'},
+  'rule_learn': {'ru': 'Учить правило', 'en': 'Learn the rule'},
+  'rule_learned': {'ru': 'В колоде', 'en': 'In your deck'},
+  'rule_added': {
+    'ru': 'Правило добавлено в колоду «Грамматика»',
+    'en': 'Rule added to the Grammar deck',
+  },
+  'n_words_added_one': {'ru': 'слово добавлено', 'en': 'word added'},
+  'n_words_added_few': {'ru': 'слова добавлено', 'en': 'words added'},
+  'n_words_added_many': {'ru': 'слов добавлено', 'en': 'words added'},
+  'library_analyze_title': {'ru': 'Разобрать текст', 'en': 'Analyze a text'},
+  'library_analyze_sub': {
+    'ru': 'Сообщение, пост, пара предложений',
+    'en': 'A message, a post, a couple of sentences',
+  },
 };

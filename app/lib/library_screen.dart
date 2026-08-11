@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'book_screen.dart';
+import 'analyze/analyze_screen.dart';
 import 'l10n/strings.dart';
 import 'services/pro.dart';
 import 'widgets/pro_sheet.dart';
@@ -516,6 +517,18 @@ class _LibraryScreenState extends State<LibraryScreen> {
   Widget _actionRow(ColorScheme scheme) {
     return Column(
       children: [
+        // «Разбор» стоит первым и во всю ширину: это вход для самого частого
+        // случая — пришло сообщение на чужом языке, и его надо понять сейчас.
+        _actionCard(
+          title: tr('library_analyze_title'),
+          subtitle: tr('library_analyze_sub'),
+          icon: Icons.translate_rounded,
+          bg: scheme.primaryContainer,
+          fg: scheme.onPrimaryContainer,
+          onTap: _openAnalyze,
+          busy: false,
+        ),
+        const SizedBox(height: 12),
         Row(
           children: [
             Expanded(
@@ -572,6 +585,17 @@ class _LibraryScreenState extends State<LibraryScreen> {
           ],
         ),
       ],
+    );
+  }
+
+  /// Разбор короткого текста бесплатен и гейта не требует: это не источник в
+  /// смысле библиотеки, а понимание одного сообщения — то, ради чего Fern и
+  /// открывают между делом.
+  void _openAnalyze() {
+    HapticFeedback.selectionClick();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const AnalyzeScreen()),
     );
   }
 
