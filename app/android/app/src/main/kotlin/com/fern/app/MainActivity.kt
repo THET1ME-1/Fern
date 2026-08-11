@@ -50,4 +50,3 @@ class MainActivity : FlutterActivity() {
         return text.toString().trim().ifEmpty { null }
     }
 }
-</content>
