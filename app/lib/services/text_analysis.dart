@@ -82,6 +82,10 @@ class AnalyzedSentence {
 /// считается частотами, а короткий текст читают целиком, подсвечивая слова на
 /// своих местах.
 class TextAnalysis {
+  /// Исходный текст: по нему берутся подстроки для подсветки и для оборотов,
+  /// найденных детектором конструкций.
+  final String text;
+
   final List<AnalyzedToken> tokens;
   final List<AnalyzedSentence> sentences;
 
@@ -89,13 +93,14 @@ class TextAnalysis {
   final List<String> unknownWords;
 
   const TextAnalysis({
+    required this.text,
     required this.tokens,
     required this.sentences,
     required this.unknownWords,
   });
 
   static const TextAnalysis empty =
-      TextAnalysis(tokens: [], sentences: [], unknownWords: []);
+      TextAnalysis(text: '', tokens: [], sentences: [], unknownWords: []);
 
   /// Всего слов (без чисел и значков), с повторами.
   int get totalWords => tokens.where((t) => t.isWord).length;
@@ -284,6 +289,7 @@ class TextParse {
     }
 
     return TextAnalysis(
+      text: text,
       tokens: tokens,
       sentences: sents,
       unknownWords: unknown,

@@ -1,0 +1,428 @@
+{
+ "language": "en",
+ "version": 1,
+ "rules": [
+  {
+   "code": "present_cont",
+   "level": "A1",
+   "name": "Present Continuous",
+   "hint": {
+    "ru": "Действие идёт прямо сейчас: am/is/are плюс глагол с -ing.",
+    "en": "Something is happening right now: am/is/are plus a verb with -ing.",
+    "de": "Etwas passiert gerade jetzt: am/is/are plus Verb mit -ing.",
+    "fr": "L'action se déroule en ce moment : am/is/are plus le verbe en -ing.",
+    "es": "La acción ocurre ahora mismo: am/is/are más el verbo con -ing.",
+    "it": "L'azione avviene proprio ora: am/is/are più il verbo con -ing.",
+    "pt": "A ação acontece agora mesmo: am/is/are mais o verbo com -ing."
+   },
+   "examples": [
+    "She is reading a book.",
+    "They are waiting outside."
+   ]
+  },
+  {
+   "code": "there_is",
+   "level": "A1",
+   "name": "There is / There are",
+   "hint": {
+    "ru": "Сообщает, что что-то существует или находится где-то. Один предмет — there is, несколько — there are.",
+    "en": "States that something exists or is somewhere. One thing takes there is, several take there are.",
+    "de": "Sagt, dass etwas existiert oder sich irgendwo befindet. Eins: there is, mehrere: there are.",
+    "fr": "Indique que quelque chose existe ou se trouve quelque part. Un objet : there is, plusieurs : there are.",
+    "es": "Dice que algo existe o está en algún lugar. Uno: there is, varios: there are.",
+    "it": "Dice che qualcosa esiste o si trova da qualche parte. Uno: there is, più cose: there are.",
+    "pt": "Diz que algo existe ou está em algum lugar. Um: there is, vários: there are."
+   },
+   "examples": [
+    "There is a letter on the table.",
+    "There are two windows."
+   ]
+  },
+  {
+   "code": "going_to",
+   "level": "A1",
+   "name": "Be going to",
+   "hint": {
+    "ru": "Намерение или то, к чему всё идёт: решение принято заранее.",
+    "en": "An intention or a plan already made before the moment of speaking.",
+    "de": "Absicht oder geplante Zukunft: die Entscheidung steht schon fest.",
+    "fr": "Intention ou projet déjà décidé avant de parler.",
+    "es": "Intención o plan ya decidido antes de hablar.",
+    "it": "Intenzione o piano già deciso prima di parlare.",
+    "pt": "Intenção ou plano já decidido antes de falar."
+   },
+   "examples": [
+    "We are going to move in May.",
+    "It is going to rain."
+   ]
+  },
+  {
+   "code": "question_aux",
+   "level": "A1",
+   "name": "Do / Does / Did questions",
+   "hint": {
+    "ru": "Вопрос в простом времени строится вспомогательным do, does или did, а сам глагол остаётся в начальной форме.",
+    "en": "Simple-tense questions use do, does or did, and the main verb stays in its base form.",
+    "de": "Fragen im Simple bilden do, does oder did; das Hauptverb bleibt im Infinitiv.",
+    "fr": "Les questions au simple se forment avec do, does ou did ; le verbe reste à la base.",
+    "es": "Las preguntas en tiempos simples usan do, does o did y el verbo queda en forma base.",
+    "it": "Le domande ai tempi semplici usano do, does o did e il verbo resta alla forma base.",
+    "pt": "As perguntas nos tempos simples usam do, does ou did e o verbo fica na forma base."
+   },
+   "examples": [
+    "Do you know him?",
+    "Did she call yesterday?"
+   ]
+  },
+  {
+   "code": "future_will",
+   "level": "A1",
+   "name": "Future with will",
+   "hint": {
+    "ru": "Решение, принятое в момент речи, обещание или прогноз.",
+    "en": "A decision made as you speak, a promise or a prediction.",
+    "de": "Eine spontane Entscheidung, ein Versprechen oder eine Vorhersage.",
+    "fr": "Décision prise au moment de parler, promesse ou prédiction.",
+    "es": "Decisión tomada al hablar, promesa o predicción.",
+    "it": "Decisione presa mentre si parla, promessa o previsione.",
+    "pt": "Decisão tomada ao falar, promessa ou previsão."
+   },
+   "examples": [
+    "I will call you tomorrow.",
+    "It will be cold tonight."
+   ]
+  },
+  {
+   "code": "comparative",
+   "level": "A1",
+   "name": "Comparative",
+   "hint": {
+    "ru": "Сравнение двух предметов: короткое слово получает -er, длинное идёт с more, а второй участник вводится словом than.",
+    "en": "Comparing two things: short words take -er, long words take more, and than introduces the second one.",
+    "de": "Vergleich zweier Dinge: kurze Wörter mit -er, lange mit more, der zweite Teil mit than.",
+    "fr": "Comparaison de deux choses : mots courts en -er, longs avec more, le second terme après than.",
+    "es": "Comparación de dos cosas: palabras cortas con -er, largas con more, y than antes del segundo elemento.",
+    "it": "Confronto tra due cose: parole corte con -er, lunghe con more, e than prima del secondo termine.",
+    "pt": "Comparação de duas coisas: palavras curtas com -er, longas com more, e than antes do segundo termo."
+   },
+   "examples": [
+    "This road is longer than the old one.",
+    "It is more useful."
+   ]
+  },
+  {
+   "code": "superlative",
+   "level": "A2",
+   "name": "Superlative",
+   "hint": {
+    "ru": "Крайняя степень в группе: the плюс -est у коротких слов и the most у длинных.",
+    "en": "The top of a group: the with -est for short words, the most for long ones.",
+    "de": "Höchste Stufe in einer Gruppe: the mit -est bei kurzen Wörtern, the most bei langen.",
+    "fr": "Le degré extrême dans un groupe : the avec -est pour les mots courts, the most pour les longs.",
+    "es": "El grado máximo del grupo: the con -est en palabras cortas, the most en largas.",
+    "it": "Il grado massimo del gruppo: the con -est per parole corte, the most per quelle lunghe.",
+    "pt": "O grau máximo do grupo: the com -est em palavras curtas, the most nas longas."
+   },
+   "examples": [
+    "It was the longest day of the year.",
+    "The most useful tool."
+   ]
+  },
+  {
+   "code": "infinitive",
+   "level": "A1",
+   "name": "To-infinitive",
+   "hint": {
+    "ru": "Частица to перед глаголом отвечает на вопрос «зачем» или дополняет другой глагол.",
+    "en": "The particle to before a verb answers why something is done or completes another verb.",
+    "de": "Das to vor dem Verb nennt den Zweck oder ergänzt ein anderes Verb.",
+    "fr": "Le to devant le verbe exprime le but ou complète un autre verbe.",
+    "es": "El to ante el verbo expresa la finalidad o completa a otro verbo.",
+    "it": "Il to davanti al verbo esprime lo scopo o completa un altro verbo.",
+    "pt": "O to antes do verbo expressa a finalidade ou completa outro verbo."
+   },
+   "examples": [
+    "I came here to help.",
+    "She wants to learn Spanish."
+   ]
+  },
+  {
+   "code": "past_cont",
+   "level": "A2",
+   "name": "Past Continuous",
+   "hint": {
+    "ru": "Действие тянулось в прошлом, когда случилось другое: was/were плюс глагол с -ing.",
+    "en": "An action was going on in the past when something else happened: was/were plus -ing.",
+    "de": "Eine Handlung lief in der Vergangenheit, als etwas anderes geschah: was/were plus -ing.",
+    "fr": "Une action était en cours dans le passé quand une autre est survenue : was/were plus -ing.",
+    "es": "Una acción transcurría en el pasado cuando ocurrió otra: was/were más -ing.",
+    "it": "Un'azione era in corso nel passato quando ne è avvenuta un'altra: was/were più -ing.",
+    "pt": "Uma ação decorria no passado quando outra aconteceu: was/were mais -ing."
+   },
+   "examples": [
+    "He was building a house.",
+    "They were talking when I came in."
+   ]
+  },
+  {
+   "code": "modal_verb",
+   "level": "A2",
+   "name": "Modal verbs",
+   "hint": {
+    "ru": "Возможность, совет или обязанность. После can, should, must глагол стоит в начальной форме без to.",
+    "en": "Possibility, advice or obligation. After can, should, must the verb keeps its base form without to.",
+    "de": "Möglichkeit, Rat oder Pflicht. Nach can, should, must steht das Verb im Infinitiv ohne to.",
+    "fr": "Possibilité, conseil ou obligation. Après can, should, must le verbe reste à la base, sans to.",
+    "es": "Posibilidad, consejo u obligación. Tras can, should, must el verbo va en forma base sin to.",
+    "it": "Possibilità, consiglio o obbligo. Dopo can, should, must il verbo resta alla forma base senza to.",
+    "pt": "Possibilidade, conselho ou obrigação. Depois de can, should, must o verbo fica na forma base sem to."
+   },
+   "examples": [
+    "You should call her.",
+    "I can swim."
+   ]
+  },
+  {
+   "code": "used_to",
+   "level": "A2",
+   "name": "Used to",
+   "hint": {
+    "ru": "Привычка или состояние в прошлом, которого сейчас нет.",
+    "en": "A past habit or state that is no longer true.",
+    "de": "Eine frühere Gewohnheit oder ein Zustand, der heute nicht mehr gilt.",
+    "fr": "Une habitude ou un état passé qui n'existe plus.",
+    "es": "Un hábito o estado del pasado que ya no existe.",
+    "it": "Un'abitudine o uno stato del passato che oggi non c'è più.",
+    "pt": "Um hábito ou estado do passado que já não existe."
+   },
+   "examples": [
+    "I used to live in Kyiv.",
+    "She used to smoke."
+   ]
+  },
+  {
+   "code": "conditional_1",
+   "level": "A2",
+   "name": "First conditional",
+   "hint": {
+    "ru": "Реальное условие в будущем: после if стоит настоящее время, в главной части — will.",
+    "en": "A real future condition: present tense after if, will in the main clause.",
+    "de": "Reale Bedingung in der Zukunft: nach if Präsens, im Hauptsatz will.",
+    "fr": "Condition réelle au futur : présent après if, will dans la principale.",
+    "es": "Condición real en el futuro: presente tras if y will en la oración principal.",
+    "it": "Condizione reale al futuro: presente dopo if e will nella principale.",
+    "pt": "Condição real no futuro: presente depois de if e will na oração principal."
+   },
+   "examples": [
+    "If it rains, we will stay home."
+   ]
+  },
+  {
+   "code": "present_perfect",
+   "level": "B1",
+   "name": "Present Perfect",
+   "hint": {
+    "ru": "Прошлое, у которого есть след в настоящем: важен результат, а не когда именно это случилось.",
+    "en": "A past action that still matters now: the result counts, not the exact moment.",
+    "de": "Vergangenes mit Bezug zur Gegenwart: das Ergebnis zählt, nicht der Zeitpunkt.",
+    "fr": "Un passé qui compte encore maintenant : c'est le résultat qui importe, pas la date.",
+    "es": "Un pasado con huella en el presente: importa el resultado, no el momento exacto.",
+    "it": "Un passato che conta ancora adesso: importa il risultato, non il momento preciso.",
+    "pt": "Um passado com efeito no presente: importa o resultado, não o momento exato."
+   },
+   "examples": [
+    "She has written a letter.",
+    "I have lost my keys."
+   ]
+  },
+  {
+   "code": "present_perfect_cont",
+   "level": "B1",
+   "name": "Present Perfect Continuous",
+   "hint": {
+    "ru": "Действие началось раньше и длится до сих пор: have/has been плюс глагол с -ing. Подчёркивает длительность.",
+    "en": "An action started earlier and is still going: have/has been plus -ing. It stresses how long.",
+    "de": "Die Handlung begann früher und dauert an: have/has been plus -ing. Betont die Dauer.",
+    "fr": "L'action a commencé avant et dure encore : have/has been plus -ing. Elle insiste sur la durée.",
+    "es": "La acción empezó antes y sigue: have/has been más -ing. Subraya la duración.",
+    "it": "L'azione è iniziata prima e continua: have/has been più -ing. Sottolinea la durata.",
+    "pt": "A ação começou antes e continua: have/has been mais -ing. Destaca a duração."
+   },
+   "examples": [
+    "I have been waiting for an hour."
+   ]
+  },
+  {
+   "code": "passive_present",
+   "level": "B1",
+   "name": "Passive (present)",
+   "hint": {
+    "ru": "Важно, что делают с предметом, а не кто делает: am/is/are плюс третья форма глагола.",
+    "en": "What happens to the thing matters more than who does it: am/is/are plus the third form.",
+    "de": "Wichtig ist, was mit der Sache geschieht, nicht wer handelt: am/is/are plus dritte Form.",
+    "fr": "Ce qui compte, c'est ce que subit l'objet, pas l'auteur : am/is/are plus participe passé.",
+    "es": "Importa lo que le ocurre al objeto, no quién lo hace: am/is/are más participio.",
+    "it": "Conta ciò che accade all'oggetto, non chi agisce: am/is/are più participio.",
+    "pt": "Importa o que acontece ao objeto, não quem age: am/is/are mais particípio."
+   },
+   "examples": [
+    "The room is cleaned every day."
+   ]
+  },
+  {
+   "code": "passive_past",
+   "level": "B1",
+   "name": "Passive (past)",
+   "hint": {
+    "ru": "То же самое в прошлом: was/were плюс третья форма. Кто сделал — часто не называют вовсе.",
+    "en": "The same in the past: was/were plus the third form. The doer is often left out.",
+    "de": "Dasselbe in der Vergangenheit: was/were plus dritte Form. Der Handelnde bleibt oft ungenannt.",
+    "fr": "La même chose au passé : was/were plus participe. L'auteur est souvent omis.",
+    "es": "Lo mismo en pasado: was/were más participio. Quien lo hizo suele omitirse.",
+    "it": "Lo stesso al passato: was/were più participio. Chi ha agito spesso non si nomina.",
+    "pt": "O mesmo no passado: was/were mais particípio. Quem fez costuma ficar de fora."
+   },
+   "examples": [
+    "The house was built in 1920."
+   ]
+  },
+  {
+   "code": "conditional_2",
+   "level": "B1",
+   "name": "Second conditional",
+   "hint": {
+    "ru": "Условие, которого сейчас нет: после if прошедшее время, в главной части would.",
+    "en": "An unreal present condition: past tense after if, would in the main clause.",
+    "de": "Eine irreale Bedingung der Gegenwart: nach if Präteritum, im Hauptsatz would.",
+    "fr": "Condition irréelle du présent : prétérit après if, would dans la principale.",
+    "es": "Condición irreal del presente: pasado tras if y would en la principal.",
+    "it": "Condizione irreale del presente: passato dopo if e would nella principale.",
+    "pt": "Condição irreal do presente: passado depois de if e would na principal."
+   },
+   "examples": [
+    "If I knew the answer, I would tell you."
+   ]
+  },
+  {
+   "code": "past_perfect",
+   "level": "B2",
+   "name": "Past Perfect",
+   "hint": {
+    "ru": "Одно прошлое случилось раньше другого: had плюс третья форма для того, что было первым.",
+    "en": "One past event happened before another: had plus the third form marks the earlier one.",
+    "de": "Ein Ereignis lag vor einem anderen: had plus dritte Form markiert das frühere.",
+    "fr": "Un passé antérieur à un autre : had plus participe marque le plus ancien.",
+    "es": "Un pasado anterior a otro: had más participio marca el que ocurrió antes.",
+    "it": "Un passato anteriore a un altro: had più participio segna quello avvenuto prima.",
+    "pt": "Um passado anterior a outro: had mais particípio marca o que ocorreu antes."
+   },
+   "examples": [
+    "The train had left before we arrived."
+   ]
+  },
+  {
+   "code": "past_perfect_cont",
+   "level": "B2",
+   "name": "Past Perfect Continuous",
+   "hint": {
+    "ru": "Действие длилось до какого-то момента в прошлом: had been плюс глагол с -ing.",
+    "en": "An action had been going on up to a moment in the past: had been plus -ing.",
+    "de": "Eine Handlung dauerte bis zu einem Punkt in der Vergangenheit: had been plus -ing.",
+    "fr": "Une action durait jusqu'à un moment du passé : had been plus -ing.",
+    "es": "Una acción duraba hasta un momento del pasado: had been más -ing.",
+    "it": "Un'azione durava fino a un momento del passato: had been più -ing.",
+    "pt": "Uma ação durava até certo momento do passado: had been mais -ing."
+   },
+   "examples": [
+    "She had been working there for ten years."
+   ]
+  },
+  {
+   "code": "future_cont",
+   "level": "B2",
+   "name": "Future Continuous",
+   "hint": {
+    "ru": "В названный момент будущего действие уже будет идти: will be плюс глагол с -ing.",
+    "en": "At a named future moment the action will already be under way: will be plus -ing.",
+    "de": "Zu einem bestimmten Zeitpunkt in der Zukunft läuft die Handlung schon: will be plus -ing.",
+    "fr": "À un moment précis du futur, l'action sera déjà en cours : will be plus -ing.",
+    "es": "En un momento futuro concreto la acción ya estará en curso: will be más -ing.",
+    "it": "In un momento futuro preciso l'azione sarà già in corso: will be più -ing.",
+    "pt": "Num momento futuro definido a ação já estará a decorrer: will be mais -ing."
+   },
+   "examples": [
+    "This time tomorrow I will be flying home."
+   ]
+  },
+  {
+   "code": "future_perfect",
+   "level": "B2",
+   "name": "Future Perfect",
+   "hint": {
+    "ru": "К названному моменту будущего действие уже закончится: will have плюс третья форма.",
+    "en": "By a named future moment the action will be finished: will have plus the third form.",
+    "de": "Bis zu einem Zeitpunkt in der Zukunft ist die Handlung abgeschlossen: will have plus dritte Form.",
+    "fr": "À un moment donné du futur, l'action sera achevée : will have plus participe.",
+    "es": "Para un momento futuro la acción estará terminada: will have más participio.",
+    "it": "Entro un momento futuro l'azione sarà conclusa: will have più participio.",
+    "pt": "Até certo momento futuro a ação estará concluída: will have mais particípio."
+   },
+   "examples": [
+    "By June they will have finished the bridge."
+   ]
+  },
+  {
+   "code": "perfect_passive",
+   "level": "B2",
+   "name": "Perfect passive",
+   "hint": {
+    "ru": "Результат действия, у которого не назван исполнитель: have/has/had been плюс третья форма.",
+    "en": "The result of an action with no named doer: have/has/had been plus the third form.",
+    "de": "Ergebnis einer Handlung ohne genannten Urheber: have/has/had been plus dritte Form.",
+    "fr": "Résultat d'une action sans auteur nommé : have/has/had been plus participe.",
+    "es": "Resultado de una acción sin autor nombrado: have/has/had been más participio.",
+    "it": "Risultato di un'azione senza autore nominato: have/has/had been più participio.",
+    "pt": "Resultado de uma ação sem autor nomeado: have/has/had been mais particípio."
+   },
+   "examples": [
+    "The letter has been written.",
+    "The road had been closed."
+   ]
+  },
+  {
+   "code": "modal_perfect",
+   "level": "B2",
+   "name": "Modal perfect",
+   "hint": {
+    "ru": "Догадка или сожаление о прошлом: must have, should have, could have плюс третья форма.",
+    "en": "A guess or a regret about the past: must have, should have, could have plus the third form.",
+    "de": "Vermutung oder Bedauern über die Vergangenheit: must have, should have, could have plus dritte Form.",
+    "fr": "Supposition ou regret sur le passé : must have, should have, could have plus participe.",
+    "es": "Suposición o lamento sobre el pasado: must have, should have, could have más participio.",
+    "it": "Supposizione o rimpianto sul passato: must have, should have, could have più participio.",
+    "pt": "Suposição ou arrependimento sobre o passado: must have, should have, could have mais particípio."
+   },
+   "examples": [
+    "You should have told me.",
+    "He must have forgotten."
+   ]
+  },
+  {
+   "code": "conditional_3",
+   "level": "B2",
+   "name": "Third conditional",
+   "hint": {
+    "ru": "Прошлое, которого не было: после if стоит had плюс третья форма, в главной части would have плюс третья форма.",
+    "en": "A past that never happened: had plus the third form after if, would have plus the third form in the main clause.",
+    "de": "Eine Vergangenheit, die nicht eintrat: nach if had plus dritte Form, im Hauptsatz would have plus dritte Form.",
+    "fr": "Un passé qui n'a pas eu lieu : had plus participe après if, would have plus participe dans la principale.",
+    "es": "Un pasado que no ocurrió: had más participio tras if, would have más participio en la principal.",
+    "it": "Un passato mai avvenuto: had più participio dopo if, would have più participio nella principale.",
+    "pt": "Um passado que não aconteceu: had mais particípio depois de if, would have mais particípio na principal."
+   },
+   "examples": [
+    "If I had known, I would have told you."
+   ]
+  }
+ ]
+}

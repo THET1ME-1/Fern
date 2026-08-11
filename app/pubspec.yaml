@@ -74,6 +74,9 @@ flutter:
     - assets/pos/
     # Тексты лицензий на встроенные материалы (шрифты OFL) — экран «Лицензии».
     - assets/licenses/
+    # Каталог грамматических конструкций изучаемого языка с объяснениями на все
+    # семь языков интерфейса (см. services/construction_catalog.dart).
+    - assets/grammar/
 
   fonts:
     - family: Unbounded
