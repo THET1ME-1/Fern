@@ -852,6 +852,21 @@ const Map<String, Map<String, String>> kTranslations = {
 
     // ----------------------------- Выделение текста -----------------------------
     'selection_source_pack': 'Aus der Auswahl',
+
+    // ----------------------------- Экран грамматики -----------------------------
+    'grammar_summary': 'Übernommene Regeln: {n} von {m} begegneten',
+    'grammar_summary_sub': 'Die Reihenfolge bestimmen deine Bücher, Videos und Analysen, kein Lehrplan',
+    'grammar_study': 'Regeln üben',
+    'grammar_not_met': 'noch nicht begegnet',
+    'grammar_met_detail': '{n} Mal in {m} Quellen begegnet',
+    'grammar_learning': 'im Lernen',
+    'grammar_mastered': 'sitzt',
+    'grammar_none_title': 'Für diese Sprache gibt es noch keine Regeln',
+    'grammar_none_sub': 'Die Grammatikanalyse funktioniert derzeit für Englisch',
+    'refresh': 'Aktualisieren',
+    'n_times_met_one': 'Mal begegnet',
+    'n_times_met_few': 'Mal begegnet',
+    'n_times_met_many': 'Mal begegnet',
   },
 
   // ============================== Français (fr) ==============================
@@ -1701,6 +1716,21 @@ const Map<String, Map<String, String>> kTranslations = {
 
     // ----------------------------- Выделение текста -----------------------------
     'selection_source_pack': 'Depuis la sélection',
+
+    // ----------------------------- Экран грамматики -----------------------------
+    'grammar_summary': 'Règles prises : {n} sur {m} rencontrées',
+    'grammar_summary_sub': 'L\'ordre vient de vos livres, vidéos et analyses, pas d\'un manuel',
+    'grammar_study': 'Réviser les règles',
+    'grammar_not_met': 'pas encore rencontré',
+    'grammar_met_detail': 'Rencontré {n} fois dans {m} sources',
+    'grammar_learning': 'en cours',
+    'grammar_mastered': 'acquis',
+    'grammar_none_title': 'Pas encore de règles pour cette langue',
+    'grammar_none_sub': 'L\'analyse grammaticale fonctionne pour l\'anglais',
+    'refresh': 'Actualiser',
+    'n_times_met_one': 'fois rencontré',
+    'n_times_met_few': 'fois rencontré',
+    'n_times_met_many': 'fois rencontré',
   },
 
   // ============================== Español (es) ==============================
@@ -2547,6 +2577,21 @@ const Map<String, Map<String, String>> kTranslations = {
 
     // ----------------------------- Выделение текста -----------------------------
     'selection_source_pack': 'De la selección',
+
+    // ----------------------------- Экран грамматики -----------------------------
+    'grammar_summary': 'Reglas tomadas: {n} de {m} encontradas',
+    'grammar_summary_sub': 'El orden lo marcan tus libros, vídeos y análisis, no un libro de texto',
+    'grammar_study': 'Practicar las reglas',
+    'grammar_not_met': 'aún no encontrada',
+    'grammar_met_detail': 'Encontrada {n} veces en {m} fuentes',
+    'grammar_learning': 'aprendiendo',
+    'grammar_mastered': 'dominada',
+    'grammar_none_title': 'Aún no hay reglas para este idioma',
+    'grammar_none_sub': 'El análisis gramatical funciona ahora con el inglés',
+    'refresh': 'Actualizar',
+    'n_times_met_one': 'vez encontrada',
+    'n_times_met_few': 'veces encontrada',
+    'n_times_met_many': 'veces encontrada',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3393,6 +3438,21 @@ const Map<String, Map<String, String>> kTranslations = {
 
     // ----------------------------- Выделение текста -----------------------------
     'selection_source_pack': 'Dalla selezione',
+
+    // ----------------------------- Экран грамматики -----------------------------
+    'grammar_summary': 'Regole prese: {n} su {m} incontrate',
+    'grammar_summary_sub': 'L\'ordine lo danno i tuoi libri, video e analisi, non un manuale',
+    'grammar_study': 'Allenare le regole',
+    'grammar_not_met': 'non ancora incontrata',
+    'grammar_met_detail': 'Incontrata {n} volte in {m} fonti',
+    'grammar_learning': 'in studio',
+    'grammar_mastered': 'acquisita',
+    'grammar_none_title': 'Ancora nessuna regola per questa lingua',
+    'grammar_none_sub': 'L\'analisi grammaticale funziona per l\'inglese',
+    'refresh': 'Aggiorna',
+    'n_times_met_one': 'volta incontrata',
+    'n_times_met_few': 'volte incontrata',
+    'n_times_met_many': 'volte incontrata',
   },
 
   // ============================== Português (pt) ==============================
@@ -4239,5 +4299,20 @@ const Map<String, Map<String, String>> kTranslations = {
 
     // ----------------------------- Выделение текста -----------------------------
     'selection_source_pack': 'Da seleção',
+
+    // ----------------------------- Экран грамматики -----------------------------
+    'grammar_summary': 'Regras adotadas: {n} de {m} encontradas',
+    'grammar_summary_sub': 'A ordem vem dos seus livros, vídeos e análises, não de um manual',
+    'grammar_study': 'Praticar as regras',
+    'grammar_not_met': 'ainda não encontrada',
+    'grammar_met_detail': 'Encontrada {n} vezes em {m} fontes',
+    'grammar_learning': 'a aprender',
+    'grammar_mastered': 'dominada',
+    'grammar_none_title': 'Ainda não há regras para este idioma',
+    'grammar_none_sub': 'A análise gramatical funciona para inglês',
+    'refresh': 'Atualizar',
+    'n_times_met_one': 'vez encontrada',
+    'n_times_met_few': 'vezes encontrada',
+    'n_times_met_many': 'vezes encontrada',
   },
 };

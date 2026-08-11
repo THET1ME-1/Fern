@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'achievements_screen.dart';
+import 'grammar_screen.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/review_event.dart';
@@ -109,6 +110,21 @@ class _ProgressScreenState extends State<ProgressScreen> {
       appBar: AppBar(
         title: Text(tr('progress_title')),
         actions: [
+          IconButton(
+            tooltip: tr('grammar_title'),
+            icon: const Icon(Icons.rule_rounded),
+            onPressed: () async {
+              final lang =
+                  await DeckRepository.instance.selectedLanguageCode() ?? 'en';
+              if (!context.mounted) return;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => GrammarScreen(languageCode: lang),
+                ),
+              );
+            },
+          ),
           IconButton(
             tooltip: tr('achievements'),
             icon: const Icon(Icons.emoji_events_rounded),

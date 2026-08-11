@@ -1514,4 +1514,34 @@ const Map<String, Map<String, String>> _strings = {
 
   // ----------------------------- Выделение текста -----------------------------
   'selection_source_pack': {'ru': 'Из выделения', 'en': 'From selection'},
+
+  // ----------------------------- Экран грамматики -----------------------------
+  'grammar_summary': {
+    'ru': 'Взято правил: {n} из {m} встреченных',
+    'en': 'Rules taken: {n} of {m} you have met',
+  },
+  'grammar_summary_sub': {
+    'ru': 'Порядок задают ваши книги, видео и разборы, а не программа учебника',
+    'en': 'The order comes from your books, videos and analyses, not from a textbook syllabus',
+  },
+  'grammar_study': {'ru': 'Заниматься правилами', 'en': 'Study the rules'},
+  'grammar_not_met': {'ru': 'ещё не встречалось', 'en': 'not met yet'},
+  'grammar_met_detail': {
+    'ru': 'Встретилось {n} раз в {m} источниках',
+    'en': 'Met {n} times across {m} sources',
+  },
+  'grammar_learning': {'ru': 'учится', 'en': 'learning'},
+  'grammar_mastered': {'ru': 'усвоено', 'en': 'mastered'},
+  'grammar_none_title': {
+    'ru': 'Для этого языка правил пока нет',
+    'en': 'No rules for this language yet',
+  },
+  'grammar_none_sub': {
+    'ru': 'Разбор грамматики сейчас работает для английского',
+    'en': 'Grammar analysis currently works for English',
+  },
+  'refresh': {'ru': 'Обновить', 'en': 'Refresh'},
+  'n_times_met_one': {'ru': 'раз встретилось', 'en': 'time met'},
+  'n_times_met_few': {'ru': 'раза встретилось', 'en': 'times met'},
+  'n_times_met_many': {'ru': 'раз встретилось', 'en': 'times met'},
 };

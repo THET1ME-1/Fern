@@ -236,11 +236,25 @@ class TextParse {
   static bool _isWordChar(String c) =>
       _letter.hasMatch(c) || RegExp(r'\p{N}', unicode: true).hasMatch(c);
 
+  /// Разбор БЕЗ сверки со словарём: все слова получают [WordStatus.unknown].
+  ///
+  /// Нужен там, где важна только грамматика (подсчёт конструкций по всей
+  /// библиотеке): обращение к репозиторию тянет за собой базу, а такой разбор
+  /// можно гонять хоть в фоновом изоляте.
+  static TextAnalysis analyzePlain(String text, String languageCode) =>
+      analyze(text, languageCode, withVocabulary: false);
+
   /// Полный разбор [text] для изучаемого языка [languageCode].
-  static TextAnalysis analyze(String text, String languageCode) {
+  static TextAnalysis analyze(
+    String text,
+    String languageCode, {
+    bool withVocabulary = true,
+  }) {
     if (text.trim().isEmpty) return TextAnalysis.empty;
     final sents = sentences(text);
-    final cards = _cardsByStem(languageCode);
+    final cards = withVocabulary
+        ? _cardsByStem(languageCode)
+        : const <String, WordCard>{};
     final now = DateTime.now();
 
     final tokens = <AnalyzedToken>[];
