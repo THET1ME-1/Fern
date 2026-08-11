@@ -867,6 +867,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_times_met_one': 'Mal begegnet',
     'n_times_met_few': 'Mal begegnet',
     'n_times_met_many': 'Mal begegnet',
+
+    // ----------------------------- Двойники -----------------------------
+    'mode_twins': 'Doppelgänger',
+    'mode_twins_sub': 'Wörter, die du verwechselst, nebeneinander',
+    'twins_prompt': 'Welches Wort bedeutet das?',
   },
 
   // ============================== Français (fr) ==============================
@@ -1731,6 +1736,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_times_met_one': 'fois rencontré',
     'n_times_met_few': 'fois rencontré',
     'n_times_met_many': 'fois rencontré',
+
+    // ----------------------------- Двойники -----------------------------
+    'mode_twins': 'Sosies',
+    'mode_twins_sub': 'Les mots que vous confondez, côte à côte',
+    'twins_prompt': 'Quel mot signifie cela ?',
   },
 
   // ============================== Español (es) ==============================
@@ -2592,6 +2602,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_times_met_one': 'vez encontrada',
     'n_times_met_few': 'veces encontrada',
     'n_times_met_many': 'veces encontrada',
+
+    // ----------------------------- Двойники -----------------------------
+    'mode_twins': 'Parecidas',
+    'mode_twins_sub': 'Las palabras que confundes, una al lado de otra',
+    'twins_prompt': '¿Qué palabra significa esto?',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3453,6 +3468,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_times_met_one': 'volta incontrata',
     'n_times_met_few': 'volte incontrata',
     'n_times_met_many': 'volte incontrata',
+
+    // ----------------------------- Двойники -----------------------------
+    'mode_twins': 'Sosia',
+    'mode_twins_sub': 'Le parole che confondi, affiancate',
+    'twins_prompt': 'Quale parola significa questo?',
   },
 
   // ============================== Português (pt) ==============================
@@ -4314,5 +4334,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_times_met_one': 'vez encontrada',
     'n_times_met_few': 'vezes encontrada',
     'n_times_met_many': 'vezes encontrada',
+
+    // ----------------------------- Двойники -----------------------------
+    'mode_twins': 'Parecidas',
+    'mode_twins_sub': 'As palavras que confunde, lado a lado',
+    'twins_prompt': 'Que palavra significa isto?',
   },
 };

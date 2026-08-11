@@ -276,6 +276,8 @@ class _SessionScreenState extends State<SessionScreen>
         );
       case ExerciseKind.ruleChoose:
         return _ExData(rule: buildRuleChoice(ex.card, _ruleNames));
+      case ExerciseKind.twins:
+        return _ExData(twins: buildTwins(ex.card, _pool));
       case ExerciseKind.flip:
       case ExerciseKind.type:
       case ExerciseKind.cloze:
@@ -799,6 +801,28 @@ class _SessionScreenState extends State<SessionScreen>
           onAnswered: (correct) =>
               _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
+      case ExerciseKind.twins:
+        final twins = _data.twins;
+        // Двойник мог исчезнуть, пока сессия шла (карточку правили или
+        // удалили) — тогда спрашиваем обычным флипом.
+        if (twins == null) {
+          return _FlipExercise(
+            key: key,
+            ex: ex,
+            languageCode: widget.deck.languageCode,
+            previews: Fsrs.instance.preview(ex.card.review, DateTime.now()),
+            autoGrade: _autoGrade,
+            twoButtons: _twoButtons,
+            onRated: (r, ms) =>
+                _onGraded(ex, r != Rating.again, r, answerMs: ms),
+          );
+        }
+        return _TwinsExercise(
+          key: key,
+          twins: twins,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+        );
       case ExerciseKind.ruleChoose:
         final choice = _data.rule;
         // Каталог мог не догрузиться (нет ассета языка) — тогда правило
@@ -978,12 +1002,16 @@ class _ExData {
   /// Данные «назови конструкцию» (режим «Правила»).
   final RuleChoice? rule;
 
+  /// Данные «разведи двойников».
+  final Twins? twins;
+
   const _ExData({
     this.options = const [],
     this.tfShown = '',
     this.tfIsTrue = true,
     this.odd,
     this.rule,
+    this.twins,
   });
 }
 
@@ -3272,6 +3300,158 @@ class _RuleChooseExerciseState extends State<_RuleChooseExercise> {
               if (answered && isCorrect)
                 Icon(Icons.check_rounded, size: 20, color: fg),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ======================= Упражнение: разведи двойников =======================
+
+/// Два слова, которые человек путает, и один перевод.
+///
+/// Обычно планировщик их РАЗВОДИТ (см. `services/interference.dart`), чтобы
+/// пара не портила обе карточки разом. Здесь наоборот: когда оба слова уже
+/// знакомы, их показывают рядом — различать похожее нужно учиться отдельно.
+class _TwinsExercise extends StatefulWidget {
+  final Twins twins;
+  final void Function(bool correct) onAnswered;
+
+  const _TwinsExercise({
+    super.key,
+    required this.twins,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_TwinsExercise> createState() => _TwinsExerciseState();
+}
+
+class _TwinsExerciseState extends State<_TwinsExercise> {
+  int? _picked;
+
+  void _pick(int i) {
+    if (_picked != null) return;
+    setState(() => _picked = i);
+    HapticFeedback.selectionClick();
+    final correct = i == widget.twins.correctIndex;
+    Future.delayed(const Duration(milliseconds: 1300), () {
+      if (mounted) widget.onAnswered(correct);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final answered = _picked != null;
+    final t = widget.twins;
+
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        Text(
+          tr('twins_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            fontSize: 13,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 14),
+        Text(
+          t.prompt,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.displayFont,
+            fontWeight: FontWeight.w700,
+            fontSize: 26,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 26),
+        for (var i = 0; i < t.options.length; i++) ...[
+          _option(i, scheme),
+          const SizedBox(height: 12),
+        ],
+        const Spacer(),
+        if (answered)
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: scheme.secondaryContainer,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _difference(t.target.front, t.target.back, scheme),
+                const SizedBox(height: 6),
+                _difference(t.twin.front, t.twin.back, scheme),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  /// Строка «слово — перевод»: после ответа видно оба значения сразу, ради
+  /// этого упражнение и затевалось.
+  Widget _difference(String word, String meaning, ColorScheme scheme) => Text.rich(
+        TextSpan(
+          children: [
+            TextSpan(
+              text: word,
+              style: TextStyle(
+                fontFamily: AppTheme.wordFont,
+                fontWeight: FontWeight.w700,
+                color: scheme.onSecondaryContainer,
+              ),
+            ),
+            TextSpan(
+              text: ' — $meaning',
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                color: scheme.onSecondaryContainer,
+              ),
+            ),
+          ],
+        ),
+        style: const TextStyle(fontSize: 15, height: 1.35),
+      );
+
+  Widget _option(int i, ColorScheme scheme) {
+    final answered = _picked != null;
+    final isCorrect = i == widget.twins.correctIndex;
+    var bg = scheme.surfaceContainerHigh;
+    var fg = scheme.onSurface;
+    if (answered && isCorrect) {
+      bg = scheme.primaryContainer;
+      fg = scheme.onPrimaryContainer;
+    } else if (answered && _picked == i) {
+      bg = scheme.errorContainer;
+      fg = scheme.onErrorContainer;
+    }
+    return Material(
+      color: bg,
+      borderRadius: BorderRadius.circular(20),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: answered ? null : () => _pick(i),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 17),
+          child: Center(
+            child: Text(
+              widget.twins.options[i],
+              style: TextStyle(
+                fontFamily: AppTheme.wordFont,
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                color: fg,
+              ),
+            ),
           ),
         ),
       ),

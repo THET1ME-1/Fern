@@ -24,6 +24,7 @@ enum StudyMode {
   cram,
   revive,
   grammar,
+  twins,
 }
 
 /// Направление изучения колоды.
@@ -46,6 +47,7 @@ enum ExerciseKind {
   assemble,
   oddOne,
   ruleChoose,
+  twins,
 }
 
 extension StudyModeInfo on StudyMode {
@@ -273,6 +275,21 @@ class SessionBuilder {
           for (final c
               in _selectSession(dueG, freshG, now, newAllowed, maxReviews))
             _ex(c, ExerciseKind.ruleChoose),
+        ];
+
+      case StudyMode.twins:
+        // «Двойники»: слова, которые человек путает между собой, спрашиваются
+        // ПАРОЙ. Anki разводит только карточки одной заметки, а путаются слова
+        // из разных колод — их не разводит никто.
+        final eligible =
+            cards.where((c) => buildTwins(c, cards) != null).toList();
+        final dueT =
+            eligible.where((c) => !c.review.isNew && c.isDue(now)).toList();
+        final freshT = eligible.where((c) => c.review.isNew).toList();
+        return [
+          for (final c
+              in _selectSession(dueT, freshT, now, newAllowed, maxReviews))
+            _ex(c, ExerciseKind.twins),
         ];
 
       case StudyMode.revive:
@@ -613,6 +630,46 @@ RuleChoice? buildRuleChoice(
   pool.shuffle(Random(seed));
   final options = [correct, ...pool.take(wanted - 1)]..shuffle(Random(seed));
   return RuleChoice(sentence, options, options.indexOf(correct));
+}
+
+/// Упражнение «разведи двойников»: два похожих слова и один перевод.
+class Twins {
+  /// Карточка, о переводе которой спрашивают.
+  final WordCard target;
+
+  /// Слово, с которым её путают.
+  final WordCard twin;
+
+  /// Слова в том порядке, в каком показаны.
+  final List<String> options;
+
+  /// Индекс правильного слова в [options].
+  final int correctIndex;
+
+  const Twins(this.target, this.twin, this.options, this.correctIndex);
+
+  /// Что показываем в вопросе — перевод целевой карточки.
+  String get prompt => target.back;
+}
+
+/// Ищет для карточки её двойника среди [pool] и строит упражнение.
+///
+/// Двойников находит [Interference] — тот же расчёт, который разводит их по
+/// разным заходам. Здесь он работает наоборот: слова показываются рядом
+/// НАМЕРЕННО, когда оба уже знакомы и пора научиться их различать.
+Twins? buildTwins(WordCard card, List<WordCard> pool) {
+  if (card.isRule) return null;
+  final front = card.front.trim();
+  if (front.isEmpty || card.back.trim().isEmpty) return null;
+  for (final other in pool) {
+    if (other.id == card.id || other.isRule) continue;
+    if (other.front.trim().isEmpty) continue;
+    if (!Interference.conflict(card, other)) continue;
+    final seed = card.id.hashCode;
+    final options = [front, other.front.trim()]..shuffle(Random(seed));
+    return Twins(card, other, options, options.indexOf(front));
+  }
+  return null;
 }
 
 /// Упражнение «собери фразу»: целевое предложение и его слова-осколки.

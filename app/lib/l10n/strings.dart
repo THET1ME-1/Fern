@@ -1544,4 +1544,15 @@ const Map<String, Map<String, String>> _strings = {
   'n_times_met_one': {'ru': 'раз встретилось', 'en': 'time met'},
   'n_times_met_few': {'ru': 'раза встретилось', 'en': 'times met'},
   'n_times_met_many': {'ru': 'раз встретилось', 'en': 'times met'},
+
+  // ----------------------------- Двойники -----------------------------
+  'mode_twins': {'ru': 'Двойники', 'en': 'Look-alikes'},
+  'mode_twins_sub': {
+    'ru': 'Слова, которые вы путаете, рядом',
+    'en': 'Words you mix up, side by side',
+  },
+  'twins_prompt': {
+    'ru': 'Какое слово значит это?',
+    'en': 'Which word means this?',
+  },
 };

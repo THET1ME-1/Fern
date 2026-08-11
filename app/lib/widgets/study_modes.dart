@@ -50,11 +50,16 @@ class StudyModesGrid extends StatelessWidget {
     (StudyMode.cram, Icons.event_available_rounded, 'mode_cram',
         'mode_cram_sub'),
     (StudyMode.grammar, Icons.rule_rounded, 'mode_grammar', 'mode_grammar_sub'),
+    (StudyMode.twins, Icons.compare_arrows_rounded, 'mode_twins',
+        'mode_twins_sub'),
   ];
 
   /// Правила показываются только там, где они есть: в словарной колоде плитка
   /// «Правила» открывала бы пустую сессию.
   bool get _hasRules => cards.any((c) => c.isRule);
+
+  /// Двойники есть не в каждой колоде: без путаемой пары режим бессмыслен.
+  bool get _hasTwins => cards.any((c) => buildTwins(c, cards) != null);
 
   void _launch(BuildContext context, StudyMode mode) {
     if (cards.isEmpty) {
@@ -80,7 +85,9 @@ class StudyModesGrid extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final rest = [
       for (final m in _modes.skip(1))
-        if (m.$1 != StudyMode.grammar || _hasRules) m,
+        if ((m.$1 != StudyMode.grammar || _hasRules) &&
+            (m.$1 != StudyMode.twins || _hasTwins))
+          m,
     ];
     return Column(
       children: [
