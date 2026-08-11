@@ -892,6 +892,15 @@ const Map<String, Map<String, String>> kTranslations = {
     'reply_copy': 'Kopieren',
     'reply_copied': 'Antwort kopiert',
     'reply_source_pack': 'Meine Antworten',
+
+    // ----------------------------- Микроповтор в шторке -----------------------------
+    'quick_review': 'Karte im Benachrichtigungsfeld',
+    'quick_review_sub': 'Ein Wort mit zwei Tasten in der Benachrichtigung: die Antwort zählt ohne App-Start',
+    'quick_know': 'Weiß ich',
+    'quick_forgot': 'Vergessen',
+    'quick_body': 'Erinnerst du dich an die Bedeutung?',
+    'quick_channel_name': 'Karte im Benachrichtigungsfeld',
+    'quick_channel_desc': 'Ein Wort mit den Tasten „Weiß ich“ und „Vergessen“',
   },
 
   // ============================== Français (fr) ==============================
@@ -1781,6 +1790,15 @@ const Map<String, Map<String, String>> kTranslations = {
     'reply_copy': 'Copier',
     'reply_copied': 'Réponse copiée',
     'reply_source_pack': 'Mes réponses',
+
+    // ----------------------------- Микроповтор в шторке -----------------------------
+    'quick_review': 'Carte dans le volet',
+    'quick_review_sub': 'Un mot avec deux boutons dans la notification : la réponse compte sans ouvrir l\'application',
+    'quick_know': 'Je sais',
+    'quick_forgot': 'Oublié',
+    'quick_body': 'Vous vous souvenez du sens ?',
+    'quick_channel_name': 'Carte dans le volet',
+    'quick_channel_desc': 'Un mot avec les boutons « Je sais » et « Oublié »',
   },
 
   // ============================== Español (es) ==============================
@@ -2667,6 +2685,15 @@ const Map<String, Map<String, String>> kTranslations = {
     'reply_copy': 'Copiar',
     'reply_copied': 'Respuesta copiada',
     'reply_source_pack': 'Mis respuestas',
+
+    // ----------------------------- Микроповтор в шторке -----------------------------
+    'quick_review': 'Tarjeta en la bandeja',
+    'quick_review_sub': 'Una palabra con dos botones en la notificación: la respuesta cuenta sin abrir la app',
+    'quick_know': 'Lo sé',
+    'quick_forgot': 'Olvidado',
+    'quick_body': '¿Recuerdas el significado?',
+    'quick_channel_name': 'Tarjeta en la bandeja',
+    'quick_channel_desc': 'Una palabra con los botones «Lo sé» y «Olvidado»',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3553,6 +3580,15 @@ const Map<String, Map<String, String>> kTranslations = {
     'reply_copy': 'Copia',
     'reply_copied': 'Risposta copiata',
     'reply_source_pack': 'Le mie risposte',
+
+    // ----------------------------- Микроповтор в шторке -----------------------------
+    'quick_review': 'Carta nella tendina',
+    'quick_review_sub': 'Una parola con due pulsanti nella notifica: la risposta conta senza aprire l\'app',
+    'quick_know': 'Lo so',
+    'quick_forgot': 'Dimenticato',
+    'quick_body': 'Ricordi il significato?',
+    'quick_channel_name': 'Carta nella tendina',
+    'quick_channel_desc': 'Una parola con i pulsanti «Lo so» e «Dimenticato»',
   },
 
   // ============================== Português (pt) ==============================
@@ -4439,5 +4475,14 @@ const Map<String, Map<String, String>> kTranslations = {
     'reply_copy': 'Copiar',
     'reply_copied': 'Resposta copiada',
     'reply_source_pack': 'As minhas respostas',
+
+    // ----------------------------- Микроповтор в шторке -----------------------------
+    'quick_review': 'Cartão na barra',
+    'quick_review_sub': 'Uma palavra com dois botões na notificação: a resposta conta sem abrir a app',
+    'quick_know': 'Eu sei',
+    'quick_forgot': 'Esqueci',
+    'quick_body': 'Lembra-se do significado?',
+    'quick_channel_name': 'Cartão na barra',
+    'quick_channel_desc': 'Uma palavra com os botões «Eu sei» e «Esqueci»',
   },
 };

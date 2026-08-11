@@ -84,6 +84,7 @@ class DeckRepository extends ChangeNotifier {
   static const String _kUiLanguage = 'uiLanguageCode';
   static const String _kDailyGoal = 'dailyGoal';
   static const String _kReminderOn = 'reminderEnabled';
+  static const String _kQuickReview = 'quickReviewEnabled';
   static const String _kReminderHour = 'reminderHour';
   static const String _kReminderMinute = 'reminderMinute';
   static const String _kOnboarded = 'onboarded';
@@ -1188,6 +1189,14 @@ class DeckRepository extends ChangeNotifier {
     await _prefs.setInt(_kReminderMinute, minute);
   }
 
+  /// Микроповтор в шторке: карточка с двумя кнопками, ответ без открытия
+  /// приложения. По умолчанию выключен — уведомления, которых не просили,
+  /// раздражают сильнее, чем помогает фича.
+  Future<bool> quickReviewEnabled() async =>
+      await _prefs.getBool(_kQuickReview) ?? false;
+  Future<void> setQuickReviewEnabled(bool value) async =>
+      _prefs.setBool(_kQuickReview, value);
+
   // Онбординг (первый запуск).
   Future<bool> onboarded() async => await _prefs.getBool(_kOnboarded) ?? false;
   Future<void> setOnboarded(bool value) async =>
@@ -1356,6 +1365,7 @@ class DeckRepository extends ChangeNotifier {
         'newPerDay': await _prefs.getInt(_kNewPerDay),
         'maxReviews': await _prefs.getInt(_kMaxReviews),
         'reminderEnabled': await _prefs.getBool(_kReminderOn),
+        'quickReviewEnabled': await _prefs.getBool(_kQuickReview),
         'reminderHour': await _prefs.getInt(_kReminderHour),
         'reminderMinute': await _prefs.getInt(_kReminderMinute),
         // Ключ Pro: без него человек после смены телефона восстанавливает
@@ -1532,6 +1542,7 @@ class DeckRepository extends ChangeNotifier {
     await setInt('newPerDay', _kNewPerDay);
     await setInt('maxReviews', _kMaxReviews);
     await setBool('reminderEnabled', _kReminderOn);
+    await setBool('quickReviewEnabled', _kQuickReview);
     await setInt('reminderHour', _kReminderHour);
     await setInt('reminderMinute', _kReminderMinute);
   }

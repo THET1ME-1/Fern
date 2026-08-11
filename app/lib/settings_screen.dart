@@ -81,6 +81,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool _customWeights = false;
   bool _optimizing = false;
   bool _reminderOn = false;
+  bool _quickReview = false;
   bool _showVideoBanner = true;
   bool _posSplitAsk = true;
   bool _twoButtons = false;
@@ -101,6 +102,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final newPerDay = await _repo.newPerDay();
     final maxReviews = await _repo.maxReviews();
     final on = await _repo.reminderEnabled();
+    final quickReview = await _repo.quickReviewEnabled();
     final h = await _repo.reminderHour();
     final m = await _repo.reminderMinute();
     final showBanner = await _repo.showVideoBanner();
@@ -126,6 +128,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _fsrsData = fsrsData;
         _customWeights = custom;
         _reminderOn = on;
+        _quickReview = quickReview;
         _showVideoBanner = showBanner;
         _posSplitAsk = posSplitAsk;
         _twoButtons = twoButtons;
@@ -158,6 +161,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
       await NotificationService.instance.cancelDaily();
       if (mounted) setState(() => _reminderOn = false);
     }
+  }
+
+  /// Микроповтор в шторке. Разрешение спрашиваем при включении: без него
+  /// тумблер стоял бы «включено», а уведомлений бы не было.
+  Future<void> _toggleQuickReview(bool value) async {
+    if (value) {
+      final granted = await NotificationService.instance.requestPermission();
+      if (!granted) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(SnackBar(content: Text(tr('notifications_blocked'))));
+        return;
+      }
+    } else {
+      await NotificationService.instance.cancelQuickReview();
+    }
+    await _repo.setQuickReviewEnabled(value);
+    if (mounted) setState(() => _quickReview = value);
   }
 
   Future<void> _pickReminderTime() async {
@@ -320,6 +342,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   onTap: _pickReminderTime,
                   scheme: scheme,
                 ),
+              _switchTile(
+                icon: Icons.bolt_rounded,
+                title: tr('quick_review'),
+                subtitle: tr('quick_review_sub'),
+                value: _quickReview,
+                onChanged: _toggleQuickReview,
+                scheme: scheme,
+              ),
             ],
           ),
           _section(

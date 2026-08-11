@@ -26,6 +26,7 @@ import 'services/pos_dictionary.dart';
 import 'services/store_update.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
+import 'services/quick_review.dart';
 import 'services/process_text.dart';
 import 'share/share_import.dart';
 import 'settings_screen.dart';
@@ -256,24 +257,69 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   static const int _tabCount = 4;
   int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _checkForUpdate();
     ShareImport.start(context); // приём «Поделиться» из других приложений
     // Fern в системном меню выделения текста: слово из чужого приложения
     // приходит сюда же, но за один тап вместо листа «Поделиться».
     ProcessText.start(context);
+    // Ответы, данные из шторки, пока приложение было закрыто.
+    unawaited(QuickReview.applyPending());
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     ShareImport.dispose();
     super.dispose();
+  }
+
+  /// Микроповтор кладётся в шторку, когда человек УХОДИТ из приложения, и
+  /// снимается, когда возвращается.
+  ///
+  /// Так фича живёт без фоновых задач и точных будильников: карточка ждёт в
+  /// шторке до следующего раза, и ответ на неё сохраняет серию в тот день,
+  /// когда приложение не открывали вовсе.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused:
+        unawaited(_postQuickReview());
+      case AppLifecycleState.resumed:
+        unawaited(NotificationService.instance.cancelQuickReview());
+        unawaited(QuickReview.applyPending());
+      case AppLifecycleState.detached:
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.hidden:
+        break;
+    }
+  }
+
+  Future<void> _postQuickReview() async {
+    final repo = DeckRepository.instance;
+    if (!await repo.quickReviewEnabled()) return;
+    final lang = await repo.selectedLanguageCode() ?? 'en';
+    final now = DateTime.now();
+    // Берём самую просроченную карточку языка: спрашивать в шторке имеет смысл
+    // то, что и так пора повторить.
+    final due = [
+      for (final c in repo.cardsForLanguageSync(lang))
+        if (!c.review.isNew && !c.isRule && c.isDue(now)) c,
+    ]..sort((a, b) => (a.review.due ?? now).compareTo(b.review.due ?? now));
+    if (due.isEmpty) return;
+    final card = due.first;
+    await NotificationService.instance.showQuickReview(
+      cardId: card.id,
+      word: card.front,
+      meaning: card.back,
+    );
   }
 
   /// Тихая проверка обновления при запуске. Канал зависит от сборки: GitHub —

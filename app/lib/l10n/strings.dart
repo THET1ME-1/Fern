@@ -1593,4 +1593,22 @@ const Map<String, Map<String, String>> _strings = {
   'reply_copy': {'ru': 'Скопировать', 'en': 'Copy'},
   'reply_copied': {'ru': 'Ответ скопирован', 'en': 'Reply copied'},
   'reply_source_pack': {'ru': 'Мои ответы', 'en': 'My replies'},
+
+  // ----------------------------- Микроповтор в шторке -----------------------------
+  'quick_review': {'ru': 'Карточка в шторке', 'en': 'Card in the shade'},
+  'quick_review_sub': {
+    'ru': 'Слово с двумя кнопками в уведомлении: ответ засчитывается без открытия приложения',
+    'en': 'A word with two buttons in a notification: the answer counts without opening the app',
+  },
+  'quick_know': {'ru': 'Помню', 'en': 'I know it'},
+  'quick_forgot': {'ru': 'Не помню', 'en': 'Forgot'},
+  'quick_body': {
+    'ru': 'Вспомнили перевод?',
+    'en': 'Do you remember the meaning?',
+  },
+  'quick_channel_name': {'ru': 'Карточка в шторке', 'en': 'Card in the shade'},
+  'quick_channel_desc': {
+    'ru': 'Одно слово с кнопками «Помню» и «Не помню»',
+    'en': 'One word with «I know it» and «Forgot» buttons',
+  },
 };

@@ -7,6 +7,24 @@ import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../l10n/strings.dart';
+import 'quick_review.dart';
+
+/// Обработчик кнопок уведомления В ФОНОВОМ изоляте.
+///
+/// Отдельная функция верхнего уровня с `vm:entry-point` — иначе движок не
+/// найдёт её при холодном старте по тапу. Ничего, кроме записи в очередь, тут
+/// делать нельзя: репозитория и открытой базы в этом изоляте нет.
+@pragma('vm:entry-point')
+void quickReviewBackground(NotificationResponse response) {
+  final id = response.payload;
+  if (id == null || id.isEmpty) return;
+  switch (response.actionId) {
+    case QuickReview.actionKnow:
+      QuickReview.enqueue(id, true);
+    case QuickReview.actionForgot:
+      QuickReview.enqueue(id, false);
+  }
+}
 
 /// Локальные уведомления: ежедневное напоминание позаниматься.
 ///
@@ -20,7 +38,9 @@ class NotificationService {
   final FlutterLocalNotificationsPlugin _plugin =
       FlutterLocalNotificationsPlugin();
   static const int _dailyId = 1001;
+  static const int _quickId = 1002;
   static const String _channelId = 'daily_reminder';
+  static const String _quickChannelId = 'quick_review';
 
   bool _init = false;
   bool _tzReady = false;
@@ -44,6 +64,8 @@ class NotificationService {
       const ios = DarwinInitializationSettings();
       await _plugin.initialize(
         settings: const InitializationSettings(android: android, iOS: ios),
+        onDidReceiveNotificationResponse: quickReviewBackground,
+        onDidReceiveBackgroundNotificationResponse: quickReviewBackground,
       );
     } catch (e) {
       debugPrint('Notifications init failed: $e');
@@ -130,6 +152,68 @@ class NotificationService {
       scheduled = scheduled.add(const Duration(days: 1));
     }
     return scheduled;
+  }
+
+  /// Показывает карточку прямо в шторке: слово и две кнопки.
+  ///
+  /// Микроповтор существует ради тех дней, когда приложение не открывают
+  /// вовсе: ответ из шторки сохраняет серию и двигает расписание, а стоит
+  /// одного тапа. Ответ уезжает в очередь [QuickReview] — фоновый изолят не
+  /// может писать в базу.
+  Future<void> showQuickReview({
+    required String cardId,
+    required String word,
+    required String meaning,
+  }) async {
+    if (!_supported) return;
+    await _ensureInit();
+    try {
+      final android = AndroidNotificationDetails(
+        _quickChannelId,
+        tr('quick_channel_name'),
+        channelDescription: tr('quick_channel_desc'),
+        importance: Importance.defaultImportance,
+        priority: Priority.defaultPriority,
+        actions: [
+          AndroidNotificationAction(
+            QuickReview.actionKnow,
+            tr('quick_know'),
+            showsUserInterface: false,
+            cancelNotification: true,
+          ),
+          AndroidNotificationAction(
+            QuickReview.actionForgot,
+            tr('quick_forgot'),
+            showsUserInterface: false,
+            cancelNotification: true,
+          ),
+        ],
+      );
+      await _plugin.show(
+        id: _quickId,
+        title: word,
+        // Перевод в теле уведомления не показываем: иначе ответ известен до
+        // того, как человек его вспомнил.
+        body: tr('quick_body'),
+        notificationDetails: NotificationDetails(
+          android: android,
+          iOS: const DarwinNotificationDetails(),
+        ),
+        payload: cardId,
+      );
+    } catch (e) {
+      debugPrint('showQuickReview failed: $e');
+    }
+  }
+
+  Future<void> cancelQuickReview() async {
+    if (!_supported) return;
+    await _ensureInit();
+    try {
+      await _plugin.cancel(id: _quickId);
+    } catch (e) {
+      debugPrint('cancelQuickReview failed: $e');
+    }
   }
 
   Future<void> cancelDaily() async {
