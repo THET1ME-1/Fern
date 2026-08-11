@@ -876,6 +876,22 @@ const Map<String, Map<String, String>> kTranslations = {
     // ----------------------------- Слова-преследователи -----------------------------
     'pursuit_title': 'Verfolgen dich',
     'pursuit_sub': 'Diese Wörter kamen in mehreren Quellen vor und haben noch keine Karte. Die Zahl sagt, in wie vielen',
+
+    // ----------------------------- Ответ -----------------------------
+    'reply_title': 'Antwort',
+    'reply_hint': 'Schreib in deiner Sprache, was du antworten willst',
+    'reply_build': 'Antwort bauen',
+    'reply_empty_title': 'Noch keine Antwort',
+    'reply_empty_sub': 'Fern übersetzt den Entwurf und zeigt, welche deiner Wörter zum Einsatz kamen',
+    'reply_upgrades': 'Du kennst ein stärkeres Wort',
+    'reply_upgrades_sub': 'Gelernte Wörter mit gleicher Bedeutung — nimm die',
+    'reply_fresh': 'Neue Wörter in der Antwort',
+    'reply_fresh_sub': 'Sie fehlen in deinem Wörterbuch — hier hinzufügen',
+    'reply_rules': 'Was du verwendet hast',
+    'reply_used_n': 'eigene Wörter: {n}',
+    'reply_copy': 'Kopieren',
+    'reply_copied': 'Antwort kopiert',
+    'reply_source_pack': 'Meine Antworten',
   },
 
   // ============================== Français (fr) ==============================
@@ -1749,6 +1765,22 @@ const Map<String, Map<String, String>> kTranslations = {
     // ----------------------------- Слова-преследователи -----------------------------
     'pursuit_title': 'Vous poursuivent',
     'pursuit_sub': 'Ces mots sont apparus dans plusieurs sources et n\'ont pas de carte. Le chiffre indique combien',
+
+    // ----------------------------- Ответ -----------------------------
+    'reply_title': 'Réponse',
+    'reply_hint': 'Écrivez votre réponse dans votre langue',
+    'reply_build': 'Composer la réponse',
+    'reply_empty_title': 'Pas encore de réponse',
+    'reply_empty_sub': 'Fern traduit le brouillon et montre quels mots à vous ont servi',
+    'reply_upgrades': 'Vous connaissez un mot plus fort',
+    'reply_upgrades_sub': 'Des mots appris de même sens : utilisez-les',
+    'reply_fresh': 'Mots nouveaux dans la réponse',
+    'reply_fresh_sub': 'Ils manquent à votre dictionnaire : ajoutez-les ici',
+    'reply_rules': 'Ce que vous avez employé',
+    'reply_used_n': 'vos mots : {n}',
+    'reply_copy': 'Copier',
+    'reply_copied': 'Réponse copiée',
+    'reply_source_pack': 'Mes réponses',
   },
 
   // ============================== Español (es) ==============================
@@ -2619,6 +2651,22 @@ const Map<String, Map<String, String>> kTranslations = {
     // ----------------------------- Слова-преследователи -----------------------------
     'pursuit_title': 'Te persiguen',
     'pursuit_sub': 'Estas palabras aparecieron en varias fuentes y aún no tienen tarjeta. El número indica en cuántas',
+
+    // ----------------------------- Ответ -----------------------------
+    'reply_title': 'Respuesta',
+    'reply_hint': 'Escribe lo que quieres responder en tu idioma',
+    'reply_build': 'Componer la respuesta',
+    'reply_empty_title': 'Aún no hay respuesta',
+    'reply_empty_sub': 'Fern traduce el borrador y muestra qué palabras tuyas entraron en juego',
+    'reply_upgrades': 'Conoces una palabra más precisa',
+    'reply_upgrades_sub': 'Palabras aprendidas con el mismo significado: úsalas',
+    'reply_fresh': 'Palabras nuevas en la respuesta',
+    'reply_fresh_sub': 'No están en tu diccionario: añádelas aquí',
+    'reply_rules': 'Lo que has usado',
+    'reply_used_n': 'palabras tuyas: {n}',
+    'reply_copy': 'Copiar',
+    'reply_copied': 'Respuesta copiada',
+    'reply_source_pack': 'Mis respuestas',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3489,6 +3537,22 @@ const Map<String, Map<String, String>> kTranslations = {
     // ----------------------------- Слова-преследователи -----------------------------
     'pursuit_title': 'Ti inseguono',
     'pursuit_sub': 'Queste parole sono comparse in più fonti e non hanno ancora una carta. Il numero dice in quante',
+
+    // ----------------------------- Ответ -----------------------------
+    'reply_title': 'Risposta',
+    'reply_hint': 'Scrivi la tua risposta nella tua lingua',
+    'reply_build': 'Componi la risposta',
+    'reply_empty_title': 'Ancora nessuna risposta',
+    'reply_empty_sub': 'Fern traduce la bozza e mostra quali tue parole sono entrate in gioco',
+    'reply_upgrades': 'Conosci una parola più forte',
+    'reply_upgrades_sub': 'Parole già imparate con lo stesso senso: usa quelle',
+    'reply_fresh': 'Parole nuove nella risposta',
+    'reply_fresh_sub': 'Non sono nel tuo dizionario: aggiungile qui',
+    'reply_rules': 'Cosa hai usato',
+    'reply_used_n': 'parole tue: {n}',
+    'reply_copy': 'Copia',
+    'reply_copied': 'Risposta copiata',
+    'reply_source_pack': 'Le mie risposte',
   },
 
   // ============================== Português (pt) ==============================
@@ -4359,5 +4423,21 @@ const Map<String, Map<String, String>> kTranslations = {
     // ----------------------------- Слова-преследователи -----------------------------
     'pursuit_title': 'Perseguem-no',
     'pursuit_sub': 'Estas palavras apareceram em várias fontes e ainda não têm cartão. O número diz em quantas',
+
+    // ----------------------------- Ответ -----------------------------
+    'reply_title': 'Resposta',
+    'reply_hint': 'Escreva a sua resposta na sua língua',
+    'reply_build': 'Compor a resposta',
+    'reply_empty_title': 'Ainda sem resposta',
+    'reply_empty_sub': 'O Fern traduz o rascunho e mostra que palavras suas entraram em jogo',
+    'reply_upgrades': 'Conhece uma palavra mais forte',
+    'reply_upgrades_sub': 'Palavras já aprendidas com o mesmo sentido: use-as',
+    'reply_fresh': 'Palavras novas na resposta',
+    'reply_fresh_sub': 'Não estão no seu dicionário: adicione-as aqui',
+    'reply_rules': 'O que usou',
+    'reply_used_n': 'palavras suas: {n}',
+    'reply_copy': 'Copiar',
+    'reply_copied': 'Resposta copiada',
+    'reply_source_pack': 'As minhas respostas',
   },
 };

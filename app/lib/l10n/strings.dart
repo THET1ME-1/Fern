@@ -1562,4 +1562,35 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Эти слова попались в нескольких источниках, а карточки для них нет. Цифра — в скольких',
     'en': 'These words showed up in several sources and still have no card. The number is how many',
   },
+
+  // ----------------------------- Ответ -----------------------------
+  'reply_title': {'ru': 'Ответ', 'en': 'Reply'},
+  'reply_hint': {
+    'ru': 'Напишите, что хотите ответить, на своём языке',
+    'en': 'Write what you want to reply in your own language',
+  },
+  'reply_build': {'ru': 'Собрать ответ', 'en': 'Build the reply'},
+  'reply_empty_title': {'ru': 'Ответ пока не собран', 'en': 'No reply yet'},
+  'reply_empty_sub': {
+    'ru': 'Fern переведёт черновик и покажет, какие ваши слова пошли в дело',
+    'en': 'Fern translates the draft and shows which of your words went to work',
+  },
+  'reply_upgrades': {
+    'ru': 'Вы знаете слово получше',
+    'en': 'You know a stronger word',
+  },
+  'reply_upgrades_sub': {
+    'ru': 'Выученные слова с тем же значением — их и стоит употребить',
+    'en': 'Words you have learned with the same meaning — use those',
+  },
+  'reply_fresh': {'ru': 'Новые слова в ответе', 'en': 'New words in the reply'},
+  'reply_fresh_sub': {
+    'ru': 'Их нет в вашем словаре — можно добавить прямо отсюда',
+    'en': 'They are not in your dictionary yet — add them right here',
+  },
+  'reply_rules': {'ru': 'Что вы употребили', 'en': 'What you used'},
+  'reply_used_n': {'ru': 'своих слов: {n}', 'en': 'your own words: {n}'},
+  'reply_copy': {'ru': 'Скопировать', 'en': 'Copy'},
+  'reply_copied': {'ru': 'Ответ скопирован', 'en': 'Reply copied'},
+  'reply_source_pack': {'ru': 'Мои ответы', 'en': 'My replies'},
 };

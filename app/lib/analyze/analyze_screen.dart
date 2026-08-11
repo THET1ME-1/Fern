@@ -23,6 +23,7 @@ import '../widgets/empty_state.dart';
 import '../widgets/morph_shapes.dart';
 import '../widgets/pressable.dart';
 import '../widgets/reveal.dart';
+import 'reply_screen.dart';
 import 'rule_card_tile.dart';
 
 /// Экран «Разбор»: вставил чужое сообщение — получил перевод, слова по статусу
@@ -302,6 +303,14 @@ class _AnalyzeScreenState extends State<AnalyzeScreen> {
       appBar: AppBar(
         title: Text(tr('analyze_title')),
         actions: [
+          IconButton(
+            tooltip: tr('reply_title'),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const ReplyScreen()),
+            ),
+            icon: const Icon(Icons.reply_rounded),
+          ),
           if (_analysis != null)
             IconButton(
               tooltip: tr('save'),
