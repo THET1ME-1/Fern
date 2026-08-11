@@ -1511,4 +1511,7 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Сообщение, пост, пара предложений',
     'en': 'A message, a post, a couple of sentences',
   },
+
+  // ----------------------------- Выделение текста -----------------------------
+  'selection_source_pack': {'ru': 'Из выделения', 'en': 'From selection'},
 };

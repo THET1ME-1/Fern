@@ -849,6 +849,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_words_added_many': 'Wörter hinzugefügt',
     'library_analyze_title': 'Text analysieren',
     'library_analyze_sub': 'Nachricht, Beitrag, ein paar Sätze',
+
+    // ----------------------------- Выделение текста -----------------------------
+    'selection_source_pack': 'Aus der Auswahl',
   },
 
   // ============================== Français (fr) ==============================
@@ -1695,6 +1698,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_words_added_many': 'mots ajoutés',
     'library_analyze_title': 'Analyser un texte',
     'library_analyze_sub': 'Un message, un post, quelques phrases',
+
+    // ----------------------------- Выделение текста -----------------------------
+    'selection_source_pack': 'Depuis la sélection',
   },
 
   // ============================== Español (es) ==============================
@@ -2538,6 +2544,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_words_added_many': 'palabras añadidas',
     'library_analyze_title': 'Analizar un texto',
     'library_analyze_sub': 'Un mensaje, un post, un par de frases',
+
+    // ----------------------------- Выделение текста -----------------------------
+    'selection_source_pack': 'De la selección',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3381,6 +3390,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_words_added_many': 'parole aggiunte',
     'library_analyze_title': 'Analizza un testo',
     'library_analyze_sub': 'Un messaggio, un post, due frasi',
+
+    // ----------------------------- Выделение текста -----------------------------
+    'selection_source_pack': 'Dalla selezione',
   },
 
   // ============================== Português (pt) ==============================
@@ -4224,5 +4236,8 @@ const Map<String, Map<String, String>> kTranslations = {
     'n_words_added_many': 'palavras adicionadas',
     'library_analyze_title': 'Analisar um texto',
     'library_analyze_sub': 'Uma mensagem, um post, duas frases',
+
+    // ----------------------------- Выделение текста -----------------------------
+    'selection_source_pack': 'Da seleção',
   },
 };

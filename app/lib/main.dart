@@ -26,6 +26,7 @@ import 'services/pos_dictionary.dart';
 import 'services/store_update.dart';
 import 'services/notification_service.dart';
 import 'services/translation/translation_manager.dart';
+import 'services/process_text.dart';
 import 'share/share_import.dart';
 import 'settings_screen.dart';
 import 'startup.dart';
@@ -264,6 +265,9 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     _checkForUpdate();
     ShareImport.start(context); // приём «Поделиться» из других приложений
+    // Fern в системном меню выделения текста: слово из чужого приложения
+    // приходит сюда же, но за один тап вместо листа «Поделиться».
+    ProcessText.start(context);
   }
 
   @override
