@@ -4,6 +4,10 @@ import 'package:flutter/services.dart';
 
 import 'achievements_screen.dart';
 import 'grammar_screen.dart';
+import 'services/word_pursuit.dart';
+import 'video/add_target.dart';
+import 'study/word_lookup_sheet.dart';
+import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'models/deck.dart';
 import 'models/review_event.dart';
@@ -43,6 +47,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
   ReviewLog _log = ReviewLog.empty();
   List<ReviewEvent> _events = [];
   bool _loading = true;
+  List<PursuingWord> _pursuit = const [];
 
   @override
   void initState() {
@@ -65,6 +70,8 @@ class _ProgressScreenState extends State<ProgressScreen> {
     final log = await _repo.reviewLog();
     final events = await _repo.reviewEvents();
     final sources = await _library.list();
+    final lang = await _repo.selectedLanguageCode() ?? 'en';
+    final pursuit = await WordPursuit.forLanguage(lang, limit: 12);
     if (!mounted) return;
     setState(() {
       _cards = cards;
@@ -72,6 +79,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
       _books = sources.where((s) => s.isBook).toList();
       _log = log;
       _events = events;
+      _pursuit = pursuit;
       _loading = false;
     });
   }
@@ -197,6 +205,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
                 ),
                 ..._streakMilestones(scheme, streak),
                 ..._atRiskSection(scheme, now),
+                ..._pursuitSection(scheme),
                 ..._bestTimeSection(scheme, now),
                 ..._extraStats(scheme),
                 ..._vocabSection(scheme),
@@ -1000,6 +1009,74 @@ class _ProgressScreenState extends State<ProgressScreen> {
   }
 
   // ------------------------- Под угрозой забывания -------------------------
+
+  /// Слова, которые попались в разных источниках и до сих пор не выучены.
+  List<Widget> _pursuitSection(ColorScheme scheme) {
+    if (_pursuit.isEmpty) return const [];
+    return [
+      const SizedBox(height: 24),
+      _sectionTitle(tr('pursuit_title'), scheme),
+      const SizedBox(height: 4),
+      Text(
+        tr('pursuit_sub'),
+        style: TextStyle(
+          fontFamily: AppTheme.bodyFont,
+          fontSize: 12.5,
+          color: scheme.onSurfaceVariant,
+        ),
+      ),
+      const SizedBox(height: 12),
+      Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final w in _pursuit)
+            ActionChip(
+              avatar: Text(
+                '${w.sources}',
+                style: TextStyle(
+                  fontFamily: AppTheme.displayFont,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 12,
+                  color: scheme.primary,
+                ),
+              ),
+              label: Text(w.word),
+              onPressed: () => _addPursued(w),
+            ),
+        ],
+      ),
+    ];
+  }
+
+  /// Тап по слову-преследователю: обычный лист перевода и карточка в пак
+  /// «Разбор» — тот же путь, что из книги и из разбора сообщения.
+  Future<void> _addPursued(PursuingWord w) async {
+    final lang = await _repo.selectedLanguageCode() ?? 'en';
+    if (!mounted) return;
+    final deck = await VideoDeckTarget.resolveInSourcePack(
+        context, lang, tr('analyze_source_pack'));
+    if (deck == null || !mounted) return;
+    await showWordLookup(
+      context,
+      word: w.word,
+      sentence: '',
+      sourceLang: lang,
+      targetLang: LocaleController.instance.code,
+      alreadyKnown: false,
+      onAdd: (back, example, pos) async {
+        final ok = await VideoDeckTarget.addWord(
+          deck,
+          front: w.word,
+          back: back,
+          example: example,
+          pos: PosDetect.detect(w.word, dictPos: pos, languageCode: lang),
+        );
+        return ok ? LookupAddResult.added : LookupAddResult.duplicate;
+      },
+    );
+    if (mounted) _load();
+  }
 
   List<Widget> _atRiskSection(ColorScheme scheme, DateTime now) {
     final risk = StudyInsights.atRisk(_cards, now);

@@ -872,6 +872,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'mode_twins': 'Doppelgänger',
     'mode_twins_sub': 'Wörter, die du verwechselst, nebeneinander',
     'twins_prompt': 'Welches Wort bedeutet das?',
+
+    // ----------------------------- Слова-преследователи -----------------------------
+    'pursuit_title': 'Verfolgen dich',
+    'pursuit_sub': 'Diese Wörter kamen in mehreren Quellen vor und haben noch keine Karte. Die Zahl sagt, in wie vielen',
   },
 
   // ============================== Français (fr) ==============================
@@ -1741,6 +1745,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'mode_twins': 'Sosies',
     'mode_twins_sub': 'Les mots que vous confondez, côte à côte',
     'twins_prompt': 'Quel mot signifie cela ?',
+
+    // ----------------------------- Слова-преследователи -----------------------------
+    'pursuit_title': 'Vous poursuivent',
+    'pursuit_sub': 'Ces mots sont apparus dans plusieurs sources et n\'ont pas de carte. Le chiffre indique combien',
   },
 
   // ============================== Español (es) ==============================
@@ -2607,6 +2615,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'mode_twins': 'Parecidas',
     'mode_twins_sub': 'Las palabras que confundes, una al lado de otra',
     'twins_prompt': '¿Qué palabra significa esto?',
+
+    // ----------------------------- Слова-преследователи -----------------------------
+    'pursuit_title': 'Te persiguen',
+    'pursuit_sub': 'Estas palabras aparecieron en varias fuentes y aún no tienen tarjeta. El número indica en cuántas',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3473,6 +3485,10 @@ const Map<String, Map<String, String>> kTranslations = {
     'mode_twins': 'Sosia',
     'mode_twins_sub': 'Le parole che confondi, affiancate',
     'twins_prompt': 'Quale parola significa questo?',
+
+    // ----------------------------- Слова-преследователи -----------------------------
+    'pursuit_title': 'Ti inseguono',
+    'pursuit_sub': 'Queste parole sono comparse in più fonti e non hanno ancora una carta. Il numero dice in quante',
   },
 
   // ============================== Português (pt) ==============================
@@ -4339,5 +4355,9 @@ const Map<String, Map<String, String>> kTranslations = {
     'mode_twins': 'Parecidas',
     'mode_twins_sub': 'As palavras que confunde, lado a lado',
     'twins_prompt': 'Que palavra significa isto?',
+
+    // ----------------------------- Слова-преследователи -----------------------------
+    'pursuit_title': 'Perseguem-no',
+    'pursuit_sub': 'Estas palavras apareceram em várias fontes e ainda não têm cartão. O número diz em quantas',
   },
 };

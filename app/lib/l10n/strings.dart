@@ -1555,4 +1555,11 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Какое слово значит это?',
     'en': 'Which word means this?',
   },
+
+  // ----------------------------- Слова-преследователи -----------------------------
+  'pursuit_title': {'ru': 'Преследуют вас', 'en': 'Following you around'},
+  'pursuit_sub': {
+    'ru': 'Эти слова попались в нескольких источниках, а карточки для них нет. Цифра — в скольких',
+    'en': 'These words showed up in several sources and still have no card. The number is how many',
+  },
 };
