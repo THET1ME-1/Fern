@@ -8,6 +8,10 @@
     <!-- Онлайн-перевод, свои серверы, субтитры и плеер YouTube. Явно в main,
          чтобы не зависеть от транзитивного merge из плагинов в release-сборке. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- «Повтори за диктором»: запись собственного голоса для сравнения с
+         эталоном (services/voice_recorder.dart). Ничего никуда не уходит —
+         дорожка живёт в кэше до конца карточки. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <!-- Импортируем только текст, книги и фото. Видео/аудио-доступ приезжает
          транзитивно из image_picker/file_picker — выпиливаем, чтобы не просить лишнего. -->
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove" />

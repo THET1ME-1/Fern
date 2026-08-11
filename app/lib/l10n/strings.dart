@@ -1611,4 +1611,13 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Одно слово с кнопками «Помню» и «Не помню»',
     'en': 'One word with «I know it» and «Forgot» buttons',
   },
+
+  // ----------------------------- Повтори за диктором -----------------------------
+  'shadow_record': {'ru': 'Сказать самому', 'en': 'Say it yourself'},
+  'shadow_stop': {'ru': 'Стоп', 'en': 'Stop'},
+  'shadow_compare': {'ru': 'Сравнить', 'en': 'Compare'},
+  'mic_denied': {
+    'ru': 'Нет доступа к микрофону',
+    'en': 'No access to the microphone',
+  },
 };

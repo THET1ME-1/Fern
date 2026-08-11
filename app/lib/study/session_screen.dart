@@ -22,6 +22,7 @@ import '../services/word_links.dart';
 import '../services/tts_service.dart';
 import '../settings_screen.dart';
 import '../theme/app_theme.dart';
+import '../widgets/shadow_button.dart';
 import '../widgets/speaker_button.dart';
 import 'results_screen.dart';
 import 'study_models.dart';
@@ -1168,6 +1169,17 @@ class _FlipExerciseState extends State<_FlipExercise> {
             ],
           ),
         ),
+        // «Повтори за диктором» — только на раскрытой карточке: до ответа
+        // произносить слово вслух значит подсказывать себе.
+        if (_revealed) ...[
+          const SizedBox(height: 12),
+          Center(
+            child: ShadowButton(
+              text: ex.card.front,
+              languageCode: widget.languageCode,
+            ),
+          ),
+        ],
         const SizedBox(height: 16),
         if (_pendingAgain)
           SizedBox(

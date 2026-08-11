@@ -901,6 +901,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'quick_body': 'Erinnerst du dich an die Bedeutung?',
     'quick_channel_name': 'Karte im Benachrichtigungsfeld',
     'quick_channel_desc': 'Ein Wort mit den Tasten „Weiß ich“ und „Vergessen“',
+
+    // ----------------------------- Повтори за диктором -----------------------------
+    'shadow_record': 'Selbst sprechen',
+    'shadow_stop': 'Stopp',
+    'shadow_compare': 'Vergleichen',
+    'mic_denied': 'Kein Zugriff auf das Mikrofon',
   },
 
   // ============================== Français (fr) ==============================
@@ -1799,6 +1805,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'quick_body': 'Vous vous souvenez du sens ?',
     'quick_channel_name': 'Carte dans le volet',
     'quick_channel_desc': 'Un mot avec les boutons « Je sais » et « Oublié »',
+
+    // ----------------------------- Повтори за диктором -----------------------------
+    'shadow_record': 'Le dire soi-même',
+    'shadow_stop': 'Arrêter',
+    'shadow_compare': 'Comparer',
+    'mic_denied': 'Pas d\'accès au micro',
   },
 
   // ============================== Español (es) ==============================
@@ -2694,6 +2706,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'quick_body': '¿Recuerdas el significado?',
     'quick_channel_name': 'Tarjeta en la bandeja',
     'quick_channel_desc': 'Una palabra con los botones «Lo sé» y «Olvidado»',
+
+    // ----------------------------- Повтори за диктором -----------------------------
+    'shadow_record': 'Dilo tú',
+    'shadow_stop': 'Parar',
+    'shadow_compare': 'Comparar',
+    'mic_denied': 'Sin acceso al micrófono',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3589,6 +3607,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'quick_body': 'Ricordi il significato?',
     'quick_channel_name': 'Carta nella tendina',
     'quick_channel_desc': 'Una parola con i pulsanti «Lo so» e «Dimenticato»',
+
+    // ----------------------------- Повтори за диктором -----------------------------
+    'shadow_record': 'Dillo tu',
+    'shadow_stop': 'Ferma',
+    'shadow_compare': 'Confronta',
+    'mic_denied': 'Nessun accesso al microfono',
   },
 
   // ============================== Português (pt) ==============================
@@ -4484,5 +4508,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'quick_body': 'Lembra-se do significado?',
     'quick_channel_name': 'Cartão na barra',
     'quick_channel_desc': 'Uma palavra com os botões «Eu sei» e «Esqueci»',
+
+    // ----------------------------- Повтори за диктором -----------------------------
+    'shadow_record': 'Diga você',
+    'shadow_stop': 'Parar',
+    'shadow_compare': 'Comparar',
+    'mic_denied': 'Sem acesso ao microfone',
   },
 };

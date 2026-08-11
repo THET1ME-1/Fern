@@ -68,6 +68,8 @@
 	</array>
 	<!-- Зачем приложению доступ. Без этих строк iOS убивает процесс в момент
 	     первого обращения, а App Store отклоняет сборку. -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Микрофон нужен, чтобы записать ваше произношение и сравнить его с эталоном. Запись остаётся на устройстве.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Снимите страницу книги — Fern распознает слова и соберёт из них колоду.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
