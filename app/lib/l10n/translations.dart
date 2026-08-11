@@ -819,6 +819,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'stop': 'Stopp',
     'bookmark_add': 'Lesezeichen setzen',
     'bookmark_remove': 'Lesezeichen entfernen',
+
+    // ----------------------------- Грамматика -----------------------------
+    'mode_grammar': 'Regeln',
+    'mode_grammar_sub': 'Konstruktionen aus deinen Texten',
+    'grammar_deck_name': 'Grammatik',
+    'rule_choose_prompt': 'Welche Konstruktion ist das?',
   },
 
   // ============================== Français (fr) ==============================
@@ -1635,6 +1641,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'stop': 'Arrêter',
     'bookmark_add': 'Ajouter un signet',
     'bookmark_remove': 'Retirer le signet',
+
+    // ----------------------------- Грамматика -----------------------------
+    'mode_grammar': 'Règles',
+    'mode_grammar_sub': 'Constructions tirées de vos textes',
+    'grammar_deck_name': 'Grammaire',
+    'rule_choose_prompt': 'Quelle construction est-ce ?',
   },
 
   // ============================== Español (es) ==============================
@@ -2448,6 +2460,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'stop': 'Detener',
     'bookmark_add': 'Añadir marcador',
     'bookmark_remove': 'Quitar marcador',
+
+    // ----------------------------- Грамматика -----------------------------
+    'mode_grammar': 'Reglas',
+    'mode_grammar_sub': 'Construcciones de tus propios textos',
+    'grammar_deck_name': 'Gramática',
+    'rule_choose_prompt': '¿Qué construcción es esta?',
   },
 
   // ============================== Italiano (it) ==============================
@@ -3261,6 +3279,12 @@ const Map<String, Map<String, String>> kTranslations = {
     'stop': 'Ferma',
     'bookmark_add': 'Aggiungi segnalibro',
     'bookmark_remove': 'Rimuovi segnalibro',
+
+    // ----------------------------- Грамматика -----------------------------
+    'mode_grammar': 'Regole',
+    'mode_grammar_sub': 'Costruzioni dai tuoi testi',
+    'grammar_deck_name': 'Grammatica',
+    'rule_choose_prompt': 'Quale costruzione è questa?',
   },
 
   // ============================== Português (pt) ==============================
@@ -4074,5 +4098,11 @@ const Map<String, Map<String, String>> kTranslations = {
     'stop': 'Parar',
     'bookmark_add': 'Adicionar marcador',
     'bookmark_remove': 'Remover marcador',
+
+    // ----------------------------- Грамматика -----------------------------
+    'mode_grammar': 'Regras',
+    'mode_grammar_sub': 'Construções dos seus textos',
+    'grammar_deck_name': 'Gramática',
+    'rule_choose_prompt': 'Que construção é esta?',
   },
 };

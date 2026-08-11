@@ -630,6 +630,18 @@ class DeckRepository extends ChangeNotifier {
     return out;
   }
 
+  /// Все карточки языка ПО КЭШУ, без ожидания диска — как `reviewLogSync`.
+  /// Нужно там, где важна не сверка по слову, а сам набор, и результат
+  /// требуется прямо в build: карточки правил, подсказки к ответу,
+  /// слова-преследователи.
+  List<WordCard> cardsForLanguageSync(String languageCode) {
+    final deckIds = _decks
+        .where((d) => d.languageCode == languageCode)
+        .map((d) => d.id)
+        .toSet();
+    return [for (final c in _cards) if (deckIds.contains(c.deckId)) c];
+  }
+
   /// Есть ли слово [front] уже в какой-либо колоде языка [languageCode].
   bool hasWordInLanguage(String front, String languageCode) {
     final f = front.trim().toLowerCase();

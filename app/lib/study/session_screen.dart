@@ -12,9 +12,12 @@ import '../models/word_card.dart';
 import '../services/answer_check.dart';
 import '../services/auto_grade.dart';
 import '../services/card_images.dart';
+import '../services/construction_catalog.dart';
+import '../services/constructions.dart';
 import '../services/deck_repository.dart';
 import '../services/pro.dart';
 import '../services/reading_horizon.dart';
+import '../services/text_analysis.dart';
 import '../services/word_links.dart';
 import '../services/tts_service.dart';
 import '../settings_screen.dart';
@@ -54,6 +57,9 @@ class _SessionScreenState extends State<SessionScreen>
     with SingleTickerProviderStateMixin {
   final DeckRepository _repo = DeckRepository.instance;
   final SessionBuilder _builder = SessionBuilder();
+
+  /// Названия правил каталога — варианты для «назови конструкцию».
+  List<String> _ruleNames = const [];
 
   List<Exercise> _queue = [];
   late List<WordCard> _pool;
@@ -143,6 +149,16 @@ class _SessionScreenState extends State<SessionScreen>
     final maxReviews = await _repo.maxReviews();
     // newPerDay == 0 → без лимита новых.
     final newAllowed = await _repo.newAllowedNow(_start);
+    // Названия соседних правил — варианты для «назови конструкцию». Берём из
+    // каталога языка, а не из своей колоды: с двумя выученными правилами выбор
+    // из двух вариантов угадывается монеткой.
+    if (widget.mode == StudyMode.grammar) {
+      await ConstructionCatalog.instance.ensureLoaded(widget.deck.languageCode);
+      _ruleNames = [
+        for (final r in ConstructionCatalog.instance.all(widget.deck.languageCode))
+          r.name,
+      ];
+    }
     final queue = _builder.build(
       widget.mode,
       widget.cards,
@@ -151,6 +167,7 @@ class _SessionScreenState extends State<SessionScreen>
       maxReviews: maxReviews,
       direction: studyDirectionFromIndex(widget.deck.directionIndex),
       language: widget.deck.languageCode,
+      ruleNames: _ruleNames,
     );
     final autoGrade = await _repo.autoGrade();
     final twoButtons = await _repo.twoButtonRating();
@@ -257,6 +274,8 @@ class _SessionScreenState extends State<SessionScreen>
         return _ExData(
           odd: buildOddOne(ex.card, _pool, widget.deck.languageCode),
         );
+      case ExerciseKind.ruleChoose:
+        return _ExData(rule: buildRuleChoice(ex.card, _ruleNames));
       case ExerciseKind.flip:
       case ExerciseKind.type:
       case ExerciseKind.cloze:
@@ -780,6 +799,31 @@ class _SessionScreenState extends State<SessionScreen>
           onAnswered: (correct) =>
               _onGraded(ex, correct, correct ? Rating.good : Rating.again),
         );
+      case ExerciseKind.ruleChoose:
+        final choice = _data.rule;
+        // Каталог мог не догрузиться (нет ассета языка) — тогда правило
+        // спрашиваем флипом, а не показываем пустой экран.
+        if (choice == null) {
+          return _FlipExercise(
+            key: key,
+            ex: ex,
+            languageCode: widget.deck.languageCode,
+            previews: Fsrs.instance.preview(ex.card.review, DateTime.now()),
+            autoGrade: _autoGrade,
+            twoButtons: _twoButtons,
+            onRated: (r, ms) =>
+                _onGraded(ex, r != Rating.again, r, answerMs: ms),
+          );
+        }
+        return _RuleChooseExercise(
+          key: key,
+          choice: choice,
+          ruleCode: ex.card.rule,
+          explanation: ex.card.back,
+          languageCode: widget.deck.languageCode,
+          onAnswered: (correct) =>
+              _onGraded(ex, correct, correct ? Rating.good : Rating.again),
+        );
     }
   }
 
@@ -931,11 +975,15 @@ class _ExData {
   /// Данные «третьего лишнего» (режим «Связи»).
   final OddOne? odd;
 
+  /// Данные «назови конструкцию» (режим «Правила»).
+  final RuleChoice? rule;
+
   const _ExData({
     this.options = const [],
     this.tfShown = '',
     this.tfIsTrue = true,
     this.odd,
+    this.rule,
   });
 }
 
@@ -3037,6 +3085,193 @@ class _AssembleExerciseState extends State<_AssembleExercise> {
               fontWeight: FontWeight.w600,
               color: filled ? scheme.onPrimaryContainer : scheme.onSurface,
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ======================= Упражнение: назови конструкцию =======================
+
+/// «Какая это конструкция?» — предложение из СВОЕГО текста и варианты правил.
+///
+/// Оборот подсвечен: в длинном предложении иначе непонятно, о какой его части
+/// спрашивают, и человек отвечает наугад при знании правила.
+class _RuleChooseExercise extends StatefulWidget {
+  final RuleChoice choice;
+  final String ruleCode;
+  final String explanation;
+  final String languageCode;
+  final void Function(bool correct) onAnswered;
+
+  const _RuleChooseExercise({
+    super.key,
+    required this.choice,
+    required this.ruleCode,
+    required this.explanation,
+    required this.languageCode,
+    required this.onAnswered,
+  });
+
+  @override
+  State<_RuleChooseExercise> createState() => _RuleChooseExerciseState();
+}
+
+class _RuleChooseExerciseState extends State<_RuleChooseExercise> {
+  int? _picked;
+  (int, int)? _span;
+
+  @override
+  void initState() {
+    super.initState();
+    _span = _findSpan();
+  }
+
+  /// Границы оборота в примере: гоняем детектор по одному предложению и берём
+  /// находку со своим кодом. Хранить границы в карточке незачем — пример
+  /// короткий, а правила разбора со временем уточняются.
+  (int, int)? _findSpan() {
+    final a = TextParse.analyze(widget.choice.sentence, widget.languageCode);
+    for (final hit in Constructions.find(a, widget.languageCode)) {
+      if (hit.code == widget.ruleCode) return (hit.start, hit.end);
+    }
+    return null;
+  }
+
+  void _pick(int i) {
+    if (_picked != null) return;
+    setState(() => _picked = i);
+    HapticFeedback.selectionClick();
+    final correct = i == widget.choice.correctIndex;
+    Future.delayed(const Duration(milliseconds: 1200), () {
+      if (mounted) widget.onAnswered(correct);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final answered = _picked != null;
+
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        Text(
+          tr('rule_choose_prompt'),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontFamily: AppTheme.displayFont,
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 18),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(22),
+          ),
+          child: _sentence(scheme),
+        ),
+        const SizedBox(height: 22),
+        for (var i = 0; i < widget.choice.options.length; i++) ...[
+          _option(i, scheme),
+          const SizedBox(height: 10),
+        ],
+        const Spacer(),
+        if (answered && widget.explanation.trim().isNotEmpty)
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: scheme.secondaryContainer,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.fromLTRB(16, 13, 16, 15),
+            child: Text(
+              widget.explanation,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontSize: 15,
+                height: 1.35,
+                color: scheme.onSecondaryContainer,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  /// Предложение с выделенным оборотом (шрифт изучаемого слова — как везде,
+  /// где человек читает чужой язык).
+  Widget _sentence(ColorScheme scheme) {
+    final text = widget.choice.sentence;
+    final base = TextStyle(
+      fontFamily: AppTheme.wordFont,
+      fontSize: 19,
+      height: 1.4,
+      color: scheme.onSurface,
+    );
+    final span = _span;
+    if (span == null) return Text(text, style: base);
+    final (start, end) = span;
+    return RichText(
+      text: TextSpan(
+        style: base,
+        children: [
+          TextSpan(text: text.substring(0, start)),
+          TextSpan(
+            text: text.substring(start, end),
+            style: base.copyWith(
+              fontWeight: FontWeight.w700,
+              color: scheme.primary,
+            ),
+          ),
+          TextSpan(text: text.substring(end)),
+        ],
+      ),
+    );
+  }
+
+  Widget _option(int i, ColorScheme scheme) {
+    final answered = _picked != null;
+    final isCorrect = i == widget.choice.correctIndex;
+    var bg = scheme.surfaceContainerHigh;
+    var fg = scheme.onSurface;
+    if (answered && isCorrect) {
+      bg = scheme.primaryContainer;
+      fg = scheme.onPrimaryContainer;
+    } else if (answered && _picked == i) {
+      bg = scheme.errorContainer;
+      fg = scheme.onErrorContainer;
+    }
+    return Material(
+      color: bg,
+      borderRadius: BorderRadius.circular(20),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: answered ? null : () => _pick(i),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.choice.options[i],
+                  style: TextStyle(
+                    fontFamily: AppTheme.displayFont,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: fg,
+                  ),
+                ),
+              ),
+              if (answered && isCorrect)
+                Icon(Icons.check_rounded, size: 20, color: fg),
+            ],
           ),
         ),
       ),

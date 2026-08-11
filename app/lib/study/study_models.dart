@@ -23,6 +23,7 @@ enum StudyMode {
   associations,
   cram,
   revive,
+  grammar,
 }
 
 /// Направление изучения колоды.
@@ -44,6 +45,7 @@ enum ExerciseKind {
   spell,
   assemble,
   oddOne,
+  ruleChoose,
 }
 
 extension StudyModeInfo on StudyMode {
@@ -135,6 +137,7 @@ class SessionBuilder {
     int testCount = 12,
     StudyDirection direction = StudyDirection.forward,
     String language = 'en',
+    List<String> ruleNames = const [],
   }) {
     final due = cards.where((c) => !c.review.isNew && c.isDue(now)).toList();
     final fresh = cards.where((c) => c.review.isNew).toList();
@@ -255,6 +258,21 @@ class SessionBuilder {
           for (final c
               in _selectSession(dueL, freshL, now, newAllowed, maxReviews))
             _ex(c, ExerciseKind.oddOne),
+        ];
+
+      case StudyMode.grammar:
+        // «Правила»: карточки конструкций, найденных в собственных текстах.
+        // Годятся те, у которых есть пример и хотя бы один сосед для выбора.
+        final eligible = cards
+            .where((c) => buildRuleChoice(c, ruleNames) != null)
+            .toList();
+        final dueG =
+            eligible.where((c) => !c.review.isNew && c.isDue(now)).toList();
+        final freshG = eligible.where((c) => c.review.isNew).toList();
+        return [
+          for (final c
+              in _selectSession(dueG, freshG, now, newAllowed, maxReviews))
+            _ex(c, ExerciseKind.ruleChoose),
         ];
 
       case StudyMode.revive:
@@ -546,6 +564,55 @@ OddOne? buildOddOne(WordCard card, List<WordCard> pool, String lang) {
 
   final options = [card, link.card, stranger]..shuffle(Random(seed));
   return OddOne(options, options.indexOf(stranger), link.kind);
+}
+
+/// Упражнение «назови конструкцию»: своё предложение и варианты правил.
+class RuleChoice {
+  /// Предложение-пример (из текста, где правило встретилось человеку).
+  final String sentence;
+
+  /// Названия правил в том порядке, в каком их показывают.
+  final List<String> options;
+
+  /// Индекс верного названия в [options].
+  final int correctIndex;
+
+  const RuleChoice(this.sentence, this.options, this.correctIndex);
+
+  String get answer => options[correctIndex];
+}
+
+/// Строит выбор конструкции вокруг карточки правила: верное название плюс
+/// соседние из [otherNames]. null — если это не правило, нет примера или не
+/// нашлось ни одного отвлекающего варианта (выбор из одного не проверяет
+/// ничего).
+RuleChoice? buildRuleChoice(
+  WordCard card,
+  List<String> otherNames, {
+  int wanted = 4,
+}) {
+  if (!card.isRule) return null;
+  final sentence = card.sentence.trim().isNotEmpty
+      ? card.sentence.trim()
+      : card.example.trim();
+  if (sentence.isEmpty) return null;
+  final correct = card.front.trim();
+  if (correct.isEmpty) return null;
+
+  final pool = <String>[];
+  for (final n in otherNames) {
+    final v = n.trim();
+    if (v.isEmpty || v == correct || pool.contains(v)) continue;
+    pool.add(v);
+  }
+  if (pool.isEmpty) return null;
+
+  // Разброс по карточке, а не случайный: при пересборке сессии набор вариантов
+  // у одного правила не должен скакать.
+  final seed = card.id.hashCode;
+  pool.shuffle(Random(seed));
+  final options = [correct, ...pool.take(wanted - 1)]..shuffle(Random(seed));
+  return RuleChoice(sentence, options, options.indexOf(correct));
 }
 
 /// Упражнение «собери фразу»: целевое предложение и его слова-осколки.

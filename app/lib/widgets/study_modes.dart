@@ -49,7 +49,12 @@ class StudyModesGrid extends StatelessWidget {
     ),
     (StudyMode.cram, Icons.event_available_rounded, 'mode_cram',
         'mode_cram_sub'),
+    (StudyMode.grammar, Icons.rule_rounded, 'mode_grammar', 'mode_grammar_sub'),
   ];
+
+  /// Правила показываются только там, где они есть: в словарной колоде плитка
+  /// «Правила» открывала бы пустую сессию.
+  bool get _hasRules => cards.any((c) => c.isRule);
 
   void _launch(BuildContext context, StudyMode mode) {
     if (cards.isEmpty) {
@@ -73,7 +78,10 @@ class StudyModesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final rest = _modes.skip(1).toList();
+    final rest = [
+      for (final m in _modes.skip(1))
+        if (m.$1 != StudyMode.grammar || _hasRules) m,
+    ];
     return Column(
       children: [
         _hero(context, _modes.first, scheme),

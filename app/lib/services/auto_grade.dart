@@ -73,7 +73,11 @@ AnswerPace? paceOf(ExerciseKind kind) => switch (kind) {
       ExerciseKind.trueFalse ||
       ExerciseKind.listen ||
       ExerciseKind.assemble ||
-      ExerciseKind.oddOne =>
+      ExerciseKind.oddOne ||
+      // Выбор конструкции — знание о правиле, а не скорость припоминания
+      // слова: тут человек читает предложение целиком, и его секунды к темпу
+      // словарных ответов отношения не имеют.
+      ExerciseKind.ruleChoose =>
         null,
     };
 

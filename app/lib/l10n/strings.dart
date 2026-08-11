@@ -1451,4 +1451,16 @@ const Map<String, Map<String, String>> _strings = {
   'pro_free_left': {'ru': 'Остался {n} бесплатный разбор', 'en': '{n} free source left'},
   'pro_free_none': {'ru': 'Бесплатный разбор использован', 'en': 'Free source used'},
   'pro_denied': {'ru': 'Бесплатный разбор уже использован. Fern Pro открывает книги, видео и статьи без счёта', 'en': 'Your free source is already used. Fern Pro opens books, videos and articles without limits'},
+
+  // ----------------------------- Грамматика -----------------------------
+  'mode_grammar': {'ru': 'Правила', 'en': 'Rules'},
+  'mode_grammar_sub': {
+    'ru': 'Конструкции из ваших текстов',
+    'en': 'Constructions from your own texts',
+  },
+  'grammar_deck_name': {'ru': 'Грамматика', 'en': 'Grammar'},
+  'rule_choose_prompt': {
+    'ru': 'Какая это конструкция?',
+    'en': 'Which construction is this?',
+  },
 };

@@ -155,6 +155,13 @@ class WordCard {
   /// (совпал перевод, общая основа) здесь НЕ хранятся — они считаются на лету.
   Map<String, String> links;
 
+  /// Код грамматической конструкции, если это карточка ПРАВИЛА, а не слова
+  /// (`present_perfect`, `passive_past`; см. `services/constructions.dart`).
+  /// Пусто у обычных карточек. Правило живёт обычной карточкой намеренно: так
+  /// ему достаются FSRS, сессии, статистика и резервная копия без единой
+  /// правки в них.
+  String rule;
+
   /// Предложение-контекст из видео (для озвучки живым голосом целой реплики).
   String sentence;
 
@@ -180,6 +187,7 @@ class WordCard {
     this.clipStartMs,
     this.clipEndMs,
     this.pos = '',
+    this.rule = '',
     List<String>? accepted,
   })  : review = review ?? ReviewState(),
         links = links ?? <String, String>{},
@@ -216,6 +224,7 @@ class WordCard {
         if (clipStartMs != null) 'cs': clipStartMs,
         if (clipEndMs != null) 'ce': clipEndMs,
         if (pos.isNotEmpty) 'pos': pos,
+        if (rule.isNotEmpty) 'rule': rule,
         if (accepted.isNotEmpty) 'acc': accepted,
       };
 
@@ -240,8 +249,12 @@ class WordCard {
         clipStartMs: (j['cs'] as num?)?.toInt(),
         clipEndMs: (j['ce'] as num?)?.toInt(),
         pos: j['pos'] as String? ?? '',
+        rule: j['rule'] as String? ?? '',
         accepted: (j['acc'] as List?)?.map((e) => e as String).toList(),
       );
+
+  /// Карточка правила, а не слова.
+  bool get isRule => rule.isNotEmpty;
 }
 
 /// Стадия владения карточкой для списка слов (визуальный статус).
