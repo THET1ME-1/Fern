@@ -96,11 +96,14 @@ class StudyModesGrid extends StatelessWidget {
         GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
-            childAspectRatio: 1.55,
+            // Высота считается от содержимого, а не долей ширины: при
+            // `childAspectRatio` узкий экран и крупный системный шрифт
+            // выдавливали подпись за нижний край плитки.
+            mainAxisExtent: _tileHeight(context),
           ),
           itemCount: rest.length,
           itemBuilder: (_, i) => _tile(context, rest[i], scheme),
@@ -158,6 +161,19 @@ class StudyModesGrid extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Высота плитки режима: паддинги + иконка + строка названия + две строки
+  /// подписи. Названия и подписи растут вместе с системным шрифтом, поэтому
+  /// высота считается через [MediaQuery.textScalerOf], а не берётся долей
+  /// ширины.
+  static double _tileHeight(BuildContext context) {
+    final ts = MediaQuery.textScalerOf(context);
+    const padding = 14.0 * 2;
+    const icon = 26.0 + 6.0;
+    final title = ts.scale(15) * 1.25;
+    final sub = ts.scale(11.5) * 1.15 * 2;
+    return padding + icon + title + sub + 6;
   }
 
   Widget _tile(

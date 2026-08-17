@@ -21,6 +21,7 @@ import 'package:fern/study/study_models.dart';
 import 'package:fern/services/fsrs_optimizer.dart';
 import 'package:fern/theme/app_theme.dart';
 import 'package:fern/widgets/optimize_info_sheet.dart';
+import 'package:fern/widgets/weekly_recap.dart';
 
 import 'test_helpers.dart';
 
@@ -45,6 +46,32 @@ Future<void> _loadFonts() async {
     }
     await loader.load();
   }
+  // Шрифт иконок лежит в SDK, а не в проекте: без него Material-иконки
+  // рисуются пустыми квадратами и на снимке ничего не разглядеть.
+  final icons = _materialIconsFile();
+  if (icons != null) {
+    final loader = FontLoader('MaterialIcons');
+    loader.addFont(icons.readAsBytes().then((b) => ByteData.view(b.buffer)));
+    await loader.load();
+  }
+}
+
+File? _materialIconsFile() {
+  const tail = 'artifacts/material_fonts/MaterialIcons-Regular.otf';
+  final root = Platform.environment['FLUTTER_ROOT'];
+  // Второй путь — от самого dart: <sdk>/bin/cache/dart-sdk/bin/dart.
+  final exe = Platform.resolvedExecutable.split('/');
+  final cache = exe.length > 3
+      ? exe.sublist(0, exe.length - 3).join('/') // …/bin/cache
+      : null;
+  for (final p in [
+    if (root != null) '$root/bin/cache/$tail',
+    if (cache != null) '$cache/$tail',
+  ]) {
+    final f = File(p);
+    if (f.existsSync()) return f;
+  }
+  return null;
 }
 
 final _deck = Deck(
@@ -259,5 +286,27 @@ void main() {
     )));
     await tester.pumpAndSettle();
     await _shoot(tester, 'optimize_info');
+  });
+
+  testWidgets('карточка недели: серия и щиты иконками', (tester) async {
+    tester.view.physicalSize = const Size(1080, 1200);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_app(Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            WeeklyRecapCard(
+                reviews: 113, activeDays: 4, accuracy: 81, streak: 2),
+          ],
+        ),
+      ),
+    )));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'weekly_recap');
   });
 }

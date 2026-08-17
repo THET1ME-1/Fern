@@ -535,22 +535,30 @@ class _DeckScreenState extends State<DeckScreen> {
                   ),
                 ),
                 const SizedBox(height: 10),
+                // Три равные доли, а не `spaceBetween`: ширину подписей задаёт
+                // перевод, и на узком экране с крупным шрифтом строка не
+                // помещалась. Внутри подпись сжимается, а не обрезается.
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _miniStat(
-                      '${c.fresh}',
-                      tr('stat_new'),
-                      scheme,
-                      highlight: c.fresh > 0 && _newAllowed > 0,
+                    Expanded(
+                      child: _miniStat(
+                        '${c.fresh}',
+                        tr('stat_new'),
+                        scheme,
+                        highlight: c.fresh > 0 && _newAllowed > 0,
+                      ),
                     ),
-                    _miniStat(
-                      '${c.due}',
-                      tr('stat_due'),
-                      scheme,
-                      highlight: c.due > 0,
+                    Expanded(
+                      child: _miniStat(
+                        '${c.due}',
+                        tr('stat_due'),
+                        scheme,
+                        highlight: c.due > 0,
+                      ),
                     ),
-                    _miniStat('${c.mature}', tr('stat_mature'), scheme),
+                    Expanded(
+                      child: _miniStat('${c.mature}', tr('stat_mature'), scheme),
+                    ),
                   ],
                 ),
               ],
@@ -579,12 +587,16 @@ class _DeckScreenState extends State<DeckScreen> {
           ),
         ),
         const SizedBox(height: 2),
-        Text(
-          label,
-          style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
-            fontSize: 11,
-            color: scheme.onSurfaceVariant,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            label,
+            maxLines: 1,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 11,
+              color: scheme.onSurfaceVariant,
+            ),
           ),
         ),
       ],

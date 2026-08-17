@@ -68,7 +68,17 @@ class _DecksScreenState extends State<DecksScreen> {
       if (mounted && _repo.consumeFreezeNotice()) {
         ScaffoldMessenger.of(context)
           ..hideCurrentSnackBar()
-          ..showSnackBar(SnackBar(content: Text(tr('streak_saved'))));
+          ..showSnackBar(SnackBar(
+            content: Row(
+              children: [
+                Icon(Icons.ac_unit_rounded,
+                    size: 18,
+                    color: Theme.of(context).colorScheme.onInverseSurface),
+                const SizedBox(width: 10),
+                Expanded(child: Text(tr('streak_saved'))),
+              ],
+            ),
+          ));
       }
     });
   }
@@ -531,21 +541,31 @@ class _DecksScreenState extends State<DecksScreen> {
             ),
           ),
           const SizedBox(width: 5),
-          Text(
-            tr('streak_suffix'),
-            style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
-              fontSize: 13,
-              color: scheme.onSurfaceVariant,
+          // Подпись сжимается: её ширину задаёт перевод, и на португальском
+          // строка не помещалась в узкую колонку сводки.
+          Flexible(
+            child: Text(
+              tr('streak_suffix'),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontSize: 13,
+                color: scheme.onSurfaceVariant,
+              ),
             ),
           ),
         ] else
-          Text(
-            tr('start_streak'),
-            style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
-              fontSize: 13,
-              color: scheme.onSurfaceVariant,
+          Flexible(
+            child: Text(
+              tr('start_streak'),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontSize: 13,
+                color: scheme.onSurfaceVariant,
+              ),
             ),
           ),
       ],
@@ -570,12 +590,16 @@ class _DecksScreenState extends State<DecksScreen> {
             color: due > 0 ? scheme.primary : scheme.onSurfaceVariant,
           ),
         ),
-        Text(
-          tr('stat_due').toLowerCase(),
-          style: TextStyle(
-            fontFamily: AppTheme.bodyFont,
-            fontSize: 13,
-            color: scheme.onSurfaceVariant,
+        Flexible(
+          child: Text(
+            tr('stat_due').toLowerCase(),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontFamily: AppTheme.bodyFont,
+              fontSize: 13,
+              color: scheme.onSurfaceVariant,
+            ),
           ),
         ),
       ],
@@ -648,18 +672,15 @@ class _DecksScreenState extends State<DecksScreen> {
           onTap: _addChooser,
         ),
     ];
-    return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
-        childAspectRatio: 0.82,
-      ),
-      itemCount: items.length,
-      itemBuilder: (_, i) => Reveal(
-        delay: Duration(milliseconds: 45 * i),
-        child: items[i],
+    return LayoutBuilder(
+      builder: (context, constraints) => GridView.builder(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+        gridDelegate: deckGridDelegate(context, constraints.maxWidth),
+        itemCount: items.length,
+        itemBuilder: (_, i) => Reveal(
+          delay: Duration(milliseconds: 45 * i),
+          child: items[i],
+        ),
       ),
     );
   }

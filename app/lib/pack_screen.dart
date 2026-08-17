@@ -519,20 +519,17 @@ class _PackScreenState extends State<PackScreen> {
         onTap: _createDeckInPack,
       ),
     ];
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
-        childAspectRatio: 0.82,
-      ),
-      itemCount: items.length,
-      itemBuilder: (_, i) => Reveal(
-        delay: Duration(milliseconds: 45 * i),
-        child: items[i],
+    return LayoutBuilder(
+      builder: (context, constraints) => GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+        gridDelegate: deckGridDelegate(context, constraints.maxWidth),
+        itemCount: items.length,
+        itemBuilder: (_, i) => Reveal(
+          delay: Duration(milliseconds: 45 * i),
+          child: items[i],
+        ),
       ),
     );
   }

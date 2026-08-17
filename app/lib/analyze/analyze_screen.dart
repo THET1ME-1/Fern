@@ -369,14 +369,21 @@ class _AnalyzeScreenState extends State<AnalyzeScreen> {
             ),
           ),
           const SizedBox(height: 6),
-          Row(
+          // Не `Row`: ширину обеих подписей задаёт перевод, и на узком экране
+          // (или с крупным системным шрифтом) пара кнопок не помещалась в
+          // строку. `Wrap` разносит их по краям, пока помещаются, и переносит
+          // вторую вниз, когда нет.
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            runSpacing: 4,
             children: [
               TextButton.icon(
                 onPressed: _paste,
                 icon: const Icon(Icons.content_paste_rounded, size: 18),
                 label: Text(tr('analyze_paste')),
               ),
-              const Spacer(),
               PressableScale(
                 child: FilledButton.icon(
                   onPressed: _busy ? null : _run,

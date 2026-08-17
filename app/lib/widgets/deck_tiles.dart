@@ -45,6 +45,19 @@ class DeckCoverCard extends StatefulWidget {
     this.selected = false,
   });
 
+  /// Наименьшая высота плитки: паддинги, обложка, название в две строки и
+  /// строка «N карточек». Сетка берёт её, когда пропорция ячейки даёт меньше —
+  /// иначе на узком экране название уезжает под нижний край.
+  static double minHeight(BuildContext context) {
+    final ts = MediaQuery.textScalerOf(context);
+    const box = 16.0 * 2 + 84 + 12; // паддинги, обложка, зазор
+    // Множители — высота строки шрифта, а не 1.0: у Unbounded она заметно
+    // больше кегля, и расчёт «в кегль» недобирал шесть точек на две строки.
+    final name = ts.scale(15) * 1.45 * 2;
+    final count = 2 + ts.scale(12) * 1.35;
+    return box + name + count + 2;
+  }
+
   @override
   State<DeckCoverCard> createState() => _DeckCoverCardState();
 }
@@ -300,6 +313,24 @@ class _StackGlyph extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Сетка колод: две колонки, зазор 12, горизонтальные поля 16.
+///
+/// Высота ячейки — большее из привычной пропорции 0.82 и настоящей высоты
+/// содержимого. На узком экране и с крупным системным шрифтом пропорция давала
+/// меньше, чем нужно названию, и оно уезжало под нижний край.
+SliverGridDelegate deckGridDelegate(BuildContext context, double maxWidth) {
+  const spacing = 12.0;
+  final cell = (maxWidth - 32 - spacing) / 2;
+  final byRatio = cell > 0 ? cell / 0.82 : 0.0;
+  final min = DeckCoverCard.minHeight(context);
+  return SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 2,
+    crossAxisSpacing: spacing,
+    mainAxisSpacing: spacing,
+    mainAxisExtent: byRatio > min ? byRatio : min,
+  );
 }
 
 /// Пунктирная плитка «+» (создать колоду/пак).

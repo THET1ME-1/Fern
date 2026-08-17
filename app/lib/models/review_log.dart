@@ -103,13 +103,31 @@ class ReviewLog {
   Map<String, dynamic> toJson() =>
       {for (final e in days.entries) e.key: [e.value.reviews, e.value.correct]};
 
+  /// Ключ дня годен, если это настоящая дата `yyyy-MM-dd`.
+  ///
+  /// Журнал приезжает и из резервной копии, то есть из файла, который человек
+  /// мог подменить или испортить. Кривой ключ роняет разбор даты в
+  /// [bestStreak], а это экран «Прогресс» целиком, поэтому мусор отсеивается на
+  /// входе, а не при чтении.
+  static bool isDayKey(String k) {
+    if (!RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(k)) return false;
+    final p = k.split('-');
+    final y = int.parse(p[0]), m = int.parse(p[1]), d = int.parse(p[2]);
+    if (m < 1 || m > 12 || d < 1 || d > 31) return false;
+    final date = DateTime(y, m, d);
+    return date.year == y && date.month == m && date.day == d;
+  }
+
   factory ReviewLog.fromJson(Map<String, dynamic> j) {
     final m = <String, DayStat>{};
     j.forEach((k, v) {
+      if (!isDayKey(k)) return;
       if (v is List && v.length >= 2) {
+        final reviews = v[0], correct = v[1];
+        if (reviews is! num || correct is! num) return;
         m[k] = DayStat(
-          reviews: (v[0] as num).toInt(),
-          correct: (v[1] as num).toInt(),
+          reviews: reviews.toInt(),
+          correct: correct.toInt(),
         );
       }
     });

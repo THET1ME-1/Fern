@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import '../utils/html_entity.dart';
+
 import 'package:archive/archive.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqlite3/sqlite3.dart';
@@ -277,10 +279,6 @@ class DeckImport {
       '&apos;': "'", '&#39;': "'", '&nbsp;': ' ',
     };
     map.forEach((k, v) => r = r.replaceAll(k, v));
-    r = r.replaceAllMapped(RegExp(r'&#(\d+);'), (m) {
-      final c = int.tryParse(m.group(1)!);
-      return c == null ? m.group(0)! : String.fromCharCode(c);
-    });
-    return r;
+    return decodeNumericEntities(r);
   }
 }

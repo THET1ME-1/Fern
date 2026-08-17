@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import '../utils/html_entity.dart';
+
 /// Разобранная веб-статья: заголовок + чистый текст для чтения.
 class Article {
   final String title;
@@ -97,7 +99,7 @@ class ArticleImport {
         '\n');
     s = s.replaceAll(RegExp(r'<br\s*/?>', caseSensitive: false), '\n');
     s = s.replaceAll(RegExp(r'<[^>]+>'), ' '); // остальные теги
-    s = _decodeEntities(s);
+    s = _decodeAll(s);
     // Чистим пробелы и пустые строки, схлопываем повторы.
     final lines = <String>[];
     for (final raw in s.split('\n')) {
@@ -112,12 +114,12 @@ class ArticleImport {
             r'<meta\b[^>]*property=["' "'" r']og:title["' "'" r'][^>]*content=["' "'" r']([^"' "'" r']+)',
             caseSensitive: false)
         .firstMatch(html);
-    if (og != null) return _decodeEntities(og.group(1)!).trim();
+    if (og != null) return _decodeAll(og.group(1)!).trim();
     final t = RegExp(r'<title[^>]*>(.*?)</title>',
             caseSensitive: false, dotAll: true)
         .firstMatch(html);
     if (t != null) {
-      return _decodeEntities(t.group(1)!.replaceAll(RegExp(r'<[^>]+>'), ''))
+      return _decodeAll(t.group(1)!.replaceAll(RegExp(r'<[^>]+>'), ''))
           .trim();
     }
     return null;
@@ -143,8 +145,9 @@ class ArticleImport {
       .replaceAll('&ndash;', '–')
       .replaceAll('&laquo;', '«')
       .replaceAll('&raquo;', '»')
-      .replaceAllMapped(RegExp(r'&#(\d+);'),
-          (m) => String.fromCharCode(int.parse(m.group(1)!)))
-      .replaceAllMapped(RegExp(r'&#x([0-9a-fA-F]+);'),
-          (m) => String.fromCharCode(int.parse(m.group(1)!, radix: 16)));
+      .replaceAll('&hellip;', '…');
+
+  /// Числовые сущности разбирает общий помощник: номер приходит с чужой
+  /// страницы, и кривой ронял разбор целиком.
+  static String _decodeAll(String s) => decodeNumericEntities(_decodeEntities(s));
 }

@@ -101,22 +101,53 @@ class ReviewState {
         if (nudgedByNeighbour) 'nbr': true,
       };
 
+  /// Разбор состояния из JSON.
+  ///
+  /// Значения приходят не только из своей базы: их несёт резервная копия и
+  /// импорт чужой колоды, то есть файл, который могли испортить или собрать
+  /// вручную. Номер состояния вне списка ронял разбор `RangeError`, а
+  /// отрицательная прочность и сложность за шкалой расходились по формулам
+  /// планировщика и выдавали карточке срок в другом веке.
   factory ReviewState.fromJson(Map<String, dynamic> j) => ReviewState(
-        stability: (j['s'] as num?)?.toDouble() ?? 0,
-        difficulty: (j['d'] as num?)?.toDouble() ?? 0,
-        state: FsrsState.values[(j['state'] as num?)?.toInt() ?? 0],
-        reps: (j['reps'] as num?)?.toInt() ?? 0,
-        lapses: (j['lapses'] as num?)?.toInt() ?? 0,
-        step: (j['step'] as num?)?.toInt() ?? 0,
+        stability: _positive(j['s']),
+        difficulty: _difficulty(j['d']),
+        state: _enum(FsrsState.values, j['state']),
+        reps: _count(j['reps']),
+        lapses: _count(j['lapses']),
+        step: _count(j['step']),
         due: _dt(j['due']),
         lastReview: _dt(j['last']),
-        phase: LearnPhase.values[(j['phase'] as num?)?.toInt() ?? 0],
+        phase: _enum(LearnPhase.values, j['phase']),
         lastSeen: _dt(j['seen']),
         nudgedByNeighbour: j['nbr'] == true,
       );
 
+  /// Неотрицательное конечное число (NaN и бесконечность — в ноль).
+  static double _positive(Object? v) {
+    final d = v is num ? v.toDouble() : 0.0;
+    if (d.isNaN || !d.isFinite || d < 0) return 0;
+    return d;
+  }
+
+  /// Сложность по шкале FSRS 1..10. Ноль оставляем: он значит «ещё не задана»
+  /// у новой карточки.
+  static double _difficulty(Object? v) {
+    final d = _positive(v);
+    return d > 10 ? 10 : d;
+  }
+
+  static int _count(Object? v) {
+    final n = v is num ? v.toInt() : 0;
+    return n < 0 ? 0 : n;
+  }
+
+  static T _enum<T>(List<T> values, Object? v) {
+    final i = v is num ? v.toInt() : 0;
+    return i >= 0 && i < values.length ? values[i] : values.first;
+  }
+
   static DateTime? _dt(Object? v) =>
-      v == null ? null : DateTime.fromMillisecondsSinceEpoch((v as num).toInt());
+      v is num ? DateTime.fromMillisecondsSinceEpoch(v.toInt()) : null;
 }
 
 /// Карточка слова: перёд (изучаемое слово) → зад (перевод) + пример.

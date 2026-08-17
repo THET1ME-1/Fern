@@ -718,6 +718,26 @@ const Map<String, Map<String, String>> _strings = {
     'ru': 'Возвращайтесь позже или добавьте новые слова',
     'en': 'Come back later or add new words'
   },
+  'mode_empty_title': {
+    'ru': 'Для этого упражнения нет слов',
+    'en': 'No words fit this exercise'
+  },
+  'mode_empty_context': {
+    'ru': 'Этому упражнению нужен пример — предложение, в котором встретилось слово. Такие слова приходят из книг, видео и статей в Библиотеке.',
+    'en': 'This exercise needs an example sentence with the word in it. Such words come from books, videos and articles in the Library.'
+  },
+  'mode_empty_links': {
+    'ru': 'Этому упражнению нужны слова, близкие по смыслу. Добавьте несколько слов одной темы — и оно заработает.',
+    'en': 'This exercise needs words close in meaning. Add a few words on the same topic and it will work.'
+  },
+  'mode_empty_twins': {
+    'ru': 'Этому упражнению нужны похожие слова — те, что легко перепутать. Пока таких пар в колоде нет.',
+    'en': 'This exercise needs lookalike words — ones that are easy to mix up. There are no such pairs in the deck yet.'
+  },
+  'mode_empty_generic': {
+    'ru': 'В колоде есть слова, но этому упражнению они не подходят. Попробуйте другой режим.',
+    'en': 'The deck has words, but none of them fit this exercise. Try another mode.'
+  },
   'new_limit_title': {
     'ru': 'Новые слова на сегодня кончились',
     'en': 'No new words left for today'
@@ -1384,8 +1404,8 @@ const Map<String, Map<String, String>> _strings = {
   'freezes_n': {'ru': 'Щиты: {n}', 'en': 'Freezes: {n}'},
   'share': {'ru': 'Поделиться', 'en': 'Share'},
   'streak_saved': {
-    'ru': 'Щит спас твою серию за пропущенный день ❄️',
-    'en': 'A freeze saved your streak for a missed day ❄️'
+    'ru': 'Щит спас твою серию за пропущенный день',
+    'en': 'A freeze saved your streak for a missed day'
   },
 
   // ----------------------------- Языки (родные названия для баннера) --------------

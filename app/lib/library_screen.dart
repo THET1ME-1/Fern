@@ -14,6 +14,7 @@ import 'services/deck_repository.dart';
 import 'services/language_detect.dart';
 import 'services/source_library.dart';
 import 'theme/app_theme.dart';
+import 'utils/picked_file.dart';
 import 'ocr/ocr_screen.dart';
 import 'share/share_import.dart';
 import 'video/subtitle.dart';
@@ -159,7 +160,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
     } catch (_) {
       result = await FilePicker.platform.pickFiles(type: FileType.any);
     }
-    final path = result?.files.single.path;
+    final path = pickedPath(result);
     if (path == null) return;
 
     // Проверяем формат ДО разбора и до платного счётчика: выбор файла на
@@ -654,6 +655,18 @@ class _LibraryScreenState extends State<LibraryScreen> {
     );
   }
 
+  /// Высота карточки-входа. Карточки стоят парами, поэтому высота у них общая
+  /// и фиксированная — но считается от содержимого: при жёстких 148 точках
+  /// подпись из двух строк вылезала за нижний край даже на обычном шрифте, а с
+  /// крупным системным — на два десятка точек.
+  double get _actionCardHeight {
+    final ts = MediaQuery.textScalerOf(context);
+    const box = 16.0 * 2 + 46 + 10; // паддинги, кружок иконки, зазор
+    final title = ts.scale(16) * 1.2 * 2;
+    final sub = 3 + ts.scale(12) * 1.3 * 2;
+    return box + title + sub;
+  }
+
   Widget _actionCard({
     required String title,
     required String subtitle,
@@ -671,7 +684,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         child: InkWell(
           onTap: busy ? null : onTap,
           child: Container(
-            height: 148,
+            height: _actionCardHeight,
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

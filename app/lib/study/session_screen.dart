@@ -196,21 +196,34 @@ class _SessionScreenState extends State<SessionScreen>
   /// Новых слов, которые этот режим вообще может показать. Клоуз и «Собери
   /// фразу» живут на карточках с предложением-контекстом: без фильтра пустая
   /// сессия по ним объяснялась бы дневным лимитом, хотя дело не в нём.
-  int get _newInDeck => widget.cards.where((c) {
-        if (!c.review.isNew) return false;
-        return switch (widget.mode) {
-          StudyMode.cloze => buildCloze(c) != null,
-          StudyMode.assemble => buildAssemble(c) != null,
-          StudyMode.associations =>
-            buildOddOne(c, widget.cards, widget.deck.languageCode) != null,
-          _ => true,
-        };
-      }).length;
+  int get _newInDeck =>
+      widget.cards.where((c) => c.review.isNew && _fitsMode(c)).length;
 
   /// Просроченных повторов в колоде — тех, что лимит новых не касается.
+  /// Тоже только подходящие режиму: карточка без примера не даст «Контекст»
+  /// ни новой, ни просроченной.
   int get _dueInDeck => widget.cards
-      .where((c) => !c.review.isNew && c.isDue(DateTime.now()))
+      .where((c) => !c.review.isNew && c.isDue(DateTime.now()) && _fitsMode(c))
       .length;
+
+  /// Годится ли карточка этому режиму. Клоуз и «Собери фразу» живут на
+  /// предложении-контексте, «Связи» — на словах одной темы, «Двойники» — на
+  /// похожих парах; остальным режимам подходит любая карточка.
+  bool _fitsMode(WordCard c) => switch (widget.mode) {
+        StudyMode.cloze => buildCloze(c) != null,
+        StudyMode.assemble => buildAssemble(c) != null,
+        StudyMode.associations =>
+          buildOddOne(c, widget.cards, widget.deck.languageCode) != null,
+        StudyMode.twins => buildTwins(c, widget.cards) != null,
+        _ => true,
+      };
+
+  /// Слова в колоде есть, но НИ ОДНО не годится этому упражнению. Раньше такой
+  /// случай выглядел как «Пока нечего повторять, возвращайтесь позже» —
+  /// человек ждал завтрашнего дня, хотя ждать было нечего: режиму нужны слова
+  /// с примером (или связями), а не время.
+  bool get _noFitForMode =>
+      widget.cards.isNotEmpty && !widget.cards.any(_fitsMode);
 
   /// Пустая очередь упёрлась в дневной лимит новых слов, а не в исчерпанную
   /// колоду. Ровно этот случай выглядел как «слова кончились»: экран колоды
@@ -915,16 +928,28 @@ class _SessionScreenState extends State<SessionScreen>
     );
   }
 
+  /// Подпись пустого экрана для режима, которому не хватило материала:
+  /// объясняет, ЧТО добавить, а не «зайдите позже».
+  String get _modeEmptyKey => switch (widget.mode) {
+        StudyMode.cloze || StudyMode.assemble => 'mode_empty_context',
+        StudyMode.associations => 'mode_empty_links',
+        StudyMode.twins => 'mode_empty_twins',
+        _ => 'mode_empty_generic',
+      };
+
   Widget _emptyState(ColorScheme scheme) {
     final limited = _blockedByNewLimit;
-    final title = limited ? tr('new_limit_title') : tr('nothing_due_title');
+    final noFit = !limited && _noFitForMode;
+    final title = limited
+        ? tr('new_limit_title')
+        : (noFit ? tr('mode_empty_title') : tr('nothing_due_title'));
     final sub = limited
         ? trf('new_limit_sub', {
             'n': trn('n_words', _introducedToday),
             'limit': '$_newPerDay',
             'rest': trn('n_words', _newInDeck),
           })
-        : tr('nothing_due_sub');
+        : (noFit ? tr(_modeEmptyKey) : tr('nothing_due_sub'));
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -935,7 +960,11 @@ class _SessionScreenState extends State<SessionScreen>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  limited ? Icons.hourglass_bottom_rounded : Icons.task_alt_rounded,
+                  limited
+                      ? Icons.hourglass_bottom_rounded
+                      : (noFit
+                          ? Icons.filter_alt_off_rounded
+                          : Icons.task_alt_rounded),
                   size: 72,
                   color: scheme.primary,
                 ),

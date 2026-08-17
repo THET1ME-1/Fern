@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:archive/archive.dart';
+
+import '../utils/html_entity.dart';
 import 'package:flutter/foundation.dart';
 
 import '../l10n/strings.dart';
@@ -705,6 +707,9 @@ class BookImport {
     return _normalize(out.join('\n'));
   }
 
+  @visibleForTesting
+  static String cleanHtmlForTest(String raw) => _htmlToText(raw);
+
   /// HTML/XML → текст с сохранением абзацев.
   static String _htmlToText(String raw) {
     var s = raw;
@@ -746,15 +751,9 @@ class BookImport {
       '&rdquo;': '”',
     };
     map.forEach((k, v) => r = r.replaceAll(k, v));
-    r = r.replaceAllMapped(RegExp(r'&#(\d+);'), (m) {
-      final code = int.tryParse(m.group(1)!);
-      return code == null ? m.group(0)! : String.fromCharCode(code);
-    });
-    r = r.replaceAllMapped(RegExp(r'&#x([0-9a-fA-F]+);'), (m) {
-      final code = int.tryParse(m.group(1)!, radix: 16);
-      return code == null ? m.group(0)! : String.fromCharCode(code);
-    });
-    return r;
+    // Номера сущностей в чужом EPUB/FB2 бывают за границей Юникода и длиннее
+    // 64 бит — общий помощник отсекает такие, не роняя разбор книги.
+    return decodeNumericEntities(r);
   }
 
   /// Нормализует пробелы: схлопывает пробелы в строке, убирает пустые строки

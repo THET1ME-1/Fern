@@ -135,7 +135,8 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
                   children: [
                     _tile('${widget.accuracy}%', tr('res_accuracy'), scheme),
                     const SizedBox(width: 10),
-                    _tile('🔥 ${widget.streak}', tr('stat_streak'), scheme),
+                    _tile('${widget.streak}', tr('stat_streak'), scheme,
+                        icon: Icons.local_fire_department_rounded),
                   ],
                 ),
               ],
@@ -143,7 +144,14 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
           ),
         ),
         const SizedBox(height: 10),
-        Row(
+        // Не `Row` со `Spacer`: ширину обеих подписей задаёт перевод, и на
+        // португальском строка «щиты + Поделиться» не помещалась на узком
+        // экране. `Wrap` разносит их по краям, пока помещаются.
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 10,
+          runSpacing: 8,
           children: [
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -154,7 +162,8 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('❄️', style: TextStyle(fontSize: 15)),
+                  Icon(Icons.ac_unit_rounded,
+                      size: 16, color: scheme.primary),
                   const SizedBox(width: 6),
                   Text(
                     trf('freezes_n', {'n': _freezes}),
@@ -168,7 +177,6 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
                 ],
               ),
             ),
-            const Spacer(),
             FilledButton.tonalIcon(
               onPressed: _sharing ? null : _share,
               icon: const Icon(Icons.ios_share_rounded, size: 18),
@@ -180,7 +188,17 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
     );
   }
 
-  Widget _tile(String value, String label, ColorScheme scheme) {
+  Widget _tile(String value, String label, ColorScheme scheme,
+      {IconData? icon}) {
+    final number = Text(
+      value,
+      style: TextStyle(
+        fontFamily: AppTheme.displayFont,
+        fontWeight: FontWeight.w800,
+        fontSize: 24,
+        color: scheme.onSurface,
+      ),
+    );
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
@@ -191,15 +209,16 @@ class _WeeklyRecapCardState extends State<WeeklyRecapCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              value,
-              style: TextStyle(
-                fontFamily: AppTheme.displayFont,
-                fontWeight: FontWeight.w800,
-                fontSize: 24,
-                color: scheme.onSurface,
+            if (icon == null)
+              number
+            else
+              Row(
+                children: [
+                  Icon(icon, size: 24, color: scheme.primary),
+                  const SizedBox(width: 6),
+                  Flexible(child: number),
+                ],
               ),
-            ),
             const SizedBox(height: 2),
             Text(
               label,

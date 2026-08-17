@@ -204,6 +204,10 @@ class Fsrs {
         startOfDay(prev.lastReview!) == startOfDay(now)) {
       return prev.copy()
         ..reps = prev.reps + 1
+        // Шкалу поправляем и здесь: сложность за её границами приходит из
+        // чужого снимка и импортированной колоды, а эта ветка — единственная,
+        // что возвращает состояние мимо общего `clamp` ниже.
+        ..difficulty = _sane(prev.difficulty)
         ..nudgedByNeighbour = false;
     }
 
@@ -252,6 +256,14 @@ class Fsrs {
 
     _schedule(prev, next, g, s, now, fuzz, fuzzKey);
     return next;
+  }
+
+  /// Сложность внутри шкалы 1..10. Ноль оставляем как есть: он значит «ещё не
+  /// задана» у новой карточки.
+  static double _sane(double d) {
+    if (d.isNaN || !d.isFinite) return 0;
+    if (d == 0) return 0;
+    return d.clamp(1.0, 10.0);
   }
 
   /// Доля прироста стабильности за одну встречу слова в тексте.

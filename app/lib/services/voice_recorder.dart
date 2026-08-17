@@ -16,13 +16,24 @@ class VoiceRecorder {
 
   static final VoiceRecorder instance = VoiceRecorder._();
 
-  final AudioRecorder _recorder = AudioRecorder();
-  final AudioPlayer _player = AudioPlayer();
+  // Оба создаются лениво: конструктор `AudioRecorder` сразу дёргает канал
+  // плагина, и на платформе без записи (десктоп, веб, тесты) это давало
+  // необработанное MissingPluginException при первом же показе карточки.
+  AudioRecorder? _rec;
+  AudioPlayer? _play;
+
+  AudioRecorder get _recorder => _rec ??= AudioRecorder();
+  AudioPlayer get _player => _play ??= AudioPlayer();
 
   String? _lastPath;
   bool _recording = false;
 
   bool get isRecording => _recording;
+
+  /// Только для тестов: поднять флаг записи без живого микрофона (на хосте
+  /// плагина нет, а проверить нужно именно снятие флага).
+  @visibleForTesting
+  void debugMarkRecording() => _recording = true;
 
   /// Есть ли записанная дорожка, которую можно послушать.
   bool get hasTake => _lastPath != null && File(_lastPath!).existsSync();
@@ -67,6 +78,7 @@ class VoiceRecorder {
   Future<String?> stop() async {
     if (!_recording) return null;
     _recording = false;
+    if (!_supported) return _lastPath;
     try {
       final path = await _recorder.stop();
       _lastPath = path ?? _lastPath;
@@ -93,13 +105,21 @@ class VoiceRecorder {
   }
 
   Future<void> stopPlayback() async {
+    if (_play == null) return; // плеера не было — останавливать нечего
     try {
       await _player.stop();
     } catch (_) {/* уже остановлен */}
   }
 
   /// Убирает дорожку с диска (уход с экрана).
+  ///
+  /// Сначала ОСТАНАВЛИВАЕТ запись, если она идёт. Без этого уход с карточки на
+  /// середине записи оставлял микрофон занятым (системный индикатор горит,
+  /// пишем в уже удалённый файл), а флаг `_recording` навсегда оставался
+  /// поднятым — на следующей карточке кнопка «Записать» молча отвечала
+  /// «нет доступа к микрофону» до перезапуска приложения.
   Future<void> discard() async {
+    if (_recording) await stop();
     await stopPlayback();
     final path = _lastPath;
     _lastPath = null;
@@ -114,8 +134,10 @@ class VoiceRecorder {
 
   Future<void> dispose() async {
     await discard();
-    await _recorder.dispose();
-    await _player.dispose();
+    await _rec?.dispose();
+    await _play?.dispose();
+    _rec = null;
+    _play = null;
   }
 }
 

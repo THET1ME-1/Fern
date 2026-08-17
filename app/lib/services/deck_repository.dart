@@ -1389,20 +1389,36 @@ class DeckRepository extends ChangeNotifier {
   /// (по id), существующие не трогаются (чтобы не потерять текущий прогресс
   /// повторов); журнал и настройки при слиянии остаются как есть. Это безопасное
   /// «слить две библиотеки», а не last-write-wins.
+  /// Разбирает список записей снимка, пропуская битые.
+  static List<T> _parseAll<T>(
+    Object? raw,
+    T Function(Map<String, dynamic>) parse,
+  ) {
+    final out = <T>[];
+    var skipped = 0;
+    for (final e in (raw as List? ?? const [])) {
+      if (e is! Map) {
+        skipped++;
+        continue;
+      }
+      try {
+        out.add(parse(e.cast<String, dynamic>()));
+      } catch (_) {
+        skipped++;
+      }
+    }
+    if (skipped > 0) debugPrint('importMap: пропущено битых записей: $skipped');
+    return out;
+  }
+
   Future<void> importMap(Map<String, dynamic> data, {bool merge = false}) async {
     await _ensureLoaded();
-    final decks = [
-      for (final e in (data['decks'] as List? ?? const []))
-        if (e is Map) Deck.fromJson(e.cast<String, dynamic>()),
-    ];
-    final packs = [
-      for (final e in (data['packs'] as List? ?? const []))
-        if (e is Map) Pack.fromJson(e.cast<String, dynamic>()),
-    ];
-    final cards = [
-      for (final e in (data['cards'] as List? ?? const []))
-        if (e is Map) WordCard.fromJson(e.cast<String, dynamic>()),
-    ];
+    // Каждая запись разбирается отдельно: одна испорченная строка в снимке не
+    // должна отменять восстановление всего остального. Раньше карточка без `id`
+    // роняла разбор целиком, и человек не получал НИЧЕГО.
+    final decks = _parseAll(data['decks'], Deck.fromJson);
+    final packs = _parseAll(data['packs'], Pack.fromJson);
+    final cards = _parseAll(data['cards'], WordCard.fromJson);
 
     if (merge) {
       final haveDeck = _decks.map((d) => d.id).toSet();

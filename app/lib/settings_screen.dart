@@ -33,6 +33,7 @@ import 'services/translation/translation_manager.dart';
 import 'services/store_update.dart';
 import 'services/vocab_export.dart';
 import 'theme/app_theme.dart';
+import 'utils/picked_file.dart';
 import 'theme/theme_controller.dart';
 import 'widgets/color_picker_sheet.dart';
 import 'widgets/seed_swatch.dart';
@@ -1083,13 +1084,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
-  /// Путь выбранного файла. `.single` бросает StateError на пустом списке
-  /// (бывает при отмене на некоторых платформах) — берём безопасно.
-  String? _pickedPath(FilePickerResult? result) {
-    final files = result?.files ?? const <PlatformFile>[];
-    return files.isEmpty ? null : files.first.path;
-  }
-
   /// Блок доната: короткий текст и две крупные кнопки.
   ///
   /// Стоит НАД «О приложении» и ниже покупки Pro: сначала приложение
@@ -1245,10 +1239,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         type: FileType.custom,
         allowedExtensions: DeckImport.supportedExtensions,
       );
-      path = _pickedPath(result);
+      path = pickedPath(result);
     } catch (_) {
       final result = await FilePicker.platform.pickFiles(type: FileType.any);
-      path = _pickedPath(result);
+      path = pickedPath(result);
     }
     if (path == null || !mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
@@ -1291,7 +1285,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _restore() async {
     try {
       final result = await FilePicker.platform.pickFiles(type: FileType.any);
-      final path = _pickedPath(result);
+      final path = pickedPath(result);
       if (path == null || !mounted) return;
       final merge = await _askRestoreMode();
       if (merge == null) return; // отменили выбор режима
