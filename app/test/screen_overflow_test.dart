@@ -34,6 +34,13 @@ import 'package:fern/study/study_models.dart';
 import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/services/deck_repository.dart';
 import 'package:fern/theme/app_theme.dart';
+import 'package:fern/services/pro.dart';
+import 'package:fern/widgets/color_picker_sheet.dart';
+import 'package:fern/widgets/deck_editor_sheet.dart';
+import 'package:fern/widgets/hook_editor_sheet.dart';
+import 'package:fern/widgets/language_editor_sheet.dart';
+import 'package:fern/widgets/pack_editor_sheet.dart';
+import 'package:fern/widgets/pro_sheet.dart';
 
 import 'test_helpers.dart';
 
@@ -126,6 +133,63 @@ Future<void> _loadFonts() async {
           File(path).readAsBytes().then((b) => ByteData.view(b.buffer)));
     }
     await loader.load();
+  }
+}
+
+Future<void> _probeSheet(
+  WidgetTester tester,
+  String label,
+  Future<void> Function(BuildContext context) open, {
+  required Size size,
+  required double scale,
+  String locale = 'ru',
+}) async {
+  await LocaleController.instance.setCode(locale);
+  tester.view.physicalSize = size;
+  tester.view.devicePixelRatio = 1.0;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+
+  final errors = <String>[];
+  final prev = FlutterError.onError;
+  FlutterError.onError = (details) {
+    final text = details.exceptionAsString();
+    final where = RegExp(r'(file:///[^\s)]+\.dart:\d+:\d+)')
+        .firstMatch(details.toString());
+    errors.add('${text.split('\n').first}  <<< '
+        '${where?.group(1) ?? 'место не указано'}');
+  };
+  try {
+    await tester.pumpWidget(MaterialApp(
+      key: ValueKey('$label$size$scale$locale'),
+      theme: AppTheme.dark(AppTheme.defaultSeed),
+      home: MediaQuery(
+        data: MediaQueryData(
+          size: size,
+          textScaler: TextScaler.linear(scale),
+        ),
+        child: Scaffold(
+          body: Builder(
+            builder: (context) => TextButton(
+              onPressed: () => open(context),
+              child: const Text('открыть'),
+            ),
+          ),
+        ),
+      ),
+    ));
+    await tester.tap(find.text('открыть'));
+    for (var i = 0; i < 6; i++) {
+      await tester.pump(const Duration(milliseconds: 120));
+    }
+  } catch (e) {
+    errors.add('ПАДЕНИЕ: $e');
+  } finally {
+    FlutterError.onError = prev;
+  }
+  for (final e in errors.toSet()) {
+    _found.add('[$label ${size.width.toInt()}x${size.height.toInt()} '
+        'x$scale $locale] $e');
   }
 }
 
@@ -322,6 +386,115 @@ void main() {
             SessionScreen(deck: deck, mode: StudyMode.test, cards: cards),
             size: s, scale: 1.0, locale: l);
       }
+    }
+  });
+
+  // ------------------------------- Нижние листы -------------------------------
+
+  const sheetCases = [
+    (Size(320, 640), 1.0, 'ru'),
+    (Size(320, 640), 1.3, 'ru'),
+    (Size(360, 740), 1.0, 'de'),
+  ];
+
+  testWidgets('редактор колоды', (t) async {
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Редактор колоды',
+        (ctx) => showDeckEditor(ctx, languageCode: 'en'),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('редактор пака', (t) async {
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Редактор пака',
+        (ctx) => showPackEditor(ctx, languageCode: 'en'),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('выбор цвета', (t) async {
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Выбор цвета',
+        (ctx) => showColorPickerSheet(ctx, initial: AppTheme.defaultSeed),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('редактор языка', (t) async {
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Редактор языка',
+        (ctx) => showLanguageEditor(ctx),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('крючок к слову', (t) async {
+    final card = WordCard(id: 'c1', deckId: 'd1', front: 'word', back: 'слово');
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Крючок',
+        (ctx) => showHookEditor(ctx, card),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('лист Pro', (t) async {
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Pro',
+        (ctx) => ProSheet.show(ctx, feature: ProFeature.library),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
+    }
+  });
+
+  testWidgets('редактор колоды с данными', (t) async {
+    final deck = Deck(
+      id: 'd1',
+      languageCode: 'en',
+      name: 'Очень длинное название колоды для проверки',
+      colorValue: 0xFF2E7D5B,
+      shapeIndex: 0,
+      createdAt: 1,
+    );
+    await DeckRepository.instance.upsertDeck(deck);
+    for (final c in sheetCases) {
+      await _probeSheet(
+        t,
+        'Редактор колоды (данные)',
+        (ctx) => showDeckEditor(ctx, existing: deck, languageCode: 'en'),
+        size: c.$1,
+        scale: c.$2,
+        locale: c.$3,
+      );
     }
   });
 }
