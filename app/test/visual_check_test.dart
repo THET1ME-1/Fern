@@ -22,6 +22,8 @@ import 'package:fern/services/fsrs_optimizer.dart';
 import 'package:fern/theme/app_theme.dart';
 import 'package:fern/widgets/optimize_info_sheet.dart';
 import 'package:fern/widgets/weekly_recap.dart';
+import 'package:fern/library_screen.dart';
+import 'package:fern/main.dart';
 
 import 'test_helpers.dart';
 
@@ -308,5 +310,36 @@ void main() {
     )));
     await tester.pumpAndSettle();
     await _shoot(tester, 'weekly_recap');
+  });
+
+  testWidgets('библиотека: одно крупное действие и строка входов',
+      (tester) async {
+    tester.view.physicalSize = const Size(1080, 2280);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_app(const LibraryScreen()));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    await _shoot(tester, 'library_new');
+  });
+
+  testWidgets('меню: подпись у активного пункта', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2280);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_app(const MainScreen()));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    await _shoot(tester, 'nav_labeled');
+
+    // Второй кадр: переключились на «Библиотеку» — подпись переехала.
+    await tester.tap(find.byIcon(Icons.auto_stories_outlined));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    await _shoot(tester, 'nav_labeled_library');
   });
 }

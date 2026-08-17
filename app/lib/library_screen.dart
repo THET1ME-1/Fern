@@ -518,74 +518,176 @@ class _LibraryScreenState extends State<LibraryScreen> {
   Widget _actionRow(ColorScheme scheme) {
     return Column(
       children: [
-        // «Разбор» стоит первым и во всю ширину: это вход для самого частого
-        // случая — пришло сообщение на чужом языке, и его надо понять сейчас.
-        _actionCard(
-          title: tr('library_analyze_title'),
-          subtitle: tr('library_analyze_sub'),
-          icon: Icons.translate_rounded,
-          bg: scheme.primaryContainer,
-          fg: scheme.onPrimaryContainer,
+        // Разбор текста — самый частый случай (пришло сообщение на чужом языке,
+        // понять его надо сейчас), поэтому он один занимает всю ширину. Пять
+        // остальных входов раньше стояли такими же плитками и вместе съедали
+        // первый экран: библиотека открывалась пультом, а материалы — то, ради
+        // чего на неё заходят, — начинались за сгибом.
+        _heroAction(scheme),
+        const SizedBox(height: 10),
+        _quickRow(scheme),
+      ],
+    );
+  }
+
+  /// Крупный вход: кружок с иконкой, заголовок и подпись в одну строку-карточку.
+  Widget _heroAction(ColorScheme scheme) {
+    return PressableScale(
+      child: Material(
+        color: scheme.primaryContainer,
+        borderRadius: BorderRadius.circular(24),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
           onTap: _openAnalyze,
-          busy: false,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Container(
+                  width: 46,
+                  height: 46,
+                  decoration: BoxDecoration(
+                    color: scheme.onPrimaryContainer.withValues(alpha: 0.14),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(Icons.translate_rounded,
+                      color: scheme.onPrimaryContainer),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tr('library_analyze_title'),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: AppTheme.displayFont,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 16,
+                          color: scheme.onPrimaryContainer,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        tr('library_analyze_sub'),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontFamily: AppTheme.bodyFont,
+                          fontSize: 12.5,
+                          height: 1.25,
+                          color: scheme.onPrimaryContainer
+                              .withValues(alpha: 0.82),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
-        const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: _actionCard(
-                title: tr('video_banner_title'),
-                subtitle: tr('library_video_sub'),
-                icon: Icons.subtitles_rounded,
-                bg: scheme.primaryContainer,
-                fg: scheme.onPrimaryContainer,
-                onTap: _openVideoImport,
-                busy: false,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _actionCard(
-                title: tr('library_add_book'),
-                subtitle: tr('library_book_sub'),
-                icon: Icons.menu_book_rounded,
-                bg: scheme.tertiaryContainer,
-                fg: scheme.onTertiaryContainer,
-                onTap: _importBook,
-                busy: _importing,
-              ),
-            ),
-          ],
+      ),
+    );
+  }
+
+  /// Четыре оставшихся входа одной строкой. Подписи короткие («Видео», «Книга»)
+  /// — длинные названия тут не нужны: иконка и одно слово опознаются быстрее,
+  /// чем заголовок с описанием, а места занимают втрое меньше.
+  Widget _quickRow(ColorScheme scheme) {
+    return Row(
+      children: [
+        Expanded(
+          child: _quickAction(
+            label: tr('quick_video'),
+            icon: Icons.subtitles_rounded,
+            scheme: scheme,
+            onTap: _openVideoImport,
+            busy: false,
+          ),
         ),
-        const SizedBox(height: 12),
-        Row(
-          children: [
-            Expanded(
-              child: _actionCard(
-                title: tr('ocr_hub_title'),
-                subtitle: tr('ocr_hub_sub'),
-                icon: Icons.document_scanner_rounded,
-                bg: scheme.secondaryContainer,
-                fg: scheme.onSecondaryContainer,
-                onTap: _openOcr,
-                busy: false,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: _actionCard(
-                title: tr('article_import_title'),
-                subtitle: tr('article_import_sub'),
-                icon: Icons.article_rounded,
-                bg: scheme.surfaceContainerHighest,
-                fg: scheme.onSurface,
-                onTap: _addArticle,
-                busy: false,
-              ),
-            ),
-          ],
+        const SizedBox(width: 8),
+        Expanded(
+          child: _quickAction(
+            label: tr('quick_book'),
+            icon: Icons.menu_book_rounded,
+            scheme: scheme,
+            onTap: _importBook,
+            busy: _importing,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: _quickAction(
+            label: tr('quick_photo'),
+            icon: Icons.document_scanner_rounded,
+            scheme: scheme,
+            onTap: _openOcr,
+            busy: false,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: _quickAction(
+            label: tr('quick_article'),
+            icon: Icons.article_rounded,
+            scheme: scheme,
+            onTap: _addArticle,
+            busy: false,
+          ),
         ),
       ],
+    );
+  }
+
+  Widget _quickAction({
+    required String label,
+    required IconData icon,
+    required ColorScheme scheme,
+    required VoidCallback onTap,
+    required bool busy,
+  }) {
+    return PressableScale(
+      child: Material(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(18),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: busy ? null : onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  height: 22,
+                  child: busy
+                      ? Waiting(size: 20, color: scheme.primary)
+                      : Icon(icon, size: 21, color: scheme.primary),
+                ),
+                const SizedBox(height: 6),
+                // Подпись сжимается, а не обрезается: её ширину задаёт перевод,
+                // а колонка узкая — «Artigo» и «Artículo» шире русского слова.
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontFamily: AppTheme.bodyFont,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 11.5,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -652,89 +754,6 @@ class _LibraryScreenState extends State<LibraryScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => const OcrScreen()),
-    );
-  }
-
-  /// Высота карточки-входа. Карточки стоят парами, поэтому высота у них общая
-  /// и фиксированная — но считается от содержимого: при жёстких 148 точках
-  /// подпись из двух строк вылезала за нижний край даже на обычном шрифте, а с
-  /// крупным системным — на два десятка точек.
-  double get _actionCardHeight {
-    final ts = MediaQuery.textScalerOf(context);
-    const box = 16.0 * 2 + 46 + 10; // паддинги, кружок иконки, зазор
-    final title = ts.scale(16) * 1.2 * 2;
-    final sub = 3 + ts.scale(12) * 1.3 * 2;
-    return box + title + sub;
-  }
-
-  Widget _actionCard({
-    required String title,
-    required String subtitle,
-    required IconData icon,
-    required Color bg,
-    required Color fg,
-    required VoidCallback onTap,
-    required bool busy,
-  }) {
-    return PressableScale(
-      child: Material(
-        color: bg,
-        borderRadius: BorderRadius.circular(24),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: busy ? null : onTap,
-          child: Container(
-            height: _actionCardHeight,
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 46,
-                  height: 46,
-                  decoration: BoxDecoration(
-                    color: fg.withValues(alpha: 0.14),
-                    shape: BoxShape.circle,
-                  ),
-                  child: busy
-                      ? Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Waiting(size: 22, color: fg),
-                        )
-                      : Icon(icon, color: fg),
-                ),
-                const Spacer(),
-                // Высота карточки фиксирована, поэтому строки ограничены: без
-                // этого длинный заголовок съезжал на третью строку и выдавливал
-                // подпись за нижний край.
-                Text(
-                  title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: AppTheme.displayFont,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16,
-                    height: 1.1,
-                    color: fg,
-                  ),
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  subtitle,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: AppTheme.bodyFont,
-                    fontSize: 12,
-                    color: fg.withValues(alpha: 0.82),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 

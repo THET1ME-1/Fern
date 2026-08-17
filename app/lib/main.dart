@@ -354,22 +354,26 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       bottomNavigationBar: _CircleNavBar(
         selectedIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items: const [
-          _NavItem(Icons.style_outlined, Icons.style_rounded),
-          _NavItem(Icons.auto_stories_outlined, Icons.auto_stories_rounded),
-          _NavItem(Icons.insights_outlined, Icons.insights_rounded),
-          _NavItem(Icons.settings_outlined, Icons.settings_rounded),
+        items: [
+          _NavItem(Icons.style_outlined, Icons.style_rounded, tr('tab_decks')),
+          _NavItem(Icons.auto_stories_outlined, Icons.auto_stories_rounded,
+              tr('library_title')),
+          _NavItem(Icons.insights_outlined, Icons.insights_rounded,
+              tr('progress_title')),
+          _NavItem(Icons.settings_outlined, Icons.settings_rounded,
+              tr('settings_title')),
         ],
       ),
     );
   }
 }
 
-/// Описание пункта нижней навигации: иконка-контур и иконка-заливка.
+/// Описание пункта нижней навигации: иконка-контур, иконка-заливка и подпись.
 class _NavItem {
   final IconData icon;
   final IconData selectedIcon;
-  const _NavItem(this.icon, this.selectedIcon);
+  final String label;
+  const _NavItem(this.icon, this.selectedIcon, this.label);
 }
 
 /// Нижняя навигация в духе M3, но индикатор активного пункта — РОВНЫЙ КРУГ
@@ -394,18 +398,25 @@ class _CircleNavBar extends StatelessWidget {
         top: false,
         child: SizedBox(
           height: 72,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              for (var i = 0; i < items.length; i++)
-                Expanded(
-                  child: _CircleNavButton(
-                    item: items[i],
-                    selected: i == selectedIndex,
-                    onTap: () => onTap(i),
-                  ),
-                ),
-            ],
+          child: LayoutBuilder(
+            builder: (context, c) {
+              // Активный пункт шире остальных: в него въезжает подпись. Ширина
+              // считается, а не берётся долей поровну, иначе слово не влезает
+              // рядом с кругом.
+              final active = (c.maxWidth * 0.42).clamp(100.0, 190.0);
+              final idle = (c.maxWidth - active) / (items.length - 1);
+              return Row(
+                children: [
+                  for (var i = 0; i < items.length; i++)
+                    _CircleNavButton(
+                      item: items[i],
+                      selected: i == selectedIndex,
+                      width: i == selectedIndex ? active : idle,
+                      onTap: () => onTap(i),
+                    ),
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -416,11 +427,13 @@ class _CircleNavBar extends StatelessWidget {
 class _CircleNavButton extends StatelessWidget {
   final _NavItem item;
   final bool selected;
+  final double width;
   final VoidCallback onTap;
 
   const _CircleNavButton({
     required this.item,
     required this.selected,
+    required this.width,
     required this.onTap,
   });
 
@@ -428,49 +441,89 @@ class _CircleNavButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     const double d = 54;
-    return InkResponse(
-      onTap: onTap,
-      radius: 40,
-      containedInkWell: true,
-      customBorder: const CircleBorder(),
-      child: Center(
-        // Подложка активного пункта перетекает из круга в «печеньку»: тот же
-        // язык форм, что у обложек колод и кольца цели.
-        child: TweenAnimationBuilder<double>(
-          tween: Tween(end: selected ? 1.0 : 0.0),
-          duration: const Duration(milliseconds: 340),
-          curve: AppTheme.emphasized,
-          builder: (context, t, child) => SizedBox(
-            width: d,
-            height: d,
-            child: CustomPaint(
-              painter: MorphPainter(
-                morph: morphBetween(FernShapes.navIdle, FernShapes.navActive),
-                t: t,
-                fill: Color.lerp(
-                  Colors.transparent,
-                  scheme.primaryContainer,
-                  t,
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 340),
+      curve: AppTheme.emphasized,
+      width: width,
+      child: InkResponse(
+        onTap: onTap,
+        radius: 40,
+        containedInkWell: true,
+        customBorder: const StadiumBorder(),
+        child: Center(
+          child: TweenAnimationBuilder<double>(
+            tween: Tween(end: selected ? 1.0 : 0.0),
+            duration: const Duration(milliseconds: 340),
+            curve: AppTheme.emphasized,
+            builder: (context, t, _) => Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Подложка активного пункта перетекает из круга в «печеньку»:
+                // тот же язык форм, что у обложек колод и кольца цели. Форма
+                // НЕ растягивается под подпись — растянутая «печенька»
+                // превращается в линзу; слово встаёт рядом.
+                SizedBox(
+                  width: d,
+                  height: d,
+                  child: CustomPaint(
+                    painter: MorphPainter(
+                      morph:
+                          morphBetween(FernShapes.navIdle, FernShapes.navActive),
+                      t: t,
+                      fill: Color.lerp(
+                        Colors.transparent,
+                        scheme.primaryContainer,
+                        t,
+                      ),
+                      border: null,
+                      borderWidth: 0,
+                    ),
+                    child: Center(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 220),
+                        transitionBuilder: (child, anim) => ScaleTransition(
+                          scale: Tween<double>(begin: 0.7, end: 1).animate(anim),
+                          child: FadeTransition(opacity: anim, child: child),
+                        ),
+                        child: Icon(
+                          selected ? item.selectedIcon : item.icon,
+                          key: ValueKey(selected),
+                          size: 28,
+                          color: selected
+                              ? scheme.onPrimaryContainer
+                              : scheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                border: null,
-                borderWidth: 0,
-              ),
-              child: Center(child: child),
-            ),
-          ),
-          child: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 220),
-            transitionBuilder: (child, anim) => ScaleTransition(
-              scale: Tween<double>(begin: 0.7, end: 1).animate(anim),
-              child: FadeTransition(opacity: anim, child: child),
-            ),
-            child: Icon(
-              selected ? item.selectedIcon : item.icon,
-              key: ValueKey(selected),
-              size: 28,
-              color: selected
-                  ? scheme.onPrimaryContainer
-                  : scheme.onSurfaceVariant,
+                // Подпись только у активного пункта: строка из четырёх слов
+                // рябит, а «где я сейчас» без подписи опознавалось перебором.
+                if (t > 0.01)
+                  Flexible(
+                    child: Opacity(
+                      opacity: t,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 10),
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            item.label,
+                            maxLines: 1,
+                            softWrap: false,
+                            style: TextStyle(
+                              fontFamily: AppTheme.bodyFont,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 13,
+                              color: scheme.onSurface,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ),

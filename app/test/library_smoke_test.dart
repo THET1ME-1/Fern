@@ -21,7 +21,9 @@ void main() {
     await tester.pump();
 
     expect(find.text('Библиотека'), findsOneWidget);
-    expect(find.text('Добавить книгу'), findsOneWidget); // карточка импорта
+    // Крупный вход и строка коротких: книга теперь подписана одним словом.
+    expect(find.text('Разобрать текст'), findsOneWidget);
+    expect(find.text('Книга'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

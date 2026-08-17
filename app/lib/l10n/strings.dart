@@ -1009,6 +1009,11 @@ const Map<String, Map<String, String>> _strings = {
   'version': {'ru': 'Версия', 'en': 'Version'},
 
   // ----------------------------- Библиотека -----------------------------
+  'tab_decks': {'ru': 'Колоды', 'en': 'Decks'},
+  'quick_video': {'ru': 'Видео', 'en': 'Video'},
+  'quick_book': {'ru': 'Книга', 'en': 'Book'},
+  'quick_photo': {'ru': 'Фото', 'en': 'Photo'},
+  'quick_article': {'ru': 'Статья', 'en': 'Article'},
   'library_title': {'ru': 'Библиотека', 'en': 'Library'},
   'library_recent': {'ru': 'Недавнее', 'en': 'Recent'},
   'reading_now': {'ru': 'Читаю сейчас', 'en': 'Reading now'},

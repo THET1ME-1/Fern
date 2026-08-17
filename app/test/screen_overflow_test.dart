@@ -19,6 +19,7 @@ import 'package:fern/decks_screen.dart';
 import 'package:fern/deck_screen.dart';
 import 'package:fern/grammar_screen.dart';
 import 'package:fern/library_screen.dart';
+import 'package:fern/main.dart';
 import 'package:fern/models/deck.dart';
 import 'package:fern/models/word_card.dart';
 import 'package:fern/progress_screen.dart';
@@ -385,6 +386,18 @@ void main() {
         await _probe(t, 'Сессия выбор',
             SessionScreen(deck: deck, mode: StudyMode.test, cards: cards),
             size: s, scale: 1.0, locale: l);
+      }
+    }
+  });
+
+  testWidgets('нижнее меню с подписями', (t) async {
+    await _seedDeck();
+    for (final s in sizes) {
+      for (final sc in scales) {
+        for (final l in const ['ru', 'de', 'pt']) {
+          await _probe(t, 'Меню', const MainScreen(),
+              size: s, scale: sc, locale: l);
+        }
       }
     }
   });
