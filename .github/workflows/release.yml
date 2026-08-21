@@ -166,16 +166,30 @@ jobs:
         if: steps.guard.outputs.skip == 'false'
         run: flutter build appbundle --release --flavor play --dart-define=STORE=play
 
-      # Play отклоняет сборки, умеющие ставить APK мимо магазина. Дешевле
-      # поймать это здесь, чем ждать отказа модерации.
-      - name: Проверить отсутствие REQUEST_INSTALL_PACKAGES
+      # Play отклоняет сборки, умеющие ставить APK мимо магазина, и сборки с
+      # доступом к галерее при живом системном «Выборе фото». Оба разрешения
+      # приезжают транзитивно из плагинов, поэтому смотрим итоговый манифест
+      # внутри AAB: дешевле поймать здесь, чем ждать отказа модерации.
+      - name: Проверить разрешения в AAB
         if: steps.guard.outputs.skip == 'false'
         run: |
           AAB=build/app/outputs/bundle/playRelease/app-play-release.aab
-          if unzip -p "$AAB" base/manifest/AndroidManifest.xml | strings | grep -q 'REQUEST_INSTALL_PACKAGES'; then
+          PERMS=$(unzip -p "$AAB" base/manifest/AndroidManifest.xml | strings)
+          fail=0
+
+          if echo "$PERMS" | grep -q 'REQUEST_INSTALL_PACKAGES'; then
             echo "::error::В play-сборке осталось REQUEST_INSTALL_PACKAGES — проверь flavor."
-            exit 1
+            fail=1
           fi
+
+          for perm in READ_MEDIA_IMAGES READ_MEDIA_VIDEO READ_MEDIA_AUDIO; do
+            if echo "$PERMS" | grep -q "$perm"; then
+              echo "::error::В play-сборке осталось $perm — правило «Фото и видео» запрещает его при системном выборе файлов. Вырезать в android/app/src/main/AndroidManifest.xml через tools:node=\"remove\"."
+              fail=1
+            fi
+          done
+
+          [ "$fail" -eq 0 ] || exit 1
           echo "чисто"
 
       - name: Заметки для магазина
