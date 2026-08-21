@@ -12,8 +12,19 @@
          эталоном (services/voice_recorder.dart). Ничего никуда не уходит —
          дорожка живёт в кэше до конца карточки. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <!-- Импортируем только текст, книги и фото. Видео/аудио-доступ приезжает
-         транзитивно из image_picker/file_picker — выпиливаем, чтобы не просить лишнего. -->
+    <!-- Доступ к галерее (READ_MEDIA_IMAGES/VIDEO/AUDIO) приезжает транзитивно
+         из open_filex и приложению не нужен ни в одном сценарии:
+           • фото для карточки и снимок для распознавания текста берёт
+             image_picker — на Android 13+ это системный «Выбор фото», а он
+             работает без разрешений вовсе;
+           • книги и резервные копии открывает file_picker через системный
+             диалог (SAF) — тоже без разрешений;
+           • open_filex у нас открывает только скачанный APK из собственной
+             внешней app-папки (UpdateService.downloadApk), а для своего
+             каталога плагин разрешения не спрашивает.
+         Google Play запрещает эти разрешения там, где хватает системного
+         выбора файлов (правило «Фото и видео»), поэтому вырезаем все три. -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" tools:node="remove" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" tools:node="remove" />
     <application
