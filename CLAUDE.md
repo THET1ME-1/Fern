@@ -656,6 +656,32 @@ Bundle id **`com.fern.flashcards`** (у Android свой, `com.fern.app`, — с
   плюс `NSLocalNetworkUsageDescription` — с iOS 14 обращение к домашней сети
   требует разрешения.
 
+**Уведомления в iOS держатся на нативной связке, которой не было.** Три
+дефекта разом, все — расхождение с эталонной интеграцией из README плагина:
+
+1. В `AppDelegate.swift` не стоял делегат центра уведомлений
+   (`UNUserNotificationCenter.current().delegate = self`). Без него iOS не
+   отдаёт уведомление плагину: карточка не показывается поверх открытого
+   приложения, тап не доходит до Dart.
+2. Не было `FlutterLocalNotificationsPlugin.setPluginRegistrantCallback` —
+   изолят, который обрабатывает кнопки из шторки, остаётся без плагинов, и
+   «Знаю»/«Забыл» нажимаются впустую.
+3. Кнопки микроповтора задавались только `AndroidNotificationAction`. В iOS они
+   берутся из КАТЕГОРИИ, объявленной при `initialize`, плюс `categoryIdentifier`
+   в деталях показа (`NotificationService.darwinCategories`,
+   `quickDarwinDetails`). Подписи кнопок уезжают в систему один раз за запуск:
+   смена языка интерфейса подхватится со следующего.
+
+Заодно `DarwinInitializationSettings` больше не просит разрешение сам
+(`requestAlertPermission: false` и соседи). Плагин по умолчанию показывает
+системный диалог прямо из `initialize`, то есть при запуске и без повода, а
+отказ в нём на iOS вечен — второй раз система не спросит. Разрешение спрашивает
+тумблер в настройках, как на Android.
+
+Регресс — `test/ios_notifications_guard_test.dart`: читает `AppDelegate.swift`
+и сверяет категории. Это единственное, что тут можно проверить без устройства,
+и живой проверки оно не заменяет.
+
 **Расширение «Поделиться»** — таргет `ShareExtension` (`ios/ShareExtension/`),
 добавлен в pbxproj руками, как и манифест приватности. Что важно знать:
 

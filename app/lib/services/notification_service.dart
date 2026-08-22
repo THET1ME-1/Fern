@@ -42,6 +42,62 @@ class NotificationService {
   static const String _channelId = 'daily_reminder';
   static const String _quickChannelId = 'quick_review';
 
+  /// Категория микроповтора в iOS.
+  ///
+  /// Кнопки уведомления там берутся из КАТЕГОРИИ, зарегистрированной при
+  /// инициализации, а не из деталей показа, как на Android. Без неё микроповтор
+  /// в iOS приходил карточкой без «Знаю» и «Забыл», то есть ни на что не
+  /// годной: ответить из шторки было нечем.
+  static const String quickCategoryId = 'quick_review_category';
+
+  /// Категории, которые приложение объявляет системе при запуске. Подписи
+  /// кнопок уезжают в iOS один раз за запуск: смена языка интерфейса
+  /// подхватится со следующего, переобъявить их на лету нельзя.
+  static List<DarwinNotificationCategory> get darwinCategories =>
+      <DarwinNotificationCategory>[
+        DarwinNotificationCategory(
+          quickCategoryId,
+          actions: <DarwinNotificationAction>[
+            // Без DarwinNotificationActionOption.foreground ответ уходит в
+            // фоновый изолят и приложение не открывается — как на Android.
+            DarwinNotificationAction.plain(
+              QuickReview.actionKnow,
+              tr('quick_know'),
+            ),
+            DarwinNotificationAction.plain(
+              QuickReview.actionForgot,
+              tr('quick_forgot'),
+            ),
+          ],
+        ),
+      ];
+
+  /// Настройки iOS при запуске.
+  ///
+  /// Разрешение здесь НЕ спрашиваем, хотя плагин по умолчанию спрашивает: иначе
+  /// системный диалог выскакивает при первом же обращении к уведомлениям — то
+  /// есть при запуске, без повода и объяснения. Отказ в таком диалоге на iOS
+  /// вечен: второй раз система его не покажет, и человек, ткнувший «не
+  /// разрешать» мимоходом, останется без напоминаний навсегда. Спрашиваем сами,
+  /// по тумблеру в настройках, как на Android.
+  static DarwinInitializationSettings get darwinInitSettings =>
+      DarwinInitializationSettings(
+        requestAlertPermission: false,
+        requestBadgePermission: false,
+        requestSoundPermission: false,
+        notificationCategories: darwinCategories,
+      );
+
+  /// Показ микроповтора в iOS: своя категория ради кнопок и явное разрешение
+  /// показаться поверх открытого приложения.
+  static const DarwinNotificationDetails quickDarwinDetails =
+      DarwinNotificationDetails(
+        categoryIdentifier: quickCategoryId,
+        presentAlert: true,
+        presentBanner: true,
+        presentSound: true,
+      );
+
   bool _init = false;
   bool _tzReady = false;
 
@@ -61,9 +117,9 @@ class NotificationService {
     }
     try {
       const android = AndroidInitializationSettings('@mipmap/ic_launcher');
-      const ios = DarwinInitializationSettings();
+      final ios = darwinInitSettings;
       await _plugin.initialize(
-        settings: const InitializationSettings(android: android, iOS: ios),
+        settings: InitializationSettings(android: android, iOS: ios),
         onDidReceiveNotificationResponse: quickReviewBackground,
         onDidReceiveBackgroundNotificationResponse: quickReviewBackground,
       );
@@ -197,7 +253,7 @@ class NotificationService {
         body: tr('quick_body'),
         notificationDetails: NotificationDetails(
           android: android,
-          iOS: const DarwinNotificationDetails(),
+          iOS: quickDarwinDetails,
         ),
         payload: cardId,
       );
