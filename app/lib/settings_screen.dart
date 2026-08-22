@@ -1223,10 +1223,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _actionTile(
           icon: Icons.restore_rounded,
           title: tr('pro_restore'),
-          onTap: () => BillingService.instance.restore(),
+          onTap: _restorePurchase,
           scheme: scheme,
         ),
     ];
+  }
+
+  /// Восстановление покупки из настроек. Магазин отвечает по сети и не сразу,
+  /// поэтому сперва говорим, что ждём, а потом — чем кончилось: у пункта,
+  /// который молчит после нажатия, нет способа отличиться от сломанного.
+  Future<void> _restorePurchase() async {
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.showSnackBar(
+      SnackBar(content: Text(tr('pro_restore_checking'))),
+    );
+    final outcome = await BillingService.instance.restore();
+    if (!mounted) return;
+    final text = switch (outcome) {
+      RestoreOutcome.restored => tr('pro_restore_ok'),
+      RestoreOutcome.nothing => tr('pro_restore_nothing'),
+      RestoreOutcome.failed => tr('pro_restore_failed'),
+      RestoreOutcome.unavailable =>
+        BillingService.instance.trouble == BillingTrouble.noProduct
+            ? tr('pro_product_unavailable')
+            : tr('pro_store_unavailable'),
+    };
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(SnackBar(content: Text(text)));
+    setState(() {});
   }
 
   /// Импорт колоды из Anki (.apkg) или текстового списка (CSV/TSV/TXT).

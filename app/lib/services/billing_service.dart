@@ -36,6 +36,27 @@ enum BillingTrouble {
   noProduct,
 }
 
+/// Чем кончилось нажатие «Восстановить покупку».
+///
+/// Четыре исхода вместо прежнего молчания: кнопка обязана сказать, вернула
+/// она Pro, не нашла покупки, не достучалась до магазина или получила от него
+/// ошибку. Снаружи все четыре случая выглядели одинаково — «нажал, ничего не
+/// произошло», — и починить по такому описанию было нечего.
+enum RestoreOutcome {
+  /// Покупка нашлась, Pro открыт.
+  restored,
+
+  /// Магазин ответил, но покупки за этим аккаунтом нет.
+  nothing,
+
+  /// До кассы не дошли: сборка мимо магазина, устройство без сервисов Google,
+  /// нет сети.
+  unavailable,
+
+  /// Магазин ответил ошибкой.
+  failed,
+}
+
 class BillingService extends ChangeNotifier {
   BillingService._();
 
@@ -46,11 +67,24 @@ class BillingService extends ChangeNotifier {
 
   static const String _kOwned = 'proPurchased';
 
+  /// Сколько ждать ответ магазина после запроса на восстановление. Покупка
+  /// приходит отдельным событием в поток, а сам запрос возвращается раньше:
+  /// без ожидания кнопка отвечала бы до того, как что-то случилось.
+  static Duration restoreWindow = const Duration(seconds: 8);
+
+  /// Работает ли в этой сборке магазинная касса. Обычно равно [kStoreBilling];
+  /// поле, а не константа, потому что канал сборки задан на компиляции, и
+  /// тестовая сборка магазина не знает — проверить логику восстановления было
+  /// бы нечем.
+  @visibleForTesting
+  static bool debugStoreBilling = kStoreBilling;
+
   bool _owned = false;
   bool _available = false;
   ProductDetails? _product;
   StreamSubscription<List<PurchaseDetails>>? _sub;
   BillingTrouble _trouble = BillingTrouble.none;
+  Completer<void>? _restoreWaiter;
 
   /// Куплено ли Pro через магазин. Флаг живёт на устройстве, поэтому Pro
   /// остаётся при выключенном интернете.
@@ -74,12 +108,14 @@ class BillingService extends ChangeNotifier {
     // покупка вернётся сама при восстановлении из магазина.
     _owned = await SignedStore.getBool(_kOwned);
     notifyListeners();
-    if (!kStoreBilling) return;
+    if (!debugStoreBilling) return;
     // Магазин отвечает по сети — дальше идём молча, интерфейс уже поднят.
     unawaited(_connect());
   }
 
-  Future<void> _connect() async {
+  /// Поднимает кассу. [silentRestore] — то самое тихое восстановление при
+  /// запуске; по кнопке оно лишнее, там восстановление своё и с ответом.
+  Future<void> _connect({bool silentRestore = true}) async {
     try {
       _available = await InAppPurchase.instance.isAvailable();
       if (!_available) {
@@ -88,6 +124,10 @@ class BillingService extends ChangeNotifier {
         notifyListeners();
         return;
       }
+      // Подключаться можно не один раз: кнопка восстановления зовёт это же
+      // место, когда касса не поднялась на старте. Без отмены прежней подписки
+      // одна покупка приходила бы дважды.
+      await _sub?.cancel();
       _sub = InAppPurchase.instance.purchaseStream.listen(
         _onPurchases,
         onError: (e) => debugPrint('[billing] поток покупок: $e'),
@@ -109,21 +149,34 @@ class BillingService extends ChangeNotifier {
         _trouble = BillingTrouble.none;
       }
       notifyListeners();
-      // Тихое восстановление: человек, переставивший приложение, не должен
-      // искать кнопку «я уже покупал».
-      await InAppPurchase.instance.restorePurchases();
     } catch (e) {
       debugPrint('[billing] подключение не удалось: $e');
       _available = false;
       _trouble = BillingTrouble.noStore;
       notifyListeners();
+      return;
+    }
+    if (!silentRestore) return;
+    // Тихое восстановление: человек, переставивший приложение, не должен
+    // искать кнопку «я уже покупал».
+    //
+    // Своя ловушка, и это важно: запрос восстановления падает, когда Play
+    // отвечает не «ОК» хотя бы на один из двух своих запросов (разовые
+    // покупки и подписки). Раньше это падение ловил общий catch подключения,
+    // и `available` уходил в false при живом магазине с загруженным товаром —
+    // кнопка «Восстановить покупку» после этого молчала до перезапуска
+    // приложения. Сбой восстановления не говорит о кассе ничего.
+    try {
+      await InAppPurchase.instance.restorePurchases();
+    } catch (e) {
+      debugPrint('[billing] тихое восстановление не удалось: $e');
     }
   }
 
   /// Запускает покупку. `false` — магазин не готов, товар не подъехал.
   Future<bool> buy() async {
     final product = _product;
-    if (!kStoreBilling || !_available || product == null) return false;
+    if (!debugStoreBilling || !_available || product == null) return false;
     try {
       return await InAppPurchase.instance
           .buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
@@ -136,11 +189,35 @@ class BillingService extends ChangeNotifier {
   ///
   /// В App Store кнопка обязательна: без неё ревью отклоняет приложение с
   /// разовой покупкой (человек должен вернуть Pro на новом устройстве сам).
-  Future<void> restore() async {
-    if (!kStoreBilling || !_available) return;
+  ///
+  /// Отвечает исходом, а не тишиной: интерфейсу нужно что-то показать, и
+  /// «покупки за этим аккаунтом нет» — не то же самое, что «магазин не
+  /// ответил».
+  Future<RestoreOutcome> restore() async {
+    if (!debugStoreBilling) return RestoreOutcome.unavailable;
+    // Касса могла не успеть подняться к нажатию (магазин отвечает по сети, а
+    // настройки открываются раньше) или отвалиться на старте из-за сбоя.
+    // Прежде кнопка в обоих случаях молча выходила.
+    if (!_available) await _connect(silentRestore: false);
+    if (!_available) return RestoreOutcome.unavailable;
+    final waiter = _restoreWaiter = Completer<void>();
     try {
       await InAppPurchase.instance.restorePurchases();
-    } catch (_) {}
+    } catch (e) {
+      _restoreWaiter = null;
+      debugPrint('[billing] восстановление не удалось: $e');
+      return RestoreOutcome.failed;
+    }
+    try {
+      // Ответ придёт в поток покупок, поэтому ждём событие, а не возврата
+      // запроса. Ждём не вечно: когда покупки нет, события не будет вовсе.
+      await waiter.future.timeout(restoreWindow);
+      return RestoreOutcome.restored;
+    } on TimeoutException {
+      return _owned ? RestoreOutcome.restored : RestoreOutcome.nothing;
+    } finally {
+      _restoreWaiter = null;
+    }
   }
 
   Future<void> _onPurchases(List<PurchaseDetails> purchases) async {
@@ -164,6 +241,8 @@ class BillingService extends ChangeNotifier {
     // оставлял покупку незаписанной — «Восстановить покупку» не помогало.
     await SignedStore.setBool(_kOwned, true);
     if (!known) notifyListeners();
+    final waiter = _restoreWaiter;
+    if (waiter != null && !waiter.isCompleted) waiter.complete();
   }
 
   /// Заново кладёт флаг покупки на диск, если он есть в памяти. Нужно после

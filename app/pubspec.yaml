@@ -58,6 +58,8 @@ dev_dependencies:
   shared_preferences_platform_interface: ^2.4.2
   # Мок path_provider в тестах (загрузка текста книги, см. book_screen_render_test).
   path_provider_platform_interface: ^2.1.3
+  # Подменный магазин в тестах восстановления покупки (см. billing_restore_test).
+  in_app_purchase_platform_interface: ^1.4.0
   plugin_platform_interface: ^2.1.8
   flutter_launcher_icons: ^0.14.4
 

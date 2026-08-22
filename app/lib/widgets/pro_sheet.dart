@@ -54,6 +54,7 @@ class ProSheet extends StatefulWidget {
 
 class _ProSheetState extends State<ProSheet> {
   bool _busy = false;
+  bool _restoring = false;
   late bool _keyMode = widget.notice != null; // пришли обновлять ключ
   String? _error;
   final _keyController = TextEditingController();
@@ -125,6 +126,36 @@ class _ProSheetState extends State<ProSheet> {
     });
     // Магазин закрывает лист сам, когда покупка дошла: слушаем состояние.
     if (started && Pro.active) Navigator.of(context).maybePop();
+  }
+
+  /// «Восстановить покупку»: ждём ответ магазина и говорим, чем он кончился.
+  ///
+  /// Прежде нажатие уходило в пустоту — ни ожидания, ни исхода, ни ошибки.
+  /// Кнопка, которая ничем не отвечает, и читается как сломанная, независимо
+  /// от того, что случилось внутри.
+  Future<void> _restore() async {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _busy = true;
+      _restoring = true;
+      _error = null;
+    });
+    final outcome = await BillingService.instance.restore();
+    if (!mounted) return;
+    setState(() {
+      _busy = false;
+      _restoring = false;
+      _error = switch (outcome) {
+        RestoreOutcome.restored => null,
+        RestoreOutcome.nothing => tr('pro_restore_nothing'),
+        RestoreOutcome.failed => tr('pro_restore_failed'),
+        RestoreOutcome.unavailable => _troubleText(),
+      };
+    });
+    if (outcome != RestoreOutcome.restored) return;
+    final messenger = ScaffoldMessenger.of(context);
+    Navigator.of(context).maybePop();
+    messenger.showSnackBar(SnackBar(content: Text(tr('pro_restore_ok'))));
   }
 
   Future<void> _applyKey() async {
@@ -281,8 +312,14 @@ class _ProSheetState extends State<ProSheet> {
               : trf('pro_buy_price', {'price': price})),
         ),
         TextButton(
-          onPressed: _busy ? null : () => BillingService.instance.restore(),
-          child: Text(tr('pro_restore')),
+          onPressed: _busy ? null : _restore,
+          child: _restoring
+              ? const SizedBox(
+                  height: 18,
+                  width: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(tr('pro_restore')),
         ),
       ];
 
