@@ -10,6 +10,7 @@ import 'services/grammar.dart';
 import 'services/pos.dart';
 import 'services/pos_split.dart';
 import 'services/translation/translation_manager.dart';
+import 'services/translation/translation_provider.dart';
 import 'theme/app_theme.dart';
 import 'widgets/pos_badge.dart';
 import 'widgets/card_image_field.dart';
@@ -971,15 +972,19 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
       }
     }
     setState(() => _translating = true);
-    final res = await _mgr.translate(
-      text,
-      widget.languageCode,
-      _targetLang,
-      context: _example.text.trim().isEmpty ? null : _example.text.trim(),
-    );
+    TransResult? res;
+    try {
+      res = await _mgr.translate(
+        text,
+        widget.languageCode,
+        _targetLang,
+        context: _example.text.trim().isEmpty ? null : _example.text.trim(),
+      );
+    } finally {
+      if (mounted) setState(() => _translating = false);
+    }
     if (!mounted) return;
     setState(() {
-      _translating = false;
       if (res != null) {
         _back.text = res.primary;
         _options = res.options;

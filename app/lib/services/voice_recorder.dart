@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -94,9 +95,17 @@ class VoiceRecorder {
     final path = _lastPath;
     if (path == null || !File(path).existsSync()) return false;
     try {
-      await _player.setFilePath(path);
+      // `play()` ждёт конца дорожки, а не старта: без потолка сбой плеера
+      // оставляет экран произношения в вечном «играю».
+      final len = await _player.setFilePath(path);
       await _player.seek(Duration.zero);
-      await _player.play();
+      final limit = (len ?? const Duration(seconds: 30)) +
+          const Duration(seconds: 5);
+      try {
+        await _player.play().timeout(limit);
+      } on TimeoutException {
+        await stopPlayback();
+      }
       return true;
     } catch (e) {
       debugPrint('VoiceRecorder.playTake: $e');

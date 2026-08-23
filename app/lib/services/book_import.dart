@@ -45,7 +45,10 @@ class _Assembler {
   void startChapter(String title) {
     final t = title.trim();
     chapters.add(BookChapter(
-      t.isEmpty ? trf('chapter_n', {'n': chapters.length + 1}) : t,
+      t.isEmpty
+          ? BookImport.chapterTemplate
+              .replaceAll('{n}', '${chapters.length + 1}')
+          : t,
       paragraphs.length,
     ));
   }
@@ -242,9 +245,34 @@ class BookImport {
     return null;
   }
 
+  /// Как называть главу без собственного заголовка. Значение приходит из
+  /// главного изолята: разбор идёт в фоновом, а там своя копия статики — язык
+  /// интерфейса туда не доезжает, и `tr` вернул бы язык по умолчанию.
+  static String chapterTemplate = 'Section {n}';
+
   /// Читает файл по пути и возвращает извлечённый текст (или null при ошибке /
-  /// неподдерживаемом формате). Тяжёлое парсинг-действие — вызывать в await.
-  static Future<BookText?> extract(String path) async {
+  /// неподдерживаемом формате).
+  ///
+  /// Разбор идёт в ОТДЕЛЬНОМ ИЗОЛЯТЕ: распаковка epub и разбор fb2 на книге в
+  /// несколько мегабайт занимают секунды, а в главном изоляте это застывший
+  /// экран и риск «приложение не отвечает».
+  static Future<BookText?> extract(String path) => compute(
+        _extractInIsolate,
+        (path, maxUncompressedBytes, trf('chapter_n', const {})),
+      );
+
+  /// У изолята своя копия статических полей: настроенный бюджет распаковки и
+  /// название главы передаём аргументом и выставляем на месте.
+  static Future<BookText?> _extractInIsolate((String, int, String) args) {
+    maxUncompressedBytes = args.$2;
+    chapterTemplate = args.$3;
+    return extractSync(args.$1);
+  }
+
+  /// Тело разбора. Отдельно от [extract], потому что `compute` принимает
+  /// только функцию верхнего уровня или статический метод.
+  @visibleForTesting
+  static Future<BookText?> extractSync(String path) async {
     try {
       final ext = extensionOf(path);
       final file = File(path);

@@ -100,13 +100,19 @@ class _OcrScreenState extends State<OcrScreen> {
       _unsupported = false;
       _busy = true;
     });
-    final text = await OcrService.instance.recognize(img.path, _lang);
-    if (!mounted) return;
-    setState(() {
-      _text = text;
-      _words = _extractWords(text, _lang);
-      _busy = false;
-    });
+    // Сбой распознавания не должен оставлять экран в вечном «читаю фото».
+    var text = '';
+    try {
+      text = await OcrService.instance.recognize(img.path, _lang);
+    } finally {
+      if (mounted) {
+        setState(() {
+          _text = text;
+          _words = _extractWords(text, _lang);
+          _busy = false;
+        });
+      }
+    }
   }
 
   /// Уникальные буквенные слова, которых ещё нет в словаре языка, по убыванию

@@ -56,22 +56,28 @@ class _SpeakerButtonState extends State<SpeakerButton> {
 
     var ok = false;
     var noVoice = false;
-    if (_hasLive) {
-      ok = await ClipAudioService.instance
-          .playClip(widget.sourceUrl!, widget.clipStartMs!, widget.clipEndMs!);
-    }
-    if (!ok) {
-      // На части телефонов для изучаемого языка голоса просто нет (tr/pt/ko) —
-      // тогда честнее сказать об этом, чем «проигрывать» тишину.
-      if (await TtsService.instance.isAvailable(widget.languageCode)) {
-        ok = await TtsService.instance.speak(widget.text, widget.languageCode);
-      } else {
-        noVoice = true;
+    // `_busy` запирает повторный тап, поэтому сбрасывать его надо при любом
+    // исходе: иначе сбой плеера гасит кнопку до конца жизни экрана.
+    try {
+      if (_hasLive) {
+        ok = await ClipAudioService.instance.playClip(
+            widget.sourceUrl!, widget.clipStartMs!, widget.clipEndMs!);
       }
+      if (!ok) {
+        // На части телефонов для изучаемого языка голоса просто нет (tr/pt/ko) —
+        // тогда честнее сказать об этом, чем «проигрывать» тишину.
+        if (await TtsService.instance.isAvailable(widget.languageCode)) {
+          ok = await TtsService.instance
+              .speak(widget.text, widget.languageCode);
+        } else {
+          noVoice = true;
+        }
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
 
     if (!mounted) return;
-    setState(() => _busy = false);
     if (!ok) {
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()

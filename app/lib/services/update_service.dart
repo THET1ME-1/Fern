@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ffi' show Abi;
 
@@ -51,6 +52,11 @@ class UpdateService {
   static const String _owner = 'THET1ME-1';
   static const String _repo = 'Fern';
 
+  /// Установка соединения, ответ сервера и пауза между кусками загрузки.
+  static const Duration _connectLimit = Duration(seconds: 15);
+  static const Duration _responseLimit = Duration(seconds: 20);
+  static const Duration _chunkLimit = Duration(seconds: 30);
+
   static Uri get _latestReleaseUri =>
       Uri.parse('https://api.github.com/repos/$_owner/$_repo/releases/latest');
 
@@ -62,21 +68,25 @@ class UpdateService {
   /// Есть ли релиз новее [currentVersion]. Отдельно сообщает о неудачной
   /// проверке (нет сети, 403 от GitHub) — это не то же самое, что «всё свежее».
   static Future<UpdateCheck> checkForUpdate(String currentVersion) async {
+    HttpClient? client;
     try {
-      final client = HttpClient()
-        ..connectionTimeout = const Duration(seconds: 12);
+      client = HttpClient()..connectionTimeout = _connectLimit;
       final request = await client.getUrl(_latestReleaseUri);
       // GitHub API требует User-Agent, иначе 403.
       request.headers.set(HttpHeaders.userAgentHeader, 'Fern-Updater');
       request.headers
           .set(HttpHeaders.acceptHeader, 'application/vnd.github+json');
-      final response = await request.close();
+      // connectionTimeout стережёт только установку соединения. Сервер,
+      // принявший запрос и замолчавший, держал бы проверку вечно, поэтому
+      // ответ и его чтение тоже под потолком.
+      final response = await request.close().timeout(_responseLimit);
       if (response.statusCode != 200) {
-        client.close();
         return const UpdateCheck.failed();
       }
-      final body = await response.transform(utf8.decoder).join();
-      client.close();
+      final body = await response
+          .transform(utf8.decoder)
+          .join()
+          .timeout(_responseLimit);
 
       final json = jsonDecode(body) as Map<String, dynamic>;
       final tag = (json['tag_name'] ?? '').toString();
@@ -101,6 +111,8 @@ class UpdateService {
       );
     } catch (_) {
       return const UpdateCheck.failed();
+    } finally {
+      client?.close(force: true);
     }
   }
 
@@ -110,14 +122,15 @@ class UpdateService {
     String url, {
     void Function(double progress)? onProgress,
   }) async {
+    HttpClient? client;
+    File? file;
     try {
-      final client = HttpClient()
-        ..connectionTimeout = const Duration(seconds: 20);
+      client = HttpClient()..connectionTimeout = _connectLimit;
       final request = await client.getUrl(Uri.parse(url));
       request.headers.set(HttpHeaders.userAgentHeader, 'Fern-Updater');
-      final response = await request.close(); // редиректы следуются по умолчанию
+      // редиректы следуются по умолчанию
+      final response = await request.close().timeout(_responseLimit);
       if (response.statusCode != 200) {
-        client.close();
         return null;
       }
 
@@ -125,26 +138,43 @@ class UpdateService {
       // недоступна — временная.
       final dir =
           await getExternalStorageDirectory() ?? await getTemporaryDirectory();
-      final file = File('${dir.path}/fern_update.apk');
+      file = File('${dir.path}/fern_update.apk');
       if (await file.exists()) await file.delete();
       final sink = file.openWrite();
 
       final total = response.contentLength; // может быть -1
       var received = 0;
-      await for (final chunk in response) {
-        sink.add(chunk);
-        received += chunk.length;
-        if (total > 0 && onProgress != null) {
-          onProgress((received / total).clamp(0.0, 1.0));
+      // Потолок стоит на ПАУЗЕ между кусками, а не на всей загрузке: файл
+      // может качаться минутами на медленной сети, но замолчавший сервер
+      // обязан оборвать ожидание, иначе прогресс замирает навсегда.
+      try {
+        await for (final chunk in response.timeout(_chunkLimit)) {
+          sink.add(chunk);
+          received += chunk.length;
+          if (total > 0 && onProgress != null) {
+            onProgress((received / total).clamp(0.0, 1.0));
+          }
         }
+        await sink.flush();
+      } finally {
+        await sink.close();
       }
-      await sink.flush();
-      await sink.close();
-      client.close();
+      if (total > 0 && received < total) {
+        // Оборванная загрузка: недокачанный APK установщик всё равно отвергнет,
+        // а файл занял бы место до следующей попытки.
+        await file.delete();
+        return null;
+      }
       onProgress?.call(1.0);
       return file.path;
     } catch (_) {
+      // Обрыв на середине оставлял бы битый APK лежать до следующей попытки.
+      try {
+        if (file != null && await file.exists()) await file.delete();
+      } catch (_) {/* файл занят или уже удалён */}
       return null;
+    } finally {
+      client?.close(force: true);
     }
   }
 

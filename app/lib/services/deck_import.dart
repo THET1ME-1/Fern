@@ -80,7 +80,12 @@ class DeckImport {
 
   // ------------------------------- Anki .apkg -------------------------------
 
-  static Future<List<_Row>> _parseApkg(String path) async {
+  /// Распаковка архива идёт в ОТДЕЛЬНОМ ИЗОЛЯТЕ: колода Anki с картинками и
+  /// звуком весит сотни мегабайт, и `ZipDecoder` разворачивает её целиком в
+  /// память, застилая экран на секунды. Наружу отдаётся только путь к
+  /// выложенной базе — sqlite открывается уже в главном изоляте, там для него
+  /// загружена нативная библиотека.
+  static Future<Map<String, Object?>> _unpackApkg(String path) async {
     final archive = ZipDecoder().decodeBytes(await File(path).readAsBytes());
     ArchiveFile? dbFile;
     for (final want in const ['collection.anki21', 'collection.anki2']) {
@@ -96,19 +101,32 @@ class DeckImport {
     // разворачивается в гигабайты и кладёт приложение по памяти.
     if (dbFile != null &&
         dbFile.size > BookImport.defaultMaxUncompressedBytes) {
-      throw Exception('apkg database is implausibly large: ${dbFile.size}');
+      return const {'tooBig': true};
     }
     if (dbFile == null) {
       final hasZstd = archive.files.any((f) => f.name == 'collection.anki21b');
-      if (hasZstd) throw _UnsupportedApkg();
-      throw Exception('collection.anki2 not found');
+      return {'zstd': hasZstd};
     }
 
-    // Пишем базу во временный файл и открываем через sqlite3.
     final tmp = File(
       '${Directory.systemTemp.path}/fern_anki_${DateTime.now().microsecondsSinceEpoch}.sqlite',
     );
     await tmp.writeAsBytes(dbFile.content as List<int>);
+    return {'db': tmp.path};
+  }
+
+  static Future<List<_Row>> _parseApkg(String path) async {
+    final unpacked = await compute(_unpackApkg, path);
+    if (unpacked['tooBig'] == true) {
+      throw Exception('apkg database is implausibly large');
+    }
+    final dbPath = unpacked['db'] as String?;
+    if (dbPath == null) {
+      if (unpacked['zstd'] == true) throw _UnsupportedApkg();
+      throw Exception('collection.anki2 not found');
+    }
+
+    final tmp = File(dbPath);
     final out = <_Row>[];
     Database? db;
     try {

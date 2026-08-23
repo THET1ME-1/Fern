@@ -118,12 +118,18 @@ class _ProSheetState extends State<ProSheet> {
   Future<void> _buy() async {
     HapticFeedback.mediumImpact();
     setState(() => _busy = true);
-    final started = await BillingService.instance.buy();
+    var started = false;
+    try {
+      started = await BillingService.instance.buy();
+    } finally {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _error = started ? null : _troubleText();
+        });
+      }
+    }
     if (!mounted) return;
-    setState(() {
-      _busy = false;
-      _error = started ? null : _troubleText();
-    });
     // Магазин закрывает лист сам, когда покупка дошла: слушаем состояние.
     if (started && Pro.active) Navigator.of(context).maybePop();
   }
@@ -140,18 +146,24 @@ class _ProSheetState extends State<ProSheet> {
       _restoring = true;
       _error = null;
     });
-    final outcome = await BillingService.instance.restore();
+    var outcome = RestoreOutcome.failed;
+    try {
+      outcome = await BillingService.instance.restore();
+    } finally {
+      if (mounted) {
+        setState(() {
+          _busy = false;
+          _restoring = false;
+          _error = switch (outcome) {
+            RestoreOutcome.restored => null,
+            RestoreOutcome.nothing => tr('pro_restore_nothing'),
+            RestoreOutcome.failed => tr('pro_restore_failed'),
+            RestoreOutcome.unavailable => _troubleText(),
+          };
+        });
+      }
+    }
     if (!mounted) return;
-    setState(() {
-      _busy = false;
-      _restoring = false;
-      _error = switch (outcome) {
-        RestoreOutcome.restored => null,
-        RestoreOutcome.nothing => tr('pro_restore_nothing'),
-        RestoreOutcome.failed => tr('pro_restore_failed'),
-        RestoreOutcome.unavailable => _troubleText(),
-      };
-    });
     if (outcome != RestoreOutcome.restored) return;
     final messenger = ScaffoldMessenger.of(context);
     Navigator.of(context).maybePop();
@@ -163,10 +175,14 @@ class _ProSheetState extends State<ProSheet> {
     if (raw.isEmpty) return;
     HapticFeedback.selectionClick();
     setState(() => _busy = true);
-    final result = await LicenseService.instance.apply(raw);
+    ApplyResult result;
+    try {
+      result = await LicenseService.instance.apply(raw);
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
     if (!mounted) return;
     setState(() {
-      _busy = false;
       _error = result.info != null
           ? null
           : (result.expired ? tr('pro_key_expired') : tr('pro_key_bad'));

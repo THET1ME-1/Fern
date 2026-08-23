@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/services/book_import.dart';
+
+import 'test_helpers.dart';
 
 void main() {
   test('FB2: секции становятся главами', () async {
@@ -55,5 +58,29 @@ void main() {
     await f.writeAsString('Просто текст.\nВторая строка.\n');
     final book = await BookImport.extract(f.path);
     expect(book!.chapters, isEmpty);
+  });
+
+
+  test('глава без заголовка называется на языке интерфейса', () async {
+    // Разбор идёт в фоновом изоляте, где своя копия статики: если шаблон
+    // названия не передать аргументом, глава получит язык по умолчанию.
+    await resetStorage();
+    await LocaleController.instance.setCode('ru');
+    addTearDown(() => LocaleController.instance.setCode('en'));
+
+    final dir = Directory.systemTemp.createTempSync('fern_untitled');
+    addTearDown(() => dir.deleteSync(recursive: true));
+    final f = File('${dir.path}/book.fb2');
+    await f.writeAsString(
+      '<FictionBook><description><title-info>'
+      '<book-title>Без имён</book-title></title-info></description><body>'
+      '<section><p>Первый абзац.</p></section>'
+      '<section><p>Второй абзац.</p></section>'
+      '</body></FictionBook>',
+    );
+
+    final book = await BookImport.extract(f.path);
+    expect(book, isNotNull);
+    expect(book!.chapters.map((c) => c.title), ['Раздел 1', 'Раздел 2']);
   });
 }

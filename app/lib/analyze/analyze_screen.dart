@@ -13,6 +13,7 @@ import '../services/pos.dart';
 import '../services/source_library.dart';
 import '../services/text_analysis.dart';
 import '../services/translation/translation_manager.dart';
+import '../services/translation/translation_provider.dart';
 import '../study/reader_settings.dart' show HighlightMode;
 import '../study/tappable_text.dart';
 import '../study/word_lookup_sheet.dart';
@@ -91,28 +92,37 @@ class _AnalyzeScreenState extends State<AnalyzeScreen> {
       _busy = true;
       _translation = '';
     });
-    await ConstructionCatalog.instance.ensureLoaded(_lang);
-    final analysis = TextParse.analyze(text, _lang);
-    final hits = Constructions.find(analysis, _lang);
-    if (!mounted) return;
-    setState(() {
-      _analysis = analysis;
-      _hits = hits;
-      _busy = false;
-      _translating = true;
-    });
+    try {
+      await ConstructionCatalog.instance.ensureLoaded(_lang);
+      final analysis = TextParse.analyze(text, _lang);
+      final hits = Constructions.find(analysis, _lang);
+      if (!mounted) return;
+      setState(() {
+        _analysis = analysis;
+        _hits = hits;
+        _translating = true;
+      });
+    } finally {
+      // Не загрузился ассет с правилами — кнопка «Разобрать» обязана ожить.
+      if (mounted) setState(() => _busy = false);
+    }
     // Перевод идёт отдельно и позже: движок может быть офлайн-моделью или
     // сервером, а разбор по словам обязан появиться сразу.
-    final res = await TranslationManager.instance.translate(
-      text,
-      _lang,
-      LocaleController.instance.code,
-    );
-    if (!mounted) return;
-    setState(() {
-      _translation = res?.primary ?? '';
-      _translating = false;
-    });
+    TransResult? res;
+    try {
+      res = await TranslationManager.instance.translate(
+        text,
+        _lang,
+        LocaleController.instance.code,
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _translation = res?.primary ?? '';
+          _translating = false;
+        });
+      }
+    }
   }
 
   /// Правила, найденные в тексте, без повторов: одно правило показывается раз,
