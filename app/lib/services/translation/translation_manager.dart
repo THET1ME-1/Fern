@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '../deck_repository.dart';
+import '../translation_service.dart';
 import 'dictionary_service.dart';
 import 'endpoint_provider.dart';
 import 'mlkit_provider.dart';
@@ -123,6 +124,15 @@ class TranslationManager extends ChangeNotifier {
   /// Можно ли показывать кнопку перевода для этой пары (online работает для
   /// любой различной пары; офлайн-fallback подхватит поддерживаемые).
   bool canTranslate(String from, String to) => from != to;
+
+  /// Идёт ли сейчас фоновая докачка офлайн-модели для этой пары.
+  bool offlineModelLoading(String from, String to) =>
+      TranslationService.downloadingPair(from, to);
+
+  /// Ключ строки для сообщения о неудаче. Пока словарь качается, человеку
+  /// честнее сказать про загрузку: перевод появится сам, ошибки тут нет.
+  String failureKey(String from, String to) =>
+      offlineModelLoading(from, to) ? 'translate_downloading' : 'translate_failed';
 
   /// Переводит через активный провайдер, при неудаче — по fallback-цепочке
   /// (активный → Google → ML Kit). Затем обогащает словарём (часть речи,

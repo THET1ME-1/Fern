@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:fern/services/translation/translation_manager.dart';
+import 'package:fern/services/translation_service.dart';
 import 'package:fern/services/translation/translation_provider.dart';
 
 /// Звено, которое молчит навсегда: так вёл себя ML Kit, пока ждал загрузку
@@ -103,5 +104,26 @@ void main() {
         .translate('book', 'en', 'ru', enrich: false)
         .timeout(const Duration(seconds: 2));
     expect(res, isNull);
+  });
+
+  group('сообщение о неудаче', () {
+    tearDown(() {
+      TranslationService.debugSetDownloading('en', value: false);
+    });
+
+    test('пока модель качается, говорим про загрузку, а не про ошибку', () {
+      TranslationService.debugSetDownloading('en');
+      expect(mgr.failureKey('en', 'ru'), 'translate_downloading');
+    });
+
+    test('загрузки нет — обычная ошибка перевода', () {
+      expect(mgr.failureKey('en', 'ru'), 'translate_failed');
+    });
+
+    test('качается чужой язык — на нашу пару это не влияет', () {
+      TranslationService.debugSetDownloading('de');
+      expect(mgr.failureKey('en', 'ru'), 'translate_failed');
+      TranslationService.debugSetDownloading('de', value: false);
+    });
   });
 }

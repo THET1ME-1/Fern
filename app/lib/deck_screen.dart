@@ -998,7 +998,9 @@ class _CardEditorSheetState extends State<_CardEditorSheet> {
     if (res == null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(tr('translate_failed'))));
+      ).showSnackBar(SnackBar(
+        content: Text(tr(_mgr.failureKey(widget.languageCode, _targetLang))),
+      ));
     }
   }
 

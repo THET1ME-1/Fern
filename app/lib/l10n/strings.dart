@@ -228,8 +228,8 @@ const Map<String, Map<String, String>> _strings = {
   },
   'translate_action': {'ru': 'Перевести', 'en': 'Translate'},
   'translate_downloading': {
-    'ru': 'Загрузка языковой модели…',
-    'en': 'Downloading language model…'
+    'ru': 'Скачиваю офлайн-словарь…',
+    'en': 'Downloading the offline dictionary…'
   },
   'translate_failed': {'ru': 'Не удалось перевести', 'en': 'Translation failed'},
   'translate_variants': {'ru': 'Варианты', 'en': 'Variants'},

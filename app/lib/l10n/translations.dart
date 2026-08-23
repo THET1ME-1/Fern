@@ -100,7 +100,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'card_mnemonic_hint':
         'Eigene Assoziation: Klangähnlichkeit, Bild, absurde Szene',
     'translate_action': 'Übersetzen',
-    'translate_downloading': 'Sprachmodell wird geladen…',
+    'translate_downloading': 'Offline-Wörterbuch wird geladen…',
     'translate_failed': 'Übersetzung fehlgeschlagen',
     'translate_variants': 'Varianten',
     'delete_card': 'Karte löschen',
@@ -1018,7 +1018,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'card_mnemonic_hint':
         'Votre association : un mot qui sonne pareil, une image, une scène absurde',
     'translate_action': 'Traduire',
-    'translate_downloading': 'Téléchargement du modèle de langue…',
+    'translate_downloading': 'Téléchargement du dictionnaire hors ligne…',
     'translate_failed': 'Échec de la traduction',
     'translate_variants': 'Variantes',
     'delete_card': 'Supprimer la carte',
@@ -1936,7 +1936,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'card_mnemonic_hint':
         'Tu propia asociación: un parecido sonoro, una imagen, una escena absurda',
     'translate_action': 'Traducir',
-    'translate_downloading': 'Descargando modelo de idioma…',
+    'translate_downloading': 'Descargando el diccionario sin conexión…',
     'translate_failed': 'No se pudo traducir',
     'translate_variants': 'Variantes',
     'delete_card': 'Eliminar tarjeta',
@@ -2851,7 +2851,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'card_mnemonic_hint':
         'La tua associazione: un suono simile, un\'immagine, una scena assurda',
     'translate_action': 'Traduci',
-    'translate_downloading': 'Download del modello linguistico…',
+    'translate_downloading': 'Scaricamento del dizionario offline…',
     'translate_failed': 'Traduzione non riuscita',
     'translate_variants': 'Varianti',
     'delete_card': 'Elimina carta',
@@ -3766,7 +3766,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'card_mnemonic_hint':
         'Sua própria associação: um som parecido, uma imagem, uma cena absurda',
     'translate_action': 'Traduzir',
-    'translate_downloading': 'Baixando modelo de idioma…',
+    'translate_downloading': 'Baixando o dicionário offline…',
     'translate_failed': 'Falha ao traduzir',
     'translate_variants': 'Variantes',
     'delete_card': 'Excluir cartão',

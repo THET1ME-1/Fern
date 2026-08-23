@@ -47,6 +47,27 @@ class TranslationService {
     }
   }
 
+  /// Качается ли прямо сейчас модель для этой пары. UI по этому признаку
+  /// говорит «скачиваю словарь» вместо «не удалось перевести».
+  static bool downloadingPair(String fromCode, String toCode) {
+    if (_downloading.isEmpty) return false;
+    for (final raw in [fromCode, toCode]) {
+      final code = BCP47Code.fromRawValue(raw);
+      if (code != null && _downloading.contains(code.bcpCode)) return true;
+    }
+    return false;
+  }
+
+  /// Отмечает язык как качающийся (только для тестов).
+  @visibleForTesting
+  static void debugSetDownloading(String bcpCode, {bool value = true}) {
+    if (value) {
+      _downloading.add(bcpCode);
+    } else {
+      _downloading.remove(bcpCode);
+    }
+  }
+
   /// Докачивает недостающие модели пары. Зовётся В ФОНЕ — перевод её не ждёт.
   ///
   /// `isWifiRequired: false` намеренно: с дефолтом пакета (`true`) на мобильном

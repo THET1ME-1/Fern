@@ -683,7 +683,8 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                     _translatePara(i);
                   },
                   child: Text(
-                    '${tr('translate_failed')} · ${tr('retry')}',
+                    '${tr(TranslationManager.instance.failureKey(_srcLang, _tgtLang))}'
+                    ' · ${tr('retry')}',
                     style: TextStyle(
                       fontFamily: _settings.fontFamily,
                       fontSize: 14 * _settings.fontScale,

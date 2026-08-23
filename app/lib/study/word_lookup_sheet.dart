@@ -78,6 +78,8 @@ class _WordLookupState extends State<_WordLookup> {
   bool _loading = true;
   String _back = '';
   List<String> _options = [];
+  /// Что писать вместо перевода, если его нет: ошибку или «качаю словарь».
+  String _failKey = 'translate_failed';
   String? _pos;
   String? _phonetic;
   LookupAddResult? _addResult;
@@ -108,6 +110,10 @@ class _WordLookupState extends State<_WordLookup> {
     if (!mounted) return;
     setState(() {
       _loading = false;
+      if (res == null) {
+        _failKey = TranslationManager.instance
+            .failureKey(widget.sourceLang, widget.targetLang);
+      }
       if (res != null) {
         _back = res.primary;
         _options = res.options;
@@ -237,8 +243,12 @@ class _WordLookupState extends State<_WordLookup> {
                 )
               else if (_back.isEmpty)
                 Text(
-                  tr('translate_failed'),
-                  style: TextStyle(color: scheme.error),
+                  tr(_failKey),
+                  style: TextStyle(
+                    color: _failKey == 'translate_failed'
+                        ? scheme.error
+                        : scheme.onSurfaceVariant,
+                  ),
                 )
               else ...[
                 Text(

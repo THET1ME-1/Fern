@@ -140,7 +140,9 @@ Bold). Причина: в Unbounded заглавная `I`, строчная `l`
 не спасал: цепочка ждала первое звено. Три правки: перевод идёт только на УЖЕ
 скачанных моделях, загрузка вынесена в фоновый `ensureModels` с
 `isWifiRequired: false`, и у каждого звена цепочки есть потолок ожидания
-(`TranslationManager.linkTimeout`, 20 с). Тест — `test/translation_chain_test.dart`.
+(`TranslationManager.linkTimeout`, 20 с). Пока словарь качается, экраны пишут
+об этом, а не «Не удалось перевести»: ключ выбирает `TranslationManager.failureKey`.
+Тест — `test/translation_chain_test.dart`.
 
 **Счётчик готовности FSRS мерил не то, что гейт.** Под кнопкой
 «Оптимизировать» стояло число ВСЕХ событий журнала («387 / 200»), кнопка была

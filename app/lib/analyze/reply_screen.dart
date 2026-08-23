@@ -80,7 +80,10 @@ class _ReplyScreenState extends State<ReplyScreen> {
       setState(() => _busy = false);
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text(tr('translate_failed'))));
+        ..showSnackBar(SnackBar(
+          content: Text(tr(TranslationManager.instance
+              .failureKey(LocaleController.instance.code, _lang))),
+        ));
       return;
     }
     final analysis = TextParse.analyze(text, _lang);
