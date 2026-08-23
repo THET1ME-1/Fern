@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
@@ -5,7 +6,7 @@ import 'package:google_mlkit_translation/google_mlkit_translation.dart';
 
 /// Офлайн-перевод (Google ML Kit, on-device). Помощник при создании карточек:
 /// заполняет перевод по введённому слову. Модели языков скачиваются на
-/// устройство при первом использовании.
+/// устройство отдельно ([ensureModels]) — сам перевод их не ждёт.
 ///
 /// Только Android/iOS; на десктопе/в тестах методы возвращают null.
 class TranslationService {
@@ -16,6 +17,14 @@ class TranslationService {
 
   static final OnDeviceTranslatorModelManager _models =
       OnDeviceTranslatorModelManager();
+
+  /// Языки, чьи модели качаются прямо сейчас: повторный промах не плодит
+  /// вторую загрузку того же файла.
+  static final Set<String> _downloading = <String>{};
+
+  /// Сколько ждём загрузку модели, прежде чем считать её несостоявшейся.
+  /// Загрузка идёт фоном, поэтому потолок щедрый — он только освобождает флаг.
+  static const Duration _downloadTimeout = Duration(minutes: 5);
 
   /// Можно ли перевести с [fromCode] на [toCode] (оба поддержаны и различны).
   static bool canTranslate(String fromCode, String toCode) {
@@ -38,8 +47,44 @@ class TranslationService {
     }
   }
 
-  /// Переводит [text] с [fromCode] на [toCode]. Докачивает модели при
-  /// необходимости. Возвращает перевод или null при ошибке/недоступности.
+  /// Докачивает недостающие модели пары. Зовётся В ФОНЕ — перевод её не ждёт.
+  ///
+  /// `isWifiRequired: false` намеренно: с дефолтом пакета (`true`) на мобильном
+  /// интернете ML Kit ставит загрузку в очередь до появления Wi-Fi и НЕ
+  /// завершает Task ни успехом, ни ошибкой — вызов висел вечно.
+  static Future<bool> ensureModels(String fromCode, String toCode) async {
+    if (!supported) return false;
+    final codes = <String>[];
+    for (final raw in [fromCode, toCode]) {
+      final code = BCP47Code.fromRawValue(raw);
+      if (code == null) return false;
+      codes.add(code.bcpCode);
+    }
+    var ok = true;
+    for (final code in codes) {
+      if (_downloading.contains(code)) {
+        ok = false;
+        continue;
+      }
+      _downloading.add(code);
+      try {
+        if (!await _models.isModelDownloaded(code)) {
+          await _models
+              .downloadModel(code, isWifiRequired: false)
+              .timeout(_downloadTimeout);
+        }
+      } catch (e) {
+        debugPrint('model download failed ($code): $e');
+        ok = false;
+      } finally {
+        _downloading.remove(code);
+      }
+    }
+    return ok;
+  }
+
+  /// Переводит [text] с [fromCode] на [toCode] на УЖЕ скачанных моделях.
+  /// Модели нет — возвращает null сразу, не задерживая цепочку провайдеров.
   static Future<String?> translate(
     String text,
     String fromCode,
@@ -53,9 +98,7 @@ class TranslationService {
     OnDeviceTranslator? translator;
     try {
       for (final lang in [from, to]) {
-        if (!await _models.isModelDownloaded(lang.bcpCode)) {
-          await _models.downloadModel(lang.bcpCode);
-        }
+        if (!await _models.isModelDownloaded(lang.bcpCode)) return null;
       }
       translator = OnDeviceTranslator(sourceLanguage: from, targetLanguage: to);
       final result = (await translator.translateText(t)).trim();

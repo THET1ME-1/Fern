@@ -17,12 +17,32 @@ class TranslationManager extends ChangeNotifier {
   TranslationManager._();
   static final TranslationManager instance = TranslationManager._();
 
-  final MlKitProvider _mlkit = MlKitProvider();
-  final OnlineMtProvider _google = OnlineMtProvider();
+  TranslationProvider _mlkit = MlKitProvider();
+  TranslationProvider _google = OnlineMtProvider();
   final List<EndpointConfig> _endpoints = [];
 
   String _activeId = 'mlkit';
   bool _loaded = false;
+
+  /// Сколько ждём одно звено цепочки, прежде чем идти к следующему. Движок
+  /// может замолчать вовсе (свой сервер не отвечает, нативная задача повисла),
+  /// и без потолка человек смотрит на спиннер бесконечно.
+  @visibleForTesting
+  static Duration linkTimeout = const Duration(seconds: 20);
+
+  /// Подменяет встроенные звенья цепочки (только для тестов).
+  @visibleForTesting
+  void debugSetBuiltins({
+    TranslationProvider? offline,
+    TranslationProvider? online,
+    String activeId = 'mlkit',
+  }) {
+    if (offline != null) _mlkit = offline;
+    if (online != null) _google = online;
+    _endpoints.clear();
+    _activeId = activeId;
+    _loaded = true;
+  }
 
   DeckRepository get _repo => DeckRepository.instance;
 
@@ -121,7 +141,9 @@ class TranslationManager extends ChangeNotifier {
     TransResult? result;
     for (final p in _fallbackChain()) {
       if (!p.supportsPair(from, to)) continue;
-      result = await p.translate(t, from, to, context: context);
+      result = await p
+          .translate(t, from, to, context: context)
+          .timeout(linkTimeout, onTimeout: () => null);
       if (result != null) break;
     }
     if (result == null) return null;

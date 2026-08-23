@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import '../translation_service.dart';
 import 'translation_provider.dart';
 
 /// Провайдер на базе Google ML Kit on-device — дефолтный **лёгкий офлайн**
 /// вариант и последнее звено fallback-цепочки. Обёртка над существующим
-/// [TranslationService] (модели скачиваются самим ML Kit при первом переводе).
+/// [TranslationService].
+///
+/// Модели языков (десятки мегабайт) не качаются посреди перевода: пока их нет,
+/// звено пропускается, ход переходит онлайн-провайдеру, а загрузка идёт фоном.
 class MlKitProvider extends TranslationProvider {
   @override
   String get id => 'mlkit';
@@ -32,6 +37,10 @@ class MlKitProvider extends TranslationProvider {
     String to, {
     String? context,
   }) async {
+    if (!await TranslationService.modelsReady(from, to)) {
+      unawaited(TranslationService.ensureModels(from, to));
+      return null;
+    }
     final r = await TranslationService.translate(text, from, to);
     if (r == null || r.trim().isEmpty) return null;
     return TransResult(primary: r.trim(), sourceId: id);
