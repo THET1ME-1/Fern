@@ -114,6 +114,12 @@ class EndpointProvider extends TranslationProvider {
   @override
   bool supportsPair(String from, String to) => from != to;
 
+  /// Внутри запросы уже ограничены (15 с у LibreTranslate и DeepL, 60 с у
+  /// Ollama и OpenAI-совместимых). Внешний потолок только страхует от
+  /// зависшего сокета, поэтому он больше самого долгого из них.
+  @override
+  Duration get timeout => const Duration(seconds: 70);
+
   @override
   Future<bool> isReady(String from, String to) async =>
       from != to && config.baseUrl.trim().isNotEmpty;

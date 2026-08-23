@@ -56,6 +56,17 @@ class TtsService {
     }
   }
 
+  /// Потолок ожидания речи. С `awaitSpeakCompletion(true)` вызов ждёт события
+  /// «дочитал» от движка, а оно иногда не приходит вовсе: речь оборвал звонок,
+  /// сменился аудиовыход, движок упал. Тогда `speak` не возвращается — кнопка
+  /// динамика застывает с крутилкой, а чтение книги вслух встаёт на абзаце.
+  ///
+  /// Считаем по длине: на скорости 0.45 выходит примерно десять знаков в
+  /// секунду, плюс шесть секунд на запуск движка.
+  @visibleForTesting
+  static Duration speechLimit(String text) =>
+      Duration(seconds: (6 + text.length ~/ 10).clamp(6, 180));
+
   /// Произносит [text] на языке [languageCode] (код изучаемого языка).
   /// Возвращает false, если озвучить не удалось (движок/язык недоступен).
   Future<bool> speak(String text, String languageCode) async {
@@ -66,7 +77,7 @@ class TtsService {
     try {
       await _tts.stop();
       await _tts.setLanguage(locale);
-      await _tts.speak(t);
+      await _tts.speak(t).timeout(speechLimit(t), onTimeout: () => null);
       return true;
     } catch (e) {
       debugPrint('TTS speak failed: $e');

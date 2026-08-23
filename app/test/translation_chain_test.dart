@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:fern/services/translation/endpoint_provider.dart';
 import 'package:fern/services/translation/translation_manager.dart';
 import 'package:fern/services/translation_service.dart';
 import 'package:fern/services/translation/translation_provider.dart';
@@ -68,7 +69,7 @@ void main() {
   });
 
   tearDown(() {
-    TranslationManager.linkTimeout = const Duration(seconds: 20);
+    TranslationManager.linkTimeout = null;
   });
 
   test('замолчавшее звено не держит цепочку — ход уходит следующему', () async {
@@ -124,6 +125,22 @@ void main() {
       TranslationService.debugSetDownloading('de');
       expect(mgr.failureKey('en', 'ru'), 'translate_failed');
       TranslationService.debugSetDownloading('de', value: false);
+    });
+  });
+
+  group('потолок ожидания', () {
+    test('свой сервер с локальной LLM ждёт дольше веб-переводчика', () {
+      const cfg = EndpointConfig(
+        id: 'x',
+        name: 'Ollama',
+        kind: EndpointKind.ollama,
+        baseUrl: 'http://192.168.1.10:11434',
+        apiKey: '',
+        model: 'llama3.1',
+      );
+      // Внутри запроса к Ollama стоит 60 с: внешний потолок обязан быть больше,
+      // иначе цепочка срывает ответ, который вот-вот придёт.
+      expect(EndpointProvider(cfg).timeout.inSeconds, greaterThan(60));
     });
   });
 }

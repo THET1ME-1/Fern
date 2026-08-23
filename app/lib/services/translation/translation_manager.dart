@@ -25,11 +25,11 @@ class TranslationManager extends ChangeNotifier {
   String _activeId = 'mlkit';
   bool _loaded = false;
 
-  /// Сколько ждём одно звено цепочки, прежде чем идти к следующему. Движок
-  /// может замолчать вовсе (свой сервер не отвечает, нативная задача повисла),
-  /// и без потолка человек смотрит на спиннер бесконечно.
+  /// Потолок ожидания на звено берётся у самого провайдера
+  /// ([TranslationProvider.timeout]): у локальной LLM он свой. Здесь — только
+  /// подмена для тестов.
   @visibleForTesting
-  static Duration linkTimeout = const Duration(seconds: 20);
+  static Duration? linkTimeout;
 
   /// Подменяет встроенные звенья цепочки (только для тестов).
   @visibleForTesting
@@ -153,7 +153,7 @@ class TranslationManager extends ChangeNotifier {
       if (!p.supportsPair(from, to)) continue;
       result = await p
           .translate(t, from, to, context: context)
-          .timeout(linkTimeout, onTimeout: () => null);
+          .timeout(linkTimeout ?? p.timeout, onTimeout: () => null);
       if (result != null) break;
     }
     if (result == null) return null;

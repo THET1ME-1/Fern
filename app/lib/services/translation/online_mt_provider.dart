@@ -28,6 +28,10 @@ class OnlineMtProvider extends TranslationProvider {
   @override
   bool supportsPair(String from, String to) => from != to;
 
+  /// Внутри запрос ограничен десятью секундами.
+  @override
+  Duration get timeout => const Duration(seconds: 15);
+
   @override
   Future<bool> isReady(String from, String to) async => from != to;
 
