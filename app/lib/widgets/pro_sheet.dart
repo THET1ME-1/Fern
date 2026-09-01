@@ -59,6 +59,34 @@ class _ProSheetState extends State<ProSheet> {
   String? _error;
   final _keyController = TextEditingController();
 
+  /// Ключ, найденный в буфере обмена, и что он говорит о покупке.
+  ///
+  /// Бот присылает ключ моноширинным текстом: в Telegram тап по такому копирует
+  /// его целиком. Человек приходит сюда уже с ключом в буфере, и набирать ему
+  /// нечего — остаётся одна кнопка. Буфер читаем только в сборке с GitHub и
+  /// только при открытом листе: в магазинной сборке ключей нет вовсе, а
+  /// молчаливое чтение буфера на старте приложения выглядит слежкой.
+  String? _clipboardKey;
+  LicenseInfo? _clipboardInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kStoreBilling) _lookInClipboard();
+  }
+
+  Future<void> _lookInClipboard() async {
+    final data = await Clipboard.getData(Clipboard.kTextPlain);
+    final text = data?.text?.trim();
+    if (text == null || text.isEmpty) return;
+    final info = await LicenseService.verify(text);
+    if (info == null || !mounted) return;
+    setState(() {
+      _clipboardKey = text;
+      _clipboardInfo = info;
+    });
+  }
+
   @override
   void dispose() {
     _keyController.dispose();
@@ -170,8 +198,8 @@ class _ProSheetState extends State<ProSheet> {
     messenger.showSnackBar(SnackBar(content: Text(tr('pro_restore_ok'))));
   }
 
-  Future<void> _applyKey() async {
-    final raw = _keyController.text.trim();
+  Future<void> _applyKey([String? key]) async {
+    final raw = (key ?? _keyController.text).trim();
     if (raw.isEmpty) return;
     HapticFeedback.selectionClick();
     setState(() => _busy = true);
@@ -308,7 +336,7 @@ class _ProSheetState extends State<ProSheet> {
               Text(_error!, style: TextStyle(color: scheme.error)),
             ],
             const SizedBox(height: 14),
-            if (kStoreBilling) ..._storeButtons(price) else ..._keyButtons(),
+            if (kStoreBilling) ..._storeButtons(price) else ..._keyButtons(scheme),
           ],
           ),
         ),
@@ -339,7 +367,51 @@ class _ProSheetState extends State<ProSheet> {
         ),
       ];
 
-  List<Widget> _keyButtons() => [
+  /// Ключ уже в буфере: одна кнопка вместо поля ввода.
+  Widget _clipboardCard(ColorScheme scheme) {
+    final email = LicenseInfo.maskEmail(_clipboardInfo?.email);
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: scheme.primaryContainer,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            tr('pro_key_in_clipboard'),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: scheme.onPrimaryContainer,
+            ),
+          ),
+          if (email != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              email,
+              style: TextStyle(
+                color: scheme.onPrimaryContainer.withValues(alpha: 0.75),
+              ),
+            ),
+          ],
+          const SizedBox(height: 12),
+          FilledButton(
+            onPressed: _busy ? null : () => _applyKey(_clipboardKey),
+            style: FilledButton.styleFrom(
+              minimumSize: const Size.fromHeight(50),
+              shape: const StadiumBorder(),
+            ),
+            child: Text(tr('pro_key_apply')),
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _keyButtons(ColorScheme scheme) => [
+        if (_clipboardInfo != null) _clipboardCard(scheme),
         if (_keyMode) ...[
           TextField(
             controller: _keyController,

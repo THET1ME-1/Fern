@@ -1447,6 +1447,7 @@ const Map<String, Map<String, String>> _strings = {
   'pro_key_label': {'ru': 'Ключ лицензии', 'en': 'License key'},
   'pro_key_apply': {'ru': 'Активировать', 'en': 'Activate'},
   'pro_key_paste': {'ru': 'Вставить из буфера', 'en': 'Paste from clipboard'},
+  'pro_key_in_clipboard': {'ru': 'Ключ из бота уже в буфере обмена', 'en': 'The key from the bot is already in your clipboard'},
   'pro_key_ok': {'ru': 'Fern Pro открыт', 'en': 'Fern Pro unlocked'},
   'pro_key_bad': {'ru': 'Ключ не подошёл: проверьте, что скопировали его целиком', 'en': 'That key did not work: check that you copied all of it'},
   'restore_key_stale': {
