@@ -24,6 +24,8 @@ import 'package:fern/widgets/optimize_info_sheet.dart';
 import 'package:fern/widgets/weekly_recap.dart';
 import 'package:fern/library_screen.dart';
 import 'package:fern/main.dart';
+import 'package:fern/video/karaoke.dart';
+import 'package:fern/video/subtitle.dart';
 
 import 'test_helpers.dart';
 
@@ -96,6 +98,81 @@ Widget _app(Widget home) => MaterialApp(
       theme: AppTheme.dark(const Color(0xFF2E7D5B)),
       home: home,
     );
+
+/// Лента субтитров разбора видео без плеера: плеер — вебвью, в тесте его не
+/// поднять, а посмотреть надо именно на караоке.
+class _KaraokeReel extends StatelessWidget {
+  final List<SubLine> lines;
+  final int active;
+  final (int, int)? spoken;
+  const _KaraokeReel({
+    required this.lines,
+    required this.active,
+    required this.spoken,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Scaffold(
+      appBar: AppBar(title: const Text('Learn English with Eevee')),
+      body: ListView.builder(
+        padding: const EdgeInsets.fromLTRB(10, 8, 10, 32),
+        itemCount: lines.length,
+        itemBuilder: (context, i) {
+          final on = i == active;
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 240),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+              decoration: BoxDecoration(
+                color: on ? scheme.surfaceContainerHigh : Colors.transparent,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: KaraokeLine(
+                line: lines[i],
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  fontSize: 18,
+                  height: 1.4,
+                  fontWeight: FontWeight.w500,
+                  color: on ? scheme.onSurface : scheme.onSurfaceVariant,
+                ),
+                active: on,
+                spoken: spoken,
+                previous: null,
+                travel: const AlwaysStoppedAnimation(1),
+                pillColor: scheme.primaryContainer,
+                spokenColor: scheme.onPrimaryContainer,
+                known: const {'hair', 'video', 'practice'},
+                sessionAdded: const {},
+                highlightVersion: 0,
+                knownColor: scheme.tertiary,
+                addedColor: scheme.tertiary,
+                onWord: (_) {},
+                onPhrase: (_) {},
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+SubLine _sub(String text, int startMs, int stepMs) {
+  final parts = text.split(' ');
+  return SubLine(
+    start: Duration(milliseconds: startMs),
+    end: Duration(milliseconds: startMs + stepMs * parts.length),
+    text: text,
+    words: [
+      for (var i = 0; i < parts.length; i++)
+        SubWord(parts[i], Duration(milliseconds: startMs + stepMs * i)),
+    ],
+  );
+}
 
 void main() {
   setUp(() async {
@@ -341,5 +418,31 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
     await _shoot(tester, 'nav_labeled_library');
+  });
+
+  testWidgets('видео: караоке-субтитры с бегунком', (tester) async {
+    tester.view.physicalSize = const Size(1080, 1800);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final lines = [
+      _sub('Hi, my name is Eevee and this is a video', 0, 300),
+      _sub('to help you learn English and to', 3000, 300),
+      _sub('practice your listening comprehension', 5100, 420),
+      _sub('Today I am going to film a video about', 6800, 300),
+      _sub('how I do my makeup.', 9500, 320),
+      _sub('Um, and I need to do my hair as well.', 11100, 300),
+      _sub('So, let\'s go. So, or should I start with my', 14100, 300),
+    ];
+    // Звучит «hair» в шестой реплике — плашка стоит на нём.
+    final ranges = lines[5].wordCharRanges();
+    await tester.pumpWidget(_app(_KaraokeReel(
+      lines: lines,
+      active: 5,
+      spoken: ranges[7],
+    )));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'video_karaoke');
   });
 }

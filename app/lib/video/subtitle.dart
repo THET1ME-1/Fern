@@ -36,6 +36,65 @@ class SubLine {
 
   bool get hasWordTiming => words.isNotEmpty;
 
+  /// Реплика, звучащая в момент [pos]: ПОСЛЕДНЯЯ начавшаяся. Реплики авто-дорожки
+  /// наезжают друг на друга (у настоящей дорожки YouTube так лежат 43 из 52:
+  /// конец реплики совпадает с началом той, что через одну), поэтому «внутрь
+  /// какой попал таймкод» — вопрос без единственного ответа. Поиск по концу
+  /// отдавал то одну, то другую: подсветка перепрыгивала через строку, а
+  /// девятнадцать реплик из пятидесяти двух не загорались ни разу.
+  ///
+  /// [lines] упорядочены по [start]. -1 — до первой реплики.
+  static int activeAt(List<SubLine> lines, Duration pos) {
+    var lo = 0, hi = lines.length - 1, found = -1;
+    while (lo <= hi) {
+      final mid = (lo + hi) >> 1;
+      if (lines[mid].start <= pos) {
+        found = mid;
+        lo = mid + 1;
+      } else {
+        hi = mid - 1;
+      }
+    }
+    return found;
+  }
+
+  /// Слово, звучащее в момент [pos]: тоже последнее начавшееся. -1 — реплика
+  /// ещё не дошла до первого слова либо пословной разметки нет.
+  int wordAt(Duration pos) {
+    var found = -1;
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].start > pos) break;
+      found = i;
+    }
+    return found;
+  }
+
+  /// Границы каждого слова в [text] по символам — по элементу на [words],
+  /// null там, где кусок в тексте не нашёлся.
+  ///
+  /// В одном куске пословной разметки бывает два слова (`2440: from what`),
+  /// поэтому куски ищутся по порядку от прошлой находки, а не поиском по всему
+  /// тексту: иначе повтор слова в реплике («So, ... So,») уводит плашку назад.
+  List<(int, int)?> wordCharRanges() {
+    final out = <(int, int)?>[];
+    var cursor = 0;
+    for (final w in words) {
+      final t = w.text.trim();
+      if (t.isEmpty) {
+        out.add(null);
+        continue;
+      }
+      final i = text.indexOf(t, cursor);
+      if (i < 0) {
+        out.add(null);
+        continue;
+      }
+      out.add((i, i + t.length));
+      cursor = i + t.length;
+    }
+    return out;
+  }
+
   /// Границы слова [w] внутри этой реплики (start слова → start следующего /
   /// конец реплики). Используется для проигрывания живого голоса слова.
   (Duration, Duration) wordSpan(SubWord w) {

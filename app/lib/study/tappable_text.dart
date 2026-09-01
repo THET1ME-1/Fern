@@ -46,6 +46,16 @@ class TappableText extends StatefulWidget {
   /// Выделение фразы (long-press + протяжка) → перевод фразы. null — выключено.
   final ValueChanged<String>? onPhrase;
 
+  /// Звучащее сейчас слово (символьные границы) и его цвет — караоке в разборе
+  /// видео. null — обычный текст.
+  final (int, int)? spoken;
+  final Color? spokenColor;
+
+  /// Ключ на отрисованный [RenderParagraph] снаружи: по нему караоке берёт
+  /// границы слова для плашки-бегунка. Свой внутренний ключ остаётся, когда
+  /// снаружи ничего не передали.
+  final GlobalKey? paragraphKey;
+
   const TappableText({
     super.key,
     required this.text,
@@ -60,6 +70,9 @@ class TappableText extends StatefulWidget {
     this.onMiss,
     this.normalize,
     this.onPhrase,
+    this.spoken,
+    this.spokenColor,
+    this.paragraphKey,
   });
 
   @override
@@ -73,7 +86,8 @@ class _TappableTextState extends State<TappableText> {
   );
   static final RegExp _token = RegExp(r'\S+|\s+');
 
-  final GlobalKey _textKey = GlobalKey();
+  final GlobalKey _ownKey = GlobalKey();
+  GlobalKey get _textKey => widget.paragraphKey ?? _ownKey;
 
   /// Диапазоны слов [начало, конец) по индексам в [widget.text] + очищенное
   /// (для показа/добавления) и его нижний регистр (для сверки).
@@ -102,6 +116,8 @@ class _TappableTextState extends State<TappableText> {
       _tokenize();
       _buildSpans();
     } else if (old.highlightVersion != widget.highlightVersion ||
+        old.spoken != widget.spoken ||
+        old.spokenColor != widget.spokenColor ||
         old.style != widget.style ||
         old.knownColor != widget.knownColor ||
         old.addedColor != widget.addedColor ||
@@ -184,10 +200,15 @@ class _TappableTextState extends State<TappableText> {
       }
       final display = widget.text.substring(r.start, r.end);
       final key = widget.normalize?.call(r.lower) ?? r.lower;
-      spans.add(TextSpan(
-        text: display,
-        style: withSel(r.start, r.end, styleForWord(key)),
-      ));
+      var style = withSel(r.start, r.end, styleForWord(key));
+      // Звучащее слово перекрашивается поверх всего остального: под ним едет
+      // плашка караоке, и цвет «знакомого» слова на ней теряется.
+      final sp = widget.spoken;
+      if (sp != null && widget.spokenColor != null &&
+          r.start < sp.$2 && r.end > sp.$1) {
+        style = (style ?? widget.style).copyWith(color: widget.spokenColor);
+      }
+      spans.add(TextSpan(text: display, style: style));
       cursor = r.end;
     }
     if (cursor < widget.text.length) {
