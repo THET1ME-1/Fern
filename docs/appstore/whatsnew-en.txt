@@ -1,0 +1,6 @@
+Video study now works like karaoke: the subtitle line stays put and the word being spoken moves along it. You can see where you are in the sentence even when the speech is fast.
+
+Fixed:
+• The highlight no longer skips a line. Automatic captions overlap each other, and the app used to pick one of the two at random — some lines never lit up at all.
+• The subtitle list stopped jumping: the active line no longer grows and reflows the list while it scrolls.
+• The highlight moves evenly instead of in steps: between the player's updates the app keeps time itself.
