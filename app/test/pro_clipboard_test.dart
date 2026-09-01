@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fern/l10n/strings.dart';
 import 'package:fern/services/license_service.dart';
+import 'package:fern/utils/build_config.dart';
 import 'package:fern/widgets/pro_sheet.dart';
 
 import 'test_helpers.dart';
@@ -69,7 +70,9 @@ void main() {
     await tester.tap(find.text(tr('pro_key_apply')));
     await tester.pumpAndSettle();
     expect(LicenseService.instance.info?.id, 42);
-  });
+    // В магазинной сборке ключей нет вовсе: карточку буфера там не строят, и
+    // проверять нечего (тот же приём, что у листа Pro в pro_gate_test).
+  }, skip: kStoreBilling);
 
   testWidgets('чужой текст в буфере ничего не предлагает', (tester) async {
     clipboard = 'просто скопированное слово';
