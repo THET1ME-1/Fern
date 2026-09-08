@@ -7,10 +7,13 @@
 Ключ и идентификаторы берутся из `asc.py` (окружение ASC_*). Скрипт
 идемпотентный: существующее не пересоздаёт, недостающее добавляет.
 
-ЧТО ОСТАЁТСЯ ЧЕЛОВЕКУ. Apple требует у подписки скриншот для проверки и
-соглашения о платных приложениях; загрузка снимка идёт через отдельный
-трёхшаговый upload, и делать его вслепую нельзя — экран подписки должен быть
-снят на живом iPhone.
+ПОРЯДОК ВАЖЕН: сперва страны, потом цена. Пока у подписки нет доступности,
+Apple отвечает на цену 409 «An error occurred while processing the pricing
+information» и ни слова про территории — ошибка выглядит как неверный формат,
+и перебирать формат можно долго.
+
+ЧТО ОСТАЁТСЯ ЧЕЛОВЕКУ: скриншот подписки для проверки — его надо снять на
+живом iPhone, вслепую нельзя.
 """
 from __future__ import annotations
 
@@ -129,6 +132,32 @@ def тексты(sub_id: str, товар: dict) -> None:
         print(f'      текст {локаль}')
 
 
+def доступность(sub_id: str) -> None:
+    """В каких странах продаётся подписка.
+
+    ЭТО ПЕРВЫЙ ШАГ, а не украшение: пока территорий нет, Apple отвечает на
+    любую цену 409 «An error occurred while processing the pricing
+    information» — про доступность в ответе ни слова, и ошибка выглядит как
+    неверный формат запроса. Перебирать формат бесполезно, надо задать страны.
+    """
+    try:
+        asc.get(f'/v1/subscriptions/{sub_id}/subscriptionAvailability')
+        print('      доступность уже задана')
+        return
+    except SystemExit:
+        pass
+    коды = [т['id'] for т in asc.get('/v1/territories', **{'limit': '200'})['data']]
+    asc.call('POST', '/v1/subscriptionAvailabilities', json={'data': {
+        'type': 'subscriptionAvailabilities',
+        'attributes': {'availableInNewTerritories': True},
+        'relationships': {
+            'subscription': {'data': {'type': 'subscriptions', 'id': sub_id}},
+            'availableTerritories': {'data': [
+                {'type': 'territories', 'id': к} for к in коды]},
+        }}})
+    print(f'      доступность: {len(коды)} стран')
+
+
 def цена(sub_id: str, товар_id: str) -> None:
     """Цена задаётся точкой прайса Apple: своих чисел у них нет, есть сетка."""
     уже = asc.get(f'/v1/subscriptions/{sub_id}/prices', **{'limit': '5'})['data']
@@ -152,25 +181,18 @@ def цена(sub_id: str, товар_id: str) -> None:
         доступные = sorted({т['attributes'].get('customerPrice') for т in точки})
         print(f'      точки {нужно} нет; рядом: {доступные[:12]}')
         return
-    # Цена через API у Apple не встаёт: на POST /v1/subscriptionPrices сервер
-    # отвечает 409 «An error occurred while processing the pricing
-    # information», а с датой старта — 500 «unexpected error on the server
-    # side». Формат перебран (с территорией и без, с preserveCurrentPrice и
-    # без, с датой и без), товар и точка прайса свои. Оставляем попытку и НЕ
-    # роняем проход: остальное заводится, цену ставят в консоли одним полем.
-    try:
-        asc.call('POST', '/v1/subscriptionPrices', json={'data': {
-            'type': 'subscriptionPrices',
-            'attributes': {'preserveCurrentPrice': False},
-            'relationships': {
-                'subscription': {'data': {'type': 'subscriptions', 'id': sub_id}},
-                'subscriptionPricePoint': {'data': {
-                    'type': 'subscriptionPricePoints', 'id': подходящие[0]['id']}},
-            },
-        }})
-        print(f'      цена {нужно} $ по территории {БАЗОВАЯ_СТРАНА}')
-    except SystemExit:
-        print(f'      цену {нужно} $ Apple через API не принял — ставить в консоли')
+    asc.call('POST', '/v1/subscriptionPrices', json={'data': {
+        'type': 'subscriptionPrices',
+        'attributes': {'startDate': None, 'preserveCurrentPrice': False},
+        'relationships': {
+            'subscription': {'data': {'type': 'subscriptions', 'id': sub_id}},
+            'subscriptionPricePoint': {'data': {
+                'type': 'subscriptionPricePoints', 'id': подходящие[0]['id']}},
+            'territory': {'data': {'type': 'territories', 'id': БАЗОВАЯ_СТРАНА}},
+        },
+    }})
+    print(f'      цена {нужно} $ по территории {БАЗОВАЯ_СТРАНА}; '
+          'остальные страны Apple посчитает сама')
 
 
 def state() -> None:
@@ -201,6 +223,7 @@ def setup() -> None:
     for товар in ТОВАРЫ:
         sub_id = завести_товар(group_id, товар, готовые)
         тексты(sub_id, товар)
+        доступность(sub_id)
         цена(sub_id, товар['productId'])
     print('готово')
 
