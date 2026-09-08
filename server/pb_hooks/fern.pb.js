@@ -524,6 +524,10 @@ routerAdd("POST", "/api/fern/sync", (e) => {
     "https://gate.lava.top").replace(/\/+$/, "");
   const полный = body.full === true || String(body.full || "") === "true";
   const apiKey = $os.getenv("LAVA_API_KEY") || "";
+  // Адрес проверки чеков — свой, отдельный от адреса lava: в тесте оба ведут
+  // на заглушку, в бою это разные службы.
+  let базаПроверки = $os.getenv("FERN_VERIFY_URL") || "http://127.0.0.1:8097";
+  if (body.verify_base) базаПроверки = String(body.verify_base);
 
   const сдвиг = (от, план) => {
     const д = new Date(от.getTime());
@@ -672,7 +676,91 @@ routerAdd("POST", "/api/fern/sync", (e) => {
     }
   }
 
-  return e.json(200, { ok: true, paid: оплачено, synced: сверено });
+  // --- 3. Сверка магазинных подписок ---
+  //
+  // Уведомления Google требуют Pub/Sub в консоли, а его включение нам не
+  // отдали. Поэтому срок спрашиваем сами: раз в сутки проходим по магазинным
+  // заказам и обновляем то, что продлилось или кончилось. Продление доезжает
+  // за сутки вместо «когда человек откроет приложение».
+  let магазинных = 0;
+  if (полный) {
+    let заказыМагазинов = [];
+    try {
+      заказыМагазинов = $app.findRecordsByFilter(
+        "fern_orders", "status = 'paid' && (source = 'play' || source = 'apple')",
+        "-updated", 500, 0);
+    } catch (err) {
+      console.log("[fern] магазинные заказы не прочитаны: " + err);
+      заказыМагазинов = [];
+    }
+    for (let i = 0; i < заказыМагазинов.length; i++) {
+      const заказ = заказыМагазинов[i];
+      const платформа = String(заказ.get("source") || "");
+      // У Apple свой путь: их серверное API требует отдельного ключа покупок,
+      // которого у нас нет. Там продление приносит сам чек при запуске плюс
+      // шестнадцатидневная льгота, включённая в App Store Connect.
+      if (платформа !== "play") continue;
+      const чек = String(заказ.get("order_key") || "").replace(/^PLAY:/, "");
+      if (!чек) continue;
+      let вердикт = null;
+      try {
+        const r = $http.send({
+          url: базаПроверки.replace(/\/+$/, "") + "/verify",
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            store: "play", kind: "subscription",
+            productId: String(заказ.get("plan")) === "year"
+              ? "fern_pro_year" : "fern_pro_month",
+            purchaseToken: чек,
+            package: $os.getenv("FERN_PLAY_PACKAGE") || "com.fern.app",
+          }),
+          timeout: 25,
+        });
+        вердикт = (r && r.json) || null;
+      } catch (_) { вердикт = null; }
+      if (!вердикт || вердикт.ok !== true) continue;
+
+      let человек = null;
+      try {
+        человек = $app.findRecordById("fern_users", String(заказ.get("uid") || ""));
+      } catch (_) { человек = null; }
+      if (!человек) continue;
+
+      let изменено = false;
+      if (вердикт.valid === true && вердикт.expiry) {
+        const d = new Date(String(вердикт.expiry).replace(" ", "T"));
+        const было = String(человек.get("pro_until") || "");
+        if (!isNaN(d.getTime()) &&
+            было.substring(0, 10) !== d.toISOString().substring(0, 10)) {
+          человек.set("pro_until", d.toISOString());
+          заказ.set("until", d.toISOString());
+          изменено = true;
+        }
+        const статус = вердикт.cancelled === true ? "cancelled" : "active";
+        if (String(человек.get("pro_status")) !== статус) {
+          человек.set("pro_status", статус);
+          изменено = true;
+        }
+      } else if (вердикт.valid === false &&
+                 String(вердикт.state || "").indexOf("EXPIRED") !== -1 &&
+                 String(человек.get("pro_status")) !== "expired") {
+        человек.set("pro_status", "expired");
+        изменено = true;
+      }
+      if (изменено) {
+        try {
+          $app.save(человек);
+          $app.save(заказ);
+          магазинных++;
+        } catch (err) { console.log("[fern] " + err); }
+      }
+    }
+  }
+
+  return e.json(200, {
+    ok: true, paid: оплачено, synced: сверено, stores: магазинных,
+  });
 });
 
 // Кроны зовут тот же роут: логика синхронизации живёт в одном месте и

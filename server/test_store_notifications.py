@@ -184,6 +184,24 @@ def главное():
         check("возврат погасил доступ", зап["pro_status"], "refunded")
         check("срок обнулён", день(зап["pro_until"]) <= сегодня, True)
 
+        # --- суточная сверка сама забирает продление у Google ---
+        # Уведомления требуют Pub/Sub из консоли, поэтому продление обязано
+        # доезжать и без них.
+        к, найдено = q("GET",
+                       f"/api/collections/fern_orders/records?filter=(uid='{uid}')", su)
+        заказ = найдено["items"][0]
+        q("PATCH", f"/api/collections/fern_orders/records/{заказ['id']}", su,
+          {"source": "play", "order_key": f"PLAY:{ТОКЕН_ПОКУПКИ}", "status": "paid"})
+        далеко = (datetime.now(timezone.utc) + timedelta(days=150)).isoformat()
+        ОТВЕТ["verify"] = {"ok": True, "valid": True, "expiry": далеко}
+        к, ответ = q("POST", "/api/fern/sync",
+                     данные={"lava_base": база, "verify_base": база, "full": True},
+                     ключ=КЛЮЧ)
+        check("сверка прошла", к, 200)
+        check("магазинная подписка обновлена", ответ.get("stores"), 1)
+        check("срок взят у магазина",
+              (день(аккаунт()["pro_until"]) - сегодня).days, 150)
+
         # --- подделка не проходит ---
         ОТВЕТ["notification"] = {"ok": True, "valid": False, "reason": "bad_signature"}
         к, ответ = q("POST", "/api/fern/apple-notify",
