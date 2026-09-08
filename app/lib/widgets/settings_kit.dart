@@ -230,12 +230,16 @@ class SettingsTone extends InheritedWidget {
 
   /// Тон секции по её имени. Незнакомая секция получает акцент — так новый
   /// раздел выглядит своим ещё до того, как ему подберут цвет.
+  /// Разница между секциями держится на СВЕТЛОТЕ, а не на чужом цвете:
+  /// голубой `tertiary` от зелёного seed спорил с зелёным заголовком секции,
+  /// и первая секция выглядела из другого приложения. Цвет в Fern занят
+  /// частями речи, поэтому здесь он работает тише — тоном, а не оттенком.
   static (Color, Color) forSection(String id, ColorScheme scheme) =>
       switch (id) {
-        'appearance' => (scheme.tertiaryContainer, scheme.onTertiaryContainer),
+        'appearance' => (scheme.primaryContainer, scheme.onPrimaryContainer),
         'study' => (scheme.primaryContainer, scheme.onPrimaryContainer),
         'home' => (scheme.secondaryContainer, scheme.onSecondaryContainer),
-        'reminders' => (scheme.tertiaryContainer, scheme.onTertiaryContainer),
+        'reminders' => (scheme.secondaryContainer, scheme.onSecondaryContainer),
         'language' => (scheme.secondaryContainer, scheme.onSecondaryContainer),
         'data' => (scheme.surfaceContainerHighest, scheme.onSurfaceVariant),
         'pro' => (scheme.primaryContainer, scheme.onPrimaryContainer),

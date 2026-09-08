@@ -219,10 +219,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
             scheme: scheme,
             children: [
               _themeModeTile(scheme),
-              _colorTile(scheme),
-              // Готовые цветовые схемы — кружки из 4 тонов темы (как в системном
-              // пикере Material You). В режиме «цвет из обоев» пресеты не нужны.
-              if (!_theme.useDynamicColor) _paletteRow(scheme),
+              // Кружки готовых схем живут ВНУТРИ пункта «Цвет оформления»:
+              // отдельным блоком они стояли между двумя чужими пунктами и
+              // выглядели ничьими. В режиме «цвет из обоев» пресетов нет.
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _colorTile(scheme),
+                  if (!_theme.useDynamicColor) _paletteRow(scheme),
+                ],
+              ),
               // Цвет из обоев берётся из системной палитры Material You, а её
               // нет нигде, кроме Android 12+. На iOS тумблер стоял бы мёртвым.
               if (_dynamicColorAvailable)
@@ -552,9 +558,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         padding: EdgeInsets.zero,
         child: Material(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(18),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+            // Отступ слева равен ширине чипа с зазором: кружки стоят под
+            // подписью пункта, а не под его иконкой.
+            padding: const EdgeInsets.fromLTRB(
+                14 + SettingsIconChip.size + 14, 0, 16, 14),
             child: Wrap(
               spacing: 12,
               runSpacing: 12,
