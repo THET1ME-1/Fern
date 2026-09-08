@@ -40,6 +40,8 @@ PB_URL = os.environ.get("PB_URL", "http://127.0.0.1:8090").rstrip("/")
      "values": ["month", "year"]},
     {"type": "text", "name": "lava_contract", "required": False, "max": 0},
     {"type": "bool", "name": "lifetime", "required": False},
+    {"type": "autodate", "name": "created", "onCreate": True, "onUpdate": False},
+    {"type": "autodate", "name": "updated", "onCreate": True, "onUpdate": True},
 ]
 
 ПОЛЯ_ЗАКАЗА = [
@@ -59,6 +61,11 @@ PB_URL = os.environ.get("PB_URL", "http://127.0.0.1:8090").rstrip("/")
     {"type": "date", "name": "paid_at", "required": False},
     {"type": "date", "name": "until", "required": False},
     {"type": "json", "name": "raw", "required": False, "maxSize": 200000},
+    # Даты заводятся явно: с PocketBase 0.23 системных created/updated у новых
+    # коллекций нет, а быстрый проход синхронизации отбирает заказы по
+    # `created` — без поля фильтр молча не находит ничего.
+    {"type": "autodate", "name": "created", "onCreate": True, "onUpdate": False},
+    {"type": "autodate", "name": "updated", "onCreate": True, "onUpdate": True},
 ]
 
 КОЛЛЕКЦИИ = [

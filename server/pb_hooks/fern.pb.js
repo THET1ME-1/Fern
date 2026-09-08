@@ -477,3 +477,216 @@ routerAdd("POST", "/api/fern/lava", (e) => {
 
   return e.json(out.s, out.b);
 });
+
+// ------------------------------------------- страховки: сверка с продавцом ---
+///
+/// Вебхук теряется — это правило, а не исключение: у Togetherly первая же
+/// живая покупка ушла в пустоту. Поэтому есть два прохода.
+///
+///   • быстрый (раз в две минуты) добивает СВЕЖИЕ заказы `pending`: спрашивает
+///     счёт и, если он оплачен, открывает подписку;
+///   • полный (раз в сутки) сверяет срок активных подписок с `expiredAt`
+///     продавца — им же лечится пропущенное продление.
+///
+/// Адрес lava можно передать в теле (`lava_base`) — этим пользуется тест,
+/// подставляя заглушку. Роут закрыт ключом вебхука, снаружи его не позвать.
+routerAdd("POST", "/api/fern/sync", (e) => {
+  const secret = $os.getenv("LAVA_WEBHOOK_KEY") || "";
+  const given = e.request.header.get("X-Api-Key") ||
+    e.request.url.query().get("key") || "";
+  if (!secret || given !== secret) {
+    return e.json(401, { ok: false, error: "bad_key" });
+  }
+
+  let body = {};
+  try { body = e.requestInfo().body || {}; } catch (_) { body = {}; }
+  const база = String(body.lava_base || $os.getenv("LAVA_API_BASE") ||
+    "https://gate.lava.top").replace(/\/+$/, "");
+  const полный = body.full === true || String(body.full || "") === "true";
+  const apiKey = $os.getenv("LAVA_API_KEY") || "";
+
+  const сдвиг = (от, план) => {
+    const д = new Date(от.getTime());
+    const день = д.getUTCDate();
+    if (план === "year") {
+      д.setUTCFullYear(д.getUTCFullYear() + 1);
+    } else {
+      д.setUTCMonth(д.getUTCMonth() + 1);
+      if (д.getUTCDate() < день) д.setUTCDate(0);
+    }
+    return д;
+  };
+
+  let оплачено = 0;
+  let сверено = 0;
+  const сейчас = new Date();
+
+  // --- 1. Свежие неоплаченные заказы ---
+  let заказы = [];
+  try {
+    // Дата в фильтре пишется в формате хранения PocketBase: с пробелом, а не
+    // с «T». ISO-строка молча не находит ничего — фильтр не ошибка, а ноль
+    // записей, и потерянные оплаты копились бы незаметно.
+    const час = new Date(сейчас.getTime() - 60 * 60 * 1000)
+      .toISOString().replace("T", " ");
+    заказы = $app.findRecordsByFilter(
+      "fern_orders", "status = 'pending' && created > {:t}", "-created", 50, 0,
+      { t: час });
+  } catch (err) {
+    console.log("[fern] заказы не прочитаны: " + err);
+    заказы = [];
+  }
+
+  for (let i = 0; i < заказы.length; i++) {
+    const заказ = заказы[i];
+    const счёт = String(заказ.get("invoice_id") || "");
+    if (!счёт) continue;
+    let данные = null;
+    try {
+      const r = $http.send({
+        url: база + "/api/v1/invoices/" + encodeURIComponent(счёт),
+        method: "GET",
+        headers: { "X-Api-Key": apiKey },
+        timeout: 20,
+      });
+      данные = (r && r.statusCode === 200 && r.json) || null;
+    } catch (_) { данные = null; }
+    if (!данные) continue;
+
+    const статус = String(данные.status || данные.subscriptionStatus || "")
+      .toUpperCase();
+    if (статус !== "COMPLETED" && статус !== "ACTIVE") continue;
+
+    const план = String(заказ.get("plan") || "month");
+    let человек = null;
+    try {
+      const uid = String(заказ.get("uid") || "");
+      if (uid) человек = $app.findRecordById("fern_users", uid);
+    } catch (_) { человек = null; }
+    if (!человек) {
+      try {
+        человек = $app.findFirstRecordByFilter("fern_users", "email = {:e}",
+          { e: String(заказ.get("email") || "") });
+      } catch (_) { человек = null; }
+    }
+
+    let база_срока = сейчас;
+    if (человек) {
+      const было = String(человек.get("pro_until") || "");
+      if (было) {
+        const d = new Date(было.replace(" ", "T"));
+        if (!isNaN(d.getTime()) && d.getTime() > сейчас.getTime()) база_срока = d;
+      }
+    }
+    const срок = сдвиг(база_срока, план);
+
+    if (человек) {
+      человек.set("pro_until", срок.toISOString());
+      человек.set("pro_status", "active");
+      человек.set("pro_source", "lava");
+      человек.set("pro_plan", план);
+      const контракт = String(данные.parentContractId || данные.id || счёт);
+      человек.set("lava_contract", контракт);
+      try { $app.save(человек); } catch (err) { console.log("[fern] " + err); }
+    }
+    заказ.set("status", "paid");
+    заказ.set("until", срок.toISOString());
+    заказ.set("paid_at", сейчас.toISOString());
+    заказ.set("event", "sync");
+    try { $app.save(заказ); } catch (err) { console.log("[fern] " + err); }
+    оплачено++;
+  }
+
+  // --- 2. Сверка активных подписок ---
+  if (полный) {
+    let люди = [];
+    try {
+      люди = $app.findRecordsByFilter(
+        "fern_users", "lava_contract != '' && pro_status != 'refunded'",
+        "-updated", 500, 0);
+    } catch (err) {
+      console.log("[fern] подписки не прочитаны: " + err);
+      люди = [];
+    }
+    for (let i = 0; i < люди.length; i++) {
+      const человек = люди[i];
+      const контракт = String(человек.get("lava_contract") || "");
+      if (!контракт) continue;
+      let данные = null;
+      try {
+        const r = $http.send({
+          url: база + "/api/v1/subscriptions/" + encodeURIComponent(контракт),
+          method: "GET",
+          headers: { "X-Api-Key": apiKey },
+          timeout: 20,
+        });
+        данные = (r && r.statusCode === 200 && r.json) || null;
+      } catch (_) { данные = null; }
+      // Продавец молчит или не знает такой подписки — НИЧЕГО не трогаем:
+      // погасить доступ из-за чужого сбоя хуже, чем подарить лишний день.
+      if (!данные) continue;
+
+      const истекает = String(данные.expiredAt || "");
+      const статус = String(данные.subscriptionStatus || "").toUpperCase();
+      let изменено = false;
+      if (истекает) {
+        const d = new Date(истекает.replace(" ", "T"));
+        const было = String(человек.get("pro_until") || "");
+        if (!isNaN(d.getTime()) && было.substring(0, 10) !== d.toISOString().substring(0, 10)) {
+          человек.set("pro_until", d.toISOString());
+          изменено = true;
+        }
+      }
+      if (статус === "CANCELLED" && String(человек.get("pro_status")) !== "cancelled") {
+        человек.set("pro_status", "cancelled");
+        изменено = true;
+      }
+      if (статус === "ACTIVE" && String(человек.get("pro_status")) === "cancelled") {
+        // Человек вернулся: подписка снова активна у продавца.
+        человек.set("pro_status", "active");
+        изменено = true;
+      }
+      if (изменено) {
+        try { $app.save(человек); сверено++; } catch (err) { console.log("[fern] " + err); }
+      }
+    }
+  }
+
+  return e.json(200, { ok: true, paid: оплачено, synced: сверено });
+});
+
+// Кроны зовут тот же роут: логика синхронизации живёт в одном месте и
+// проверяется тестом снаружи, а не прячется внутри расписания.
+cronAdd("fern_pending", "*/2 * * * *", () => {
+  try {
+    $http.send({
+      url: "http://127.0.0.1:8090/api/fern/sync",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Api-Key": $os.getenv("LAVA_WEBHOOK_KEY") || "",
+      },
+      body: "{}",
+      timeout: 60,
+    });
+  } catch (err) {
+    console.log("[fern] быстрый проход не прошёл: " + err);
+  }
+});
+
+cronAdd("fern_full_sync", "17 4 * * *", () => {
+  try {
+    $http.send({
+      url: "http://127.0.0.1:8090/api/fern/sync",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Api-Key": $os.getenv("LAVA_WEBHOOK_KEY") || "",
+      },
+      body: JSON.stringify({ full: true }),
+      timeout: 300,
+    });
+  } catch (err) {
+    console.log("[fern] суточная сверка не прошла: " + err);
+  }
+});
