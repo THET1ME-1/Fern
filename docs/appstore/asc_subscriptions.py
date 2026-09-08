@@ -136,8 +136,16 @@ def цена(sub_id: str, товар_id: str) -> None:
         print('      цена уже задана')
         return
     нужно = ЦЕНЫ[товар_id]
-    точки = asc.get(f'/v1/subscriptions/{sub_id}/pricePoints',
-                    **{'filter[territory]': БАЗОВАЯ_СТРАНА, 'limit': '200'})['data']
+    # Точек прайса у Apple больше двух сотен, и годовые цены лежат в хвосте:
+    # без разбора страниц 34.99 просто не попадала в выборку.
+    точки = []
+    путь = (f'/v1/subscriptions/{sub_id}/pricePoints'
+            f'?filter[territory]={БАЗОВАЯ_СТРАНА}&limit=200')
+    while путь:
+        ответ = asc.call('GET', путь)
+        точки += ответ['data']
+        следующая = (ответ.get('links') or {}).get('next')
+        путь = следующая.replace(asc.BASE, '') if следующая else None
     подходящие = [т for т in точки
                   if т['attributes'].get('customerPrice') == нужно]
     if not подходящие:
