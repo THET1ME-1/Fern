@@ -42,10 +42,21 @@ run_ssh 'STAMP=$(date +%Y%m%d-%H%M)
          install -m 644 /tmp/fern.pb.js /opt/pocketbase/pb_hooks/fern.pb.js
          install -m 644 /tmp/lava.pb.js /opt/pocketbase/pb_hooks/lava.pb.js'
 
+echo "→ проверка чеков магазинов"
+run_scp "$ROOT/play_verify.py" "$HOST:/tmp/play_verify.py"
+run_ssh 'STAMP=$(date +%Y%m%d-%H%M)
+         cp -a /opt/play_verify.py "/opt/play_verify.py.bak-$STAMP"
+         install -m 644 /tmp/play_verify.py /opt/play_verify.py
+         systemctl restart play-verify
+         sleep 2
+         python3 /opt/test_play_verify.py 2>&1 | tail -1'
+
 echo "→ скрипты и тесты"
 run_ssh 'mkdir -p /opt/fern'
-run_scp "$ROOT/setup_collections.py" "$ROOT/test_fern_routes.py" \
-        "$ROOT/test_lava_fern.py" "$ROOT/test_fern_sync.py" "$HOST:/opt/fern/"
+run_scp "$ROOT/setup_collections.py" "$ROOT/setup_oauth.py" \
+        "$ROOT/test_fern_routes.py" "$ROOT/test_lava_fern.py" \
+        "$ROOT/test_fern_sync.py" "$ROOT/test_fern_store.py" \
+        "$ROOT/test_play_subscriptions.py" "$HOST:/opt/fern/"
 
 echo "→ жду перезапуск хуков"
 sleep 8
@@ -71,7 +82,9 @@ if [ "$RUN_TESTS" = "1" ]; then
     export PB_SUPERUSER_PASSWORD='$PB_SUPERUSER_PASSWORD'
     python3 test_fern_routes.py | tail -1
     python3 test_lava_fern.py | tail -1
-    python3 test_fern_sync.py | tail -1"
+    python3 test_fern_sync.py | tail -1
+    python3 test_fern_store.py | tail -1
+    python3 test_play_subscriptions.py | tail -1"
 fi
 
 echo "готово"

@@ -690,3 +690,128 @@ cronAdd("fern_full_sync", "17 4 * * *", () => {
     console.log("[fern] суточная сверка не прошла: " + err);
   }
 });
+
+// ------------------------------------------------- чеки Play и App Store ---
+///
+/// Магазинную подписку человек оформляет в кассе магазина, а срок всё равно
+/// сводится сюда: иначе купленное в Play не откроется ни в вебе, ни на
+/// компьютере, ни в сборке с сайта.
+///
+/// Чек проверяет локальная служба на 8097 (`play_verify.py`): RS256 для
+/// Google и разбор JWS для Apple в JSVM недоступны.
+///
+/// POST /api/fern/store { platform: "play"|"apple", productId, token }
+routerAdd("POST", "/api/fern/store", (e) => {
+  const user = e.auth;
+  if (!user) return e.json(401, { ok: false, error: "unauthorized" });
+  let collection = "";
+  try { collection = user.collection().name; } catch (_) { collection = ""; }
+  if (collection !== "fern_users") {
+    return e.json(401, { ok: false, error: "wrong_account" });
+  }
+
+  let body = {};
+  try { body = e.requestInfo().body || {}; } catch (_) { body = {}; }
+  const платформа = String(body.platform || "play").toLowerCase();
+  const товар = String(body.productId || "").trim();
+  const чек = String(body.token || "").trim();
+  if (!товар || !чек) return e.json(400, { ok: false, error: "no_receipt" });
+
+  // Тариф узнаём по товару: имена заданы нами в обеих консолях.
+  const план = товар.indexOf("year") !== -1 ? "year" : "month";
+
+  // Адрес проверяющей службы можно подменить, но только тому, кто знает ключ
+  // вебхука: этим пользуется тест, а снаружи ключа нет.
+  const secret = $os.getenv("LAVA_WEBHOOK_KEY") || "";
+  const given = e.request.header.get("X-Api-Key") || "";
+  let база = $os.getenv("FERN_VERIFY_URL") || "http://127.0.0.1:8097";
+  if (secret && given === secret && body.verify_base) {
+    база = String(body.verify_base);
+  }
+
+  let вердикт = null;
+  try {
+    const r = $http.send({
+      url: база.replace(/\/+$/, "") + "/verify",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        store: платформа === "apple" ? "appstore" : "play",
+        kind: "subscription",
+        productId: товар,
+        purchaseToken: чек,
+        package: $os.getenv("FERN_PLAY_PACKAGE") || "com.fern.app",
+        bundleId: $os.getenv("FERN_BUNDLE_ID") || "com.fern.flashcards",
+      }),
+      timeout: 30,
+    });
+    вердикт = (r && r.json) || null;
+  } catch (err) {
+    console.log("[fern] чек не проверен: " + err);
+    return e.json(502, { ok: false, error: "verify_unreachable" });
+  }
+
+  if (!вердикт || вердикт.ok !== true) {
+    // Сбой проверки — НЕ отказ покупателю: у него чек на руках, а у нас
+    // молчит Google. Пусть приложение попробует ещё раз позже.
+    return e.json(502, { ok: false, error: "verify_failed" });
+  }
+  if (вердикт.valid !== true) {
+    return e.json(400, { ok: false, error: "not_valid", reason: вердикт.reason });
+  }
+
+  const срок = String(вердикт.expiry || "");
+  if (!срок) return e.json(400, { ok: false, error: "no_expiry" });
+  const дата = new Date(срок.replace(" ", "T"));
+  if (isNaN(дата.getTime())) return e.json(400, { ok: false, error: "bad_expiry" });
+
+  let out = { s: 500, b: { ok: false, error: "internal" } };
+  try {
+    $app.runInTransaction((tx) => {
+      const человек = tx.findRecordById("fern_users", user.id);
+      // Берём максимум: человек мог купить и в магазине, и на lava, и терять
+      // оплаченные дни из-за этого он не должен.
+      let итог = дата;
+      const было = String(человек.get("pro_until") || "");
+      if (было) {
+        const d = new Date(было.replace(" ", "T"));
+        if (!isNaN(d.getTime()) && d.getTime() > дата.getTime()) итог = d;
+      }
+      человек.set("pro_until", итог.toISOString());
+      человек.set("pro_status", вердикт.cancelled === true ? "cancelled" : "active");
+      человек.set("pro_source", платформа === "apple" ? "apple" : "play");
+      человек.set("pro_plan", план);
+      tx.save(человек);
+
+      // Заказ на магазинную подписку один: токен при продлении не меняется,
+      // меняется только срок.
+      const ключ = (платформа === "apple" ? "APPLE:" : "PLAY:") +
+        (вердикт.transactionId || чек);
+      let заказ = null;
+      try {
+        заказ = tx.findFirstRecordByFilter("fern_orders", "order_key = {:k}",
+                                           { k: ключ });
+      } catch (_) { заказ = null; }
+      if (!заказ) {
+        заказ = new Record(tx.findCollectionByNameOrId("fern_orders"));
+        заказ.set("order_key", ключ);
+      }
+      заказ.set("uid", человек.id);
+      заказ.set("email", String(человек.getString("email") || ""));
+      заказ.set("source", платформа === "apple" ? "apple" : "play");
+      заказ.set("plan", план);
+      заказ.set("status", "paid");
+      заказ.set("event", "store_receipt");
+      заказ.set("until", итог.toISOString());
+      заказ.set("paid_at", new Date().toISOString());
+      заказ.set("raw", вердикт);
+      tx.save(заказ);
+
+      out = { s: 200, b: { ok: true, until: итог.toISOString().substring(0, 10) } };
+    });
+  } catch (err) {
+    console.log("[fern] чек не записан: " + err);
+    return e.json(500, { ok: false, error: "internal" });
+  }
+  return e.json(out.s, out.b);
+});
