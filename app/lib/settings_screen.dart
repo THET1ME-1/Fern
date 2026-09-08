@@ -559,10 +559,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Material(
           color: Colors.transparent,
           child: Padding(
-            // Отступ слева равен ширине чипа с зазором: кружки стоят под
-            // подписью пункта, а не под его иконкой.
-            padding: const EdgeInsets.fromLTRB(
-                14 + SettingsIconChip.size + 14, 0, 16, 14),
+            // Кружки занимают всю ширину блока, а не колонку текста:
+            // выравнивание под подписью оставляло пустое поле справа и
+            // сжимало ряд с пяти схем до четырёх.
+            padding: const EdgeInsets.fromLTRB(16, 2, 16, 14),
             child: Wrap(
               spacing: 12,
               runSpacing: 12,
