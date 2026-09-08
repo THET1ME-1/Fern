@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fern/l10n/locale_controller.dart';
 import 'package:fern/services/deck_repository.dart';
 import 'package:fern/settings_screen.dart';
+import 'package:fern/widgets/settings_kit.dart';
 
 import 'test_helpers.dart';
 
@@ -24,14 +25,17 @@ void main() {
     await tester.pumpAndSettle();
   }
 
-  testWidgets('пункты секции лежат в одном блоке, а не в карточке каждый',
+  testWidgets('каждый пункт — свой блок с круглой иконкой',
       (WidgetTester tester) async {
     await open(tester);
 
     expect(find.text('Внешний вид'), findsOneWidget);
     expect(find.text('Тема'), findsOneWidget);
-    // Разделители появляются только внутри блоков — по одному между пунктами.
-    expect(find.byType(Divider), findsWidgets);
+    // Пункты разделяет зазор, а не линия: разделитель резал колонку иконок.
+    expect(find.byType(Divider), findsNothing);
+    // Иконка каждого пункта сидит в цветном круге — по нему глаз находит
+    // строку раньше, чем читает подпись.
+    expect(find.byType(SettingsIconChip), findsWidgets);
   });
 
   testWidgets('тап по заголовку сворачивает секцию',

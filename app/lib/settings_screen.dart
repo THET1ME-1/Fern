@@ -19,6 +19,7 @@ import 'services/pro.dart';
 import 'services/subscription_service.dart';
 import 'widgets/optimize_info_sheet.dart';
 import 'widgets/pro_sheet.dart';
+import 'widgets/settings_kit.dart';
 import 'settings/providers_screen.dart';
 import 'services/backup_service.dart';
 import 'services/deck_import.dart';
@@ -516,22 +517,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget _colorTile(ColorScheme scheme) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-        clipBehavior: Clip.antiAlias,
-        child: ListTile(
-          leading: Icon(
+    return Builder(builder: (context) {
+      final tone = SettingsTone.of(context);
+      return ListTile(
+          contentPadding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
+          leading: SettingsIconChip(
             Icons.color_lens_rounded,
-            color: scheme.onSurfaceVariant,
+            background: tone?.background,
+            foreground: tone?.foreground,
           ),
-          title: Text(tr('theme_color')),
+          title: Text(tr('theme_color'), style: settingsTitleStyle(scheme)),
           subtitle: Text(
             _theme.isDefaultSeed
                 ? tr('theme_color_default')
                 : colorToHex(_theme.seedColor),
+            style: settingsSubtitleStyle(scheme),
           ),
           trailing: SeedSwatch(seed: _theme.seedColor, size: 30),
           onTap: () async {
@@ -543,9 +543,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             );
             if (picked != null) _theme.setSeedColor(picked);
           },
-        ),
-      ),
-    );
+        );
+    });
   }
 
   /// Готовые цветовые схемы — кружки из 4 тонов темы. Тап меняет seed.
@@ -630,43 +629,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required int step,
     required Future<void> Function(int) onChanged,
   }) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-        clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Row(
+    return Builder(builder: (context) {
+      final tone = SettingsTone.of(context);
+      // Подпись идёт ПОД строкой, на всю ширину: рядом с кнопками и числом ей
+      // остаётся сотня точек, и «Сколько новых слов вводить» ломается на
+      // четыре строки по два слова.
+      return Padding(
+          padding: const EdgeInsets.fromLTRB(14, 10, 6, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(icon, color: scheme.onSurfaceVariant),
-              const SizedBox(width: 16),
+          Row(
+            children: [
+              SettingsIconChip(icon,
+                  background: tone?.background, foreground: tone?.foreground),
+              const SizedBox(width: 14),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(label),
-                    if (sub != null)
-                      Text(
-                        sub,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: scheme.onSurfaceVariant,
-                        ),
-                      ),
-                  ],
-                ),
+                child: Text(label, style: settingsTitleStyle(scheme)),
               ),
+              // Кнопки плотнее обычных: каждая лишняя точка ширины уводит
+              // заголовок на вторую строку.
               IconButton(
                 icon: const Icon(Icons.remove_circle_outline_rounded),
+                visualDensity: VisualDensity.compact,
+                constraints: const BoxConstraints.tightFor(width: 40, height: 40),
+                padding: EdgeInsets.zero,
                 onPressed:
                     value > min ? () => onChanged((value - step).clamp(min, max)) : null,
               ),
               // Ширины в 40 логических точек хватало на две цифры: «100» и
               // «500» ломались на строку «10» и строку «0».
               SizedBox(
-                width: 58,
+                width: 50,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
@@ -685,14 +679,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               IconButton(
                 icon: const Icon(Icons.add_circle_outline_rounded),
+                visualDensity: VisualDensity.compact,
+                constraints: const BoxConstraints.tightFor(width: 40, height: 40),
+                padding: EdgeInsets.zero,
                 onPressed:
                     value < max ? () => onChanged((value + step).clamp(min, max)) : null,
               ),
             ],
           ),
-        ),
-      ),
-    );
+              if (sub != null)
+                Padding(
+                  // Отступ слева равен ширине чипа с зазором: подпись стоит
+                  // под заголовком, а не под иконкой.
+                  padding: const EdgeInsets.fromLTRB(
+                      SettingsIconChip.size + 14, 0, 8, 0),
+                  child: Text(sub, style: settingsSubtitleStyle(scheme)),
+                ),
+            ],
+          ),
+        );
+    });
   }
 
   /// Целевое удержание: ползунок 80–97%. Выше — повторов больше, помнишь лучше.
@@ -1555,21 +1561,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
     if (children.isEmpty) return const SizedBox.shrink();
     final collapsed = _collapsed.contains(id);
 
-    final rows = <Widget>[];
-    for (var i = 0; i < children.length; i++) {
-      if (i > 0) {
-        rows.add(Divider(
-          height: 1,
-          thickness: 1,
-          // Отступ слева — под иконку пункта: линия отделяет тексты, а не
-          // режет колонку иконок пополам.
-          indent: 56,
-          endIndent: 0,
-          color: scheme.outlineVariant.withValues(alpha: .5),
-        ));
-      }
-      rows.add(children[i]);
-    }
+    // Каждый пункт — свой блок с зазором: линия между строками резала колонку
+    // иконок, а зазор её не трогает и делит список на предметы.
+    final (chipBg, chipFg) = SettingsTone.forSection(id, scheme);
+    final rows = <Widget>[
+      for (var i = 0; i < children.length; i++) ...[
+        if (i > 0) const SizedBox(height: SettingsShape.gap),
+        AppearInList(
+          index: i,
+          child: Material(
+            color: scheme.surfaceContainerHigh,
+            clipBehavior: Clip.antiAlias,
+            borderRadius: SettingsShape.radius(i, children.length),
+            child: children[i],
+          ),
+        ),
+      ],
+    ];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
@@ -1619,10 +1627,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             alignment: Alignment.topCenter,
             child: collapsed
                 ? const SizedBox(width: double.infinity)
-                : Material(
-                    color: scheme.surfaceContainer,
-                    borderRadius: BorderRadius.circular(20),
-                    clipBehavior: Clip.antiAlias,
+                : SettingsTone(
+                    background: chipBg,
+                    foreground: chipFg,
                     child: Column(children: rows),
                   ),
           ),
@@ -1639,21 +1646,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ValueChanged<bool> onChanged,
     required ColorScheme scheme,
   }) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-        clipBehavior: Clip.antiAlias,
-        child: SwitchListTile(
-          secondary: Icon(icon, color: scheme.onSurfaceVariant),
-          title: Text(title),
-          subtitle: Text(subtitle),
-          value: value,
-          onChanged: onChanged,
-        ),
-      ),
-    );
+    return Builder(builder: (context) {
+      final tone = SettingsTone.of(context);
+      return SwitchListTile(
+        secondary: SettingsIconChip(icon,
+            background: tone?.background, foreground: tone?.foreground),
+        title: Text(title, style: settingsTitleStyle(scheme)),
+        subtitle: Text(subtitle, style: settingsSubtitleStyle(scheme)),
+        contentPadding: const EdgeInsets.fromLTRB(14, 6, 10, 6),
+        value: value,
+        onChanged: onChanged,
+      );
+    });
   }
 
   Widget _actionTile({
@@ -1665,30 +1669,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ColorScheme scheme,
     Color? color,
   }) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-        clipBehavior: Clip.antiAlias,
-        child: ListTile(
-          leading: Icon(icon, color: color ?? scheme.onSurfaceVariant),
-          title: Text(title,
-              style: color == null ? null : TextStyle(color: color)),
-          subtitle: subtitle == null ? null : Text(subtitle),
-          trailing: trailing == null
-              ? const Icon(Icons.chevron_right_rounded)
-              : Text(
-                  trailing,
-                  style: TextStyle(
-                    fontFamily: AppTheme.bodyFont,
-                    color: scheme.onSurfaceVariant,
-                  ),
+    return Builder(builder: (context) {
+      final tone = SettingsTone.of(context);
+      // «Опасный» пункт красит и круг: одного красного слова в строке мало,
+      // чтобы палец успел остановиться.
+      final chipBg = color == null ? tone?.background : scheme.errorContainer;
+      final chipFg = color == null ? tone?.foreground : scheme.onErrorContainer;
+      return ListTile(
+        leading: SettingsIconChip(icon, background: chipBg, foreground: chipFg),
+        title: Text(title, style: settingsTitleStyle(scheme, color: color)),
+        subtitle: subtitle == null
+            ? null
+            : Text(subtitle, style: settingsSubtitleStyle(scheme)),
+        contentPadding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
+        trailing: trailing == null
+            ? Icon(Icons.chevron_right_rounded, color: scheme.onSurfaceVariant)
+            : Text(
+                trailing,
+                style: TextStyle(
+                  fontFamily: AppTheme.bodyFont,
+                  color: scheme.onSurfaceVariant,
                 ),
-          onTap: onTap,
-        ),
-      ),
-    );
+              ),
+        onTap: onTap,
+      );
+    });
   }
 
   Widget _infoTile({
@@ -1698,25 +1703,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ColorScheme scheme,
     String? subtitle,
   }) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Material(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-        clipBehavior: Clip.antiAlias,
-        child: ListTile(
-          leading: Icon(icon, color: scheme.onSurfaceVariant),
-          title: Text(title),
-          subtitle: subtitle == null ? null : Text(subtitle),
-          trailing: Text(
-            trailing,
-            style: TextStyle(
-              fontFamily: AppTheme.bodyFont,
-              color: scheme.onSurfaceVariant,
-            ),
+    return Builder(builder: (context) {
+      final tone = SettingsTone.of(context);
+      return ListTile(
+        leading: SettingsIconChip(icon,
+            background: tone?.background, foreground: tone?.foreground),
+        title: Text(title, style: settingsTitleStyle(scheme)),
+        subtitle: subtitle == null
+            ? null
+            : Text(subtitle, style: settingsSubtitleStyle(scheme)),
+        contentPadding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
+        trailing: Text(
+          trailing,
+          style: TextStyle(
+            fontFamily: AppTheme.bodyFont,
+            color: scheme.onSurfaceVariant,
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
