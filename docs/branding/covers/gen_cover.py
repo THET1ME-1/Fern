@@ -4,7 +4,9 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 
 APP = '/home/alelx/Projects/GitHub/Fern/app'
-OUT = '/tmp/claude-1000/-home-alelx/36f209b5-d79c-41cc-b395-dbb4f2acdc8f/scratchpad/covers'
+# Готовые обложки кладутся рядом со скриптом: их выбирают глазами и грузят в
+# кабинет lava.top руками — API картинки товара не принимает.
+OUT = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(OUT, exist_ok=True)
 
 W, H = 1160, 464
@@ -18,16 +20,26 @@ ONEST = f'{APP}/assets/fonts/Onest.ttf'
 
 
 def leaf(size, colour, alpha=255):
-    """Лист папоротника из иконки: выбиваем тёмный фон по «зелёности»."""
-    src = Image.open(f'{APP}/assets/icon/foreground.png').convert('RGB')
-    px = src.load()
-    mask = Image.new('L', src.size, 0)
-    mp = mask.load()
-    for y in range(src.size[1]):
-        for x in range(src.size[0]):
-            r, g, b = px[x, y]
-            # Лист заметно зеленее фона — этого хватает как признака.
-            mp[x, y] = 255 if (g - r) > 18 and g > 60 else 0
+    """Силуэт папоротника из слоя иконки.
+
+    Слой переднего плана несёт прозрачность (её завели, когда чинили
+    адаптивную иконку), и маска берётся прямо из альфы. Прежняя эвристика
+    «что зеленее фона» на таком файле выбивала весь холст, и вместо листа на
+    обложке оказывался сплошной прямоугольник.
+    """
+    src = Image.open(f'{APP}/assets/icon/foreground.png')
+    if src.mode in ('RGBA', 'LA'):
+        mask = src.convert('RGBA').getchannel('A')
+    else:
+        rgb = src.convert('RGB')
+        px = rgb.load()
+        mask = Image.new('L', rgb.size, 0)
+        mp = mask.load()
+        for y in range(rgb.size[1]):
+            for x in range(rgb.size[0]):
+                r, g, b = px[x, y]
+                # Лист заметно зеленее фона — этого хватает как признака.
+                mp[x, y] = 255 if (g - r) > 18 and g > 60 else 0
     box = mask.getbbox()          # обрезаем по самому растению
     mask = mask.crop(box)
     # Держим пропорции листа: size задаёт ВЫСОТУ.
@@ -54,7 +66,7 @@ def variant_readme():
     text(d, (80, 230), 'Fern Pro', ImageFont.truetype(UNB, 88), LIGHT)
     text(d, (84, 296), 'Учитесь на своих книгах,', ImageFont.truetype(ONEST, 30), MINT)
     text(d, (84, 340), 'видео и статьях', ImageFont.truetype(ONEST, 30), MINT)
-    text(d, (84, 404), 'Разовая покупка  ·  без подписки  ·  офлайн',
+    text(d, (84, 404), 'Подписка  ·  работает офлайн  ·  отмена в один тап',
          ImageFont.truetype(ONEST, 20), (150, 168, 152))
     img.save(f'{OUT}/1-readme.png')
 
@@ -68,7 +80,7 @@ def variant_green():
     text(d, (80, 222), 'Fern Pro', ImageFont.truetype(UNB, 92), (240, 250, 242))
     text(d, (84, 288), 'Учитесь на своих книгах,', ImageFont.truetype(ONEST, 31), (208, 236, 219))
     text(d, (84, 334), 'видео и статьях', ImageFont.truetype(ONEST, 31), (208, 236, 219))
-    text(d, (84, 400), 'Разовая покупка  ·  без подписки  ·  офлайн',
+    text(d, (84, 400), 'Подписка  ·  работает офлайн  ·  отмена в один тап',
          ImageFont.truetype(ONEST, 20), (198, 230, 210))
     img.save(f'{OUT}/2-green.png')
 
@@ -82,7 +94,7 @@ def variant_split():
     text(d, (W - 80, 214), 'Fern Pro', ImageFont.truetype(UNB, 84), LIGHT, anchor='rs')
     text(d, (W - 82, 276), 'Учитесь на своих книгах,', ImageFont.truetype(ONEST, 29), MINT, anchor='rs')
     text(d, (W - 82, 318), 'видео и статьях', ImageFont.truetype(ONEST, 29), MINT, anchor='rs')
-    text(d, (W - 82, 388), 'Разовая покупка  ·  без подписки  ·  офлайн',
+    text(d, (W - 82, 388), 'Подписка  ·  работает офлайн  ·  отмена в один тап',
          ImageFont.truetype(ONEST, 19), (150, 168, 152), anchor='rs')
     img.save(f'{OUT}/3-split.png')
 
