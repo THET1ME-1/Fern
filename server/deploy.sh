@@ -56,7 +56,8 @@ run_ssh 'mkdir -p /opt/fern'
 run_scp "$ROOT/setup_collections.py" "$ROOT/setup_oauth.py" \
         "$ROOT/test_fern_routes.py" "$ROOT/test_lava_fern.py" \
         "$ROOT/test_fern_sync.py" "$ROOT/test_fern_store.py" \
-        "$ROOT/test_play_subscriptions.py" "$HOST:/opt/fern/"
+        "$ROOT/test_play_subscriptions.py" "$ROOT/test_store_notifications.py" \
+        "$HOST:/opt/fern/"
 
 echo "→ жду перезапуск хуков"
 sleep 8
@@ -87,7 +88,8 @@ if [ "$RUN_TESTS" = "1" ]; then
     python3 test_lava_fern.py | tail -1
     python3 test_fern_sync.py | tail -1
     python3 test_fern_store.py | tail -1
-    python3 test_play_subscriptions.py | tail -1"
+    python3 test_play_subscriptions.py | tail -1
+    python3 test_store_notifications.py | tail -1"
 fi
 
 echo "готово"

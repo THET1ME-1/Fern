@@ -321,10 +321,10 @@ def _проверить_подпись(токен: str):
 
 ПОЛЯ_СДЕЛКИ = ("transactionId", "originalTransactionId", "productId", "type",
                "purchaseDate", "appAccountToken", "revocationDate",
-               "revocationReason", "environment", "quantity")
+               "revocationReason", "environment", "quantity", "expiresDate")
 
 
-def разобрать_уведомление(signed_payload: str) -> dict:
+def разобрать_уведомление(signed_payload: str, bundle: str = "") -> dict:
     """Проверяет уведомление App Store и достаёт из него сделку.
 
     Apple присылает такие уведомления сама, не спрашивая приложение: покупка,
@@ -340,8 +340,9 @@ def разобрать_уведомление(signed_payload: str) -> dict:
     if беда:
         return {"ok": True, "valid": False, "reason": беда}
 
+    ожидаемый = (bundle or BUNDLE_ID).strip()
     данные = конверт.get("data") or {}
-    if str(данные.get("bundleId") or BUNDLE_ID) != BUNDLE_ID:
+    if str(данные.get("bundleId") or ожидаемый) != ожидаемый:
         return {"ok": True, "valid": False, "reason": "bundle_mismatch"}
 
     сделка = {}
@@ -350,9 +351,14 @@ def разобрать_уведомление(signed_payload: str) -> dict:
         нагрузка, беда = _проверить_подпись(str(подписанная))
         if беда:
             return {"ok": True, "valid": False, "reason": беда}
-        if str(нагрузка.get("bundleId") or "") != BUNDLE_ID:
+        if str(нагрузка.get("bundleId") or "") != ожидаемый:
             return {"ok": True, "valid": False, "reason": "bundle_mismatch"}
         сделка = {к: нагрузка[к] for к in ПОЛЯ_СДЕЛКИ if к in нагрузка}
+        # Срок продления приезжает миллисекундами: приводим к дате сразу, чтобы
+        # хук не занимался арифметикой времени.
+        срок = _срок_из_мс(нагрузка.get("expiresDate"))
+        if срок:
+            сделка["expiry"] = срок
 
     return {
         "ok": True,
@@ -391,6 +397,7 @@ def verify_apple_jws(product_id: str, токен: str, bundle: str = "") -> dict
         # Окружение уходит в вердикт, чтобы в журнале было видно, чей это чек.
         "environment": str(данные.get("environment") or ""),
         "transactionId": str(данные.get("transactionId") or ""),
+        "originalTransactionId": str(данные.get("originalTransactionId") or ""),
     }
     # Срок кладём ТОЛЬКО у подписки: у разовой покупки его нет, а лишний ключ
     # в ответе ломает тех, кто сверяет вердикт целиком (тест Togetherly).
@@ -464,7 +471,8 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         if путь == "/apple/notification":
-            итог = разобрать_уведомление(body.get("signedPayload") or "")
+            итог = разобрать_уведомление(body.get("signedPayload") or "",
+                                         str(body.get("bundleId") or ""))
             log.info("уведомление App Store: %s%s → %s",
                      итог.get("notificationType") or "?",
                      f" ({итог['subtype']})" if итог.get("subtype") else "",

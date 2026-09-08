@@ -819,6 +819,11 @@ routerAdd("POST", "/api/fern/store", (e) => {
       заказ.set("uid", человек.id);
       заказ.set("email", String(человек.getString("email") || ""));
       заказ.set("source", платформа === "apple" ? "apple" : "play");
+      // Идентификатор, по которому магазин потом присылает продления: у Apple
+      // это первая сделка, у Google — тот же токен покупки.
+      заказ.set("invoice_id", платформа === "apple"
+        ? String(вердикт.originalTransactionId || вердикт.transactionId || чек)
+        : чек);
       заказ.set("plan", план);
       заказ.set("status", "paid");
       заказ.set("event", "store_receipt");
@@ -890,4 +895,342 @@ routerAdd("GET", "/api/fern/failed", (e) => {
 <a href="fern://failed">Открыть Fern</a>
 <script>setTimeout(function(){location.href="fern://failed"},400)</script>
 </main></body></html>`);
+});
+
+// --------------------------------------------------- нативный вход Apple ---
+///
+/// На iPhone вход через браузер отказывает у части людей: у Togetherly за
+/// сутки набралось 77 обрывов загрузки `appleid.apple.com` против 33 удачных
+/// входов на 57 разных телефонах, притом в журнале сервера за те же сутки одна
+/// ошибка — до нас дело просто не доходило. Лечится не браузером, а способом:
+/// системный диалог отдаёт подписанный токен, и его мы меняем на сессию.
+///
+/// Подпись проверяет релей `apns_relay.py` (RS256 и ключи Apple в JSVM
+/// недоступны). Аудитории токена он берёт из `APPLE_AUDIENCES`, куда добавлен
+/// bundle Fern.
+///
+/// POST /api/fern/apple { identityToken, nonce?, name? }
+///   → 200 { token, record }  — как обычный вход, клиент сохраняет сессию
+///   → 4xx { ok: false, reason }
+routerAdd("POST", "/api/fern/apple", (e) => {
+  let body = {};
+  try { body = e.requestInfo().body || {}; } catch (_) { body = {}; }
+  const идентификатор = String(body.identityToken || "").trim();
+  const nonce = String(body.nonce || "");
+
+  const отказ = (код, причина) => {
+    try {
+      $app.logger().warn("fern apple: отказ", "reason", причина);
+    } catch (_) {}
+    return e.json(код, { ok: false, reason: причина });
+  };
+
+  if (!идентификатор) return отказ(400, "нет identityToken");
+
+  let утверждения = {};
+  try {
+    const r = $http.send({
+      url: ($os.getenv("FERN_APPLE_VERIFY_URL") || "http://127.0.0.1:8096") +
+        "/apple/verify",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: идентификатор, nonce: nonce }),
+      timeout: 20,
+    });
+    утверждения = (r && r.json) || {};
+  } catch (err) {
+    return отказ(502, "проверка токена недоступна: " + String(err));
+  }
+  if (утверждения.ok !== true) {
+    return отказ(401, String(утверждения.reason || "токен не принят"));
+  }
+
+  const sub = String(утверждения.sub || "");
+  const почта = String(утверждения.email || "").toLowerCase();
+  if (!sub) return отказ(401, "в токене нет sub");
+
+  const коллекция = $app.findCollectionByNameOrId("fern_users");
+  let человек = null;
+
+  // Человека ищем по `sub`: у одного Apple ID внутри команды он один и тот же,
+  // поэтому вошедшие раньше через браузер попадают в свой прежний аккаунт, а
+  // не заводят второй.
+  try {
+    const связка = $app.findFirstRecordByFilter(
+      "_externalAuths",
+      "provider = 'apple' && providerId = {:sub} && collectionRef = {:col}",
+      { sub: sub, col: коллекция.id },
+    );
+    человек = $app.findRecordById("fern_users", связка.getString("recordRef"));
+  } catch (_) { человек = null; }
+
+  // Почта Apple у человека постоянна (в том числе «…@privaterelay.appleid.com»),
+  // и ею закрывается случай, когда связки нет, а аккаунт уже заведён почтой.
+  if (!человек && почта) {
+    try {
+      человек = $app.findFirstRecordByFilter("fern_users", "email = {:e}",
+                                             { e: почта });
+    } catch (_) { человек = null; }
+  }
+
+  let создан = false;
+  if (!человек) {
+    try {
+      человек = new Record(коллекция);
+      человек.set("email", почта);
+      человек.set("emailVisibility", false);
+      человек.set("verified", true);
+      // Пароль человеку не нужен — он входит системным диалогом, — но поле
+      // обязательное: кладём случайный и никому не показываем.
+      const случайный = $security.randomString(40);
+      человек.set("password", случайный);
+      человек.set("passwordConfirm", случайный);
+      $app.save(человек);
+      создан = true;
+    } catch (err) {
+      return отказ(500, "аккаунт не создан: " + String(err));
+    }
+  }
+
+  try {
+    $app.findFirstRecordByFilter(
+      "_externalAuths",
+      "provider = 'apple' && providerId = {:sub} && collectionRef = {:col}",
+      { sub: sub, col: коллекция.id },
+    );
+  } catch (_) {
+    try {
+      const связка = new Record($app.findCollectionByNameOrId("_externalAuths"));
+      связка.set("collectionRef", коллекция.id);
+      связка.set("provider", "apple");
+      связка.set("providerId", sub);
+      связка.set("recordRef", человек.id);
+      $app.save(связка);
+    } catch (err) {
+      // Вход состоится и так: в следующий раз человека найдём по почте.
+      console.log("[fern] связка Apple не создана: " + err);
+    }
+  }
+
+  try {
+    return $apis.recordAuthResponse(e, человек, "apple", { created: создан });
+  } catch (err) {
+    try {
+      return e.json(200, {
+        token: String(человек.newAuthToken()),
+        record: человек.publicExport(),
+        created: создан,
+      });
+    } catch (err2) {
+      return отказ(500, "не удалось выдать сессию: " + String(err2));
+    }
+  }
+});
+
+// ------------------------------------- уведомления магазинов о продлении ---
+///
+/// Без них продление узнаётся только когда человек откроет приложение: талон
+/// живёт неделю сверх оплаченного, и молчание дольше недели гасит Pro у того,
+/// кто заплатил. Уведомления закрывают этот разрыв.
+///
+/// Apple шлёт подписанный конверт (Server Notifications V2), Google — сообщение
+/// Pub/Sub с base64 внутри. Общее у них одно: доверять содержимому нельзя,
+/// поэтому срок всегда перепроверяется у магазина.
+
+/// POST /api/fern/apple-notify — App Store Server Notifications V2.
+routerAdd("POST", "/api/fern/apple-notify", (e) => {
+  let body = {};
+  try { body = e.requestInfo().body || {}; } catch (_) { body = {}; }
+  const конверт = String(body.signedPayload || "");
+  if (!конверт) return e.json(400, { ok: false, error: "no_payload" });
+
+  // Адрес проверяющей службы подменяется только тем, кто знает ключ вебхука:
+  // этим пользуется тест, снаружи ключа нет.
+  const secret = $os.getenv("LAVA_WEBHOOK_KEY") || "";
+  const given = e.request.header.get("X-Api-Key") || "";
+  let база = $os.getenv("FERN_VERIFY_URL") || "http://127.0.0.1:8097";
+  if (secret && given === secret && body.verify_base) {
+    база = String(body.verify_base);
+  }
+
+  let итог = null;
+  try {
+    const r = $http.send({
+      url: база.replace(/\/+$/, "") + "/apple/notification",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        signedPayload: конверт,
+        bundleId: $os.getenv("FERN_BUNDLE_ID") || "com.fern.flashcards",
+      }),
+      timeout: 30,
+    });
+    итог = (r && r.json) || null;
+  } catch (err) {
+    console.log("[fern] уведомление Apple не разобрано: " + err);
+    return e.json(502, { ok: false, error: "verify_unreachable" });
+  }
+  // Чужое приложение или подделка: отвечаем 200, иначе Apple будет слать
+  // это же уведомление сутками.
+  if (!итог || итог.valid !== true) {
+    return e.json(200, { ok: true, skipped: (итог || {}).reason || "not_valid" });
+  }
+
+  const сделка = итог.transaction || {};
+  const первый = String(сделка.originalTransactionId || "");
+  const срок = String(сделка.expiry || "");
+  const отозвано = !!сделка.revocationDate;
+  const тип = String(итог.notificationType || "");
+  if (!первый) return e.json(200, { ok: true, skipped: "no_transaction" });
+
+  // Кого касается: заказ магазина мы записали при покупке и помним в нём
+  // первый идентификатор сделки — по нему и находим человека.
+  let заказ = null;
+  try {
+    заказ = $app.findFirstRecordByFilter(
+      "fern_orders", "source = 'apple' && invoice_id = {:t}", { t: первый });
+  } catch (_) { заказ = null; }
+  if (!заказ) return e.json(200, { ok: true, skipped: "unknown_transaction" });
+
+  let человек = null;
+  try {
+    человек = $app.findRecordById("fern_users", String(заказ.get("uid") || ""));
+  } catch (_) { человек = null; }
+  if (!человек) return e.json(200, { ok: true, skipped: "no_account" });
+
+  const сейчас = new Date();
+  if (отозвано || тип === "REFUND" || тип === "REVOKE") {
+    человек.set("pro_status", "refunded");
+    человек.set("pro_until", сейчас.toISOString());
+  } else if (срок) {
+    const d = new Date(срок.replace(" ", "T"));
+    if (!isNaN(d.getTime())) {
+      человек.set("pro_until", d.toISOString());
+      // Отмена автопродления — не потеря доступа: оплаченное дохаживает.
+      человек.set("pro_status",
+        тип === "DID_CHANGE_RENEWAL_STATUS" && String(итог.subtype) === "AUTO_RENEW_DISABLED"
+          ? "cancelled" : "active");
+    }
+  } else if (тип === "EXPIRED") {
+    человек.set("pro_status", "expired");
+  }
+  try { $app.save(человек); } catch (err) { console.log("[fern] " + err); }
+
+  заказ.set("event", "apple:" + тип);
+  if (срок) заказ.set("until", срок);
+  try { $app.save(заказ); } catch (_) {}
+
+  return e.json(200, { ok: true, type: тип, until: срок || null });
+});
+
+/// POST /api/fern/play-rtdn — уведомления Google Play через Pub/Sub.
+///
+/// Google шлёт сообщение с base64 внутри и ждёт 200: любой другой ответ он
+/// повторяет часами. Поэтому здесь почти всё кончается ответом «принято» — а
+/// что случилось, видно в журнале.
+routerAdd("POST", "/api/fern/play-rtdn", (e) => {
+  const secret = $os.getenv("FERN_RTDN_KEY") || $os.getenv("LAVA_WEBHOOK_KEY") || "";
+  const given = e.request.url.query().get("key") ||
+    e.request.header.get("X-Api-Key") || "";
+  if (secret && given !== secret) {
+    return e.json(401, { ok: false, error: "bad_key" });
+  }
+
+  let body = {};
+  try { body = e.requestInfo().body || {}; } catch (_) { body = {}; }
+  const данные = String(((body.message || {}).data) || "");
+  if (!данные) return e.json(200, { ok: true, skipped: "no_data" });
+
+  let сообщение = {};
+  try {
+    // base64 в этой сборке JSVM нет, поэтому раскодируем сами: алфавит
+    // короткий, а тянуть ради этого службу — лишний прыжок на каждое
+    // уведомление.
+    const АЛФАВИТ =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    let биты = 0, накоплено = 0, байты = [];
+    const чистые = данные.replace(/[^A-Za-z0-9+/]/g, "");
+    for (let i = 0; i < чистые.length; i++) {
+      накоплено = (накоплено << 6) | АЛФАВИТ.indexOf(чистые.charAt(i));
+      биты += 6;
+      if (биты >= 8) {
+        биты -= 8;
+        байты.push((накоплено >> биты) & 0xff);
+      }
+    }
+    let текст = "";
+    for (let i = 0; i < байты.length; i++) текст += String.fromCharCode(байты[i]);
+    // Русских букв в уведомлении Google нет, поэтому посимвольной сборки хватает.
+    сообщение = JSON.parse(текст);
+  } catch (err) {
+    console.log("[fern] RTDN не разобран: " + err);
+    return e.json(200, { ok: true, skipped: "bad_base64" });
+  }
+
+  let база = $os.getenv("FERN_VERIFY_URL") || "http://127.0.0.1:8097";
+  if (secret && given === secret && body.verify_base) {
+    база = String(body.verify_base);
+  }
+
+  const подписка = сообщение.subscriptionNotification || {};
+  const чек = String(подписка.purchaseToken || "");
+  const товар = String(подписка.subscriptionId || "");
+  if (!чек) return e.json(200, { ok: true, skipped: сообщение.testNotification ? "test" : "not_subscription" });
+
+  let заказ = null;
+  try {
+    заказ = $app.findFirstRecordByFilter(
+      "fern_orders", "source = 'play' && order_key = {:k}",
+      { k: "PLAY:" + чек });
+  } catch (_) { заказ = null; }
+  if (!заказ) return e.json(200, { ok: true, skipped: "unknown_token" });
+
+  // Содержимому уведомления не верим: спрашиваем у Google, что со сроком.
+  let вердикт = null;
+  try {
+    const r = $http.send({
+      url: база.replace(/\/+$/, "") + "/verify",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        store: "play", kind: "subscription",
+        productId: товар || String(заказ.get("plan") === "year"
+          ? "fern_pro_year" : "fern_pro_month"),
+        purchaseToken: чек,
+        package: $os.getenv("FERN_PLAY_PACKAGE") || "com.fern.app",
+      }),
+      timeout: 30,
+    });
+    вердикт = (r && r.json) || null;
+  } catch (err) {
+    console.log("[fern] чек по уведомлению не проверен: " + err);
+    return e.json(200, { ok: true, skipped: "verify_unreachable" });
+  }
+  if (!вердикт || вердикт.ok !== true) {
+    return e.json(200, { ok: true, skipped: "verify_failed" });
+  }
+
+  let человек = null;
+  try {
+    человек = $app.findRecordById("fern_users", String(заказ.get("uid") || ""));
+  } catch (_) { человек = null; }
+  if (!человек) return e.json(200, { ok: true, skipped: "no_account" });
+
+  const сейчас = new Date();
+  if (вердикт.valid === true && вердикт.expiry) {
+    const d = new Date(String(вердикт.expiry).replace(" ", "T"));
+    if (!isNaN(d.getTime())) {
+      человек.set("pro_until", d.toISOString());
+      человек.set("pro_status", вердикт.cancelled === true ? "cancelled" : "active");
+      заказ.set("until", d.toISOString());
+    }
+  } else {
+    // Подписка кончилась или отозвана: срок не двигаем, состояние отмечаем.
+    человек.set("pro_status",
+      String(вердикт.state || "").indexOf("EXPIRED") !== -1 ? "expired" : "cancelled");
+  }
+  заказ.set("event", "play:" + String(подписка.notificationType || "?"));
+  try { $app.save(человек); $app.save(заказ); } catch (err) { console.log("[fern] " + err); }
+
+  return e.json(200, { ok: true, until: вердикт.expiry || null });
 });

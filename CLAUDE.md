@@ -586,7 +586,7 @@ Caddy, снаружи `togetherly.duckdns.org`):
 | Что | Где |
 |---|---|
 | Аккаунты и заказы | коллекции `fern_users` (auth) и `fern_orders` |
-| Роуты | `/api/fern/checkout`, `/me`, `/cancel`, `/lava`, `/sync`, `/store` |
+| Роуты | `/api/fern/checkout`, `/me`, `/cancel`, `/lava`, `/sync`, `/store`, `/apple` (нативный вход), `/apple-notify` и `/play-rtdn` (продления), `/paid` |
 | Подпись талонов | `/opt/fern_ticket.py`, служба `fern-ticket` на 8160 |
 | Проверка чеков | `/opt/play_verify.py` (общая с Togetherly), 8097 |
 | Настройки | drop-in `/etc/systemd/system/pocketbase.service.d/fern.conf` |
@@ -603,6 +603,26 @@ Togetherly: проверено, что сессия Fern видит ноль з�
 (`subscriptionTicket`), иначе подписка затирала бы вечную покупку, а её отмена
 отбирала бы оплаченное однажды. Срок талона — оплаченный день плюс неделя
 льготы, но не больше сорока дней от выдачи.
+
+**Уведомления магазинов о продлении.** Apple шлёт подписанный конверт на
+`/api/fern/apple-notify`, Google — сообщение Pub/Sub на `/api/fern/play-rtdn`
+(закрыт ключом в `?key=`). Содержимому уведомления не верим: срок всегда
+перепроверяется у магазина. Человека находим по заказу: у Apple это
+`originalTransactionId`, у Google — тот же `purchaseToken`.
+
+Включение самих уведомлений API не отдаёт: URL Apple вписывается в App Store
+Connect, а RTDN требует включить Pub/Sub API в проекте `fern-releases`, завести
+топик, дать права Google Play и указать топик в Play Console. Сервисный аккаунт
+включить Pub/Sub не может — 403 на `serviceusage`.
+
+**Льготный период Apple включён через API** (`asc_subscriptions.py`): при сбое
+списания доступ живёт ещё 16 дней. Путь именно `/v1/subscriptionGracePeriods/{id}`
+— на `/v1/apps/{id}/…` сервер отвечает 405, а из длительностей приняты только
+`THREE_DAYS`, `SIXTEEN_DAYS` и `TWENTY_EIGHT_DAYS`.
+
+**Нативный вход Apple** живёт в `/api/fern/apple`: системный диалог iPhone
+отдаёт токен, подпись проверяет тот же релей, что у Togetherly (`apns_relay.py`
+на 8096) — в его `APPLE_AUDIENCES` добавлен bundle Fern.
 
 **Грабли, которые уже стреляли здесь:**
 

@@ -313,6 +313,25 @@ def скриншот(sub_id: str, файл: str) -> None:
     print(f'      скриншот загружен ({len(данные) // 1024} КБ)')
 
 
+def льгота() -> None:
+    """Льготный период Apple: при сбое списания доступ живёт ещё шестнадцать
+    дней, пока человек меняет карту.
+
+    Путь именно `/v1/subscriptionGracePeriods/{id}` — на `/v1/apps/{id}/…`
+    сервер отвечает 405. Из длительностей приняты только `THREE_DAYS`,
+    `SIXTEEN_DAYS` и `TWENTY_EIGHT_DAYS`.
+    """
+    было = asc.get(f'/v1/apps/{asc.APP_ID}/subscriptionGracePeriod')['data']['attributes']
+    if было.get('optIn'):
+        print(f'   льготный период уже включён: {было.get("duration")}')
+        return
+    r = asc.call('PATCH', f'/v1/subscriptionGracePeriods/{asc.APP_ID}', json={'data': {
+        'type': 'subscriptionGracePeriods', 'id': asc.APP_ID,
+        'attributes': {'optIn': True, 'duration': 'SIXTEEN_DAYS',
+                       'renewalType': 'ALL_RENEWALS', 'sandboxOptIn': True}}})
+    print(f'   льготный период включён: {r["data"]["attributes"].get("duration")}')
+
+
 def state() -> None:
     гр = группы()
     if not гр:
@@ -331,6 +350,8 @@ def state() -> None:
 
 
 def setup() -> None:
+    print('→ льготный период')
+    льгота()
     print('→ группа подписок')
     group_id = завести_группу()
     назвать_группу(group_id)
