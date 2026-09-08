@@ -12,9 +12,11 @@ import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'services/billing_service.dart';
 import 'services/license_service.dart';
+import 'services/fern_account.dart';
 import 'utils/build_config.dart';
 import 'utils/share_origin.dart';
 import 'services/pro.dart';
+import 'services/subscription_service.dart';
 import 'widgets/optimize_info_sheet.dart';
 import 'widgets/pro_sheet.dart';
 import 'settings/providers_screen.dart';
@@ -1177,8 +1179,53 @@ class _SettingsScreenState extends State<SettingsScreen> {
   /// а человек видит, что приложение помнит его оплату.
   List<Widget> _proTiles(ColorScheme scheme) {
     final license = LicenseService.instance.info;
+    final sub = SubscriptionService.instance;
+    // Подписка идёт первой строкой: у того, кто платит каждый месяц, вопрос
+    // «до какого числа оплачено» возникает чаще всех прочих.
+    final subTiles = <Widget>[
+      if (FernAccount.instance.signedIn) ...[
+        _infoTile(
+          icon: switch (sub.status) {
+            SubStatus.active => Icons.verified_rounded,
+            SubStatus.cancelled => Icons.schedule_rounded,
+            SubStatus.lifetime => Icons.all_inclusive_rounded,
+            _ => Icons.info_outline_rounded,
+          },
+          title: switch (sub.status) {
+            SubStatus.active => sub.until == null
+                ? tr('sub_section')
+                : trf('sub_paid_until', {'date': _dayText(sub.until!)}),
+            SubStatus.cancelled => sub.until == null
+                ? tr('sub_section')
+                : trf('sub_cancelled_until', {'date': _dayText(sub.until!)}),
+            SubStatus.lifetime => tr('sub_lifetime'),
+            SubStatus.expired => tr('sub_expired'),
+            SubStatus.refunded => tr('sub_expired'),
+            SubStatus.none => tr('sub_none'),
+          },
+          subtitle: FernAccount.instance.email,
+          trailing: '',
+          scheme: scheme,
+        ),
+        if (sub.status == SubStatus.active)
+          _actionTile(
+            icon: Icons.cancel_schedule_send_rounded,
+            title: tr('sub_cancel'),
+            onTap: _cancelSubscription,
+            scheme: scheme,
+          ),
+        _actionTile(
+          icon: Icons.logout_rounded,
+          title: tr('sub_signout'),
+          onTap: _signOutAccount,
+          scheme: scheme,
+        ),
+      ],
+    ];
+
     if (Pro.active) {
       return [
+        ...subTiles,
         _infoTile(
           icon: Icons.verified_rounded,
           title: tr('pro_active'),
@@ -1203,6 +1250,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ];
     }
     return [
+      ...subTiles,
       _actionTile(
         icon: Icons.auto_awesome_rounded,
         title: tr('pro_title'),
@@ -1227,6 +1275,69 @@ class _SettingsScreenState extends State<SettingsScreen> {
           scheme: scheme,
         ),
     ];
+  }
+
+  /// Дата цифрами: 08.10.2026. Названия месяцев потребовали бы двенадцати
+  /// новых строк на семь языков ради одной подписи, а цифры читаются всеми.
+  String _dayText(DateTime day) {
+    final local = day.toLocal();
+    final d = local.day.toString().padLeft(2, '0');
+    final m = local.month.toString().padLeft(2, '0');
+    return '$d.$m.${local.year}';
+  }
+
+  /// Отмена подписки. Спрашиваем подтверждение: нажатие сюда по ошибке стоит
+  /// человеку денег, а вернуть подписку одним тапом нельзя.
+  Future<void> _cancelSubscription() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        content: Text(tr('sub_cancel_ask')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(tr('sub_cancel')),
+          ),
+        ],
+      ),
+    );
+    if (agreed != true) return;
+    final ok = await SubscriptionService.instance.cancel();
+    if (!mounted) return;
+    messenger.showSnackBar(SnackBar(
+      content: Text(ok ? tr('sub_cancel_done') : tr('sub_cancel_failed')),
+    ));
+    setState(() {});
+  }
+
+  /// Выход из аккаунта. Талон уходит вместе с сессией, поэтому предупреждаем:
+  /// на этом устройстве Pro закроется.
+  Future<void> _signOutAccount() async {
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        content: Text(tr('sub_signout_ask')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(tr('sub_signout')),
+          ),
+        ],
+      ),
+    );
+    if (agreed != true) return;
+    await FernAccount.instance.signOut();
+    await SubscriptionService.instance.forget();
+    if (mounted) setState(() {});
   }
 
   /// Восстановление покупки из настроек. Магазин отвечает по сети и не сразу,

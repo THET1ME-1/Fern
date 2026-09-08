@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../l10n/locale_controller.dart';
 import '../l10n/strings.dart';
 import '../services/billing_service.dart';
+import '../services/fern_account.dart';
 import '../services/license_service.dart';
 import '../services/pro.dart';
 import '../services/reading_goal.dart';
+import '../services/subscription_service.dart';
+import 'account_sheet.dart';
 import '../theme/app_theme.dart';
 import '../utils/build_config.dart';
 
@@ -68,6 +72,13 @@ class _ProSheetState extends State<ProSheet> {
   /// молчаливое чтение буфера на старте приложения выглядит слежкой.
   String? _clipboardKey;
   LicenseInfo? _clipboardInfo;
+
+  /// Выбранный тариф. Годовой стоит первым и выбран заранее: он выгоднее и
+  /// человеку, и нам — меньше поводов уйти на первом продлении.
+  String _plan = 'year';
+
+  /// Ждём, пока оплата дойдёт до сервера.
+  bool _waiting = false;
 
   @override
   void initState() {
@@ -336,7 +347,12 @@ class _ProSheetState extends State<ProSheet> {
               Text(_error!, style: TextStyle(color: scheme.error)),
             ],
             const SizedBox(height: 14),
-            if (kStoreBilling) ..._storeButtons(price) else ..._keyButtons(scheme),
+            if (kStoreBilling)
+              ..._storeButtons(price)
+            else if (_keyMode)
+              ..._keyButtons(scheme)
+            else
+              ..._subscriptionButtons(scheme),
           ],
           ),
         ),
@@ -409,6 +425,206 @@ class _ProSheetState extends State<ProSheet> {
       ),
     );
   }
+
+  /// Цены тарифов по валютам. Валюту выбирает язык интерфейса: карты МИР и
+  /// СБП работают только с рублём, а у lava.top минимум для подписки — пять
+  /// евро или долларов, ниже тариф просто не заводится.
+  static const Map<String, Map<String, String>> _prices = {
+    'RUB': {'month': '299 ₽', 'year': '1990 ₽', 'per_month': '166 ₽'},
+    'EUR': {'month': '5 €', 'year': '33 €', 'per_month': '2,75 €'},
+    'USD': {'month': '5 \$', 'year': '35 \$', 'per_month': '2,9 \$'},
+  };
+
+  String get _currency {
+    final code = LocaleController.instance.code;
+    if (code == 'ru') return 'RUB';
+    if (code == 'en') return 'USD';
+    return 'EUR';
+  }
+
+  String get _lang {
+    final code = LocaleController.instance.code;
+    if (code == 'ru') return 'RU';
+    if (code == 'es') return 'ES';
+    return 'EN';
+  }
+
+  /// Карточка тарифа: выбранная заливается основным контейнером, невыбранная
+  /// обведена. Цвет здесь работает вместо тени — теней в приложении нет.
+  Widget _planCard(ColorScheme scheme, String plan) {
+    final selected = _plan == plan;
+    final prices = _prices[_currency]!;
+    final year = plan == 'year';
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Material(
+        color: selected ? scheme.primaryContainer : scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(22),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(22),
+          onTap: _busy ? null : () => setState(() => _plan = plan),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Icon(
+                  selected
+                      ? Icons.radio_button_checked_rounded
+                      : Icons.radio_button_unchecked_rounded,
+                  color: selected ? scheme.onPrimaryContainer : scheme.outline,
+                  size: 22,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        year ? tr('sub_plan_year') : tr('sub_plan_month'),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: selected
+                              ? scheme.onPrimaryContainer
+                              : scheme.onSurface,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        year
+                            ? trf('sub_year_note', {'price': prices['per_month']!})
+                            : tr('sub_month_note'),
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          color: selected
+                              ? scheme.onPrimaryContainer.withValues(alpha: 0.85)
+                              : scheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  prices[plan]!,
+                  style: TextStyle(
+                    fontFamily: AppTheme.displayFont,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: selected
+                        ? scheme.onPrimaryContainer
+                        : scheme.onSurface,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Оформление подписки: вход (если ещё не вошли), счёт, браузер, ожидание.
+  Future<void> _subscribe() async {
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+
+    if (!FernAccount.instance.signedIn) {
+      final entered = await AccountSheet.show(context);
+      if (!mounted) return;
+      if (!entered) {
+        setState(() => _busy = false);
+        return;
+      }
+    }
+
+    final url = await SubscriptionService.instance
+        .checkoutUrl(plan: _plan, currency: _currency, lang: _lang);
+    if (!mounted) return;
+    if (url == null) {
+      setState(() {
+        _busy = false;
+        _error = tr('sub_err_checkout');
+      });
+      return;
+    }
+
+    try {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _busy = false;
+        _error = tr('open_link_failed');
+      });
+      return;
+    }
+
+    // Человек уходит платить в браузер и возвращается раньше, чем lava успевает
+    // сказать об оплате. Ждём сервер здесь, а не заставляем перезапускать
+    // приложение и гадать, дошли ли деньги.
+    setState(() => _waiting = true);
+    final paid = await SubscriptionService.instance.waitForPayment();
+    if (!mounted) return;
+    setState(() {
+      _waiting = false;
+      _busy = false;
+    });
+    if (paid) {
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('sub_paid_ok'))),
+      );
+    } else {
+      setState(() => _error = tr('sub_err_wait'));
+    }
+  }
+
+  List<Widget> _subscriptionButtons(ColorScheme scheme) => [
+        if (_clipboardInfo != null) _clipboardCard(scheme),
+        _planCard(scheme, 'year'),
+        _planCard(scheme, 'month'),
+        const SizedBox(height: 4),
+        FilledButton(
+          onPressed: _busy ? null : _subscribe,
+          style: FilledButton.styleFrom(
+            minimumSize: const Size.fromHeight(52),
+            shape: const StadiumBorder(),
+          ),
+          child: _waiting
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 18,
+                      width: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(tr('sub_waiting')),
+                  ],
+                )
+              : Text(tr('sub_subscribe')),
+        ),
+        TextButton(
+          onPressed: _busy ? null : () => setState(() => _keyMode = true),
+          child: Text(tr('sub_have_key')),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Text(
+            tr('sub_fine'),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 11.5,
+              height: 1.45,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ),
+      ];
 
   List<Widget> _keyButtons(ColorScheme scheme) => [
         if (_clipboardInfo != null) _clipboardCard(scheme),

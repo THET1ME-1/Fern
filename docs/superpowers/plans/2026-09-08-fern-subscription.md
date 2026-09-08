@@ -73,7 +73,7 @@ len(email))` плюс почта. `license_id` = `zlib.crc32(uid.encode())`, ч�
 ### Задача 2: Служба подписи талонов
 
 **Файлы:**
-- Создать: `server/fern_ticket.py` (HTTP на 127.0.0.1:8098)
+- Создать: `server/fern_ticket.py` (HTTP на 127.0.0.1:8160)
 - Создать: `server/fern-ticket.service`
 - Тест: `server/test_fern_ticket.py`
 
@@ -131,7 +131,7 @@ month/year), `lava_contract` (text), `lifetime` (bool). Правила: `listRul
 `FERN_OFFER_YEAR`, ключ — `LAVA_API_KEY`. Возврат в приложение:
 `successful_return_url: "fern://paid"`.
 
-Талон `me` берёт у службы 8098, срок талона — `pro_until` плюс семь дней, но не
+Талон `me` берёт у службы 8160, срок талона — `pro_until` плюс семь дней, но не
 больше сорока дней от выдачи.
 
 - [ ] **Шаг 1: тесты** — без сессии 401; чужой аккаунт Togetherly не пускает;
@@ -295,7 +295,7 @@ systemd-юнит, перезапускает PocketBase, проверяет `/ap
 - Изменить: `server/pb_hooks/fern.pb.js`
 - Тест: `server/test_fern_store.py`
 
-`POST /api/fern/store {platform, productId, token}` → проверка через 8098/8097 →
+`POST /api/fern/store {platform, productId, token}` → проверка через 8160/8097 →
 `pro_until` берётся максимумом со старым значением.
 
 - [ ] **Шаг 1: тесты** — Play, Apple, подделанный токен, повтор

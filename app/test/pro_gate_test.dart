@@ -124,7 +124,7 @@ void main() {
     expect(await Pro.allows(ProFeature.deckImport), isFalse);
   });
 
-  testWidgets('Лист покупки вне магазина ведёт в бот и принимает ключ',
+  testWidgets('Лист вне магазина предлагает подписку и принимает старый ключ',
       (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Builder(
@@ -139,14 +139,19 @@ void main() {
     await tester.tap(find.text('открыть'));
     await tester.pumpAndSettle();
 
-    // Сборка не магазинная: платят на стороне, ключ выдаёт бот. Кнопка
-    // «Купить» есть в обеих ветках, поэтому Play узнаётся по восстановлению
-    // покупки — его умеет только магазин.
-    expect(find.text(tr('pro_open_bot')), findsOneWidget);
-    expect(find.text(tr('pro_buy')), findsOneWidget);
+    // Сборка не магазинная: платят на стороне, и с 1.26.0 это подписка.
+    // Восстановление покупки умеет только магазин — по нему и отличаем.
+    expect(find.text(tr('sub_subscribe')), findsOneWidget);
+    expect(find.text(tr('sub_plan_year')), findsOneWidget);
     expect(find.text(tr('pro_restore')), findsNothing);
 
-    await tester.tap(find.text(tr('pro_have_key')));
+    // Купившим раньше ключ никуда не делся: он лежит за отдельной строкой.
+    await tester.dragUntilVisible(
+      find.text(tr('sub_have_key')),
+      find.byType(SingleChildScrollView).first,
+      const Offset(0, -80),
+    );
+    await tester.tap(find.text(tr('sub_have_key')));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), key7);
     await tester.tap(find.text(tr('pro_key_apply')));
@@ -177,7 +182,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(tr('pro_open_bot')), findsNothing);
-    expect(find.text(tr('pro_have_key')), findsNothing);
+    expect(find.text(tr('sub_have_key')), findsNothing);
+    expect(find.text(tr('sub_subscribe')), findsNothing);
     expect(find.byType(TextField), findsNothing);
     expect(find.text(tr('pro_buy')), findsOneWidget);
     // Восстановление обязательно: без него App Store отклоняет приложение с
@@ -248,7 +254,12 @@ void main() {
     ));
     await tester.tap(find.text('открыть'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text(tr('pro_have_key')));
+    await tester.dragUntilVisible(
+      find.text(tr('sub_have_key')),
+      find.byType(SingleChildScrollView).first,
+      const Offset(0, -80),
+    );
+    await tester.tap(find.text(tr('sub_have_key')));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'FERNZZZZZZZZ');
     await tester.tap(find.text(tr('pro_key_apply')));

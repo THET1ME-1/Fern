@@ -107,6 +107,17 @@
 				<string>ShareMedia-$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>day.fern.payment</string>
+			<!-- Возврат из браузера после оплаты подписки: fern://paid -->
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fern</string>
+			</array>
+		</dict>
 	</array>
 	<!-- Свой сервер перевода (Ollama, LibreTranslate, LM Studio) человек
 	     держит в домашней сети и обращается к нему по обычному http. ATS

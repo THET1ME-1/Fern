@@ -15,9 +15,11 @@ import 'recovery_screen.dart';
 import 'services/backup_service.dart';
 import 'services/billing_service.dart';
 import 'services/card_images.dart';
+import 'services/fern_account.dart';
 import 'services/license_service.dart';
 import 'services/revocation_feed.dart';
 import 'services/pro.dart';
+import 'services/subscription_service.dart';
 import 'services/source_library.dart';
 import 'services/deck_repository.dart';
 import 'services/language_registry.dart';
@@ -88,6 +90,13 @@ Future<void> startFern() async {
     await LicenseService.instance.load();
   });
   await _optional(StartupStep.billing, BillingService.instance.load);
+  // Аккаунт и подписка: сессия с диска и последний известный срок нужны до
+  // первого кадра, иначе у подписчика мигнёт замок. За свежим талоном идём
+  // фоном — сеть не должна задерживать запуск.
+  await _optional(StartupStep.license, () async {
+    await FernAccount.instance.init();
+    await SubscriptionService.instance.load();
+  });
   await _optional(StartupStep.seed, () async {
     // Разовый перенос: у тех, кто разобрал свою книгу до появления счётчика
     // бесплатных разборов, он пуст — обновление не должно дарить лишнюю книгу.
@@ -114,6 +123,8 @@ Future<void> startFern() async {
   // Раз в трое суток забираем список отозванных лицензий. Ответа не ждём:
   // нет сети — остаётся тот список, что уже лежит на устройстве.
   unawaited(RevocationFeed.refresh());
+  // Свежий талон подписки: раз в двадцать часов, не чаще.
+  unawaited(SubscriptionService.instance.refreshIfStale());
 }
 
 /// Шаги запуска, которые не поднялись. Приложение работает и без них, но
@@ -295,6 +306,10 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       case AppLifecycleState.resumed:
         unawaited(NotificationService.instance.cancelQuickReview());
         unawaited(QuickReview.applyPending());
+        // Человек мог уйти платить в браузер и вернуться: спрашиваем сервер,
+        // не появилась ли подписка. Ходим не чаще раза в двадцать часов, а
+        // сразу после оплаты лист сам опрашивает чаще.
+        unawaited(SubscriptionService.instance.refreshIfStale());
       case AppLifecycleState.detached:
       case AppLifecycleState.inactive:
       case AppLifecycleState.hidden:
