@@ -103,6 +103,7 @@ void main() {
     test('талон гаснет сам, когда срок вышел', () async {
       await LicenseService.instance.apply(monthly);
       expect(LicenseService.instance.isValid, isTrue);
+      expect(LicenseService.instance.ticketValid, isTrue);
       // Приложение не перезапускали, а срок кончился.
       LicenseService.debugNow = DateTime.utc(2026, 10, 16);
       expect(LicenseService.instance.isValid, isFalse);
@@ -120,7 +121,8 @@ void main() {
       await LicenseService.instance.apply(monthly);
       await LicenseService.instance.load();
       expect(LicenseService.instance.isValid, isTrue);
-      expect(LicenseService.instance.info!.until, DateTime.utc(2026, 10, 15));
+      expect(LicenseService.instance.ticketInfo!.until,
+          DateTime.utc(2026, 10, 15));
     });
 
     test('протухший талон с диска не поднимается', () async {
@@ -128,6 +130,36 @@ void main() {
       LicenseService.debugNow = DateTime.utc(2026, 11, 1);
       await LicenseService.instance.load();
       expect(LicenseService.instance.isValid, isFalse);
+    });
+  });
+
+  group('талон и ключ навсегда живут порознь', () {
+    test('подписка не затирает вечную покупку', () async {
+      await LicenseService.instance.apply(lifetime, enforceWindow: false);
+      await LicenseService.instance.apply(monthly);
+      expect(LicenseService.instance.keyValid, isTrue);
+      expect(LicenseService.instance.ticketValid, isTrue);
+      expect(LicenseService.instance.info!.until, isNull);
+      expect(LicenseService.instance.ticketInfo!.until,
+          DateTime.utc(2026, 10, 15));
+    });
+
+    test('выход из аккаунта уносит талон, а покупку оставляет', () async {
+      await LicenseService.instance.apply(lifetime, enforceWindow: false);
+      await LicenseService.instance.apply(monthly);
+      await LicenseService.instance.clearTicket();
+      expect(LicenseService.instance.ticketValid, isFalse);
+      expect(LicenseService.instance.keyValid, isTrue);
+      expect(LicenseService.instance.isValid, isTrue);
+    });
+
+    test('кончившаяся подписка не отбирает вечную покупку', () async {
+      await LicenseService.instance.apply(lifetime, enforceWindow: false);
+      await LicenseService.instance.apply(monthly);
+      LicenseService.debugNow = DateTime.utc(2027, 1, 1);
+      await LicenseService.instance.load();
+      expect(LicenseService.instance.isValid, isTrue);
+      expect(LicenseService.instance.ticketValid, isFalse);
     });
   });
 }

@@ -32,6 +32,11 @@ class LicenseService extends ChangeNotifier {
   static Set<int> revoked = <int>{};
 
   static const String _kKey = 'licenseKey';
+
+  /// Талон подписки лежит ОТДЕЛЬНО от ключа навсегда. Один слот на двоих
+  /// означал бы, что подписка затирает вечную покупку, а её отмена отбирает
+  /// то, за что человек заплатил однажды и навсегда.
+  static const String _kTicket = 'subscriptionTicket';
   static const String _prefix = 'FERN';
   static const int _formatVersion = 1;
   /// Именной ключ: внутри почта покупателя (с 1.17.3).
@@ -57,6 +62,8 @@ class LicenseService extends ChangeNotifier {
 
   String? _key;
   LicenseInfo? _info;
+  String? _ticket;
+  LicenseInfo? _ticketInfo;
 
   /// Публичный ключ можно подменить в тестах: проверку подписи надо гонять
   /// на своей паре, а не на боевой.
@@ -75,21 +82,39 @@ class LicenseService extends ChangeNotifier {
   /// Разобранная лицензия — `null`, если ключа нет или он не прошёл проверку.
   LicenseInfo? get info => _info;
 
+  /// Разобранный талон подписки, если он есть и годен по формату.
+  LicenseInfo? get ticketInfo => _ticketInfo;
+
+  /// Талон, лежащий на устройстве.
+  String? get ticket => _ticket;
+
   /// Годна ли лицензия ПРЯМО СЕЙЧАС.
   ///
   /// У ключа навсегда ответ не меняется, у талона — меняется: срок кончается
   /// и во время работы приложения. Проверять только при загрузке значило бы
   /// оставлять Pro открытым до перезапуска, а перезапускают редко.
-  bool get isValid {
-    final info = _info;
-    if (info == null) return false;
-    final until = info.until;
-    if (until == null) return true;
+  bool get isValid => keyValid || ticketValid;
+
+  /// Годен ли ключ навсегда.
+  bool get keyValid => _info != null;
+
+  /// Годен ли талон подписки ПРЯМО СЕЙЧАС. Срок кончается и во время работы
+  /// приложения, поэтому считаем при каждом обращении: проверка только при
+  /// загрузке оставляла бы Pro открытым до перезапуска.
+  bool get ticketValid {
+    final until = _ticketInfo?.until;
+    if (until == null) return false;
     return !_now.isAfter(until);
   }
 
   Future<void> load() async {
     final prefs = SharedPreferencesAsync();
+    _ticket = await prefs.getString(_kTicket);
+    _ticketInfo = _ticket == null ? null : await verify(_ticket!);
+    if (_ticket != null && _ticketInfo == null) {
+      await prefs.remove(_kTicket);
+      _ticket = null;
+    }
     _key = await prefs.getString(_kKey);
     _info = _key == null ? null : await verify(_key!);
     // Ключ, который перестал быть годным (отозван новой версией), не держим:
@@ -118,7 +143,13 @@ class LicenseService extends ChangeNotifier {
     final until = info.until;
     if (until != null) {
       if (_now.isAfter(until)) return const ApplyResult(expired: true);
-    } else if (enforceWindow && _outsideWindow(info)) {
+      _ticket = _normalize(raw);
+      _ticketInfo = info;
+      await SharedPreferencesAsync().setString(_kTicket, _ticket!);
+      notifyListeners();
+      return ApplyResult(info: info);
+    }
+    if (enforceWindow && _outsideWindow(info)) {
       return const ApplyResult(expired: true);
     }
     _key = _normalize(raw);
@@ -138,7 +169,20 @@ class LicenseService extends ChangeNotifier {
   Future<void> clear() async {
     _key = null;
     _info = null;
-    await SharedPreferencesAsync().remove(_kKey);
+    _ticket = null;
+    _ticketInfo = null;
+    final prefs = SharedPreferencesAsync();
+    await prefs.remove(_kKey);
+    await prefs.remove(_kTicket);
+    notifyListeners();
+  }
+
+  /// Убирает талон, не трогая ключ навсегда. Зовётся при выходе из аккаунта:
+  /// подписка принадлежит аккаунту, а вечная покупка — устройству.
+  Future<void> clearTicket() async {
+    _ticket = null;
+    _ticketInfo = null;
+    await SharedPreferencesAsync().remove(_kTicket);
     notifyListeners();
   }
 
