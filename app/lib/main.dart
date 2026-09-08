@@ -34,9 +34,9 @@ import 'share/share_import.dart';
 import 'settings_screen.dart';
 import 'startup.dart';
 import 'study/reader_settings.dart';
+import 'study/session_screen.dart';
+import 'study/study_models.dart';
 import 'theme/app_theme.dart';
-import 'widgets/morph_shapes.dart';
-import 'theme/fern_shapes.dart';
 import 'theme/theme_controller.dart';
 
 Future<void> main() async {
@@ -355,6 +355,38 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     }
   }
 
+  /// Запуск повторов из дока: карточки берутся по всем колодам языка.
+  ///
+  /// Колода нужна сессии ради языка и направления, поэтому берём первую
+  /// колоду языка; принадлежность карточки к своей колоде хранится в ней
+  /// самой, и статистика от этого не съезжает.
+  Future<void> _studyEverything() async {
+    final repo = DeckRepository.instance;
+    final lang = await repo.selectedLanguageCode() ?? 'en';
+    final decks = repo.decks.where((d) => d.languageCode == lang).toList();
+    if (decks.isEmpty) {
+      _onItemTapped(0);
+      return;
+    }
+    final cards = repo.cardsForLanguageSync(lang);
+    if (cards.isEmpty) {
+      _onItemTapped(0);
+      return;
+    }
+    if (!mounted) return;
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => SessionScreen(
+          deck: decks.first,
+          mode: StudyMode.learn,
+          cards: cards,
+          reload: () async => repo.cardsForLanguageSync(lang),
+        ),
+      ),
+    );
+    if (mounted) setState(() {});
+  }
+
   void _onItemTapped(int index) {
     if (index >= 0 && index < _tabCount) {
       HapticFeedback.selectionClick();
@@ -366,9 +398,13 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screenFor(_selectedIndex),
-      bottomNavigationBar: _CircleNavBar(
+      // Док висит над содержимым, а не отрезает его полосой: список виден до
+      // самого низа. Панель разделов — таблетка, действие рядом квадратом.
+      extendBody: true,
+      bottomNavigationBar: _FernDock(
         selectedIndex: _selectedIndex,
         onTap: _onItemTapped,
+        onStudy: _studyEverything,
         items: [
           _NavItem(Icons.style_outlined, Icons.style_rounded, tr('tab_decks')),
           _NavItem(Icons.auto_stories_outlined, Icons.auto_stories_rounded,
@@ -391,47 +427,191 @@ class _NavItem {
   const _NavItem(this.icon, this.selectedIcon, this.label);
 }
 
-/// Нижняя навигация в духе M3, но индикатор активного пункта — РОВНЫЙ КРУГ
-/// (а не «таблетка»). Круг плавно «переезжает», иконка контур→заливка.
-class _CircleNavBar extends StatelessWidget {
+/// Док: таблетка разделов и квадратная кнопка повторов рядом.
+///
+/// Панель во всю ширину кончалась стеной — список обрывался ровной полосой.
+/// Здесь док висит над содержимым, разделы держат ряд целиком, а действие
+/// стоит отдельным квадратом в высоту ряда: ширина разделов больше не зависит
+/// от длины слова на кнопке.
+class _FernDock extends StatefulWidget {
   final int selectedIndex;
   final ValueChanged<int> onTap;
+  final Future<void> Function() onStudy;
   final List<_NavItem> items;
 
-  const _CircleNavBar({
+  const _FernDock({
     required this.selectedIndex,
     required this.onTap,
+    required this.onStudy,
     required this.items,
   });
+
+  /// Высота ряда. Прежние 72 держали подпись под каждой иконкой; здесь
+  /// подпись есть только у выбранного, и 64 хватает — ниже 56 палец начинает
+  /// промахиваться.
+  static const double height = 64;
+
+  @override
+  State<_FernDock> createState() => _FernDockState();
+}
+
+class _FernDockState extends State<_FernDock> {
+  int _due = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    DeckRepository.instance.addListener(_recount);
+    _recount();
+  }
+
+  @override
+  void dispose() {
+    DeckRepository.instance.removeListener(_recount);
+    super.dispose();
+  }
+
+  /// Сколько карточек Fern отдаст прямо сейчас: просроченные повторы плюс
+  /// новые в пределах дневного лимита. Та же арифметика, что на главном
+  /// экране, — два разных числа в двух местах человек читает как ошибку.
+  Future<void> _recount() async {
+    final repo = DeckRepository.instance;
+    final lang = await repo.selectedLanguageCode() ?? 'en';
+    final allowed = await repo.newAllowedNow();
+    final now = DateTime.now();
+    var due = 0, fresh = 0;
+    for (final c in repo.cardsForLanguageSync(lang)) {
+      if (c.review.isNew) {
+        fresh++;
+      } else if (c.isDue(now)) {
+        due++;
+      }
+    }
+    final total = due + (fresh < allowed ? fresh : allowed);
+    if (!mounted || total == _due) return;
+    setState(() => _due = total);
+  }
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    return Material(
-      color: scheme.surfaceContainer,
-      child: SafeArea(
-        top: false,
+    final ready = _due > 0;
+    return SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
         child: SizedBox(
-          height: 72,
-          child: LayoutBuilder(
-            builder: (context, c) {
-              // Активный пункт шире остальных: в него въезжает подпись. Ширина
-              // считается, а не берётся долей поровну, иначе слово не влезает
-              // рядом с кругом.
-              final active = (c.maxWidth * 0.42).clamp(100.0, 190.0);
-              final idle = (c.maxWidth - active) / (items.length - 1);
-              return Row(
-                children: [
-                  for (var i = 0; i < items.length; i++)
-                    _CircleNavButton(
-                      item: items[i],
-                      selected: i == selectedIndex,
-                      width: i == selectedIndex ? active : idle,
-                      onTap: () => onTap(i),
+          height: _FernDock.height,
+          child: Row(
+            children: [
+              Expanded(
+                child: Material(
+                  color: scheme.surfaceContainerHigh,
+                  // Таблетка: край скруглён целиком, как у кнопок приложения.
+                  borderRadius: BorderRadius.circular(_FernDock.height / 2),
+                  clipBehavior: Clip.antiAlias,
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: LayoutBuilder(
+                      builder: (context, c) {
+                        final width = c.maxWidth / widget.items.length;
+                        return Stack(
+                          children: [
+                            // Метка ЕДЕТ к выбранному разделу, а не гаснет и
+                            // зажигается: движение читается одним предметом.
+                            AnimatedPositioned(
+                              duration: const Duration(milliseconds: 440),
+                              curve: AppTheme.emphasized,
+                              left: width * widget.selectedIndex,
+                              top: 0,
+                              bottom: 0,
+                              width: width,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: scheme.secondaryContainer,
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                for (var i = 0; i < widget.items.length; i++)
+                                  Expanded(
+                                    child: _DockTab(
+                                      item: widget.items[i],
+                                      selected: i == widget.selectedIndex,
+                                      onTap: () => widget.onTap(i),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ],
+                        );
+                      },
                     ),
-                ],
-              );
-            },
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              // Квадрат со скруглёнными углами: у действия своя форма, и оно
+              // не читается пятым разделом.
+              SizedBox(
+                width: _FernDock.height,
+                child: Material(
+                  color: ready ? scheme.primary : scheme.secondaryContainer,
+                  borderRadius: BorderRadius.circular(22),
+                  clipBehavior: Clip.antiAlias,
+                  child: InkWell(
+                    onTap: () {
+                      HapticFeedback.selectionClick();
+                      widget.onStudy();
+                    },
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Icon(
+                            ready
+                                ? Icons.play_arrow_rounded
+                                : Icons.check_rounded,
+                            size: 28,
+                            color: ready
+                                ? scheme.onPrimary
+                                : scheme.onSecondaryContainer,
+                          ),
+                        ),
+                        // Число висит значком на кнопке: объём видно, а ширины
+                        // разделов это не стоит.
+                        if (ready)
+                          Positioned(
+                            top: 6,
+                            right: 6,
+                            child: Container(
+                              constraints: const BoxConstraints(minWidth: 20),
+                              height: 20,
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: scheme.surface,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Text(
+                                _due > 99 ? '99+' : '$_due',
+                                style: TextStyle(
+                                  fontFamily: AppTheme.bodyFont,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 11,
+                                  height: 1,
+                                  color: scheme.primary,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -439,109 +619,50 @@ class _CircleNavBar extends StatelessWidget {
   }
 }
 
-class _CircleNavButton extends StatelessWidget {
+/// Раздел внутри таблетки: иконка и подпись под ней.
+class _DockTab extends StatelessWidget {
   final _NavItem item;
   final bool selected;
-  final double width;
   final VoidCallback onTap;
 
-  const _CircleNavButton({
+  const _DockTab({
     required this.item,
     required this.selected,
-    required this.width,
     required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    const double d = 54;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 340),
-      curve: AppTheme.emphasized,
-      width: width,
-      child: InkResponse(
-        onTap: onTap,
-        radius: 40,
-        containedInkWell: true,
-        customBorder: const StadiumBorder(),
-        child: Center(
-          child: TweenAnimationBuilder<double>(
-            tween: Tween(end: selected ? 1.0 : 0.0),
-            duration: const Duration(milliseconds: 340),
-            curve: AppTheme.emphasized,
-            builder: (context, t, _) => Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Подложка активного пункта перетекает из круга в «печеньку»:
-                // тот же язык форм, что у обложек колод и кольца цели. Форма
-                // НЕ растягивается под подпись — растянутая «печенька»
-                // превращается в линзу; слово встаёт рядом.
-                SizedBox(
-                  width: d,
-                  height: d,
-                  child: CustomPaint(
-                    painter: MorphPainter(
-                      morph:
-                          morphBetween(FernShapes.navIdle, FernShapes.navActive),
-                      t: t,
-                      fill: Color.lerp(
-                        Colors.transparent,
-                        scheme.primaryContainer,
-                        t,
-                      ),
-                      border: null,
-                      borderWidth: 0,
-                    ),
-                    child: Center(
-                      child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 220),
-                        transitionBuilder: (child, anim) => ScaleTransition(
-                          scale: Tween<double>(begin: 0.7, end: 1).animate(anim),
-                          child: FadeTransition(opacity: anim, child: child),
-                        ),
-                        child: Icon(
-                          selected ? item.selectedIcon : item.icon,
-                          key: ValueKey(selected),
-                          size: 28,
-                          color: selected
-                              ? scheme.onPrimaryContainer
-                              : scheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                // Подпись только у активного пункта: строка из четырёх слов
-                // рябит, а «где я сейчас» без подписи опознавалось перебором.
-                if (t > 0.01)
-                  Flexible(
-                    child: Opacity(
-                      opacity: t,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8, right: 10),
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            item.label,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: TextStyle(
-                              fontFamily: AppTheme.bodyFont,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 13,
-                              color: scheme.onSurface,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
+    final color =
+        selected ? scheme.onSecondaryContainer : scheme.onSurfaceVariant;
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(18),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(selected ? item.selectedIcon : item.icon, size: 22, color: color),
+          const SizedBox(height: 2),
+          // Подпись не переносится: длинная обрезается, а иконка остаётся на
+          // месте — на 320 dp разделу достаётся около семидесяти точек.
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 2),
+            child: Text(
+              item.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: AppTheme.bodyFont,
+                fontWeight: FontWeight.w600,
+                fontSize: 9.5,
+                height: 1.1,
+                color: color,
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
