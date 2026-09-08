@@ -12,7 +12,11 @@ import 'package:fern/deck_screen.dart';
 import 'package:fern/models/deck.dart';
 import 'package:fern/models/fsrs.dart';
 import 'package:fern/models/word_card.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
+
+import 'package:fern/services/billing_service.dart';
 import 'package:fern/services/deck_repository.dart';
+import 'package:fern/widgets/pro_sheet.dart';
 import 'package:fern/settings_screen.dart';
 import 'package:fern/study/results_screen.dart';
 import 'package:fern/study/schedule_explain_screen.dart';
@@ -96,6 +100,8 @@ Future<void> _shoot(WidgetTester tester, String name) async {
 
 Widget _app(Widget home) => MaterialApp(
       theme: AppTheme.dark(const Color(0xFF2E7D5B)),
+      // Ленту «DEBUG» на снимках видеть незачем: они уходят и в App Store.
+      debugShowCheckedModeBanner: false,
       home: home,
     );
 
@@ -182,6 +188,52 @@ void main() {
   });
 
   setUpAll(_loadFonts);
+
+  testWidgets('подписка: лист с тарифами для проверки App Store',
+      (tester) async {
+    // Размер iPhone 15 Pro Max: снимок уходит в App Store Connect как
+    // экран, где ревьюер видит покупку.
+    tester.view.physicalSize = const Size(1290, 2796);
+    tester.view.devicePixelRatio = 3.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    addTearDown(() => BillingService.storeBilling = false);
+
+    BillingService.storeBilling = true;
+    BillingService.instance.debugSetSubscriptions({
+      'fern_pro_month': ProductDetails(
+        id: 'fern_pro_month',
+        title: 'Fern Pro monthly',
+        description: 'Fern Pro',
+        price: '\$4.99',
+        rawPrice: 4.99,
+        currencyCode: 'USD',
+      ),
+      'fern_pro_year': ProductDetails(
+        id: 'fern_pro_year',
+        title: 'Fern Pro yearly',
+        description: 'Fern Pro',
+        price: '\$34.99',
+        rawPrice: 34.99,
+        currencyCode: 'USD',
+      ),
+    });
+
+    await tester.pumpWidget(_app(Builder(builder: (context) {
+      return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        body: Center(
+          child: TextButton(
+            onPressed: () => ProSheet.show(context),
+            child: const Text('открыть'),
+          ),
+        ),
+      );
+    })));
+    await tester.tap(find.text('открыть'));
+    await tester.pumpAndSettle();
+    await _shoot(tester, 'subscription');
+  });
 
   testWidgets('настройки: секции вместо карточки на каждый пункт',
       (tester) async {

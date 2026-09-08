@@ -13,7 +13,7 @@ void main() {
   setUp(() async {
     await resetStorage();
     // Канал сборки задан на компиляции; в тестах кассы магазина нет.
-    BillingService.debugStoreBilling = false;
+    BillingService.storeBilling = false;
   });
 
   Future<void> open(WidgetTester tester) async {

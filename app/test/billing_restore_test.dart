@@ -98,7 +98,7 @@ void main() {
 
   setUp(() async {
     await resetStorage();
-    BillingService.debugStoreBilling = true;
+    BillingService.storeBilling = true;
     // Ждать магазин восемь секунд в тесте незачем: проверяем логику, а не
     // терпение.
     BillingService.restoreWindow = const Duration(milliseconds: 50);
@@ -114,7 +114,7 @@ void main() {
 
   tearDown(() {
     debugDefaultTargetPlatformOverride = null;
-    BillingService.debugStoreBilling = false;
+    BillingService.storeBilling = false;
     BillingService.restoreWindow = const Duration(seconds: 8);
     store.close();
   });

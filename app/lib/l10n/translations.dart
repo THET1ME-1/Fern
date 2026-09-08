@@ -7,6 +7,7 @@
 const Map<String, Map<String, String>> kTranslations = {
   // ============================== Deutsch (de) ==============================
   'de': {
+    'sub_year_store_note': 'Einmal jährlich abgebucht',
     'sub_signin_title': 'Bei Fern anmelden',
     'sub_signup_title': 'Fern-Konto',
     'sub_signin_lead': 'Das Abo gehört dir, nicht dem Telefon: Bei einem Gerätewechsel zieht Pro mit um. Karten und Fortschritt bleiben auf dem Gerät.',
@@ -835,7 +836,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'pro_point_books': 'Bücher als EPUB, FB2 und TXT: Wort antippen für Übersetzung und Karte',
     'pro_point_video': 'Videos mit Untertiteln, Artikel per Link und Text aus einem Foto',
     'pro_point_import': 'Stapel-Import aus Anki und CSV',
-    'pro_point_forever': 'Einmalkauf: für immer und auf all deinen Geräten',
+    'pro_point_forever': 'Funktioniert offline und auf allen deinen Geräten',
     'pro_buy': 'Kaufen',
     'pro_buy_price': 'Für {price} kaufen',
     'pro_restore': 'Kauf wiederherstellen',
@@ -972,6 +973,7 @@ const Map<String, Map<String, String>> kTranslations = {
 
   // ============================== Français (fr) ==============================
   'fr': {
+    'sub_year_store_note': 'Débité une fois par an',
     'sub_signin_title': 'Connexion à Fern',
     'sub_signup_title': 'Compte Fern',
     'sub_signin_lead': 'L’abonnement vous appartient, pas au téléphone : changez d’appareil et Pro vous suit. Les cartes et la progression restent sur l’appareil.',
@@ -1800,7 +1802,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'pro_point_books': 'Livres EPUB, FB2 et TXT : touchez un mot pour sa traduction et une carte',
     'pro_point_video': 'Vidéos sous-titrées, articles par lien et texte depuis une photo',
     'pro_point_import': 'Import de paquets depuis Anki et CSV',
-    'pro_point_forever': 'Achat unique : pour toujours, sur tous vos appareils',
+    'pro_point_forever': 'Fonctionne hors ligne et sur tous vos appareils',
     'pro_buy': 'Acheter',
     'pro_buy_price': 'Acheter pour {price}',
     'pro_restore': 'Restaurer l’achat',
@@ -1937,6 +1939,7 @@ const Map<String, Map<String, String>> kTranslations = {
 
   // ============================== Español (es) ==============================
   'es': {
+    'sub_year_store_note': 'Se cobra una vez al año',
     'sub_signin_title': 'Entrar en Fern',
     'sub_signup_title': 'Cuenta de Fern',
     'sub_signin_lead': 'La suscripción es tuya, no del teléfono: cambias de dispositivo y Pro te acompaña. Las tarjetas y el progreso siguen en el dispositivo.',
@@ -2762,7 +2765,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'pro_point_books': 'Libros EPUB, FB2 y TXT: toca una palabra para su traducción y una tarjeta',
     'pro_point_video': 'Vídeos con subtítulos, artículos por enlace y texto desde una foto',
     'pro_point_import': 'Importación de mazos desde Anki y CSV',
-    'pro_point_forever': 'Compra única: para siempre y en todos tus dispositivos',
+    'pro_point_forever': 'Funciona sin conexión y en todos tus dispositivos',
     'pro_buy': 'Comprar',
     'pro_buy_price': 'Comprar por {price}',
     'pro_restore': 'Restaurar la compra',
@@ -2899,6 +2902,7 @@ const Map<String, Map<String, String>> kTranslations = {
 
   // ============================== Italiano (it) ==============================
   'it': {
+    'sub_year_store_note': 'Addebito una volta l’anno',
     'sub_signin_title': 'Accedi a Fern',
     'sub_signup_title': 'Account Fern',
     'sub_signin_lead': 'L’abbonamento è tuo, non del telefono: cambi dispositivo e Pro ti segue. Carte e progressi restano sul dispositivo.',
@@ -3724,7 +3728,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'pro_point_books': 'Libri EPUB, FB2 e TXT: tocca una parola per la traduzione e una carta',
     'pro_point_video': 'Video con sottotitoli, articoli da un link e testo da una foto',
     'pro_point_import': 'Importazione di mazzi da Anki e CSV',
-    'pro_point_forever': 'Acquisto unico: per sempre e su tutti i tuoi dispositivi',
+    'pro_point_forever': 'Funziona offline e su tutti i tuoi dispositivi',
     'pro_buy': 'Acquista',
     'pro_buy_price': 'Acquista per {price}',
     'pro_restore': 'Ripristina l’acquisto',
@@ -3861,6 +3865,7 @@ const Map<String, Map<String, String>> kTranslations = {
 
   // ============================== Português (pt) ==============================
   'pt': {
+    'sub_year_store_note': 'Cobrado uma vez por ano',
     'sub_signin_title': 'Entrar no Fern',
     'sub_signup_title': 'Conta Fern',
     'sub_signin_lead': 'A subscrição é sua, não do telemóvel: muda de dispositivo e o Pro vai consigo. Os cartões e o progresso ficam no dispositivo.',
@@ -4686,7 +4691,7 @@ const Map<String, Map<String, String>> kTranslations = {
     'pro_point_books': 'Livros EPUB, FB2 e TXT: toque numa palavra para ver a tradução e criar um cartão',
     'pro_point_video': 'Vídeos com legendas, artigos por link e texto a partir de uma foto',
     'pro_point_import': 'Importação de baralhos do Anki e CSV',
-    'pro_point_forever': 'Compra única: para sempre e em todos os seus aparelhos',
+    'pro_point_forever': 'Funciona offline e em todos os seus dispositivos',
     'pro_buy': 'Comprar',
     'pro_buy_price': 'Comprar por {price}',
     'pro_restore': 'Restaurar a compra',

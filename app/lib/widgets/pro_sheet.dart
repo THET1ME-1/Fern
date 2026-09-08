@@ -12,7 +12,6 @@ import '../services/reading_goal.dart';
 import '../services/subscription_service.dart';
 import 'account_sheet.dart';
 import '../theme/app_theme.dart';
-import '../utils/build_config.dart';
 
 /// Предложение купить Fern Pro.
 ///
@@ -101,7 +100,7 @@ class _ProSheetState extends State<ProSheet> {
   @override
   void initState() {
     super.initState();
-    if (!kStoreBilling) _lookInClipboard();
+    if (!BillingService.storeBilling) _lookInClipboard();
   }
 
   Future<void> _lookInClipboard() async {
@@ -365,9 +364,10 @@ class _ProSheetState extends State<ProSheet> {
               Text(_error!, style: TextStyle(color: scheme.error)),
             ],
             const SizedBox(height: 14),
-            if (kStoreBilling && BillingService.instance.hasSubscriptions)
+            if (BillingService.storeBilling &&
+                BillingService.instance.hasSubscriptions)
               ..._storeSubscriptionButtons(scheme)
-            else if (kStoreBilling)
+            else if (BillingService.storeBilling)
               ..._storeButtons(price)
             else if (_keyMode)
               ..._keyButtons(scheme)
@@ -596,7 +596,10 @@ class _ProSheetState extends State<ProSheet> {
                       const SizedBox(height: 2),
                       Text(
                         year
-                            ? trf('sub_year_note', {'price': prices['per_month']!})
+                            ? (BillingService.instance.subscriptionPrice('year') != null
+                                ? tr('sub_year_store_note')
+                                : trf('sub_year_note',
+                                    {'price': prices['per_month']!}))
                             : tr('sub_month_note'),
                         style: TextStyle(
                           fontSize: 12.5,

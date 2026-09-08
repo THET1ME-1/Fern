@@ -1428,6 +1428,8 @@ const Map<String, Map<String, String>> _strings = {
   'lang_ru': {'ru': 'Русский', 'en': 'Russian'},
 
 
+  'sub_year_store_note': {'ru': 'Списание раз в год', 'en': 'Billed once a year'},
+
   // ── Подписка ──────────────────────────────────────────────────────────────
   'sub_signin_title': {'ru': 'Вход в Fern', 'en': 'Sign in to Fern'},
   'sub_signup_title': {'ru': 'Аккаунт Fern', 'en': 'Fern account'},
@@ -1483,7 +1485,7 @@ const Map<String, Map<String, String>> _strings = {
   'pro_point_books': {'ru': 'Книги EPUB, FB2 и TXT: тап по слову даёт перевод и карточку', 'en': 'EPUB, FB2 and TXT books: tap a word for its translation and a card'},
   'pro_point_video': {'ru': 'Видео с субтитрами, статьи по ссылке и текст с фотографии', 'en': 'Videos with subtitles, articles by link and text from a photo'},
   'pro_point_import': {'ru': 'Импорт колод из Anki и таблиц CSV', 'en': 'Deck import from Anki and CSV'},
-  'pro_point_forever': {'ru': 'Разовая покупка: навсегда и на всех ваших устройствах', 'en': 'One purchase: yours forever, on all your devices'},
+  'pro_point_forever': {'ru': 'Работает офлайн и на всех ваших устройствах', 'en': 'Works offline and on all your devices'},
   'pro_buy': {'ru': 'Купить', 'en': 'Buy'},
   'pro_buy_price': {'ru': 'Купить за {price}', 'en': 'Buy for {price}'},
   'pro_restore': {'ru': 'Восстановить покупку', 'en': 'Restore purchase'},

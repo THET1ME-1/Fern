@@ -84,10 +84,9 @@ class BillingService extends ChangeNotifier {
 
   /// Работает ли в этой сборке магазинная касса. Обычно равно [kStoreBilling];
   /// поле, а не константа, потому что канал сборки задан на компиляции, и
-  /// тестовая сборка магазина не знает — проверить логику восстановления было
-  /// бы нечем.
-  @visibleForTesting
-  static bool debugStoreBilling = kStoreBilling;
+  /// тестовая сборка магазина не знает — проверить логику восстановления и
+  /// снять экран подписки для App Store было бы нечем.
+  static bool storeBilling = kStoreBilling;
 
   bool _owned = false;
   bool _available = false;
@@ -119,7 +118,7 @@ class BillingService extends ChangeNotifier {
     // покупка вернётся сама при восстановлении из магазина.
     _owned = await SignedStore.getBool(_kOwned);
     notifyListeners();
-    if (!debugStoreBilling) return;
+    if (!storeBilling) return;
     // Магазин отвечает по сети — дальше идём молча, интерфейс уже поднят.
     unawaited(_connect());
   }
@@ -191,7 +190,7 @@ class BillingService extends ChangeNotifier {
   /// Запускает покупку. `false` — магазин не готов, товар не подъехал.
   Future<bool> buy() async {
     final product = _product;
-    if (!debugStoreBilling || !_available || product == null) return false;
+    if (!storeBilling || !_available || product == null) return false;
     try {
       return await InAppPurchase.instance
           .buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
@@ -216,7 +215,7 @@ class BillingService extends ChangeNotifier {
   /// купить повторно.
   Future<bool> subscribe(String plan) async {
     final product = _subscriptions[plan == 'year' ? yearlyId : monthlyId];
-    if (!debugStoreBilling || !_available || product == null) return false;
+    if (!storeBilling || !_available || product == null) return false;
     try {
       return await InAppPurchase.instance
           .buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
@@ -234,7 +233,7 @@ class BillingService extends ChangeNotifier {
   /// «покупки за этим аккаунтом нет» — не то же самое, что «магазин не
   /// ответил».
   Future<RestoreOutcome> restore() async {
-    if (!debugStoreBilling) return RestoreOutcome.unavailable;
+    if (!storeBilling) return RestoreOutcome.unavailable;
     // Касса могла не успеть подняться к нажатию (магазин отвечает по сети, а
     // настройки открываются раньше) или отвалиться на старте из-за сбоя.
     // Прежде кнопка в обоих случаях молча выходила.
@@ -316,6 +315,16 @@ class BillingService extends ChangeNotifier {
   /// операций, которые чистят prefs целиком.
   Future<void> persistOwned() async {
     if (_owned) await SignedStore.setBool(_kOwned, true);
+  }
+
+  /// Подменные товары магазина: касса в тесте не поднимается, а увидеть лист
+  /// подписки с магазинными ценами нужно — в том числе чтобы снять экран для
+  /// проверки App Store.
+  @visibleForTesting
+  void debugSetSubscriptions(Map<String, ProductDetails> products) {
+    _subscriptions = products;
+    _available = products.isNotEmpty;
+    notifyListeners();
   }
 
   @visibleForTesting

@@ -17,7 +17,10 @@ information» и ни слова про территории — ошибка в
 """
 from __future__ import annotations
 
+import hashlib
+import pathlib
 import sys
+import urllib.request
 
 import asc
 
@@ -50,6 +53,11 @@ import asc
 # Цены задаём по базовой территории США: остальные страны Apple считает сама.
 ЦЕНЫ = {'fern_pro_month': '4.99', 'fern_pro_year': '34.99'}
 БАЗОВАЯ_СТРАНА = 'USA'
+
+# Экран подписки, отрисованный самим приложением (сцена «подписка» в
+# `test/visual_check_test.dart`, размер iPhone 15 Pro Max).
+СНИМОК = str(pathlib.Path(__file__).resolve().parents[2]
+             / 'app' / 'test' / 'shots' / 'subscription.png')
 
 
 def группы() -> list[dict]:
@@ -195,6 +203,116 @@ def цена(sub_id: str, товар_id: str) -> None:
           'остальные страны Apple посчитает сама')
 
 
+def цены_по_миру(sub_id: str, товар_id: str) -> None:
+    """Цена в каждой стране, а не только в базовой.
+
+    Apple отдаёт «эквивалентные» точки прайса: сколько стоит то же самое в
+    рупиях, злотых и иенах. Без них подписка остаётся без цены за пределами
+    США и висит в MISSING_METADATA.
+    """
+    # Список уже проставленных цен читаем осторожно: у Apple этот запрос
+    # временами отвечает 500, и ронять из-за этого весь проход незачем.
+    уже: set[str] = set()
+    try:
+        ответ = asc.get(f'/v1/subscriptions/{sub_id}/prices',
+                        **{'limit': '200', 'include': 'territory'})
+        for ц in ответ['data']:
+            связь = (ц.get('relationships', {}).get('territory', {}) or {}).get('data')
+            if связь:
+                уже.add(связь['id'])
+    except SystemExit:
+        pass
+    базовая = None
+    путь = (f'/v1/subscriptions/{sub_id}/pricePoints'
+            f'?filter[territory]={БАЗОВАЯ_СТРАНА}&limit=200')
+    while путь and not базовая:
+        ответ = asc.call('GET', путь)
+        for т in ответ['data']:
+            if т['attributes'].get('customerPrice') == ЦЕНЫ[товар_id]:
+                базовая = т['id']
+                break
+        след = (ответ.get('links') or {}).get('next')
+        путь = след.replace(asc.BASE, '') if след else None
+    if not базовая:
+        print('      базовой точки прайса нет — цены по миру не ставлю')
+        return
+
+    # `include=territory` обязателен: без него связь приходит одними ссылками,
+    # и страну из точки не достать.
+    точки = asc.get(f'/v1/subscriptionPricePoints/{базовая}/equalizations',
+                    **{'limit': '200', 'include': 'territory'})['data']
+    поставлено = 0
+    for точка in точки:
+        страна = ((точка.get('relationships', {}).get('territory', {})
+                   .get('data') or {}).get('id'))
+        if not страна or страна in уже:
+            continue
+        try:
+            asc.call('POST', '/v1/subscriptionPrices', json={'data': {
+                'type': 'subscriptionPrices',
+                'attributes': {'startDate': None, 'preserveCurrentPrice': False},
+                'relationships': {
+                    'subscription': {'data': {'type': 'subscriptions', 'id': sub_id}},
+                    'subscriptionPricePoint': {'data': {
+                        'type': 'subscriptionPricePoints', 'id': точка['id']}},
+                    'territory': {'data': {'type': 'territories', 'id': страна}},
+                },
+            }})
+            поставлено += 1
+        except SystemExit:
+            # Страна, где приложение не продаётся, цену не принимает — это не
+            # беда, а её нормальное состояние. Сюда же попадают случайные 500
+            # Apple: повтор прогона доберёт пропущенное.
+            continue
+        except Exception:
+            continue
+    print(f'      цены по миру: добавлено {поставлено} стран')
+
+
+def скриншот(sub_id: str, файл: str) -> None:
+    """Экран, где ревьюер Apple видит покупку.
+
+    Снимок не рисованный: его отрисовывает само приложение настоящими
+    шрифтами и настоящим кодом экрана
+    (`flutter test test/visual_check_test.dart --update-goldens --run-skipped`),
+    поэтому он показывает ровно то, что увидит человек.
+
+    Загрузка трёхшаговая: бронь → куски файла по адресам из ответа →
+    подтверждение контрольной суммой.
+    """
+    было = asc.get(f'/v1/subscriptions/{sub_id}/appStoreReviewScreenshot')
+    if было.get('data'):
+        print('      скриншот уже есть')
+        return
+
+    данные = pathlib.Path(файл).read_bytes()
+    бронь = asc.call('POST', '/v1/subscriptionAppStoreReviewScreenshots', json={'data': {
+        'type': 'subscriptionAppStoreReviewScreenshots',
+        'attributes': {'fileName': pathlib.Path(файл).name,
+                       'fileSize': len(данные)},
+        'relationships': {'subscription': {
+            'data': {'type': 'subscriptions', 'id': sub_id}}},
+    }})['data']
+
+    for шаг in бронь['attributes']['uploadOperations']:
+        кусок = данные[шаг['offset']:шаг['offset'] + шаг['length']]
+        req = urllib.request.Request(шаг['url'], data=кусок, method=шаг['method'])
+        for заголовок in шаг.get('requestHeaders', []):
+            req.add_header(заголовок['name'], заголовок['value'])
+        with urllib.request.urlopen(req, timeout=120) as r:
+            if r.status not in (200, 201, 204):
+                raise SystemExit(f'кусок снимка не залился: {r.status}')
+
+    asc.call('PATCH', f'/v1/subscriptionAppStoreReviewScreenshots/{бронь["id"]}',
+             json={'data': {
+                 'type': 'subscriptionAppStoreReviewScreenshots',
+                 'id': бронь['id'],
+                 'attributes': {'uploaded': True,
+                                'sourceFileChecksum': hashlib.md5(данные).hexdigest()},
+             }})
+    print(f'      скриншот загружен ({len(данные) // 1024} КБ)')
+
+
 def state() -> None:
     гр = группы()
     if not гр:
@@ -225,6 +343,8 @@ def setup() -> None:
         тексты(sub_id, товар)
         доступность(sub_id)
         цена(sub_id, товар['productId'])
+        цены_по_миру(sub_id, товар['productId'])
+        скриншот(sub_id, СНИМОК)
     print('готово')
 
 
