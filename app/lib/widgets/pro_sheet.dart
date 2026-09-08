@@ -77,6 +77,24 @@ class _ProSheetState extends State<ProSheet> {
   /// человеку, и нам — меньше поводов уйти на первом продлении.
   String _plan = 'year';
 
+  /// Выбранный тариф с оглядкой на доступные: сервер мог отдать только один,
+  /// и «выбран год», которого нет, увёл бы человека в ошибку.
+  String get _effectivePlan {
+    final plans = _availablePlans;
+    if (plans.contains(_plan)) return _plan;
+    return plans.isEmpty ? 'month' : plans.first;
+  }
+
+  /// Тарифы в порядке показа. Список приходит с сервера: продавать год, пока
+  /// тариф не заведён в кабинете lava, значит вести человека в ошибку.
+  List<String> get _availablePlans {
+    final plans = SubscriptionService.instance.plans;
+    return [
+      if (plans.contains('year')) 'year',
+      if (plans.contains('month')) 'month',
+    ];
+  }
+
   /// Ждём, пока оплата дойдёт до сервера.
   bool _waiting = false;
 
@@ -379,7 +397,7 @@ class _ProSheetState extends State<ProSheet> {
         return;
       }
     }
-    final started = await BillingService.instance.subscribe(_plan);
+    final started = await BillingService.instance.subscribe(_effectivePlan);
     if (!mounted) return;
     if (!started) {
       setState(() {
@@ -411,8 +429,7 @@ class _ProSheetState extends State<ProSheet> {
   }
 
   List<Widget> _storeSubscriptionButtons(ColorScheme scheme) => [
-        _planCard(scheme, 'year'),
-        _planCard(scheme, 'month'),
+        for (final plan in _availablePlans) _planCard(scheme, plan),
         const SizedBox(height: 4),
         FilledButton(
           onPressed: _busy ? null : _subscribeInStore,
@@ -539,7 +556,7 @@ class _ProSheetState extends State<ProSheet> {
   /// Карточка тарифа: выбранная заливается основным контейнером, невыбранная
   /// обведена. Цвет здесь работает вместо тени — теней в приложении нет.
   Widget _planCard(ColorScheme scheme, String plan) {
-    final selected = _plan == plan;
+    final selected = _effectivePlan == plan;
     final prices = _prices[_currency]!;
     final year = plan == 'year';
     return Padding(
@@ -629,7 +646,7 @@ class _ProSheetState extends State<ProSheet> {
     }
 
     final url = await SubscriptionService.instance
-        .checkoutUrl(plan: _plan, currency: _currency, lang: _lang);
+        .checkoutUrl(plan: _effectivePlan, currency: _currency, lang: _lang);
     if (!mounted) return;
     if (url == null) {
       setState(() {
@@ -672,8 +689,7 @@ class _ProSheetState extends State<ProSheet> {
 
   List<Widget> _subscriptionButtons(ColorScheme scheme) => [
         if (_clipboardInfo != null) _clipboardCard(scheme),
-        _planCard(scheme, 'year'),
-        _planCard(scheme, 'month'),
+        for (final plan in _availablePlans) _planCard(scheme, plan),
         const SizedBox(height: 4),
         FilledButton(
           onPressed: _busy ? null : _subscribe,

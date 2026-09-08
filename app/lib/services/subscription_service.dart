@@ -52,6 +52,7 @@ class SubscriptionService extends ChangeNotifier {
   static DateTime get _now => debugNow ?? DateTime.now().toUtc();
 
   DateTime? _until;
+  List<String> _plans = const ['month', 'year'];
   SubStatus _status = SubStatus.none;
   String? _plan;
   DateTime? _checkedAt;
@@ -63,6 +64,11 @@ class SubscriptionService extends ChangeNotifier {
 
   /// Тариф: `month` или `year`.
   String? get plan => _plan;
+
+  /// Тарифы, которые сервер готов продать. Пока годовой не заведён в кабинете
+  /// lava, его тут нет — и приложение не рисует кнопку, которая ответит
+  /// ошибкой.
+  List<String> get plans => _plans;
 
   /// Когда последний раз говорили с сервером.
   DateTime? get checkedAt => _checkedAt;
@@ -105,6 +111,10 @@ class SubscriptionService extends ChangeNotifier {
     _until = until is String ? _parseDay(until) : null;
     _status = _statusFrom(answer['status']?.toString());
     _plan = answer['plan']?.toString();
+    final plans = answer['plans'];
+    if (plans is List && plans.isNotEmpty) {
+      _plans = [for (final p in plans) p.toString()];
+    }
     _checkedAt = _now;
 
     final ticket = answer['ticket'];

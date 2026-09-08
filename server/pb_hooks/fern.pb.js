@@ -17,7 +17,11 @@
 ///   FERN_OFFER_MONTH    — оффер тарифа «месяц»
 ///   FERN_OFFER_YEAR     — оффер тарифа «год»
 ///   FERN_TICKET_URL     — служба талонов (по умолчанию http://127.0.0.1:8160)
-///   FERN_RETURN_URL     — куда вернуть после оплаты (по умолчанию fern://paid)
+///   FERN_RETURN_URL     — куда вернуть после оплаты. Это ОБЯЗАТЕЛЬНО адрес
+///                         https: lava.top отвергает схему приложения
+///                         («successful_return_url must be a valid HTTPS URL»),
+///                         поэтому возврат идёт через страницу-переходник
+///                         /api/fern/paid, а она уже открывает fern://paid.
 ///
 /// !!! ГРАБЛИ PB JSVM (см. coins.pb.js): обработчик исполняется в
 /// ИЗОЛИРОВАННОМ пуле и НЕ видит функций уровня файла — всё инлайнится.
@@ -118,8 +122,17 @@ routerAdd("GET", "/api/fern/me", (e) => {
     }
   }
 
+  // Какие тарифы вообще можно купить. Годовой заводится в кабинете lava
+  // (API создавать офферы не умеет: «You can only update existing offers»),
+  // и пока его нет, приложению незачем рисовать кнопку, которая ответит
+  // ошибкой.
+  const тарифы = [];
+  if (String($os.getenv("FERN_OFFER_MONTH") || "").trim()) тарифы.push("month");
+  if (String($os.getenv("FERN_OFFER_YEAR") || "").trim()) тарифы.push("year");
+
   return e.json(200, {
     ok: true,
+    plans: тарифы,
     until: until || null,
     status: состояние,
     source: String(свежая.get("pro_source") || "") || null,
@@ -163,7 +176,8 @@ routerAdd("POST", "/api/fern/checkout", (e) => {
   const apiKey = $os.getenv("LAVA_API_KEY") || "";
   if (!apiKey) return e.json(500, { ok: false, error: "no_api_key" });
 
-  const возврат = $os.getenv("FERN_RETURN_URL") || "fern://paid";
+  const возврат = $os.getenv("FERN_RETURN_URL") ||
+    "https://togetherly.duckdns.org/api/fern/paid";
   const email = String(user.getString("email") || "").trim().toLowerCase();
 
   let ответ = null;
@@ -814,4 +828,60 @@ routerAdd("POST", "/api/fern/store", (e) => {
     return e.json(500, { ok: false, error: "internal" });
   }
   return e.json(out.s, out.b);
+});
+
+
+// -------------------------------------------------- возврат после оплаты ---
+///
+/// lava.top принимает только адреса https («successful_return_url must be a
+/// valid HTTPS URL»), а вернуть человека надо в приложение. Поэтому оплата
+/// приводит сюда, а страница открывает `fern://paid` сама. Не сработало
+/// (браузер без приложения, чужой телефон) — человек видит понятную строку, а
+/// Pro всё равно включится: приложение спрашивает сервер при первом запуске.
+///
+/// !!! Разметка ИНЛАЙНОМ в каждом обработчике: функции уровня файла в
+/// изолированном пуле JSVM не видны, и общая на двоих роняла ответ в 400.
+routerAdd("GET", "/api/fern/paid", (e) => {
+  return e.html(200, `<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оплачено</title>
+<style>
+ body{margin:0;min-height:100vh;display:grid;place-items:center;
+      background:#0f1511;color:#dee4de;
+      font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+ main{max-width:22rem;padding:2rem;text-align:center}
+ h1{font-size:1.35rem;margin:0 0 .75rem}
+ p{margin:0 0 1.25rem;color:#c0c9c1}
+ a{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;
+   background:#8ed5b0;color:#003824;text-decoration:none;font-weight:600}
+</style></head><body><main>
+<h1>Оплата прошла</h1>
+<p>Возвращаемся в Fern. Если приложение не открылось само, откройте его —
+подписка уже на месте.</p>
+<a href="fern://paid">Открыть Fern</a>
+<script>setTimeout(function(){location.href="fern://paid"},400)</script>
+</main></body></html>`);
+});
+
+routerAdd("GET", "/api/fern/failed", (e) => {
+  return e.html(200, `<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оплата не прошла</title>
+<style>
+ body{margin:0;min-height:100vh;display:grid;place-items:center;
+      background:#0f1511;color:#dee4de;
+      font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+ main{max-width:22rem;padding:2rem;text-align:center}
+ h1{font-size:1.35rem;margin:0 0 .75rem}
+ p{margin:0 0 1.25rem;color:#c0c9c1}
+ a{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;
+   background:#8ed5b0;color:#003824;text-decoration:none;font-weight:600}
+</style></head><body><main>
+<h1>Оплата не прошла</h1>
+<p>Деньги не списаны. Откройте Fern и попробуйте ещё раз.</p>
+<a href="fern://failed">Открыть Fern</a>
+<script>setTimeout(function(){location.href="fern://failed"},400)</script>
+</main></body></html>`);
 });
