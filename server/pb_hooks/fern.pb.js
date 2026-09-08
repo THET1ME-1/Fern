@@ -44,6 +44,28 @@ routerAdd("GET", "/api/fern/me", (e) => {
   let свежая = user;
   try { свежая = $app.findRecordById("fern_users", user.id); } catch (_) {}
 
+  // Заплатил до регистрации: заказ ждёт хозяина. Ищем его по почте и
+  // отдаём подписку тому, кто наконец завёл аккаунт.
+  if (!String(свежая.get("pro_until") || "")) {
+    try {
+      const заказ = $app.findFirstRecordByFilter(
+        "fern_orders", "email = {:e} && status = 'paid' && uid = ''",
+        { e: String(свежая.getString("email") || "").toLowerCase() });
+      if (заказ) {
+        const до = String(заказ.get("until") || "");
+        if (до) {
+          свежая.set("pro_until", до);
+          свежая.set("pro_status", "active");
+          свежая.set("pro_source", String(заказ.get("source") || "lava"));
+          свежая.set("pro_plan", String(заказ.get("plan") || "month"));
+          $app.save(свежая);
+          заказ.set("uid", свежая.id);
+          $app.save(заказ);
+        }
+      }
+    } catch (_) {}
+  }
+
   const until = день(свежая.get("pro_until"));
   const lifetime = свежая.getBool("lifetime");
   const статусПоля = String(свежая.get("pro_status") || "");
@@ -251,4 +273,207 @@ routerAdd("POST", "/api/fern/cancel", (e) => {
 
   // Доступ работает до конца оплаченного периода: человек заплатил за месяц.
   return e.json(200, { ok: true, until: until });
+});
+
+// ------------------------------------------------ приём событий lava.top ---
+///
+/// Сюда попадают уведомления, в которых узнан товар Fern: боевой роут
+/// `/api/lava/webhook` (Togetherly) пересылает их одной строкой, а вся
+/// обработка подписки живёт здесь. Так правка чужого файла остаётся в
+/// пределах развилки, а логика Fern не размазывается по двум приложениям.
+///
+/// События берём как есть из документации lava.top:
+///   payment.success + status=subscription-active     первый платёж
+///   subscription.recurring.payment.success           продление
+///   subscription.recurring.payment.failed            неудачная попытка
+///   subscription.cancelled + willExpireAt            отмена
+///   refund.success, chargeback.initiated             возврат
+routerAdd("POST", "/api/fern/lava", (e) => {
+  const secret = $os.getenv("LAVA_WEBHOOK_KEY") || "";
+  const basic = ($os.getenv("LAVA_BASIC") || "").trim();
+  const given = e.request.header.get("X-Api-Key") ||
+    e.request.url.query().get("key") || "";
+  const auth = (e.request.header.get("Authorization") || "").trim();
+  const okKey = secret !== "" && given === secret;
+  const okBasic = basic !== "" && auth === "Basic " + basic;
+  if (!okKey && !okBasic) return e.json(401, { ok: false, error: "bad_key" });
+
+  let payload = {};
+  try { payload = e.requestInfo().body || {}; } catch (_) { payload = {}; }
+
+  // Поля ищем по всему дереву: у возврата и чарджбека своя обёртка `data`,
+  // а у платежей поля лежат на верхнем уровне.
+  const flat = {};
+  const walk = (node, path) => {
+    if (node === null || node === undefined) return;
+    if (typeof node !== "object") { flat[path.toLowerCase()] = String(node); return; }
+    for (const key in node) walk(node[key], path ? path + "." + key : key);
+  };
+  walk(payload, "");
+  // Порядок имён — это ПРИОРИТЕТ, и внешним циклом обязан идти он, а не
+  // обход дерева: ключи объекта в JSVM перебираются в случайном порядке, и
+  // обратная вложенность циклов выдавала то `contractId`, то
+  // `parentContractId`. Продление с чужим номером выглядело повтором первого
+  // платежа, и месяц не начислялся — через раз, что хуже, чем никогда.
+  const pick = (names) => {
+    for (let i = 0; i < names.length; i++) {
+      for (const key in flat) {
+        const tail = key.split(".").pop();
+        if (tail === names[i] || key === names[i]) return flat[key];
+      }
+    }
+    return "";
+  };
+
+  const МЕСЯЦ = String($os.getenv("FERN_OFFER_MONTH") || "").trim().toLowerCase();
+  const ГОД = String($os.getenv("FERN_OFFER_YEAR") || "").trim().toLowerCase();
+  const SKU = String($os.getenv("FERN_SKU") || "").trim().toLowerCase();
+
+  // Тариф узнаём по офферу: в уведомлении приезжает либо товар, либо оффер.
+  let план = "";
+  for (const key in flat) {
+    const v = String(flat[key]).trim().toLowerCase();
+    if (ГОД && v === ГОД) { план = "year"; break; }
+    if (МЕСЯЦ && v === МЕСЯЦ) { план = "month"; break; }
+    if (SKU && v === SKU) { план = "month"; }
+  }
+  if (!план) return e.json(200, { ok: true, skipped: "not_fern" });
+
+  const событие = (pick(["eventtype", "event_type", "event"]) || "").toLowerCase();
+  const статус = (pick(["status", "state"]) || "").toLowerCase();
+  const почта = (pick(["email", "customer_email", "buyeremail", "clientemail"]) || "")
+    .trim().toLowerCase();
+  const контракт = (pick(["contractid", "orderid", "invoiceid", "refund_id",
+                          "parentcontractid"]) || "").trim();
+  const родитель = (pick(["parentcontractid"]) || "").trim();
+  const истечёт = (pick(["willexpireat"]) || "").trim();
+
+  if (!почта) return e.json(400, { ok: false, error: "no_email" });
+
+  const возврат = событие.indexOf("refund") !== -1 ||
+    событие.indexOf("chargeback") !== -1;
+  const отмена = событие.indexOf("cancel") !== -1;
+  const удача = !возврат && !отмена && (
+    статус.indexOf("subscription-active") !== -1 ||
+    статус.indexOf("success") !== -1 ||
+    статус.indexOf("paid") !== -1 ||
+    статус.indexOf("completed") !== -1);
+  const неудача = !возврат && !отмена && !удача;
+
+  // Сдвиг на период с оглядкой на длину месяца: 31 января плюс месяц это
+  // 28 февраля, а не 3 марта.
+  const сдвиг = (от, план) => {
+    const д = new Date(от.getTime());
+    const день = д.getUTCDate();
+    if (план === "year") {
+      д.setUTCFullYear(д.getUTCFullYear() + 1);
+    } else {
+      д.setUTCMonth(д.getUTCMonth() + 1);
+      if (д.getUTCDate() < день) д.setUTCDate(0);
+    }
+    return д;
+  };
+
+  const ключЗаказа = "LAVA:" + (контракт || (почта + план));
+  let out = { s: 500, b: { ok: false, error: "internal" } };
+
+  try {
+    $app.runInTransaction((tx) => {
+      let заказ = null;
+      try {
+        заказ = tx.findFirstRecordByFilter("fern_orders", "order_key = {:k}",
+                                           { k: ключЗаказа });
+      } catch (_) { заказ = null; }
+
+      // Повтор уведомления об оплате: срок уже начислен, второй раз не даём.
+      if (заказ && удача && String(заказ.get("status")) === "paid") {
+        out = { s: 200, b: { ok: true, repeated: true } };
+        return;
+      }
+
+      let человек = null;
+      try {
+        человек = tx.findFirstRecordByFilter("fern_users", "email = {:e}",
+                                             { e: почта });
+      } catch (_) { человек = null; }
+
+      const сейчас = new Date();
+      let срок = null;
+
+      if (удача) {
+        // Продление считаем от прежнего срока, а не от сегодняшнего дня:
+        // иначе человек, заплативший заранее, теряет оплаченные дни.
+        let база = сейчас;
+        if (человек) {
+          const было = String(человек.get("pro_until") || "");
+          if (было) {
+            const d = new Date(было.replace(" ", "T"));
+            if (!isNaN(d.getTime()) && d.getTime() > сейчас.getTime()) база = d;
+          }
+        }
+        срок = сдвиг(база, план);
+      } else if (отмена && истечёт) {
+        const d = new Date(истечёт.replace(" ", "T"));
+        if (!isNaN(d.getTime())) срок = d;
+      } else if (возврат) {
+        срок = сейчас;
+      }
+
+      if (человек) {
+        if (удача) {
+          человек.set("pro_until", срок.toISOString());
+          человек.set("pro_status", "active");
+          человек.set("pro_source", "lava");
+          человек.set("pro_plan", план);
+          // Контракт подписки: по нему идёт отмена и суточная сверка.
+          человек.set("lava_contract", родитель || контракт);
+          tx.save(человек);
+        } else if (отмена) {
+          человек.set("pro_status", "cancelled");
+          if (срок) человек.set("pro_until", срок.toISOString());
+          tx.save(человек);
+        } else if (возврат) {
+          человек.set("pro_status", "refunded");
+          человек.set("pro_until", сейчас.toISOString());
+          tx.save(человек);
+        }
+      }
+
+      // Заказ пишем всегда: он и след для разбирательств, и защита от повтора,
+      // и способ отдать подписку тому, кто заплатил ДО регистрации.
+      if (!заказ) {
+        заказ = new Record(tx.findCollectionByNameOrId("fern_orders"));
+        заказ.set("order_key", ключЗаказа);
+      }
+      заказ.set("uid", человек ? человек.id : "");
+      заказ.set("source", "lava");
+      заказ.set("plan", план);
+      заказ.set("email", почта);
+      заказ.set("event", событие || статус || "unknown");
+      заказ.set("invoice_id", контракт);
+      заказ.set("status", удача ? "paid"
+        : отмена ? "cancelled" : возврат ? "refunded" : "failed");
+      if (срок) заказ.set("until", срок.toISOString());
+      if (удача || возврат) заказ.set("paid_at", сейчас.toISOString());
+      заказ.set("raw", payload);
+      tx.save(заказ);
+
+      out = {
+        s: 200,
+        b: {
+          ok: true,
+          granted: удача && !!человек,
+          pending_account: удача && !человек,
+          cancelled: отмена,
+          refunded: возврат,
+          failed: неудача,
+        },
+      };
+    });
+  } catch (err) {
+    console.log("[fern] вебхук не обработан: " + err);
+    return e.json(500, { ok: false, error: "internal" });
+  }
+
+  return e.json(out.s, out.b);
 });
