@@ -36,6 +36,10 @@ class LicenseService extends ChangeNotifier {
   static const int _formatVersion = 1;
   /// Именной ключ: внутри почта покупателя (с 1.17.3).
   static const int _formatVersionEmail = 2;
+
+  /// Талон подписки: внутри почта И срок, до которого оплачено (с 1.26.0).
+  /// Выдаёт сервер после оплаты и переподписывает при каждом обращении.
+  static const int _formatVersionTicket = 3;
   static const int _skuPro = 1;
 
   /// Сколько ключ годен к вводу. Считать активации офлайн невозможно, поэтому
@@ -71,7 +75,18 @@ class LicenseService extends ChangeNotifier {
   /// Разобранная лицензия — `null`, если ключа нет или он не прошёл проверку.
   LicenseInfo? get info => _info;
 
-  bool get isValid => _info != null;
+  /// Годна ли лицензия ПРЯМО СЕЙЧАС.
+  ///
+  /// У ключа навсегда ответ не меняется, у талона — меняется: срок кончается
+  /// и во время работы приложения. Проверять только при загрузке значило бы
+  /// оставлять Pro открытым до перезапуска, а перезапускают редко.
+  bool get isValid {
+    final info = _info;
+    if (info == null) return false;
+    final until = info.until;
+    if (until == null) return true;
+    return !_now.isAfter(until);
+  }
 
   Future<void> load() async {
     final prefs = SharedPreferencesAsync();
@@ -98,7 +113,12 @@ class LicenseService extends ChangeNotifier {
   Future<ApplyResult> apply(String raw, {bool enforceWindow = true}) async {
     final info = await verify(raw);
     if (info == null) return const ApplyResult();
-    if (enforceWindow && _outsideWindow(info)) {
+    // У талона свой срок, и окно ввода к нему не применяется: сервер выдаёт
+    // свежий талон при каждом обращении, а старый просто заканчивается.
+    final until = info.until;
+    if (until != null) {
+      if (_now.isAfter(until)) return const ApplyResult(expired: true);
+    } else if (enforceWindow && _outsideWindow(info)) {
       return const ApplyResult(expired: true);
     }
     _key = _normalize(raw);
@@ -142,11 +162,33 @@ class LicenseService extends ChangeNotifier {
     final Uint8List payload;
     final Uint8List signature;
     String? email;
+    DateTime? until;
+    String? plan;
     switch (bytes[0]) {
       case _formatVersion:
         if (bytes.length != 72) return null;
         payload = bytes.sublist(0, 8);
         signature = bytes.sublist(8);
+      case _formatVersionTicket:
+        // 12 байт головы: версия, товар, номер, дата выдачи, срок, тариф,
+        // длина почты. Дальше почта, в конце подпись.
+        final head = 12 + bytes[11];
+        if (bytes.length != head + 64) return null;
+        payload = bytes.sublist(0, head);
+        signature = bytes.sublist(head);
+        final untilDays = ByteData.sublistView(payload).getUint16(8);
+        until = epoch.add(Duration(days: untilDays));
+        plan = switch (payload[10]) {
+          1 => 'month',
+          2 => 'year',
+          _ => null,
+        };
+        if (plan == null) return null; // тариф не наш — талон собран не нами
+        try {
+          email = utf8.decode(payload.sublist(12));
+        } on FormatException {
+          return null;
+        }
       case _formatVersionEmail:
         final head = 9 + bytes[8];
         if (bytes.length != head + 64) return null;
@@ -178,6 +220,8 @@ class LicenseService extends ChangeNotifier {
       id: id,
       issued: epoch.add(Duration(days: days)),
       email: email,
+      until: until,
+      plan: plan,
     );
   }
 
@@ -208,10 +252,26 @@ class LicenseInfo {
   /// Когда ключ выдан.
   final DateTime issued;
 
-  /// Почта покупателя — только у ключей формата 2. У выпущенных раньше `null`.
+  /// Почта покупателя — только у ключей формата 2 и талонов. У выпущенных
+  /// раньше `null`.
   final String? email;
 
-  const LicenseInfo({required this.id, required this.issued, this.email});
+  /// До какого дня действует талон подписки. У ключа навсегда — `null`.
+  final DateTime? until;
+
+  /// Тариф подписки: `month` или `year`. У ключа навсегда — `null`.
+  final String? plan;
+
+  const LicenseInfo({
+    required this.id,
+    required this.issued,
+    this.email,
+    this.until,
+    this.plan,
+  });
+
+  /// Талон подписки, а не ключ навсегда.
+  bool get isTicket => until != null;
 
   /// Адрес для показа: `vasya@mail.ru` → `va***@mail.ru`.
   ///
