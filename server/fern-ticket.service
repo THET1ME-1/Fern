@@ -1,0 +1,22 @@
+[Unit]
+Description=Fern: подпись талонов подписки
+After=network.target
+
+[Service]
+Type=simple
+# Ключ подписи и путь к боту лежат в /etc/fern-ticket.env (права 600):
+#   FERN_LICENSE_KEY=<base64 приватного ключа Ed25519>
+#   FERN_BOT_DIR=/opt/snt-bot
+EnvironmentFile=/etc/fern-ticket.env
+ExecStart=/usr/bin/python3 /opt/fern_ticket.py
+Restart=always
+RestartSec=3
+# Служба слушает только loopback, наружу её выпускать нечем и незачем.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/fern_ticket.py
+
+[Install]
+WantedBy=multi-user.target
