@@ -19,6 +19,7 @@ import argparse
 import base64
 import os
 import struct
+import zlib
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -33,12 +34,17 @@ ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567"
 PREFIX = "FERN"
 FORMAT_VERSION = 1        # ключ без почты: выпускался до 1.17.3
 FORMAT_VERSION_EMAIL = 2  # именной: внутри почта покупателя
+FORMAT_VERSION_TICKET = 3 # талон подписки: внутри почта И срок
 # Товары магазина: один выпускающий ключ обслуживает несколько приложений.
 # Номер едет внутри ключа, приложение проверяет свой и чужой не примет.
 SKU_PRO = 1        # Fern Pro
 SKU_KADR = 2       # задел: Kadr
 SKU_WICKLY = 3     # задел: Wickly
 EPOCH = date(2026, 1, 1)
+# Тарифы подписки. Едут внутри талона, чтобы приложение говорило человеку,
+# что у него оплачено, не спрашивая сервер.
+PLANS = {"month": 1, "year": 2}
+PLAN_NAMES = {code: name for name, code in PLANS.items()}
 KEY_PATH = Path(os.environ.get("FERN_LICENSE_KEY_PATH",
                                Path.home() / ".config/fern/license_ed25519.key"))
 
@@ -109,6 +115,44 @@ def build_payload(license_id: int, issued: date | None = None,
                         days, len(raw)) + raw)
 
 
+def build_ticket(uid: str, email: str, until: date, issued: date | None = None,
+                 plan: str = "month", sku: int = SKU_PRO) -> bytes:
+    """Тело талона подписки (формат 3).
+
+    Номер лицензии не выдаётся счётчиком, а выводится из идентификатора
+    аккаунта: у одного человека он один и тот же в каждом талоне, поэтому
+    утёкшую подписку можно отозвать через `docs/revoked.json`, не разбирая,
+    какой из выданных за год талонов гуляет по рукам.
+    """
+    issued = issued or datetime.now(timezone.utc).date()
+    days = (issued - EPOCH).days
+    days_until = (until - EPOCH).days
+    if not 0 <= days <= 0xFFFF:
+        raise ValueError("дата выдачи вне диапазона формата")
+    if not 0 <= days_until <= 0xFFFF:
+        raise ValueError("срок подписки вне диапазона формата")
+    if plan not in PLANS:
+        raise ValueError(f"неизвестный тариф: {plan!r}")
+    if not 0 <= sku <= 0xFF:
+        raise ValueError("номер товара вне диапазона формата")
+    raw = email.strip().lower().encode("utf-8")
+    if not raw or len(raw) > 255:
+        raise ValueError("почта пустая или длиннее 255 байт")
+    license_id = zlib.crc32(uid.strip().encode("utf-8"))
+    return (struct.pack(">BBIHHBB", FORMAT_VERSION_TICKET, sku, license_id,
+                        days, days_until, PLANS[plan], len(raw)) + raw)
+
+
+def issue_ticket(uid: str, email: str, until: date, issued: date | None = None,
+                 plan: str = "month", key: Ed25519PrivateKey | None = None,
+                 sku: int = SKU_PRO) -> str:
+    """Талон подписки: работает офлайн до `until`, дальше приложение идёт
+    за новым. Ключом навсегда (формат 2) талон не является и его не заменяет."""
+    key = key or load_private_key()
+    payload = build_ticket(uid, email, until, issued, plan=plan, sku=sku)
+    return PREFIX + b32encode(payload + key.sign(payload))
+
+
 def issue(license_id: int, issued: date | None = None,
           key: Ed25519PrivateKey | None = None, sku: int = SKU_PRO,
           email: str | None = None) -> str:
@@ -132,12 +176,30 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
     if len(blob) < 72:
         return None
     email = None
+    until = None
+    plan = None
     version = blob[0]
     if version == FORMAT_VERSION:
         if len(blob) != 72:
             return None
         payload, signature = blob[:8], blob[8:]
         _, sku, license_id, days = struct.unpack(">BBIH", payload)
+    elif version == FORMAT_VERSION_TICKET:
+        length = blob[11]
+        head = 12 + length
+        if len(blob) != head + 64:
+            return None
+        payload, signature = blob[:head], blob[head:]
+        (_, sku, license_id, days, days_until,
+         plan_code, _) = struct.unpack(">BBIHHBB", payload[:12])
+        if plan_code not in PLAN_NAMES:
+            return None
+        plan = PLAN_NAMES[plan_code]
+        until = EPOCH.fromordinal(EPOCH.toordinal() + days_until)
+        try:
+            email = payload[12:].decode("utf-8")
+        except UnicodeDecodeError:
+            return None
     elif version == FORMAT_VERSION_EMAIL:
         length = blob[8]
         head = 9 + length
@@ -158,7 +220,8 @@ def verify(text: str, public_key: bytes | None = None) -> dict | None:
         Ed25519PublicKey.from_public_bytes(public_key).verify(signature, payload)
     except InvalidSignature:
         return None
-    return {"id": license_id, "sku": sku, "email": email,
+    return {"id": license_id, "sku": sku, "email": email, "plan": plan,
+            "until": until,
             "issued": EPOCH.fromordinal(EPOCH.toordinal() + days)}
 
 
