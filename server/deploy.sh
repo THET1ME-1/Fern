@@ -80,7 +80,7 @@ if [ "$RUN_TESTS" = "1" ]; then
     export \$(grep -h LAVA_WEBHOOK_KEY /etc/systemd/system/pocketbase.service.d/lava.conf | sed 's/Environment=//')
     # Офферы берём из того же drop-in, что читает PocketBase: тест обязан
     # ходить теми же товарами, что и боевой хук.
-    export \$(grep -h 'FERN_OFFER' /etc/systemd/system/pocketbase.service.d/fern.conf | sed 's/Environment=//')
+    export \$(grep -h 'FERN_OFFER' /etc/systemd/system/pocketbase.service.d/fern.conf | grep -v '=$' | sed 's/Environment=//')
     export PB_SUPERUSER_EMAIL='$SU_EMAIL'
     export PB_SUPERUSER_PASSWORD='$PB_SUPERUSER_PASSWORD'
     python3 test_fern_routes.py | tail -1

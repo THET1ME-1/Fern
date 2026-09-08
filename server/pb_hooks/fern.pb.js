@@ -341,6 +341,11 @@ routerAdd("POST", "/api/fern/lava", (e) => {
 
   const МЕСЯЦ = String($os.getenv("FERN_OFFER_MONTH") || "").trim().toLowerCase();
   const ГОД = String($os.getenv("FERN_OFFER_YEAR") || "").trim().toLowerCase();
+  // Тариф «год разовой оплатой»: у lava нельзя ни удалить тариф, ни сменить
+  // ему период, поэтому он остался на витрине. Приложение его не предлагает,
+  // но покупка по нему должна открывать год, а не пропадать.
+  const ГОД_РАЗОМ = String($os.getenv("FERN_OFFER_YEAR_ONCE") || "")
+    .trim().toLowerCase();
   const SKU = String($os.getenv("FERN_SKU") || "").trim().toLowerCase();
 
   // Тариф узнаём по офферу: в уведомлении приезжает либо товар, либо оффер.
@@ -348,6 +353,7 @@ routerAdd("POST", "/api/fern/lava", (e) => {
   for (const key in flat) {
     const v = String(flat[key]).trim().toLowerCase();
     if (ГОД && v === ГОД) { план = "year"; break; }
+    if (ГОД_РАЗОМ && v === ГОД_РАЗОМ) { план = "year"; break; }
     if (МЕСЯЦ && v === МЕСЯЦ) { план = "month"; break; }
     if (SKU && v === SKU) { план = "month"; }
   }

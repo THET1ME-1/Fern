@@ -18,7 +18,11 @@ PB = os.environ.get("PB_URL", "http://127.0.0.1:8090").rstrip("/")
 ПРОБА = "probe-lava-fern@example.com"
 ПАРОЛЬ = "пробаproba123"
 ОФФЕР_МЕСЯЦ = os.environ.get("FERN_OFFER_MONTH", "").strip() or "11111111-1111-1111-1111-111111111111"
-ОФФЕР_ГОД = os.environ.get("FERN_OFFER_YEAR", "").strip() or "22222222-2222-2222-2222-222222222222"
+# Годовой тариф на lava подписным быть не может (период задаётся товаром), и
+# на витрине остался «год разовой оплатой» — его сервер тоже обязан узнавать.
+ОФФЕР_ГОД = (os.environ.get("FERN_OFFER_YEAR", "").strip()
+             or os.environ.get("FERN_OFFER_YEAR_ONCE", "").strip()
+             or "22222222-2222-2222-2222-222222222222")
 
 checks = 0
 
