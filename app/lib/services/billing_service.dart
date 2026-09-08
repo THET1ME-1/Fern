@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'fern_account.dart';
 import 'signed_store.dart';
+import 'subscription_service.dart';
 
 import '../utils/build_config.dart';
 
@@ -62,8 +64,16 @@ class BillingService extends ChangeNotifier {
 
   static final BillingService instance = BillingService._();
 
-  /// Идентификатор товара в Play Console. Меняется только вместе с консолью.
+  /// Идентификатор разовой покупки в консолях. Её продажу мы прекратили, но
+  /// у купивших она работает вечно — товар остаётся ради них.
   static const String productId = 'fern_pro';
+
+  /// Подписки: месяц и год. Имена одинаковы в Play Console и App Store
+  /// Connect, тариф читается по хвосту имени.
+  static const String monthlyId = 'fern_pro_month';
+  static const String yearlyId = 'fern_pro_year';
+
+  static const Set<String> subscriptionIds = {monthlyId, yearlyId};
 
   static const String _kOwned = 'proPurchased';
 
@@ -82,6 +92,7 @@ class BillingService extends ChangeNotifier {
   bool _owned = false;
   bool _available = false;
   ProductDetails? _product;
+  Map<String, ProductDetails> _subscriptions = const {};
   StreamSubscription<List<PurchaseDetails>>? _sub;
   BillingTrouble _trouble = BillingTrouble.none;
   Completer<void>? _restoreWaiter;
@@ -133,17 +144,21 @@ class BillingService extends ChangeNotifier {
         onError: (e) => debugPrint('[billing] поток покупок: $e'),
       );
       final response = await InAppPurchase.instance
-          .queryProductDetails({productId});
+          .queryProductDetails({productId, monthlyId, yearlyId});
       _product = response.productDetails
           .where((p) => p.id == productId)
           .firstOrNull;
+      _subscriptions = {
+        for (final p in response.productDetails)
+          if (subscriptionIds.contains(p.id)) p.id: p,
+      };
       // Ответ Play пишем в лог целиком: `notFoundIDs` — единственное, что
       // отличает «приложение поставлено мимо магазина» от «предложение в
       // консоли не активно», а искать это вслепую по консоли можно днями.
       debugPrint('[billing] товаров: ${response.productDetails.length}, '
           'не найдено: ${response.notFoundIDs}, '
           'ошибка: ${response.error?.code} ${response.error?.message}');
-      if (_product == null) {
+      if (_product == null && _subscriptions.isEmpty) {
         _trouble = BillingTrouble.noProduct;
       } else {
         _trouble = BillingTrouble.none;
@@ -176,6 +191,31 @@ class BillingService extends ChangeNotifier {
   /// Запускает покупку. `false` — магазин не готов, товар не подъехал.
   Future<bool> buy() async {
     final product = _product;
+    if (!debugStoreBilling || !_available || product == null) return false;
+    try {
+      return await InAppPurchase.instance
+          .buyNonConsumable(purchaseParam: PurchaseParam(productDetails: product));
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Цена тарифа так, как её показывает магазин: с валютой страны и местным
+  /// разделителем. Своих чисел здесь быть не должно — цену в консоли меняют
+  /// без релиза, и приложение начало бы врать.
+  String? subscriptionPrice(String plan) =>
+      _subscriptions[plan == 'year' ? yearlyId : monthlyId]?.price;
+
+  /// Есть ли в магазине подписки. Без них экран показывает прежнюю покупку.
+  bool get hasSubscriptions => _subscriptions.isNotEmpty;
+
+  /// Оформление подписки в кассе магазина.
+  ///
+  /// `buyNonConsumable` — правильный вызов и для подписок: у плагина
+  /// `in_app_purchase` расходуемые товары отличаются только тем, что их можно
+  /// купить повторно.
+  Future<bool> subscribe(String plan) async {
+    final product = _subscriptions[plan == 'year' ? yearlyId : monthlyId];
     if (!debugStoreBilling || !_available || product == null) return false;
     try {
       return await InAppPurchase.instance
@@ -222,14 +262,41 @@ class BillingService extends ChangeNotifier {
 
   Future<void> _onPurchases(List<PurchaseDetails> purchases) async {
     for (final purchase in purchases) {
-      if (purchase.productID != productId) continue;
+      final subscription = subscriptionIds.contains(purchase.productID);
+      if (purchase.productID != productId && !subscription) continue;
       final bought = purchase.status == PurchaseStatus.purchased ||
           purchase.status == PurchaseStatus.restored;
-      if (bought) await _grant();
+      // Подписка живёт на сервере: срок продлевается сам, и знать о нём
+      // должен не телефон, а аккаунт — иначе купленное в Play не откроется ни
+      // на компьютере, ни в вебе.
+      if (bought && subscription) await _sendReceipt(purchase);
+      if (bought && !subscription) await _grant();
       // Магазин ждёт подтверждения; без него Play вернёт деньги через три дня.
       if (purchase.pendingCompletePurchase) {
         await InAppPurchase.instance.completePurchase(purchase);
       }
+    }
+  }
+
+  /// Отдаёт чек серверу. Ошибку глотаем молча: чек останется у магазина, и
+  /// следующий запуск приложения принесёт его снова.
+  Future<void> _sendReceipt(PurchaseDetails purchase) async {
+    if (!FernAccount.instance.signedIn) return;
+    final token = purchase.verificationData.serverVerificationData;
+    if (token.isEmpty) return;
+    try {
+      await FernAccount.instance.pb.send('/api/fern/store',
+          method: 'POST',
+          body: {
+            'platform': defaultTargetPlatform == TargetPlatform.iOS
+                ? 'apple'
+                : 'play',
+            'productId': purchase.productID,
+            'token': token,
+          });
+      await SubscriptionService.instance.refresh();
+    } catch (e) {
+      debugPrint('[billing] чек не доехал до сервера: $e');
     }
   }
 

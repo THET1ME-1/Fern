@@ -347,7 +347,9 @@ class _ProSheetState extends State<ProSheet> {
               Text(_error!, style: TextStyle(color: scheme.error)),
             ],
             const SizedBox(height: 14),
-            if (kStoreBilling)
+            if (kStoreBilling && BillingService.instance.hasSubscriptions)
+              ..._storeSubscriptionButtons(scheme)
+            else if (kStoreBilling)
               ..._storeButtons(price)
             else if (_keyMode)
               ..._keyButtons(scheme)
@@ -359,6 +361,91 @@ class _ProSheetState extends State<ProSheet> {
       ),
     );
   }
+
+  /// Оформление подписки в кассе магазина.
+  ///
+  /// Вход спрашиваем до кассы: подписку выдаёт сервер, и без аккаунта отдавать
+  /// её некому — купленное иначе не открылось бы ни в вебе, ни на компьютере.
+  Future<void> _subscribeInStore() async {
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    if (!FernAccount.instance.signedIn) {
+      final entered = await AccountSheet.show(context);
+      if (!mounted) return;
+      if (!entered) {
+        setState(() => _busy = false);
+        return;
+      }
+    }
+    final started = await BillingService.instance.subscribe(_plan);
+    if (!mounted) return;
+    if (!started) {
+      setState(() {
+        _busy = false;
+        _error = BillingService.instance.trouble == BillingTrouble.noProduct
+            ? tr('pro_product_unavailable')
+            : tr('pro_store_unavailable');
+      });
+      return;
+    }
+    // Касса магазина отвечает событием в поток покупок, оттуда чек уходит на
+    // сервер. Ждём, пока срок появится у аккаунта.
+    setState(() => _waiting = true);
+    final paid = await SubscriptionService.instance
+        .waitForPayment(limit: const Duration(minutes: 2));
+    if (!mounted) return;
+    setState(() {
+      _waiting = false;
+      _busy = false;
+    });
+    if (paid) {
+      Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(tr('sub_paid_ok'))),
+      );
+    } else {
+      setState(() => _error = tr('sub_err_wait'));
+    }
+  }
+
+  List<Widget> _storeSubscriptionButtons(ColorScheme scheme) => [
+        _planCard(scheme, 'year'),
+        _planCard(scheme, 'month'),
+        const SizedBox(height: 4),
+        FilledButton(
+          onPressed: _busy ? null : _subscribeInStore,
+          style: FilledButton.styleFrom(
+            minimumSize: const Size.fromHeight(52),
+            shape: const StadiumBorder(),
+          ),
+          child: _waiting
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 18,
+                      width: 18,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(tr('sub_waiting')),
+                  ],
+                )
+              : Text(tr('sub_subscribe')),
+        ),
+        TextButton(
+          onPressed: _busy ? null : _restore,
+          child: _restoring
+              ? const SizedBox(
+                  height: 18,
+                  width: 18,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                )
+              : Text(tr('pro_restore')),
+        ),
+      ];
 
   List<Widget> _storeButtons(String? price) => [
         FilledButton(
@@ -506,7 +593,8 @@ class _ProSheetState extends State<ProSheet> {
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  prices[plan]!,
+                  BillingService.instance.subscriptionPrice(plan) ??
+                      prices[plan]!,
                   style: TextStyle(
                     fontFamily: AppTheme.displayFont,
                     fontWeight: FontWeight.w600,
