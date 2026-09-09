@@ -205,7 +205,7 @@ def push_texts(version_id: str) -> None:
 
 def submit(version_id: str) -> None:
     for s in get('/v1/reviewSubmissions', **{'filter[app]': APP_ID, 'limit': '10'})['data']:
-        if s['attributes']['state'] in ('UNRESOLVED_ISSUES', 'READY_FOR_REVIEW') and s['attributes']['submittedDate']:
+        if s['attributes']['state'] in ('UNRESOLVED_ISSUES', 'READY_FOR_REVIEW', 'WAITING_FOR_REVIEW') and s['attributes']['submittedDate']:
             call('PATCH', f"/v1/reviewSubmissions/{s['id']}",
                  json={'data': {'type': 'reviewSubmissions', 'id': s['id'], 'attributes': {'canceled': True}}})
             print('   старая заявка отменена:', s['id'])
@@ -232,6 +232,28 @@ def submit(version_id: str) -> None:
         print('   покупка добавлена в заявку')
     else:
         print('   покупка уже одобрена, в заявку не кладётся')
+
+    # Подписки кладутся ВЕРСИЯМИ (`subscriptionVersion`), а следом версия группы.
+    # Связи `subscription` у заявки нет, а одна версия группы без подписок
+    # отбивается: «you need to submit at least one subscription first». Забыть
+    # этот кусок — значит отправить версию приложения одну, а подписки оставить
+    # непроданными (09.09.2026).
+    for g in get(f'/v1/apps/{APP_ID}/subscriptionGroups', **{'limit': '10'})['data']:
+        подписки = get(f"/v1/subscriptionGroups/{g['id']}/subscriptions", **{'limit': '20'})['data']
+        ждут = False
+        for s in подписки:
+            for sv in get(f"/v1/subscriptions/{s['id']}/versions", **{'limit': '5'})['data']:
+                if sv['attributes']['state'] != 'APPROVED':
+                    item('subscriptionVersion', 'subscriptionVersions', sv['id'])
+                    ждут = True
+                    print('   подписка добавлена в заявку:', s['attributes']['productId'])
+        if not ждут:
+            continue
+        for gv in get(f"/v1/subscriptionGroups/{g['id']}/versions", **{'limit': '5'})['data']:
+            if gv['attributes']['state'] != 'APPROVED':
+                item('subscriptionGroupVersion', 'subscriptionGroupVersions', gv['id'])
+                print('   версия группы подписок добавлена:', g['attributes'].get('referenceName'))
+
     call('PATCH', f'/v1/reviewSubmissions/{sub}', json={'data': {
         'type': 'reviewSubmissions', 'id': sub, 'attributes': {'submitted': True}}})
     print('   заявка отправлена:', sub)

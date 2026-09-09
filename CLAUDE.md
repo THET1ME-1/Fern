@@ -916,6 +916,25 @@ EULA Apple `https://www.apple.com/legal/internet-services/itunes/dev/stdeula/`
 Отказ по метаданным не роняет одобренные покупки: `asc.py submit` видит их
 `APPROVED` и в новую заявку не кладёт.
 
+**И тут же выяснилось, что переподача теряет подписки.** Отмена старой заявки
+роняет всё, что в ней лежало: версии подписок ушли в `DEVELOPER_REJECTED`,
+версия группы туда же, а `submit` собрал заявку из одной версии приложения и
+отправил её. Со стороны консоли выглядело благополучно (`WAITING_FOR_REVIEW`),
+хотя подписки остались непроданными. Разбор имён: у `reviewSubmissionItems` НЕТ
+связи `subscription` (409 `ENTITY_ERROR.RELATIONSHIP.UNKNOWN`), подписка
+кладётся связью **`subscriptionVersion`** (тип `subscriptionVersions`, версии
+живут на `/v1/subscriptions/{id}/versions`), и следом идёт
+`subscriptionGroupVersion`. Одна версия группы без подписок отбивается 409
+`SUBSCRIPTION_GROUP_SUBMISSION_NOT_ALLOWED` («you need to submit at least one
+subscription first»), а `/v1/subscriptionSubmissions` на подписку без ожидающей
+версии отвечает «has no pending version». Порядок в `asc.py submit` теперь
+такой: версия приложения → версии подписок → версия группы; в список
+отменяемых заявок добавлен `WAITING_FOR_REVIEW`, иначе скрипт создаёт вторую
+заявку поверх висящей. Итог 09.09.2026: заявка
+`15cbfb54-1b00-4550-878f-df464e8ccfb1`, версия 1.26.0, обе подписки и версия
+группы — всё `WAITING_FOR_REVIEW`. Проверять после каждой подачи именно
+состояния подписок, а не только версии.
+
 **Заметки для App Store пишутся отдельно от CHANGELOG.** В 1.25.0 ключ Pro из
 буфера в них не попал намеренно: карточку буфера строит только сборка с GitHub,
 а обещание в списке изменений, которого нет в приложении, — повод для отказа.
