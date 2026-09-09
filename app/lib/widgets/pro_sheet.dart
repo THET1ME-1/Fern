@@ -12,6 +12,7 @@ import '../services/reading_goal.dart';
 import '../services/subscription_service.dart';
 import 'account_sheet.dart';
 import '../theme/app_theme.dart';
+import '../utils/build_config.dart';
 
 /// Предложение купить Fern Pro.
 ///
@@ -37,6 +38,18 @@ class ProSheet extends StatefulWidget {
   final String? notice;
 
   const ProSheet({super.key, this.feature, this.goal, this.notice});
+
+  /// Политика конфиденциальности: одна на все каналы, та же ссылка стоит в
+  /// консолях обоих магазинов.
+  static const String privacyUrl = 'https://thet1me-1.github.io/Fern/privacy.html';
+
+  /// Условия использования. В сборке для App Store это стандартный EULA
+  /// Apple: свой текст они требуют класть отдельным полем в консоли, а ссылку
+  /// на собственный документ принимают как есть. Остальным каналам Apple не
+  /// указ, там своя страница.
+  static String termsUrlFor({required bool appStore}) => appStore
+      ? 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'
+      : 'https://thet1me-1.github.io/Fern/terms.html';
 
   static Future<void> show(BuildContext context,
       {ProFeature? feature, ReadingGoal? goal, String? notice}) {
@@ -265,6 +278,7 @@ class _ProSheetState extends State<ProSheet> {
       'https://app.lava.top/products/34586da0-fa77-4b5d-a080-e183e7ea8803';
   static const String _botUrl = 'https://t.me/SnTAppsBot';
 
+
   Future<void> _openLink(String url) async {
     final uri = Uri.parse(url);
     try {
@@ -368,7 +382,7 @@ class _ProSheetState extends State<ProSheet> {
                 BillingService.instance.hasSubscriptions)
               ..._storeSubscriptionButtons(scheme)
             else if (BillingService.storeBilling)
-              ..._storeButtons(price)
+              ..._storeButtons(price, scheme)
             else if (_keyMode)
               ..._keyButtons(scheme)
             else
@@ -462,9 +476,53 @@ class _ProSheetState extends State<ProSheet> {
                 )
               : Text(tr('pro_restore')),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4),
+          child: Text(
+            tr('sub_fine_store'),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 11.5,
+              height: 1.45,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ),
+        _legalLinks(scheme),
       ];
 
-  List<Widget> _storeButtons(String? price) => [
+  /// Условия и политика прямо на экране покупки.
+  ///
+  /// Правило Apple 3.1.2(c): без этих двух ссылок ревью отклоняет приложение
+  /// с подпиской, и отказ 09.09.2026 пришёл ровно за это. Ссылки нужны и в
+  /// метаданных карточки, но там они проверяются отдельно.
+  Widget _legalLinks(ColorScheme scheme) {
+    final style = TextStyle(
+      fontSize: 12,
+      decoration: TextDecoration.underline,
+      color: scheme.onSurfaceVariant,
+    );
+    return Padding(
+      padding: const EdgeInsets.only(top: 4, bottom: 6),
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 18,
+        runSpacing: 4,
+        children: [
+          GestureDetector(
+            onTap: () => _openLink(ProSheet.termsUrlFor(appStore: kAppStoreBuild)),
+            child: Text(tr('sub_terms'), style: style),
+          ),
+          GestureDetector(
+            onTap: () => _openLink(ProSheet.privacyUrl),
+            child: Text(tr('sub_privacy'), style: style),
+          ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _storeButtons(String? price, ColorScheme scheme) => [
         FilledButton(
           onPressed: _busy ? null : _buy,
           style: FilledButton.styleFrom(
@@ -485,6 +543,7 @@ class _ProSheetState extends State<ProSheet> {
                 )
               : Text(tr('pro_restore')),
         ),
+        _legalLinks(scheme),
       ];
 
   /// Ключ уже в буфере: одна кнопка вместо поля ввода.
@@ -731,6 +790,7 @@ class _ProSheetState extends State<ProSheet> {
             ),
           ),
         ),
+        _legalLinks(scheme),
       ];
 
   List<Widget> _keyButtons(ColorScheme scheme) => [
