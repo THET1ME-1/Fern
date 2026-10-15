@@ -7,7 +7,7 @@ name: Release
 #
 #   Один тег раскладывает Fern по пяти каналам:
 #     * release  — 3 split-APK в GitHub Release (оттуда их берёт апдейтер);
-#     * play     — AAB в Google Play, трек internal;
+#     * play     — AAB в Google Play, сразу в продакшн на 100%;
 #     * rustore  — универсальный APK в RuStore, черновик до ручной публикации;
 #     * ios      — неподписанный .ipa в тот же GitHub Release (sideload);
 #     * appstore — подписанная сборка в TestFlight.
@@ -201,11 +201,43 @@ jobs:
           NAME="${{ steps.setup.outputs.name }}"
           ./tool/changelog_section.sh "$NAME" > dist/section.txt
           python3 - "$NAME" <<'PY'
-          import sys
-          text = open('dist/section.txt', encoding='utf-8').read().strip()
+          import re, sys
+          # Play показывает заметки как есть, без markdown. Абзацы склеиваем в
+          # строку, заголовки секций выбрасываем, от пункта берём жирный
+          # заголовок: пункты CHANGELOG длинные, и целиком в 500 знаков
+          # помещается один.
+          blocks, cur = [], None
+          for line in open('dist/section.txt', encoding='utf-8'):
+              line = line.rstrip()
+              if not line.strip() or line.lstrip().startswith('#'):
+                  cur = None
+                  continue
+              if line.startswith('- ') or cur is None:
+                  cur = [line]
+                  blocks.append(cur)
+              else:
+                  cur.append(line.strip())
+          items = []
+          for block in blocks:
+              text = ' '.join(block)
+              bullet = text.startswith('- ')
+              if bullet:
+                  text = text[2:].strip()
+                  head = re.match(r'\*\*(.+?)\*\*', text)
+                  if head:
+                      text = head.group(1).rstrip(':')
+              text = re.sub(r'\*\*|`', '', text).strip()
+              items.append('• ' + text if bullet else text)
+          # Режем по целым пунктам: оборванная на полуслове фраза в карточке
+          # магазина хуже короткого списка.
+          text = ''
+          for item in items:
+              joined = f'{text}\n{item}' if text else item
+              if len(joined) > 500:
+                  break
+              text = joined
           if not text:
-              text = f'Fern {sys.argv[1]}: обновление приложения.'
-          text = text[:497] + '…' if len(text) > 500 else text
+              text = items[0][:497] + '…' if items else f'Fern {sys.argv[1]}: обновление приложения.'
           for locale in ('ru-RU', 'en-US'):
               with open(f'dist/whatsnew/whatsnew-{locale}', 'w', encoding='utf-8') as f:
                   f.write(text)
@@ -219,7 +251,9 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: com.fern.app
           releaseFiles: app/build/app/outputs/bundle/playRelease/app-play-release.aab
-          track: internal
+          # Сразу в продакшн на 100%. До 15.10.2026 сборки уходили во
+          # внутренний тест, и 1.25–1.26 полтора месяца не доходили до людей.
+          track: production
           status: completed
           whatsNewDirectory: app/dist/whatsnew
 
