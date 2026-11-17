@@ -42,6 +42,7 @@ import 'package:fern/widgets/hook_editor_sheet.dart';
 import 'package:fern/widgets/language_editor_sheet.dart';
 import 'package:fern/widgets/pack_editor_sheet.dart';
 import 'package:fern/widgets/pro_sheet.dart';
+import 'package:fern/feedback_screen.dart';
 
 import 'test_helpers.dart';
 
@@ -258,6 +259,9 @@ void main() {
     for (final s in sizes) {
       for (final sc in scales) {
         await _probe(t, 'Настройки', const SettingsScreen(), size: s, scale: sc);
+        await _probe(t, 'Сообщить о проблеме',
+            const FeedbackScreen(version: '1.27.0'),
+            size: s, scale: sc);
       }
     }
   });
@@ -370,6 +374,9 @@ void main() {
         await _probe(t, 'Прогресс', const ProgressScreen(),
             size: s, scale: 1.0, locale: l);
         await _probe(t, 'Настройки', const SettingsScreen(),
+            size: s, scale: 1.0, locale: l);
+        await _probe(t, 'Сообщить о проблеме',
+            const FeedbackScreen(version: '1.27.0'),
             size: s, scale: 1.0, locale: l);
         await _probe(t, 'Разбор', const AnalyzeScreen(),
             size: s, scale: 1.0, locale: l);

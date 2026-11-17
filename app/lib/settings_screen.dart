@@ -12,6 +12,7 @@ import 'l10n/locale_controller.dart';
 import 'l10n/strings.dart';
 import 'services/billing_service.dart';
 import 'services/license_service.dart';
+import 'feedback_screen.dart';
 import 'services/fern_account.dart';
 import 'utils/build_config.dart';
 import 'utils/share_origin.dart';
@@ -1200,6 +1201,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
   /// подписка или вечный Pro, выданный на почту, подтянутся сами.
   List<Widget> _accountTiles(ColorScheme scheme) {
     final account = FernAccount.instance;
+    // Жалоба живёт здесь же, в первом разделе: Google Play требует, чтобы о
+    // проблеме можно было сообщить из приложения, а искать её внизу никто
+    // не станет.
+    final report = _actionTile(
+      icon: Icons.support_agent_rounded,
+      title: tr('fb_row'),
+      subtitle: tr('fb_row_sub'),
+      onTap: _openFeedback,
+      scheme: scheme,
+    );
     if (!account.signedIn) {
       return [
         _actionTile(
@@ -1209,6 +1220,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _signInAccount,
           scheme: scheme,
         ),
+        report,
       ];
     }
     return [
@@ -1219,6 +1231,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         trailing: '',
         scheme: scheme,
       ),
+      report,
       _actionTile(
         icon: Icons.logout_rounded,
         title: tr('sub_signout'),
@@ -1233,6 +1246,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
         color: scheme.error,
       ),
     ];
+  }
+
+  void _openFeedback() {
+    final account = FernAccount.instance;
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => FeedbackScreen(
+        version: _version,
+        accountEmail: account.signedIn ? (account.email ?? '') : '',
+      ),
+    ));
   }
 
   /// Вход из настроек. После входа сразу спрашиваем сервер: на почту мог

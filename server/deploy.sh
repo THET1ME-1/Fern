@@ -37,10 +37,13 @@ run_ssh 'install -m 644 /tmp/fern_ticket.py /opt/fern_ticket.py
 echo "→ хуки PocketBase"
 run_scp "$ROOT/pb_hooks/fern.pb.js" "$HOST:/tmp/fern.pb.js"
 run_scp "$ROOT/pb_hooks/lava.pb.js" "$HOST:/tmp/lava.pb.js"
+run_scp "$ROOT/pb_hooks/fern_feedback.pb.js" "$ROOT/pb_hooks/fern_feedback_mail.js" "$HOST:/tmp/"
 run_ssh 'STAMP=$(date +%Y%m%d-%H%M)
          cp -a /opt/pocketbase/pb_hooks/lava.pb.js "/opt/pocketbase/pb_hooks/lava.pb.js.bak-$STAMP"
          install -m 644 /tmp/fern.pb.js /opt/pocketbase/pb_hooks/fern.pb.js
-         install -m 644 /tmp/lava.pb.js /opt/pocketbase/pb_hooks/lava.pb.js'
+         install -m 644 /tmp/lava.pb.js /opt/pocketbase/pb_hooks/lava.pb.js
+         install -m 644 /tmp/fern_feedback_mail.js /opt/pocketbase/pb_hooks/fern_feedback_mail.js
+         install -m 644 /tmp/fern_feedback.pb.js /opt/pocketbase/pb_hooks/fern_feedback.pb.js'
 
 echo "→ проверка чеков магазинов"
 run_scp "$ROOT/play_verify.py" "$HOST:/tmp/play_verify.py"
@@ -57,7 +60,7 @@ run_scp "$ROOT/setup_collections.py" "$ROOT/setup_oauth.py" \
         "$ROOT/test_fern_routes.py" "$ROOT/test_lava_fern.py" \
         "$ROOT/test_fern_sync.py" "$ROOT/test_fern_store.py" \
         "$ROOT/test_play_subscriptions.py" "$ROOT/test_store_notifications.py" \
-        "$ROOT/test_fern_account_delete.py" \
+        "$ROOT/test_fern_account_delete.py" "$ROOT/test_fern_feedback.py" \
         "$HOST:/opt/fern/"
 
 echo "→ жду перезапуск хуков"
@@ -76,6 +79,9 @@ run_ssh 'set -e
 
 echo "→ удаление аккаунта (суперюзер не нужен)"
 run_ssh 'cd /opt/fern && python3 test_fern_account_delete.py | tail -1'
+
+echo "→ обращения из приложения (одно письмо «можно удалить» уйдёт в поддержку)"
+run_ssh 'cd /opt/fern && python3 test_fern_feedback.py | tail -1'
 
 if [ "$RUN_TESTS" = "1" ]; then
   : "${PB_SUPERUSER_PASSWORD:?нужен PB_SUPERUSER_PASSWORD}"
