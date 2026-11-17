@@ -104,6 +104,15 @@ void main() {
     expect(find.byType(AccountSheet), findsOneWidget);
   });
 
+  testWidgets('«Аккаунт» — самый первый раздел настроек', (tester) async {
+    await open(tester);
+
+    final account = tester.getTopLeft(find.text('Аккаунт')).dy;
+    final appearance = tester.getTopLeft(find.text('Внешний вид')).dy;
+    expect(account, lessThan(appearance),
+        reason: 'до входа нельзя заставлять листать весь экран');
+  });
+
   testWidgets('вошедший видит почту, выход и удаление', (tester) async {
     await FernAccount.instance.signIn('kira@mail.ru', 'пароль123');
     await open(tester);

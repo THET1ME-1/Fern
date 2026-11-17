@@ -213,6 +213,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
         children: [
+          // Аккаунт первым: ради входа экран не листают до самого низа.
+          _section(
+            id: 'account',
+            title: tr('account_section'),
+            icon: Icons.account_circle_outlined,
+            scheme: scheme,
+            children: _accountTiles(scheme),
+          ),
           _section(
             id: 'appearance',
             title: tr('appearance'),
@@ -412,13 +420,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: scheme.error,
               ),
             ],
-          ),
-          _section(
-            id: 'account',
-            title: tr('account_section'),
-            icon: Icons.account_circle_outlined,
-            scheme: scheme,
-            children: _accountTiles(scheme),
           ),
           _section(
             id: 'pro',
