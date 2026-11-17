@@ -11,7 +11,7 @@
 #   • отдельным шагом проверяется, что касса Togetherly отвечает как прежде.
 set -euo pipefail
 
-HOST="${FERN_VPS:-root@77.91.95.34}"
+HOST="${FERN_VPS:-root@86.110.220.22}"
 KEY="${FERN_VPS_KEY:-$HOME/.ssh/togetherly_vps}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 RUN_TESTS=1
@@ -57,6 +57,7 @@ run_scp "$ROOT/setup_collections.py" "$ROOT/setup_oauth.py" \
         "$ROOT/test_fern_routes.py" "$ROOT/test_lava_fern.py" \
         "$ROOT/test_fern_sync.py" "$ROOT/test_fern_store.py" \
         "$ROOT/test_play_subscriptions.py" "$ROOT/test_store_notifications.py" \
+        "$ROOT/test_fern_account_delete.py" \
         "$HOST:/opt/fern/"
 
 echo "→ жду перезапуск хуков"
@@ -72,6 +73,9 @@ run_ssh 'set -e
     -d "{\"eventType\":\"payment.success\",\"status\":\"completed\",\"buyer\":{\"email\":\"deploy-probe@example.com\"},\"contractId\":\"deploy-probe\",\"product\":{\"id\":\"ec861b44-a4b7-49e3-aa0e-e4608abdb0f0\"},\"amount\":900,\"currency\":\"RUB\"}")
   echo "  Togetherly+ отвечает: $answer"
   case "$answer" in *"\"ok\":true"*) ;; *) echo "касса Togetherly ответила не так"; exit 1;; esac'
+
+echo "→ удаление аккаунта (суперюзер не нужен)"
+run_ssh 'cd /opt/fern && python3 test_fern_account_delete.py | tail -1'
 
 if [ "$RUN_TESTS" = "1" ]; then
   : "${PB_SUPERUSER_PASSWORD:?нужен PB_SUPERUSER_PASSWORD}"

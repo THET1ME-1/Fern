@@ -289,6 +289,50 @@ routerAdd("POST", "/api/fern/cancel", (e) => {
   return e.json(200, { ok: true, until: until });
 });
 
+// --------------------------------------------------- удаление аккаунта ---
+///
+/// Его требует App Store (5.1.1(v)): аккаунт заводится в приложении, значит
+/// и удаляется там же. Клиенту `deleteRule` не открыт намеренно — через
+/// роут проходит проверка, которой правило коллекции не умеет.
+///
+/// Живую подписку lava удалять не даём: продавец продолжит списывать деньги,
+/// а отменить её будет уже некому — контракт хранится на этой записи.
+/// Подписки Google Play и App Store человек отменяет в магазине сам, об этом
+/// предупреждает диалог в приложении.
+///
+/// Заказы в `fern_orders` остаются: это учёт оплат, по нему разбирают
+/// возвраты. Почта в них остаётся, но аккаунта, к которому она вела, нет.
+routerAdd("POST", "/api/fern/account/delete", (e) => {
+  const user = e.auth;
+  if (!user) return e.json(401, { ok: false, error: "unauthorized" });
+  let collection = "";
+  try { collection = user.collection().name; } catch (_) { collection = ""; }
+  if (collection !== "fern_users") {
+    return e.json(401, { ok: false, error: "wrong_account" });
+  }
+
+  let запись = null;
+  try { запись = $app.findRecordById("fern_users", user.id); } catch (_) {}
+  if (!запись) return e.json(404, { ok: false, error: "not_found" });
+
+  const сегодня = new Date().toISOString().substring(0, 10);
+  const контракт = String(запись.get("lava_contract") || "").trim();
+  const статус = String(запись.get("pro_status") || "");
+  const до = String(запись.get("pro_until") || "").substring(0, 10);
+  if (контракт && статус === "active" && до >= сегодня) {
+    return e.json(409, { ok: false, error: "active_subscription" });
+  }
+
+  try {
+    $app.delete(запись);
+  } catch (err) {
+    console.log("[fern] аккаунт не удалён: " + err);
+    return e.json(500, { ok: false, error: "delete_failed" });
+  }
+  console.log("[fern] аккаунт удалён по просьбе владельца: " + user.id);
+  return e.json(200, { ok: true });
+});
+
 // ------------------------------------------------ приём событий lava.top ---
 ///
 /// Сюда попадают уведомления, в которых узнан товар Fern: боевой роут

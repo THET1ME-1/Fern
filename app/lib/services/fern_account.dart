@@ -24,8 +24,9 @@ import 'license_service.dart';
 /// Общий у приложений только сервер и OAuth-клиент, которым человек
 /// доказывает, что почта его.
 ///
-/// Аккаунт нужен ради подписки: она платится каждый месяц, и её надо к кому-то
-/// привязать. Кто не платит — тот про аккаунт и не слышит.
+/// Аккаунт держит покупку Pro на человеке, а не на телефоне: подписку надо
+/// к кому-то привязать, а вечный Pro можно выдать вручную на почту. Войти
+/// можно из настроек в любой момент, платить для этого не нужно.
 enum AuthOutcome {
   ok,
 
@@ -48,6 +49,19 @@ enum AuthOutcome {
   cancelled,
 
   /// Сервер ответил, но чем-то незнакомым.
+  failed,
+}
+
+/// Чем кончилось удаление аккаунта.
+enum AccountDeleteOutcome {
+  /// Аккаунт стёрт на сервере, сессия на устройстве закрыта.
+  deleted,
+
+  /// Идёт оплачиваемая подписка lava: сначала её надо отменить, иначе
+  /// списания продолжатся на аккаунт, которого уже нет.
+  activeSubscription,
+
+  /// До сервера не достучались или он ответил ошибкой. Аккаунт на месте.
   failed,
 }
 
@@ -270,6 +284,31 @@ class FernAccount extends ChangeNotifier {
     } catch (_) {}
     await LicenseService.instance.clearTicket();
     notifyListeners();
+  }
+
+  /// Удаление аккаунта. Его требует App Store (5.1.1(v)): раз аккаунт можно
+  /// завести в приложении, удалить его тоже можно в приложении.
+  ///
+  /// Сессию закрываем только после ответа сервера: выйти, не удалив, значит
+  /// оставить человека в уверенности, что его почты у нас больше нет.
+  Future<AccountDeleteOutcome> deleteAccount() async {
+    if (!signedIn) return AccountDeleteOutcome.failed;
+    try {
+      await pb
+          .send('/api/fern/account/delete', method: 'POST')
+          .timeout(netTimeout);
+    } on ClientException catch (e) {
+      if (e.response['error'] == 'active_subscription') {
+        return AccountDeleteOutcome.activeSubscription;
+      }
+      debugPrint('FernAccount.deleteAccount: $e');
+      return AccountDeleteOutcome.failed;
+    } catch (e) {
+      debugPrint('FernAccount.deleteAccount: $e');
+      return AccountDeleteOutcome.failed;
+    }
+    await signOut();
+    return AccountDeleteOutcome.deleted;
   }
 
   /// Освежает сессию. `false` — токен больше не годен.

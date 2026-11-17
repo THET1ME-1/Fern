@@ -341,7 +341,8 @@ class SourceLibrary extends ChangeNotifier {
     try {
       final f = File('${dir.path}/$id.txt');
       if (!await f.exists()) return null;
-      return f.readAsString();
+      // Без await ошибка чтения (битая кодировка) выходит мимо catch.
+      return await f.readAsString();
     } catch (_) {
       return null;
     }

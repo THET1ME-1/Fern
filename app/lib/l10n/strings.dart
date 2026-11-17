@@ -1479,6 +1479,17 @@ const Map<String, Map<String, String>> _strings = {
   'sub_cancel_failed': {'ru': 'Отменить не вышло. Напишите нам, отменим руками', 'en': 'We could not cancel it. Write to us and we will do it by hand'},
   'sub_signout': {'ru': 'Выйти из аккаунта', 'en': 'Sign out'},
   'sub_signout_ask': {'ru': 'Выйти? Pro на этом устройстве закроется, подписка останется у аккаунта.', 'en': 'Sign out? Pro closes on this device, the subscription stays with the account.'},
+  'account_section': {'ru': 'Аккаунт', 'en': 'Account'},
+  'account_signin': {'ru': 'Войти или создать аккаунт', 'en': 'Sign in or create an account'},
+  'account_signin_sub': {'ru': 'С аккаунтом покупка Pro переедет с вами на новый телефон', 'en': 'With an account, your Pro purchase moves with you to a new phone'},
+  'account_signed_in': {'ru': 'Вы вошли в аккаунт', 'en': 'You are signed in'},
+  'account_delete': {'ru': 'Удалить аккаунт', 'en': 'Delete account'},
+  'account_delete_title': {'ru': 'Удалить аккаунт?', 'en': 'Delete your account?'},
+  'account_delete_ask': {'ru': 'Почта и всё, что куплено на аккаунт, сотрутся с сервера, и вернуть их не получится. Колоды и прогресс останутся на этом телефоне. Подписку из Google Play или App Store отмените в магазине, иначе списания продолжатся.', 'en': 'Your email and everything bought on the account are erased from the server and can’t be restored. Decks and progress stay on this phone. Cancel a Google Play or App Store subscription in the store, or the charges will continue.'},
+  'account_delete_confirm': {'ru': 'Удалить', 'en': 'Delete'},
+  'account_deleted': {'ru': 'Аккаунт удалён', 'en': 'Account deleted'},
+  'account_delete_active_sub': {'ru': 'Сначала отмените подписку в разделе Fern Pro', 'en': 'Cancel your subscription in Fern Pro first'},
+  'account_delete_failed': {'ru': 'Не получилось удалить аккаунт. Проверьте интернет и попробуйте ещё раз', 'en': 'Couldn’t delete the account. Check your connection and try again'},
   'sub_renew': {'ru': 'Продлить', 'en': 'Renew'},
 
   // ── Fern Pro ──────────────────────────────────────────────────────────────

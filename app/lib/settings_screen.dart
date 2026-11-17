@@ -17,6 +17,7 @@ import 'utils/build_config.dart';
 import 'utils/share_origin.dart';
 import 'services/pro.dart';
 import 'services/subscription_service.dart';
+import 'widgets/account_sheet.dart';
 import 'widgets/optimize_info_sheet.dart';
 import 'widgets/pro_sheet.dart';
 import 'widgets/settings_kit.dart';
@@ -411,6 +412,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: scheme.error,
               ),
             ],
+          ),
+          _section(
+            id: 'account',
+            title: tr('account_section'),
+            icon: Icons.account_circle_outlined,
+            scheme: scheme,
+            children: _accountTiles(scheme),
           ),
           _section(
             id: 'pro',
@@ -1187,6 +1195,95 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  /// Секция «Аккаунт». Вход не привязан к оплате: войти можно заранее, а
+  /// подписка или вечный Pro, выданный на почту, подтянутся сами.
+  List<Widget> _accountTiles(ColorScheme scheme) {
+    final account = FernAccount.instance;
+    if (!account.signedIn) {
+      return [
+        _actionTile(
+          icon: Icons.login_rounded,
+          title: tr('account_signin'),
+          subtitle: tr('account_signin_sub'),
+          onTap: _signInAccount,
+          scheme: scheme,
+        ),
+      ];
+    }
+    return [
+      _infoTile(
+        icon: Icons.account_circle_rounded,
+        title: account.email ?? '',
+        subtitle: tr('account_signed_in'),
+        trailing: '',
+        scheme: scheme,
+      ),
+      _actionTile(
+        icon: Icons.logout_rounded,
+        title: tr('sub_signout'),
+        onTap: _signOutAccount,
+        scheme: scheme,
+      ),
+      _actionTile(
+        icon: Icons.person_remove_rounded,
+        title: tr('account_delete'),
+        onTap: _deleteAccount,
+        scheme: scheme,
+        color: scheme.error,
+      ),
+    ];
+  }
+
+  /// Вход из настроек. После входа сразу спрашиваем сервер: на почту мог
+  /// быть выдан Pro, и человек должен увидеть его, не перезапуская приложение.
+  Future<void> _signInAccount() async {
+    final entered = await AccountSheet.show(context);
+    if (!entered) return;
+    await SubscriptionService.instance.refresh();
+    if (mounted) setState(() {});
+  }
+
+  /// Удаление аккаунта. Подтверждение обязательно: вернуть удалённое нельзя.
+  Future<void> _deleteAccount() async {
+    final messenger = ScaffoldMessenger.of(context);
+    final agreed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(tr('account_delete_title')),
+        content: Text(tr('account_delete_ask')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text(tr('cancel')),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(ctx).colorScheme.error,
+              foregroundColor: Theme.of(ctx).colorScheme.onError,
+            ),
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(tr('account_delete_confirm')),
+          ),
+        ],
+      ),
+    );
+    if (agreed != true) return;
+    final outcome = await FernAccount.instance.deleteAccount();
+    if (outcome == AccountDeleteOutcome.deleted) {
+      await SubscriptionService.instance.forget();
+    }
+    if (!mounted) return;
+    messenger.showSnackBar(SnackBar(
+      content: Text(switch (outcome) {
+        AccountDeleteOutcome.deleted => tr('account_deleted'),
+        AccountDeleteOutcome.activeSubscription =>
+          tr('account_delete_active_sub'),
+        AccountDeleteOutcome.failed => tr('account_delete_failed'),
+      }),
+    ));
+    setState(() {});
+  }
+
   /// Секция «Fern Pro»: статус покупки и то, чем её открыть.
   ///
   /// Куплено — показываем номер лицензии: по нему поддержка находит покупку,
@@ -1228,12 +1325,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: _cancelSubscription,
             scheme: scheme,
           ),
-        _actionTile(
-          icon: Icons.logout_rounded,
-          title: tr('sub_signout'),
-          onTap: _signOutAccount,
-          scheme: scheme,
-        ),
       ],
     ];
 
